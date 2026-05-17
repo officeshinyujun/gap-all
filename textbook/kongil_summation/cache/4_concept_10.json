@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "concept": "첨단 공업",
+    "definition": "제품 및 공정의 혁신율이 높고, R&D 지출 및 과학 기술 인력 비중이 평균을 상회하는 산업군",
+    "hidden_field": "definition",
+    "correct_value": "제품 및 공정의 혁신율이 높고, R&D 지출 및 과학 기술 인력 비중이 평균을 상회하는 산업군",
+    "explanation": "첨단 공업은 지식 비용의 비중이 높고 제품 수명 주기가 짧으며, 지식 재산권 확보가 산업 경쟁력의 핵심 변수로 작용한다."
+  },
+  {
+    "id": 2,
+    "concept": "정보통신기술(ICT)",
+    "definition": "하드웨어와 소프트웨어의 융합을 통해 디지털 생태계를 구축하는 기술",
+    "hidden_field": "definition",
+    "correct_value": "하드웨어와 소프트웨어의 융합을 통해 디지털 생태계를 구축하는 기술",
+    "explanation": "ICT는 4차 산업혁명의 기반이 되는 핵심 기술로, 다양한 산업 분야의 디지털화를 촉진한다."
+  },
+  {
+    "id": 3,
+    "concept": "생명공학기술(BT)",
+    "definition": "생물체의 물질대사 기능을 이용해 건강과 식량 문제를 해결하는 기술",
+    "hidden_field": "definition",
+    "correct_value": "생물체의 물질대사 기능을 이용해 건강과 식량 문제를 해결하는 기술",
+    "explanation": "BT는 인간의 건강 증진과 식량 문제 해결에 기여하며, IT와의 융합을 통해 새로운 기술적 가능성을 모색한다."
+  },
+  {
+    "id": 4,
+    "concept": "나노기술(NT)",
+    "definition": "원자 수준에서의 정밀 조작을 통해 모든 첨단 기술의 물리적 기반을 제공하는 기술",
+    "hidden_field": "definition",
+    "correct_value": "원자 수준에서의 정밀 조작을 통해 모든 첨단 기술의 물리적 기반을 제공하는 기술",
+    "explanation": "NT는 ICT, BT, ET, ST 등 다양한 기술의 기반이 되며, 나노 반도체와 나노 로봇 등의 발전을 이끈다."
+  },
+  {
+    "id": 5,
+    "concept": "환경 기술(ET)",
+    "definition": "오염 복원과 청정 생산을 추구하는 기술",
+    "hidden_field": "definition",
+    "correct_value": "오염 복원과 청정 생산을 추구하는 기술",
+    "explanation": "ET는 지속 가능한 발전을 목표로 하며, 화석 연료를 대체할 신·재생 에너지 개발과 밀접하게 연관된다."
+  },
+  {
+    "id": 6,
+    "concept": "우주 항공 기술(ST)",
+    "definition": "국가 전략적 방위 산업으로서 고도의 정밀성을 요구하는 기술",
+    "hidden_field": "definition",
+    "correct_value": "국가 전략적 방위 산업으로서 고도의 정밀성을 요구하는 기술",
+    "explanation": "ST는 우주 확장과 관련된 기술로, 정밀한 설계와 제조가 필수적이다."
+  },
+  {
+    "id": 7,
+    "concept": "문화 콘텐츠 기술(CT)",
+    "definition": "디지털 미디어를 기반으로 문화 예술을 첨단 고부가가치 산업으로 전환하는 기술",
+    "hidden_field": "definition",
+    "correct_value": "디지털 미디어를 기반으로 문화 예술을 첨단 고부가가치 산업으로 전환하는 기술",
+    "explanation": "CT는 문화 예술의 디지털화를 통해 새로운 경제적 가치를 창출하고, 문화 산업의 발전을 도모한다."
+  },
+  {
+    "id": 8,
+    "concept": "탄소 나노 소재",
+    "definition": "탄소 원자의 결합 방식에 따라 물리적 형태와 성질이 결정되는 소재",
+    "hidden_field": "definition",
+    "correct_value": "탄소 원자의 결합 방식에 따라 물리적 형태와 성질이 결정되는 소재",
+    "explanation": "탄소 나노 소재는 그래핀, 풀러렌, 탄소 나노 튜브 등으로 구분되며, 각기 다른 구조적 특성을 통해 다양한 산업에 활용된다."
+  },
+  {
+    "id": 9,
+    "concept": "신에너지",
+    "definition": "화석 연료의 화학적 변환 또는 새로운 반응을 이용한 에너지",
+    "hidden_field": "definition",
+    "correct_value": "화석 연료의 화학적 변환 또는 새로운 반응을 이용한 에너지",
+    "explanation": "신에너지는 연료 전지, 석탄 액화 가스화, 수소 에너지 등을 포함하며, 기존 에너지 자원의 한계를 극복한다."
+  },
+  {
+    "id": 10,
+    "concept": "재생 에너지",
+    "definition": "무공해 및 지속적 재생 가능하며 기상 여건에 제한을 받는 에너지",
+    "hidden_field": "definition",
+    "correct_value": "무공해 및 지속적 재생 가능하며 기상 여건에 제한을 받는 에너지",
+    "explanation": "재생 에너지는 태양열, 태양광, 풍력 등으로 구성되며, 환경 친화적인 에너지원으로 주목받고 있다."
+  }
+]

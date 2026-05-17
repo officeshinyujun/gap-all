@@ -1,0 +1,151 @@
+@import '@/styles/variables.scss';
+
+.page {
+  width: 100%;
+  height: 100vh;
+  background-color: $background-secondary;
+  overflow: hidden;
+}
+
+// 헤더
+.header {
+  width: 100%;
+  padding: $spacing-20 $spacing-32;
+  background-color: $background-primary;
+  border-bottom: 1px solid $border-primary;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+// 탭 바
+.tabBar {
+  width: 100%;
+  background-color: $background-primary;
+  border-bottom: 2px solid $border-primary;
+  padding: 0 $spacing-32;
+  flex-shrink: 0;
+  overflow-x: auto;
+  box-sizing: border-box;
+}
+
+.tab {
+  padding: $spacing-10 $spacing-16;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  transition: border-color 0.15s, background-color 0.15s;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: $background-secondary;
+  }
+}
+
+.tabActive {
+  border-bottom-color: $brand-primary;
+  background-color: $background-secondary;
+}
+
+.tabLabel {
+  font-size: 13px;
+  font-weight: $semi-bold;
+  color: $text-primary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  display: block;
+}
+
+.tabTemplate {
+  font-size: 10px;
+  font-weight: $regular;
+  color: $text-secondary;
+  font-family: 'Courier New', monospace;
+  display: block;
+}
+
+// 콘텐츠 영역
+.content {
+  flex: 1;
+  width: 100%;
+  padding: $spacing-24 $spacing-32;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+// 패널 공통
+.panelBadge {
+  font-size: 10px;
+  font-weight: $bold;
+  color: $background-primary;
+  background-color: $brand-primary;
+  padding: 2px $spacing-8;
+  border-radius: 10px;
+  letter-spacing: 0.08em;
+  font-family: 'Courier New', monospace;
+}
+
+// 차트 타입 전환 버튼
+.chartTypeBtn {
+  padding: $spacing-4 $spacing-10;
+  font-size: 12px;
+  font-weight: $medium;
+  color: $text-secondary;
+  background-color: $background-primary;
+  border: 1px solid $border-primary;
+  cursor: pointer;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+
+  &:hover {
+    background-color: $background-secondary;
+    border-color: $brand-primary;
+    color: $brand-primary;
+  }
+}
+
+.chartTypeBtnActive {
+  background-color: $brand-secondary;
+  border-color: $brand-primary;
+  color: $brand-primary;
+  font-weight: $semi-bold;
+}
+
+// 좌측 프리뷰 패널
+.previewPanel {
+  flex: 1;
+  min-width: 0;
+}
+
+.previewBox {
+  width: 100%;
+  background-color: $background-third;
+  border: 1px solid $border-primary;
+  border-radius: 8px;
+  padding: $spacing-32;
+  box-sizing: border-box;
+}
+
+// 우측 JSON 패널
+.jsonPanel {
+  width: 380px;
+  flex-shrink: 0;
+}
+
+.jsonBlock {
+  width: 100%;
+  background-color: $text-primary;
+  color: $background-primary;
+  border-radius: 8px;
+  padding: $spacing-16 $spacing-20;
+  font-size: 11px;
+  font-family: 'Courier New', 'Consolas', monospace;
+  line-height: 1.6;
+  overflow-x: auto;
+  overflow-y: auto;
+  max-height: calc(100vh - 280px);
+  box-sizing: border-box;
+  margin: 0;
+  white-space: pre;
+  word-break: normal;
+}

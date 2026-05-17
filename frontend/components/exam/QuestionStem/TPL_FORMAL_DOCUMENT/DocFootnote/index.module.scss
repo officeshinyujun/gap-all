@@ -1,0 +1,25 @@
+@import '@/styles/variables.scss';
+
+.footnote {
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-4;
+  margin: 0;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+}
+
+.marker {
+  font-size: 12px;
+  font-weight: $semi-bold;
+  color: $text-secondary;
+  flex-shrink: 0;
+  line-height: 1.6;
+}
+
+.text {
+  font-size: 12px;
+  font-weight: $regular;
+  color: $text-secondary;
+  line-height: 1.6;
+  word-break: keep-all;
+}

@@ -1,0 +1,17 @@
+@import '@/styles/variables.scss';
+
+.card {
+  border: 1px solid $border-primary;
+  border-radius: $spacing-16;
+  padding: $spacing-16;
+  cursor: pointer;
+  transition: border-color 0.2s;
+
+  &.active {
+    border-color: $brand-primary;
+  }
+
+  &:hover:not(.active) {
+    border-color: var(--background-fourth);
+  }
+}

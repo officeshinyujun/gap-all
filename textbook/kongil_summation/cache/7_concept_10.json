@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "concept": "제품 수명 주기(PLC)",
+    "definition": "제품이 시장에 진입한 후 도입기, 성장기, 성숙기, 쇠퇴기의 네 단계를 거치는 과정.",
+    "hidden_field": "definition",
+    "correct_value": "제품이 시장에 진입한 후 도입기, 성장기, 성숙기, 쇠퇴기의 네 단계를 거치는 과정.",
+    "explanation": "제품 수명 주기는 기업이 제품의 경제적 성과를 분석하고 전략적 결정을 내리는 데 중요한 역할을 한다."
+  },
+  {
+    "id": 2,
+    "concept": "동시 설계",
+    "definition": "개발 초기부터 다학제적 부서가 참여하여 개발 기간을 단축하고 시장 적시성을 확보하는 설계 방법론.",
+    "hidden_field": "definition",
+    "correct_value": "개발 초기부터 다학제적 부서가 참여하여 개발 기간을 단축하고 시장 적시성을 확보하는 설계 방법론.",
+    "explanation": "동시 설계는 기술 집약적 제품의 시장 경쟁력을 높이는 데 유리하다."
+  },
+  {
+    "id": 3,
+    "concept": "생산 합리화의 3S",
+    "definition": "단순화, 전문화, 표준화의 원칙을 통해 생산 과정을 효율화하는 방법론.",
+    "hidden_field": "definition",
+    "correct_value": "단순화, 전문화, 표준화의 원칙을 통해 생산 과정을 효율화하는 방법론.",
+    "explanation": "3S 원칙은 생산 과정에서 낭비를 줄이고 품질을 균일하게 유지하는 데 기여한다."
+  },
+  {
+    "id": 4,
+    "concept": "생산 관리 5P 시스템",
+    "definition": "사람, 공장, 부품, 공정, 계획과 통제를 중심으로 운영되는 생산 관리 체계.",
+    "hidden_field": "definition",
+    "correct_value": "사람, 공장, 부품, 공정, 계획과 통제를 중심으로 운영되는 생산 관리 체계.",
+    "explanation": "5P 시스템은 자원 변환 과정을 최적화하여 생산성을 높이는 데 필수적이다."
+  },
+  {
+    "id": 5,
+    "concept": "갠트 차트",
+    "definition": "시간적 흐름에 따른 작업 진행률을 파악하는 데 용이한 일정 관리 도구.",
+    "hidden_field": "definition",
+    "correct_value": "시간적 흐름에 따른 작업 진행률을 파악하는 데 용이한 일정 관리 도구.",
+    "explanation": "갠트 차트는 계획 대비 실적 점검을 통해 생산 일정의 효율성을 높인다."
+  },
+  {
+    "id": 6,
+    "concept": "PERT",
+    "definition": "복잡한 작업들 간의 네트워크 관계를 분석하여 전체 소요 기간과 주공정을 관리하는 도구.",
+    "hidden_field": "definition",
+    "correct_value": "복잡한 작업들 간의 네트워크 관계를 분석하여 전체 소요 기간과 주공정을 관리하는 도구.",
+    "explanation": "PERT는 공정의 정체를 방지하고 효율적인 일정 관리를 가능하게 한다."
+  },
+  {
+    "id": 7,
+    "concept": "순차 설계",
+    "definition": "공정 간의 인과적 선후 관계가 뚜렷한 대규모 프로젝트에 적합한 설계 방법론.",
+    "hidden_field": "definition",
+    "correct_value": "공정 간의 인과적 선후 관계가 뚜렷한 대규모 프로젝트에 적합한 설계 방법론.",
+    "explanation": "순차 설계는 복잡한 프로젝트의 체계적 진행을 보장한다."
+  },
+  {
+    "id": 8,
+    "concept": "기능 설계",
+    "definition": "제품의 본질적 성능을 결정하는 설계 요소.",
+    "hidden_field": "definition",
+    "correct_value": "제품의 본질적 성능을 결정하는 설계 요소.",
+    "explanation": "기능 설계는 제품이 소비자의 요구를 충족시키는 데 필수적인 역할을 한다."
+  },
+  {
+    "id": 9,
+    "concept": "형태 설계",
+    "definition": "디자인과 외관을 통한 심미적 가치를 결정하는 설계 요소.",
+    "hidden_field": "definition",
+    "correct_value": "디자인과 외관을 통한 심미적 가치를 결정하는 설계 요소.",
+    "explanation": "형태 설계는 제품의 시장 경쟁력을 높이는 데 기여한다."
+  },
+  {
+    "id": 10,
+    "concept": "생산 설계",
+    "definition": "생산의 경제성을 위해 단순화, 표준화, 모듈화를 추구하는 공학적 접근.",
+    "hidden_field": "definition",
+    "correct_value": "생산의 경제성을 위해 단순화, 표준화, 모듈화를 추구하는 공학적 접근.",
+    "explanation": "생산 설계는 제조 비용 절감과 효율성 증대에 기여한다."
+  }
+]

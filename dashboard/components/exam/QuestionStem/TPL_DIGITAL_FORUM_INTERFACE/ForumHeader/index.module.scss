@@ -1,0 +1,28 @@
+@import '@/styles/variables.scss';
+
+.titleBar {
+  width: 100%;
+  background-color: $background-third;
+  border-bottom: 1.5px solid $text-strong;
+  padding: $spacing-6 $spacing-12;
+  box-sizing: border-box;
+}
+
+.forumName {
+  font-size: 13px;
+  font-weight: $semi-bold;
+  color: $text-primary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+}
+
+.winBtn {
+  font-size: 12px;
+  font-weight: $regular;
+  color: $text-primary;
+  font-family: 'Courier New', monospace;
+  padding: 0 $spacing-4;
+  border: 1px solid $text-strong;
+  line-height: 1.4;
+  cursor: default;
+  user-select: none;
+}

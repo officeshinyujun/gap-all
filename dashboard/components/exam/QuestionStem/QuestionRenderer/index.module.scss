@@ -1,0 +1,148 @@
+@import '@/styles/variables.scss';
+
+.wrapper {
+  width: 100%;
+  padding: $spacing-32;
+  background-color: $background-primary;
+  border: 1px solid $border-primary;
+  box-sizing: border-box;
+}
+
+// 문제 번호
+.questionNumber {
+  width: 36px;
+  height: 36px;
+  background-color: $text-primary;
+  color: $background-primary;
+  font-size: 18px;
+  font-weight: $bold;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+// 메타 태그
+.metaTag {
+  font-size: 11px;
+  font-weight: $semi-bold;
+  color: $brand-primary;
+  background-color: $brand-secondary;
+  padding: 2px $spacing-8;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+}
+
+.metaTagLight {
+  font-size: 11px;
+  font-weight: $regular;
+  color: $text-secondary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+}
+
+.difficultyBadge {
+  font-size: 11px;
+  font-weight: $semi-bold;
+  padding: 2px $spacing-8;
+  font-family: 'Courier New', monospace;
+
+  &[data-level='하'],
+  &[data-level='LOW'] {
+    background-color: $background-third;
+    color: $text-secondary;
+  }
+  &[data-level='중'],
+  &[data-level='MIDDLE'] {
+    background-color: $brand-secondary;
+    color: $brand-primary;
+  }
+  &[data-level='상'],
+  &[data-level='HIGH'] {
+    background-color: $text-primary;
+    color: $background-primary;
+  }
+  &[data-level='극상'],
+  &[data-level='SUPER'],
+  &[data-level='INTERGRATE'] {
+    background-color: $text-wrong;
+    color: $background-primary;
+  }
+}
+
+// 지문 영역
+.stimulus {
+  width: 100%;
+}
+
+// 선택지
+.optionsSection {
+  padding-top: $spacing-8;
+  border-top: 1px solid $border-primary;
+}
+
+.optionRow {
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: $spacing-6 $spacing-8;
+  text-align: left;
+  transition: background-color 0.1s;
+  border-radius: 0;
+
+  &:hover {
+    background-color: $background-secondary;
+  }
+}
+
+.optionSelected {
+  background-color: $brand-secondary;
+
+  &:hover {
+    background-color: $brand-secondary;
+  }
+}
+
+.optionText {
+  font-size: 13px;
+  font-weight: $regular;
+  color: $text-primary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  line-height: 1.7;
+  word-break: keep-all;
+  text-align: left;
+}
+
+// 해설
+.explanationToggle {
+  background: none;
+  border: 1px solid $border-primary;
+  padding: $spacing-6 $spacing-16;
+  font-size: 12px;
+  font-weight: $medium;
+  color: $text-secondary;
+  cursor: pointer;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  align-self: flex-start;
+  transition: background-color 0.1s, color 0.1s;
+
+  &:hover {
+    background-color: $background-secondary;
+    color: $text-primary;
+  }
+}
+
+.explanationBox {
+  width: 100%;
+  background-color: $background-secondary;
+  border-left: 3px solid $brand-primary;
+  padding: $spacing-12 $spacing-16;
+  box-sizing: border-box;
+}
+
+.explanationText {
+  margin: 0;
+  line-height: 1.8;
+  word-break: keep-all;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+}

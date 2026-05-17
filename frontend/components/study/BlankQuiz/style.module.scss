@@ -1,0 +1,108 @@
+@import '@/styles/variables.scss';
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-8 $spacing-16;
+  border-radius: 20px;
+  border: 1.5px solid $border-primary;
+  background: $background-primary;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  min-width: 80px;
+
+  &:hover:not(:disabled) {
+    border-color: $brand-primary;
+    background: $brand-secondary;
+  }
+
+  &.correct {
+    border-color: $text-correct;
+    background: rgba(137, 218, 127, 0.12);
+    cursor: default;
+  }
+
+  &.wrong {
+    border-color: $text-wrong;
+    background: rgba(218, 127, 127, 0.12);
+    cursor: default;
+  }
+
+  &.disabled {
+    opacity: 0.45;
+    cursor: default;
+  }
+}
+
+.progressBar {
+  flex: 1;
+  height: 4px;
+  background: $background-third;
+  border-radius: 2px;
+  margin-left: $spacing-12;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: $brand-primary;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.sentenceCard {
+  width: 100%;
+  background: $background-primary;
+  border: 1px solid $border-primary;
+  border-radius: 12px;
+  padding: $spacing-20 $spacing-24;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+}
+
+.blank {
+  display: inline;
+}
+
+.blankBox {
+  display: inline-block;
+  width: 80px;
+  height: 22px;
+  background: $background-third;
+  border-radius: 4px;
+  vertical-align: middle;
+  margin: 0 $spacing-4;
+}
+
+.explanationBox {
+  width: 100%;
+  background: $background-secondary;
+  border-radius: 8px;
+  padding: $spacing-12 $spacing-16;
+  border-left: 3px solid $brand-primary;
+}
+
+.nextButton {
+  width: 100%;
+  padding: $spacing-14 0;
+  background: $brand-primary;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+
+  &:hover {
+    opacity: 0.88;
+  }
+}
+
+.resultCard {
+  width: 100%;
+  background: $background-primary;
+  border: 1px solid $border-primary;
+  border-radius: 16px;
+  padding: $spacing-32 $spacing-24;
+  text-align: center;
+}

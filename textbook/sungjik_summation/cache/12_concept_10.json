@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "concept": "의사소통",
+    "definition": "송신자와 수신자 간의 상호 이해를 목적으로 하는 상호 작용 과정",
+    "hidden_field": "definition",
+    "correct_value": "송신자와 수신자 간의 상호 이해를 목적으로 하는 상호 작용 과정",
+    "explanation": "조직 목표 달성을 위한 도구적 성격을 가지며, 정보의 공유가 아닌 협력과 이해에 중점을 둔다."
+  },
+  {
+    "id": 2,
+    "concept": "문서 이해",
+    "definition": "배경 파악에서 행동 결정으로 이어지는 4단계 절차를 통해 업무 오류를 최소화하는 과정",
+    "hidden_field": "definition",
+    "correct_value": "배경 파악에서 행동 결정으로 이어지는 4단계 절차를 통해 업무 오류를 최소화하는 과정",
+    "explanation": "직무 문서의 가독성을 확보하고 목적에 맞게 정보를 해석하여 업무 효율을 높인다."
+  },
+  {
+    "id": 3,
+    "concept": "경청",
+    "definition": "주의 집중, 반응, 해석, 기억, 피드백의 5단계를 거치는 능동적 청취 과정",
+    "hidden_field": "definition",
+    "correct_value": "주의 집중, 반응, 해석, 기억, 피드백의 5단계를 거치는 능동적 청취 과정",
+    "explanation": "단순 청취가 아닌 상호 작용의 질적 향상을 위한 기술적 프로세스로서 소통의 완결성을 높인다."
+  },
+  {
+    "id": 4,
+    "concept": "피드백",
+    "definition": "수신자가 이해한 내용을 송신자에게 재전달하여 확인하는 과정",
+    "hidden_field": "definition",
+    "correct_value": "수신자가 이해한 내용을 송신자에게 재전달하여 확인하는 과정",
+    "explanation": "오해를 방지하고 소통의 주도권을 수신자에게도 부여하여 상호 이해를 강화한다."
+  },
+  {
+    "id": 5,
+    "concept": "메라비언의 법칙",
+    "definition": "메시지 전달에서 시각적·청각적 요소가 언어적 요소보다 더 큰 비중을 차지한다는 법칙",
+    "hidden_field": "definition",
+    "correct_value": "메시지 전달에서 시각적·청각적 요소가 언어적 요소보다 더 큰 비중을 차지한다는 법칙",
+    "explanation": "비언어적 요소가 소통의 성패를 결정짓는 주요 요인으로 작용함을 설명한다."
+  },
+  {
+    "id": 6,
+    "concept": "토마스-킬만 모형",
+    "definition": "갈등 해결을 위한 5가지 유형(경쟁, 회피, 수용, 타협, 협력)을 제시하는 모형",
+    "hidden_field": "definition",
+    "correct_value": "갈등 해결을 위한 5가지 유형(경쟁, 회피, 수용, 타협, 협력)을 제시하는 모형",
+    "explanation": "조직 내 불가피한 갈등을 해결하기 위한 전략적 선택의 중요성을 강조한다."
+  },
+  {
+    "id": 7,
+    "concept": "가독성",
+    "definition": "상대방이 읽기 편하도록 목차, 번호, 도표 등을 활용하여 문서를 구조화하는 원칙",
+    "hidden_field": "definition",
+    "correct_value": "상대방이 읽기 편하도록 목차, 번호, 도표 등을 활용하여 문서를 구조화하는 원칙",
+    "explanation": "수신자 중심의 문서 작성 태도가 업무 효율과 직결됨을 시사한다."
+  },
+  {
+    "id": 8,
+    "concept": "정보의 왜곡",
+    "definition": "전달 과정에서 본래 의미가 변질되는 현상",
+    "hidden_field": "definition",
+    "correct_value": "전달 과정에서 본래 의미가 변질되는 현상",
+    "explanation": "잘못된 의사 결정을 유발하여 소통의 정확성을 저해한다."
+  },
+  {
+    "id": 9,
+    "concept": "정보의 누락",
+    "definition": "핵심 정보의 일부가 유실되는 현상",
+    "hidden_field": "definition",
+    "correct_value": "핵심 정보의 일부가 유실되는 현상",
+    "explanation": "업무 수행의 불완전성을 초래하여 소통의 완결성을 저해한다."
+  },
+  {
+    "id": 10,
+    "concept": "정보의 첨가",
+    "definition": "원래 없던 주관적 내용이 덧붙여지는 현상",
+    "hidden_field": "definition",
+    "correct_value": "원래 없던 주관적 내용이 덧붙여지는 현상",
+    "explanation": "불필요한 오해 및 갈등을 생성하여 소통의 명확성을 저해한다."
+  }
+]

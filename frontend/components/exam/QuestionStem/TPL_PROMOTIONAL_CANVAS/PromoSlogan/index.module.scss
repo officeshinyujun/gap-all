@@ -1,0 +1,21 @@
+@import '@/styles/variables.scss';
+
+.sloganWrapper {
+  width: 100%;
+  text-align: center;
+  padding: $spacing-16 $spacing-24;
+  border-top: 3px double $text-strong;
+  border-bottom: 3px double $text-strong;
+  background-color: $background-primary;
+}
+
+.slogan {
+  font-size: 20px;
+  font-weight: $bold;
+  color: $text-primary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  line-height: 1.4;
+  margin: 0;
+  letter-spacing: 0.04em;
+  word-break: keep-all;
+}

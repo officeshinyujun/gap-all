@@ -1,0 +1,67 @@
+.sidebar {
+  height: 100%;
+  width: 250px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.menuArea {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.gapLogo {
+  width: 32px;
+  height: 32px;
+  background-color: $brand-primary;
+  border-radius: $spacing-8;
+  flex-shrink: 0;
+}
+
+.menuItem {
+  border-radius: $spacing-8;
+  padding: $spacing-8;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $background-third;
+  }
+}
+
+.menuItemActive {
+  background-color: $background-primary;
+
+  &:hover {
+    background-color: $background-primary;
+  }
+}
+
+.userProfile {
+  background-color: $background-primary;
+  border-radius: $spacing-16;
+  padding: $spacing-12;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  background-color: $background-fourth;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.logoutBtn {
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: $spacing-8;
+  border-radius: $spacing-8;
+  text-align: left;
+  transition: background-color 0.1s;
+
+  &:hover {
+    background-color: $background-third;
+  }
+}

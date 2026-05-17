@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "concept": "위험 물질",
+    "definition": "외부 자극이나 타 물질과의 접촉 시 폭발, 발화, 인화, 부식을 유발하는 물질",
+    "hidden_field": "definition",
+    "correct_value": "외부 자극이나 타 물질과의 접촉 시 폭발, 발화, 인화, 부식을 유발하는 물질",
+    "explanation": "화학적 물성에 따라 위험성을 분류하고, 인체 및 물리적 영향을 분석하는 데 사용됨"
+  },
+  {
+    "id": 2,
+    "concept": "폭발성 물질",
+    "definition": "자체 산소를 보유하거나 산소 없이도 분해 폭발이 가능한 물질",
+    "hidden_field": "definition",
+    "correct_value": "자체 산소를 보유하거나 산소 없이도 분해 폭발이 가능한 물질",
+    "explanation": "작은 에너지로도 쉽게 불이 붙거나 성분이 분해되면서 폭발을 일으킬 수 있음"
+  },
+  {
+    "id": 3,
+    "concept": "소화",
+    "definition": "연소의 4요소를 차단하는 과정으로, 제거소화, 질식소화, 냉각소화, 억제소화의 메커니즘을 가짐",
+    "hidden_field": "definition",
+    "correct_value": "연소의 4요소를 차단하는 과정으로, 제거소화, 질식소화, 냉각소화, 억제소화의 메커니즘을 가짐",
+    "explanation": "화재 등급별 특성과 억제 메커니즘을 설명하며, 가연물별 화재 분류에 따라 적절한 소화 방법을 제시함"
+  },
+  {
+    "id": 4,
+    "concept": "연소의 4요소",
+    "definition": "가연물, 산소, 점화원, 연쇄 반응",
+    "hidden_field": "definition",
+    "correct_value": "가연물, 산소, 점화원, 연쇄 반응",
+    "explanation": "소화 메커니즘의 기본 원리로 작용하며, 각 요소의 차단을 통해 화재를 억제함"
+  },
+  {
+    "id": 5,
+    "concept": "건설 5대 재해",
+    "definition": "무너짐, 떨어짐, 날아옴/맞음, 감전 등의 사고 형태",
+    "hidden_field": "definition",
+    "correct_value": "무너짐, 떨어짐, 날아옴/맞음, 감전 등의 사고 형태",
+    "explanation": "건설 현장의 구조적 위험 요소와 사고 형태를 분석하여 안전 대책을 마련하는 데 기여함"
+  },
+  {
+    "id": 6,
+    "concept": "페일 세이프 원칙",
+    "definition": "사고 발생 시 피해를 최소화하기 위한 안전 설계 원칙",
+    "hidden_field": "definition",
+    "correct_value": "사고 발생 시 피해를 최소화하기 위한 안전 설계 원칙",
+    "explanation": "화학 및 건설 산업의 안전 대책 수립 시 중요한 설계 원칙으로 작용함"
+  },
+  {
+    "id": 7,
+    "concept": "물질 안전 보건 자료(MSDS)",
+    "definition": "위험 물질의 안전한 취급 및 관리를 위한 정보 제공 문서",
+    "hidden_field": "definition",
+    "correct_value": "위험 물질의 안전한 취급 및 관리를 위한 정보 제공 문서",
+    "explanation": "화학 물질의 안전한 사용과 사고 예방을 위한 필수 자료로 활용됨"
+  },
+  {
+    "id": 8,
+    "concept": "인화성 물질",
+    "definition": "인화점 65도 이하의 가연성 액체",
+    "hidden_field": "definition",
+    "correct_value": "인화점 65도 이하의 가연성 액체",
+    "explanation": "화재 발생 가능성이 높은 물질로, 적절한 소화 방법을 통해 화재를 예방함"
+  },
+  {
+    "id": 9,
+    "concept": "부식성 물질",
+    "definition": "금속 부식 및 인체 화상을 유발하는 물질",
+    "hidden_field": "definition",
+    "correct_value": "금속 부식 및 인체 화상을 유발하는 물질",
+    "explanation": "화학적 특성에 따라 적절한 안전 대책을 마련하는 데 기여함"
+  },
+  {
+    "id": 10,
+    "concept": "독성 물질",
+    "definition": "체내 흡입/흡수 시 치명적 유해 영향을 미치는 물질",
+    "hidden_field": "definition",
+    "correct_value": "체내 흡입/흡수 시 치명적 유해 영향을 미치는 물질",
+    "explanation": "인체에 미치는 영향을 분석하여 적절한 보호구 착용 및 안전 대책 수립에 기여함"
+  }
+]

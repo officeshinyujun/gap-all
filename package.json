@@ -1,0 +1,34 @@
+{
+  "name": "gap",
+  "version": "1.0.0",
+  "private": true,
+  "description": "GAP monorepo - backend, frontend, dashboard, landing",
+  "workspaces": [
+    "backend",
+    "frontend",
+    "dashboard",
+    "landing"
+  ],
+  "scripts": {
+    "dev:backend": "npm run start:dev -w backend",
+    "dev:frontend": "npm run dev -w frontend",
+    "dev:dashboard": "npm run dev -w dashboard",
+    "dev:landing": "npm run dev -w landing",
+    "build:backend": "npm run build -w backend",
+    "build:frontend": "npm run build -w frontend",
+    "build:dashboard": "npm run build -w dashboard",
+    "build:landing": "npm run build -w landing",
+    "start:backend": "npm run start:prod -w backend",
+    "start:frontend": "npm run start -w frontend",
+    "start:dashboard": "npm run start -w dashboard",
+    "lint:backend": "npm run lint -w backend",
+    "lint:frontend": "npm run lint -w frontend",
+    "lint:dashboard": "npm run lint -w dashboard",
+    "lint:landing": "npm run lint -w landing",
+    "test:backend": "npm run test -w backend",
+    "install:all": "npm install"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

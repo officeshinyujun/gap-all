@@ -1,0 +1,129 @@
+@import '@/styles/variables.scss';
+
+.page {
+  width: 100%;
+  height: 100vh;
+  background-color: $background-secondary;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  width: 100%;
+  padding: $spacing-16 $spacing-24;
+  background-color: $background-primary;
+  border-bottom: 1px solid $border-primary;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.body {
+  flex: 1;
+  overflow-y: auto;
+  padding: $spacing-20 $spacing-24;
+  box-sizing: border-box;
+}
+
+.statCard {
+  flex: 1;
+  padding: $spacing-16;
+  background: $background-primary;
+  border: 1px solid $border-primary;
+  border-radius: $spacing-12;
+  text-align: center;
+}
+
+.filterBar {
+  padding: $spacing-12;
+  background: $background-secondary;
+  border-radius: $spacing-8;
+  border: 1px solid $border-primary;
+}
+
+.select {
+  padding: $spacing-8;
+  border: 1px solid $border-primary;
+  border-radius: $spacing-8;
+  background: $background-primary;
+  font-size: 14px;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  color: $text-primary;
+}
+
+.tableWrap {
+  background: $background-primary;
+  border: 1px solid $border-primary;
+  border-radius: $spacing-8;
+  overflow: hidden;
+}
+
+.tableHeader {
+  padding: $spacing-8 $spacing-12;
+  background: $background-secondary;
+  border-bottom: 1px solid $border-primary;
+  font-size: 12px;
+  font-weight: $semi-bold;
+  color: $text-secondary;
+}
+
+.tableRow {
+  padding: $spacing-8 $spacing-12;
+  border-bottom: 1px solid $border-primary;
+
+  &:hover {
+    background: $background-secondary;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.cell {
+  font-size: 13px;
+  color: $text-primary;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+}
+
+.deleteBtn {
+  padding: $spacing-4 $spacing-8;
+  border: 1px solid $text-wrong;
+  border-radius: $spacing-4;
+  background: none;
+  color: $text-wrong;
+  font-size: 12px;
+  cursor: pointer;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+
+  &:hover {
+    background: $background-secondary;
+  }
+}
+
+.pagination {
+  padding: $spacing-8;
+}
+
+.paginationBtn {
+  padding: $spacing-8 $spacing-16;
+  border: 1px solid $border-primary;
+  border-radius: $spacing-8;
+  background: none;
+  cursor: pointer;
+  font-size: 13px;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  color: $text-primary;
+
+  &:hover:not(:disabled) {
+    background: $background-third;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}

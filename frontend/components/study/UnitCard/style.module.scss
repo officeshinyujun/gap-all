@@ -1,0 +1,69 @@
+@import '@/styles/variables.scss';
+
+.card {
+  width: 100%;
+  border-radius: $spacing-16;
+  padding: $spacing-16;
+  background-color: transparent; /* Assuming parent background */
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+  
+  &.expanded {
+    border: 1px solid $brand-primary;
+  }
+  
+  &.collapsed {
+    border: 1px solid $border-primary;
+    &:hover {
+      background-color: color-mix(in srgb, var(--border-primary) 20%, transparent);
+    }
+  }
+}
+
+.subUnitItem {
+  width: 100%;
+  padding: $spacing-4;
+  display: flex;
+  align-items: center;
+  gap: $spacing-10;
+  border-radius: $spacing-8;
+  transition: background-color 0.2s ease;
+  
+  &:hover {
+    background-color: $background-primary;
+  }
+}
+
+.circle {
+  width: $spacing-24;
+  height: $spacing-24;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  
+  // 완료: 파란색 채우기
+  &.completed {
+    background-color: $brand-primary;
+  }
+
+  // 진행 중: 파란색 외곽선 + 흰 배경
+  &.inProgress {
+    background-color: $background-primary;
+    border: 2px solid $brand-primary;
+  }
+
+  // 미시작: 회색
+  &.notStarted {
+    background-color: $background-fourth;
+  }
+}
+
+.arrow {
+  transition: transform 0.2s ease;
+  &.expanded {
+    transform: rotate(180deg);
+  }
+}

@@ -1,0 +1,15 @@
+@import '@/styles/variables.scss';
+
+.blankSlot {
+  display: inline-block;
+  border-bottom: 1.5px solid $text-strong;
+  text-align: center;
+  font-size: 13px;
+  font-weight: $medium;
+  color: $text-primary;
+  padding: 0 $spacing-4;
+  margin: 0 2px;
+  vertical-align: bottom;
+  line-height: 1.4;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+}

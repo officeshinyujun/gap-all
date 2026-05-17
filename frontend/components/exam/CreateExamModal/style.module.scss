@@ -1,0 +1,92 @@
+@import '@/styles/variables.scss';
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: color-mix(in srgb, var(--text-primary) 50%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur($spacing-4);
+}
+
+.modal {
+  background-color: $background-primary;
+  border-radius: $spacing-16;
+  width: 500px;
+  padding: $spacing-32;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-24;
+  box-shadow: 0 $spacing-10 40px rgba(0, 0, 0, 0.1);
+}
+
+.input {
+  width: 100%;
+  padding: $spacing-12 $spacing-16;
+  border-radius: $spacing-8;
+  border: 1px solid $border-primary;
+  background-color: $background-secondary;
+  color: $text-primary;
+  outline: none;
+  font-family: inherit;
+  font-size: $spacing-14;
+  
+  &:focus {
+    border-color: $brand-primary;
+    background-color: $background-primary;
+  }
+}
+
+.textarea {
+  width: 100%;
+  padding: $spacing-12 $spacing-16;
+  border-radius: $spacing-8;
+  border: 1px solid $border-primary;
+  background-color: $background-secondary;
+  color: $text-primary;
+  outline: none;
+  font-family: inherit;
+  font-size: $spacing-14;
+  min-height: 100px;
+  resize: vertical;
+
+  &:focus {
+    border-color: $brand-primary;
+    background-color: $background-primary;
+  }
+}
+
+.buttonPrimary {
+  padding: $spacing-12 $spacing-24;
+  background-color: $brand-primary;
+  color: white;
+  border-radius: $spacing-8;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: $spacing-14;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.buttonSecondary {
+  padding: $spacing-12 $spacing-24;
+  background-color: $background-third;
+  color: $text-primary;
+  border-radius: $spacing-8;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: $spacing-14;
+
+  &:hover {
+    background-color: $background-fourth;
+  }
+}

@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "concept": "경영 지원",
+    "definition": "기업의 내적 능력을 분석하여 최고 경영자의 의사 결정을 보조하는 활동",
+    "hidden_field": "definition",
+    "correct_value": "기업의 내적 능력을 분석하여 최고 경영자의 의사 결정을 보조하는 활동",
+    "explanation": "경영 지원은 기업의 다양한 기능을 분석하여 의사 결정에 필요한 정보를 제공하는 역할을 함"
+  },
+  {
+    "id": 2,
+    "concept": "명령 일원화",
+    "definition": "조직의 질서 유지를 위한 수직적 계통을 강조하는 원칙",
+    "hidden_field": "definition",
+    "correct_value": "조직의 질서 유지를 위한 수직적 계통을 강조하는 원칙",
+    "explanation": "명령 일원화는 조직 내에서 명령 체계를 명확히 하여 혼선을 방지하는 데 기여함"
+  },
+  {
+    "id": 3,
+    "concept": "매트릭스 조직",
+    "definition": "기능과 프로젝트를 격자형으로 결합하여 유연성을 강조하는 조직 구조",
+    "hidden_field": "definition",
+    "correct_value": "기능과 프로젝트를 격자형으로 결합하여 유연성을 강조하는 조직 구조",
+    "explanation": "매트릭스 조직은 두 명의 상급자로부터 지시를 받아 역할 갈등의 위험성을 내포함"
+  },
+  {
+    "id": 4,
+    "concept": "직무 분석",
+    "definition": "관찰, 면접, 설문 등을 통해 직무의 성격을 규명하는 과정",
+    "hidden_field": "definition",
+    "correct_value": "관찰, 면접, 설문 등을 통해 직무의 성격을 규명하는 과정",
+    "explanation": "직무 분석은 인적 자원 관리의 기초 작업으로, 직무기술서와 직무 명세서를 도출함"
+  },
+  {
+    "id": 5,
+    "concept": "직무기술서",
+    "definition": "과업 중심의 직무 내용을 기술한 문서",
+    "hidden_field": "definition",
+    "correct_value": "과업 중심의 직무 내용을 기술한 문서",
+    "explanation": "직무기술서는 '무엇을 하는가'에 초점을 맞춘 데이터로 인사 관리의 객관적 지표가 됨"
+  },
+  {
+    "id": 6,
+    "concept": "직무 명세서",
+    "definition": "인적 요건 중심의 직무 내용을 기술한 문서",
+    "hidden_field": "definition",
+    "correct_value": "인적 요건 중심의 직무 내용을 기술한 문서",
+    "explanation": "직무 명세서는 '누가 해야 하는가'에 초점을 맞춘 데이터로 인사 관리의 객관적 지표가 됨"
+  },
+  {
+    "id": 7,
+    "concept": "직무 평가",
+    "definition": "직무 간 상대적 가치를 정하는 과정",
+    "hidden_field": "definition",
+    "correct_value": "직무 간 상대적 가치를 정하는 과정",
+    "explanation": "직무 평가를 통해 직무의 가치를 서열화하여 공정한 보상 체계를 구축함"
+  },
+  {
+    "id": 8,
+    "concept": "OJT",
+    "definition": "현장에서 직접 이루어지는 교육 훈련 방법",
+    "hidden_field": "definition",
+    "correct_value": "현장에서 직접 이루어지는 교육 훈련 방법",
+    "explanation": "OJT는 실무와 직결된 교육으로, 직원의 역량을 강화하는 데 효과적임"
+  },
+  {
+    "id": 9,
+    "concept": "Off-JT",
+    "definition": "현장 외에서 이루어지는 교육 훈련 방법",
+    "hidden_field": "definition",
+    "correct_value": "현장 외에서 이루어지는 교육 훈련 방법",
+    "explanation": "Off-JT는 이론 및 전문성을 강화하는 교육으로, 직원의 장기적 발전에 기여함"
+  },
+  {
+    "id": 10,
+    "concept": "차별 성과급",
+    "definition": "표준 성과 초과 시 파격적 인센티브를 제공하는 임금 형태",
+    "hidden_field": "definition",
+    "correct_value": "표준 성과 초과 시 파격적 인센티브를 제공하는 임금 형태",
+    "explanation": "차별 성과급은 성과에 따라 보상이 급격히 증가하여 직원의 동기 부여를 촉진함"
+  }
+]

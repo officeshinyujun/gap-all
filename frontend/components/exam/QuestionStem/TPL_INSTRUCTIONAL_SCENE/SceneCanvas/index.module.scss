@@ -1,0 +1,133 @@
+@import '@/styles/variables.scss';
+
+.canvas {
+  width: 100%;
+  border: 1.5px solid $text-strong;
+  overflow: hidden;
+  background-color: $background-primary;
+}
+
+.canvasHeader {
+  width: 100%;
+  padding: $spacing-6 $spacing-12;
+  background-color: $background-third;
+  border-bottom: 1px solid $border-primary;
+  box-sizing: border-box;
+}
+
+.canvasLabel {
+  font-size: 12px;
+  font-weight: $semi-bold;
+  color: $text-secondary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  letter-spacing: 0.05em;
+}
+
+.canvasBody {
+  width: 100%;
+  padding: $spacing-16 $spacing-20;
+  box-sizing: border-box;
+}
+
+// text 타입
+.textContent {
+  font-size: 13px;
+  font-weight: $regular;
+  color: $text-primary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  line-height: 1.9;
+  margin: 0;
+  word-break: keep-all;
+  text-indent: 1em;
+}
+
+// table 타입
+.tableWrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.td {
+  padding: $spacing-6 $spacing-10;
+  border: 1px solid $border-primary;
+  font-size: 12px;
+  font-weight: $regular;
+  color: $text-primary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.tdHeader {
+  background-color: $brand-secondary;
+  font-weight: $semi-bold;
+}
+
+// image 타입
+.image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+// key_map 타입
+.keyMap {
+  width: 100%;
+}
+
+.keyMapItem {
+  padding: $spacing-6 $spacing-12;
+  border: 1.5px solid $border-primary;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: $semi-bold;
+  color: $text-primary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  background-color: $background-third;
+  white-space: nowrap;
+}
+
+.keyMapArrow {
+  font-size: 14px;
+  color: $text-secondary;
+  font-weight: $regular;
+}
+
+// mind_map 타입
+.mindMap {
+  width: 100%;
+}
+
+.mindMapCenter {
+  padding: $spacing-6 $spacing-16;
+  border: 2px solid $text-strong;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: $bold;
+  color: $text-primary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  background-color: $background-third;
+  white-space: nowrap;
+}
+
+.mindMapBranches {
+  width: 100%;
+}
+
+.mindMapBranch {
+  padding: $spacing-6 $spacing-12;
+  border: 1.5px solid $border-primary;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: $regular;
+  color: $text-primary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  background-color: $background-primary;
+  white-space: nowrap;
+}

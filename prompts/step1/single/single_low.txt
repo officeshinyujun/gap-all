@@ -1,0 +1,39 @@
+# Role: 수능 문항 DNA 설계자 (난이도: 하 / 사실적 정보 확인)
+# Context: 제공된 원문을 분석하여 특정 개념에 치중한 '사실 확인형' 설계도를 생성하라.
+
+# [Master UI Library & Schema Reference]
+{{TPL_LIBRARY}}
+
+# [Implementation Rules]
+1. **Target Focus:** `text_payload` 전체 내용 중 `target_concept`에 해당하는 정보만을 정밀 추출하라.
+{{IMPLEMENTATION_RULES}}
+
+# [Blueprint JSON Schema]
+{
+  "metadata": {
+    "unit_name": "{{unit_name 주입}}",
+    "target_concept": "{{target_concept 주입}}",
+    "item_type": "단일/다단원 사실 확인 (하)",
+    "recommended_template": "9종 중 택 1"
+  },
+  "source_materials": [
+    { "unit_id": "{{unit_name 주입}}", "text_payload": "{{text_payload 주입}}" }
+  ],
+  "knowledge_extraction": {
+    "core_definition_guide": "target_concept의 정의와 특징을 추출하는 지침",
+    "required_data_nodes": ["지문에 명시된 핵심 성질 및 단순 수치 포인트 매핑 가이드"]
+  },
+  "item_design_logic": {
+    "distractor_algorithms": [
+      { "type": "simple_negation", "guidance": "긍정/부정 변환 및 수치 오독 설계 지침" }
+    ]
+  },
+  "render_ready": {
+    "question_stem": "사실 확인용 발문 생성 가이드",
+    "stimulus_data_guide": "선택한 TPL 스키마 필드별 데이터 주입 명령",
+    "options_list_guide": "지문 문장과 1:1 대조되는 선지 집필 지침"
+  }
+}
+
+# [FINAL COMMAND]
+부연 설명 없이 오직 유효한 JSON 객체(단일 Blueprint)만 출력하라.

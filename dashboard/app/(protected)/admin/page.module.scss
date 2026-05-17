@@ -1,0 +1,136 @@
+@import '@/styles/variables.scss';
+
+.page {
+  padding: $spacing-24;
+  box-sizing: border-box;
+  max-width: 1200px;
+}
+
+// 요약 카드
+.summaryCard {
+  flex: 1;
+  padding: $spacing-16 $spacing-20;
+  background-color: $background-primary;
+  border: 1px solid $border-primary;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-6;
+}
+
+// 섹션
+.section {
+  flex: 1;
+  min-width: 0;
+}
+
+// 테이블
+.tableWrapper {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid $border-primary;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+}
+
+.th {
+  padding: $spacing-8 $spacing-12;
+  background-color: $background-secondary;
+  border-bottom: 1px solid $border-primary;
+  font-weight: $semi-bold;
+  color: $text-secondary;
+  text-align: left;
+  white-space: nowrap;
+  font-size: 11px;
+  letter-spacing: 0.03em;
+}
+
+.td {
+  padding: $spacing-8 $spacing-12;
+  border-bottom: 1px solid $border-primary;
+  color: $text-primary;
+  font-size: 12px;
+}
+
+.tdMeta {
+  padding: $spacing-8 $spacing-12;
+  border-bottom: 1px solid $border-primary;
+  color: $text-secondary;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+// 역할 배지
+.badgeAdmin {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: $semi-bold;
+  padding: 2px $spacing-8;
+  background-color: $text-primary;
+  color: $background-primary;
+  font-family: 'Courier New', monospace;
+}
+
+.badgeUser {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: $semi-bold;
+  padding: 2px $spacing-8;
+  background-color: $background-third;
+  color: $text-secondary;
+  font-family: 'Courier New', monospace;
+}
+
+// API 사용량 카드
+.usageCard {
+  flex: 1;
+  padding: $spacing-12 $spacing-16;
+  background-color: $background-primary;
+  border: 1px solid $border-primary;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-4;
+}
+
+// 에러 박스
+.errorBox {
+  padding: $spacing-10 $spacing-12;
+  background-color: $background-secondary;
+  border: 1px solid $border-primary;
+  border-left: 3px solid $border-primary;
+}
+
+// 새로고침 버튼
+.refreshBtn {
+  padding: $spacing-8 $spacing-16;
+  font-size: 12px;
+  font-weight: $medium;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  color: $brand-primary;
+  background-color: $background-primary;
+  border: 1px solid $brand-primary;
+  cursor: pointer;
+  transition: background-color 0.1s;
+
+  &:hover {
+    background-color: $brand-secondary;
+  }
+}
+
+// 스피너
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 2px solid $background-third;
+  border-top-color: $brand-primary;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

@@ -1,0 +1,33 @@
+.container {
+    background-color: $background-secondary;
+    height: 100vh;
+    width: 100vw;
+}
+
+.mainContent {
+    flex: 1;
+    background-color: $background-primary;
+    border: 1px solid $border-primary;
+    border-radius: $spacing-16;
+}
+
+.iconCircle {
+    width: 40px;
+    height: 40px;
+    background-color: $background-secondary;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.streakCard {
+    border: 1px solid $border-primary;
+    border-radius: $spacing-16;
+}
+
+.studyCard {
+    border: 1px solid $border-primary;
+    border-radius: $spacing-16;
+}

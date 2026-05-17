@@ -1,0 +1,18 @@
+@import '@/styles/variables.scss';
+
+.head {
+  background-color: $brand-secondary;
+}
+
+.th {
+  padding: $spacing-8 $spacing-12;
+  border: 1px solid $border-primary;
+  font-size: 13px;
+  font-weight: $semi-bold;
+  color: $text-primary;
+  text-align: center;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  line-height: 1.6;
+  vertical-align: middle;
+  white-space: nowrap;
+}

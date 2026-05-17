@@ -1,0 +1,295 @@
+@import '@/styles/variables.scss';
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-24;
+  overflow-y: auto;
+}
+
+.spinner {
+  width: 28px;
+  height: 28px;
+  border: 3px solid $background-third;
+  border-top-color: $brand-primary;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.profileCard {
+  background-color: $background-secondary;
+  border-radius: $spacing-16;
+  padding: $spacing-24;
+  display: flex;
+  align-items: center;
+  gap: $spacing-20;
+}
+
+.avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background-color: $background-fourth;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section {
+  background-color: $background-secondary;
+  border-radius: $spacing-16;
+  padding: $spacing-24;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-16;
+}
+
+.sectionTitle {
+  padding-bottom: $spacing-12;
+  border-bottom: 1px solid $border-primary;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.badge {
+  background-color: $brand-secondary;
+  border-radius: $spacing-20;
+  padding: $spacing-4 $spacing-12;
+}
+
+.streakBadge {
+  background-color: $brand-primary;
+  border-radius: $spacing-20;
+  padding: $spacing-4 $spacing-12;
+}
+
+.editButton {
+  background-color: $brand-primary;
+  border: none;
+  border-radius: $spacing-8;
+  padding: $spacing-8 $spacing-16;
+  cursor: pointer;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
+
+.settingsSection {
+  background-color: $background-secondary;
+  border-radius: $spacing-16;
+  padding: $spacing-24;
+}
+
+.settingRow {
+  padding: $spacing-12 0;
+  border-bottom: 1px solid $border-primary;
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  &:first-child {
+    padding-top: 0;
+  }
+}
+
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  flex-shrink: 0;
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $background-third;
+    border-radius: 12px;
+    transition: 0.3s;
+
+    &::before {
+      content: '';
+      position: absolute;
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      border-radius: 50%;
+      transition: 0.3s;
+    }
+  }
+
+  input:checked + .slider {
+    background-color: $brand-primary;
+  }
+
+  input:checked + .slider::before {
+    transform: translateX(20px);
+  }
+}
+
+.select {
+  appearance: none;
+  background-color: $background-third;
+  border: 1px solid $border-primary;
+  border-radius: $spacing-8;
+  padding: $spacing-8 $spacing-32 $spacing-8 $spacing-12;
+  font-size: 14px;
+  color: $text-primary;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%235C5C70' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right $spacing-10 center;
+
+  &:focus {
+    outline: none;
+    border-color: $brand-primary;
+  }
+}
+
+.timeInput {
+  background-color: $background-third;
+  border: 1px solid $border-primary;
+  border-radius: $spacing-8;
+  padding: $spacing-8 $spacing-12;
+  font-size: 14px;
+  color: $text-primary;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+    border-color: $brand-primary;
+  }
+}
+
+.logoutButton {
+  background: none;
+  border: 1px solid $border-primary;
+  border-radius: $spacing-8;
+  padding: $spacing-8 $spacing-16;
+  font-size: 14px;
+  font-weight: 500;
+  color: $text-primary;
+  cursor: pointer;
+  font-family: var(--font-geist-sans);
+  transition: background-color 0.15s;
+
+  &:hover {
+    background-color: $background-third;
+  }
+}
+
+.deleteButton {
+  background: none;
+  border: 1px solid $text-wrong;
+  border-radius: $spacing-8;
+  padding: $spacing-8 $spacing-16;
+  font-size: 14px;
+  font-weight: 500;
+  color: $text-wrong;
+  cursor: pointer;
+  font-family: var(--font-geist-sans);
+  transition: background-color 0.15s;
+
+  &:hover {
+    background-color: rgba(255, 59, 48, 0.08);
+  }
+}
+
+.cancelButton {
+  background: none;
+  border: 1px solid $border-primary;
+  border-radius: $spacing-8;
+  padding: $spacing-8 $spacing-16;
+  font-size: 14px;
+  font-weight: 500;
+  color: $text-secondary;
+  cursor: pointer;
+  font-family: var(--font-geist-sans);
+}
+
+.deleteConfirmButton {
+  background-color: $text-wrong;
+  border: none;
+  border-radius: $spacing-8;
+  padding: $spacing-8 $spacing-16;
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+  cursor: pointer;
+  font-family: var(--font-geist-sans);
+  transition: opacity 0.15s;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .container {
+    height: auto;
+    overflow-y: auto;
+    gap: $spacing-16;
+    padding-bottom: $spacing-16;
+  }
+
+  .profileCard {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-14;
+    padding: $spacing-20;
+  }
+
+  .avatar {
+    width: 56px;
+    height: 56px;
+  }
+
+  .editButton {
+    width: 100%;
+    text-align: center;
+    padding: $spacing-12 $spacing-16;
+  }
+
+  .section {
+    padding: $spacing-16;
+  }
+
+  .settingsSection {
+    padding: $spacing-16;
+  }
+
+  .statsColumns {
+    flex-direction: column !important;
+    gap: $spacing-16;
+
+    > * {
+      width: 100%;
+    }
+  }
+}

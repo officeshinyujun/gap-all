@@ -1,0 +1,50 @@
+@import url('https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.1/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css');
+
+:root {
+  --text-primary: #101013;
+  --text-strong: #3D4350;
+  --text-secondary: #5C5C70;
+  --text-correct: #89DA7F;
+  --text-wrong: #DA7F7F;
+
+  --background-primary: #F9F9FB;
+  --background-secondary: #EEEEF2;
+  --background-third: #E2E2E9;
+  --background-fourth: #D7D7DF;
+
+  --brand-primary: #3333CC;
+  --brand-secondary: #DCDCF5;
+
+  --border-primary: #D9D9E2;
+}
+
+[data-theme="dark"] {
+  --text-primary: #ECECEF;
+  --text-strong: #B8B8C4;
+  --text-secondary: #8F8FA3;
+  --text-correct: #6BBF5E;
+  --text-wrong: #CF6B6B;
+
+  --background-primary: #040406;
+  --background-secondary: #16161D;
+  --background-third: #1E1E28;
+  --background-fourth: #2A2A36;
+
+  --brand-primary: #5454D4;
+  --brand-secondary: #1C1C3A;
+
+  --border-primary: #23232E;
+}
+
+* {
+  font-family: "Wanted Sans";
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}

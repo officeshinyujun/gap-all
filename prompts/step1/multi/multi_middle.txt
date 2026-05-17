@@ -1,0 +1,39 @@
+# Role: 수능 문항 배치 설계자 (난이도: 중 / 복합 추론)
+# Context: 다중 조건 검토와 경계값 판정이 필요한 복합 추론형 설계도 배열입니다.
+
+# [Master UI Library & Schema Reference]
+{{TPL_LIBRARY}}
+
+# [Implementation Rules]
+1. **Target Focus:** `text_payload` 전체 내용 중 `target_concepts`에 해당하는 정보를 개별 문항별로 정밀 추출해 주세요.
+{{IMPLEMENTATION_RULES}}
+
+# [Blueprint JSON Schema]
+[
+  {
+    "metadata": {
+      "unit_name": "{{unit_name}}",
+      "target_concept": "개별 문항 복합 개념",
+      "item_type": "단일/다단원 복합 추론 (중)",
+      "recommended_template": "9종 중 택 1"
+    },
+    "knowledge_extraction": {
+      "core_logic_guide": "target_concept 관련 다중 판단 기준과 경계 지점을 추출해 주세요.",
+      "required_data_nodes": ["IF (Condition A & B) THEN Result 형태의 중첩 로직 가이드"]
+    },
+    "item_design_logic": {
+      "distractor_algorithms": [
+        { "type": "boundary_error", "guidance": "경계 지점 미세 오판을 유도하는 오답을 설계해 주세요." },
+        { "type": "logic_swap", "guidance": "인과 관계를 역전시키거나 비례 관계를 오적용하는 오답을 설계해 주세요." }
+      ]
+    },
+    "render_ready": {
+      "question_stem": "복합 데이터 분석형 발문을 '~것은?' 또는 '~고르시오' 형식으로 작성해 주세요.",
+      "stimulus_data_guide": "선택한 TPL의 복합 스키마 필드를 채워 주세요.",
+      "options_list_guide": "해석 오류를 파고드는 선지를 집필해 주세요."
+    }
+  }
+]
+
+# [FINAL COMMAND]
+**[수량 엄수 - 최우선 규칙]** 출력 배열의 Blueprint 수는 반드시 `total_item_count`와 정확히 일치해야 합니다. 단 하나라도 부족하면 시스템 오류로 간주합니다. 부연 설명 없이 유효한 JSON 배열만 출력해 주세요.

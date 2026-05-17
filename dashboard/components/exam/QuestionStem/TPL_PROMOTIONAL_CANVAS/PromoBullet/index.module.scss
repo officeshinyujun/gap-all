@@ -1,0 +1,23 @@
+@import '@/styles/variables.scss';
+
+.bullet {
+  width: 100%;
+  padding: $spacing-4 0;
+}
+
+.icon {
+  font-size: 10px;
+  color: $brand-primary;
+  flex-shrink: 0;
+  margin-top: 3px;
+  line-height: 1.6;
+}
+
+.text {
+  font-size: 13px;
+  font-weight: $regular;
+  color: $text-primary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  line-height: 1.7;
+  word-break: keep-all;
+}

@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "concept": "경공업",
+    "definition": "부피 대비 무게가 가벼운 소비재를 생산하는 저자본·단순 기술 기반 공업.",
+    "hidden_field": "definition",
+    "correct_value": "부피 대비 무게가 가벼운 소비재를 생산하는 저자본·단순 기술 기반 공업.",
+    "explanation": "경공업은 중화학 공업과 구별되며, 초기에는 노동 집약적이었으나 현재는 자동화 시스템 도입으로 현대화되고 있다."
+  },
+  {
+    "id": 2,
+    "concept": "노동 집약적",
+    "definition": "생산 과정에서 자본보다 노동력의 투입 비중이 높은 특성.",
+    "hidden_field": "definition",
+    "correct_value": "생산 과정에서 자본보다 노동력의 투입 비중이 높은 특성.",
+    "explanation": "경공업의 초기 특징으로, 저임금 기반의 노동력을 활용하여 생산이 이루어졌다."
+  },
+  {
+    "id": 3,
+    "concept": "고부가가치",
+    "definition": "기술, 디자인, 브랜드력을 투입하여 생산물의 가치를 높이는 전략.",
+    "hidden_field": "definition",
+    "correct_value": "기술, 디자인, 브랜드력을 투입하여 생산물의 가치를 높이는 전략.",
+    "explanation": "경공업이 첨단 기술과 융합하여 고도화되는 과정에서 중요한 전략으로 작용한다."
+  },
+  {
+    "id": 4,
+    "concept": "푸드테크",
+    "definition": "식품 산업에 ICT 기술을 접목한 신산업 분야.",
+    "hidden_field": "definition",
+    "correct_value": "식품 산업에 ICT 기술을 접목한 신산업 분야.",
+    "explanation": "식품 공업의 패러다임 전환을 이끌며, 미래 산업으로 주목받고 있다."
+  },
+  {
+    "id": 5,
+    "concept": "HACCP",
+    "definition": "식품안전관리인증기준으로, 위해 요소를 분석하여 중요 관리점을 설정함으로써 식품의 안전성을 과학적으로 확보함.",
+    "hidden_field": "definition",
+    "correct_value": "식품안전관리인증기준으로, 위해 요소를 분석하여 중요 관리점을 설정함으로써 식품의 안전성을 과학적으로 확보함.",
+    "explanation": "식품 공업에서 위생 관리의 중요성을 강조하며, 안전한 식품 생산을 위한 체계적 접근을 제공한다."
+  },
+  {
+    "id": 6,
+    "concept": "OEM",
+    "definition": "생산자가 주문자의 설계와 브랜드에 따라 단순히 '제조'만 담당하는 방식.",
+    "hidden_field": "definition",
+    "correct_value": "생산자가 주문자의 설계와 브랜드에 따라 단순히 '제조'만 담당하는 방식.",
+    "explanation": "신발 공업 등에서 과거의 생산 방식으로, 주도권이 주문자에게 있다."
+  },
+  {
+    "id": 7,
+    "concept": "ODM",
+    "definition": "생산자가 제품의 '설계 및 개발'부터 생산까지 전 과정을 주도하는 방식.",
+    "hidden_field": "definition",
+    "correct_value": "생산자가 제품의 '설계 및 개발'부터 생산까지 전 과정을 주도하는 방식.",
+    "explanation": "기술적 우위를 바탕으로 독자적 브랜드 개발을 통해 산업 경쟁력을 강화한다."
+  },
+  {
+    "id": 8,
+    "concept": "세라믹스",
+    "definition": "무기 재료를 고온 가공하는 산업으로, 전통 세라믹스를 넘어 파인 세라믹스로 발전함.",
+    "hidden_field": "definition",
+    "correct_value": "무기 재료를 고온 가공하는 산업으로, 전통 세라믹스를 넘어 파인 세라믹스로 발전함.",
+    "explanation": "경공업의 기술적 한계를 확장하며, 첨단 기계 구조 부문의 핵심 소재로 기능한다."
+  },
+  {
+    "id": 9,
+    "concept": "방적",
+    "definition": "단섬유를 실로 만드는 공정.",
+    "hidden_field": "definition",
+    "correct_value": "단섬유를 실로 만드는 공정.",
+    "explanation": "섬유 공업의 원료 단계에서 실을 제조하는 핵심 공정이다."
+  },
+  {
+    "id": 10,
+    "concept": "방사",
+    "definition": "장섬유를 실로 추출하는 공정.",
+    "hidden_field": "definition",
+    "correct_value": "장섬유를 실로 추출하는 공정.",
+    "explanation": "섬유 공업의 원료 단계에서 실을 제조하는 또 다른 공정으로, 방적과 대조된다."
+  }
+]

@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "sentence_template": "생산 혁신은 단순한 개선을 넘어 생산성, 품질, 원가, 납기(QCD)의 비약적 발전을 도모하는 [blank]이다.",
+    "correct_answer": "근본적 변화",
+    "options": [
+      "근본적 변화",
+      "단계적 개선",
+      "부분적 수정",
+      "점진적 발전"
+    ],
+    "explanation": "생산 혁신은 QCD 경쟁력 강화를 위한 근본적 변화를 추구하는 활동으로 정의된다."
+  },
+  {
+    "id": 2,
+    "sentence_template": "식스시그마는 고객 만족을 정점에 두고 '무결점'을 추구하는 [blank] 활동이다.",
+    "correct_answer": "전사적",
+    "options": [
+      "전사적",
+      "부서별",
+      "개인적",
+      "지역적"
+    ],
+    "explanation": "식스시그마는 전사적으로 무결점을 목표로 하는 품질 관리 방법론이다."
+  },
+  {
+    "id": 3,
+    "sentence_template": "적시 생산(JIT)은 필요한 것을 필요한 때 필요한 만큼 생산하여 [blank]를 제거하는 시스템이다.",
+    "correct_answer": "낭비",
+    "options": [
+      "낭비",
+      "비용",
+      "시간",
+      "자원"
+    ],
+    "explanation": "JIT는 낭비를 제거하기 위해 필요한 만큼만 생산하는 시스템이다."
+  },
+  {
+    "id": 4,
+    "sentence_template": "ERP는 기업 내 모든 인적·물적 자원을 [blank] 관리하는 정보 시스템이다.",
+    "correct_answer": "통합",
+    "options": [
+      "통합",
+      "분산",
+      "개별",
+      "부분"
+    ],
+    "explanation": "ERP는 기업 자원을 통합적으로 관리하여 효율성을 높이는 시스템이다."
+  },
+  {
+    "id": 5,
+    "sentence_template": "TPS는 푸시(Push) 방식이 아닌 후공정의 요구에 따라 생산하는 [blank] 방식을 채택하여 재고를 최소화한다.",
+    "correct_answer": "풀(Pull)",
+    "options": [
+      "풀(Pull)",
+      "푸시(Push)",
+      "혼합(Mixed)",
+      "고정(Fixed)"
+    ],
+    "explanation": "TPS는 풀 방식으로 후공정의 수요에 맞춰 생산하여 재고를 줄인다."
+  },
+  {
+    "id": 6,
+    "sentence_template": "린 생산 시스템은 가공, 재고, 과잉 제조 등 [blank] 낭비 요소를 배제하고 고객 관점의 가치 흐름을 창출하는 데 집중한다.",
+    "correct_answer": "7대",
+    "options": [
+      "7대",
+      "5대",
+      "3대",
+      "10대"
+    ],
+    "explanation": "린 생산은 7대 낭비 요소를 제거하여 효율성을 극대화한다."
+  },
+  {
+    "id": 7,
+    "sentence_template": "생산 현장의 실시간 데이터 수집(POP)과 통합 관리(MES)는 의사결정의 [blank]을 보장한다.",
+    "correct_answer": "신속성",
+    "options": [
+      "신속성",
+      "정확성",
+      "안정성",
+      "효율성"
+    ],
+    "explanation": "POP와 MES는 실시간 데이터를 통해 신속한 의사결정을 가능하게 한다."
+  },
+  {
+    "id": 8,
+    "sentence_template": "ERP는 1950년대의 단순 자재 소요 계획(MRP-I)에서 제조 자원 계획(MRP-II)을 거쳐 기업 전체 자원을 [blank]하는 단계로 발전해왔다.",
+    "correct_answer": "최적화",
+    "options": [
+      "최적화",
+      "분석",
+      "단순화",
+      "복잡화"
+    ],
+    "explanation": "ERP는 기업 자원을 최적화하여 전사적 효율성을 높이는 시스템으로 발전했다."
+  },
+  {
+    "id": 9,
+    "sentence_template": "식스시그마는 측정 지표를 불량률(%)이 아닌 통계적 척도인 [blank]로 전환하여 관리의 정밀도를 극대화한다.",
+    "correct_answer": "시그마(σ)",
+    "options": [
+      "시그마(σ)",
+      "베타(β)",
+      "알파(α)",
+      "감마(γ)"
+    ],
+    "explanation": "식스시그마는 시그마를 사용하여 품질 관리의 정밀도를 높인다."
+  },
+  {
+    "id": 10,
+    "sentence_template": "TPS는 3정(정품·정량·정위치)과 5S(정리·정돈·청소·청결·습관화)를 통한 환경 [blank]에 있다.",
+    "correct_answer": "최적화",
+    "options": [
+      "최적화",
+      "단순화",
+      "복잡화",
+      "분산화"
+    ],
+    "explanation": "TPS는 3정 5S를 통해 작업 환경을 최적화한다."
+  }
+]

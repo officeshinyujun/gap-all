@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "concept": "생산 혁신",
+    "definition": "품질, 원가, 납기(QCD) 경쟁력 강화를 위한 근본적 변화 활동.",
+    "hidden_field": "definition",
+    "correct_value": "품질, 원가, 납기(QCD) 경쟁력 강화를 위한 근본적 변화 활동.",
+    "explanation": "생산 혁신은 제품, 공정, 사람을 대상으로 하며, 기업의 총체적 경쟁력을 확보하는 과정이다."
+  },
+  {
+    "id": 2,
+    "concept": "식스시그마",
+    "definition": "100만 개당 3.4개 이하의 불량을 목표로 하는 통계적 품질 관리.",
+    "hidden_field": "definition",
+    "correct_value": "100만 개당 3.4개 이하의 불량을 목표로 하는 통계적 품질 관리.",
+    "explanation": "식스시그마는 고객 만족을 정점에 두고 '무결점'을 추구하는 전사적 활동으로, 통계적 척도인 시그마로 관리의 정밀도를 극대화한다."
+  },
+  {
+    "id": 3,
+    "concept": "적시 생산",
+    "definition": "필요한 것을 필요한 때 필요한 만큼 생산하여 낭비를 제거하는 시스템.",
+    "hidden_field": "definition",
+    "correct_value": "필요한 것을 필요한 때 필요한 만큼 생산하여 낭비를 제거하는 시스템.",
+    "explanation": "적시 생산은 후공정의 요구에 따라 생산하는 풀(Pull) 방식을 채택하여 재고를 최소화한다."
+  },
+  {
+    "id": 4,
+    "concept": "ERP",
+    "definition": "기업 내 모든 인적·물적 자원을 통합 관리하는 정보 시스템.",
+    "hidden_field": "definition",
+    "correct_value": "기업 내 모든 인적·물적 자원을 통합 관리하는 정보 시스템.",
+    "explanation": "ERP는 MRP-I에서 MRP-II를 거쳐 기업 전체 자원을 최적화하는 단계로 발전하였다."
+  },
+  {
+    "id": 5,
+    "concept": "품질 분임조",
+    "definition": "현장 작업자 중심의 자발적 소그룹 활동으로, 주제 선정부터 사후 관리까지 9단계 순환 과정을 통해 현장 문제를 해결한다.",
+    "hidden_field": "definition",
+    "correct_value": "현장 작업자 중심의 자발적 소그룹 활동으로, 주제 선정부터 사후 관리까지 9단계 순환 과정을 통해 현장 문제를 해결한다.",
+    "explanation": "품질 분임조는 자주적/상향식 접근을 통해 현장 중심의 문제 해결을 도모한다."
+  },
+  {
+    "id": 6,
+    "concept": "TPS",
+    "definition": "푸시 방식이 아닌 후공정의 요구에 따라 생산하는 풀 방식을 채택하여 재고를 최소화하는 시스템.",
+    "hidden_field": "definition",
+    "correct_value": "푸시 방식이 아닌 후공정의 요구에 따라 생산하는 풀 방식을 채택하여 재고를 최소화하는 시스템.",
+    "explanation": "TPS는 3정과 5S를 통한 환경 최적화를 기반으로 한다."
+  },
+  {
+    "id": 7,
+    "concept": "린 생산",
+    "definition": "가공, 재고, 과잉 제조 등 7대 낭비 요소를 배제하고 고객 관점의 가치 흐름을 창출하는 데 집중하는 시스템.",
+    "hidden_field": "definition",
+    "correct_value": "가공, 재고, 과잉 제조 등 7대 낭비 요소를 배제하고 고객 관점의 가치 흐름을 창출하는 데 집중하는 시스템.",
+    "explanation": "린 생산은 TPS의 원리를 계승하여 고객 중심의 가치 창출을 목표로 한다."
+  },
+  {
+    "id": 8,
+    "concept": "MES",
+    "definition": "생산 현장의 실시간 데이터 수집과 통합 관리를 통해 의사결정의 신속성을 보장하는 시스템.",
+    "hidden_field": "definition",
+    "correct_value": "생산 현장의 실시간 데이터 수집과 통합 관리를 통해 의사결정의 신속성을 보장하는 시스템.",
+    "explanation": "MES는 POP와 함께 생산 현장의 데이터를 실시간으로 관리하여 효율성을 높인다."
+  },
+  {
+    "id": 9,
+    "concept": "SCM",
+    "definition": "공급망 전체를 최적화하는 시스템으로, 기업의 자원과 고객 요구를 통합 관리한다.",
+    "hidden_field": "definition",
+    "correct_value": "공급망 전체를 최적화하는 시스템으로, 기업의 자원과 고객 요구를 통합 관리한다.",
+    "explanation": "SCM은 ERP와 CRM과 상호 작용하여 기업의 경쟁력을 강화한다."
+  },
+  {
+    "id": 10,
+    "concept": "CRM",
+    "definition": "고객 중심의 경영 전략을 통해 고객 데이터를 활용하여 기업의 경쟁력을 강화하는 시스템.",
+    "hidden_field": "definition",
+    "correct_value": "고객 중심의 경영 전략을 통해 고객 데이터를 활용하여 기업의 경쟁력을 강화하는 시스템.",
+    "explanation": "CRM은 고객의 요구를 중심으로 기업의 전략을 조정하여 고객 만족을 극대화한다."
+  }
+]

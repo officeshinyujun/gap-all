@@ -1,0 +1,40 @@
+@import '@/styles/variables.scss';
+
+.tableWrapper {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid $border-primary;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+}
+
+.th {
+  padding: $spacing-8 $spacing-12;
+  background-color: $background-secondary;
+  border: 1px solid $border-primary;
+  font-weight: $semi-bold;
+  color: $text-primary;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.tdLabel {
+  padding: $spacing-8 $spacing-12;
+  border: 1px solid $border-primary;
+  font-weight: $medium;
+  color: $text-primary;
+  background-color: $background-secondary;
+  white-space: nowrap;
+}
+
+.td {
+  padding: $spacing-8 $spacing-12;
+  border: 1px solid $border-primary;
+  color: $text-primary;
+  text-align: center;
+}

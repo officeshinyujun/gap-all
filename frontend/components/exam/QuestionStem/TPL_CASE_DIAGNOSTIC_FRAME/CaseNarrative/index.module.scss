@@ -1,0 +1,21 @@
+@import '@/styles/variables.scss';
+
+.narrative {
+  width: 100%;
+  padding: $spacing-12 $spacing-16;
+  background-color: $background-primary;
+  border: 1px solid $border-primary;
+  border-radius: 0;
+  box-sizing: border-box;
+}
+
+.text {
+  font-size: 13px;
+  font-weight: $regular;
+  color: $text-primary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  line-height: 1.9;
+  margin: 0;
+  word-break: keep-all;
+  text-indent: 1em;
+}

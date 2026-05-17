@@ -1,0 +1,106 @@
+.controlPanel {
+  width: 100%;
+  background: $background-primary;
+  border: 1px solid $border-primary;
+  border-radius: 12px;
+  padding: $spacing-20 $spacing-24;
+}
+
+.select {
+  height: 38px;
+  padding: 0 $spacing-12;
+  border: 1.5px solid $border-primary;
+  border-radius: 8px;
+  background: $background-primary;
+  color: $text-primary;
+  font-size: 14px;
+  font-family: 'Noto Sans KR', sans-serif;
+  cursor: pointer;
+  outline: none;
+  min-width: 160px;
+
+  &:focus { border-color: $brand-primary; }
+}
+
+.button {
+  height: 38px;
+  padding: 0 $spacing-16;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  transition: opacity 0.15s ease;
+  border: 1.5px solid transparent;
+  white-space: nowrap;
+
+  &:disabled { opacity: 0.4; cursor: not-allowed; }
+  &:hover:not(:disabled) { opacity: 0.88; }
+}
+
+.buttonPrimary {
+  background: $brand-primary;
+  color: #ffffff;
+}
+
+.buttonOutline {
+  background: $background-primary;
+  border-color: $border-primary;
+  color: $text-primary;
+
+  &:hover:not(:disabled) {
+    border-color: $brand-primary;
+    color: $brand-primary;
+    opacity: 1;
+  }
+}
+
+.buttonSmall {
+  height: 30px;
+  padding: 0 $spacing-10;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 52px;
+}
+
+.unitGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-10;
+  width: 100%;
+}
+
+.unitCard {
+  padding: $spacing-12 $spacing-14;
+  background: $background-primary;
+  border: 1px solid $border-primary;
+  border-radius: 10px;
+  transition: border-color 0.15s;
+
+  &.unitEmbedded {
+    border-color: $brand-primary;
+    background: rgba(62, 120, 247, 0.04);
+  }
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+.spinnerSmall {
+  width: 14px;
+  height: 14px;
+  border: 2px solid $background-third;
+  border-top-color: $brand-primary;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }

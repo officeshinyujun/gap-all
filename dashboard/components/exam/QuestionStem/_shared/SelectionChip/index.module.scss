@@ -1,0 +1,47 @@
+@import '@/styles/variables.scss';
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1.5px solid $text-strong;
+  background-color: transparent;
+  color: $text-primary;
+  font-size: 13px;
+  font-weight: $medium;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  user-select: none;
+  flex-shrink: 0;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.clickable {
+  cursor: pointer;
+
+  &:hover {
+    background-color: $background-secondary;
+    border-color: $brand-primary;
+    color: $brand-primary;
+  }
+}
+
+.selected {
+  background-color: $brand-secondary;
+  border-color: $brand-primary;
+  color: $brand-primary;
+}
+
+.correct {
+  background-color: $text-correct;
+  border-color: $text-correct;
+  color: $background-primary;
+}
+
+.wrong {
+  background-color: $text-wrong;
+  border-color: $text-wrong;
+  color: $background-primary;
+}

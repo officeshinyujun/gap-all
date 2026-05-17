@@ -1,0 +1,61 @@
+.container {
+    background-color: $background-secondary;
+    height: 100vh;
+    width: 100vw;
+}
+
+.mainContent {
+    flex: 1;
+    background-color: $background-primary;
+    border: 1px solid $border-primary;
+    border-radius: $spacing-16;
+}
+
+.iconCircle {
+    width: 40px;
+    height: 40px;
+    background-color: $background-secondary;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.streakCard {
+    border: 1px solid $border-primary;
+    border-radius: $spacing-16;
+}
+
+.studyCard {
+    border: 1px solid $border-primary;
+    border-radius: $spacing-16;
+}
+
+.reviewCard {
+    background: $background-secondary;
+    border-radius: $spacing-16;
+    border: 1px solid $border-primary;
+}
+
+.reviewButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: $spacing-8;
+    transition: background 0.15s;
+
+    &:hover {
+        background: $background-secondary;
+    }
+}
+
+.conceptTag {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: $spacing-6;
+    background: $background-secondary;
+    color: $text-secondary;
+    font-size: 13px;
+}

@@ -1,0 +1,38 @@
+@import '@/styles/variables.scss';
+
+.step {
+  min-width: 90px;
+  min-height: 72px;
+  padding: $spacing-10 $spacing-12;
+  background-color: $background-primary;
+  border: 1.5px solid $text-strong;
+  border-radius: 0;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.idx {
+  font-size: 11px;
+  font-weight: $semi-bold;
+  color: $text-secondary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  line-height: 1;
+}
+
+.label {
+  font-size: 13px;
+  font-weight: $semi-bold;
+  color: $text-primary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  line-height: 1.4;
+  word-break: keep-all;
+}
+
+.desc {
+  font-size: 11px;
+  font-weight: $regular;
+  color: $text-secondary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  line-height: 1.4;
+  word-break: keep-all;
+}

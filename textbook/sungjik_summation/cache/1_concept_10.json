@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "concept": "일",
+    "definition": "목적 달성을 위한 모든 신체적·정신적 활동을 포괄하는 상위 개념",
+    "hidden_field": "definition",
+    "correct_value": "목적 달성을 위한 모든 신체적·정신적 활동을 포괄하는 상위 개념",
+    "explanation": "직업의 개념적 범위를 규정하는 상위 개념으로서, 직업과의 포함 관계를 설명함."
+  },
+  {
+    "id": 2,
+    "concept": "직업",
+    "definition": "생계 유지, 적성 발현, 보수 획득, 지속성을 갖춘 특정 활동",
+    "hidden_field": "definition",
+    "correct_value": "생계 유지, 적성 발현, 보수 획득, 지속성을 갖춘 특정 활동",
+    "explanation": "직업의 성립 요건을 통해 직업과 일의 차이를 명확히 하며, 직업의 본질적 속성을 제시함."
+  },
+  {
+    "id": 3,
+    "concept": "직업 가치",
+    "definition": "직업 선택의 준거가 되는 가치로, 외재적 가치와 내재적 가치로 구분됨",
+    "hidden_field": "definition",
+    "correct_value": "직업 선택의 준거가 되는 가치로, 외재적 가치와 내재적 가치로 구분됨",
+    "explanation": "직업 선택 시 개인의 가치관이 직무 만족도에 미치는 영향을 설명함."
+  },
+  {
+    "id": 4,
+    "concept": "외재적 가치",
+    "definition": "환경, 보수 등 수단적 가치를 의미하는 직업 가치",
+    "hidden_field": "definition",
+    "correct_value": "환경, 보수 등 수단적 가치를 의미하는 직업 가치",
+    "explanation": "직업 선택 시 외부적 요인이 중요시되는 가치관을 설명함."
+  },
+  {
+    "id": 5,
+    "concept": "내재적 가치",
+    "definition": "성취, 자아실현 등 목적적 가치를 의미하는 직업 가치",
+    "hidden_field": "definition",
+    "correct_value": "성취, 자아실현 등 목적적 가치를 의미하는 직업 가치",
+    "explanation": "직업 선택 시 개인의 내적 만족과 성취가 강조되는 가치관을 설명함."
+  },
+  {
+    "id": 6,
+    "concept": "Maslow의 욕구 위계",
+    "definition": "하위의 생리적 욕구부터 최상위의 자아실현 욕구까지 인간의 욕구를 단계적으로 충족시키는 이론",
+    "hidden_field": "definition",
+    "correct_value": "하위의 생리적 욕구부터 최상위의 자아실현 욕구까지 인간의 욕구를 단계적으로 충족시키는 이론",
+    "explanation": "직업이 인간의 다양한 욕구를 어떻게 충족시키는지를 설명하는 심리학적 이론임."
+  },
+  {
+    "id": 7,
+    "concept": "RIASEC 모델",
+    "definition": "개인의 성격과 직무 성격의 일치성을 도모하는 Holland의 육각형 모형",
+    "hidden_field": "definition",
+    "correct_value": "개인의 성격과 직무 성격의 일치성을 도모하는 Holland의 육각형 모형",
+    "explanation": "직업 선택 시 개인의 성격 유형과 직무의 적합성을 설명하는 도구로 사용됨."
+  },
+  {
+    "id": 8,
+    "concept": "유연근무제",
+    "definition": "재택, 원격, 탄력적·선택적 근로시간제 등 근무 방식의 다양화를 위한 제도",
+    "hidden_field": "definition",
+    "correct_value": "재택, 원격, 탄력적·선택적 근로시간제 등 근무 방식의 다양화를 위한 제도",
+    "explanation": "현대 직업 생활에서 근무 방식의 다양성을 보장하는 법적 제도임."
+  },
+  {
+    "id": 9,
+    "concept": "근로기준법 제51조 및 제52조",
+    "definition": "유연근무제를 법적으로 규율하는 조항",
+    "hidden_field": "definition",
+    "correct_value": "유연근무제를 법적으로 규율하는 조항",
+    "explanation": "근로 시간과 방식의 유연성을 법적으로 보장하는 근거를 제공함."
+  },
+  {
+    "id": 10,
+    "concept": "직업의 4요건",
+    "definition": "계속성, 경제성, 사회성, 윤리성으로 구성된 직업 성립의 필수 조건",
+    "hidden_field": "definition",
+    "correct_value": "계속성, 경제성, 사회성, 윤리성으로 구성된 직업 성립의 필수 조건",
+    "explanation": "직업으로 인정받기 위한 필수적인 조건들을 제시하여 직업의 정의를 명확히 함."
+  }
+]

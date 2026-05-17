@@ -1,0 +1,40 @@
+# Role: 수능 문항 DNA 설계자 (난이도: 극상 / 킬러 문항)
+# Context: 추상적 재정의와 지문 내 예외 로직을 극대화한 '킬러 문항' 설계도를 생성하라.
+
+# [Master UI Library & Schema Reference]
+{{TPL_LIBRARY}}
+
+# [Implementation Rules]
+1. **Target Focus:** `text_payload` 전체 내용 중 `target_concept`에 해당하는 정보만을 정밀 추출하라.
+{{IMPLEMENTATION_RULES}}
+
+# [Blueprint JSON Schema]
+{
+  "metadata": {
+    "unit_name": "{{unit_name 주입}}",
+    "target_concept": "{{target_concept 주입}}",
+    "item_type": "단일/다단원 킬러 (최상)",
+    "recommended_template": "MUST BE ONE OF THE 9 IDs ABOVE"
+  },
+  "source_materials": [
+    { "unit_id": "{{unit_name 주입}}", "text_payload": "{{text_payload 주입}}" }
+  ],
+  "knowledge_extraction": {
+    "core_logic_guide": "예외 조항 및 추상적 핵심 원리 추출 지침",
+    "required_data_nodes": ["예외 상황 플래그 및 관점 전이 데이터 포인트 가이드"]
+  },
+  "item_design_logic": {
+    "distractor_algorithms": [
+      { "type": "partial_truth_trap", "guidance": "미세 예외 조건을 누락 설계 지침" },
+      { "type": "paraphrasing_trap", "guidance": "유의어 치환을 통한 인지 부하 유도 지침" }
+    ]
+  },
+  "render_ready": {
+    "question_stem": "비판적 평가 및 관점 전이형 발문 생성 가이드",
+    "stimulus_data_guide": "선택한 TPL의 특수 필드를 활용한 고차원 데이터 모델링 지시",
+    "options_list_guide": "정밀한 논리 격파를 요구하는 선지 집필 지침"
+  }
+}
+
+# [FINAL COMMAND]
+부연 설명 없이 오직 유효한 JSON 객체(단일 Blueprint)만 출력하라.

@@ -1,0 +1,196 @@
+.pageWrapper {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.groupCard {
+  background: var(--surface-secondary);
+  border-radius: 12px;
+  border: 1px solid var(--border-primary);
+}
+
+.conceptTag {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: var(--surface-tertiary);
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.selfAssessCard {
+  background: var(--surface-secondary);
+  border-radius: 16px;
+  border: 1px solid var(--border-primary);
+  text-align: center;
+}
+
+.conceptMd {
+  background: var(--surface-secondary);
+  border-radius: 12px;
+  border: 1px solid var(--border-primary);
+  overflow-y: auto;
+  max-height: 400px;
+  line-height: 1.7;
+  font-size: 14px;
+  color: var(--text-primary);
+
+  h1, h2, h3, h4 {
+    margin-top: 16px;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+  }
+
+  p {
+    margin-bottom: 8px;
+  }
+
+  ul, ol {
+    padding-left: 20px;
+    margin-bottom: 8px;
+  }
+
+  code {
+    background: var(--surface-tertiary);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 12px;
+
+    th, td {
+      border: 1px solid var(--border-primary);
+      padding: 8px;
+      text-align: left;
+      font-size: 13px;
+    }
+
+    th {
+      background: var(--surface-tertiary);
+    }
+  }
+}
+
+.actionButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: background 0.15s;
+
+  &:hover {
+    background: var(--surface-hover);
+  }
+}
+
+.backButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 6px;
+
+  &:hover {
+    background: var(--surface-hover);
+  }
+}
+
+.correctButton {
+  background: var(--surface-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: 12px;
+  padding: 16px 32px;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+
+  &:hover {
+    background: var(--surface-hover);
+    border-color: var(--color-brand);
+  }
+}
+
+.incorrectButton {
+  background: var(--surface-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: 12px;
+  padding: 16px 32px;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+
+  &:hover {
+    background: var(--surface-hover);
+    border-color: var(--color-error);
+  }
+}
+
+.optionButton {
+  background: var(--surface-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.15s;
+
+  &:hover:not(:disabled) {
+    border-color: var(--color-brand);
+  }
+
+  &:disabled {
+    cursor: default;
+  }
+}
+
+.selectedOption {
+  background: var(--surface-secondary);
+  border: 2px solid var(--color-brand);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.resultCard {
+  background: var(--surface-secondary);
+  border-radius: 12px;
+  border: 1px solid var(--border-primary);
+}
+
+.generateSection {
+  background: var(--surface-secondary);
+  border-radius: 12px;
+  border: 1px dashed var(--border-primary);
+}
+
+.generateButton {
+  background: none;
+  border: 1px solid var(--border-primary);
+  border-radius: 8px;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+
+  &:hover:not(:disabled) {
+    background: var(--surface-hover);
+    border-color: var(--color-brand);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--border-primary);
+  border-top-color: var(--color-brand);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

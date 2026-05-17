@@ -1,0 +1,154 @@
+.page {
+  width: 100%;
+  padding-bottom: $spacing-32;
+}
+
+.controlPanel {
+  width: 100%;
+  background: $background-primary;
+  border: 1px solid $border-primary;
+  border-radius: 12px;
+  padding: $spacing-20 $spacing-24;
+}
+
+.select {
+  height: 38px;
+  padding: 0 $spacing-12;
+  border: 1.5px solid $border-primary;
+  border-radius: 8px;
+  background: $background-primary;
+  color: $text-primary;
+  font-size: 14px;
+  font-family: 'Noto Sans KR', sans-serif;
+  cursor: pointer;
+  outline: none;
+  min-width: 160px;
+
+  &:focus {
+    border-color: $brand-primary;
+  }
+}
+
+.startButton {
+  height: 38px;
+  padding: 0 $spacing-20;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+  white-space: nowrap;
+
+  &:hover:not(:disabled) {
+    opacity: 0.88;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &.level2 {
+    background: $brand-primary;
+  }
+
+  &.level3 {
+    background: $text-strong;
+  }
+
+  &.level4 {
+    background: #7C3AED;
+  }
+}
+
+.progressBarWrap {
+  width: 200px;
+  height: 4px;
+  background: $background-third;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progressBarFill {
+  height: 100%;
+  background: $brand-primary;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: $border-primary;
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid $background-third;
+  border-top-color: $brand-primary;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.modeBadge {
+  font-size: 12px;
+  font-weight: $semi-bold;
+  color: $brand-primary;
+  background-color: $brand-secondary;
+  padding: 2px $spacing-8;
+  border-radius: 4px;
+  font-family: 'Noto Sans KR', sans-serif;
+  white-space: nowrap;
+}
+
+.retryButton {
+  padding: $spacing-10 $spacing-20;
+  background: $background-primary;
+  border: 1.5px solid $border-primary;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+  white-space: nowrap;
+
+  &:hover {
+    border-color: $brand-primary;
+  }
+}
+
+.cacheButton {
+  padding: $spacing-6 $spacing-12;
+  background: $background-secondary;
+  border: 1px solid $border-primary;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+
+  &:hover {
+    border-color: $text-secondary;
+    background: $background-third;
+  }
+
+  &.cacheAll {
+    border-color: $text-wrong;
+    background: rgba(218, 127, 127, 0.08);
+
+    &:hover {
+      background: rgba(218, 127, 127, 0.15);
+    }
+  }
+}
+
+.resultCard {
+  width: 100%;
+  max-width: 480px;
+  background: $background-primary;
+  border: 1px solid $border-primary;
+  border-radius: 16px;
+  padding: $spacing-32 $spacing-24;
+  text-align: center;
+}

@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "concept": "직업적 성공",
+    "definition": "외적 성취와 내적 만족, 사회적 기여가 결합된 상태",
+    "hidden_field": "definition",
+    "correct_value": "외적 성취와 내적 만족, 사회적 기여가 결합된 상태",
+    "explanation": "직업적 성공은 경제적 안정, 자아실현, 사회적 가치 실현이 조화를 이루는 것을 의미함."
+  },
+  {
+    "id": 2,
+    "concept": "자아실현",
+    "definition": "자신의 잠재력을 최대한 발휘하여 만족감을 얻는 상태",
+    "hidden_field": "definition",
+    "correct_value": "자신의 잠재력을 최대한 발휘하여 만족감을 얻는 상태",
+    "explanation": "자아실현은 직업적 성공의 내적 만족을 구성하는 요소로, 개인의 성취감을 강조함."
+  },
+  {
+    "id": 3,
+    "concept": "전문가 정신",
+    "definition": "긍정적 사고와 성실성을 바탕으로 지속적인 자기 개발을 추구하는 태도",
+    "hidden_field": "definition",
+    "correct_value": "긍정적 사고와 성실성을 바탕으로 지속적인 자기 개발을 추구하는 태도",
+    "explanation": "전문가 정신은 성공한 직업인이 갖춰야 할 공통적 역량으로, 직업적 성공에 기여함."
+  },
+  {
+    "id": 4,
+    "concept": "장인 정신",
+    "definition": "자부심과 책임감을 가지고 직업을 가치 있는 행위로 승화시키는 태도",
+    "hidden_field": "definition",
+    "correct_value": "자부심과 책임감을 가지고 직업을 가치 있는 행위로 승화시키는 태도",
+    "explanation": "장인 정신은 단순한 노동을 가치 있는 행위로 변화시키는 핵심 기제로 작용함."
+  },
+  {
+    "id": 5,
+    "concept": "소명 의식",
+    "definition": "직업을 천직으로 여기며 의미를 부여하는 태도",
+    "hidden_field": "definition",
+    "correct_value": "직업을 천직으로 여기며 의미를 부여하는 태도",
+    "explanation": "소명 의식은 직업적 성공을 위한 윤리적 태도로, 직업의 가치를 높임."
+  },
+  {
+    "id": 6,
+    "concept": "자아 정체감",
+    "definition": "일관된 자기 인식을 통해 자신을 이해하는 능력",
+    "hidden_field": "definition",
+    "correct_value": "일관된 자기 인식을 통해 자신을 이해하는 능력",
+    "explanation": "자아 정체감은 자기 이해의 출발점으로, 진로 선택에 중요한 심리적 기초 인자임."
+  },
+  {
+    "id": 7,
+    "concept": "조하리의 창",
+    "definition": "자기 인식과 타인 인식을 통해 진로 결정을 돕는 분석 모델",
+    "hidden_field": "definition",
+    "correct_value": "자기 인식과 타인 인식을 통해 진로 결정을 돕는 분석 모델",
+    "explanation": "조하리의 창은 자기 이해를 돕고, 진로 선택에 있어 객관성을 제공함."
+  },
+  {
+    "id": 8,
+    "concept": "적성",
+    "definition": "미래의 성공 가능성을 예측하는 잠재적 능력",
+    "hidden_field": "definition",
+    "correct_value": "미래의 성공 가능성을 예측하는 잠재적 능력",
+    "explanation": "적성은 직업적 성공 가능성을 예견하는 요소로, 진로 설계에 중요한 역할을 함."
+  },
+  {
+    "id": 9,
+    "concept": "흥미",
+    "definition": "특정 활동에 대한 몰입과 만족을 결정하는 심리적 경향",
+    "hidden_field": "definition",
+    "correct_value": "특정 활동에 대한 몰입과 만족을 결정하는 심리적 경향",
+    "explanation": "흥미는 직업 만족과 깊은 관계가 있으며, 직업적 성취도를 높이는 요소임."
+  },
+  {
+    "id": 10,
+    "concept": "진로 장벽",
+    "definition": "진로 계획 수립 시 부정적 요인으로 작용하는 장애물",
+    "hidden_field": "definition",
+    "correct_value": "진로 계획 수립 시 부정적 요인으로 작용하는 장애물",
+    "explanation": "진로 장벽은 합리적 진로 설계를 방해하는 요소로, 이를 극복하기 위한 자기 인식이 필요함."
+  }
+]

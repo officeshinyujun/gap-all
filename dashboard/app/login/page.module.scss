@@ -1,0 +1,137 @@
+.page {
+  width: 100vw;
+  height: 100vh;
+  background-color: $background-secondary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-24;
+  background-color: $background-primary;
+  border: 1px solid $border-primary;
+  border-radius: $spacing-16;
+  padding: $spacing-32;
+  width: 400px;
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoText {
+  font-size: 20px;
+  font-weight: 700;
+  color: $text-primary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+}
+
+.tabs {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid $border-primary;
+}
+
+.tab {
+  flex: 1;
+  padding: $spacing-10 0;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  font-size: 14px;
+  font-weight: 500;
+  color: $text-secondary;
+  cursor: pointer;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  transition: color 0.15s, border-color 0.15s;
+
+  &:hover {
+    color: $text-primary;
+  }
+}
+
+.tabActive {
+  color: $brand-primary;
+  border-bottom-color: $brand-primary;
+  font-weight: 600;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-16;
+  width: 100%;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-6;
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 500;
+  color: $text-primary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+}
+
+.input {
+  width: 100%;
+  padding: $spacing-10 $spacing-12;
+  border: 1px solid $border-primary;
+  border-radius: $spacing-8;
+  font-size: 14px;
+  color: $text-primary;
+  background-color: $background-primary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.15s;
+
+  &::placeholder {
+    color: $background-fourth;
+  }
+
+  &:focus {
+    border-color: $brand-primary;
+  }
+}
+
+.error {
+  font-size: 13px;
+  color: $text-wrong;
+  margin: 0;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+}
+
+.submitButton {
+  width: 100%;
+  padding: $spacing-12;
+  background-color: $brand-primary;
+  color: $background-primary;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: $spacing-8;
+  cursor: pointer;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  transition: opacity 0.15s;
+  margin-top: $spacing-4;
+
+  &:hover:not(:disabled) {
+    opacity: 0.85;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+}

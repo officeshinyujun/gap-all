@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "concept": "공해",
+    "definition": "매개체를 통한 간접적 피해 경로를 가지며, 인과관계 규명이 어렵고 광범위하게 확산되는 성질을 지닌 환경 오염.",
+    "hidden_field": "definition",
+    "correct_value": "매개체를 통한 간접적 피해 경로를 가지며, 인과관계 규명이 어렵고 광범위하게 확산되는 성질을 지닌 환경 오염.",
+    "explanation": "공해는 국소적 오염이 매체를 통해 확산되며, 피해의 시차성과 복원 곤란성을 내포하여 즉각적인 대응이 어려운 문제로 설명됨."
+  },
+  {
+    "id": 2,
+    "concept": "1차 오염 물질",
+    "definition": "자연적 또는 인위적 배출원에서 직접 배출되는 오염 물질.",
+    "hidden_field": "definition",
+    "correct_value": "자연적 또는 인위적 배출원에서 직접 배출되는 오염 물질.",
+    "explanation": "1차 오염 물질은 대기 오염의 발생원에 따라 직접적으로 배출되는 물질로, 이후 2차 오염 물질의 전구체가 됨."
+  },
+  {
+    "id": 3,
+    "concept": "2차 오염 물질",
+    "definition": "1차 오염 물질과 대기 중의 정상 성분이 태양 에너지에 의해 광화학 반응을 일으켜 생성된 물질.",
+    "hidden_field": "definition",
+    "correct_value": "1차 오염 물질과 대기 중의 정상 성분이 태양 에너지에 의해 광화학 반응을 일으켜 생성된 물질.",
+    "explanation": "2차 오염 물질은 광화학 스모그나 오존 등이 형성되는 기작을 통해 대기 오염의 복합적 화학 작용을 설명함."
+  },
+  {
+    "id": 4,
+    "concept": "산성비",
+    "definition": "pH 5.6 이하의 강우로서, 황산과 질산이 되어 산성화된 비.",
+    "hidden_field": "definition",
+    "correct_value": "pH 5.6 이하의 강우로서, 황산과 질산이 되어 산성화된 비.",
+    "explanation": "산성비는 오염 물질의 습성 침착 기제를 설명하며, 건축물 부식과 토양 산성화를 유발함."
+  },
+  {
+    "id": 5,
+    "concept": "부영양화",
+    "definition": "영양염류의 과다 유입으로 인해 플랑크톤이 급증하고 용존 산소가 고갈되는 현상.",
+    "hidden_field": "definition",
+    "correct_value": "영양염류의 과다 유입으로 인해 플랑크톤이 급증하고 용존 산소가 고갈되는 현상.",
+    "explanation": "부영양화는 수질 오염의 지표로서 생태계 파괴를 초래하는 주요 원인으로 설명됨."
+  },
+  {
+    "id": 6,
+    "concept": "DO (용존산소량)",
+    "definition": "수치가 높을수록 청정함을 나타내는 수질 지표.",
+    "hidden_field": "definition",
+    "correct_value": "수치가 높을수록 청정함을 나타내는 수질 지표.",
+    "explanation": "DO는 수질 오염의 정도를 나타내며, 수치가 높을수록 물이 깨끗함을 의미함."
+  },
+  {
+    "id": 7,
+    "concept": "BOD (생물학적 산소 요구량)",
+    "definition": "미생물에 의해 소모되는 산소량을 의미하며, 수치가 낮을수록 깨끗한 물임.",
+    "hidden_field": "definition",
+    "correct_value": "미생물에 의해 소모되는 산소량을 의미하며, 수치가 낮을수록 깨끗한 물임.",
+    "explanation": "BOD는 수질 오염의 지표로서 유기물 오염도가 낮음을 나타냄."
+  },
+  {
+    "id": 8,
+    "concept": "생물 농축",
+    "definition": "오염 물질이 먹이 사슬을 통해 상위 포식자에게 축적되는 현상.",
+    "hidden_field": "definition",
+    "correct_value": "오염 물질이 먹이 사슬을 통해 상위 포식자에게 축적되는 현상.",
+    "explanation": "생물 농축은 토양 오염의 특수성으로 인해 생태계에 치명적인 영향을 미침."
+  },
+  {
+    "id": 9,
+    "concept": "신재생 에너지",
+    "definition": "CO2 발생이 거의 없는 청정 에너지로, 수소, 태양광, 풍력 등을 포함함.",
+    "hidden_field": "definition",
+    "correct_value": "CO2 발생이 거의 없는 청정 에너지로, 수소, 태양광, 풍력 등을 포함함.",
+    "explanation": "신재생 에너지는 환경 오염 문제의 근본적 해결책으로 제시됨."
+  },
+  {
+    "id": 10,
+    "concept": "광화학 반응",
+    "definition": "태양 에너지에 의해 대기 중 성분이 화학적으로 변환되는 과정.",
+    "hidden_field": "definition",
+    "correct_value": "태양 에너지에 의해 대기 중 성분이 화학적으로 변환되는 과정.",
+    "explanation": "광화학 반응은 2차 오염 물질의 생성 기제로서 대기 오염의 복합성을 설명함."
+  }
+]

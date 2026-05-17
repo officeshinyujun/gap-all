@@ -1,0 +1,211 @@
+@import '@/styles/variables.scss';
+
+.spinner {
+  width: 28px;
+  height: 28px;
+  border: 3px solid $background-third;
+  border-top-color: $brand-primary;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  margin: $spacing-20 auto;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.bodyArea {
+  display: flex;
+  width: 100%;
+}
+
+.leftPanel {
+  flex: 0 0 500px;
+  overflow-y: auto;
+}
+
+.rightPanel {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid $border-primary;
+  border-radius: $spacing-16;
+  padding: $spacing-24;
+}
+
+.searchBar {
+  background-color: $background-secondary;
+  border-radius: $spacing-16;
+  padding: $spacing-16;
+  flex: 1;
+}
+
+.searchInput {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: $text-primary;
+  font-family: inherit;
+  font-size: $spacing-14;
+  width: 100%;
+
+  &::placeholder {
+    color: $text-secondary;
+  }
+
+  /* 숫자 스피너 제거 */
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  &[type=number] {
+    -moz-appearance: textfield;
+  }
+}
+
+.searchIcon {
+  width: $spacing-16;
+  height: $spacing-16;
+  color: $text-secondary;
+}
+
+.searchButton {
+  width: 40px;
+  height: 40px;
+  background-color: $brand-primary;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: $border-primary;
+}
+
+.previewArea {
+  border-radius: $spacing-12;
+  width: 100%;
+  height: 300px;
+  background-color: transparent;
+}
+
+.profileCircle {
+  width: 40px;
+  height: 40px;
+  background-color: $background-third;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.startButton {
+  flex: 1;
+  padding: $spacing-16;
+  background-color: $brand-primary;
+  border: none;
+  border-radius: $spacing-12;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
+
+.outlineButton {
+  background-color: $brand-secondary;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+@media (max-width: 1024px) {
+  .leftPanel {
+    flex: 0 0 380px;
+  }
+
+  .rightPanel {
+    padding: $spacing-16;
+  }
+}
+
+@media (max-width: 768px) {
+  .bodyArea {
+    flex-direction: column;
+  }
+
+  .leftPanel {
+    flex: none;
+    width: 100%;
+  }
+
+  .rightPanel {
+    display: none;
+  }
+}
+
+.mobileOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 200;
+  background-color: $background-primary;
+  padding: 24px;
+  padding-top: 60px;
+  padding-bottom: calc(64px + env(safe-area-inset-bottom));
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  animation: slideInRight 0.25s ease forwards;
+
+  &.closing {
+    animation: slideOutRight 0.25s ease forwards;
+  }
+}
+
+.mobileOverlayClose {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $text-secondary;
+  transition: background-color 0.15s ease;
+  -webkit-appearance: none;
+  appearance: none;
+
+  &:hover {
+    background-color: $background-secondary;
+  }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes slideOutRight {
+  from { transform: translateX(0); }
+  to { transform: translateX(100%); }
+}

@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "concept": "경영",
+    "definition": "모든 조직을 운영하는 기술 및 효율적 자원 배분 과정.",
+    "hidden_field": "definition",
+    "correct_value": "모든 조직을 운영하는 기술 및 효율적 자원 배분 과정.",
+    "explanation": "경영은 조직의 목표를 달성하기 위해 자원을 효율적으로 배분하고 운영하는 기술로, 기업 경영의 핵심 원리이다."
+  },
+  {
+    "id": 2,
+    "concept": "경영 관리 순환",
+    "definition": "계획, 조직, 지휘, 통제의 순환 구조.",
+    "hidden_field": "definition",
+    "correct_value": "계획, 조직, 지휘, 통제의 순환 구조.",
+    "explanation": "경영 관리 순환은 기업의 목표 달성을 위한 기능적 단계로, 각 단계가 유기적으로 연결되어 지속적인 피드백을 통해 경영 활동을 개선한다."
+  },
+  {
+    "id": 3,
+    "concept": "경영 정보 시스템",
+    "definition": "조직 내 자원과 정보를 통합하여 의사결정을 지원하는 체계.",
+    "hidden_field": "definition",
+    "correct_value": "조직 내 자원과 정보를 통합하여 의사결정을 지원하는 체계.",
+    "explanation": "경영 정보 시스템은 기업의 다양한 경영 활동을 통합하여 효율적인 의사결정을 가능하게 하는 기술적 기반이다."
+  },
+  {
+    "id": 4,
+    "concept": "계획",
+    "definition": "기간별 목표와 전략 수립.",
+    "hidden_field": "definition",
+    "correct_value": "기간별 목표와 전략 수립.",
+    "explanation": "계획은 경영 관리 순환의 첫 단계로, 기업의 목표를 설정하고 이를 달성하기 위한 전략을 수립하는 과정이다."
+  },
+  {
+    "id": 5,
+    "concept": "조직",
+    "definition": "권한과 책임을 확정하고 자원을 배분하는 구조화 과정.",
+    "hidden_field": "definition",
+    "correct_value": "권한과 책임을 확정하고 자원을 배분하는 구조화 과정.",
+    "explanation": "조직은 경영 관리 순환의 두 번째 단계로, 기업 내의 업무와 자원을 체계적으로 배치하여 목표 달성을 지원한다."
+  },
+  {
+    "id": 6,
+    "concept": "지휘",
+    "definition": "리더십과 동기 부여를 통한 실행 유도.",
+    "hidden_field": "definition",
+    "correct_value": "리더십과 동기 부여를 통한 실행 유도.",
+    "explanation": "지휘는 경영 관리 순환의 세 번째 단계로, 리더십을 발휘하여 조직 구성원들이 목표를 향해 나아가도록 동기를 부여한다."
+  },
+  {
+    "id": 7,
+    "concept": "통제",
+    "definition": "실적과 계획의 차이를 분석하여 피드백을 제공하는 평가 과정.",
+    "hidden_field": "definition",
+    "correct_value": "실적과 계획의 차이를 분석하여 피드백을 제공하는 평가 과정.",
+    "explanation": "통제는 경영 관리 순환의 마지막 단계로, 계획 대비 실제 성과를 평가하고 필요한 피드백을 제공하여 다음 계획에 반영한다."
+  },
+  {
+    "id": 8,
+    "concept": "인적 자원 관리",
+    "definition": "확보, 개발, 보상, 유지의 체계를 갖춘 관리 과정.",
+    "hidden_field": "definition",
+    "correct_value": "확보, 개발, 보상, 유지의 체계를 갖춘 관리 과정.",
+    "explanation": "인적 자원 관리는 기업의 가장 중요한 자산인 인력을 효율적으로 관리하여 조직의 목표 달성을 지원한다."
+  },
+  {
+    "id": 9,
+    "concept": "생산 관리",
+    "definition": "3S 원칙을 통해 효율성을 극대화하는 공정 관리.",
+    "hidden_field": "definition",
+    "correct_value": "3S 원칙을 통해 효율성을 극대화하는 공정 관리.",
+    "explanation": "생산 관리는 표준화, 전문화, 단순화의 3S 원칙을 통해 제품의 생산 과정을 효율적으로 관리한다."
+  },
+  {
+    "id": 10,
+    "concept": "마케팅",
+    "definition": "STP 전략과 4P 믹스를 통해 고객 욕구를 충족하는 활동.",
+    "hidden_field": "definition",
+    "correct_value": "STP 전략과 4P 믹스를 통해 고객 욕구를 충족하는 활동.",
+    "explanation": "마케팅은 고객의 욕구를 충족시키기 위해 시장을 세분화하고, 목표 시장을 선정하며, 차별화된 이미지를 구축하는 전략을 수립한다."
+  }
+]

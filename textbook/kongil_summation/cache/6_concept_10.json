@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "concept": "표준화",
+    "definition": "생산과 소비의 효율성을 극대화하기 위해 통일·단순화를 도모하는 조직적 규범화 행위",
+    "hidden_field": "definition",
+    "correct_value": "생산과 소비의 효율성을 극대화하기 위해 통일·단순화를 도모하는 조직적 규범화 행위",
+    "explanation": "표준화는 관계자 간 이익과 편리를 위해 기술 규격서를 설정하고 활용하는 행위로, 경제적 효용성을 제공한다."
+  },
+  {
+    "id": 2,
+    "concept": "한국산업표준(KS)",
+    "definition": "제품의 호환성 확보, 품질 보증, 소비자 보호를 수행하는 국가 경쟁력의 핵심 기제",
+    "hidden_field": "definition",
+    "correct_value": "제품의 호환성 확보, 품질 보증, 소비자 보호를 수행하는 국가 경쟁력의 핵심 기제",
+    "explanation": "KS는 국내 표준의 분류 체계로, 제품, 방법, 전달 표준으로 나뉘며 21개 부문으로 고도화되어 있다."
+  },
+  {
+    "id": 3,
+    "concept": "국가 통합 인증(KC)",
+    "definition": "안전·보건·환경 등을 관리하는 법정 강제 인증으로, 여러 부처의 인증 마크를 통합하여 중복 규제를 해소",
+    "hidden_field": "definition",
+    "correct_value": "안전·보건·환경 등을 관리하는 법정 강제 인증으로, 여러 부처의 인증 마크를 통합하여 중복 규제를 해소",
+    "explanation": "KC는 법정 강제 인증으로, 제품 안전과 환경 보호를 목적으로 하며, 인증 마크를 통합하여 규제의 효율성을 높인다."
+  },
+  {
+    "id": 4,
+    "concept": "국제표준화기구(ISO)",
+    "definition": "제2차 세계 대전 이후 설립되어 국제 기술 협력을 공고화하는 국제 표준화 기구",
+    "hidden_field": "definition",
+    "correct_value": "제2차 세계 대전 이후 설립되어 국제 기술 협력을 공고화하는 국제 표준화 기구",
+    "explanation": "ISO는 국제 표준을 통해 무역 장벽을 해소하고 자유 무역을 촉진하는 역할을 한다."
+  },
+  {
+    "id": 5,
+    "concept": "기술 장벽(TBT)",
+    "definition": "각국의 표준·기술 규정을 국제 표준에 맞추도록 의무화하여 무역 장벽을 해소하는 국제법적 도구",
+    "hidden_field": "definition",
+    "correct_value": "각국의 표준·기술 규정을 국제 표준에 맞추도록 의무화하여 무역 장벽을 해소하는 국제법적 도구",
+    "explanation": "TBT 협정은 표준이 무역 장벽을 해소하고 자유 무역을 촉진하는 데 기여한다."
+  },
+  {
+    "id": 6,
+    "concept": "측정 표준",
+    "definition": "물리적 크기를 규정하는 표준의 형태",
+    "hidden_field": "definition",
+    "correct_value": "물리적 크기를 규정하는 표준의 형태",
+    "explanation": "측정 표준은 표준의 분류 중 하나로, 물리적 크기를 규정하여 데이터의 신뢰성을 보장한다."
+  },
+  {
+    "id": 7,
+    "concept": "참조 표준",
+    "definition": "데이터의 신뢰성을 평가한 표준의 형태",
+    "hidden_field": "definition",
+    "correct_value": "데이터의 신뢰성을 평가한 표준의 형태",
+    "explanation": "참조 표준은 데이터의 신뢰성을 평가하여 표준의 신뢰성을 높이는 역할을 한다."
+  },
+  {
+    "id": 8,
+    "concept": "성문 표준",
+    "definition": "문서화된 기술 기준인 표준의 형태",
+    "hidden_field": "definition",
+    "correct_value": "문서화된 기술 기준인 표준의 형태",
+    "explanation": "성문 표준은 문서화된 기술 기준으로, 표준의 명확성과 일관성을 제공한다."
+  },
+  {
+    "id": 9,
+    "concept": "법정 강제 인증",
+    "definition": "제품 안전, 보건, 환경 보호를 위해 반드시 획득해야 하는 인증",
+    "hidden_field": "definition",
+    "correct_value": "제품 안전, 보건, 환경 보호를 위해 반드시 획득해야 하는 인증",
+    "explanation": "법정 강제 인증은 KC와 같이 안전과 환경을 보호하기 위해 필수적으로 요구되는 인증이다."
+  },
+  {
+    "id": 10,
+    "concept": "임의 인증",
+    "definition": "품질과 성능을 보증하는 선택적 인증",
+    "hidden_field": "definition",
+    "correct_value": "품질과 성능을 보증하는 선택적 인증",
+    "explanation": "임의 인증은 KS와 같이 소비자에게 품질과 성능을 보증하기 위해 선택적으로 제공되는 인증이다."
+  }
+]

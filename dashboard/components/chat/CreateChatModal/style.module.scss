@@ -1,0 +1,105 @@
+@import '@/styles/variables.scss';
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba($text-primary, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur($spacing-4);
+}
+
+.modal {
+  background-color: $background-primary;
+  border-radius: $spacing-16;
+  width: 480px;
+  padding: $spacing-32;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-24;
+  box-shadow: 0 $spacing-10 40px rgba(0, 0, 0, 0.1);
+}
+
+.input {
+  width: 100%;
+  padding: $spacing-12 $spacing-16;
+  border-radius: $spacing-8;
+  border: 1px solid $border-primary;
+  background-color: $background-secondary;
+  color: $text-primary;
+  outline: none;
+  font-family: inherit;
+  font-size: $spacing-14;
+  box-sizing: border-box;
+
+  &:focus {
+    border-color: $brand-primary;
+    background-color: $background-primary;
+  }
+}
+
+.select {
+  width: 100%;
+  padding: $spacing-12 $spacing-16;
+  border-radius: $spacing-8;
+  border: 1px solid $border-primary;
+  background-color: $background-secondary;
+  color: $text-primary;
+  outline: none;
+  font-family: inherit;
+  font-size: $spacing-14;
+  cursor: pointer;
+  box-sizing: border-box;
+
+  &:focus {
+    border-color: $brand-primary;
+    background-color: $background-primary;
+  }
+}
+
+.buttonPrimary {
+  padding: $spacing-12 $spacing-24;
+  background-color: $brand-primary;
+  color: $background-primary;
+  border-radius: $spacing-8;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: $spacing-14;
+  font-family: inherit;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.buttonSecondary {
+  padding: $spacing-12 $spacing-24;
+  background-color: $background-third;
+  color: $text-primary;
+  border-radius: $spacing-8;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: $spacing-14;
+  font-family: inherit;
+
+  &:hover {
+    background-color: $background-fourth;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}

@@ -1,0 +1,691 @@
+[
+  {
+    "metadata": {
+      "unit_name": "8단원",
+      "target_concept": "직업 능력의 구분",
+      "item_type": "하",
+      "difficulty": "하"
+    },
+    "render_ready": {
+      "question_stem": "다음은 직업 능력의 유형을 분류한 표이다. (가), (나)에 들어갈 개념으로 옳은 것을 고르시오.",
+      "stimulus_data": {
+        "headers": [
+          { "id": "type", "label": "구분" },
+          { "id": "def", "label": "정의" },
+          { "id": "element", "label": "하위 요소" }
+        ],
+        "rows": [
+          { "id": 1, "cells": ["(가)", "해당 분야에서 특정 직무를 수행하는 데 필요한 역량", "필수/선택/산업 공통 역량"] },
+          { "id": 2, "cells": ["(나)", "직종이나 직위에 상관없이 직업인으로서 누구나 갖추어야 할 기본적 역량", "10개 영역 및 34개 하위 영역"] }
+        ],
+        "selection_chips": ["(가)", "(나)"]
+      },
+      "options_list": [
+        "(가) 직무 수행 능력 - (나) 직업 기초 능력",
+        "(가) 직무 수행 능력 - (나) 필수 직업 능력",
+        "(가) 직업 기초 능력 - (나) 직무 수행 능력",
+        "(가) 산업 공통 직업 능력 - (나) 직무 수행 능력",
+        "(가) 선택 직업 능력 - (나) 직업 기초 능력"
+      ]
+    },
+    "explanation": {
+      "judgment": "본문의 '직무 수행 능력은 개인이 해당 분야에서 특정 직무를 수행하는 데 필요한 능력'과 '직업 기초 능력은 직종이나 직위에 상관없이 누구나 갖추어야 할 공통적인 능력'이라는 정의에 근거하여 (가)는 직무 수행 능력, (나)는 직업 기초 능력이다.",
+      "distractor_1": "[category_confusion] 선택지의 (나)에 '필수 직업 능력'을 배치하여 직무 수행 능력의 하위 요소를 상위 범주와 혼동하게 유도함.",
+      "distractor_2": "[logic_swap] (가)와 (나)의 정의를 반대로 연결하여 개념의 기본 방향성을 오판하게 함.",
+      "distractor_3": "[boundary_error] '산업 공통 직업 능력'은 직무 수행 능력의 하위 범주이므로 독립된 상위 구분이 될 수 없음.",
+      "distractor_4": "[attribute_mismatch] '선택 직업 능력'은 특정 기업 상황에 국한된 것이지 전체 직무 수행을 포괄하는 (가)의 정의에 부합하지 않음."
+    }
+  },
+  {
+    "metadata": {
+      "unit_name": "8단원",
+      "target_concept": "의사소통 능력",
+      "item_type": "중",
+      "difficulty": "중"
+    },
+    "render_ready": {
+      "question_stem": "다음 사내 게시판의 글을 분석할 때, 직원 A에게 가장 필요한 직업 기초 능력을 고르시오.",
+      "stimulus_data": {
+        "doc_type": "사내 게시판 공지",
+        "header_info": { "title": "신제품 출시 보고서 검토 요청", "date": "2026-05-08", "author": "관리자" },
+        "paragraphs": [
+          { "sub_title": "요청 사항", "content": "금일 배포된 신제품 기획안의 핵심 내용을 파악하고, 불필요한 수식어를 제외한 채 3문장 이내로 핵심을 추출하여 팀장에게 전달하십시오." },
+          { "sub_title": "대상자", "content": "영업팀 직원 A" }
+        ],
+        "footnotes": ["* 주의: 문맥의 흐름을 놓치지 말 것"]
+      },
+      "options_list": [
+        "문서 이해 능력",
+        "문서 작성 능력",
+        "의사 표현 능력",
+        "경청 능력",
+        "기초 외국어 능력"
+      ]
+    },
+    "explanation": {
+      "judgment": "지문의 '문서의 핵심 내용을 이해하고 요약할 수 있는 능력'이라는 정의에 따라, 기획안의 핵심을 추출하여 요약하는 활동은 '문서 이해 능력'에 해당한다.",
+      "distractor_1": "[activity_mismatch] 보고서를 전달하는 행위에만 집중하여 '문서 작성 능력'으로 오인하게 유도함.",
+      "distractor_2": "[channel_confusion] 텍스트 매체 분석 상황임에도 불구하고 음성 소통 능력인 '의사 표현 능력'을 제시함.",
+      "distractor_3": "[logic_error] 타인의 말을 주의 깊게 듣는 상황이 아니므로 '경청 능력'은 부적절함.",
+      "distractor_4": "[context_irrelevance] 외국인과의 소통 상황이 아니므로 '기초 외국어 능력'은 성립할 수 없음."
+    }
+  },
+  {
+    "metadata": {
+      "unit_name": "8단원",
+      "target_concept": "문제 해결 능력",
+      "item_type": "상",
+      "difficulty": "상"
+    },
+    "render_ready": {
+      "question_stem": "그림은 업무 중 발생한 문제를 해결하는 절차를 나타낸 것이다. 단계 (가)에 들어갈 적절한 활동을 고르시오.",
+      "stimulus_data": {
+        "orientation": "horizontal",
+        "steps": [
+          { "idx": 1, "label": "문제 인식", "desc": "현재 상황의 문제점을 파악함", "is_missing": false },
+          { "idx": 2, "label": "(가)", "desc": "비어 있음", "is_missing": true },
+          { "idx": 3, "label": "대안 수립", "desc": "최적의 해결책을 모색함", "is_missing": false },
+          { "idx": 4, "label": "실행 및 평가", "desc": "해결책을 적용하고 성과를 확인함", "is_missing": false }
+        ]
+      },
+      "options_list": [
+        "문제의 인과 관계 및 구조를 파악한다.",
+        "창의적 사고를 통해 아이디어를 발산한다.",
+        "수립된 대안을 실제 현장에 적용한다.",
+        "수행 결과를 바탕으로 피드백을 실시한다.",
+        "업무의 우선순위를 고려하여 계획을 세운다."
+      ]
+    },
+    "explanation": {
+      "judgment": "문제 해결 절차 중 문제 인식과 대안 수립 사이의 단계는 '문제 처리 능력'의 핵심인 '문제의 원인을 파악'하는 단계이다. 본문 향상 방법 중 '문제의 인과 관계 및 구조 파악'이 이에 해당한다.",
+      "distractor_1": "[step_confusion] 사고력의 요소인 '창의적 사고'를 해결 프로세스의 특정 분석 단계와 혼용함.",
+      "distractor_2": "[procedural_inversion] 4단계인 '실행' 활동을 2단계인 (가)에 배치하여 논리적 순서를 교란함.",
+      "distractor_3": "[semantic_drift] 결과 보고 및 피드백은 최종 단계의 활동이므로 인과 분석 단계에 올 수 없음.",
+      "distractor_4": "[category_error] '업무 우선순위 파악'은 조직 이해 능력이나 자원 관리 능력의 요소이지 문제 처리의 원인 분석 활동이 아님."
+    }
+  },
+  {
+    "metadata": {
+      "unit_name": "8단원",
+      "target_concept": "자원 관리 능력",
+      "item_type": "상",
+      "difficulty": "상"
+    },
+    "render_ready": {
+      "question_stem": "사례의 프로젝트 매니저가 직면한 상황에서 가장 우선적으로 발휘해야 할 자원 관리 능력을 진단하시오.",
+      "stimulus_data": {
+        "case_profile": { "name": "PM 김 대리", "context": "신규 앱 개발 프로젝트" },
+        "narrative": "김 대리는 이번 프로젝트에서 서버 구축에 필요한 고성능 하드웨어를 구매해야 하지만, 할당된 자본금이 부족하여 장비의 사양을 낮추거나 중고 부품을 활용해야 하는 상황에 처했다.",
+        "check_items": [
+          { "id": 1, "label": "필요한 자본 확인", "is_checked": true },
+          { "id": 2, "label": "지출 계획 수립", "is_checked": true },
+          { "id": 3, "label": "시설물 정돈", "is_checked": false }
+        ]
+      },
+      "options_list": [
+        "자본 자원을 확인하고 활용 계획을 세우는 능력",
+        "재료 및 시설 자원을 확인하고 관리하는 능력",
+        "시간 자원을 분배하고 우선순위를 고려하는 능력",
+        "인적 자원의 특성을 이해하고 배치하는 능력",
+        "국제적 추세를 이해하고 경영 목표를 파악하는 능력"
+      ]
+    },
+    "explanation": {
+      "judgment": "지문의 '예산 관리 능력' 정의인 '업무 수행에 필요한 자본 자원을 확인하고 활용 계획을 세우는 능력'에 부합하는 사례이다.",
+      "distractor_1": "[boundary_overlap] '하드웨어'를 시설/재료로 오인하여 '물적 자원 관리 능력'을 선택하게 유도함. 그러나 본질적으로 자본금(돈) 부족 상황이 핵심임.",
+      "distractor_2": "[attribute_mismatch] 시간의 분배나 마감 기한에 대한 언급이 없으므로 시간 관리 능력은 정답이 될 수 없음.",
+      "distractor_3": "[category_error] 사람을 다루는 상황이 아니므로 인적 자원 관리 능력은 관련 없음.",
+      "distractor_4": "[domain_inconsistency] 자원 배분의 문제가 아닌 외부 환경 파악에 초점을 맞춘 조직 이해 능력을 제시하여 혼동 유도."
+    }
+  },
+  {
+    "metadata": {
+      "unit_name": "8단원",
+      "target_concept": "수리 능력",
+      "item_type": "중",
+      "difficulty": "중"
+    },
+    "render_ready": {
+      "question_stem": "다음 판매 실적 그래프를 보고 팀원이 수행한 활동 중 '도표 분석 능력'에 해당하는 것만을 고르시오.",
+      "stimulus_data": {
+        "chart_type": "line",
+        "axes": [
+          { "key": "month", "label": "월", "max": 12 },
+          { "key": "sales", "label": "판매량", "max": 1000 }
+        ],
+        "datasets": [
+          { "label": "2025년", "values": [100, 200, 150, 400, 600, 550, 800, 950, 700, 600, 500, 450] }
+        ]
+      },
+      "options_list": [
+        "분기별 판매 데이터의 급격한 상승 추세와 그 경향을 해석함",
+        "월별 판매 수치를 표 형식으로 다시 정리함",
+        "수집된 로우 데이터를 바탕으로 새로운 막대 그래프를 생성함",
+        "판매금액의 총합과 평균을 사칙연산으로 계산함",
+        "상대방이 이해하기 쉽도록 색상을 사용하여 시각화함"
+      ]
+    },
+    "explanation": {
+      "judgment": "본문에서 '도표 분석 능력'은 '데이터의 측정, 분석, 추세, 경향 등 도표의 의미를 해석하는 능력'으로 정의된다. 따라서 추세와 경향 해석이 정답이다.",
+      "distractor_1": "[logic_swap] 데이터를 표로 정리하는 것은 도표 작성의 기초 단계이지 분석이 아님.",
+      "distractor_2": "[activity_mismatch] 그래프를 새로 만드는 것은 '도표 작성 능력'에 해당함.",
+      "distractor_3": "[category_confusion] 평균 계산은 '기초 연산'이나 '기초 통계 능력'의 범주임.",
+      "distractor_4": "[attribute_mismatch] 시각적 가독성을 높이는 작업은 도표 작성 능력의 활용 측면임."
+    }
+  },
+  {
+    "metadata": {
+      "unit_name": "8단원",
+      "target_concept": "조직 이해 능력",
+      "item_type": "상",
+      "difficulty": "상"
+    },
+    "render_ready": {
+      "question_stem": "다음은 신입 사원 교육 장면이다. 강사의 설명에 대해 학생들이 질문한 내용 중 적절하지 않은 것을 고르시오.",
+      "stimulus_data": {
+        "instructor": { "id": "T1", "text": "우리 회사의 올해 핵심 목표는 친환경 기술 시장 점유율 1위 달성입니다. 이를 위해 팀별로 유기적인 협조 체계를 구축해야 합니다." },
+        "canvas_content": { "type": "key_map", "data": "경영 목표 <-> 조직 체제 <-> 개별 과업" },
+        "students": [
+          { "id": "S1", "text": "회사의 전략을 이해하는 것은 경영 이해 능력에 해당하나요?" },
+          { "id": "S2", "text": "부서 간의 위계와 소속 관계를 파악하는 것은 조직 체제 이해 능력인가요?" },
+          { "id": "S3", "text": "제가 맡은 세부 작업의 절차를 익히는 것은 업무 이해 능력인가요?" },
+          { "id": "S4", "text": "해외 시장의 친환경 인증 규제 동향을 살피는 것은 국제 감각인가요?" }
+        ]
+      },
+      "options_list": [
+        "S1: 경영 목표 달성을 위한 구체적인 인력 배치표를 짜는 것은 업무 이해 능력입니다.",
+        "S2: 조직 문화와 생활 양식을 공유하는 것은 조직 체제 이해 능력에 포함됩니다.",
+        "S3: 자신의 업무 특성을 파악하는 활동은 업무 이해 능력의 하위 요소입니다.",
+        "S4: 업무와 관련된 국제적인 추세를 파악하는 것은 국제 감각의 향상 방법입니다.",
+        "S5: 경영 전략의 의미와 과정을 이해하는 것은 경영 이해 능력에 속합니다."
+      ]
+    },
+    "explanation": {
+      "judgment": "본문의 향상 방법 중 '인력을 적재적소에 배치'하는 것은 '자원 관리 능력(인적)'에 해당하며, 경영 목표 달성을 위한 인력 배치는 업무 이해 능력의 정의(절차 이해, 우선순위 파악)와 일치하지 않는다.",
+      "distractor_1": "[fact_confirmation] 지문의 '조직 문화의 의미 이해 및 생활 양식 공유'는 조직 체제 이해 능력의 향상 방법으로 명시됨.",
+      "distractor_2": "[definition_match] 자신의 업무 특성 파악은 업무 이해 능력의 정확한 정의임.",
+      "distractor_3": "[definition_match] 국제 동향 파악은 국제 감각의 핵심 요소임.",
+      "distractor_4": "[definition_match] 경영 전략 이해는 경영 이해 능력의 핵심 내용임."
+    }
+  },
+  {
+    "metadata": {
+      "unit_name": "8단원",
+      "target_concept": "대인 관계 능력",
+      "item_type": "중",
+      "difficulty": "중"
+    },
+    "render_ready": {
+      "question_stem": "다음 대화에서 나타난 사원 B의 대처 방식으로 보아, 가장 부족하다고 판단되는 대인 관계 능력을 고르시오.",
+      "stimulus_data": {
+        "participants": [
+          { "id": "A", "name": "사원 A", "role": "기획자" },
+          { "id": "B", "name": "사원 B", "role": "개발자" }
+        ],
+        "messages": [
+          { "p_id": "A", "text": "이번 기능 구현 방식에 대해 제 의견은 이렇습니다. 하지만 사원 B님의 방식과 충돌이 있네요.", "timestamp": "14:00" },
+          { "p_id": "B", "text": "제 방식이 무조건 옳습니다. 상대방의 입장은 고려할 필요 없으니 제 뜻대로 진행하겠습니다.", "timestamp": "14:05" }
+        ]
+      },
+      "options_list": [
+        "갈등 관리 능력",
+        "팀워크 능력",
+        "리더십 능력",
+        "고객 서비스 능력",
+        "기초 외국어 능력"
+      ]
+    },
+    "explanation": {
+      "judgment": "사원 B는 '상대방의 입장을 이해하고 존중하는 태도'가 결여되어 있으며, 의견 대립 상황에서 해결 방법을 모색하지 않고 있으므로 '갈등 관리 능력'이 가장 부족하다.",
+      "distractor_1": "[keyword_trap] 협동하는 모습이 없으므로 '팀워크'를 생각할 수 있으나, '의견 대립 및 충돌'이라는 구체적 상황 해결에는 갈등 관리가 더 직접적인 상위 개념임.",
+      "distractor_2": "[role_confusion] 타인을 이끄는 비전 제시와 관련된 상황이 아니므로 리더십과는 거리가 있음.",
+      "distractor_3": "[context_irrelevance] 내부 팀원 간의 문제이므로 외부 '고객 서비스'와는 무관함.",
+      "distractor_4": "[logic_error] 언어적 장벽의 문제가 아니므로 외국어 능력은 고려 대상이 아님."
+    }
+  },
+  {
+    "metadata": {
+      "unit_name": "8단원",
+      "target_concept": "정보 능력",
+      "item_type": "중",
+      "difficulty": "중"
+    },
+    "render_ready": {
+      "question_stem": "다음은 IT 부서 게시판의 질의응답이다. (가)에 들어갈 '정보 처리 능력' 향상 방법으로 가장 적절한 것은?",
+      "stimulus_data": {
+        "forum_name": "업무 효율화 포럼",
+        "main_post": { "author": "김 사원", "title": "데이터 관리의 어려움", "content": "단순히 엑셀에 데이터를 입력하는 것만으로는 업무에 활용하기가 너무 힘듭니다. 어떻게 해야 할까요?" },
+        "comments": [
+          { "author": "이 대리", "text": "단순한 소프트웨어 조작법인 '컴퓨터 활용 능력'을 넘어 (가) 활동이 필요합니다." }
+        ]
+      },
+      "options_list": [
+        "정보를 체계적으로 분석, 가공, 관리하고 적시에 활용한다.",
+        "문서 작성 소프트웨어의 최신 단축키를 익혀 작업 속도를 높인다.",
+        "컴퓨터 하드웨어의 부품 구조를 이해하고 수리 방법을 배운다.",
+        "인터넷에서 필요한 자료를 단순히 검색하여 저장하는 습관을 들인다.",
+        "데이터베이스에 암호를 설정하여 보안을 강화하는 것에 집중한다."
+      ]
+    },
+    "explanation": {
+      "judgment": "본문에서 '정보 처리 능력'은 '정보를 체계적으로 분석, 가공, 관리하고 효과적으로 적시에 활용하는 능력'으로 정의된다.",
+      "distractor_1": "[tool_limitation] 단순 조작 속도는 '컴퓨터 활용 능력'의 일면이지 분석/가공의 정보 처리 능력이 아님.",
+      "distractor_2": "[domain_error] 하드웨어 수리는 기술 능력의 범주에 가까우며 정보 처리의 본질과 다름.",
+      "distractor_3": "[shallow_processing] 수집과 저장은 처리의 전 단계일 뿐, 의미 있는 정보를 찾아 조직화하는 과정이 누락됨.",
+      "distractor_4": "[attribute_narrowing] 보안은 관리의 일부일 뿐, 전체적인 정보 처리 역량을 대표하기엔 부족함."
+    }
+  },
+  {
+    "metadata": {
+      "unit_name": "8단원",
+      "target_concept": "자기 개발 능력",
+      "item_type": "하",
+      "difficulty": "하"
+    },
+    "render_ready": {
+      "question_stem": "다음은 사내 '자기 개발의 날' 포스터이다. 빈칸 (가)에 들어갈 슬로건으로 적절한 것은?",
+      "stimulus_data": {
+        "slogan": "어제보다 성장한 나를 만드는 세 가지 약속",
+        "bullets": [
+          "1. 나의 적성과 흥미를 꾸준히 성찰하기 (자아 인식)",
+          "2. 긍정적 사고와 인내심으로 목표 실행하기 (자기 관리)",
+          "3. (가)"
+        ],
+        "visual_elements": ["성장하는 계단", "나침반", "시계"],
+        "missing_part": "(가)"
+      },
+      "options_list": [
+        "미래의 직위나 위치를 설정하고 지속적으로 관리하기",
+        "타인의 의견을 무조건 수용하여 원만한 관계 유지하기",
+        "사칙연산 방법을 정확히 익혀 업무 오차 줄이기",
+        "최신 기술 매뉴얼을 파악하여 적절한 도구 선택하기",
+        "회사의 조직 문화를 무조건적으로 수용하고 공유하기"
+      ]
+    },
+    "explanation": {
+      "judgment": "자기 개발 능력의 세 하위 영역은 자아 인식, 자기 관리, 경력 개발이다. (가)는 경력 개발에 해당하며, 본문에 따르면 이는 '경력 목표를 설정하고 관리 및 개발하는 활동'이다.",
+      "distractor_1": "[category_confusion] 대인 관계 능력의 요소를 자기 개발 슬로건으로 배치함.",
+      "distractor_2": "[category_confusion] 수리 능력의 요소를 배치하여 범주 혼동 유도.",
+      "distractor_3": "[category_confusion] 기술 능력의 요소를 배치함.",
+      "distractor_4": "[category_confusion] 조직 이해 능력의 요소를 배치함."
+    }
+  },
+  {
+    "metadata": {
+      "unit_name": "8단원",
+      "target_concept": "직업 윤리",
+      "item_type": "중",
+      "difficulty": "중"
+    },
+    "render_ready": {
+      "question_stem": "다음 윤리 강령의 항목 중 '공동체 윤리'에 해당하는 내용만을 <보기>에서 있는 대로 고른 것은?",
+      "stimulus_data": {
+        "doc_type": "행동 강령",
+        "header_info": { "title": "XX기업 임직원 준수 사항", "date": "2026-05-08", "author": "윤리위원회" },
+        "paragraphs": [
+          { "sub_title": "<보 기>", "content": "ㄱ. 업무 시간을 준수하고 맡은 일에 성실히 임한다. \nㄴ. 동료와 협력하며 고객의 가치를 최우선으로 여긴다. \nㄷ. 사회적 규칙을 준수하고 봉사하는 태도를 갖춘다. \nㄹ. 자신의 직무를 소중히 여기며 정직하게 행동한다." }
+        ],
+        "footnotes": ["* 위 사항 위반 시 징계 절차에 따름"]
+      },
+      "options_list": [
+        "ㄴ, ㄷ",
+        "ㄱ, ㄴ",
+        "ㄱ, ㄹ",
+        "ㄷ, ㄹ",
+        "ㄱ, ㄴ, ㄷ"
+      ]
+    },
+    "explanation": {
+      "judgment": "본문에 따르면 '근로 윤리'는 근면, 성실, 정직, 시간 준수(ㄱ, ㄹ)를 강조하고, '공동체 윤리'는 봉사, 규칙 준수, 고객 가치, 인간 존중(ㄴ, ㄷ)을 강조한다.",
+      "distractor_1": "[category_mismatch] ㄱ과 ㄴ을 묶어 근로 윤리와 공동체 윤리를 혼합함.",
+      "distractor_2": "[category_mismatch] ㄱ과 ㄹ은 전형적인 개인적 차원의 근로 윤리임.",
+      "distractor_3": "[category_mismatch] ㄷ은 맞으나 ㄹ이 근로 윤리이므로 오답임.",
+      "distractor_4": "[boundary_error] 공동체 윤리의 범위를 너무 넓게 잡아 근로 윤리 항목(ㄱ)까지 포함시킴."
+    }
+  },
+  {
+    "metadata": {
+      "unit_name": "8단원",
+      "target_concept": "기술 능력",
+      "item_type": "상",
+      "difficulty": "상"
+    },
+    "render_ready": {
+      "question_stem": "사례의 기술 도입 과정에서 (가) 단계에 해당하는 직업 기초 능력의 세부 활동으로 가장 적절한 것은?",
+      "stimulus_data": {
+        "case_profile": { "name": "생산팀 박 과장", "context": "스마트 팩토리 공정 도입" },
+        "narrative": "박 과장은 자동화 설비의 작동 원리를 충분히 학습(기술 이해)한 후, 우리 공장에 가장 적합한 모델을 결정하기 위해 '제품 매뉴얼'을 꼼꼼히 비교 분석하는 (가) 단계를 거치고 있다.",
+        "check_items": [
+          { "id": "step1", "label": "원리 파악", "is_checked": true },
+          { "id": "step2", "label": "도구 결정", "is_checked": false },
+          { "id": "step3", "label": "현장 적용", "is_checked": false }
+        ]
+      },
+      "options_list": [
+        "매뉴얼을 잘 파악하여 효과적인 기술을 선택한다.",
+        "미래 사회에 유용한 기술을 미리 예측한다.",
+        "다양한 상황을 고려하여 기술을 실제 적용하고 결과를 확인한다.",
+        "컴퓨터 소프트웨어를 활용하여 데이터를 관리한다.",
+        "부족한 예산을 확인하고 활용 계획을 수립한다."
+      ]
+    },
+    "explanation": {
+      "judgment": "(가)는 기술 이해와 기술 적용 사이의 '기술 선택 능력' 단계이다. 본문 향상 방법에서 기술 선택 능력은 '매뉴얼을 잘 파악하여 효과적인 기술을 선택하는 태도'로 정의된다.",
+      "distractor_1": "[procedural_inversion] 이미 수행한 단계인 기술 이해 능력의 향상 방법을 제시함.",
+      "distractor_2": "[step_confusion] 다음 단계인 기술 적용 능력의 세부 활동을 배치함.",
+      "distractor_3": "[domain_inconsistency] 정보 능력의 요소를 배치하여 오판 유도.",
+      "distractor_4": "[domain_inconsistency] 자원 관리 능력의 요소를 배치함."
+    }
+  },
+  {
+    "metadata": {
+      "unit_name": "8단원",
+      "target_concept": "직업 기초 능력의 필요성",
+      "item_type": "중",
+      "difficulty": "중"
+    },
+    "render_ready": {
+      "question_stem": "다음은 '직업 생활과 자기 계발' 수업 장면이다. 교사의 설명 내용으로 옳은 것을 고르시오.",
+      "stimulus_data": {
+        "instructor": { "id": "TEA", "text": "직업 기초 능력을 왜 길러야 할까요? 칠판의 키워드를 보고 함께 생각해 봅시다." },
+        "canvas_content": { "type": "mind_map", "data": "직업 기초 능력의 필요성: 유연한 적응, 효율적 직무 수행, 능력 개발의 용이성, 경쟁력 입증" },
+        "students": [
+          { "id": "ST1", "text": "이 능력이 있으면 이직 기간을 줄일 수 있나요?" }
+        ]
+      },
+      "options_list": [
+        "직업 기초 능력을 통해 이직과 전직의 기간을 단축할 수 있다.",
+        "직업 기초 능력은 특정 분야의 전문 기술을 즉각 완성해 준다.",
+        "직업 기초 능력은 학교 교육에서만 필요한 능력이다.",
+        "한 번 갖춘 직업 기초 능력은 미래 환경 변화와 상관없이 유지된다.",
+        "직업 기초 능력은 직무 수행 능력과는 완전히 독립되어 작용한다."
+      ]
+    },
+    "explanation": {
+      "judgment": "본문의 필요성 항목 중 '자신의 경쟁력으로 직업 기초 능력을 보여 줄 수 있다면 이직과 전직의 기간도 짧아지고'라는 대목을 근거로 한다.",
+      "distractor_1": "[causal_exaggeration] 기초 능력이 전문 기술을 '즉각 완성'한다는 표현은 인과 관계의 비약임.",
+      "distractor_2": "[boundary_error] 학교뿐만 아니라 산업 현장 전체에서 요구되는 능력임.",
+      "distractor_3": "[context_error] 미래 환경 변화에 유연하게 적응하기 위해 지속적으로 향상시켜야 하는 능력임.",
+      "distractor_4": "[relationship_misunderstanding] 직업 기초 능력은 직무 수행 능력과 함께 직업 능력을 형성하는 상호 보완적 관계임."
+    }
+  },
+  {
+    "metadata": {
+      "unit_name": "8단원",
+      "target_concept": "NCS의 개념",
+      "item_type": "하",
+      "difficulty": "하"
+    },
+    "render_ready": {
+      "question_stem": "다음 검색 결과 화면에서 설명하고 있는 제도로 옳은 것은?",
+      "stimulus_data": {
+        "forum_name": "취업 백과 사전",
+        "main_post": { "author": "지식인", "title": "이 제도가 무엇인가요?", "content": "산업 현장에서 직무를 수행하기 위해 요구되는 지식, 기술, 태도 등의 내용을 국가가 체계화한 표준을 말합니다." },
+        "comments": [
+          { "author": "전문가", "text": "10개의 영역과 34개의 하위 영역으로 구성되어 있죠." }
+        ]
+      },
+      "options_list": [
+        "국가직무능력표준(NCS)",
+        "국제 표준화 기구(ISO)",
+        "직무수행능력평가(K-Test)",
+        "산업공통기술기준",
+        "직업기초교육과정"
+      ]
+    },
+    "explanation": {
+      "judgment": "본문의 정의인 '산업 현장에서 직무를 수행하기 위해 요구되는 지식, 기술, 태도 등의 내용을 국가가 체계화한 것'은 국가직무능력표준(NCS)에 대한 정확한 설명이다.",
+      "distractor_1": "[subject_confusion] 국가가 아닌 국제 기구에서 만든 표준(ISO)으로 혼동 유도.",
+      "distractor_2": "[term_invention] 실재하지 않거나 범주가 다른 용어를 사용하여 명칭 혼동 유도.",
+      "distractor_3": "[category_narrowing] NCS의 일부 속성(산업 공통)만을 강조한 오답.",
+      "distractor_4": "[concept_drift] 교육 과정이라는 표현을 써서 표준 체계라는 본질을 흐림."
+    }
+  },
+  {
+    "metadata": {
+      "unit_name": "8단원",
+      "target_concept": "직업 능력의 종류 향상 방법",
+      "item_type": "상",
+      "difficulty": "상"
+    },
+    "render_ready": {
+      "question_stem": "표는 직업 기초 능력의 영역과 그 향상 방법을 정리한 것이다. (가)~(다)에 대한 설명으로 옳은 것은?",
+      "stimulus_data": {
+        "headers": [
+          { "id": "area", "label": "영역" },
+          { "id": "sub", "label": "하위 영역" },
+          { "id": "method", "label": "향상 방법" }
+        ],
+        "rows": [
+          { "id": 1, "cells": ["의사소통", "문서 이해", "(가)"] },
+          { "id": 2, "cells": ["수리", "도표 작성", "(나)"] },
+          { "id": 3, "cells": ["정보", "정보 처리", "(다)"] }
+        ],
+        "selection_chips": ["(가)", "(나)", "(다)"]
+      },
+      "options_list": [
+        "(나)는 엑셀 등 다양한 도구를 활용하여 도표를 작성하는 활동이다.",
+        "(가)는 상대방의 이야기를 주의 깊게 듣고 요약하는 것이다.",
+        "(다)는 컴퓨터 하드웨어 부품을 교체하는 기술적 태도이다.",
+        "(가)는 논리적이고 설득력 있게 자신의 의사를 표현하는 방법이다.",
+        "(나)는 평균, 분산, 표준편차와 같은 통계 개념을 이해하는 것이다."
+      ]
+    },
+    "explanation": {
+      "judgment": "본문의 향상 방법 표에 따르면 (나)도표 작성 능력은 '엑셀 등 다양한 도구를 활용하여 목적과 용도에 맞는 도표를 작성함'으로 명시되어 있다.",
+      "distractor_1": "[sub_category_confusion] (가)는 문서 이해 능력이므로 경청 능력의 방법인 '듣기'는 오답임.",
+      "distractor_2": "[domain_inconsistency] 정보 처리 능력(다)은 분석/가공/관리이지 하드웨어 수리가 아님.",
+      "distractor_3": "[sub_category_confusion] (가)는 문서 이해이지 의사 표현 능력이 아님.",
+      "distractor_4": "[sub_category_confusion] 통계 개념 이해는 기초 통계 능력의 향상 방법임."
+    }
+  },
+  {
+    "metadata": {
+      "unit_name": "8단원",
+      "target_concept": "기초 능력군의 이해",
+      "item_type": "중",
+      "difficulty": "중"
+    },
+    "render_ready": {
+      "question_stem": "다음 대화에서 두 학생이 공통적으로 이야기하고 있는 '능력군'에 대한 설명으로 옳은 것은?",
+      "stimulus_data": {
+        "participants": [
+          { "id": "A", "name": "학생 A", "role": "발표자" },
+          { "id": "B", "name": "학생 B", "role": "발표자" }
+        ],
+        "messages": [
+          { "p_id": "A", "text": "업무를 잘 하려면 상대방의 글을 읽고 이해하는 능력이 기본이 되어야 해.", "timestamp": "10:00" },
+          { "p_id": "B", "text": "맞아, 그리고 사칙연산이나 통계 자료를 업무에 적용하는 능력도 필수적인 역량이지.", "timestamp": "10:01" }
+        ]
+      },
+      "options_list": [
+        "직무 수행에 필요한 가장 기본적인 역량으로 구성된다.",
+        "전공 분야의 고도화된 전문 지식만을 의미한다.",
+        "조직의 체제와 경영 목표를 이해하는 능력이 포함된다.",
+        "컴퓨터를 활용하여 데이터를 조직하고 관리하는 능력이다.",
+        "직업 윤리와 자기 개발 능력을 포함하는 범주이다."
+      ]
+    },
+    "explanation": {
+      "judgment": "학생 A는 의사소통 능력, 학생 B는 수리 능력을 말하고 있다. 본문에서 이 두 능력은 '기초 능력군'으로 분류되며 '직무에 필요한 기본 역량'으로 정의된다.",
+      "distractor_1": "[concept_clash] 기초 능력군은 특정 전공의 고도 지식이 아닌 공통적 기본 역량임.",
+      "distractor_2": "[category_confusion] 조직 체제 이해는 '업무 처리 능력군'에 속함.",
+      "distractor_3": "[category_confusion] 정보 능력에 대한 설명으로 '업무 처리 능력군'에 속함.",
+      "distractor_4": "[category_confusion] 직장 적응 능력군에 대한 설명임."
+    }
+  },
+  {
+    "metadata": {
+      "unit_name": "8단원",
+      "target_concept": "업무 처리 능력군의 구성",
+      "item_type": "극상",
+      "difficulty": "극상"
+    },
+    "render_ready": {
+      "question_stem": "사례의 A 대리가 업무상 발생한 위기를 극복하기 위해 취한 조치와 매칭되는 직업 기초 능력이 올바르게 연결되지 않은 것은?",
+      "stimulus_data": {
+        "case_profile": { "name": "A 대리", "context": "해외 시장 진출 프로젝트" },
+        "narrative": "A 대리는 먼저 전년도 수출 데이터를 분석하여 유의미한 정보를 추출(①)하고, 해당 국가의 수입 규제 동향을 파악(②)했습니다. 이후 한정된 예산 안에서 마케팅 비용을 배분(③)하였으며, 예상치 못한 물류 지연 문제가 발생하자 원인을 분석하여 대안을 수립(④)했습니다. 마지막으로 신규 물류 관리 소프트웨어의 매뉴얼을 익혀 현장에 도입(⑤)했습니다.",
+        "check_items": [
+          { "id": "chk1", "label": "정보/조직/자원/문제/기술 능력 발휘됨", "is_checked": true }
+        ]
+      },
+      "options_list": [
+        "② - 자원 관리 능력: 인적 자원의 특성을 이해함",
+        "① - 정보 능력: 정보를 수집 및 분석하여 유의미한 정보를 찾음",
+        "③ - 자원 관리 능력: 자본 자원을 확인하고 활용 계획을 세움",
+        "④ - 문제 해결 능력: 문제의 원인을 파악하고 대안을 제시함",
+        "⑤ - 기술 능력: 기술의 원리를 이해하고 적절한 기술을 선택 및 적용함"
+      ]
+    },
+    "explanation": {
+      "judgment": "②는 '해외 시장의 동향 파악'이므로 '조직 이해 능력(국제 감각)'에 해당한다. 선지의 '자원 관리 능력(인적)'은 인력 배치와 관련된 것이므로 매칭이 틀렸다.",
+      "distractor_1": "[fact_confirmation] ① 데이터 분석은 정보 능력의 정보 처리 능력에 해당함.",
+      "distractor_2": "[fact_confirmation] ③ 예산 배분은 자원 관리 능력의 예산 관리 능력에 해당함.",
+      "distractor_3": "[fact_confirmation] ④ 원인 분석 및 대안 수립은 문제 해결 능력의 문제 처리 능력에 해당함.",
+      "distractor_4": "[fact_confirmation] ⑤ 매뉴얼 파악 후 도입은 기술 능력의 이해/선택/적용 프로세스에 부합함."
+    }
+  },
+  {
+    "metadata": {
+      "unit_name": "8단원",
+      "target_concept": "직장 적응 능력군의 핵심",
+      "item_type": "중",
+      "difficulty": "중"
+    },
+    "render_ready": {
+      "question_stem": "다음 인재상 포스터에서 강조하는 '직장 적응 능력군'의 구성 요소에 해당하지 않는 것은?",
+      "stimulus_data": {
+        "slogan": "우리가 찾는 미래의 인재",
+        "bullets": [
+          "동료와 소통하고 갈등을 조절하는 협력가",
+          "자신을 성찰하고 꾸준히 성장하는 전문가",
+          "정직과 책임을 바탕으로 규칙을 준수하는 윤리인"
+        ],
+        "visual_elements": ["악수하는 손", "씨앗과 새싹", "저울"],
+        "missing_part": "핵심 역량군: 직장 적응 능력군"
+      },
+      "options_list": [
+        "기술 능력",
+        "대인 관계 능력",
+        "자기 개발 능력",
+        "직업 윤리",
+        "갈등 관리 능력"
+      ]
+    },
+    "explanation": {
+      "judgment": "본문에서 '직장 적응 능력군'은 대인 관계 능력, 자기 개발 능력, 직업 윤리로 구성된다. '기술 능력'은 업무 처리 능력군에 속한다.",
+      "distractor_1": "[fact_confirmation] 대인 관계 능력은 적응 능력군의 핵심 요소임.",
+      "distractor_2": "[fact_confirmation] 자기 개발 능력은 적응 능력군의 핵심 요소임.",
+      "distractor_3": "[fact_confirmation] 직업 윤리는 적응 능력군의 핵심 요소임.",
+      "distractor_4": "[hierarchy_confusion] 갈등 관리 능력은 대인 관계 능력의 하위 영역이므로 적응 능력군에 포함되는 개념임."
+    }
+  },
+  {
+    "metadata": {
+      "unit_name": "8단원",
+      "target_concept": "이직과 전직의 구분",
+      "item_type": "하",
+      "difficulty": "하"
+    },
+    "render_ready": {
+      "question_stem": "다음 상황 카드에 나타난 고용 변동의 유형으로 옳은 것은?",
+      "stimulus_data": {
+        "headers": [
+          { "id": "current", "label": "현재 상태" },
+          { "id": "after", "label": "이동 후 상태" }
+        ],
+        "rows": [
+          { "id": "case1", "cells": ["A 자동차 회사 정비사", "B 가전 제품 회사 정비사"] },
+          { "id": "case2", "cells": ["C 건설 회사 사무직", "D 요리 학원 요리사"] }
+        ],
+        "selection_chips": ["case1", "case2"]
+      },
+      "options_list": [
+        "case1: 이직 / case2: 전직",
+        "case1: 전직 / case2: 이직",
+        "case1: 승진 / case2: 퇴직",
+        "case1: 이직 / case2: 승진",
+        "case1: 퇴직 / case2: 이직"
+      ]
+    },
+    "explanation": {
+      "judgment": "본문 정의에 따르면 '이직은 직장을 옮기는 것'이고, '전직은 직업이나 직무를 바꾸어 옮기는 것'이다. case1은 동일 직무(정비사)에서 직장만 옮겼으므로 이직, case2는 직무(사무직->요리사) 자체가 바뀌었으므로 전직이다.",
+      "distractor_1": "[logic_swap] 두 개념의 정의를 반대로 적용한 오답임.",
+      "distractor_2": "[semantic_mismatch] 승진이나 퇴직은 해당 이동 상황의 본질적 정의와 무관함.",
+      "distractor_3": "[attribute_mismatch] case2를 승진으로 보는 것은 논리적 비약임.",
+      "distractor_4": "[category_error] 퇴직은 직장을 그만두는 행위 자체이지 이동의 유형을 설명하기엔 부족함."
+    }
+  },
+  {
+    "metadata": {
+      "unit_name": "8단원",
+      "target_concept": "의사소통 능력의 하위 영역",
+      "item_type": "중",
+      "difficulty": "중"
+    },
+    "render_ready": {
+      "question_stem": "다음 회의 장면에서 직원 C가 보여준 의사소통 방식으로 가장 적절한 것은?",
+      "stimulus_data": {
+        "participants": [
+          { "id": "P1", "name": "팀장", "role": "진행" },
+          { "id": "P2", "name": "직원 C", "role": "참석자" }
+        ],
+        "messages": [
+          { "p_id": "P1", "text": "이번 프로젝트의 가장 큰 걸림돌은 일정 부족과 예산 삭감입니다. 이 두 가지를 해결해야 합니다.", "timestamp": "11:00" },
+          { "p_id": "P2", "text": "팀장님 말씀은 결국 자원 확보가 안 되면 마감 기한을 맞추기 어렵다는 의미이시군요. 저도 그 부분에 깊이 공감합니다.", "timestamp": "11:02" }
+        ]
+      },
+      "options_list": [
+        "상대방의 말을 주의 깊게 듣고 요약을 통해 공감하고 있다.",
+        "상황에 맞는 문서를 효과적으로 작성하여 보고하고 있다.",
+        "비언어적 수단만을 사용하여 자신의 감정을 표현하고 있다.",
+        "국제 통용어를 사용하여 외국인과 원활하게 소통하고 있다.",
+        "창의적이고 비판적인 사고를 통해 대안을 제시하고 있다."
+      ]
+    },
+    "explanation": {
+      "judgment": "직원 C는 팀장의 말을 '자원 확보... 어렵다는 의미'로 요약하고 '공감합니다'라고 표현했으므로 본문의 '경청 능력' 정의에 완벽히 부합한다.",
+      "distractor_1": "[channel_mismatch] 구두 대화 상황이므로 문서 작성 능력과는 관련이 없음.",
+      "distractor_2": "[attribute_mismatch] '말'이라는 언어적 수단을 사용했으므로 비언어적 수단'만' 사용했다는 설명은 틀림.",
+      "distractor_3": "[context_irrelevance] 외국어 사용 상황이 아님.",
+      "distractor_4": "[category_confusion] 이는 문제 해결 능력의 사고력에 대한 설명으로, 현재의 소통 방식과는 범주가 다름."
+    }
+  },
+  {
+    "metadata": {
+      "unit_name": "8단원",
+      "target_concept": "자원 관리 능력의 실제 적용",
+      "item_type": "극상",
+      "difficulty": "극상"
+    },
+    "render_ready": {
+      "question_stem": "다음 프로젝트 자원 배분 계획표를 분석하여 팀장이 고려한 관리 원칙으로 가장 적절한 것을 고르시오.",
+      "stimulus_data": {
+        "chart_type": "bar",
+        "axes": [
+          { "key": "task", "label": "과업", "max": 5 },
+          { "key": "priority", "label": "우선순위(점)", "max": 10 }
+        ],
+        "datasets": [
+          { "label": "긴급도", "values": [9, 4, 2, 8, 5] },
+          { "label": "시간 할당량(%)", "values": [40, 10, 5, 35, 10] }
+        ]
+      },
+      "options_list": [
+        "시간 자원을 효과적으로 분배하고 우선순위를 고려하여 계획을 수립하였다.",
+        "사용 물품과 보관 물품을 구별하여 정리하는 것에 집중하였다.",
+        "인적 자원의 특성을 무시하고 동일한 인원수를 모든 과업에 배치하였다.",
+        "예산이 남는 상황이므로 무조건 비싼 장비를 도입하는 계획을 세웠다.",
+        "과업의 긴급도와 상관없이 모든 단계에 동일한 시간을 배분하였다."
+      ]
+    },
+    "explanation": {
+      "judgment": "그래프에서 긴급도(우선순위)가 높은 과업 1과 과업 4에 가장 많은 시간 할당량(40%, 35%)을 배분한 것으로 보아, 본문의 '시간 관리 능력' 향상 방법인 '시간 자원을 효과적으로 분배하고 우선순위를 고려하여 계획을 수립'한 사례이다.",
+      "distractor_1": "[domain_mismatch] 물적 자원 관리(정리/보관)에 대한 설명으로 그래프의 시간 배분과는 무관함.",
+      "distractor_2": "[logic_error] 인적 자원 배치는 그래프 데이터(시간)로 확인할 수 없으며, 효율적 배치가 원칙임.",
+      "distractor_3": "[causal_exaggeration] 예산 관리 원칙(효과적 수립)에 어긋나는 방만 경영 사례임.",
+      "distractor_4": "[data_contradiction] 그래프 수치상 과업별로 시간이 다르게 배분되어 있으므로 데이터 해석 오류임."
+    }
+  }
+]

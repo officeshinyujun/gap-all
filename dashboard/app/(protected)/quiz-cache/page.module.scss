@@ -1,0 +1,162 @@
+.page {
+  width: 100%;
+  padding-bottom: $spacing-32;
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid $background-third;
+  border-top-color: $brand-primary;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.subjectTab {
+  padding: $spacing-8 $spacing-16;
+  border-radius: $spacing-8;
+  border: none;
+  cursor: pointer;
+  background: $background-secondary;
+  transition: background 0.15s;
+
+  &:hover {
+    background: $background-third;
+  }
+}
+
+.subjectTabActive {
+  background: $brand-primary;
+
+  &:hover {
+    background: $brand-primary;
+  }
+}
+
+.actionButton {
+  padding: $spacing-8 $spacing-16;
+  border-radius: $spacing-8;
+  border: 1px solid $border-primary;
+  background: none;
+  cursor: pointer;
+  transition: background 0.15s;
+
+  &:hover:not(:disabled) {
+    background: $background-third;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.dangerButton {
+  padding: $spacing-8 $spacing-16;
+  border-radius: $spacing-8;
+  border: 1px solid $text-wrong;
+  background: none;
+  cursor: pointer;
+  transition: background 0.15s;
+
+  &:hover:not(:disabled) {
+    background: rgba(218, 127, 127, 0.08);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.progressSection {
+  padding: $spacing-12 $spacing-16;
+  background: $background-secondary;
+  border-radius: $spacing-8;
+  border: 1px solid $border-primary;
+}
+
+.progressBar {
+  width: 100%;
+  height: 8px;
+  background: $background-third;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: $brand-primary;
+  transition: width 0.3s;
+}
+
+.gridContainer {
+  border: 1px solid $border-primary;
+  border-radius: $spacing-8;
+  overflow: hidden;
+}
+
+.gridHeader {
+  padding: $spacing-8 $spacing-12;
+  border-bottom: 2px solid $border-primary;
+  background: $background-secondary;
+}
+
+.gridRow {
+  padding: $spacing-8 $spacing-12;
+  border-bottom: 1px solid $border-primary;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
+    background: $background-secondary;
+  }
+}
+
+.cellEmpty {
+  display: inline-block;
+  width: 80px;
+  text-align: center;
+  color: $text-secondary;
+  font-size: 13px;
+}
+
+.cellFilled {
+  display: inline-block;
+  width: 80px;
+  text-align: center;
+  color: $text-correct;
+  font-size: 13px;
+}
+
+.selectAll {
+  cursor: pointer;
+}
+
+.deleteButton {
+  width: 60px;
+  padding: $spacing-4 $spacing-8;
+  border-radius: 6px;
+  border: 1px solid $text-wrong;
+  background: none;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.15s;
+
+  &:hover:not(:disabled) {
+    background: rgba(218, 127, 127, 0.08);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}

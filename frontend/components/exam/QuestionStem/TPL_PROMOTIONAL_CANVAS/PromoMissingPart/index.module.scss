@@ -1,0 +1,18 @@
+@import '@/styles/variables.scss';
+
+.missingBox {
+  width: 100%;
+  padding: $spacing-12 $spacing-16;
+  background-color: $background-secondary;
+  border: 1.5px dashed $brand-primary;
+  border-radius: 0;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.questionMark {
+  font-size: 18px;
+  font-weight: $bold;
+  color: $brand-primary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+}

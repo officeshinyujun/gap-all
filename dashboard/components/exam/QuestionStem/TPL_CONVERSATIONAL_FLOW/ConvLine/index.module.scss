@@ -1,0 +1,32 @@
+@import '@/styles/variables.scss';
+
+.line {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  line-height: 1.9;
+  font-size: 13px;
+}
+
+.name {
+  font-weight: $semi-bold;
+  color: $text-primary;
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-width: 48px;
+}
+
+.colon {
+  font-weight: $semi-bold;
+  color: $text-primary;
+  flex-shrink: 0;
+  margin-right: $spacing-4;
+}
+
+.text {
+  font-weight: $regular;
+  color: $text-primary;
+  word-break: keep-all;
+  flex: 1;
+}

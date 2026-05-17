@@ -1,0 +1,92 @@
+@import '@/styles/variables.scss';
+
+.progressBar {
+  flex: 1;
+  height: 4px;
+  background: $background-third;
+  border-radius: 2px;
+  margin-left: $spacing-12;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: $brand-primary;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.hintCard {
+  width: 100%;
+  background: $brand-secondary;
+  border: 1px solid $brand-primary;
+  border-radius: 12px;
+  padding: $spacing-20 $spacing-24;
+}
+
+.answerCard {
+  width: 100%;
+  background: $background-primary;
+  border: 1.5px dashed $border-primary;
+  border-radius: 12px;
+  padding: $spacing-20 $spacing-24;
+  transition: border-color 0.2s ease, background 0.2s ease;
+
+  &.revealed {
+    border-style: solid;
+    border-color: $brand-primary;
+    background: $background-secondary;
+  }
+}
+
+.blankArea {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+}
+
+.explanationBox {
+  width: 100%;
+  background: $background-secondary;
+  border-radius: 8px;
+  padding: $spacing-12 $spacing-16;
+  border-left: 3px solid $brand-primary;
+}
+
+.revealButton {
+  width: 100%;
+  padding: $spacing-14 0;
+  background: $brand-primary;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+
+  &:hover {
+    opacity: 0.88;
+  }
+}
+
+.judgeButton {
+  flex: 1;
+  padding: $spacing-12 0;
+  border-radius: 10px;
+  border: 1.5px solid;
+  cursor: pointer;
+  background: $background-primary;
+  transition: opacity 0.15s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &.correct {
+    border-color: $text-correct;
+    background: rgba(137, 218, 127, 0.1);
+  }
+
+  &.wrong {
+    border-color: $text-wrong;
+    background: rgba(218, 127, 127, 0.1);
+  }
+}

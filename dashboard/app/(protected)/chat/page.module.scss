@@ -1,0 +1,126 @@
+@import '@/styles/variables.scss';
+
+.container {
+  height: 100%;
+  overflow: hidden;
+}
+
+// ── 세션 사이드바 ──────────────────────────────────────────
+.sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  border-right: 1px solid $border-primary;
+  overflow: hidden;
+}
+
+.sidebarHeader {
+  padding: $spacing-16 $spacing-16;
+  border-bottom: 1px solid $border-primary;
+  flex-shrink: 0;
+}
+
+.newButton {
+  width: 28px;
+  height: 28px;
+  border-radius: $spacing-8;
+  background-color: $brand-primary;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.sessionList {
+  flex: 1;
+  overflow-y: auto;
+  padding: $spacing-8;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-4;
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-6;
+  padding: $spacing-24;
+  text-align: center;
+}
+
+.sessionItem {
+  padding: $spacing-10 $spacing-12;
+  border-radius: $spacing-8;
+  cursor: pointer;
+  transition: background-color 0.15s;
+
+  &:hover {
+    background-color: $background-secondary;
+  }
+
+  &.active {
+    background-color: $brand-secondary;
+  }
+}
+
+.deleteButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: $spacing-4;
+  border-radius: $spacing-4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  opacity: 0;
+
+  .sessionItem:hover & {
+    opacity: 1;
+  }
+
+  &:hover {
+    background-color: $background-third;
+  }
+}
+
+// ── 채팅 영역 ──────────────────────────────────────────────
+.chatArea {
+  flex: 1;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.emptyChat {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.startButton {
+  display: flex;
+  align-items: center;
+  gap: $spacing-6;
+  padding: $spacing-10 $spacing-20;
+  background-color: $brand-primary;
+  color: $background-primary;
+  border: none;
+  border-radius: $spacing-8;
+  cursor: pointer;
+  font-size: $spacing-14;
+  font-weight: 600;
+  font-family: inherit;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}

@@ -1,0 +1,190 @@
+@import '@/styles/variables.scss';
+
+.page {
+  padding: $spacing-24;
+  box-sizing: border-box;
+}
+
+.userList {
+  width: 380px;
+  flex-shrink: 0;
+}
+
+.detailPanel {
+  flex: 1;
+  min-width: 0;
+}
+
+.tableWrapper {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid $border-primary;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+}
+
+.th {
+  padding: $spacing-8 $spacing-12;
+  background-color: $background-secondary;
+  border-bottom: 1px solid $border-primary;
+  font-weight: $semi-bold;
+  color: $text-secondary;
+  text-align: left;
+  white-space: nowrap;
+  font-size: 11px;
+}
+
+.td {
+  padding: $spacing-8 $spacing-12;
+  border-bottom: 1px solid $border-primary;
+  color: $text-primary;
+  font-size: 12px;
+  vertical-align: middle;
+}
+
+.tdMeta {
+  padding: $spacing-8 $spacing-12;
+  border-bottom: 1px solid $border-primary;
+  color: $text-secondary;
+  font-size: 11px;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.row {
+  cursor: pointer;
+  transition: background-color 0.1s;
+  &:hover { background-color: $background-secondary; }
+}
+
+.rowActive {
+  background-color: $brand-secondary;
+  &:hover { background-color: $brand-secondary; }
+}
+
+.userName {
+  font-size: 13px;
+  font-weight: $medium;
+  color: $text-primary;
+}
+
+.userEmail {
+  font-size: 11px;
+  color: $text-secondary;
+}
+
+.progressBadge {
+  font-size: 12px;
+  font-weight: $semi-bold;
+  color: $brand-primary;
+}
+
+.complete {
+  color: $text-correct;
+  font-weight: $semi-bold;
+}
+
+.inProgress {
+  color: $brand-primary;
+}
+
+.resetBtn {
+  padding: $spacing-4 $spacing-8;
+  font-size: 11px;
+  font-weight: $semi-bold;
+  font-family: 'Noto Sans KR', sans-serif;
+  color: $text-wrong;
+  border: 1px solid $text-wrong;
+  background: transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s;
+  &:hover:not(:disabled) { background: rgba(218, 127, 127, 0.1); }
+  &:disabled { opacity: 0.3; cursor: not-allowed; }
+}
+
+.errorBox {
+  padding: $spacing-10 $spacing-12;
+  background-color: $background-secondary;
+  border: 1px solid $border-primary;
+  border-left: 3px solid $text-wrong;
+}
+
+.refreshBtn {
+  padding: $spacing-8 $spacing-16;
+  font-size: 12px;
+  font-weight: $medium;
+  font-family: 'Noto Sans KR', sans-serif;
+  color: $brand-primary;
+  background-color: $background-primary;
+  border: 1px solid $brand-primary;
+  cursor: pointer;
+  &:hover { background-color: $brand-secondary; }
+}
+
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 2px solid $background-third;
+  border-top-color: $brand-primary;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.confirmOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.confirmModal {
+  background: $background-primary;
+  border: 1px solid $border-primary;
+  border-radius: 12px;
+  padding: $spacing-24;
+  width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-16;
+}
+
+.confirmButtons {
+  display: flex;
+  gap: $spacing-8;
+  justify-content: flex-end;
+}
+
+.btnCancel {
+  padding: $spacing-8 $spacing-16;
+  font-size: 13px;
+  font-family: 'Noto Sans KR', sans-serif;
+  background: $background-secondary;
+  border: 1px solid $border-primary;
+  border-radius: 6px;
+  cursor: pointer;
+  &:hover { background: $background-third; }
+}
+
+.btnConfirmReset {
+  padding: $spacing-8 $spacing-16;
+  font-size: 13px;
+  font-family: 'Noto Sans KR', sans-serif;
+  background: $text-wrong;
+  color: $background-primary;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  &:hover { opacity: 0.88; }
+  &:disabled { opacity: 0.4; cursor: not-allowed; }
+}

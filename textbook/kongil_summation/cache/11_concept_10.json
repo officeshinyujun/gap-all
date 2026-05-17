@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "concept": "5M",
+    "definition": "제조 현장에서 인력, 설비, 재료, 방법, 측정을 포함하는 생산 요소.",
+    "hidden_field": "definition",
+    "correct_value": "제조 현장에서 인력, 설비, 재료, 방법, 측정을 포함하는 생산 요소.",
+    "explanation": "5M은 제조 현장 관리의 기초 요소로, 생산의 효율성을 높이기 위해 중점적으로 관리해야 하는 대상이다."
+  },
+  {
+    "id": 2,
+    "concept": "QCD",
+    "definition": "제조 현장에서 품질, 원가, 납기를 의미하는 생산의 3대 목표.",
+    "hidden_field": "definition",
+    "correct_value": "제조 현장에서 품질, 원가, 납기를 의미하는 생산의 3대 목표.",
+    "explanation": "QCD는 제조 현장의 운영 목표로, 각 요소를 최적화하여 경쟁력을 확보하는 데 필수적이다."
+  },
+  {
+    "id": 3,
+    "concept": "과학적 관리법",
+    "definition": "테일러의 과업 설정 및 시간·동작 연구 기반의 능률 향상 기법.",
+    "hidden_field": "definition",
+    "correct_value": "테일러의 과업 설정 및 시간·동작 연구 기반의 능률 향상 기법.",
+    "explanation": "과학적 관리법은 작업 효율성을 극대화하기 위한 정량적 방법론으로, 현대의 표준 작업 설정에 영향을 미쳤다."
+  },
+  {
+    "id": 4,
+    "concept": "TQM",
+    "definition": "전 구성원의 참여로 고객 만족을 극대화하는 경영 전략.",
+    "hidden_field": "definition",
+    "correct_value": "전 구성원의 참여로 고객 만족을 극대화하는 경영 전략.",
+    "explanation": "TQM은 품질 관리를 경영 전략으로 확장하여, 고객 만족을 목표로 하는 총체적 경영 체계로 발전시켰다."
+  },
+  {
+    "id": 5,
+    "concept": "공정 관리",
+    "definition": "절차, 공수, 일정 계획을 세우고 작업 배정, 여력 관리, 진도 관리를 수행하는 기능.",
+    "hidden_field": "definition",
+    "correct_value": "절차, 공수, 일정 계획을 세우고 작업 배정, 여력 관리, 진도 관리를 수행하는 기능.",
+    "explanation": "공정 관리는 원자재가 완제품이 되는 과정을 통제하여 생산의 흐름을 최적화한다."
+  },
+  {
+    "id": 6,
+    "concept": "설비 관리",
+    "definition": "설비의 생애 주기 전 단계를 관리하여 기능을 극대화하는 활동.",
+    "hidden_field": "definition",
+    "correct_value": "설비의 생애 주기 전 단계를 관리하여 기능을 극대화하는 활동.",
+    "explanation": "설비 관리는 예방 보전과 예지 보전을 통해 설비의 수명을 연장하고 안전사고를 예방한다."
+  },
+  {
+    "id": 7,
+    "concept": "QC",
+    "definition": "초기 단계의 생산 현장 단순 품질 검사 중심의 관리.",
+    "hidden_field": "definition",
+    "correct_value": "초기 단계의 생산 현장 단순 품질 검사 중심의 관리.",
+    "explanation": "QC는 품질 관리의 기초 단계로, 생산 현장에서의 품질 검사에 중점을 두었다."
+  },
+  {
+    "id": 8,
+    "concept": "SQC",
+    "definition": "통계적 기법을 도입하여 샘플링과 관리도를 통한 과학적 품질 관리.",
+    "hidden_field": "definition",
+    "correct_value": "통계적 기법을 도입하여 샘플링과 관리도를 통한 과학적 품질 관리.",
+    "explanation": "SQC는 품질 관리를 과학화하여, 통계적 분석을 통해 품질 수준을 향상시켰다."
+  },
+  {
+    "id": 9,
+    "concept": "TQC",
+    "definition": "전사적 관리로 제조와 비제조 부문의 유기적 협력을 강조하는 품질 관리.",
+    "hidden_field": "definition",
+    "correct_value": "전사적 관리로 제조와 비제조 부문의 유기적 협력을 강조하는 품질 관리.",
+    "explanation": "TQC는 품질 관리의 범위를 확장하여, 조직 전체의 협력을 통해 품질을 관리한다."
+  },
+  {
+    "id": 10,
+    "concept": "데밍 사이클",
+    "definition": "Plan-Do-Check-Action의 순환 과정을 통해 지속적인 개선을 추구하는 품질 관리 방법.",
+    "hidden_field": "definition",
+    "correct_value": "Plan-Do-Check-Action의 순환 과정을 통해 지속적인 개선을 추구하는 품질 관리 방법.",
+    "explanation": "데밍 사이클은 품질 관리에서 지속적인 개선을 위한 체계적 접근을 제공한다."
+  }
+]

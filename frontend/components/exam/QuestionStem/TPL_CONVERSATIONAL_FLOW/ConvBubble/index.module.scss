@@ -1,0 +1,96 @@
+@import '@/styles/variables.scss';
+
+.bubble {
+  position: relative;
+  max-width: 72%;
+  padding: $spacing-10 $spacing-14;
+  border-radius: 12px;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+}
+
+.text {
+  font-size: 13px;
+  line-height: 1.7;
+  margin: 0;
+  word-break: keep-all;
+}
+
+// 방향
+.left {
+  align-self: flex-start;
+  border-top-left-radius: 2px;
+}
+
+.right {
+  align-self: flex-end;
+  border-top-right-radius: 2px;
+}
+
+// 말풍선 꼬리
+.tail {
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 0;
+}
+
+.tail_left {
+  left: -7px;
+  border-top: 8px solid transparent;
+  border-right: 8px solid transparent;
+}
+
+.tail_right {
+  right: -7px;
+  border-top: 8px solid transparent;
+  border-left: 8px solid transparent;
+}
+
+// 색상 테마
+.color0 {
+  background-color: $brand-secondary;
+  color: $text-primary;
+
+  .tail_left {
+    border-right-color: $brand-secondary;
+  }
+  .tail_right {
+    border-left-color: $brand-secondary;
+  }
+}
+
+.color1 {
+  background-color: $background-third;
+  color: $text-primary;
+
+  .tail_left {
+    border-right-color: $background-third;
+  }
+  .tail_right {
+    border-left-color: $background-third;
+  }
+}
+
+.color2 {
+  background-color: $background-fourth;
+  color: $text-primary;
+
+  .tail_left {
+    border-right-color: $background-fourth;
+  }
+  .tail_right {
+    border-left-color: $background-fourth;
+  }
+}
+
+.color3 {
+  background-color: $background-secondary;
+  color: $text-primary;
+
+  .tail_left {
+    border-right-color: $background-secondary;
+  }
+  .tail_right {
+    border-left-color: $background-secondary;
+  }
+}

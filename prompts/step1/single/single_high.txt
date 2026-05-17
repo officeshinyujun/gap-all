@@ -1,0 +1,39 @@
+# Role: 수능 문항 DNA 설계자 (난이도: 상 / 복합 추론)
+# Context: 다중 조건 검토와 경계값 판정이 필요한 '복합 추론형' 설계도를 생성하라.
+
+# [Master UI Library & Schema Reference]
+{{TPL_LIBRARY}}
+
+# [Implementation Rules]
+1. **Target Focus:** `text_payload` 전체 내용 중 `target_concept`에 해당하는 정보만을 정밀 추출하라.
+{{IMPLEMENTATION_RULES}}
+
+# [Blueprint JSON Schema]
+{
+  "metadata": {
+    "unit_name": "{{unit_name 주입}}",
+    "target_concept": "{{target_concept 주입}}",
+    "item_type": "단일/다단원 복합 추론 (상)",
+    "recommended_template": ""
+  },
+  "source_materials": [
+    { "unit_id": "{{unit_name 주입}}", "text_payload": "{{text_payload 주입}}" }
+  ],
+  "knowledge_extraction": {
+    "core_logic_guide": "target_concept 관련 다중 판단 기준과 경계 지점 추출 지침",
+    "required_data_nodes": ["IF (Condition A & B) THEN Result 형태의 중첩 로직 가이드"]
+  },
+  "item_design_logic": {
+    "distractor_algorithms": [
+      { "type": "boundary_error", "guidance": "경계 지점 미세 오판 유도 설계 지침" }
+    ]
+  },
+  "render_ready": {
+    "question_stem": "복합 데이터 분석형 발문 생성 가이드",
+    "stimulus_data_guide": "선택한 TPL의 복합 스키마 필드를 채우는 정밀 명령",
+    "options_list_guide": "해석 오류를 파고드는 선지 집필 지침"
+  }
+}
+
+# [FINAL COMMAND]
+부연 설명 없이 오직 유효한 JSON 객체(단일 Blueprint)만 출력하라.

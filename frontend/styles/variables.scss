@@ -1,0 +1,38 @@
+// Font Weights
+$light: 300;
+$regular: 400;
+$medium: 500;
+$semi-bold: 600;
+$bold: 700;
+
+// Text Colors (CSS Variables for theme support)
+$text-primary: var(--text-primary);
+$text-strong: var(--text-strong);
+$text-secondary: var(--text-secondary);
+$text-correct: var(--text-correct);
+$text-wrong: var(--text-wrong);
+
+// Background Colors
+$background-primary: var(--background-primary);
+$background-secondary: var(--background-secondary);
+$background-third: var(--background-third);
+$background-fourth: var(--background-fourth);
+
+// Brand Colors
+$brand-primary: var(--brand-primary);
+$brand-secondary: var(--brand-secondary);
+
+// Border Colors
+$border-primary: var(--border-primary);
+
+// Spacing
+$spacing-4: 4px;
+$spacing-6: 6px;
+$spacing-8: 8px;
+$spacing-10: 10px;
+$spacing-12: 12px;
+$spacing-14: 14px;
+$spacing-16: 16px;
+$spacing-20: 20px;
+$spacing-24: 24px;
+$spacing-32: 32px;

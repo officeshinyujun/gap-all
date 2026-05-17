@@ -1,0 +1,260 @@
+@import '@/styles/variables.scss';
+
+.container {
+  width: 700px;
+  max-width: 100%;
+  height: 100%;
+  background: $background-primary;
+  border: 1px solid $border-primary;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: $spacing-10;
+  padding: $spacing-14 $spacing-16;
+  border-bottom: 1px solid $border-primary;
+  flex-shrink: 0;
+}
+
+.backButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: $background-secondary;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  transition: background 0.15s;
+  &:hover { background: $background-third; }
+}
+
+.headerTitle {
+  flex: 1;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: $text-primary;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.headerCount {
+  font-size: 12px;
+  font-weight: 500;
+  color: $text-secondary;
+  background: $background-secondary;
+  padding: 2px $spacing-8;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.cardArea {
+  flex: 1;
+  overflow-y: auto;
+  padding: $spacing-20;
+  display: flex;
+  flex-direction: column;
+  &::-webkit-scrollbar { width: 4px; }
+  &::-webkit-scrollbar-thumb { background: $border-primary; border-radius: 2px; }
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-12;
+  flex: 1;
+  min-height: 200px;
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid $background-third;
+  border-top-color: $brand-primary;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.loadingText {
+  font-size: 13px;
+  color: $text-secondary;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.errorText {
+  font-size: 14px;
+  color: $text-wrong;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.retryButton {
+  padding: $spacing-8 $spacing-20;
+  background: $background-primary;
+  border: 1.5px solid $border-primary;
+  border-radius: 8px;
+  cursor: pointer;
+  &:hover { border-color: $brand-primary; }
+}
+
+.questionWrap { width: 100%; }
+
+.resultArea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-height: 200px;
+}
+
+.resultCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-8;
+  padding: $spacing-32 $spacing-24;
+  background: $background-primary;
+  border: 1px solid $border-primary;
+  border-radius: 16px;
+  width: 100%;
+  text-align: center;
+}
+
+.resultEmoji { font-size: 40px; line-height: 1; }
+.resultLabel {
+  font-size: 16px;
+  font-weight: 700;
+  color: $text-primary;
+  font-family: 'Noto Sans KR', sans-serif;
+  margin: 0;
+}
+.resultScore {
+  font-size: 48px;
+  font-weight: 700;
+  color: $brand-primary;
+  font-family: 'Noto Sans KR', sans-serif;
+  margin: 0;
+  line-height: 1.2;
+}
+.resultSub {
+  font-size: 13px;
+  color: $text-secondary;
+  font-family: 'Noto Sans KR', sans-serif;
+  margin: 0;
+}
+
+.footer {
+  padding: $spacing-12 $spacing-20;
+  border-top: 1px solid $border-primary;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-10;
+}
+
+.optionButtons {
+  display: flex;
+  gap: $spacing-8;
+  justify-content: center;
+}
+
+.optionButton {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid $border-primary;
+  background: $background-primary;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: $text-secondary;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  &:hover { border-color: $brand-primary; color: $brand-primary; }
+}
+
+.optionSelected {
+  background: $brand-primary;
+  border-color: $brand-primary;
+  color: #ffffff;
+}
+
+.footerButtons { display: flex; gap: $spacing-8; }
+
+.footerButton {
+  flex: 1;
+  width: 100%;
+  padding: $spacing-12 0;
+  border: 1.5px solid $border-primary;
+  border-radius: 10px;
+  background: $background-primary;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: $text-primary;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  &:hover:not(:disabled) { border-color: $brand-primary; color: $brand-primary; }
+  &:disabled { opacity: 0.4; cursor: not-allowed; }
+}
+
+.footerButtonPrimary {
+  background: $brand-primary;
+  border-color: $brand-primary;
+  color: #ffffff;
+  &:hover:not(:disabled) { opacity: 0.88; color: #ffffff; }
+}
+
+.footerButtonNext {
+  background: $text-strong;
+  border-color: $text-strong;
+  color: #ffffff;
+  &:hover:not(:disabled) { opacity: 0.88; color: #ffffff; }
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    height: auto;
+    min-height: 100%;
+  }
+
+  .header {
+    padding: $spacing-12 $spacing-14;
+  }
+
+  .cardArea {
+    padding: $spacing-14;
+  }
+
+  .footer {
+    padding: $spacing-10 $spacing-14;
+  }
+
+  .optionButtons {
+    flex-wrap: wrap;
+  }
+
+  .optionButton {
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,64 @@
+@import '@/styles/variables.scss';
+
+.wrapper {
+  width: 100%;
+}
+
+.avatarCol {
+  flex-shrink: 0;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  background-color: $background-secondary;
+  border: 1.5px solid $text-strong;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatarInitial {
+  font-size: 14px;
+  font-weight: $bold;
+  color: $text-primary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+}
+
+.label {
+  font-size: 11px;
+  font-weight: $semi-bold;
+  color: $text-primary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.bubble {
+  position: relative;
+  background-color: $background-primary;
+  border: 1.5px solid $text-strong;
+  padding: $spacing-10 $spacing-14;
+  max-width: 75%;
+}
+
+.tail {
+  position: absolute;
+  top: 10px;
+  right: -8px;
+  width: 0;
+  height: 0;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 8px solid $text-strong;
+}
+
+.text {
+  font-size: 13px;
+  font-weight: $regular;
+  color: $text-primary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  line-height: 1.7;
+  margin: 0;
+  word-break: keep-all;
+}

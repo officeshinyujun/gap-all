@@ -1,0 +1,204 @@
+@import '@/styles/variables.scss';
+
+.page {
+  width: 100%;
+  height: 100%;
+  background-color: $background-secondary;
+  overflow: hidden;
+}
+
+.header {
+  width: 100%;
+  padding: $spacing-16 $spacing-24;
+  background-color: $background-primary;
+  border-bottom: 1px solid $border-primary;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.backBtn {
+  padding: $spacing-6 $spacing-12;
+  font-size: 12px;
+  font-weight: $medium;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  color: $text-secondary;
+  background-color: $background-primary;
+  border: 1px solid $border-primary;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.1s, color 0.1s;
+
+  &:hover {
+    background-color: $background-secondary;
+    color: $text-primary;
+  }
+}
+
+.diffBadge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: $semi-bold;
+  padding: 2px $spacing-8;
+  font-family: 'Courier New', monospace;
+
+  &[data-level='LOW']        { background-color: $background-third; color: $text-secondary; }
+  &[data-level='MIDDLE']     { background-color: $brand-secondary; color: $brand-primary; }
+  &[data-level='HIGH']       { background-color: $text-primary; color: $background-primary; }
+  &[data-level='INTERGRATE'] { background-color: $text-wrong; color: $background-primary; }
+}
+
+.navBtn {
+  padding: $spacing-6 $spacing-14;
+  font-size: 12px;
+  font-weight: $medium;
+  color: $text-primary;
+  background-color: $background-primary;
+  border: 1px solid $border-primary;
+  cursor: pointer;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  transition: background-color 0.1s;
+
+  &:hover:not(:disabled) { background-color: $background-secondary; }
+  &:disabled { color: $border-primary; cursor: default; }
+}
+
+.pageIndicator {
+  font-size: 13px;
+  font-weight: $semi-bold;
+  color: $text-primary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  min-width: 48px;
+  text-align: center;
+}
+
+.body {
+  flex: 1;
+  width: 100%;
+  overflow: hidden;
+  padding: $spacing-20 $spacing-24;
+  box-sizing: border-box;
+}
+
+.sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  height: 100%;
+  overflow-y: auto;
+  background-color: $background-primary;
+  border: 1px solid $border-primary;
+  padding: $spacing-12;
+  box-sizing: border-box;
+}
+
+.sidebarTitle {
+  padding: 0 $spacing-4 $spacing-8;
+  border-bottom: 1px solid $border-primary;
+  margin-bottom: $spacing-4;
+  letter-spacing: 0.05em;
+  display: block;
+}
+
+.sidebarItem {
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: $spacing-8;
+  text-align: left;
+  transition: background-color 0.1s;
+
+  &:hover { background-color: $background-secondary; }
+}
+
+.sidebarItemActive {
+  background-color: $brand-secondary;
+  border-left: 3px solid $brand-primary;
+
+  &:hover { background-color: $brand-secondary; }
+  .sidebarNum { color: $brand-primary; font-weight: $bold; }
+}
+
+.sidebarNum {
+  font-size: 14px;
+  font-weight: $semi-bold;
+  color: $text-primary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  width: 20px;
+  flex-shrink: 0;
+}
+
+.sidebarConcept {
+  font-size: 12px;
+  font-weight: $medium;
+  color: $text-primary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  line-height: 1.4;
+  word-break: keep-all;
+}
+
+.sidebarTemplate {
+  font-size: 10px;
+  color: $text-secondary;
+  font-family: 'Courier New', monospace;
+}
+
+.sidebarDiff {
+  font-size: 10px;
+  font-weight: $semi-bold;
+  padding: 1px $spacing-4;
+  font-family: 'Courier New', monospace;
+
+  &[data-level='LOW']        { background-color: $background-third; color: $text-secondary; }
+  &[data-level='MIDDLE']     { background-color: $brand-secondary; color: $brand-primary; }
+  &[data-level='HIGH']       { background-color: $text-primary; color: $background-primary; }
+  &[data-level='INTERGRATE'] { background-color: $text-wrong; color: $background-primary; }
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-16;
+}
+
+.bottomNav {
+  padding: $spacing-16 0;
+  border-top: 1px solid $border-primary;
+  margin-top: $spacing-8;
+}
+
+.bottomNavBtn {
+  padding: $spacing-8 $spacing-20;
+  font-size: 13px;
+  font-weight: $medium;
+  color: $text-primary;
+  background-color: $background-primary;
+  border: 1.5px solid $text-primary;
+  cursor: pointer;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  transition: background-color 0.1s;
+
+  &:hover:not(:disabled) { background-color: $background-secondary; }
+}
+
+.bottomNavBtnDisabled {
+  color: $border-primary;
+  border-color: $border-primary;
+  cursor: default;
+}
+
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 2px solid $background-third;
+  border-top-color: $brand-primary;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

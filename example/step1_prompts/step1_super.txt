@@ -1,0 +1,100 @@
+# Role: 수능 문항 배치 설계자 (난이도: 극상 / 킬러 문항)
+# Context: 추상적 재정의와 예외 로직을 극대화한 '킬러 문항' 설계도 배열을 생성하라.
+
+# [Master UI Library & Schema Reference]
+**반드시 아래 9가지 ID 중 지문의 논리 구조에 가장 적합한 하나를 `recommended_template`으로 선정하라. 
+(임의 생성 절대 금지)**
+[
+{    "Template_ID": "TPL_COMPARATIVE_MATRIX",    "Description": "다수의 
+객체(A, B) 혹은 카테고리 간의 속성, 특징, 조건을 행/열 기반으로 대조하고 필터링하는 교차 테이블 및 그리드 형태의 UI.
+ 체크리스트 및 O/X 마커를 포함한 비교 평가 로직에 사용.",    "Final_Stimulus_Schema": {      
+"headers": "Array<{id: string, label: string}>",      "rows": 
+"Array<{id: string, cells: Record<string, any>}>",      
+"selection_chips": "Array<string>"    }  },  {    "Template_ID": 
+"TPL_FORMAL_DOCUMENT",    "Description": "법령, 공문서, 기사, 이메일, 이력서 등 정형화된 
+메타데이터(헤더)와 다중 문단 텍스트 블록, 푸터, 주석이 선형적으로 나열되는 구조. 부분적인 빈칸(가, 나) 렌더링 지원.", 
+   "Final_Stimulus_Schema": {      "doc_type": "string",      
+"header_info": "{ title: string, date: string, author: string }",      
+"paragraphs": "Array<{ sub_title?: string, content: string }>",   
+   "footnotes": "Array<string>"    }  },
+{    "Template_ID": "TPL_CONVERSATIONAL_FLOW",    "Description": "2인 이상의
+ 개체 간 메시지 교환, 인터뷰, 모바일 SNS, AI 챗봇 대화 등을 표현하는 양방향 또는 순차적 발화 UI. 화자의 아바타와 
+텍스트 버블 단위의 컴포넌트로 구성.",    "Final_Stimulus_Schema": {      
+"participants": "Array<{ id: string, name: string, role: string 
+}>",      "messages": "Array<{ p_id: string, text: string, 
+timestamp?: string }>"    }  },  {    "Template_ID": 
+"TPL_CASE_DIAGNOSTIC_FRAME",    "Description": "특정 인물/상황에 대한 내러티브(사례) 
+블록이 제시되고, 이를 기반으로 상태 검증, 진단, 조건 매칭을 수행하는 레이아웃. 환경 변수에 따른 조건부 체크리스트 결합.",
+    "Final_Stimulus_Schema": {      "case_profile": "{ name: string, 
+context: string }",      "narrative": "string",      "check_items": 
+"Array<{ id: string, label: string, is_checked: boolean }>"    }  
+},
+{    "Template_ID": "TPL_SEQUENTIAL_WORKFLOW",    "Description": "시간의 
+흐름이나 작업의 절차를 나타내는 노드(Node) 및 엣지(Edge) 기반의 다이어그램, 타임라인, 순서도 레이아웃. 단계별 누락된
+ 정보(가)를 채워넣는 플로우 구조.",    "Final_Stimulus_Schema": {      "orientation":
+ "'horizontal' | 'vertical'",      "steps": "Array<{ idx: number, 
+label: string, desc: string, is_missing: boolean }>"    }  },  {    
+"Template_ID": "TPL_INSTRUCTIONAL_SCENE",    "Description": "중앙의 정보 
+제공자(강연자/시스템)와 다수의 응답자(청중/학생), 그리고 시각적 캔버스(칠판/스크린)가 공간적 위계를 형성하는 발표/수업 
+프레임.",    "Final_Stimulus_Schema": {      "instructor": "{ id: string, 
+text: string }",      "canvas_content": "{ type: string, data: any }",  
+    "students": "Array<{ id: string, text: string }>"    }  },
+{    "Template_ID": "TPL_DIGITAL_FORUM_INTERFACE",    "Description": "웹 
+브라우저 창, 게시판, Q&A 스레드 등 다중 사용자의 포스트와 댓글이 계층적으로 나열되는 디지털 커뮤니티 UI.",   
+ "Final_Stimulus_Schema": {      "forum_name": "string",      
+"main_post": "{ author: string, title: string, content: string }",      
+"comments": "Array<{ author: string, text: string }>"    }  },  { 
+   "Template_ID": "TPL_QUANTITATIVE_CHART",    "Description": "단순 텍스트 
+매핑을 넘어 계산 로직(가중치 적용)이나 시각적 렌더링(방사형 차트, 데이터 스케일링)을 요구하는 수치 기반 정량적 대시보드.",
+    "Final_Stimulus_Schema": {      "chart_type": "'radar' | 'bar' | 
+'line'",      "axes": "Array<{ key: string, label: string, max: 
+number }>",      "datasets": "Array<{ label: string, values: 
+Array<number> }>"    }  },  {    "Template_ID": 
+"TPL_PROMOTIONAL_CANVAS",    "Description": "비전 선언문, 핵심 실행 과제(CTA), 슬로건 
+등이 강조된 포스터/광고 전용의 비대칭적 타이포그래피 중심 레이아웃.",    "Final_Stimulus_Schema": {  
+    "slogan": "string",      "bullets": "Array<string>",      
+"visual_elements": "Array<string>",      "missing_part": "string" 
+   }  }
+]
+
+# [Implementation Rules]
+1. **Target Focus:** `text_payload` 전체 내용 중 `target_concepts`에 해당하는 정보를 개별 문항별로 정밀 추출하라.
+2. **Abstraction (추상화):** 특정 학문이나 소재에 종속되지 않는 범용적 논리 인터페이스를 정의하라.
+3. **Placeholder Logic (데이터 소거):** metadata, source_materials 등 실제 데이터가 들어갈 필드는 반드시 빈 값("" 또는 [])으로 유지하라.
+4. **Domain Agnostic (도메인 중립):** 소재와 무관하게 작동할 수 있는 '논리 구조'의 보편성을 확보하라.
+5. **JSON ONLY (형식 엄수):** 부연 설명 없이 오직 유효한 JSON 배열만 출력하라.
+6. **Standard CSAT Vocabulary (어휘 통제):** 수능 기출 표준 어휘('판단 기준', '일반적인 특징' 등)를 가이드에 사용하라.
+7. **Quantitative Logic Grounding (수치 논리):** 텍스트 내 명시적 수치의 1:1 대조 로직만 설계하며 사칙연산을 금지한다.
+8. **Strict Grounding (근거 폐쇄성):** 오직 주입될 source_materials 내의 정보만 근거로 삼는다.
+9. **Protocol: Strict Template Mode (제로-데이터 정책):** render_ready 내 모든 필드에 실제 내용을 직접 생성하지 말고, Step 2를 위한 '집필 명령어'만 작성하라.
+
+# [Blueprint JSON Schema]
+[
+  {
+    "metadata": {
+      "unit_name": "{{unit_name}}",
+      "target_concept": "개별 문항 킬러 개념",
+      "item_type": "단일/다단원 킬러 (최상)",
+      "recommended_template": "MUST BE ONE OF THE 9 IDs ABOVE"
+    },
+    "knowledge_extraction": {
+      "core_logic_guide": "예외 조항 및 추상적 핵심 원리 추출 지침",
+      "required_data_nodes": ["예외 상황 및 관점 전이 데이터 포인트 가이드"]
+    },
+    "item_design_logic": {
+      "distractor_algorithms": [
+        { "type": "partial_truth_trap", "guidance": "미세 예외 조건 누락 설계 지침" },
+        { "type": "paraphrasing_trap", "guidance": "유의어 치환을 통한 인지 부하 유도 지침" }
+      ]
+    },
+    "render_ready": {
+      "question_stem": "비판적 평가 및 관점 전이형 발문 생성 가이드",
+      "stimulus_data_guide": "TPL 특수 필드를 활용한 고차원 모델링 지시",
+      "options_list_guide": "정밀 논리 격파 선지 집필 지침"
+    }
+  }
+]
+
+# [Input Data]
+- **units**: [ { "unit_name": "", "target_concepts": [], "text_payload": "" } ]
+- **total_item_count**:

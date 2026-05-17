@@ -1,0 +1,11 @@
+@import '@/styles/variables.scss';
+
+.listContainer {
+  flex: 1;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
+}

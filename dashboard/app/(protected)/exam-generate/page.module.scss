@@ -1,0 +1,468 @@
+@import '@/styles/variables.scss';
+
+.page {
+  width: 100%;
+  height: 100vh;
+  background-color: $background-secondary;
+  overflow: hidden;
+}
+
+// 헤더
+.header {
+  width: 100%;
+  padding: $spacing-16 $spacing-24;
+  background-color: $background-primary;
+  border-bottom: 1px solid $border-primary;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.navBtn {
+  padding: $spacing-6 $spacing-14;
+  font-size: 12px;
+  font-weight: $medium;
+  color: $text-primary;
+  background-color: $background-primary;
+  border: 1px solid $border-primary;
+  cursor: pointer;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  transition: background-color 0.1s;
+
+  &:hover:not(:disabled) {
+    background-color: $background-secondary;
+  }
+
+  &:disabled {
+    color: $border-primary;
+    cursor: default;
+  }
+}
+
+.pageIndicator {
+  font-size: 13px;
+  font-weight: $semi-bold;
+  color: $text-primary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  min-width: 48px;
+  text-align: center;
+}
+
+// 본문
+.body {
+  flex: 1;
+  width: 100%;
+  overflow: hidden;
+  padding: $spacing-20 $spacing-24;
+  box-sizing: border-box;
+}
+
+// 좌측 사이드바
+.sidebar {
+  width: 240px;
+  flex-shrink: 0;
+  height: 100%;
+  overflow-y: auto;
+  background-color: $background-primary;
+  border: 1px solid $border-primary;
+  padding: $spacing-12;
+  box-sizing: border-box;
+}
+
+.sidebarTitle {
+  padding: 0 $spacing-4 $spacing-8;
+  border-bottom: 1px solid $border-primary;
+  margin-bottom: $spacing-4;
+  letter-spacing: 0.05em;
+  display: block;
+}
+
+// 폼 요소
+.input {
+  width: 100%;
+  padding: $spacing-8 $spacing-10;
+  font-size: 12px;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  color: $text-primary;
+  background-color: $background-primary;
+  border: 1px solid $border-primary;
+  box-sizing: border-box;
+  outline: none;
+
+  &:focus {
+    border-color: $brand-primary;
+  }
+}
+
+.inputSmall {
+  width: 52px;
+  padding: $spacing-8 $spacing-8;
+  font-size: 12px;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  color: $text-primary;
+  background-color: $background-primary;
+  border: 1px solid $border-primary;
+  box-sizing: border-box;
+  outline: none;
+  text-align: center;
+
+  &:focus {
+    border-color: $brand-primary;
+  }
+}
+
+.select {
+  width: 100%;
+  padding: $spacing-8 $spacing-10;
+  font-size: 12px;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  color: $text-primary;
+  background-color: $background-primary;
+  border: 1px solid $border-primary;
+  box-sizing: border-box;
+  outline: none;
+  cursor: pointer;
+
+  &:focus {
+    border-color: $brand-primary;
+  }
+}
+
+.textarea {
+  width: 100%;
+  padding: $spacing-8 $spacing-10;
+  font-size: 12px;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  color: $text-primary;
+  background-color: $background-primary;
+  border: 1px solid $border-primary;
+  box-sizing: border-box;
+  outline: none;
+  resize: vertical;
+  line-height: 1.5;
+
+  &:focus {
+    border-color: $brand-primary;
+  }
+}
+
+.generateBtn {
+  width: 100%;
+  padding: $spacing-10 $spacing-16;
+  font-size: 13px;
+  font-weight: $semi-bold;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  color: $background-primary;
+  background-color: $brand-primary;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.1s;
+
+  &:hover:not(:disabled) {
+    opacity: 0.85;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+}
+
+.errorBox {
+  padding: $spacing-10 $spacing-12;
+  background-color: $background-secondary;
+  border: 1px solid $text-wrong;
+  border-left: 3px solid $text-wrong;
+}
+
+.progressBox {
+  padding: $spacing-12;
+  background-color: $background-secondary;
+  border: 1px solid $border-primary;
+}
+
+.progressBarTrack {
+  width: 100%;
+  height: 8px;
+  background-color: $background-third;
+  overflow: hidden;
+}
+
+.progressBarFill {
+  height: 100%;
+  background-color: $brand-primary;
+  transition: width 0.2s ease;
+}
+
+.progressLogList {
+  max-height: 220px;
+  overflow-y: auto;
+  border-top: 1px solid $border-primary;
+  padding-top: $spacing-8;
+}
+
+.progressLogItem {
+  padding: $spacing-8;
+  background-color: $background-primary;
+  border: 1px solid $border-primary;
+}
+
+.progressLogSuccess {
+  border-left: 3px solid $brand-primary;
+}
+
+.progressLogWarning {
+  border-left: 3px solid $text-secondary;
+}
+
+.progressLogError {
+  border-left: 3px solid $text-wrong;
+}
+
+.progressLogStage {
+  font-size: 10px;
+  font-weight: $semi-bold;
+  color: $text-secondary;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+}
+
+.progressLogTime {
+  font-size: 10px;
+  color: $text-secondary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+}
+
+.progressLogMessage {
+  font-size: 12px;
+  color: $text-primary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  line-height: 1.4;
+}
+
+.progressLogDetail {
+  font-size: 11px;
+  color: $text-secondary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+// 문항 목록
+.sidebarItem {
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: $spacing-8;
+  text-align: left;
+  transition: background-color 0.1s;
+
+  &:hover {
+    background-color: $background-secondary;
+  }
+}
+
+.sidebarItemActive {
+  background-color: $brand-secondary;
+  border-left: 3px solid $brand-primary;
+
+  &:hover {
+    background-color: $brand-secondary;
+  }
+
+  .sidebarNum {
+    color: $brand-primary;
+    font-weight: $bold;
+  }
+}
+
+.sidebarNum {
+  font-size: 14px;
+  font-weight: $semi-bold;
+  color: $text-primary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  width: 20px;
+  flex-shrink: 0;
+}
+
+.sidebarConcept {
+  font-size: 12px;
+  font-weight: $medium;
+  color: $text-primary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  line-height: 1.4;
+  word-break: keep-all;
+}
+
+.sidebarTemplate {
+  font-size: 10px;
+  font-weight: $regular;
+  color: $text-secondary;
+  font-family: 'Courier New', monospace;
+}
+
+// 우측 메인
+.main {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  overflow-y: auto;
+}
+
+// 로딩 스피너
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid $background-third;
+  border-top-color: $brand-primary;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+// 시험 제목
+.examTitle {
+  padding: $spacing-12 $spacing-16;
+  background-color: $background-primary;
+  border: 1px solid $border-primary;
+  border-bottom: none;
+  flex-shrink: 0;
+}
+
+// 문항 영역
+.questionArea {
+  flex: 1;
+  overflow-y: auto;
+  padding: $spacing-16;
+  background-color: $background-primary;
+  border: 1px solid $border-primary;
+}
+
+// 하단 네비게이션
+.bottomNav {
+  padding: $spacing-16 0;
+  border-top: 1px solid $border-primary;
+  margin-top: $spacing-8;
+}
+
+.bottomNavBtn {
+  padding: $spacing-8 $spacing-20;
+  font-size: 13px;
+  font-weight: $medium;
+  color: $text-primary;
+  background-color: $background-primary;
+  border: 1.5px solid $text-primary;
+  cursor: pointer;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  transition: background-color 0.1s;
+
+  &:hover:not(:disabled) {
+    background-color: $background-secondary;
+  }
+}
+
+.bottomNavBtnDisabled {
+  color: $border-primary;
+  border-color: $border-primary;
+  cursor: default;
+}
+
+// 개념 불러오기 버튼
+.loadConceptsBtn {
+  width: 100%;
+  padding: $spacing-8 $spacing-10;
+  font-size: 12px;
+  font-weight: $medium;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  color: $brand-primary;
+  background-color: $background-primary;
+  border: 1px solid $brand-primary;
+  cursor: pointer;
+  transition: background-color 0.1s;
+
+  &:hover:not(:disabled) {
+    background-color: $brand-secondary;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+}
+
+// 개념 선택 영역
+.conceptList {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid $border-primary;
+  padding: $spacing-8;
+  box-sizing: border-box;
+  background-color: $background-secondary;
+}
+
+.conceptUnitLabel {
+  font-size: 10px;
+  font-weight: $semi-bold;
+  color: $text-secondary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  letter-spacing: 0.05em;
+  padding-top: $spacing-4;
+  padding-bottom: $spacing-4;
+  display: block;
+  border-bottom: 1px solid $border-primary;
+  margin-bottom: $spacing-4;
+}
+
+.conceptItem {
+  padding: $spacing-4 $spacing-4;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background-color 0.1s;
+
+  &:hover {
+    background-color: $background-primary;
+  }
+}
+
+.conceptCheckbox {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+  cursor: pointer;
+  accent-color: $brand-primary;
+}
+
+.conceptName {
+  font-size: 11px;
+  font-weight: $regular;
+  color: $text-primary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  line-height: 1.4;
+  word-break: keep-all;
+}
+
+.clearBtn {
+  font-size: 10px;
+  font-weight: $regular;
+  color: $text-secondary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+
+  &:hover {
+    color: $text-primary;
+  }
+}
+
+.selectedBadge {
+  padding: $spacing-4 $spacing-8;
+  background-color: $brand-secondary;
+  border: 1px solid $brand-primary;
+  text-align: center;
+}
