@@ -1,6 +1,7 @@
 import {
   Controller,
   Get,
+  Put,
   Post,
   Delete,
   Body,
@@ -16,6 +17,7 @@ import {
   RegenerateCacheDto,
 } from './study.service';
 import { UpdateProgressDto } from './dto/update-progress.dto';
+import { UpdateSummationDto } from './dto/update-summation.dto';
 import { SubmitReviewResultDto } from './dto/submit-review-result.dto';
 import { CreateIncorrectRecordsDto } from './dto/create-incorrect-records.dto';
 import { ReviewGenerateDto } from './dto/review-generate.dto';
@@ -140,6 +142,27 @@ export class StudyController {
       throw new ForbiddenException('관리자만 접근할 수 있습니다.');
     }
     return this.studyService.getRegenerationStatus();
+  }
+
+  @Get(':subjectSlug/summation/:unitNumber')
+  getSummationCards(
+    @Param('subjectSlug') subjectSlug: string,
+    @Param('unitNumber', ParseIntPipe) unitNumber: number,
+  ) {
+    return this.studyService.getSummationCards(subjectSlug, unitNumber);
+  }
+
+  @Put(':subjectSlug/summation/:unitNumber')
+  async updateSummationCards(
+    @Param('subjectSlug') subjectSlug: string,
+    @Param('unitNumber', ParseIntPipe) unitNumber: number,
+    @Body() dto: UpdateSummationDto,
+  ) {
+    return this.studyService.updateSummationCards(
+      subjectSlug,
+      unitNumber,
+      dto.cards,
+    );
   }
 
   @Get(':subjectSlug/progress')

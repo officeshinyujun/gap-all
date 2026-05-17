@@ -5,7 +5,7 @@ import { HStack } from '../general/HStack';
 import Typo from '../general/Typo';
 import { SPACING } from '../../constants/spacing';
 import s from './style.module.scss';
-import { LayoutDashboard, FlaskConical, Users, BarChart2, Zap, LogOut, MessageSquare, BookMarked, Database, RefreshCw, Eye, Activity } from 'lucide-react';
+import { LayoutDashboard, FlaskConical, Users, BarChart2, Zap, LogOut, MessageSquare, BookMarked, Database, RefreshCw, Eye, Activity, FileEdit } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useAuth } from '@/contexts/AuthContext';
@@ -55,6 +55,7 @@ const MENU_SECTIONS = [
     title: '시스템',
     items: [
       { icon: Zap, label: 'RAG 임베딩', href: '/rag-embedding' },
+      { icon: FileEdit, label: '교재 편집', href: '/summation-editor' },
       { icon: Activity, label: 'API 사용량', href: '/admin/usage' },
     ],
   },

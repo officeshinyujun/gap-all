@@ -1,0 +1,279 @@
+.controlPanel {
+  width: 100%;
+  background: $background-primary;
+  border: 1px solid $border-primary;
+  border-radius: 12px;
+  padding: $spacing-20 $spacing-24;
+}
+
+.select {
+  height: 38px;
+  padding: 0 $spacing-12;
+  border: 1.5px solid $border-primary;
+  border-radius: 8px;
+  background: $background-primary;
+  color: $text-primary;
+  font-size: 14px;
+  font-family: 'Noto Sans KR', sans-serif;
+  cursor: pointer;
+  outline: none;
+  min-width: 160px;
+
+  &:focus { border-color: $brand-primary; }
+}
+
+.button {
+  height: 38px;
+  padding: 0 $spacing-16;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  transition: opacity 0.15s ease;
+  border: 1.5px solid transparent;
+  white-space: nowrap;
+
+  &:disabled { opacity: 0.4; cursor: not-allowed; }
+  &:hover:not(:disabled) { opacity: 0.88; }
+}
+
+.buttonPrimary {
+  background: $brand-primary;
+  color: #ffffff;
+}
+
+.buttonOutline {
+  background: $background-primary;
+  border-color: $border-primary;
+  color: $text-primary;
+
+  &:hover:not(:disabled) {
+    border-color: $brand-primary;
+    color: $brand-primary;
+    opacity: 1;
+  }
+}
+
+.buttonDanger {
+  background: #e53e3e;
+  color: #ffffff;
+}
+
+.buttonSmall {
+  height: 30px;
+  padding: 0 $spacing-10;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 52px;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+.spinnerSmall {
+  width: 14px;
+  height: 14px;
+  border: 2px solid $background-third;
+  border-top-color: $brand-primary;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.message {
+  padding: $spacing-10 $spacing-14;
+  border-radius: 8px;
+  font-size: 13px;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.messageSuccess {
+  background: rgba(56, 161, 105, 0.08);
+  color: #38a169;
+  border: 1px solid rgba(56, 161, 105, 0.2);
+}
+
+.messageError {
+  background: rgba(229, 62, 62, 0.08);
+  color: #e53e3e;
+  border: 1px solid rgba(229, 62, 62, 0.2);
+}
+
+.cardList {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-12;
+}
+
+.card {
+  width: 100%;
+  background: $background-primary;
+  border: 1px solid $border-primary;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: border-color 0.15s;
+}
+
+.cardHeader {
+  padding: $spacing-12 $spacing-16;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-12;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.02);
+  }
+}
+
+.cardHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: $spacing-10;
+}
+
+.cardBadge {
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: rgba(62, 120, 247, 0.08);
+  color: $brand-primary;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.chevron {
+  transition: transform 0.2s ease;
+  color: $text-secondary;
+
+  &.chevronOpen {
+    transform: rotate(180deg);
+  }
+}
+
+.cardBody {
+  padding: 0 $spacing-16 $spacing-16;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-14;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-6;
+}
+
+.fieldLabel {
+  font-size: 12px;
+  font-weight: 600;
+  color: $text-secondary;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.input {
+  width: 100%;
+  height: 36px;
+  padding: 0 $spacing-12;
+  border: 1.5px solid $border-primary;
+  border-radius: 8px;
+  background: $background-primary;
+  color: $text-primary;
+  font-size: 13px;
+  font-family: 'Noto Sans KR', sans-serif;
+  outline: none;
+
+  &:focus { border-color: $brand-primary; }
+}
+
+.textarea {
+  width: 100%;
+  min-height: 80px;
+  padding: $spacing-10 $spacing-12;
+  border: 1.5px solid $border-primary;
+  border-radius: 8px;
+  background: $background-primary;
+  color: $text-primary;
+  font-size: 13px;
+  font-family: 'Noto Sans KR', sans-serif;
+  outline: none;
+  resize: vertical;
+  line-height: 1.5;
+
+  &:focus { border-color: $brand-primary; }
+}
+
+.listEditor {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-6;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  gap: $spacing-8;
+}
+
+.listItemInput {
+  flex: 1;
+  height: 32px;
+  padding: 0 $spacing-10;
+  border: 1.5px solid $border-primary;
+  border-radius: 6px;
+  background: $background-primary;
+  color: $text-primary;
+  font-size: 12px;
+  font-family: 'Noto Sans KR', sans-serif;
+  outline: none;
+
+  &:focus { border-color: $brand-primary; }
+}
+
+.listRemoveBtn {
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: rgba(229, 62, 62, 0.08);
+  color: #e53e3e;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  line-height: 1;
+
+  &:hover { background: rgba(229, 62, 62, 0.15); }
+}
+
+.listAddBtn {
+  align-self: flex-start;
+  height: 28px;
+  padding: 0 $spacing-10;
+  border: 1.5px dashed $border-primary;
+  border-radius: 6px;
+  background: transparent;
+  color: $text-secondary;
+  font-size: 12px;
+  font-family: 'Noto Sans KR', sans-serif;
+  cursor: pointer;
+
+  &:hover {
+    border-color: $brand-primary;
+    color: $brand-primary;
+  }
+}

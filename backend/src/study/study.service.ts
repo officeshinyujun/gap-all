@@ -3,6 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import * as fs from 'fs';
 import * as path from 'path';
+import { TextbookEmbeddingService } from '../textbook/textbook-embedding.service';
 import { StudyProgress } from '../entities/study-progress.entity';
 import { Unit } from '../entities/unit.entity';
 import { Subject } from '../entities/subject.entity';
@@ -21,18 +22,45 @@ import {
   CacheType,
 } from './study-quiz-generator.service';
 import { ExamsService } from '../exams/exams.service';
+import { IsOptional, IsString, IsArray, IsIn, IsNumber } from 'class-validator';
+import { Type } from 'class-transformer';
 import type { BlankQuestion, ConceptPair } from '../textbook/textbook.service';
 
 export class DeleteCacheBulkDto {
+  @IsOptional()
+  @IsString()
   subjectSlug?: string;
+
+  @IsOptional()
+  @IsArray()
+  @IsNumber({}, { each: true })
+  @Type(() => Number)
   unitNumbers?: number[];
+
+  @IsOptional()
+  @IsArray()
+  @IsIn(['blank', 'concept'], { each: true })
   types?: ('blank' | 'concept')[];
 }
 
 export class RegenerateCacheDto {
+  @IsString()
   subjectSlug: string;
+
+  @IsOptional()
+  @IsArray()
+  @IsNumber({}, { each: true })
+  @Type(() => Number)
   unitNumbers?: number[];
+
+  @IsOptional()
+  @IsArray()
+  @IsIn(['blank', 'concept'], { each: true })
   types?: ('blank' | 'concept')[];
+
+  @IsOptional()
+  @IsIn([10, 20])
+  @Type(() => Number)
   count?: 10 | 20;
 }
 
@@ -81,6 +109,7 @@ export class StudyService {
     private readonly conceptBookmarkRepo: Repository<ConceptBookmark>,
     private readonly quizGenerator: StudyQuizGeneratorService,
     private readonly examsService: ExamsService,
+    private readonly embeddingService: TextbookEmbeddingService,
   ) {}
 
   async getProgressBySubject(userId: string, subjectSlug: string) {
@@ -258,6 +287,55 @@ export class StudyService {
   getConceptMd(subjectSlug: string, unitNumber: number): { md: string } {
     const md = this.quizGenerator.getSummationMd(subjectSlug, unitNumber);
     return { md };
+  }
+
+  getSummationCards(subjectSlug: string, unitNumber: number): any {
+    const md = this.quizGenerator.getSummationMd(subjectSlug, unitNumber);
+    const jsonMatch = md.match(/```json\s*([\s\S]*?)```/);
+    if (!jsonMatch) {
+      throw new NotFoundException(
+        `${subjectSlug} ${unitNumber}단원 summation JSON을 파싱할 수 없습니다.`,
+      );
+    }
+    return JSON.parse(jsonMatch[1]);
+  }
+
+  async updateSummationCards(
+    subjectSlug: string,
+    unitNumber: number,
+    cards: any[],
+  ): Promise<any> {
+    const folder = this.SUBJECT_FOLDER_MAP[subjectSlug];
+    if (!folder) {
+      throw new NotFoundException(`지원하지 않는 과목입니다: ${subjectSlug}`);
+    }
+
+    const filePath = path.join(
+      this.getTextbookBase(),
+      `${folder}_summation`,
+      `${unitNumber}단원.md`,
+    );
+
+    if (!fs.existsSync(filePath)) {
+      throw new NotFoundException(
+        `${subjectSlug} 과목의 ${unitNumber}단원 summation 파일을 찾을 수 없습니다.`,
+      );
+    }
+
+    const data = {
+      subject: this.SUBJECT_TITLE_MAP[subjectSlug] ?? subjectSlug,
+      totalCards: cards.length,
+      cards,
+    };
+
+    const content = '```json\n' + JSON.stringify(data, null, 2) + '\n```';
+    fs.writeFileSync(filePath, content, 'utf-8');
+
+    this.quizGenerator.clearCache(subjectSlug, unitNumber);
+
+    await this.embeddingService.embedUnit(subjectSlug, unitNumber);
+
+    return data;
   }
 
   getConceptByName(
