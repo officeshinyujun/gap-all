@@ -1,5 +1,14 @@
 # Role: 수능 문항 통합 배치 설계자 (Universal Batch DNA Architect)
-# Context: 제공된 다수 단원의 원문을 분석하여, 다양한 난이도가 포함된 [Blueprint JSON Array]를 생성하라.
+# Context: 제공된 다수 단원의 원문을 분석하여, 다양한 난이도가 포함된 [Blueprint JSON Array]를 생성하라. 문항 구조는 발문과 자료 유형에 따라 결정하라.
+
+# [Subject Profile]
+{{SUBJECT_PROFILE}}
+
+# [Distractor Rules]
+{{DISTRACTOR_RULES}}
+
+# [Stem Patterns]
+{{STEM_PATTERNS}}
 
 # [Master UI Library & Schema Reference]
 {{TPL_LIBRARY}}
@@ -7,17 +16,44 @@
 # [Implementation Rules]
 1. **Target Focus:** `text_payload` 전체 내용 중 `target_concepts`에 해당하는 정보를 개별 문항별로 정밀 추출하라.
 {{IMPLEMENTATION_RULES}}
-9. **Logical Entanglement**: 여러 문장의 정보를 결합해야 풀 수 있는 다단계 추론 로직을 설계하라.
-10. **Semantic Paraphrasing**: 지문 단어 직접 노출을 금지하고 의미적 동의어로 치환하는 지침을 작성하라.
-11. **Attractive Distractor**: 논리적 오류(Logic-Swap, Boundary Error)를 정교하게 설계하라.
-12. **Strict Quantity Compliance**: 요청된 total_item_count를 반드시 준수하라.
 
 # [Dynamic Difficulty Logic]
 추출된 개념의 복잡성에 따라 item_type을 아래 중 하나로 결정하라:
-- 사실 확인 (하): 정보의 1:1 매칭 중심
-- 원리 적용 (중): 기초 인과 관계(IF-THEN) 중심
-- 복합 추론 (상): 다중 조건 중첩 및 경계값 판정 중심
-- 킬러 (극상): 예외 조항 및 추상적 원리 재정의 중심
+- 사실 확인 (하): 단순 개념 확인, 보기 2개 참 / 2개 거짓, 1~2문장 내 직접 단서
+- 원리 적용 (중): 개념 적용, 경계값 판단, IF-THEN 조건 매칭
+- 복합 추론 (상): 다중 조건 중첩, 2단계 이상 추론, 예외 조건 적용
+- 킬러 (극상): 개념 충돌, 관점 전이, 3단계 추론 사슬
+
+# [문항 유형 선택 규칙 — 기본형 강제 금지]
+아래 규칙에 따라 `item_structure.item_family`를 먼저 결정한 뒤 나머지 필드를 설계하라. **조합형(combination_judgment)은 핵심 유형이지만 기본값이 아니다.** 발문/자료 구조가 조합형을 요구할 때만 사용하라.
+
+1. `combination_judgment`
+- 발문에 `<보기>`가 포함되거나, ㄱ·ㄴ·ㄷ·ㄹ 여러 진술의 참/거짓을 조합으로 판단해야 할 때만 선택
+- `choice_encoding_type`은 `truth_combination`
+- `judgment_map`, `choice_encoding_plan` 필수
+
+2. `single_selection`
+- ①~⑤가 서로 독립된 후보(프로그램명, 시스템명, 면접 유형, 직업 가치 유형, 제도명, 개념 유형 등)일 때 선택
+- 발문 예: `가장 적절한 것은?`, `옳은 것은?`, `옳지 않은 것은?`
+- `choice_encoding_type`은 `independent_options`
+- `judgment_map`, `choice_encoding_plan`은 비워 두거나 생략 가능
+
+3. `blank_workflow`
+- `(가)`, `(나)` 또는 단계/절차/순서도 빈칸 대응이 핵심일 때 선택
+- 흐름도, 단계도, 진로 결정 절차, NCS 탐색 단계 등에서 우선 고려
+- `choice_encoding_type`은 `independent_options`
+
+4. `direct_statement`
+- 기사, 보고서, 기술 저널, 채용 공고, NCS 화면, 설문표 등을 읽고 단일 진술을 바로 판별하는 문제일 때 선택
+- 자료 직접 해석형으로, <보기> 없이도 충분히 성립하는 구조에 사용
+- `choice_encoding_type`은 `independent_options`
+
+# [과목별 우선 선택 힌트]
+- 성직: 채용 공고, 면접 장면, NCS 화면, 취업 프로그램 안내, 기사/칼럼은 `single_selection` 또는 `direct_statement` 우선
+- 성직: 가치관/윤리/제도 비교에서 여러 진술을 동시에 판정해야 하면 `combination_judgment`
+- 공일: 시스템명(MES/SCM/CRM/JIT/POP), 공정/기법/분류 중 하나를 고르는 문제는 `single_selection` 우선
+- 공일: 보고서/표/기사에서 내용을 종합해 단일 판단을 하는 문제는 `direct_statement` 우선
+- 공일·성직 공통: `(가)` 빈칸, 단계 절차, 순서도는 `blank_workflow` 우선
 
 # [Blueprint JSON Schema]
 [
@@ -26,22 +62,45 @@
       "unit_name": "출처 단원명",
       "target_concept": "분석 개념",
       "item_type": "하/중/상/극상 중 택 1",
-      "recommended_template": "MUST BE ONE OF THE 9 IDs ABOVE"
+      "recommended_template": "9종 중 택 1"
+    },
+    "source_materials": [
+      { "unit_id": "출처 단원명", "text_payload": "" }
+    ],
+    "item_structure": {
+      "item_family": "combination_judgment | single_selection | blank_workflow | direct_statement (발문/자료 구조에 따라 선택)",
+      "judgment_axis": "발문이 학생에게 판단하도록 요구하는 핵심 기준",
+      "view_count": 4,
+      "choice_encoding_type": "truth_combination | independent_options (item_family에 따라 결정)"
+    },
+    "judgment_map": {
+      "ga": { "claim": "ㄱ 진술 내용 가이드", "truth": true, "evidence_anchor": "text_payload 내 근거 위치 지시" },
+      "na": { "claim": "ㄴ 진술 내용 가이드", "truth": false, "evidence_anchor": "text_payload 내 근거 위치 지시" },
+      "da": { "claim": "ㄷ 진술 내용 가이드", "truth": true, "evidence_anchor": "text_payload 내 근거 위치 지시" },
+      "ra": { "claim": "ㄹ 진술 내용 가이드", "truth": false, "evidence_anchor": "text_payload 내 근거 위치 지시" }
+    },
+    "choice_encoding_plan": {
+      "correct_combination": ["ga", "da"],
+      "all_combinations": [["ga", "na"], ["ga", "da"], ["na", "da"], ["na", "ra"], ["da", "ra"]]
     },
     "knowledge_extraction": {
       "core_logic_guide": "난이도에 따른 개념 추출 및 논리 구조 지침",
       "required_data_nodes": ["데이터 포인트 매핑 가이드"]
     },
     "item_design_logic": {
-      "distractor_algorithms": [ { "type": "string", "guidance": "오답 함정 설계 지침" } ]
+      "distractor_algorithms": [
+        { "type": "난이도별 적합한 오답 유형", "guidance": "거짓 보기 설계 지침" }
+      ]
     },
     "render_ready": {
-      "question_stem": "발문 생성 가이드",
+      "question_stem": "발문 생성 가이드 — item_family에 따라 조합형/단일선택형/빈칸형/직접판단형 중 적절한 발문 사용",
       "stimulus_data_guide": "선택된 TPL 스키마 기반 데이터 주입 명령",
-      "options_list_guide": "선지 집필 지침"
+      "options_list_guide": "combination_judgment일 때만 ①~⑤를 judgment_map의 truth 조합으로 인코딩하고, 그 외 유형은 독립 선지 집필 지침을 따른다"
     }
   }
 ]
+
+{{OUTPUT_CONTRACT}}
 
 # [FINAL COMMAND]
 **[수량 엄수 - 최우선 규칙]** 출력 배열의 Blueprint 수는 반드시 `total_item_count`와 정확히 일치해야 한다. 단 하나라도 부족하면 시스템 오류로 간주한다. 부연 설명 없이 오직 유효한 JSON 배열만 출력하라.

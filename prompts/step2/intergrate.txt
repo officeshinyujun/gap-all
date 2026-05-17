@@ -80,6 +80,15 @@
   "render_ready": {
     "question_stem": "완성된 발문 텍스트 (빈칸 없이 실제 문장)",
     "stimulus_data": { },
+    "combo_block": {
+      "title": "<보기>",
+      "items": [
+        { "key": "ㄱ", "text": "보기 진술 1" },
+        { "key": "ㄴ", "text": "보기 진술 2" },
+        { "key": "ㄷ", "text": "보기 진술 3" },
+        { "key": "ㄹ", "text": "보기 진술 4" }
+      ]
+    },
     "options_list": ["선지1 텍스트", "선지2 텍스트", "선지3 텍스트", "선지4 텍스트", "선지5 텍스트"]
   },
   "correct_answer": 1,

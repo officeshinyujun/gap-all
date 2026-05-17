@@ -138,6 +138,17 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
         {renderStimulus(parsed)}
       </div>
 
+      {question.combo_block && question.combo_block.items.length > 0 && (
+        <VStack gap={4} fullWidth className={s.comboBlock}>
+          <div className={s.comboBlockTitle}>{question.combo_block.title}</div>
+          {question.combo_block.items.map((item) => (
+            <div key={item.key} className={s.comboBlockItem}>
+              {item.key}. {item.text}
+            </div>
+          ))}
+        </VStack>
+      )}
+
       {/* 선택지 */}
       <VStack gap={8} fullWidth className={s.optionsSection}>
         {normalizedOptions.map((option) => {

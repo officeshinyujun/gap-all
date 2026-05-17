@@ -1,5 +1,5 @@
-# Role: 수능 문항 배치 설계자 (난이도: 중 / 원리 적용형 배치)
-# Context: 개념 적용과 경계값 판정이 필요한 원리 응용형 설계도 배열을 생성하라. 문항 구조는 발문과 자료 유형에 따라 결정하라.
+# Role: 수능 문항 배치 설계자 (난이도: 하 / 사실 확인형 배치)
+# Context: 제공된 다수 단원의 원문을 분석하여 단순 개념 확인형 설계도 배열을 생성하라. 문항 구조는 발문과 자료 유형에 따라 결정하라.
 
 # [Subject Profile]
 {{SUBJECT_PROFILE}}
@@ -17,12 +17,12 @@
 1. **Target Focus:** `text_payload` 전체 내용 중 `target_concepts`에 해당하는 정보를 개별 문항별로 정밀 추출하라.
 {{IMPLEMENTATION_RULES}}
 
-# [난이도 중 설계 원칙]
-- 개념 적용: 교과 개념을 새로운 사례·자료에 적용하여 판단하는 수준
-- 경계값 판단: 유사 개념 간 경계에서 올바른 분류·적용을 요구
-- 보기 진위 배정: 4개 보기 중 2개 참 / 2개 거짓을 기본으로 하되, 참/거짓 판정에 1단계 추론(조건 매칭) 필요
-- 판단 축: IF-THEN 형태의 기초 인과 관계 또는 조건 매칭
-- 단서 배치: 각 보기의 참·거짓을 판단하려면 text_payload 내 2~3문장의 정보를 연결해야 함
+# [난이도 하 설계 원칙]
+- 단순 개념 확인: 교과서에 명시된 정의·특징·분류를 직접 판별하는 수준
+- 보기 진위 배정: 4개 보기 중 2개 참 / 2개 거짓을 기본으로 한다
+- 판단 축: 하나의 명확한 기준(정의 일치, 분류 소속, 특징 해당 여부)으로 판별 가능
+- 단서 배치: 각 보기의 참·거짓을 판단할 수 있는 근거가 text_payload 내 1~2문장에서 바로 확인 가능
+- 오답 설계: 같은 단원 내 유사 개념의 단순 혼동(긍정/부정 변환, 인접 분류 오적용)
 
 # [문항 유형 선택 규칙 — 기본형 강제 금지]
 아래 규칙에 따라 `item_structure.item_family`를 먼저 결정한 뒤 나머지 필드를 설계하라. **조합형(combination_judgment)은 핵심 유형이지만 기본값이 아니다.** 발문/자료 구조가 조합형을 요구할 때만 사용하라.
@@ -61,7 +61,7 @@
     "metadata": {
       "unit_name": "{{unit_name}}",
       "target_concept": "개별 문항 개념",
-      "item_type": "원리 적용 (중)",
+      "item_type": "사실 확인 (하)",
       "recommended_template": "9종 중 택 1"
     },
     "source_materials": [
@@ -74,29 +74,29 @@
       "choice_encoding_type": "truth_combination | independent_options (item_family에 따라 결정)"
     },
     "judgment_map": {
-      "ga": { "claim": "ㄱ 진술 — 원리를 올바르게 적용한 참 진술", "truth": true, "evidence_anchor": "text_payload 내 인과 근거 위치" },
-      "na": { "claim": "ㄴ 진술 — 경계값 오판을 유도하는 거짓 진술", "truth": false, "evidence_anchor": "text_payload 내 반증 근거 위치" },
-      "da": { "claim": "ㄷ 진술 — 조건 적용이 올바른 참 진술", "truth": true, "evidence_anchor": "text_payload 내 인과 근거 위치" },
-      "ra": { "claim": "ㄹ 진술 — 인과 관계를 역전시킨 거짓 진술", "truth": false, "evidence_anchor": "text_payload 내 반증 근거 위치" }
+      "ga": { "claim": "ㄱ 진술 내용 가이드 — 참 진술 설계", "truth": true, "evidence_anchor": "text_payload 내 직접 근거 위치 지시" },
+      "na": { "claim": "ㄴ 진술 내용 가이드 — 인접 개념 혼동 거짓 진술", "truth": false, "evidence_anchor": "text_payload 내 반증 근거 위치 지시" },
+      "da": { "claim": "ㄷ 진술 내용 가이드 — 참 진술 설계", "truth": true, "evidence_anchor": "text_payload 내 직접 근거 위치 지시" },
+      "ra": { "claim": "ㄹ 진술 내용 가이드 — 긍정/부정 변환 거짓 진술", "truth": false, "evidence_anchor": "text_payload 내 반증 근거 위치 지시" }
     },
     "choice_encoding_plan": {
       "correct_combination": ["ga", "da"],
       "all_combinations": [["ga", "na"], ["ga", "da"], ["na", "da"], ["na", "ra"], ["da", "ra"]]
     },
     "knowledge_extraction": {
-      "core_logic_guide": "target_concept의 작동 방식과 인과 구조를 추출하는 지침",
-      "required_data_nodes": ["기초 인과 경로(IF-THEN), 조건-결과 매핑, 경계값 가이드"]
+      "core_definition_guide": "target_concept의 정의와 핵심 특징을 추출하는 지침",
+      "required_data_nodes": ["text_payload에 명시된 핵심 성질 및 단순 분류 포인트 매핑 가이드"]
     },
     "item_design_logic": {
       "distractor_algorithms": [
-        { "type": "boundary_error", "guidance": "경계 지점 미세 오판을 유도하는 거짓 보기 설계 지침" },
-        { "type": "logic_swap", "guidance": "인과 관계를 역전시키거나 조건을 오적용하는 거짓 보기 설계 지침" }
+        { "type": "simple_negation", "guidance": "긍정/부정 변환 및 수치 오독 설계 지침" },
+        { "type": "curriculum_adjacent", "guidance": "같은 단원 내 유사 개념을 잘못 적용한 거짓 보기 설계 지침" }
       ]
     },
     "render_ready": {
-      "question_stem": "원리 적용형 발문 생성 가이드 — item_family가 combination_judgment이면 <보기> 조합형 발문, 그 외에는 단일선택/직접판단형 발문 사용",
-      "stimulus_data_guide": "선택한 TPL 스키마에 원리 변수와 사례 데이터를 매핑하는 명령",
-      "options_list_guide": "combination_judgment일 때만 ①~⑤를 judgment_map의 truth 조합으로 인코딩하고, 그 외 유형은 5개의 독립 선지를 집필한다"
+      "question_stem": "사실 확인용 발문 생성 가이드 — item_family가 combination_judgment이면 <보기> 조합형, 아니면 단일선택형 발문 사용",
+      "stimulus_data_guide": "선택한 TPL 스키마 필드별 데이터 주입 명령",
+      "options_list_guide": "combination_judgment일 때만 ①~⑤를 judgment_map의 truth 조합으로 인코딩하고, 그 외 유형은 독립된 5개 선지를 집필한다"
     }
   }
 ]

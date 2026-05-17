@@ -1,56 +1,114 @@
-# Role: 수능 문항 배치 설계자 (난이도: 극상 / 초킬러 문항)
-# Context: 역설적 조건, 관점 전이, 메타인지를 요구하는 초고난도 설계도 배열입니다. 수험생이 개념을 완벽히 이해하더라도 한 번 더 사고해야만 정답을 선택할 수 있는 구조를 목표로 합니다.
+# Role: 수능 문항 배치 설계자 (난이도: 극상 / 킬러 문항 배치)
+# Context: 개념 충돌, 예외 조건, 관점 전이를 요구하는 초고난도 설계도 배열을 생성하라. 문항 구조는 발문과 자료 유형에 따라 결정하라.
+
+# [Subject Profile]
+{{SUBJECT_PROFILE}}
+
+# [Distractor Rules]
+{{DISTRACTOR_RULES}}
+
+# [Stem Patterns]
+{{STEM_PATTERNS}}
 
 # [Master UI Library & Schema Reference]
 {{TPL_LIBRARY}}
 
 # [Implementation Rules]
-1. **Target Focus:** `text_payload` 전체 내용 중 `target_concepts`에 해당하는 정보를 개별 문항별로 정밀 추출해 주세요.
+1. **Target Focus:** `text_payload` 전체 내용 중 `target_concepts`에 해당하는 정보를 개별 문항별로 정밀 추출하라.
 {{IMPLEMENTATION_RULES}}
 
-# [극상 난이도 설계 원칙]
-아래 원칙을 모든 문항 설계에 반드시 적용해 주세요.
+# [난이도 극상 설계 원칙]
+- 개념 충돌: 두 개 이상의 개념이 동시에 적용될 때 어느 쪽이 우선하는지 판단 요구
+- 예외 조건: 개념이 적용되는 조건과 적용되지 않는 예외 조건을 동시에 판별
+- 관점 전이: 동일 현상을 두 관점에서 해석할 때 결론이 달라지는 구조
+- 보기 진위 배정: 참/거짓 판정에 3단계 이상의 추론 사슬([원리 파악] → [조건 매칭] → [사례 대입]) 필요
+- 판단 축: 복수 개념 간 우선순위 또는 적용 범위 판단
 
-1. **역설적 조건 구조:** 지문 내 두 원리가 서로 충돌하는 상황을 제시하고, 어느 원리가 우선 적용되는지 판단해야 정답을 고를 수 있도록 설계해 주세요.
-2. **관점 전이 요구:** 동일한 현상을 두 가지 이론적 관점에서 해석하고, 각 관점의 적용 한계를 파악해야만 정답 선택이 가능한 구조로 설계해 주세요.
-3. **메타인지 요구:** 개념 자체가 아니라 "이 개념이 적용되는 조건"과 "이 개념이 적용되지 않는 예외 조건"을 동시에 묻는 구조로 설계해 주세요.
-4. **복수 개념 충돌 구조:** 단일 개념이 아닌 2~3개 개념 간 상호작용을 분석해야 풀 수 있는 구조로 설계해 주세요.
-5. **5개 선지 모두 함정:** 각 선지가 부분적으로 옳지만 결정적 예외 조건에서 틀리도록 설계해 주세요. 명백히 틀린 선지는 없어야 합니다.
-6. **발문 형식:** '~것은?', '~고르시오' 수능 문체를 사용해 주세요.
+# [문항 유형 선택 규칙 — 기본형 강제 금지]
+아래 규칙에 따라 `item_structure.item_family`를 먼저 결정한 뒤 나머지 필드를 설계하라. **조합형(combination_judgment)은 핵심 유형이지만 기본값이 아니다.** 발문/자료 구조가 조합형을 요구할 때만 사용하라.
+
+1. `combination_judgment`
+- 발문에 `<보기>`가 포함되거나, ㄱ·ㄴ·ㄷ·ㄹ 여러 진술의 참/거짓을 조합으로 판단해야 할 때만 선택
+- `choice_encoding_type`은 `truth_combination`
+- `judgment_map`, `choice_encoding_plan` 필수
+
+2. `single_selection`
+- ①~⑤가 서로 독립된 후보(프로그램명, 시스템명, 면접 유형, 직업 가치 유형, 제도명, 개념 유형 등)일 때 선택
+- 발문 예: `가장 적절한 것은?`, `옳은 것은?`, `옳지 않은 것은?`
+- `choice_encoding_type`은 `independent_options`
+- `judgment_map`, `choice_encoding_plan`은 비워 두거나 생략 가능
+
+3. `blank_workflow`
+- `(가)`, `(나)` 또는 단계/절차/순서도 빈칸 대응이 핵심일 때 선택
+- 흐름도, 단계도, 진로 결정 절차, NCS 탐색 단계 등에서 우선 고려
+- `choice_encoding_type`은 `independent_options`
+
+4. `direct_statement`
+- 기사, 보고서, 기술 저널, 채용 공고, NCS 화면, 설문표 등을 읽고 단일 진술을 바로 판별하는 문제일 때 선택
+- 자료 직접 해석형으로, <보기> 없이도 충분히 성립하는 구조에 사용
+- `choice_encoding_type`은 `independent_options`
+
+# [과목별 우선 선택 힌트]
+- 성직: 채용 공고, 면접 장면, NCS 화면, 취업 프로그램 안내, 기사/칼럼은 `single_selection` 또는 `direct_statement` 우선
+- 성직: 가치관/윤리/제도 비교에서 여러 진술을 동시에 판정해야 하면 `combination_judgment`
+- 공일: 시스템명(MES/SCM/CRM/JIT/POP), 공정/기법/분류 중 하나를 고르는 문제는 `single_selection` 우선
+- 공일: 보고서/표/기사에서 내용을 종합해 단일 판단을 하는 문제는 `direct_statement` 우선
+- 공일·성직 공통: `(가)` 빈칸, 단계 절차, 순서도는 `blank_workflow` 우선
 
 # [Blueprint JSON Schema]
 [
   {
     "metadata": {
       "unit_name": "{{unit_name}}",
-      "target_concept": "개별 문항 초킬러 개념 (복수 개념 충돌 구조)",
-      "item_type": "단일/다단원 초킬러 (극상)",
+      "target_concept": "개별 문항 킬러 개념 (복수 개념 충돌 구조)",
+      "item_type": "킬러 (극상)",
       "recommended_template": "9종 중 택 1"
     },
+    "source_materials": [
+      { "unit_id": "{{unit_name}}", "text_payload": "" }
+    ],
+    "item_structure": {
+      "item_family": "combination_judgment | single_selection | blank_workflow | direct_statement (발문/자료 구조에 따라 선택)",
+      "judgment_axis": "발문이 학생에게 판단하도록 요구하는 핵심 기준 (예: 개념 충돌 시 우선 적용 원리)",
+      "view_count": 4,
+      "choice_encoding_type": "truth_combination | independent_options (item_family에 따라 결정)"
+    },
+    "judgment_map": {
+      "ga": { "claim": "ㄱ 진술 — 개념 충돌 상황에서 올바른 우선순위를 적용한 참 진술", "truth": true, "evidence_anchor": "text_payload 내 복수 근거 + 우선순위 판단 근거" },
+      "na": { "claim": "ㄴ 진술 — 관점 A에서는 옳지만 관점 B에서 결정적으로 틀리는 거짓 진술", "truth": false, "evidence_anchor": "text_payload 내 관점 전이 근거" },
+      "da": { "claim": "ㄷ 진술 — 3단계 추론 사슬을 거쳐야 확인되는 참 진술", "truth": true, "evidence_anchor": "text_payload 내 다단계 추론 경로" },
+      "ra": { "claim": "ㄹ 진술 — 예외 조건을 누락하면 참으로 오판하게 되는 거짓 진술", "truth": false, "evidence_anchor": "text_payload 내 예외 조건 근거" }
+    },
+    "choice_encoding_plan": {
+      "correct_combination": ["ga", "da"],
+      "all_combinations": [["ga", "na"], ["ga", "da"], ["na", "da"], ["na", "ra"], ["da", "ra"]]
+    },
     "knowledge_extraction": {
-      "core_logic_guide": "두 개 이상의 개념이 충돌하는 지점과 각 개념의 적용 조건 및 예외 조건을 정밀하게 추출해 주세요. 단순 정의 나열이 아니라 개념 간 상호작용과 우선순위 판단이 필요한 구조를 설계해 주세요.",
+      "core_logic_guide": "두 개 이상의 개념이 충돌하는 지점과 각 개념의 적용 조건 및 예외 조건을 정밀 추출하는 지침",
       "required_data_nodes": [
-        "개념 A와 개념 B가 충돌하는 역설적 상황 가이드 — 두 개념이 동시에 적용될 때 어느 쪽이 우선하는지 판단해야 하는 구조",
-        "각 개념의 적용 조건 vs 예외 조건 대조 가이드 — 표면적으로 유사해 보이지만 결정적으로 다른 조건 추출",
-        "관점 전이가 필요한 해석 분기점 가이드 — 동일 현상을 두 관점에서 해석할 때 결론이 달라지는 지점",
-        "3단계 이상의 중첩 인과 추론 경로 가이드 — A → B → C → 결론 형태의 다단계 논리 구조"
+        "개념 A와 개념 B가 충돌하는 역설적 상황 가이드",
+        "각 개념의 적용 조건 vs 예외 조건 대조 가이드",
+        "관점 전이가 필요한 해석 분기점 가이드",
+        "3단계 이상의 중첩 인과 추론 경로 가이드"
       ]
     },
     "item_design_logic": {
       "distractor_algorithms": [
-        { "type": "partial_truth_trap", "guidance": "미세 예외 조건을 누락시켜 부분적으로만 옳은 오답을 설계해 주세요. 선지 문장은 3문장 이상으로 길게 작성하고, 앞부분은 완전히 옳지만 마지막 조건에서 틀리도록 설계해 주세요. 수험생이 '맞는 것 같은데...'라고 느끼도록 해 주세요." },
-        { "type": "paraphrasing_trap", "guidance": "핵심 개념을 3단계 이상 우회 표현으로 치환하되, 의미가 미묘하게 달라지는 지점을 함정으로 설계해 주세요. 치환된 표현이 언뜻 동의어처럼 보이지만 논리적으로는 다른 의미를 갖도록 해 주세요." },
-        { "type": "perspective_shift", "guidance": "관점 A에서는 완전히 옳지만 관점 B에서는 결정적으로 틀린 선지를 설계해 주세요. 수험생이 어느 관점에서 판단해야 하는지 혼동하도록 유도해 주세요." },
-        { "type": "meta_cognitive_trap", "guidance": "개념의 적용 조건 자체를 잘못 이해하도록 유도하는 오답을 설계해 주세요. '이 개념은 언제 적용되는가?'를 묻는 구조로, 개념을 알아도 적용 범위를 모르면 틀리도록 설계해 주세요." }
+        { "type": "partial_truth_trap", "guidance": "미세 예외 조건을 누락시켜 부분적으로만 옳은 거짓 보기 설계 지침" },
+        { "type": "perspective_shift", "guidance": "관점 A에서는 옳지만 관점 B에서 결정적으로 틀린 거짓 보기 설계 지침" },
+        { "type": "meta_cognitive_trap", "guidance": "개념의 적용 범위 자체를 잘못 이해하도록 유도하는 거짓 보기 설계 지침" },
+        { "type": "paraphrasing_trap", "guidance": "핵심 개념을 3단계 이상 우회 표현으로 치환하되 의미가 미묘하게 달라지는 거짓 보기 설계 지침" }
       ]
     },
     "render_ready": {
-      "question_stem": "역설적 조건 또는 관점 전이를 요구하는 발문을 '~것은?' 또는 '~고르시오' 형식으로 작성해 주세요. 발문 자체에 조건절을 2개 이상 포함시켜 길고 복잡하게 작성해 주세요. 발문만 읽어도 고난도임을 느낄 수 있어야 합니다.",
-      "stimulus_data_guide": "선택한 TPL의 특수 필드를 활용하되, 지문 자체에서 두 개념의 충돌 구조가 드러나도록 설계해 주세요. 지문 정보량을 최대한 늘려 수험생이 여러 정보를 종합하고 우선순위를 판단해야 풀 수 있도록 해 주세요. 지문만 보고 정답을 바로 알 수 없어야 합니다.",
-      "options_list_guide": "5개 선지 모두 3문장 이상의 복합 서술로 작성해 주세요. 각 선지는 서로 다른 함정 유형(partial_truth, paraphrasing, perspective_shift, meta_cognitive)을 하나씩 담아 주세요. 명백히 틀린 선지는 없어야 하며, 정답과 오답의 차이가 단 하나의 조건에서만 갈리도록 설계해 주세요."
+      "question_stem": "역설적 조건 또는 관점 전이를 요구하는 발문 생성 가이드 — 조합형일 경우 '<보기>에서 옳은/적절한 것만을 고른 것은?' 패턴 사용",
+      "stimulus_data_guide": "선택한 TPL의 특수 필드를 활용한 고차원 데이터 모델링 — 두 개념의 충돌 구조가 드러나도록 설계",
+      "options_list_guide": "조합형: ①~⑤를 judgment_map의 truth 조합으로 인코딩 / 비조합형: 정밀한 논리 격파를 요구하는 선지 집필 지침"
     }
   }
 ]
 
+{{OUTPUT_CONTRACT}}
+
 # [FINAL COMMAND]
-**[수량 엄수 - 최우선 규칙]** 출력 배열의 Blueprint 수는 반드시 `total_item_count`와 정확히 일치해야 합니다. 단 하나라도 부족하면 시스템 오류로 간주합니다. 부연 설명 없이 유효한 JSON 배열만 출력해 주세요.
+**[수량 엄수 - 최우선 규칙]** 출력 배열의 Blueprint 수는 반드시 `total_item_count`와 정확히 일치해야 한다. 단 하나라도 부족하면 시스템 오류로 간주한다. 부연 설명 없이 유효한 JSON 배열만 출력하라.

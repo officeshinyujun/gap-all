@@ -14,6 +14,52 @@ import { Unit } from '../entities/unit.entity';
 import { Difficulty } from '../entities/exam-record.entity';
 import { AiUsageLog, AiUsageSource } from '../entities/ai-usage-log.entity';
 
+// OpenAI 호출 타임아웃 (ms) — 환경변수로 오버라이드 가능
+const OPENAI_TIMEOUT_MS = Number(process.env.OPENAI_TIMEOUT_MS) || 120_000;
+
+// 단원 텍스트 최대 길이 (문자 수) — 이 이상은 잘라서 전송
+const MAX_UNIT_TEXT_LENGTH = Number(process.env.MAX_UNIT_TEXT_LENGTH) || 12_000;
+
+function buildItemFamilyQuotaPrompt(subjectSlug: string, questionCount: number): string {
+  if (questionCount <= 1) {
+    return `# [문항 유형 강제 비율]\n1문항 생성이므로 비율 규칙 대신 발문/자료 구조에 가장 자연스러운 item_family 1개만 선택하라. 조합형(combination_judgment)을 자동 기본값으로 사용하지 마라.`;
+  }
+
+  const nonComboMin = Math.max(1, Math.ceil(questionCount * 0.4));
+  const comboMax = questionCount - nonComboMin;
+
+  if (subjectSlug === 'success') {
+    const singleMin = Math.max(1, Math.ceil(questionCount * 0.2));
+    const directMin = Math.max(1, Math.ceil(questionCount * 0.1));
+    const workflowMin = questionCount >= 5 ? 1 : 0;
+    return [
+      '# [문항 유형 강제 비율 — 성직]',
+      `총 ${questionCount}문항 중 combination_judgment는 최대 ${comboMax}문항까지만 허용한다.`,
+      `나머지 최소 ${nonComboMin}문항은 non-조합형(single_selection, direct_statement, blank_workflow)으로 설계하라.`,
+      `single_selection은 최소 ${singleMin}문항 포함하라.`,
+      `direct_statement는 최소 ${directMin}문항 포함하라.`,
+      workflowMin > 0 ? `blank_workflow는 최소 ${workflowMin}문항 포함하라.` : '',
+      '채용 공고, 면접 장면, NCS 화면, 기사/칼럼, 취업 프로그램 안내는 single_selection 또는 direct_statement를 우선 사용하라.',
+      '발문에 <보기>가 없는 경우 combination_judgment를 사용하지 마라.',
+    ].filter(Boolean).join('\n');
+  }
+
+  const singleMin = Math.max(1, Math.ceil(questionCount * 0.15));
+  const directMin = Math.max(1, Math.ceil(questionCount * 0.15));
+  const workflowMin = questionCount >= 5 ? 1 : 0;
+  return [
+    '# [문항 유형 강제 비율 — 공일]',
+    `총 ${questionCount}문항 중 combination_judgment는 최대 ${comboMax}문항까지만 허용한다.`,
+    `나머지 최소 ${nonComboMin}문항은 non-조합형(single_selection, direct_statement, blank_workflow)으로 설계하라.`,
+    `single_selection은 최소 ${singleMin}문항 포함하라.`,
+    `direct_statement는 최소 ${directMin}문항 포함하라.`,
+    workflowMin > 0 ? `blank_workflow는 최소 ${workflowMin}문항 포함하라.` : '',
+    '시스템명(MES/SCM/CRM/JIT/POP), 공정/기법/분류 중 하나를 고르는 문제는 single_selection을 우선 사용하라.',
+    '보고서/표/기사/점검표를 읽고 하나의 판단을 내리는 문제는 direct_statement를 우선 사용하라.',
+    '발문에 <보기>가 없는 경우 combination_judgment를 사용하지 마라.',
+  ].filter(Boolean).join('\n');
+}
+
 export interface GeneratedQuestion {
   targetConcept: string;
   itemType: string;
@@ -22,6 +68,7 @@ export interface GeneratedQuestion {
   questionStem: string;
   stimulusData: object;
   optionsList: string[];
+  comboBlock: { title: string; items: Array<{ key: string; text: string }> } | null;
   explanation: object;
   correctAnswer: number;
   unitName: string;
@@ -101,6 +148,7 @@ export class ExamGeneratorService {
       units,
       difficulty,
       questionCount,
+      subjectSlug,
       customPrompt,
       0,
       targetConcepts,
@@ -109,7 +157,7 @@ export class ExamGeneratorService {
     this.logger.log(`Step 1 완료: ${blueprint.length}개 Blueprint`);
 
     // 3. Step 2: 실제 문항 데이터 생성
-    const rawItems = await this.runStep2(blueprint, units, 0, reportProgress);
+    const rawItems = await this.runStep2(blueprint, units, subjectSlug, 0, reportProgress);
     this.logger.log(`Step 2 완료: ${rawItems.length}개 문항`);
 
     await this.reportProgress(reportProgress, {
@@ -153,11 +201,12 @@ export class ExamGeneratorService {
         units,
         difficulty,
         deficit,
+        subjectSlug,
         customPrompt,
         0,
         targetConcepts,
       );
-      const extraRaw = await this.runStep2(extraBlueprint, units, 0);
+      const extraRaw = await this.runStep2(extraBlueprint, units, subjectSlug, 0);
       const extraValidated = this.validateItems(extraRaw);
       const extraSemantic = await this.runSemanticValidation(extraValidated);
 
@@ -193,6 +242,7 @@ export class ExamGeneratorService {
     units: UnitPayload[],
     difficulty: Difficulty,
     questionCount: number,
+    subjectSlug: string,
     customPrompt?: string,
     retryCount = 0,
     targetConcepts?: string[],
@@ -209,14 +259,25 @@ export class ExamGeneratorService {
     const step1Prompt = this.promptsService.getStep1Prompt(
       questionCount,
       difficulty,
+      subjectSlug,
     );
+
+    const truncatedUnits = units.map((u) => ({
+      unit_name: u.unit_name,
+      text_payload:
+        u.text_payload.length > MAX_UNIT_TEXT_LENGTH
+          ? u.text_payload.slice(0, MAX_UNIT_TEXT_LENGTH) + '\n...(truncated)'
+          : u.text_payload,
+    }));
 
     const userContent = [
       step1Prompt,
       '',
+      buildItemFamilyQuotaPrompt(subjectSlug, questionCount),
+      '',
       `# [Input Data]`,
       `- total_item_count: ${questionCount}`,
-      `- units: ${JSON.stringify(units)}`,
+      `- units: ${JSON.stringify(truncatedUnits)}`,
       targetConcepts && targetConcepts.length > 0
         ? `- target_concepts: ${JSON.stringify(targetConcepts)} (반드시 이 개념들 중심으로 blueprint를 생성하라. 각 개념당 최소 1개 이상의 문항을 설계하라.)`
         : '',
@@ -229,18 +290,26 @@ export class ExamGeneratorService {
       .join('\n');
 
     this.logger.log(
-      `Step 1 프롬프트 전송 내용 (앞 1000자):\n${userContent.slice(0, 1000)}`,
+      `Step 1 요청: prompt=${step1Prompt.length}자, units=${JSON.stringify(truncatedUnits).length}자, total=${userContent.length}자`,
     );
 
     try {
-      const response = await this.openai.chat.completions.create({
-        model: process.env.OPENAI_MODEL ?? 'gpt-4o',
-        messages: [
-          { role: 'system', content: this.promptsService.getPersona() },
-          { role: 'user', content: userContent },
-        ],
-        temperature: 0.7,
-      });
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), OPENAI_TIMEOUT_MS);
+
+      const response = await this.openai.chat.completions.create(
+        {
+          model: process.env.OPENAI_MODEL ?? 'gpt-4o',
+          messages: [
+            { role: 'system', content: this.promptsService.getPersona() },
+            { role: 'user', content: userContent },
+          ],
+          temperature: 0.7,
+        },
+        { signal: controller.signal },
+      );
+
+      clearTimeout(timer);
 
       const content = response.choices[0]?.message?.content ?? '';
       this.logger.log(
@@ -262,13 +331,16 @@ export class ExamGeneratorService {
 
       const parsed = this.extractJson(content);
 
-      // 배열 또는 { items: [] / blueprints: [] } 형태 모두 처리
-      const arr = Array.isArray(parsed)
-        ? parsed
-        : (parsed.items ?? parsed.blueprints ?? []);
-      if (!Array.isArray(arr) || arr.length === 0) {
+      let arr: any[];
+      if (Array.isArray(parsed)) {
+        arr = parsed;
+      } else if (parsed.items ?? parsed.blueprints) {
+        arr = parsed.items ?? parsed.blueprints;
+      } else if (parsed && typeof parsed === 'object' && parsed.metadata) {
+        arr = [parsed];
+      } else {
         const topLevelKeys =
-          parsed && typeof parsed === 'object' && !Array.isArray(parsed)
+          parsed && typeof parsed === 'object'
             ? Object.keys(parsed as Record<string, unknown>)
             : [];
         throw new Error(
@@ -278,6 +350,10 @@ export class ExamGeneratorService {
               : ''
           }`,
         );
+      }
+
+      if (!Array.isArray(arr) || arr.length === 0) {
+        throw new Error('Step 1 결과가 빈 배열입니다.');
       }
 
       await this.reportProgress(reportProgress, {
@@ -294,19 +370,23 @@ export class ExamGeneratorService {
       return arr;
     } catch (err) {
       const message = err instanceof Error ? err.message : String(err);
+      const isTimeout = message.includes('abort') || message.includes('timeout');
+      this.logger.warn(
+        `Step 1 실패 (${retryCount + 1}/3): ${isTimeout ? '[TIMEOUT] ' : ''}${message}`,
+      );
       if (retryCount < 3) {
-        this.logger.warn(`Step 1 재시도 (${retryCount + 1}/3): ${message}`);
         await this.reportProgress(reportProgress, {
           stage: 'step1_retry',
           progress: 38,
           status: 'warning',
-          message: `Step 1 재시도 (${retryCount + 1}/3)`,
+          message: `Step 1 재시도 (${retryCount + 1}/3)${isTimeout ? ' — 타임아웃' : ''}`,
           detail: message,
         });
         return this.runStep1(
           units,
           difficulty,
           questionCount,
+          subjectSlug,
           customPrompt,
           retryCount + 1,
           targetConcepts,
@@ -332,6 +412,7 @@ export class ExamGeneratorService {
   private async runStep2(
     blueprint: any[],
     units: UnitPayload[],
+    subjectSlug: string,
     retryCount = 0,
     reportProgress?: ExamGenerationProgressReporter,
   ): Promise<any[]> {
@@ -353,26 +434,45 @@ export class ExamGeneratorService {
     const results: any[] = [];
 
     if (otherBlueprints.length > 0) {
-      const step2Prompt = this.promptsService.getStep2Prompt();
+      const step2Prompt = this.promptsService.getStep2Prompt(subjectSlug);
+      const truncatedUnitsForStep2 = units.map((u) => ({
+        unit_name: u.unit_name,
+        text_payload:
+          u.text_payload.length > MAX_UNIT_TEXT_LENGTH
+            ? u.text_payload.slice(0, MAX_UNIT_TEXT_LENGTH) + '\n...(truncated)'
+            : u.text_payload,
+      }));
       const userContent = [
         step2Prompt,
         '',
         `# [Input Data]`,
         `- Blueprint Array: ${JSON.stringify(otherBlueprints)}`,
-        `- units: ${JSON.stringify(units)}`,
+        `- units: ${JSON.stringify(truncatedUnitsForStep2)}`,
         '',
         `# [수량 엄수 - 최우선]`,
         `Blueprint 배열의 원소 수는 ${otherBlueprints.length}개다. 출력 JSON 배열도 반드시 ${otherBlueprints.length}개여야 한다.`,
       ].join('\n');
 
-      const response = await this.openai.chat.completions.create({
-        model: process.env.OPENAI_MODEL ?? 'gpt-4o',
-        messages: [
-          { role: 'system', content: this.promptsService.getPersona() },
-          { role: 'user', content: userContent },
-        ],
-        temperature: 0.7,
-      });
+      this.logger.log(
+        `Step 2 요청: prompt=${step2Prompt.length}자, blueprint=${JSON.stringify(otherBlueprints).length}자, units=${JSON.stringify(truncatedUnitsForStep2).length}자`,
+      );
+
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), OPENAI_TIMEOUT_MS);
+
+      const response = await this.openai.chat.completions.create(
+        {
+          model: process.env.OPENAI_MODEL ?? 'gpt-4o',
+          messages: [
+            { role: 'system', content: this.promptsService.getPersona() },
+            { role: 'user', content: userContent },
+          ],
+          temperature: 0.7,
+        },
+        { signal: controller.signal },
+      );
+
+      clearTimeout(timer);
 
       if (response.usage) {
         await this.aiUsageLogRepo.save(
@@ -406,14 +506,22 @@ export class ExamGeneratorService {
           `- units: ${JSON.stringify(units)}`,
         ].join('\n');
 
-        const response = await this.openai.chat.completions.create({
-          model: process.env.OPENAI_MODEL ?? 'gpt-4o',
-          messages: [
-            { role: 'system', content: this.promptsService.getPersona() },
-            { role: 'user', content: userContent },
-          ],
-          temperature: 0.7,
-        });
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), OPENAI_TIMEOUT_MS);
+
+        const response = await this.openai.chat.completions.create(
+          {
+            model: process.env.OPENAI_MODEL ?? 'gpt-4o',
+            messages: [
+              { role: 'system', content: this.promptsService.getPersona() },
+              { role: 'user', content: userContent },
+            ],
+            temperature: 0.7,
+          },
+          { signal: controller.signal },
+        );
+
+        clearTimeout(timer);
 
         if (response.usage) {
           await this.aiUsageLogRepo.save(
@@ -447,7 +555,7 @@ export class ExamGeneratorService {
     if (results.length === 0) {
       if (retryCount < 3) {
         this.logger.warn(`Step 2 결과 비어있음, 재시도 (${retryCount + 1}/3)`);
-        return this.runStep2(blueprint, units, retryCount + 1, reportProgress);
+        return this.runStep2(blueprint, units, subjectSlug, retryCount + 1, reportProgress);
       }
       throw new InternalServerErrorException(
         'Step 2 실패: 결과가 비어있습니다.',
@@ -477,13 +585,30 @@ export class ExamGeneratorService {
           item.correct_answer ?? rr.correct_answer ?? 1,
         );
 
-        // 검증
         if (!Array.isArray(optionsList) || optionsList.length !== 5) {
           this.logger.warn(`선택지 5개 아님 (${optionsList.length}개), 스킵`);
           continue;
         }
         if (correctAnswer < 1 || correctAnswer > 5) {
           this.logger.warn(`정답 범위 오류 (${correctAnswer}), 스킵`);
+          continue;
+        }
+
+        const combCheck = this.validateCombinationEncoding(item);
+        if (!combCheck.valid) {
+          this.logger.warn(`조합형 검증 실패: ${combCheck.reason}, 스킵`);
+          continue;
+        }
+
+        const stemCheck = this.validateStemPattern(item);
+        if (!stemCheck.valid) {
+          this.logger.warn(`줄기 패턴 검증 실패: ${stemCheck.reason}, 스킵`);
+          continue;
+        }
+
+        const logicCheck = this.validateItemLogic(item);
+        if (!logicCheck.valid) {
+          this.logger.warn(`논리 정합성 검증 실패: ${logicCheck.reason}, 스킵`);
           continue;
         }
 
@@ -497,6 +622,26 @@ export class ExamGeneratorService {
           INTERGRATE: Difficulty.INTERGRATE,
         };
 
+        let comboBlock: GeneratedQuestion['comboBlock'] = null;
+        const jm = item.judgment_map;
+        const rrCombo = rr.combo_block;
+
+        if (rrCombo && Array.isArray(rrCombo.items) && rrCombo.items.length > 0) {
+          comboBlock = rrCombo;
+        } else if (jm && typeof jm === 'object') {
+          const keyMap: Record<string, string> = { ga: 'ㄱ', na: 'ㄴ', da: 'ㄷ', ra: 'ㄹ' };
+          const cbItems = Object.entries(jm)
+            .filter(([k]) => keyMap[k])
+            .map(([k, v]: [string, any]) => ({
+              key: keyMap[k],
+              text: typeof v === 'object' ? (v.claim ?? v.text ?? '') : String(v),
+            }))
+            .filter((ci) => ci.text.length > 0);
+          if (cbItems.length > 0) {
+            comboBlock = { title: '<보기>', items: cbItems };
+          }
+        }
+
         valid.push({
           targetConcept: meta.target_concept ?? '',
           itemType: meta.item_type ?? '',
@@ -507,6 +652,7 @@ export class ExamGeneratorService {
           questionStem: rr.question_stem ?? '',
           stimulusData: rr.stimulus_data ?? {},
           optionsList,
+          comboBlock,
           explanation: typeof exp === 'string' ? { judgment: exp } : exp,
           correctAnswer,
           unitName: meta.unit_name ?? '',
@@ -523,6 +669,117 @@ export class ExamGeneratorService {
     }
 
     return valid;
+  }
+
+  // ============================================================
+  // Logic-aware validation
+  // ============================================================
+  private validateCombinationEncoding(item: any): { valid: boolean; reason?: string } {
+    const itemStructure = item.item_structure;
+    if (!itemStructure || itemStructure.choice_encoding_type !== 'truth_combination') {
+      return { valid: true };
+    }
+
+    const rr = item.render_ready ?? {};
+    const optionsList: string[] =
+      rr.options_list ?? (rr.options ?? []).map((o: any) => o.text ?? String(o));
+
+    if (!Array.isArray(optionsList) || optionsList.length !== 5) {
+      return { valid: false, reason: `조합형 문항의 선택지가 5개가 아님 (${optionsList?.length ?? 0}개)` };
+    }
+
+    const combinationPattern = /[ㄱ-ㅎ]/;
+    const combLikeCount = optionsList.filter((opt) => combinationPattern.test(opt)).length;
+    if (combLikeCount < 3) {
+      return { valid: false, reason: `조합형 문항이지만 선택지가 조합 패턴이 아님 (${combLikeCount}/5개만 매칭)` };
+    }
+
+    const judgmentMap = item.judgment_map;
+    const choiceEncodingPlan = item.choice_encoding_plan;
+    if (judgmentMap && choiceEncodingPlan?.correct_combination) {
+      const correctIdx = Number(item.correct_answer ?? rr.correct_answer ?? 1) - 1;
+      if (correctIdx >= 0 && correctIdx < optionsList.length) {
+        const trueStatements = Object.entries(judgmentMap)
+          .filter(([, v]) => v === true || v === 'T' || v === '옳음' || v === '참')
+          .map(([k]) => k);
+
+        if (trueStatements.length > 0) {
+          const correctOption = optionsList[correctIdx];
+          const allPresent = trueStatements.every((s) => correctOption.includes(s));
+          if (!allPresent) {
+            return { valid: false, reason: `정답 선택지가 judgment_map의 참인 진술과 불일치` };
+          }
+        }
+      }
+    }
+
+    return { valid: true };
+  }
+
+  private validateStemPattern(item: any): { valid: boolean; reason?: string } {
+    const rr = item.render_ready ?? {};
+    const questionStem: string = rr.question_stem ?? '';
+    const meta = item.metadata ?? {};
+
+    if (questionStem.length < 10) {
+      return { valid: false, reason: `문항 줄기가 너무 짧음 (${questionStem.length}자)` };
+    }
+
+    const questionEndings = /(?:것은\?|고른\s*것은\?|고르시오|옳은\s*것은\?|않은\s*것은\?|무엇인가\?|서술하시오|설명으로.*옳은|대한.*설명|맞는\s*것)$/;
+    if (!questionEndings.test(questionStem.trim())) {
+      return { valid: false, reason: `문항 줄기가 적절한 질문 형식으로 끝나지 않음` };
+    }
+
+    const targetConcept: string = meta.target_concept ?? '';
+    const itemStructure = item.item_structure;
+    if (
+      targetConcept.length > 1 &&
+      questionStem.includes(targetConcept) &&
+      itemStructure?.item_family &&
+      itemStructure.item_family !== 'direct_statement'
+    ) {
+      return { valid: false, reason: `문항 줄기에 target_concept("${targetConcept}")이 직접 노출됨` };
+    }
+
+    return { valid: true };
+  }
+
+  private validateItemLogic(item: any): { valid: boolean; reason?: string } {
+    const itemStructure = item.item_structure;
+    const rr = item.render_ready ?? {};
+    const optionsList: string[] =
+      rr.options_list ?? (rr.options ?? []).map((o: any) => o.text ?? String(o));
+    const correctAnswer = Number(item.correct_answer ?? rr.correct_answer ?? 1);
+
+    if (correctAnswer < 1 || correctAnswer > 5) {
+      return { valid: false, reason: `정답 번호가 1~5 범위 밖 (${correctAnswer})` };
+    }
+
+    if (!itemStructure) {
+      return { valid: true };
+    }
+
+    const combinationPattern = /[ㄱ-ㅎ]/;
+    const combLikeCount = Array.isArray(optionsList)
+      ? optionsList.filter((opt) => combinationPattern.test(opt) && opt.length < 30).length
+      : 0;
+
+    if (itemStructure.choice_encoding_type === 'truth_combination') {
+      const fullSentenceCount = Array.isArray(optionsList)
+        ? optionsList.filter((opt) => opt.length > 40 && !combinationPattern.test(opt)).length
+        : 0;
+      if (fullSentenceCount >= 3) {
+        return { valid: false, reason: `조합형(truth_combination)이지만 선택지가 완전한 문장 형태` };
+      }
+    }
+
+    if (itemStructure.choice_encoding_type === 'independent_options') {
+      if (combLikeCount >= 4) {
+        return { valid: false, reason: `독립형(independent_options)이지만 선택지가 조합 패턴` };
+      }
+    }
+
+    return { valid: true };
   }
 
   // ============================================================
@@ -543,7 +800,7 @@ export class ExamGeneratorService {
       correct_answer: item.correctAnswer,
     }));
 
-    const prompt = `You are an expert exam quality reviewer for Korean CSAT-style questions. Evaluate each question strictly.
+    const prompt = `You are an expert exam quality reviewer for Korean CSAT-style questions (EBS 수능특강 style). Evaluate each question.
 
 For each question, check ALL of the following:
 1. STEM-OPTION MATCH: Does the question stem logically match what the options are answering? (e.g., if stem asks "which is NOT correct", options should be statements that can be true/false)
@@ -553,8 +810,7 @@ For each question, check ALL of the following:
 5. PLACEHOLDER DETECTION: Does stimulus_data or options contain unfilled placeholders, meta-instructions, or guide text instead of actual content? Examples of FAIL: "사례를 채워야 한다", "여기에 예시 삽입", "{{placeholder}}", empty strings where content should be, descriptions of what should be there instead of actual data. Any field that reads like an instruction to a writer rather than actual exam content is a FAIL.
 6. CONTENT COMPLETENESS: Is every field in stimulus_data filled with concrete, specific content (names, numbers, scenarios, statements)? Generic or abstract filler like "적절한 사례", "해당 내용", "관련 설명" without actual substance is a FAIL.
 7. STIMULUS-STEM RELEVANCE: Is the stimulus_data (table, diagram, conversation, etc.) actually relevant to what the question_stem is asking? If the stimulus shows a comparison table of A vs B but the stem asks about an unrelated concept C that doesn't require the table to answer, that's a FAIL. The stimulus must be NECESSARY to answer the question — if removing it doesn't change the difficulty, it's decorative and that's a FAIL.
-8. STEM CONCEPT LEAKAGE: Does the question_stem directly name the target concept that should only be revealed through stimulus_data? If the stem says "다음 중 유한회사의 특징으로 옳은 것은?" while the stimulus already describes 유한회사's characteristics, the concept is redundantly exposed in both places — that's a FAIL. The stem should reference the stimulus material generically (e.g., "다음 자료에 대한 설명으로 옳은 것은?") rather than naming the concept directly.
-9. CONCEPT LEAKAGE (STRICT): Check if question_stem contains the target_concept string OR any specific domain terminology/concept names (Korean nouns like 직업의 사회적 인정, 기준 금리, 유한회사, etc.). The stem MUST start with a stimulus-referencing phrase like "다음 자료에 대한", "위 표의", "다음 상황에", "다음에서 설명하는". If the stem directly names ANY concept instead of referencing the stimulus material, that's a FAIL. Examples of FAIL: "직업의 사회적 인정과 직업의 안정성이 충돌할 때...", "기준 금리에 대한 설명으로...", "유한회사의 특징으로..."
+8. CONCEPT USAGE (BALANCED): Using curriculum concept terms in the stem IS ALLOWED in EBS-style questions. The stem MAY name concepts like "직업 가치관", "유연 근무제", "홀랜드 유형" etc. This is NOT a failure. However, if the stem names the concept AND the answer can be determined purely from knowing the concept name without reading the stimulus_data at all, that's a FAIL. The test is: "Does the student still need to read and interpret the stimulus to answer correctly?" If yes → PASS. If the stimulus is unnecessary because the stem already gives away everything → FAIL.
 
 Input questions:
 ${JSON.stringify(validationInput, null, 2)}
@@ -562,7 +818,7 @@ ${JSON.stringify(validationInput, null, 2)}
 Output ONLY a JSON array with this schema:
 [{ "index": <number>, "verdict": "PASS" | "FAIL", "reason": "<brief explanation if FAIL, empty string if PASS>" }]
 
-Be strict:
+Be strict on rules 1-7. For rule 8, only fail if the stimulus becomes completely unnecessary.
 - If the stem asks about topic A but options discuss topic B, that's a FAIL.
 - If options mix different grammatical forms (some are nouns, some are full sentences), that's a FAIL.
 - If stimulus_data contains ANY placeholder text, guide instructions, or unfilled template markers, that's a FAIL.
@@ -570,11 +826,19 @@ Be strict:
 Output JSON only.`;
 
     try {
-      const response = await this.openai.chat.completions.create({
-        model: 'gpt-4o-mini',
-        messages: [{ role: 'user', content: prompt }],
-        temperature: 0,
-      });
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), OPENAI_TIMEOUT_MS);
+
+      const response = await this.openai.chat.completions.create(
+        {
+          model: 'gpt-4o-mini',
+          messages: [{ role: 'user', content: prompt }],
+          temperature: 0,
+        },
+        { signal: controller.signal },
+      );
+
+      clearTimeout(timer);
 
       if (response.usage) {
         await this.aiUsageLogRepo.save(
@@ -693,6 +957,7 @@ Output JSON only.`;
         questionStem: item.questionStem,
         stimulusData: item.stimulusData,
         optionsList: item.optionsList,
+        comboBlock: item.comboBlock,
         explanation: item.explanation,
         correctAnswer: item.correctAnswer,
       });

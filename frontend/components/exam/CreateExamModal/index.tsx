@@ -13,7 +13,7 @@ interface CreateExamModalProps {
     isOpen: boolean;
     onClose: () => void;
     subjectName: string;
-    onCreated?: () => void;
+    onCreated?: (jobId: string) => void;
 }
 
 // subjectName → slug 매핑
@@ -70,8 +70,9 @@ export function CreateExamModal({ isOpen, onClose, subjectName, onCreated }: Cre
                 throw new Error(err.message);
             }
 
+            const data = await res.json();
             onClose();
-            onCreated?.();
+            onCreated?.(data.jobId);
         } catch (err: unknown) {
             setError(err instanceof Error ? err.message : '생성 중 오류가 발생했습니다.');
         } finally {

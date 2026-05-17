@@ -209,3 +209,41 @@
   from { transform: translateX(0); }
   to { transform: translateX(100%); }
 }
+
+.generationBanner {
+  padding: $spacing-14 $spacing-16;
+  background-color: $background-secondary;
+  border: 1px solid $border-primary;
+  border-radius: $spacing-12;
+}
+
+.bannerSpinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid $background-third;
+  border-top-color: $brand-primary;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+.progressTrack {
+  width: 100%;
+  height: 4px;
+  background-color: $background-third;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background-color: $brand-primary;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.bannerDismiss {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}

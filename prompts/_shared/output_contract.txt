@@ -1,0 +1,25 @@
+# [출력 계약 — 위반 시 시스템 폐기]
+
+아래 조건을 하나라도 위반하면 출력 전체가 폐기된다.
+
+1. **JSON ONLY**: 출력은 유효한 JSON만 허용. 설명문, 주석, 마크다운 텍스트 금지. ```json 코드블록으로 감싸라.
+2. **수량 일치**: total_item_count=1이면 단일 Blueprint 객체, ≥2이면 Blueprint 배열을 출력하라. 배열 길이는 total_item_count와 정확히 일치해야 한다.
+3. **필수 필드**: 각 Blueprint는 반드시 metadata, item_structure, judgment_map, choice_encoding_plan, render_ready를 포함해야 한다.
+4. **조합형 계약**: item_structure.choice_encoding_type이 "truth_combination"이면:
+   - judgment_map에 ga, na, da, ra가 모두 존재해야 한다.
+   - 각 항목은 truth(boolean)를 가져야 한다.
+   - choice_encoding_plan.correct_combination은 truth=true인 보기 key와 정확히 일치해야 한다.
+   - item_family는 "combination_judgment"로 설정하라.
+5. **발문 규칙**: render_ready.question_stem은 반드시 질문형으로 끝나야 한다 ("~것은?", "~고른 것은?", "~고르시오").
+6. **개념 노출 제한**: question_stem에 metadata.target_concept 문자열을 직접 포함하지 마라 (item_family가 direct_statement인 경우 제외).
+7. **placeholder 금지**: 모든 필드에 실제 내용을 채워라. "여기에 작성", "{{placeholder}}", 빈 문자열 금지.
+
+# [자체 점검 — 출력 직전 수행]
+
+출력 전에 아래를 내부적으로 확인하라 (점검 결과는 출력에 포함하지 마라):
+- JSON 파싱이 가능한가?
+- 배열 길이가 total_item_count와 일치하는가?
+- 모든 항목에 item_structure, judgment_map이 있는가?
+- truth_combination이면 correct_combination이 truth=true 보기와 일치하는가?
+- question_stem이 질문형으로 끝나는가?
+- target_concept가 stem에 직접 노출되지 않았는가?

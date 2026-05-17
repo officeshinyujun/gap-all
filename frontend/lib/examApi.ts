@@ -38,6 +38,7 @@ function normalizeQuestion(raw: Record<string, unknown>): ExamQuestion {
     },
     explanation: raw.explanation as any,
     correct_answer: raw.correctAnswer as number | undefined,
+    combo_block: raw.comboBlock as any ?? raw.combo_block as any ?? undefined,
   } as ExamQuestion;
 }
 

@@ -74,6 +74,33 @@
   width: 100%;
 }
 
+// 보기 블록
+.comboBlock {
+  width: 100%;
+  background-color: $background-secondary;
+  border: 1px solid $border-primary;
+  padding: $spacing-16;
+  box-sizing: border-box;
+}
+
+.comboBlockTitle {
+  font-size: 13px;
+  font-weight: $semi-bold;
+  color: $text-primary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  text-align: center;
+  margin-bottom: $spacing-12;
+}
+
+.comboBlockItem {
+  font-size: 13px;
+  font-weight: $regular;
+  color: $text-primary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  line-height: 1.8;
+  word-break: keep-all;
+}
+
 // 선택지
 .optionsSection {
   padding-top: $spacing-8;

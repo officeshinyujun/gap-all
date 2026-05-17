@@ -25,6 +25,18 @@ function QuestionBlock({ item }: { item: ExamItem }) {
         {item.orderIndex}. {q.render_ready.question_stem}
       </Text>
       <PdfStimulusRenderer template={template} data={q.render_ready.stimulus_data} />
+      {q.combo_block && q.combo_block.items.length > 0 && (
+        <View style={{ marginTop: 3, marginBottom: 3, padding: 4, borderWidth: 0.5, borderColor: '#999', borderStyle: 'solid', backgroundColor: '#f8f8f8' }}>
+          <Text style={{ fontSize: 7, fontWeight: 700, textAlign: 'center', marginBottom: 2 }}>
+            {q.combo_block.title}
+          </Text>
+          {q.combo_block.items.map((item) => (
+            <Text key={item.key} style={{ fontSize: 6.5, lineHeight: 1.4, marginBottom: 1 }}>
+              {item.key}. {item.text}
+            </Text>
+          ))}
+        </View>
+      )}
       {options.length > 0 && (
         <View style={{ marginTop: 4 }}>
           {options.map((opt, i) => (

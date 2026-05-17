@@ -92,6 +92,16 @@ export interface ExamQuestionMetadata {
 // ------------------------------------------------------------
 // 문항 (최상위 타입)
 // ------------------------------------------------------------
+export interface ComboBlockItem {
+  key: string;
+  text: string;
+}
+
+export interface ComboBlock {
+  title: string;
+  items: ComboBlockItem[];
+}
+
 export interface ExamQuestion {
   metadata: ExamQuestionMetadata;
   render_ready: {
@@ -113,6 +123,8 @@ export interface ExamQuestion {
   explanation?: ExamExplanation;
   /** 백엔드 API에서 반환하는 정답 번호 */
   correct_answer?: number;
+  /** 조합형 문항의 ㄱ~ㄹ 보기 블록 */
+  combo_block?: ComboBlock | null;
 }
 
 // ------------------------------------------------------------

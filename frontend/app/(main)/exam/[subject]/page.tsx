@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, use, useEffect, useCallback } from 'react';
+import React, { useState, use, useEffect, useCallback, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { X, Download, FileText } from 'lucide-react';
 import { HStack } from '@/components/general/HStack';
@@ -11,7 +11,7 @@ import { CreateExamModal } from '@/components/exam/CreateExamModal';
 import { HeaderActions } from '@/components/general/HeaderActions';
 import { SPACING } from '@/constants/spacing';
 import { getSubjectName } from '@/utils/subject';
-import { fetchExams, type ExamListItem } from '@/lib/examApi';
+import { fetchExams, pollExamJob, type ExamListItem, type ExamJobStatus } from '@/lib/examApi';
 import s from './page.module.scss';
 
 const DIFFICULTY_LABEL: Record<string, string> = {
@@ -56,6 +56,9 @@ export default function ExamPage({ params }: { params: Promise<{ subject: string
   const [showMobileDetail, setShowMobileDetail] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [activeJobId, setActiveJobId] = useState<string | null>(null);
+  const [jobStatus, setJobStatus] = useState<ExamJobStatus | null>(null);
+  const pollingRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth <= 768);
@@ -63,6 +66,40 @@ export default function ExamPage({ params }: { params: Promise<{ subject: string
     window.addEventListener('resize', check);
     return () => window.removeEventListener('resize', check);
   }, []);
+
+  useEffect(() => {
+    if (!activeJobId) return;
+
+    const poll = async () => {
+      try {
+        const status = await pollExamJob(activeJobId);
+        setJobStatus(status);
+        if (status.status === 'completed' || status.status === 'failed') {
+          if (pollingRef.current) clearInterval(pollingRef.current);
+          pollingRef.current = null;
+          if (status.status === 'completed') {
+            setActiveJobId(null);
+            setJobStatus(null);
+            loadExams();
+          }
+        }
+      } catch {
+        setJobStatus((prev) => prev ? { ...prev, status: 'failed', message: '폴링 중 오류 발생' } : null);
+        if (pollingRef.current) clearInterval(pollingRef.current);
+        pollingRef.current = null;
+      }
+    };
+
+    poll();
+    pollingRef.current = setInterval(poll, 2500);
+
+    return () => {
+      if (pollingRef.current) {
+        clearInterval(pollingRef.current);
+        pollingRef.current = null;
+      }
+    };
+  }, [activeJobId]);
 
   const handleCloseMobileDetail = () => {
     setIsClosing(true);
@@ -157,13 +194,48 @@ export default function ExamPage({ params }: { params: Promise<{ subject: string
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
             </HStack>
-            <div className={s.searchButton} onClick={() => setIsModalOpen(true)} style={{ cursor: 'pointer' }}>
+            <div className={s.searchButton} onClick={() => !activeJobId && setIsModalOpen(true)} style={{ cursor: activeJobId ? 'not-allowed' : 'pointer', opacity: activeJobId ? 0.4 : 1 }}>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white">
                 <line x1="12" y1="5" x2="12" y2="19" strokeWidth="2" strokeLinecap="round" />
                 <line x1="5" y1="12" x2="19" y2="12" strokeWidth="2" strokeLinecap="round" />
               </svg>
             </div>
           </HStack>
+
+          {/* Generation Progress Banner */}
+          {activeJobId && jobStatus && (
+            <VStack className={s.generationBanner} gap={SPACING.s8} fullWidth>
+              <HStack fullWidth justify="between" align="center">
+                <HStack gap={SPACING.s8} align="center">
+                  {jobStatus.status !== 'failed' && <div className={s.bannerSpinner} />}
+                  <Typo.MD size={14} color="primary">
+                    {jobStatus.status === 'failed' ? '문제 생성 실패' : '문제 생성 중...'}
+                  </Typo.MD>
+                </HStack>
+                {jobStatus.status !== 'failed' && (
+                  <Typo.MD size={12} color="secondary">{jobStatus.progress}%</Typo.MD>
+                )}
+              </HStack>
+              {jobStatus.status === 'failed' ? (
+                <VStack gap={SPACING.s4}>
+                  <Typo.MD size={12} color="secondary">{jobStatus.message}</Typo.MD>
+                  <button
+                    className={s.bannerDismiss}
+                    onClick={() => { setActiveJobId(null); setJobStatus(null); }}
+                  >
+                    <Typo.MD size={12} color="brand">닫기</Typo.MD>
+                  </button>
+                </VStack>
+              ) : (
+                <VStack gap={SPACING.s4} fullWidth>
+                  <div className={s.progressTrack}>
+                    <div className={s.progressFill} style={{ width: `${jobStatus.progress}%` }} />
+                  </div>
+                  <Typo.MD size={10} color="secondary">{jobStatus.message}</Typo.MD>
+                </VStack>
+              )}
+            </VStack>
+          )}
 
           {/* List */}
           {loading ? (
@@ -272,7 +344,10 @@ export default function ExamPage({ params }: { params: Promise<{ subject: string
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         subjectName={subjectName}
-        onCreated={loadExams}
+        onCreated={(jobId) => {
+          setActiveJobId(jobId);
+          setJobStatus({ jobId, status: 'pending', progress: 0, stage: 'starting', message: '문제 생성을 시작합니다...' });
+        }}
       />
 
       {isMobile && showMobileDetail && selectedItem && (

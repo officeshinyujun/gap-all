@@ -193,6 +193,7 @@ export class ExamsService {
         questionStem: item.question.questionStem,
         stimulusData: item.question.stimulusData,
         optionsList: item.question.optionsList,
+        comboBlock: item.question.comboBlock,
         // 채점 전에는 정답/해설 숨김
         ...(item.userAnswer !== null
           ? {
@@ -324,6 +325,7 @@ export class ExamsService {
         questionStem: item.question.questionStem,
         stimulusData: item.question.stimulusData,
         optionsList: item.question.optionsList,
+        comboBlock: item.question.comboBlock,
         correctAnswer: item.question.correctAnswer,
         explanation: item.question.explanation,
       },
