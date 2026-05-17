@@ -359,11 +359,22 @@ export class StudyService {
       const cards = data.cards ?? [];
 
       const card = cards.find((c: any) => {
-        const title = c.content?.title ?? '';
+        const content = c.content;
+        if (!content) return false;
+        const title = content.title ?? '';
+        const description = content.description ?? '';
+        const table = content.integrated_data?.table ?? '';
+        const logicFlow = content.integrated_data?.logic_flow ?? '';
+        const bulletPoints = (content.bullet_points ?? []).join(' ');
+        const trapPoints = (content.trap_points ?? []).join(' ');
+        const tags = (content.tags ?? []).join(' ');
+        const searchable = `${title} ${description} ${table} ${logicFlow} ${bulletPoints} ${trapPoints} ${tags}`;
+
         return (
           title === targetConcept ||
           title.includes(targetConcept) ||
-          targetConcept.includes(title)
+          targetConcept.includes(title) ||
+          searchable.includes(targetConcept)
         );
       });
 
