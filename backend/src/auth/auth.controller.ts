@@ -21,10 +21,12 @@ import { SendCodeDto } from './dto/send-code.dto';
 import { VerifyCodeDto } from './dto/verify-code.dto';
 import { SecurityLoggerInterceptor } from '../common/interceptors/security-logger.interceptor';
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 const COOKIE_OPTIONS = {
   httpOnly: true,
-  secure: process.env.NODE_ENV === 'production',
-  sameSite: 'none' as const,
+  secure: isProduction,
+  sameSite: isProduction ? ('none' as const) : ('lax' as const),
   domain: process.env.COOKIE_DOMAIN || undefined,
   path: '/auth',
   maxAge: 7 * 24 * 60 * 60 * 1000,
@@ -32,8 +34,8 @@ const COOKIE_OPTIONS = {
 
 const ACCESS_COOKIE_OPTIONS = {
   httpOnly: true,
-  secure: process.env.NODE_ENV === 'production',
-  sameSite: 'none' as const,
+  secure: isProduction,
+  sameSite: isProduction ? ('none' as const) : ('lax' as const),
   domain: process.env.COOKIE_DOMAIN || undefined,
   path: '/',
   maxAge: 7 * 24 * 60 * 60 * 1000,

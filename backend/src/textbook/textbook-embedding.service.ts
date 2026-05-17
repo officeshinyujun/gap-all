@@ -4,11 +4,11 @@ import { DataSource } from 'typeorm';
 import OpenAI from 'openai';
 import { TextbookService } from './textbook.service';
 
-const CHUNK_SIZE = 500; // 청크당 최대 글자 수
-const CHUNK_OVERLAP = 100; // 청크 간 겹침 글자 수
+const CHUNK_SIZE = 1500; // 청크당 최대 글자 수
+const CHUNK_OVERLAP = 300; // 청크 간 겹침 글자 수
 const EMBEDDING_MODEL = 'text-embedding-3-small';
 const EMBEDDING_DIM = 1536;
-const TOP_K = 5; // RAG 검색 시 반환할 청크 수
+const TOP_K = 8; // RAG 검색 시 반환할 청크 수
 
 @Injectable()
 export class TextbookEmbeddingService {
@@ -42,14 +42,53 @@ export class TextbookEmbeddingService {
   }
 
   // ============================================================
+  // JSON 카드 구조에서 자연어 텍스트 추출
+  // ============================================================
+  private extractTextFromCards(raw: string): string {
+    const jsonStr = raw.replace(/^```json\s*/, '').replace(/\s*```$/, '');
+    const data = JSON.parse(jsonStr);
+    const cards: any[] = data.cards ?? [];
+    const sections: string[] = [];
+
+    for (const card of cards) {
+      const c = card.content;
+      if (!c) continue;
+
+      const parts: string[] = [];
+      if (c.title) parts.push(`## ${c.title}`);
+      if (c.description) parts.push(c.description);
+      if (c.integrated_data?.table) parts.push(c.integrated_data.table);
+      if (c.integrated_data?.logic_flow) parts.push(c.integrated_data.logic_flow);
+      if (c.integrated_data?.visual_analysis) parts.push(c.integrated_data.visual_analysis);
+      if (Array.isArray(c.bullet_points) && c.bullet_points.length > 0) {
+        parts.push(c.bullet_points.map((bp: string) => `- ${bp}`).join('\n'));
+      }
+      if (Array.isArray(c.trap_points) && c.trap_points.length > 0) {
+        parts.push(`주의: ${c.trap_points.join(', ')}`);
+      }
+
+      if (parts.length > 0) sections.push(parts.join('\n'));
+    }
+
+    return sections.join('\n\n');
+  }
+
+  // ============================================================
   // 단일 단원 임베딩 생성 및 저장
   // ============================================================
   async embedUnit(subjectSlug: string, unitNumber: number): Promise<number> {
     this.logger.log(`임베딩 시작: ${subjectSlug} ${unitNumber}단원`);
 
-    // summation MD 읽기
-    const md = this.textbookService.getSummationMd(subjectSlug, unitNumber);
-    const chunks = this.splitIntoChunks(md);
+    const raw = this.textbookService.getSummationMd(subjectSlug, unitNumber);
+
+    let text: string;
+    try {
+      text = this.extractTextFromCards(raw);
+    } catch {
+      text = raw;
+    }
+
+    const chunks = this.splitIntoChunks(text);
 
     // 기존 청크 삭제
     await this.dataSource.query(
@@ -135,6 +174,49 @@ export class TextbookEmbeddingService {
        ORDER BY embedding <=> $4::vector
        LIMIT $5`,
       [subjectSlug, from, to, vectorStr, topK],
+    );
+
+    return rows.map((r) => r.content);
+  }
+
+  // ============================================================
+  // 특정 단원의 모든 청크 반환 (단원 번호 명시 질문용)
+  // ============================================================
+  async getAllChunksForUnit(
+    subjectSlug: string,
+    unitNumber: number,
+  ): Promise<string[]> {
+    const rows: { content: string }[] = await this.dataSource.query(
+      `SELECT content
+       FROM textbook_chunks
+       WHERE subject_slug = $1
+         AND unit_number = $2
+       ORDER BY chunk_index ASC`,
+      [subjectSlug, unitNumber],
+    );
+
+    return rows.map((r) => r.content);
+  }
+
+  async searchChunksByKeyword(
+    subjectSlug: string,
+    keyword: string,
+    startUnit?: number,
+    endUnit?: number,
+    limit = TOP_K,
+  ): Promise<string[]> {
+    const from = startUnit ?? 1;
+    const to = endUnit ?? 20;
+
+    const rows: { content: string }[] = await this.dataSource.query(
+      `SELECT content
+       FROM textbook_chunks
+       WHERE subject_slug = $1
+         AND unit_number BETWEEN $2 AND $3
+         AND content ILIKE $4
+       ORDER BY unit_number ASC, chunk_index ASC
+       LIMIT $5`,
+      [subjectSlug, from, to, `%${keyword}%`, limit],
     );
 
     return rows.map((r) => r.content);
