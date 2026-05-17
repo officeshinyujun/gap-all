@@ -150,4 +150,33 @@ export class TextbookService {
 
     return fs.readFileSync(filePath, 'utf-8');
   }
+
+  extractTextFromSummation(raw: string): string {
+    const jsonStr = raw.replace(/^```json\s*/, '').replace(/\s*```$/, '');
+    const data = JSON.parse(jsonStr);
+    const cards: any[] = data.cards ?? [];
+    const sections: string[] = [];
+
+    for (const card of cards) {
+      const c = card.content;
+      if (!c) continue;
+
+      const parts: string[] = [];
+      if (c.title) parts.push(`## ${c.title}`);
+      if (c.description) parts.push(c.description);
+      if (c.integrated_data?.table) parts.push(c.integrated_data.table);
+      if (c.integrated_data?.logic_flow) parts.push(c.integrated_data.logic_flow);
+      if (c.integrated_data?.visual_analysis) parts.push(c.integrated_data.visual_analysis);
+      if (Array.isArray(c.bullet_points) && c.bullet_points.length > 0) {
+        parts.push(c.bullet_points.map((bp: string) => `- ${bp}`).join('\n'));
+      }
+      if (Array.isArray(c.trap_points) && c.trap_points.length > 0) {
+        parts.push(`주의: ${c.trap_points.join(', ')}`);
+      }
+
+      if (parts.length > 0) sections.push(parts.join('\n'));
+    }
+
+    return sections.join('\n\n');
+  }
 }

@@ -65,7 +65,13 @@ export class StudyQuizGeneratorService {
     this.logger.log(
       `AI 생성 시작: ${subjectSlug} ${unitNumber}단원 blank ${count}개`,
     );
-    const md = this.textbookService.getSummationMd(subjectSlug, unitNumber);
+    const raw = this.textbookService.getSummationMd(subjectSlug, unitNumber);
+    let md: string;
+    try {
+      md = this.textbookService.extractTextFromSummation(raw);
+    } catch {
+      md = raw;
+    }
     const items = await this.callOpenAiForBlank(md, count);
     this.writeCache(subjectSlug, unitNumber, 'blank', count, items);
     return items;
@@ -92,7 +98,13 @@ export class StudyQuizGeneratorService {
     this.logger.log(
       `AI 생성 시작: ${subjectSlug} ${unitNumber}단원 concept ${count}개`,
     );
-    const md = this.textbookService.getSummationMd(subjectSlug, unitNumber);
+    const raw = this.textbookService.getSummationMd(subjectSlug, unitNumber);
+    let md: string;
+    try {
+      md = this.textbookService.extractTextFromSummation(raw);
+    } catch {
+      md = raw;
+    }
     const items = await this.callOpenAiForConcept(md, count);
     this.writeCache(subjectSlug, unitNumber, 'concept', count, items);
     return items;
@@ -130,42 +142,39 @@ export class StudyQuizGeneratorService {
     md: string,
     count: QuizCount,
   ): Promise<BlankQuestion[]> {
-    const prompt = `# Role: 수능형 문항 검토 위원 (High-Density Concept Architect)
-# Mission: [text_payload]에서 학술적 정의와 논리적 근거가 풍부하게 뒷받침된 '핵심 개념'만을 추출하여 빈칸 문항을 설계하라.
+    const prompt = `# Role: 교과서 빈칸 문제 출제자
 
-# [Selection Logic: The Conceptual Anchor Rule]
-아래 3가지 조건을 **모두 충족**하는 단어만 빈칸(Target)으로 선정하라:
-1. **정의의 존재:** 지문 내에서 해당 단어에 대한 정의(Definition)나 핵심 성질이 명시적으로 서술되어 있는가?
-2. **논리적 중추:** 해당 단어를 가렸을 때, 지문 전체의 논리 전개나 학자 간의 비교가 불가능해지는가?
-3. **학술적 범주:** 고유 학설, 전문 용어, 메커니즘 명칭인가? (일반 명사 '회식', '과정', '결과' 등은 무조건 탈락)
+# Mission
+아래 [교재 내용]에서 설명문(정의, 특징, 분류 등을 서술하는 문장)을 찾아 핵심 용어를 [blank]로 처리한 빈칸 문제를 만들어라.
 
-# [Implementation Rules]
-1. **Context-Heavy Sentence:** 단순히 단어가 포함된 문장이 아니라, 그 단어의 '핵심 원리'를 설명하는 문장을 문항으로 채택하라.
-2. **Distractor Sophistication:** 오답 칩은 지문 내의 '다른 핵심 개념'으로 구성하여, 개념을 대충 알면 틀리도록 설계하라.
-3. **Negative Constraints:** '특징', '영향', '관점' 등 지문 내 설명 밀도가 낮은 일반적 추상 명사는 절대 추출하지 마라.
+# Rules
+1. 반드시 [교재 내용]에 실제로 등장하는 설명문을 그대로 또는 최소한으로 다듬어서 사용하라.
+2. [blank]로 처리할 단어는 교재에 명시된 전문 용어, 학자명, 제도명, 분류명이어야 한다.
+3. "~를 설명하라", "~의 특징을 서술하라" 같은 서술형 문제를 만들지 마라. 오직 빈칸 채우기만 출제하라.
+4. sentence_template는 반드시 서술문(~이다, ~한다, ~된다)이어야 한다. 의문문이나 명령문을 사용하지 마라.
+5. [blank]는 문장의 중간에 위치해야 한다. 문장 맨 끝이나 맨 앞에 [blank]를 배치하지 마라.
+6. 교재에 없는 내용을 추가하거나 추론하지 마라.
+7. options는 같은 교재 내에 등장하는 다른 용어 3개 + 정답 1개 = 총 4개로 구성하라.
+8. explanation은 교재에 적힌 내용만으로 간결하게 작성하라.
 
-# [JSON Output Schema]
+# JSON Output
 [
   {
-    "id": "number",
-    "sentence_template": "학술적 정의가 포함된 문장의 핵심 키워드를 [blank] 처리",
-    "correct_answer": "설명 밀도가 높은 학술 용어",
-    "options": ["정답 포함, 지문 내 다른 학술 용어들로 구성된 4개 배열"],
-    "explanation": "해당 용어가 지문에서 어떤 정의(Definition)를 갖는지 구체적으로 서술"
+    "id": number,
+    "sentence_template": "교재 원문 설명문에서 핵심 용어를 [blank]로 처리한 문장",
+    "correct_answer": "빈칸에 들어갈 정답",
+    "options": ["정답 포함 4개 선택지"],
+    "explanation": "교재 기반 간결한 설명"
   }
 ]
 
-# [QUANTITY REQUIREMENT]
-- 반드시 최소 ${count}개 이상의 문항을 생성하라. ${count}개 미만은 절대 허용하지 않는다.
-- 지문에 등장하는 모든 핵심 개념을 빠짐없이 포함하라. 개념이 ${count}개 이상이면 전부 출제하라.
-- 개념이 부족할 경우, 동일 개념을 다른 문맥/문장으로 변형하여 추가 문항을 만들어라.
+# Quantity
+- 반드시 ${count}개를 생성하라.
 
-# [Input Data]
-- text_payload: ${md}
-- count: ${count}
+# [교재 내용]
+${md}
 
-# [FINAL COMMAND]
-지문에서 2번 이상 언급되거나 상세 설명이 붙은 '무거운 단어'만 골라라. 가벼운 단어 추출 시 출제 오류로 간주한다. 반드시 ${count}개 이상 출력하라. JSON만 출력하라.`;
+JSON만 출력하라.`;
 
     const response = await this.openai.chat.completions.create({
       model: process.env.OPENAI_MODEL ?? 'gpt-4o',
@@ -197,44 +206,39 @@ export class StudyQuizGeneratorService {
     md: string,
     count: QuizCount,
   ): Promise<ConceptPair[]> {
-    const prompt = `# Role: 학술 용어 매핑 전문가 (Expert Definitional Mapper)
-# Mission: [text_payload]에서 '명시적 정의'가 존재하는 학술 전문 용어만 추출하여 뜻 풀이 문항을 생성하라.
+    const prompt = `# Role: 교과서 개념 정리 출제자
 
-# [Extraction Protocol]
-1. **Definition-First Search:** 먼저 지문에서 "~란 ~이다", "~를 의미한다", "~라고 부른다"와 같은 정의 구문을 찾아라.
-2. **Key Term Mapping:** 위 구문이 가리키는 주체인 '학술 용어'를 concept으로 추출하라.
-3. **Weight Filtering:** 지문에서 별도의 설명 없이 스치듯 지나가는 단어(예: 취미, 거주지)나 일상적 명사는 추출 목록에서 즉시 삭제하라.
+# Mission
+아래 [교재 내용]에서 "~란 ~이다", "~를 의미한다", "~라고 한다" 등의 정의문을 찾아 용어-정의 매칭 문제를 만들어라.
 
-# [Implementation Rules]
-1. **Functional Definition:** 정의(definition) 작성 시, 단순히 사전적 의미가 아니라 해당 지문이 강조하는 특수한 맥락적 의미를 반드시 포함하라.
-2. **Standardization:** 수능 기출 지문 특유의 단정적이고 명료한 문체를 유지하라.
-3. **Zero-Inference:** 지문에 없는 내용을 AI의 상식으로 보충하지 마라. 오직 text_payload에 적힌 대로만 정의하라.
-4. **hidden_field 고정:** hidden_field는 항상 "definition"으로 고정하라. 학습자는 단어를 보고 뜻을 서술한다.
-5. **correct_value:** definition과 동일한 값을 넣어라.
+# Rules
+1. 교재에 명시적으로 정의가 적혀 있는 용어만 추출하라.
+2. definition은 교재 원문의 정의 문장을 그대로 또는 최소한으로 다듬어서 사용하라. 직접 작성하거나 추론하지 마라.
+3. "~를 설명하라", "~의 특징을 서술하라" 같은 서술형 문제를 만들지 마라. 오직 용어와 정의의 매칭만 출제하라.
+4. hidden_field는 항상 "definition"으로 고정하라.
+5. correct_value는 definition과 동일한 값을 넣어라.
+6. explanation은 교재에 적힌 내용만으로 1문장 이내로 작성하라.
+7. 교재에 없는 내용을 추가하거나 추론하지 마라.
 
-# [JSON Output Schema]
+# JSON Output
 [
   {
-    "id": "number",
-    "concept": "지문에서 정의를 내린 핵심 학술 용어",
-    "definition": "지문에 명시된 해당 용어의 정교한 정의 (1~2문장)",
+    "id": number,
+    "concept": "교재에 정의가 명시된 용어",
+    "definition": "교재 원문에서 발췌한 해당 용어의 정의",
     "hidden_field": "definition",
     "correct_value": "definition과 동일",
-    "explanation": "이 개념이 지문에서 설명하는 핵심 원리와 어떻게 연결되는지 서술"
+    "explanation": "교재 기반 간결한 보충 설명"
   }
 ]
 
-# [Input Data]
-- text_payload: ${md}
-- count: ${count}
+# Quantity
+- 반드시 ${count}개를 생성하라.
 
-# [QUANTITY REQUIREMENT]
-- 반드시 최소 ${count}개 이상의 문항을 생성하라. ${count}개 미만은 절대 허용하지 않는다.
-- 지문에 등장하는 모든 핵심 개념을 빠짐없이 포함하라. 개념이 ${count}개 이상이면 전부 출제하라.
-- 개념이 부족할 경우, 동일 개념을 다른 문맥/문장으로 변형하여 추가 문항을 만들어라.
+# [교재 내용]
+${md}
 
-# [FINAL COMMAND]
-부연 설명 없이 오직 유효한 JSON 배열 코드 블록만 출력하라. 설명을 부실한 단어는 버리고, 오직 '지문이 공들여 설명한 단어'만 추출하여 반드시 ${count}개 이상 반환하라.`;
+JSON만 출력하라.`;
 
     const response = await this.openai.chat.completions.create({
       model: process.env.OPENAI_MODEL ?? 'gpt-4o',
