@@ -96,7 +96,13 @@ export function CreateExamModal({ isOpen, onClose, subjectName, onCreated }: Cre
                             <HStack gap={SPACING.s10} align="center" fullWidth>
                                 <Select
                                     value={startUnit}
-                                    onChange={(val) => setStartUnit(val as number)}
+                                    onChange={(val) => {
+                                        const newStart = val as number;
+                                        setStartUnit(newStart);
+                                        if (endUnit < newStart) {
+                                            setEndUnit(newStart);
+                                        }
+                                    }}
                                     options={Array.from({ length: 20 }, (_, i) => ({ label: `${i + 1}단원`, value: i + 1 }))}
                                 />
                                 <Typo.MD size={14} color="secondary">~</Typo.MD>
@@ -129,7 +135,7 @@ export function CreateExamModal({ isOpen, onClose, subjectName, onCreated }: Cre
                             </VStack>
                             <VStack gap={SPACING.s8} style={{ flex: 1 }}>
                                 <Typo.MD size={14} color="primary">문항 수</Typo.MD>
-                                <input type="number" className={s.input} value={questionCount} onChange={e => setQuestionCount(Number(e.target.value))} min={5} max={100} />
+                                <input type="number" className={s.input} value={questionCount} onChange={e => setQuestionCount(Number(e.target.value))} min={5} max={20} />
                             </VStack>
                         </HStack>
 

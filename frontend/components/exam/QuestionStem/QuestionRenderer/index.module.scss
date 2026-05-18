@@ -6,6 +6,11 @@
   background-color: $background-primary;
   border: 1px solid $border-primary;
   box-sizing: border-box;
+
+  @media (max-width: 768px) {
+    padding: $spacing-12;
+    border: none;
+  }
 }
 
 // 문제 번호

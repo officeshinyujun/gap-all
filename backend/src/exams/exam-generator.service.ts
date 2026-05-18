@@ -779,6 +779,45 @@ export class ExamGeneratorService {
       }
     }
 
+    const itemFamily = itemStructure.item_family;
+    const questionStem: string = rr.question_stem ?? '';
+
+    if (itemFamily === 'single_selection') {
+      const longSentenceCount = Array.isArray(optionsList)
+        ? optionsList.filter((opt) => /[.?!]$/.test(opt.trim()) || opt.length > 45).length
+        : 0;
+      if (longSentenceCount >= 3) {
+        return { valid: false, reason: 'single_selection인데 선지가 후보명이 아니라 장문 서술 중심임' };
+      }
+      const singleSelectionStem = /(가장\s*적절한\s*것은\?|옳은\s*것은\?|옳지\s*않은\s*것은\?|무엇인가\?)/;
+      if (!singleSelectionStem.test(questionStem)) {
+        return { valid: false, reason: 'single_selection인데 발문이 단일 선택형 질문 패턴이 아님' };
+      }
+    }
+
+    if (itemFamily === 'direct_statement') {
+      const directStemRef = /(다음|위|아래).*(자료|표|기사|보고서|공고문|화면|설문|저널|내용)/;
+      if (!directStemRef.test(questionStem)) {
+        return { valid: false, reason: 'direct_statement인데 발문이 자료 직접 참조형이 아님' };
+      }
+      const stimulusText = JSON.stringify(rr.stimulus_data ?? {});
+      if (stimulusText.length < 40) {
+        return { valid: false, reason: 'direct_statement인데 stimulus_data 정보량이 너무 적음' };
+      }
+    }
+
+    if (itemFamily === 'blank_workflow') {
+      const workflowStem = /(\(가\)|\(나\)|단계|절차|순서|흐름)/;
+      if (!workflowStem.test(questionStem)) {
+        return { valid: false, reason: 'blank_workflow인데 발문에 빈칸/단계/절차 단서가 없음' };
+      }
+      const stimulus = rr.stimulus_data ?? {};
+      const hasWorkflow = Array.isArray(stimulus.steps) || /steps/.test(JSON.stringify(stimulus));
+      if (!hasWorkflow) {
+        return { valid: false, reason: 'blank_workflow인데 stimulus_data에 단계 정보가 없음' };
+      }
+    }
+
     return { valid: true };
   }
 

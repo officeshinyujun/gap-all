@@ -50,7 +50,26 @@ export class ChatAiService {
       mentionedUnit !== undefined &&
       /설명해|정리해|요약해|알려줘|말해줘/.test(userMessage);
 
-    // RAG: 질문과 유사한 청크 검색
+    const isConcept = this.isConceptQuestion(userMessage);
+    const conceptCandidate = this.extractConceptCandidate(userMessage);
+    let conceptContext = '';
+
+    if (isConcept && conceptCandidate) {
+      this.logger.debug(`개념 질문 감지: "${userMessage}"`);
+      this.logger.debug(`개념 후보 추출: "${conceptCandidate}"`);
+      conceptContext = this.lookupConceptContext(
+        subjectSlug,
+        effectiveStartUnit,
+        effectiveEndUnit,
+        conceptCandidate,
+      );
+      if (conceptContext) {
+        this.logger.debug(`개념 컨텍스트 매칭 성공`);
+      } else {
+        this.logger.debug(`개념 컨텍스트 매칭 실패 — RAG fallback 진행`);
+      }
+    }
+
     let textbookContext = '';
     try {
       let chunks: string[];
@@ -83,15 +102,19 @@ export class ChatAiService {
       }
 
       if (chunks.length > 0) {
-        textbookContext = chunks
+        const chunkContext = chunks
           .map((chunk, i) => `[참고 자료 ${i + 1}]\n${chunk}`)
           .join('\n\n');
         this.logger.debug(`RAG 검색 완료: ${chunks.length}개 청크 사용`);
         this.logger.debug(
           `청크 미리보기:\n${chunks.map((c, i) => `[${i + 1}] ${c.slice(0, 80)}...`).join('\n')}`,
         );
+        textbookContext = conceptContext
+          ? `${conceptContext}\n\n${chunkContext}`
+          : chunkContext;
+      } else if (conceptContext) {
+        textbookContext = conceptContext;
       } else {
-        // 임베딩이 없으면 fallback: summation MD 사용 (단원 범위 제한)
         this.logger.warn(
           `임베딩 없음 — summation fallback 사용: ${subjectSlug}`,
         );
@@ -103,11 +126,13 @@ export class ChatAiService {
       }
     } catch (err) {
       this.logger.warn(`RAG 검색 실패, fallback 사용: ${err}`);
-      textbookContext = this.loadSummationFallback(
-        subjectSlug,
-        effectiveStartUnit,
-        effectiveEndUnit,
-      );
+      textbookContext = conceptContext
+        ? conceptContext
+        : this.loadSummationFallback(
+            subjectSlug,
+            effectiveStartUnit,
+            effectiveEndUnit,
+          );
     }
 
     const unitRequestGuidance = isUnitSummaryRequest
@@ -253,5 +278,158 @@ export class ChatAiService {
     }
 
     return merged;
+  }
+
+  private isConceptQuestion(message: string): boolean {
+    return /(?:가|이)\s*뭐야|란\?|뜻|정의|설명해줘|알려줘|(?:가|이)\s*뭔지/.test(
+      message,
+    );
+  }
+
+  private extractConceptCandidate(message: string): string | undefined {
+    const cleaned = message.replace(/[?!.]/g, '').trim();
+
+    const quotedMatch = cleaned.match(/["'""'']([^"'""'']{2,30})["'""'']/);
+    if (quotedMatch) {
+      return quotedMatch[1].trim();
+    }
+
+    const stripped = cleaned
+      .replace(
+        /(?:이|가)\s*뭔지.*$|(?:이|가)\s*뭐야.*$|란$|뜻$|정의$|설명해줘.*$|알려줘.*$|에\s*대해.*$/,
+        '',
+      )
+      .replace(/\d+\s*단원/g, '')
+      .trim();
+
+    if (stripped.length >= 2) {
+      return stripped;
+    }
+    return undefined;
+  }
+
+  private lookupConceptContext(
+    subjectSlug: string,
+    startUnit?: number,
+    endUnit?: number,
+    conceptCandidate?: string,
+  ): string {
+    if (!conceptCandidate) return '';
+
+    const from = startUnit ?? 1;
+    const to = endUnit ?? 20;
+
+    for (let unit = from; unit <= to; unit++) {
+      try {
+        const unitConcepts = this.textbookService.getConcepts(
+          subjectSlug,
+          unit,
+          unit,
+        );
+
+        const hasMatch = unitConcepts.some((uc) =>
+          uc.concepts.some(
+            (name) =>
+              name === conceptCandidate ||
+              name.includes(conceptCandidate) ||
+              conceptCandidate.includes(name),
+          ),
+        );
+
+        if (!hasMatch) continue;
+
+        const card = this.parseConceptCardFromSummation(
+          subjectSlug,
+          unit,
+          conceptCandidate,
+        );
+        if (!card) continue;
+
+        const lines: string[] = [
+          `[개념 사전 매칭]`,
+          `단원: ${unit}단원`,
+          `개념명: ${card.title}`,
+          `설명: ${card.description}`,
+        ];
+
+        if (card.bulletPoints.length > 0) {
+          lines.push(`핵심 포인트:`);
+          card.bulletPoints.forEach((bp) => lines.push(`- ${bp}`));
+        }
+
+        if (card.trapPoints.length > 0) {
+          lines.push(`주의 포인트:`);
+          card.trapPoints.forEach((tp) => lines.push(`- ${tp}`));
+        }
+
+        if (card.logicFlow) {
+          lines.push(`논리 흐름:`);
+          lines.push(card.logicFlow);
+        }
+
+        return lines.join('\n');
+      } catch {
+        continue;
+      }
+    }
+
+    return '';
+  }
+
+  private parseConceptCardFromSummation(
+    subjectSlug: string,
+    unitNumber: number,
+    targetConcept: string,
+  ): {
+    title: string;
+    description: string;
+    bulletPoints: string[];
+    trapPoints: string[];
+    logicFlow: string;
+  } | null {
+    try {
+      const rawMd = this.textbookService.getSummationMd(
+        subjectSlug,
+        unitNumber,
+      );
+
+      const jsonMatch = rawMd.match(/```json\s*([\s\S]*?)```/);
+      if (!jsonMatch) return null;
+
+      const data = JSON.parse(jsonMatch[1]);
+      const cards: any[] = data.cards ?? [];
+
+      const card = cards.find((c: any) => {
+        const content = c.content;
+        if (!content) return false;
+        const title: string = content.title ?? '';
+        const description: string = content.description ?? '';
+        const table: string = content.integrated_data?.table ?? '';
+        const logicFlow: string = content.integrated_data?.logic_flow ?? '';
+        const bulletPoints: string = (content.bullet_points ?? []).join(' ');
+        const trapPoints: string = (content.trap_points ?? []).join(' ');
+        const tags: string = (content.tags ?? []).join(' ');
+        const searchable = `${title} ${description} ${table} ${logicFlow} ${bulletPoints} ${trapPoints} ${tags}`;
+
+        return (
+          title === targetConcept ||
+          title.includes(targetConcept) ||
+          targetConcept.includes(title) ||
+          searchable.includes(targetConcept)
+        );
+      });
+
+      if (!card) return null;
+
+      return {
+        title: card.content.title,
+        description: card.content.description ?? '',
+        bulletPoints: card.content.bullet_points ?? [],
+        trapPoints: card.content.trap_points ?? [],
+        logicFlow: card.content.integrated_data?.logic_flow ?? '',
+      };
+    } catch {
+      return null;
+    }
   }
 }
