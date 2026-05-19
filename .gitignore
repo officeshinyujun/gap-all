@@ -66,3 +66,6 @@ lerna-debug.log*
 
 # Question corpus PDFs (large binary files)
 /question/
+
+# docs
+/docs/
