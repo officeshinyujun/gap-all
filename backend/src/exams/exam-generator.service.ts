@@ -20,7 +20,10 @@ const OPENAI_TIMEOUT_MS = Number(process.env.OPENAI_TIMEOUT_MS) || 120_000;
 // 단원 텍스트 최대 길이 (문자 수) — 이 이상은 잘라서 전송
 const MAX_UNIT_TEXT_LENGTH = Number(process.env.MAX_UNIT_TEXT_LENGTH) || 12_000;
 
-function buildItemFamilyQuotaPrompt(subjectSlug: string, questionCount: number): string {
+function buildItemFamilyQuotaPrompt(
+  subjectSlug: string,
+  questionCount: number,
+): string {
   if (questionCount <= 1) {
     return `# [문항 유형 강제 비율]\n1문항 생성이므로 비율 규칙 대신 발문/자료 구조에 가장 자연스러운 item_family 1개만 선택하라. 조합형(combination_judgment)을 자동 기본값으로 사용하지 마라.`;
   }
@@ -38,10 +41,14 @@ function buildItemFamilyQuotaPrompt(subjectSlug: string, questionCount: number):
       `나머지 최소 ${nonComboMin}문항은 non-조합형(single_selection, direct_statement, blank_workflow)으로 설계하라.`,
       `single_selection은 최소 ${singleMin}문항 포함하라.`,
       `direct_statement는 최소 ${directMin}문항 포함하라.`,
-      workflowMin > 0 ? `blank_workflow는 최소 ${workflowMin}문항 포함하라.` : '',
+      workflowMin > 0
+        ? `blank_workflow는 최소 ${workflowMin}문항 포함하라.`
+        : '',
       '채용 공고, 면접 장면, NCS 화면, 기사/칼럼, 취업 프로그램 안내는 single_selection 또는 direct_statement를 우선 사용하라.',
       '발문에 <보기>가 없는 경우 combination_judgment를 사용하지 마라.',
-    ].filter(Boolean).join('\n');
+    ]
+      .filter(Boolean)
+      .join('\n');
   }
 
   const singleMin = Math.max(1, Math.ceil(questionCount * 0.15));
@@ -57,7 +64,9 @@ function buildItemFamilyQuotaPrompt(subjectSlug: string, questionCount: number):
     '시스템명(MES/SCM/CRM/JIT/POP), 공정/기법/분류 중 하나를 고르는 문제는 single_selection을 우선 사용하라.',
     '보고서/표/기사/점검표를 읽고 하나의 판단을 내리는 문제는 direct_statement를 우선 사용하라.',
     '발문에 <보기>가 없는 경우 combination_judgment를 사용하지 마라.',
-  ].filter(Boolean).join('\n');
+  ]
+    .filter(Boolean)
+    .join('\n');
 }
 
 export interface GeneratedQuestion {
@@ -68,7 +77,10 @@ export interface GeneratedQuestion {
   questionStem: string;
   stimulusData: object;
   optionsList: string[];
-  comboBlock: { title: string; items: Array<{ key: string; text: string }> } | null;
+  comboBlock: {
+    title: string;
+    items: Array<{ key: string; text: string }>;
+  } | null;
   explanation: object;
   correctAnswer: number;
   unitName: string;
@@ -157,7 +169,13 @@ export class ExamGeneratorService {
     this.logger.log(`Step 1 완료: ${blueprint.length}개 Blueprint`);
 
     // 3. Step 2: 실제 문항 데이터 생성
-    const rawItems = await this.runStep2(blueprint, units, subjectSlug, 0, reportProgress);
+    const rawItems = await this.runStep2(
+      blueprint,
+      units,
+      subjectSlug,
+      0,
+      reportProgress,
+    );
     this.logger.log(`Step 2 완료: ${rawItems.length}개 문항`);
 
     await this.reportProgress(reportProgress, {
@@ -206,7 +224,12 @@ export class ExamGeneratorService {
         0,
         targetConcepts,
       );
-      const extraRaw = await this.runStep2(extraBlueprint, units, subjectSlug, 0);
+      const extraRaw = await this.runStep2(
+        extraBlueprint,
+        units,
+        subjectSlug,
+        0,
+      );
       const extraValidated = this.validateItems(extraRaw);
       const extraSemantic = await this.runSemanticValidation(extraValidated);
 
@@ -370,7 +393,8 @@ export class ExamGeneratorService {
       return arr;
     } catch (err) {
       const message = err instanceof Error ? err.message : String(err);
-      const isTimeout = message.includes('abort') || message.includes('timeout');
+      const isTimeout =
+        message.includes('abort') || message.includes('timeout');
       this.logger.warn(
         `Step 1 실패 (${retryCount + 1}/3): ${isTimeout ? '[TIMEOUT] ' : ''}${message}`,
       );
@@ -555,7 +579,13 @@ export class ExamGeneratorService {
     if (results.length === 0) {
       if (retryCount < 3) {
         this.logger.warn(`Step 2 결과 비어있음, 재시도 (${retryCount + 1}/3)`);
-        return this.runStep2(blueprint, units, subjectSlug, retryCount + 1, reportProgress);
+        return this.runStep2(
+          blueprint,
+          units,
+          subjectSlug,
+          retryCount + 1,
+          reportProgress,
+        );
       }
       throw new InternalServerErrorException(
         'Step 2 실패: 결과가 비어있습니다.',
@@ -626,15 +656,25 @@ export class ExamGeneratorService {
         const jm = item.judgment_map;
         const rrCombo = rr.combo_block;
 
-        if (rrCombo && Array.isArray(rrCombo.items) && rrCombo.items.length > 0) {
+        if (
+          rrCombo &&
+          Array.isArray(rrCombo.items) &&
+          rrCombo.items.length > 0
+        ) {
           comboBlock = rrCombo;
         } else if (jm && typeof jm === 'object') {
-          const keyMap: Record<string, string> = { ga: 'ㄱ', na: 'ㄴ', da: 'ㄷ', ra: 'ㄹ' };
+          const keyMap: Record<string, string> = {
+            ga: 'ㄱ',
+            na: 'ㄴ',
+            da: 'ㄷ',
+            ra: 'ㄹ',
+          };
           const cbItems = Object.entries(jm)
             .filter(([k]) => keyMap[k])
             .map(([k, v]: [string, any]) => ({
               key: keyMap[k],
-              text: typeof v === 'object' ? (v.claim ?? v.text ?? '') : String(v),
+              text:
+                typeof v === 'object' ? (v.claim ?? v.text ?? '') : String(v),
             }))
             .filter((ci) => ci.text.length > 0);
           if (cbItems.length > 0) {
@@ -674,40 +714,63 @@ export class ExamGeneratorService {
   // ============================================================
   // Logic-aware validation
   // ============================================================
-  private validateCombinationEncoding(item: any): { valid: boolean; reason?: string } {
+  private validateCombinationEncoding(item: any): {
+    valid: boolean;
+    reason?: string;
+  } {
     const itemStructure = item.item_structure;
-    if (!itemStructure || itemStructure.choice_encoding_type !== 'truth_combination') {
+    if (
+      !itemStructure ||
+      itemStructure.choice_encoding_type !== 'truth_combination'
+    ) {
       return { valid: true };
     }
 
     const rr = item.render_ready ?? {};
     const optionsList: string[] =
-      rr.options_list ?? (rr.options ?? []).map((o: any) => o.text ?? String(o));
+      rr.options_list ??
+      (rr.options ?? []).map((o: any) => o.text ?? String(o));
 
     if (!Array.isArray(optionsList) || optionsList.length !== 5) {
-      return { valid: false, reason: `조합형 문항의 선택지가 5개가 아님 (${optionsList?.length ?? 0}개)` };
+      return {
+        valid: false,
+        reason: `조합형 문항의 선택지가 5개가 아님 (${optionsList?.length ?? 0}개)`,
+      };
     }
 
     const combinationPattern = /[ㄱ-ㅎ]/;
-    const combLikeCount = optionsList.filter((opt) => combinationPattern.test(opt)).length;
+    const combLikeCount = optionsList.filter((opt) =>
+      combinationPattern.test(opt),
+    ).length;
     if (combLikeCount < 3) {
-      return { valid: false, reason: `조합형 문항이지만 선택지가 조합 패턴이 아님 (${combLikeCount}/5개만 매칭)` };
+      return {
+        valid: false,
+        reason: `조합형 문항이지만 선택지가 조합 패턴이 아님 (${combLikeCount}/5개만 매칭)`,
+      };
     }
 
     const judgmentMap = item.judgment_map;
     const choiceEncodingPlan = item.choice_encoding_plan;
     if (judgmentMap && choiceEncodingPlan?.correct_combination) {
-      const correctIdx = Number(item.correct_answer ?? rr.correct_answer ?? 1) - 1;
+      const correctIdx =
+        Number(item.correct_answer ?? rr.correct_answer ?? 1) - 1;
       if (correctIdx >= 0 && correctIdx < optionsList.length) {
         const trueStatements = Object.entries(judgmentMap)
-          .filter(([, v]) => v === true || v === 'T' || v === '옳음' || v === '참')
+          .filter(
+            ([, v]) => v === true || v === 'T' || v === '옳음' || v === '참',
+          )
           .map(([k]) => k);
 
         if (trueStatements.length > 0) {
           const correctOption = optionsList[correctIdx];
-          const allPresent = trueStatements.every((s) => correctOption.includes(s));
+          const allPresent = trueStatements.every((s) =>
+            correctOption.includes(s),
+          );
           if (!allPresent) {
-            return { valid: false, reason: `정답 선택지가 judgment_map의 참인 진술과 불일치` };
+            return {
+              valid: false,
+              reason: `정답 선택지가 judgment_map의 참인 진술과 불일치`,
+            };
           }
         }
       }
@@ -722,12 +785,19 @@ export class ExamGeneratorService {
     const meta = item.metadata ?? {};
 
     if (questionStem.length < 10) {
-      return { valid: false, reason: `문항 줄기가 너무 짧음 (${questionStem.length}자)` };
+      return {
+        valid: false,
+        reason: `문항 줄기가 너무 짧음 (${questionStem.length}자)`,
+      };
     }
 
-    const questionEndings = /(?:것은\?|고른\s*것은\?|고르시오|옳은\s*것은\?|않은\s*것은\?|무엇인가\?|서술하시오|설명으로.*옳은|대한.*설명|맞는\s*것)$/;
+    const questionEndings =
+      /(?:것은\?|고른\s*것은\?|고르시오|옳은\s*것은\?|않은\s*것은\?|무엇인가\?|서술하시오|설명으로.*옳은|대한.*설명|맞는\s*것)$/;
     if (!questionEndings.test(questionStem.trim())) {
-      return { valid: false, reason: `문항 줄기가 적절한 질문 형식으로 끝나지 않음` };
+      return {
+        valid: false,
+        reason: `문항 줄기가 적절한 질문 형식으로 끝나지 않음`,
+      };
     }
 
     const targetConcept: string = meta.target_concept ?? '';
@@ -738,7 +808,10 @@ export class ExamGeneratorService {
       itemStructure?.item_family &&
       itemStructure.item_family !== 'direct_statement'
     ) {
-      return { valid: false, reason: `문항 줄기에 target_concept("${targetConcept}")이 직접 노출됨` };
+      return {
+        valid: false,
+        reason: `문항 줄기에 target_concept("${targetConcept}")이 직접 노출됨`,
+      };
     }
 
     return { valid: true };
@@ -748,11 +821,15 @@ export class ExamGeneratorService {
     const itemStructure = item.item_structure;
     const rr = item.render_ready ?? {};
     const optionsList: string[] =
-      rr.options_list ?? (rr.options ?? []).map((o: any) => o.text ?? String(o));
+      rr.options_list ??
+      (rr.options ?? []).map((o: any) => o.text ?? String(o));
     const correctAnswer = Number(item.correct_answer ?? rr.correct_answer ?? 1);
 
     if (correctAnswer < 1 || correctAnswer > 5) {
-      return { valid: false, reason: `정답 번호가 1~5 범위 밖 (${correctAnswer})` };
+      return {
+        valid: false,
+        reason: `정답 번호가 1~5 범위 밖 (${correctAnswer})`,
+      };
     }
 
     if (!itemStructure) {
@@ -761,21 +838,31 @@ export class ExamGeneratorService {
 
     const combinationPattern = /[ㄱ-ㅎ]/;
     const combLikeCount = Array.isArray(optionsList)
-      ? optionsList.filter((opt) => combinationPattern.test(opt) && opt.length < 30).length
+      ? optionsList.filter(
+          (opt) => combinationPattern.test(opt) && opt.length < 30,
+        ).length
       : 0;
 
     if (itemStructure.choice_encoding_type === 'truth_combination') {
       const fullSentenceCount = Array.isArray(optionsList)
-        ? optionsList.filter((opt) => opt.length > 40 && !combinationPattern.test(opt)).length
+        ? optionsList.filter(
+            (opt) => opt.length > 40 && !combinationPattern.test(opt),
+          ).length
         : 0;
       if (fullSentenceCount >= 3) {
-        return { valid: false, reason: `조합형(truth_combination)이지만 선택지가 완전한 문장 형태` };
+        return {
+          valid: false,
+          reason: `조합형(truth_combination)이지만 선택지가 완전한 문장 형태`,
+        };
       }
     }
 
     if (itemStructure.choice_encoding_type === 'independent_options') {
       if (combLikeCount >= 4) {
-        return { valid: false, reason: `독립형(independent_options)이지만 선택지가 조합 패턴` };
+        return {
+          valid: false,
+          reason: `독립형(independent_options)이지만 선택지가 조합 패턴`,
+        };
       }
     }
 
@@ -784,37 +871,61 @@ export class ExamGeneratorService {
 
     if (itemFamily === 'single_selection') {
       const longSentenceCount = Array.isArray(optionsList)
-        ? optionsList.filter((opt) => /[.?!]$/.test(opt.trim()) || opt.length > 45).length
+        ? optionsList.filter(
+            (opt) => /[.?!]$/.test(opt.trim()) || opt.length > 45,
+          ).length
         : 0;
       if (longSentenceCount >= 3) {
-        return { valid: false, reason: 'single_selection인데 선지가 후보명이 아니라 장문 서술 중심임' };
+        return {
+          valid: false,
+          reason:
+            'single_selection인데 선지가 후보명이 아니라 장문 서술 중심임',
+        };
       }
-      const singleSelectionStem = /(가장\s*적절한\s*것은\?|옳은\s*것은\?|옳지\s*않은\s*것은\?|무엇인가\?)/;
+      const singleSelectionStem =
+        /(가장\s*적절한\s*것은\?|옳은\s*것은\?|옳지\s*않은\s*것은\?|무엇인가\?)/;
       if (!singleSelectionStem.test(questionStem)) {
-        return { valid: false, reason: 'single_selection인데 발문이 단일 선택형 질문 패턴이 아님' };
+        return {
+          valid: false,
+          reason: 'single_selection인데 발문이 단일 선택형 질문 패턴이 아님',
+        };
       }
     }
 
     if (itemFamily === 'direct_statement') {
-      const directStemRef = /(다음|위|아래).*(자료|표|기사|보고서|공고문|화면|설문|저널|내용)/;
+      const directStemRef =
+        /(다음|위|아래).*(자료|표|기사|보고서|공고문|화면|설문|저널|내용)/;
       if (!directStemRef.test(questionStem)) {
-        return { valid: false, reason: 'direct_statement인데 발문이 자료 직접 참조형이 아님' };
+        return {
+          valid: false,
+          reason: 'direct_statement인데 발문이 자료 직접 참조형이 아님',
+        };
       }
       const stimulusText = JSON.stringify(rr.stimulus_data ?? {});
       if (stimulusText.length < 40) {
-        return { valid: false, reason: 'direct_statement인데 stimulus_data 정보량이 너무 적음' };
+        return {
+          valid: false,
+          reason: 'direct_statement인데 stimulus_data 정보량이 너무 적음',
+        };
       }
     }
 
     if (itemFamily === 'blank_workflow') {
       const workflowStem = /(\(가\)|\(나\)|단계|절차|순서|흐름)/;
       if (!workflowStem.test(questionStem)) {
-        return { valid: false, reason: 'blank_workflow인데 발문에 빈칸/단계/절차 단서가 없음' };
+        return {
+          valid: false,
+          reason: 'blank_workflow인데 발문에 빈칸/단계/절차 단서가 없음',
+        };
       }
       const stimulus = rr.stimulus_data ?? {};
-      const hasWorkflow = Array.isArray(stimulus.steps) || /steps/.test(JSON.stringify(stimulus));
+      const hasWorkflow =
+        Array.isArray(stimulus.steps) || /steps/.test(JSON.stringify(stimulus));
       if (!hasWorkflow) {
-        return { valid: false, reason: 'blank_workflow인데 stimulus_data에 단계 정보가 없음' };
+        return {
+          valid: false,
+          reason: 'blank_workflow인데 stimulus_data에 단계 정보가 없음',
+        };
       }
     }
 

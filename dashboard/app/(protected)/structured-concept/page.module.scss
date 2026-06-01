@@ -1,0 +1,177 @@
+.container {
+  padding: $spacing-24 $spacing-32;
+  max-width: 900px;
+  width: 100%;
+}
+
+.controlPanel {
+  width: 100%;
+  background: $background-primary;
+  border: 1px solid $border-primary;
+  border-radius: 12px;
+  padding: $spacing-20 $spacing-24;
+  align-items: center;
+}
+
+.select {
+  height: 38px;
+  padding: 0 $spacing-12;
+  border: 1.5px solid $border-primary;
+  border-radius: 8px;
+  background: $background-primary;
+  color: $text-primary;
+  font-size: 14px;
+  font-family: 'Noto Sans KR', sans-serif;
+  cursor: pointer;
+  outline: none;
+  min-width: 160px;
+
+  &:focus { border-color: $brand-primary; }
+}
+
+.button {
+  height: 38px;
+  padding: 0 $spacing-16;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  transition: opacity 0.15s ease;
+  border: 1.5px solid transparent;
+  white-space: nowrap;
+
+  &:disabled { opacity: 0.4; cursor: not-allowed; }
+  &:hover:not(:disabled) { opacity: 0.88; }
+}
+
+.buttonPrimary {
+  background: $brand-primary;
+  color: #ffffff;
+}
+
+.content {
+  width: 100%;
+}
+
+.section {
+  width: 100%;
+  background: $background-primary;
+  border: 1px solid $border-primary;
+  border-radius: 12px;
+  padding: $spacing-20 $spacing-24;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  margin-bottom: $spacing-12;
+}
+
+.chevron {
+  transition: transform 0.2s ease;
+  color: $text-secondary;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.subsection {
+  padding: $spacing-12 0;
+  border-top: 1px solid $border-primary;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-8;
+}
+
+.explanation {
+  font-size: 13px;
+  line-height: 1.7;
+  color: $text-primary;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.bulletList {
+  margin: 0;
+  padding-left: $spacing-16;
+  font-size: 13px;
+  line-height: 1.8;
+  color: $text-primary;
+
+  li {
+    margin-bottom: $spacing-4;
+  }
+}
+
+.tableBlock {
+  font-size: 12px;
+  line-height: 1.6;
+  background: $background-secondary;
+  border: 1px solid $border-primary;
+  border-radius: 8px;
+  padding: $spacing-12 $spacing-16;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  color: $text-primary;
+  margin: 0;
+}
+
+.noteBox {
+  background: $background-secondary;
+  border-left: 3px solid $brand-primary;
+  border-radius: 4px;
+  padding: $spacing-10 $spacing-14;
+  font-size: 13px;
+  line-height: 1.6;
+  color: $text-primary;
+
+  p {
+    margin: $spacing-4 0 0;
+  }
+}
+
+.examTagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-6;
+}
+
+.examTag {
+  display: inline-block;
+  background: $background-secondary;
+  border: 1px solid $brand-primary;
+  border-radius: 4px;
+  padding: $spacing-4 $spacing-8;
+  font-size: 11px;
+  color: $brand-primary;
+}
+
+.pitfallList {
+  margin: 0;
+  padding-left: $spacing-16;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.pitfallItem {
+  color: $text-wrong;
+}
+
+.errorMessage {
+  padding: $spacing-10 $spacing-14;
+  border-radius: 8px;
+  font-size: 13px;
+  background: rgba(229, 62, 62, 0.08);
+  color: #e53e3e;
+  border: 1px solid rgba(229, 62, 62, 0.2);
+}
+
+.closingSummary {
+  background: $background-secondary;
+  border-radius: 12px;
+  padding: $spacing-16 $spacing-20;
+}

@@ -1,0 +1,449 @@
+{
+  "subject": "공업 일반",
+  "unit": "2단원",
+  "unitTitle": "경공업의 개요",
+  "learningObjectives": [
+    "경공업의 의미와 특징에 대하여 설명할 수 있다.",
+    "경공업의 종류에 대하여 설명할 수 있다.",
+    "경공업의 종류별 발달 과정을 설명할 수 있다."
+  ],
+  "sections": [
+    {
+      "title": "경공업의 개요",
+      "summary": "경공업은 부피에 비해 무게가 적은 소비재를 생산하는 산업으로, 적은 자본과 단순한 기술을 사용합니다.",
+      "subsections": [
+        {
+          "title": "정의",
+          "explanation": "",
+          "keyPoints": [
+            "경공업은 부피에 비해 무게가 적은 소비재 제품을 생산하는 공업으로, 적은 자본과 단순한 생산 기술을 이용합니다."
+          ],
+          "table": "",
+          "visualGuide": "",
+          "supplementNote": "",
+          "examPoints": [
+            "경공업의 정의와 중화학 공업과의 차이점"
+          ],
+          "pitfalls": [
+            "경공업을 중화학 공업과 혼동하지 않기"
+          ]
+        },
+        {
+          "title": "특징",
+          "explanation": "",
+          "keyPoints": [
+            "경공업은 중화학 공업보다 적은 시설 투자비가 소요되며, 노동 집약적입니다.",
+            "최근에는 첨단 기술 도입으로 고부가 가치 제품 생산이 증가하고 있습니다."
+          ],
+          "table": "",
+          "visualGuide": "",
+          "supplementNote": "",
+          "examPoints": [
+            "첨단 기술 도입으로 인한 변화"
+          ],
+          "pitfalls": [
+            "노동 집약적 특성을 간과하지 않기"
+          ]
+        },
+        {
+          "title": "발달 과정",
+          "explanation": "",
+          "keyPoints": [
+            "산업 혁명 이전에는 농경 위주의 제1차 산업이 주를 이루었으나, 제2차 산업의 확대로 경공업이 먼저 발전하였습니다."
+          ],
+          "table": "",
+          "visualGuide": "",
+          "supplementNote": "",
+          "examPoints": [
+            "제2차 산업의 발전 순서"
+          ],
+          "pitfalls": [
+            "제1차 산업과의 구분"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "섬유 공업",
+      "summary": "섬유 공업은 천연 섬유와 화학 제품 원료로 섬유 원단을 생산하고 의류를 만드는 산업입니다.",
+      "subsections": [
+        {
+          "title": "정의",
+          "explanation": "",
+          "keyPoints": [
+            "섬유 공업은 천연 섬유나 화학 제품 원료로 섬유 원단을 생산하거나 이를 가공하여 의류를 만드는 산업입니다."
+          ],
+          "table": "",
+          "visualGuide": "섬유 제품의 주요 공정 흐름",
+          "supplementNote": "",
+          "examPoints": [
+            "섬유 공정의 단계별 흐름"
+          ],
+          "pitfalls": [
+            "천연 섬유와 화학 섬유의 차이점 혼동"
+          ]
+        },
+        {
+          "title": "특징",
+          "explanation": "",
+          "keyPoints": [
+            "섬유 공업은 디자인 개발과 신소재를 통해 부가 가치를 창출하며, 노동 집약적입니다.",
+            "최근에는 친환경 소재와 첨단 기술 융합이 중요해지고 있습니다."
+          ],
+          "table": "",
+          "visualGuide": "",
+          "supplementNote": "",
+          "examPoints": [
+            "친환경 소재의 중요성"
+          ],
+          "pitfalls": [
+            "노동 집약적 특성을 간과하지 않기"
+          ]
+        },
+        {
+          "title": "우리나라의 현황",
+          "explanation": "",
+          "keyPoints": [
+            "1980년대 이후 인력난과 임금 상승으로 국내 채산성이 악화되었습니다.",
+            "이에 따라 고부가 가치 기능성 섬유 개발이 확대되고 있습니다."
+          ],
+          "table": "",
+          "visualGuide": "",
+          "supplementNote": "",
+          "examPoints": [
+            "고부가 가치 섬유의 개발 방향"
+          ],
+          "pitfalls": [
+            "단순 섬유와 기능성 섬유의 차이점 혼동"
+          ]
+        },
+        {
+          "title": "발전 방향",
+          "explanation": "",
+          "keyPoints": [
+            "R&D 투자와 신소재를 반영한 디자인으로 고부가 가치 제품 개발이 필요합니다.",
+            "친환경 인증 획득도 중요합니다."
+          ],
+          "table": "",
+          "visualGuide": "",
+          "supplementNote": "",
+          "examPoints": [
+            "친환경 인증의 필요성"
+          ],
+          "pitfalls": [
+            "친환경 인증의 중요성 간과"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "식품 공업",
+      "summary": "식품 공업은 농산물, 축산물, 수산물을 가공하여 부가 가치가 높은 식품을 생산하는 산업입니다.",
+      "subsections": [
+        {
+          "title": "정의",
+          "explanation": "",
+          "keyPoints": [
+            "식품 공업은 자연에서 얻은 식품 원료를 가공하여 부가 가치가 높은 식품으로 생산하는 산업입니다."
+          ],
+          "table": "",
+          "visualGuide": "",
+          "supplementNote": "",
+          "examPoints": [
+            "식품 공업의 정의와 특징"
+          ],
+          "pitfalls": [
+            "식품 원료와 가공품의 차이점 혼동"
+          ]
+        },
+        {
+          "title": "특징",
+          "explanation": "",
+          "keyPoints": [
+            "식품 공업은 생활 문화와 소비자 취향에 따라 제품의 다양화가 요구됩니다.",
+            "간편 식품은 식생활 변화에 민감합니다."
+          ],
+          "table": "",
+          "visualGuide": "",
+          "supplementNote": "",
+          "examPoints": [
+            "간편 식품의 시장 변화"
+          ],
+          "pitfalls": [
+            "간편 식품과 전통 식품의 차이점 혼동"
+          ]
+        },
+        {
+          "title": "현황",
+          "explanation": "",
+          "keyPoints": [
+            "사회적 변화로 국민 건강과 안전성에 대한 관심이 증가하고 있습니다.",
+            "FTA 체결로 식품 시장이 개방되고 있습니다."
+          ],
+          "table": "",
+          "visualGuide": "",
+          "supplementNote": "",
+          "examPoints": [
+            "FTA 체결의 영향"
+          ],
+          "pitfalls": [
+            "국내 시장과 수입 식품의 차이점 혼동"
+          ]
+        },
+        {
+          "title": "발전 방향",
+          "explanation": "",
+          "keyPoints": [
+            "글로벌 경쟁력은 브랜드 파워에 있으며, 한식 문화의 해외 진출 확대가 필요합니다.",
+            "푸드테크 시대가 도래하고 있습니다."
+          ],
+          "table": "",
+          "visualGuide": "",
+          "supplementNote": "즉석식품, GMO, HMR, 발효 식품, HACCP, 푸드테크의 중요성",
+          "examPoints": [
+            "푸드테크의 발전 방향"
+          ],
+          "pitfalls": [
+            "브랜드 파워와 제품 품질의 차이점 혼동"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "인쇄 공업",
+      "summary": "인쇄 공업은 종이에 문자와 그림을 대량 복제하여 정보를 전달하는 산업입니다.",
+      "subsections": [
+        {
+          "title": "정의",
+          "explanation": "",
+          "keyPoints": [
+            "인쇄 공업은 종이에 문자와 그림을 대량으로 복제하는 공업입니다."
+          ],
+          "table": "",
+          "visualGuide": "",
+          "supplementNote": "",
+          "examPoints": [
+            "인쇄 공업의 정의와 역할"
+          ],
+          "pitfalls": [
+            "인쇄와 복제의 차이점 혼동"
+          ]
+        },
+        {
+          "title": "특징",
+          "explanation": "",
+          "keyPoints": [
+            "인쇄 공업은 지식과 정보를 신속하고 값싸게 전달하며, 영구적으로 보존할 수 있는 장점을 가지고 있습니다."
+          ],
+          "table": "",
+          "visualGuide": "인쇄 공업의 주요 공정 흐름",
+          "supplementNote": "",
+          "examPoints": [
+            "정보 전달의 효율성"
+          ],
+          "pitfalls": [
+            "정보 전달과 보존의 차이점 혼동"
+          ]
+        },
+        {
+          "title": "현황",
+          "explanation": "",
+          "keyPoints": [
+            "우리나라의 인쇄 기술은 오래전부터 발전해왔으며, 현재는 다품종 소량화가 뚜렷합니다."
+          ],
+          "table": "",
+          "visualGuide": "",
+          "supplementNote": "",
+          "examPoints": [
+            "다품종 소량화의 의미"
+          ],
+          "pitfalls": [
+            "전통 인쇄와 현대 인쇄의 차이점 혼동"
+          ]
+        },
+        {
+          "title": "발전 방향",
+          "explanation": "",
+          "keyPoints": [
+            "친환경, 고품질 인쇄 산업 기반 조성과 수출 경쟁력 강화가 필요합니다.",
+            "전자 출판 시대가 도래하고 있습니다."
+          ],
+          "table": "",
+          "visualGuide": "",
+          "supplementNote": "직지심체요절, 노광의 역사적 중요성",
+          "examPoints": [
+            "전자 출판의 발전 방향"
+          ],
+          "pitfalls": [
+            "전자 출판과 전통 출판의 차이점 혼동"
+          ]
+        },
+        {
+          "title": "우리나라의 금속 활자",
+          "explanation": "",
+          "keyPoints": [
+            "직지심체요절은 독일의 금속 활자보다 약 78년 먼저 발명되었습니다.",
+            "13세기 고려 시대에 구리로 주조한 금속 활자가 발명되었습니다."
+          ],
+          "table": "",
+          "visualGuide": "",
+          "supplementNote": "",
+          "examPoints": [
+            "금속 활자의 역사적 중요성"
+          ],
+          "pitfalls": [
+            "금속 활자와 목판 인쇄의 차이점 혼동"
+          ]
+        },
+        {
+          "title": "전통 인쇄 방식과 디지털 인쇄 방식",
+          "explanation": "",
+          "keyPoints": [
+            "전통 인쇄 방식은 여러 단계의 물리적 공정을 거치며, 디지털 인쇄 방식은 컴퓨터 파일에서 직접 인쇄기로 데이터를 전송합니다."
+          ],
+          "table": "",
+          "visualGuide": "전통 인쇄와 디지털 인쇄의 공정 비교",
+          "supplementNote": "",
+          "examPoints": [
+            "전통 인쇄와 디지털 인쇄의 차이점"
+          ],
+          "pitfalls": [
+            "전통 인쇄와 디지털 인쇄의 공정 혼동"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "신발 공업",
+      "summary": "신발 공업은 운동화, 구두 등을 제조하며, 최근에는 패션과 인체 공학적 측면을 고려합니다.",
+      "subsections": [
+        {
+          "title": "정의",
+          "explanation": "",
+          "keyPoints": [
+            "신발 공업은 운동화, 구두 등을 제조·판매하는 공업으로, 발 보호와 패션을 동시에 추구합니다."
+          ],
+          "table": "",
+          "visualGuide": "",
+          "supplementNote": "",
+          "examPoints": [
+            "신발 공업의 정의와 역할"
+          ],
+          "pitfalls": [
+            "신발의 기능과 패션의 차이점 혼동"
+          ]
+        },
+        {
+          "title": "특징",
+          "explanation": "",
+          "keyPoints": [
+            "신발 공업은 초기 자본이 적게 들며, 노동 집약형에서 기술 집약형 산업 구조로 개편되었습니다."
+          ],
+          "table": "",
+          "visualGuide": "",
+          "supplementNote": "",
+          "examPoints": [
+            "기술 집약형 구조의 의미"
+          ],
+          "pitfalls": [
+            "노동 집약형과 기술 집약형의 차이점 혼동"
+          ]
+        },
+        {
+          "title": "현황",
+          "explanation": "",
+          "keyPoints": [
+            "생산 시설의 해외 이전으로 기능이 약화되었으며, 고부가 가치 산업으로 전환하고 있습니다."
+          ],
+          "table": "",
+          "visualGuide": "",
+          "supplementNote": "",
+          "examPoints": [
+            "고부가 가치 산업의 필요성"
+          ],
+          "pitfalls": [
+            "해외 이전과 국내 생산의 차이점 혼동"
+          ]
+        },
+        {
+          "title": "발전 방향",
+          "explanation": "",
+          "keyPoints": [
+            "노동집약적 산업 구조에서 자동화, 스마트 공장으로 개편되고 있으며, 혁신적인 신발 개발이 필요합니다."
+          ],
+          "table": "",
+          "visualGuide": "",
+          "supplementNote": "OEM, ODM, 내식성, 내열성, 내화성의 중요성",
+          "examPoints": [
+            "스마트 공장의 발전 방향"
+          ],
+          "pitfalls": [
+            "자동화와 노동집약적 구조의 차이점 혼동"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "세라믹스 공업",
+      "summary": "세라믹스 공업은 비금속 재료를 고온에서 가공하여 다양한 제품을 만드는 산업입니다.",
+      "subsections": [
+        {
+          "title": "정의",
+          "explanation": "",
+          "keyPoints": [
+            "세라믹스는 비금속 또는 무기질 재료를 높은 온도에서 가공하여 도자기, 유리, 시멘트 등을 제조하는 공업입니다."
+          ],
+          "table": "",
+          "visualGuide": "",
+          "supplementNote": "",
+          "examPoints": [
+            "세라믹스 공업의 정의와 역할"
+          ],
+          "pitfalls": [
+            "비금속 재료와 금속 재료의 차이점 혼동"
+          ]
+        },
+        {
+          "title": "구분",
+          "explanation": "",
+          "keyPoints": [
+            "세라믹스는 전통 세라믹스와 첨단 기술을 접목한 파인 세라믹스로 구분됩니다."
+          ],
+          "table": "",
+          "visualGuide": "",
+          "supplementNote": "",
+          "examPoints": [
+            "전통 세라믹스와 파인 세라믹스의 차이점"
+          ],
+          "pitfalls": [
+            "전통 세라믹스와 파인 세라믹스의 구분 혼동"
+          ]
+        },
+        {
+          "title": "특징",
+          "explanation": "",
+          "keyPoints": [
+            "세라믹스는 내식성, 내열성, 내화성이 뛰어나며, 다양한 기능을 가집니다."
+          ],
+          "table": "",
+          "visualGuide": "",
+          "supplementNote": "파인 세라믹스의 특성과 응용 분야",
+          "examPoints": [
+            "세라믹스의 내식성, 내열성, 내화성"
+          ],
+          "pitfalls": [
+            "세라믹스의 특성과 금속의 특성 혼동"
+          ]
+        }
+      ]
+    }
+  ],
+  "closingSummary": [
+    "경공업은 적은 자본과 단순 기술을 이용해 부피 대비 무게가 가벼운 소비재를 생산하는 산업입니다.",
+    "섬유 공업은 천연/화학 섬유를 원료로 의류 및 가공품을 생산하며, 최근 고부가 가치 기능성 소재로 고도화되고 있습니다.",
+    "식품 공업은 농·축·수산물을 가공하여 부가 가치를 높이며, ICT와 결합된 푸드테크 및 위생 관리(HACCP)가 중요해지고 있습니다.",
+    "인쇄 공업은 문자와 그림을 복제하여 정보를 전달하는 수주 산업으로, 디지털 인쇄와 친환경 기반으로 발전 중입니다.",
+    "신발 공업은 발 보호 및 패션을 추구하는 산업으로, 노동 집약에서 기술 집약 및 독자 브랜드 개발로 전환되고 있습니다.",
+    "세라믹스 공업은 무기 재료를 고온 가공하는 산업으로, 전통 요업에서 극한 환경에 견디는 파인 세라믹스로 확대되고 있습니다."
+  ]
+}

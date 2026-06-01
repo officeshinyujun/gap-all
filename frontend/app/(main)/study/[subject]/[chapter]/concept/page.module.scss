@@ -1,8 +1,8 @@
 @import '@/styles/variables.scss';
 
 .container {
-  width: 700px;
-  max-width: 100%;
+  width: 100%;
+  max-width: 1100px;
   height: 100%;
   background: $background-primary;
   border: 1px solid $border-primary;
@@ -13,7 +13,6 @@
   overflow: hidden;
 }
 
-/* 헤더 */
 .header {
   display: flex;
   align-items: center;
@@ -56,164 +55,199 @@
   border-radius: 10px;
 }
 
-/* 카드 영역 */
-.cardArea {
+.slideArea {
   flex: 1;
   overflow-y: auto;
   padding: $spacing-20;
+  display: flex;
+  gap: $spacing-20;
   &::-webkit-scrollbar { width: 4px; }
   &::-webkit-scrollbar-thumb { background: $border-primary; border-radius: 2px; }
 }
 
-/* 카드 */
-.card {
-  border: 1px solid $border-primary;
-  border-radius: 12px;
-  overflow: hidden;
+.conceptColumn {
+  flex: 55;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-16;
 }
 
-.cardTitleRow {
+.questionColumn {
+  flex: 45;
+  min-width: 0;
+}
+
+.conceptCard {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-16;
+}
+
+.rankBadge {
   display: flex;
   align-items: center;
-  gap: $spacing-10;
-  padding: $spacing-14 $spacing-20;
-  border-bottom: 1px solid $border-primary;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: $brand-primary;
+  color: $background-primary;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
-.card1 { background: linear-gradient(135deg, #EEF3FF 0%, #E0EAFF 100%); }
-.card2 { background: linear-gradient(135deg, #FFF8EC 0%, #FFF0D6 100%); }
-.card3 { background: linear-gradient(135deg, #EDFAF3 0%, #D6F5E6 100%); }
-.card4 { background: linear-gradient(135deg, #F5F0FF 0%, #EDE7FF 100%); }
-
-.cardIcon { font-size: 18px; line-height: 1; flex-shrink: 0; }
-
-.cardTitle {
+.markdownContent {
   font-family: 'Noto Sans KR', sans-serif;
   font-size: 14px;
-  font-weight: 700;
+  line-height: 1.8;
   color: $text-primary;
-  line-height: 1.4;
-}
 
-/* 문단 해설 블록 */
-.analysisBlock {
-  background: $background-primary;
-}
-
-/* 시각 자료 구분선 */
-.vizDivider {
-  display: flex;
-  align-items: center;
-  gap: $spacing-8;
-  padding: $spacing-8 $spacing-20;
-  background: $background-secondary;
-  border-top: 1px solid $border-primary;
-  border-bottom: 1px solid $border-primary;
-}
-
-.vizDividerLabel {
-  font-size: 12px;
-  font-weight: 600;
-  color: $text-secondary;
-  font-family: 'Noto Sans KR', sans-serif;
-}
-
-/* 시각 자료 블록 */
-.vizBlock {
-  background: rgba(238, 243, 255, 0.4);
-}
-
-/* 마크다운 */
-.markdownBody {
-  padding: $spacing-20;
-  font-family: 'Noto Sans KR', sans-serif;
-  font-size: 13px;
-  color: $text-strong;
-  line-height: 1.85;
-
-  p {
-    margin-bottom: $spacing-10;
-    &:last-child { margin-bottom: 0; }
+  h1, h2, h3, h4 {
+    color: $text-strong;
+    margin: $spacing-12 0 $spacing-8;
+    font-weight: 600;
   }
+
+  h1 { font-size: 18px; }
+  h2 { font-size: 16px; }
+  h3 { font-size: 15px; }
+
+  p { margin: 0 0 $spacing-8; }
 
   ul, ol {
-    padding-left: $spacing-20;
-    margin-bottom: $spacing-10;
-    li {
-      margin-bottom: $spacing-6;
-      line-height: 1.7;
-    }
+    padding-left: $spacing-16;
+    margin: 0 0 $spacing-8;
   }
 
-  strong {
-    font-weight: 700;
-    color: $text-primary;
+  li { margin-bottom: $spacing-4; }
+
+  code {
+    background: $background-secondary;
+    padding: 1px $spacing-4;
+    border-radius: 4px;
+    font-size: 13px;
   }
 
-  em {
-    font-style: normal;
-    color: $brand-primary;
-    font-weight: 600;
+  pre {
+    background: $background-secondary;
+    padding: $spacing-12;
+    border-radius: 8px;
+    overflow-x: auto;
+    code { background: none; padding: 0; }
   }
 
   table {
     width: 100%;
     border-collapse: collapse;
-    margin: $spacing-12 0;
-    font-size: 12px;
+    margin: $spacing-8 0;
+    font-size: 13px;
+
+    th, td {
+      border: 1px solid $border-primary;
+      padding: $spacing-6 $spacing-8;
+      text-align: left;
+    }
 
     th {
       background: $background-secondary;
-      padding: $spacing-8 $spacing-10;
-      border: 1px solid $border-primary;
-      font-weight: 700;
-      text-align: left;
-      color: $text-primary;
-      white-space: nowrap;
+      font-weight: 600;
     }
-
-    td {
-      padding: $spacing-8 $spacing-10;
-      border: 1px solid $border-primary;
-      color: $text-strong;
-      vertical-align: top;
-      line-height: 1.6;
-    }
-
-    tr:nth-child(even) td { background: rgba(238, 239, 242, 0.5); }
-  }
-
-  hr {
-    border: none;
-    border-top: 1px solid $border-primary;
-    margin: $spacing-14 0;
   }
 
   blockquote {
     border-left: 3px solid $brand-primary;
-    padding: $spacing-10 $spacing-14;
-    margin: $spacing-10 0;
+    padding-left: $spacing-12;
+    margin: $spacing-8 0;
     color: $text-secondary;
-    background: rgba(62, 120, 247, 0.04);
-    border-radius: 0 6px 6px 0;
-    font-size: 12px;
-  }
-
-  code {
-    background: $background-secondary;
-    padding: 1px $spacing-6;
-    border-radius: 4px;
-    font-size: 12px;
-    color: $text-primary;
   }
 }
 
-/* 로딩/에러 */
+.sectionTitle {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: $text-strong;
+}
+
+.bulletList {
+  padding-left: $spacing-14;
+  margin: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  color: $text-primary;
+  line-height: 1.8;
+
+  li { margin-bottom: $spacing-4; }
+}
+
+.tipBox {
+  padding: $spacing-12 $spacing-14;
+  background: $background-secondary;
+  border-left: 3px solid $brand-primary;
+  border-radius: 0 8px 8px 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  color: $text-primary;
+  line-height: 1.7;
+}
+
+.tagsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-6;
+}
+
+.examTag {
+  display: inline-block;
+  padding: 2px $spacing-8;
+  background: $background-secondary;
+  border: 1px solid $border-primary;
+  border-radius: 10px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: $text-primary;
+  line-height: 1.6;
+}
+
+.frequencyLabel {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  color: $text-secondary;
+}
+
+.questionWrapper {
+  background: $background-secondary;
+  border: 1px solid $border-primary;
+  border-radius: 12px;
+  padding: $spacing-16;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-12;
+  height: fit-content;
+  position: sticky;
+  top: 0;
+}
+
+.questionSource {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: $text-secondary;
+  padding-bottom: $spacing-8;
+  border-bottom: 1px solid $border-primary;
+}
+
 .center {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 300px;
+  width: 100%;
 }
 
 .spinner {
@@ -233,43 +267,15 @@
   font-family: 'Noto Sans KR', sans-serif;
 }
 
-/* 하단 네비게이션 */
-.nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.footer {
   padding: $spacing-12 $spacing-20;
   border-top: 1px solid $border-primary;
   flex-shrink: 0;
-}
-
-.dots {
   display: flex;
-  gap: $spacing-4;
+  justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  max-width: 260px;
+  gap: $spacing-10;
 }
-
-.dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: $background-third;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  transition: all 0.2s ease;
-  &:hover { opacity: 0.7; }
-}
-
-.dotActive {
-  background: $brand-primary !important;
-  width: 20px;
-  border-radius: 4px;
-}
-
-.navButtons { display: flex; gap: $spacing-8; }
 
 .navButton {
   padding: $spacing-8 $spacing-16;
@@ -302,7 +308,6 @@
   &:hover:not(:disabled) { opacity: 0.88; color: $background-primary; }
 }
 
-/* 반응형 */
 @media (max-width: 768px) {
   .container {
     width: 100%;
@@ -316,19 +321,23 @@
     padding: $spacing-12 $spacing-14;
   }
 
-  .cardArea {
+  .slideArea {
+    flex-direction: column;
     padding: $spacing-14;
+    gap: $spacing-16;
   }
 
-  .cardTitleRow {
-    padding: $spacing-12 $spacing-14;
+  .conceptColumn,
+  .questionColumn {
+    flex: none;
+    width: 100%;
   }
 
-  .nav {
+  .questionWrapper {
+    position: static;
+  }
+
+  .footer {
     padding: $spacing-10 $spacing-14;
-  }
-
-  .dots {
-    max-width: 180px;
   }
 }

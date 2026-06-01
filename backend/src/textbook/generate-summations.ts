@@ -87,16 +87,13 @@ function main(): void {
   const composePromptTemplate = readText(COMPOSE_PROMPT_FILE);
   const openai = new OpenAI({ apiKey });
 
-  void run(
-    openai,
-    extractPromptTemplate,
-    composePromptTemplate,
-    options,
-  ).catch((error: unknown) => {
-    const message = error instanceof Error ? error.message : String(error);
-    console.error(`[error] ${message}`);
-    process.exitCode = 1;
-  });
+  void run(openai, extractPromptTemplate, composePromptTemplate, options).catch(
+    (error: unknown) => {
+      const message = error instanceof Error ? error.message : String(error);
+      console.error(`[error] ${message}`);
+      process.exitCode = 1;
+    },
+  );
 }
 
 async function run(
@@ -135,7 +132,9 @@ async function run(
       }
 
       const sourceText = readText(sourcePath);
-      const existingSummary = fs.existsSync(outputPath) ? readText(outputPath) : '';
+      const existingSummary = fs.existsSync(outputPath)
+        ? readText(outputPath)
+        : '';
       const concepts = fs.existsSync(conceptsPath)
         ? JSON.parse(readText(conceptsPath))
         : { concepts: [] };

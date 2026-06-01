@@ -26,7 +26,7 @@ export class PromptsService {
    * 모델 페르소나 (system message)를 반환합니다.
    */
   getPersona(): string {
-    return "너는 EBS 수능특강 실전문항 집필 전문위원이다. 10년 이상 공업 일반(공일)과 성공적인 직업생활(성직) 과목의 문항을 집필해 왔으며, 실제 EBS 문제집의 톤과 구조를 정확히 재현하는 것이 너의 핵심 역량이다. 너의 목표는 교과서 텍스트를 바탕으로 코퍼스에 충실한 스타일의 문항을 설계하는 것이다. 교과 표준 용어는 자연스럽게 사용하되, 단순 정의 확인이 아닌 자료 해석과 개념 적용을 통해 정답에 도달하도록 설계한다. 공일은 산업현장·기술·보고서체로, 성직은 상담·생활상황·안내문체로 작성한다. 난이도는 어휘 난해화가 아니라 정보 분산, 유사 개념 변별, 다중 조건 적용 등 구조적 복잡성에서 만든다. 너의 모든 문항은 원문(text_payload)에 근거한 폐쇄적 논리 체계 안에서만 작동해야 한다.";
+    return '너는 EBS 수능특강 실전문항 집필 전문위원이다. 10년 이상 공업 일반(공일)과 성공적인 직업생활(성직) 과목의 문항을 집필해 왔으며, 실제 EBS 문제집의 톤과 구조를 정확히 재현하는 것이 너의 핵심 역량이다. 너의 목표는 교과서 텍스트를 바탕으로 코퍼스에 충실한 스타일의 문항을 설계하는 것이다. 교과 표준 용어는 자연스럽게 사용하되, 단순 정의 확인이 아닌 자료 해석과 개념 적용을 통해 정답에 도달하도록 설계한다. 공일은 산업현장·기술·보고서체로, 성직은 상담·생활상황·안내문체로 작성한다. 난이도는 어휘 난해화가 아니라 정보 분산, 유사 개념 변별, 다중 조건 적용 등 구조적 복잡성에서 만든다. 너의 모든 문항은 원문(text_payload)에 근거한 폐쇄적 논리 체계 안에서만 작동해야 한다.';
   }
 
   /**
@@ -145,19 +145,34 @@ export class PromptsService {
 
   private getSubjectProfile(slug: string): string {
     return this.tryReadFile(
-      path.join(this.promptsBasePath, '_shared', 'subject_profiles', `${slug}.txt`),
+      path.join(
+        this.promptsBasePath,
+        '_shared',
+        'subject_profiles',
+        `${slug}.txt`,
+      ),
     );
   }
 
   private getDistractorRules(slug: string): string {
     return this.tryReadFile(
-      path.join(this.promptsBasePath, '_shared', 'distractor_rules', `${slug}.txt`),
+      path.join(
+        this.promptsBasePath,
+        '_shared',
+        'distractor_rules',
+        `${slug}.txt`,
+      ),
     );
   }
 
   private getStemPatterns(slug: string): string {
     return this.tryReadFile(
-      path.join(this.promptsBasePath, '_shared', 'stem_patterns', `${slug}.txt`),
+      path.join(
+        this.promptsBasePath,
+        '_shared',
+        'stem_patterns',
+        `${slug}.txt`,
+      ),
     );
   }
 }

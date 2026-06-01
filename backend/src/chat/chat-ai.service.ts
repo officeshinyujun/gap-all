@@ -88,12 +88,13 @@ export class ChatAiService {
 
         const keyword = this.extractQuotedOrNounLikeKeyword(userMessage);
         if (keyword) {
-          const keywordChunks = await this.embeddingService.searchChunksByKeyword(
-            subjectSlug,
-            keyword,
-            startUnit,
-            endUnit,
-          );
+          const keywordChunks =
+            await this.embeddingService.searchChunksByKeyword(
+              subjectSlug,
+              keyword,
+              startUnit,
+              endUnit,
+            );
 
           if (keywordChunks.length > 0) {
             chunks = this.mergeChunks(keywordChunks, chunks);

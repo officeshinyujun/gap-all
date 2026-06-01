@@ -19,6 +19,37 @@ async function apiFetch<T>(path: string): Promise<T> {
   return res.json() as Promise<T>;
 }
 
+export interface FrequencyConcept {
+  subject: string;
+  subjectSlug: string;
+  unit: number;
+  unitTitle: string;
+  totalQuestionsAnalyzed: number;
+  concepts: FrequencyConceptItem[];
+}
+
+export interface FrequencyConceptItem {
+  rank: number;
+  name: string;
+  frequency: number;
+  sources: string[];
+  questionFormats: string[];
+  description: string;
+  keyPoints: string[];
+  examTips: string[];
+  conceptContent: string;
+  sampleQuestion: ExamQuestion & { correct_answer: number };
+}
+
+export async function fetchFrequencyConcept(
+  subjectSlug: string,
+  unitNumber: number,
+): Promise<FrequencyConcept> {
+  return apiFetch<FrequencyConcept>(
+    `/study/${subjectSlug}/${unitNumber}/frequency-concept`,
+  );
+}
+
 export async function fetchConceptMd(
   subjectSlug: string,
   unitNumber: number,
@@ -271,5 +302,44 @@ export async function removeConceptBookmark(id: string): Promise<void> {
   if (!res.ok) {
     const error = await res.json().catch(() => ({ message: res.statusText }));
     throw new Error(error.message ?? `API 오류: ${res.status}`);
+  }
+}
+
+export interface StructuredSubsection {
+  title: string;
+  explanation: string;
+  keyPoints: string[];
+  table: string;
+  visualGuide: string;
+  supplementNote: string;
+  examPoints: string[];
+  pitfalls: string[];
+}
+
+export interface StructuredSection {
+  title: string;
+  summary: string;
+  subsections: StructuredSubsection[];
+}
+
+export interface StructuredConcept {
+  subject: string;
+  unit: string;
+  unitTitle: string;
+  learningObjectives: string[];
+  sections: StructuredSection[];
+  closingSummary: string[];
+}
+
+export async function fetchStructuredConcept(
+  subjectSlug: string,
+  unitNumber: number,
+): Promise<StructuredConcept | null> {
+  try {
+    return await apiFetch<StructuredConcept>(
+      `/study/${subjectSlug}/${unitNumber}/structured-concept`,
+    );
+  } catch {
+    return null;
   }
 }

@@ -1,10 +1,22 @@
-import { IsEmail, IsString, MinLength, MaxLength, IsDateString, Validate, ValidatorConstraint, ValidatorConstraintInterface, ValidationArguments } from 'class-validator';
+import {
+  IsEmail,
+  IsString,
+  MinLength,
+  MaxLength,
+  IsDateString,
+  Validate,
+  ValidatorConstraint,
+  ValidatorConstraintInterface,
+  ValidationArguments,
+} from 'class-validator';
 
 @ValidatorConstraint({ name: 'passwordStrength', async: false })
 class PasswordStrengthConstraint implements ValidatorConstraintInterface {
   validate(password: string, args: ValidationArguments) {
     if (!/^[A-Z]/.test(password)) return false;
-    const specialChars = password.match(/[!@#$%^&*()_+\-=\[\]{}|;':",./<>?~`\\]/g);
+    const specialChars = password.match(
+      /[!@#$%^&*()_+\-=\[\]{}|;':",./<>?~`\\]/g,
+    );
     if (!specialChars || specialChars.length < 2) return false;
 
     const dto = args.object as RegisterDto;

@@ -45,7 +45,10 @@ export class Question {
   optionsList: string[];
 
   @Column({ name: 'combo_block', type: 'jsonb', nullable: true })
-  comboBlock: { title: string; items: Array<{ key: string; text: string }> } | null;
+  comboBlock: {
+    title: string;
+    items: Array<{ key: string; text: string }>;
+  } | null;
 
   @Column({ type: 'jsonb' })
   explanation: object;

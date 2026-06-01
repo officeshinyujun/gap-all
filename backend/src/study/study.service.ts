@@ -858,9 +858,22 @@ export class StudyService {
     });
   }
 
-  async addConceptBookmark(userId: string, data: { subjectSlug: string; unitNumber: number; conceptName: string; description?: string }) {
+  async addConceptBookmark(
+    userId: string,
+    data: {
+      subjectSlug: string;
+      unitNumber: number;
+      conceptName: string;
+      description?: string;
+    },
+  ) {
     const existing = await this.conceptBookmarkRepo.findOne({
-      where: { userId, subjectSlug: data.subjectSlug, unitNumber: data.unitNumber, conceptName: data.conceptName },
+      where: {
+        userId,
+        subjectSlug: data.subjectSlug,
+        unitNumber: data.unitNumber,
+        conceptName: data.conceptName,
+      },
     });
     if (existing) return existing;
 
@@ -875,9 +888,47 @@ export class StudyService {
   }
 
   async removeConceptBookmark(userId: string, bookmarkId: string) {
-    const bookmark = await this.conceptBookmarkRepo.findOne({ where: { id: bookmarkId, userId } });
+    const bookmark = await this.conceptBookmarkRepo.findOne({
+      where: { id: bookmarkId, userId },
+    });
     if (!bookmark) throw new NotFoundException('북마크를 찾을 수 없습니다.');
     await this.conceptBookmarkRepo.remove(bookmark);
     return { message: '삭제되었습니다.' };
+  }
+
+  getFrequencyConcept(subjectSlug: string, unitNumber: number): any {
+    const folder = this.SUBJECT_FOLDER_MAP[subjectSlug];
+    if (!folder) {
+      throw new NotFoundException(`지원하지 않는 과목입니다: ${subjectSlug}`);
+    }
+    const filePath = path.join(
+      this.getTextbookBase(),
+      `${folder}_frequency`,
+      `${unitNumber}단원.json`,
+    );
+    if (!fs.existsSync(filePath)) {
+      throw new NotFoundException(
+        `${subjectSlug} 과목의 ${unitNumber}단원 frequency concept 파일을 찾을 수 없습니다.`,
+      );
+    }
+    return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+  }
+
+  getStructuredConcept(subjectSlug: string, unitNumber: number): any {
+    const folder = this.SUBJECT_FOLDER_MAP[subjectSlug];
+    if (!folder) {
+      throw new NotFoundException(`지원하지 않는 과목입니다: ${subjectSlug}`);
+    }
+    const filePath = path.join(
+      this.getTextbookBase(),
+      `${folder}_structured`,
+      `${unitNumber}단원.json`,
+    );
+    if (!fs.existsSync(filePath)) {
+      throw new NotFoundException(
+        `${subjectSlug} 과목의 ${unitNumber}단원 structured concept 파일을 찾을 수 없습니다.`,
+      );
+    }
+    return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
   }
 }

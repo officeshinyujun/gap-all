@@ -93,7 +93,13 @@ export class StudyController {
   @Post('concept-bookmarks')
   async addConceptBookmark(
     @CurrentUser() user: CurrentUserPayload,
-    @Body() body: { subjectSlug: string; unitNumber: number; conceptName: string; description?: string },
+    @Body()
+    body: {
+      subjectSlug: string;
+      unitNumber: number;
+      conceptName: string;
+      description?: string;
+    },
   ) {
     return this.studyService.addConceptBookmark(user.id, body);
   }
@@ -181,17 +187,44 @@ export class StudyController {
     return this.studyService.getUnitsWithProgress(user.id, subjectSlug);
   }
 
+  @Get(':subjectSlug/:unitNumber/frequency-concept')
+  getFrequencyConcept(
+    @Param('subjectSlug') subjectSlug: string,
+    @Param('unitNumber', ParseIntPipe) unitNumber: number,
+  ) {
+    return this.studyService.getFrequencyConcept(subjectSlug, unitNumber);
+  }
+
   @Get(':subjectSlug/:unitNumber/concept')
   async getConcept(
     @Param('subjectSlug') subjectSlug: string,
     @Param('unitNumber', ParseIntPipe) unitNumber: number,
     @Query('name') name: string,
   ) {
-    const concept = this.studyService.getConceptByName(subjectSlug, unitNumber, name);
+    const concept = this.studyService.getConceptByName(
+      subjectSlug,
+      unitNumber,
+      name,
+    );
     if (!concept) {
-      return { found: false, title: name, description: '', bulletPoints: [], trapPoints: [], logicFlow: '' };
+      return {
+        found: false,
+        title: name,
+        description: '',
+        bulletPoints: [],
+        trapPoints: [],
+        logicFlow: '',
+      };
     }
     return { found: true, ...concept };
+  }
+
+  @Get(':subjectSlug/:unitNumber/structured-concept')
+  getStructuredConcept(
+    @Param('subjectSlug') subjectSlug: string,
+    @Param('unitNumber', ParseIntPipe) unitNumber: number,
+  ) {
+    return this.studyService.getStructuredConcept(subjectSlug, unitNumber);
   }
 
   @Get(':subjectSlug/:unitNumber/concept-md')

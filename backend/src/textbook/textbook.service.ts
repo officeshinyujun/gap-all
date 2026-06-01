@@ -165,8 +165,10 @@ export class TextbookService {
       if (c.title) parts.push(`## ${c.title}`);
       if (c.description) parts.push(c.description);
       if (c.integrated_data?.table) parts.push(c.integrated_data.table);
-      if (c.integrated_data?.logic_flow) parts.push(c.integrated_data.logic_flow);
-      if (c.integrated_data?.visual_analysis) parts.push(c.integrated_data.visual_analysis);
+      if (c.integrated_data?.logic_flow)
+        parts.push(c.integrated_data.logic_flow);
+      if (c.integrated_data?.visual_analysis)
+        parts.push(c.integrated_data.visual_analysis);
       if (Array.isArray(c.bullet_points) && c.bullet_points.length > 0) {
         parts.push(c.bullet_points.map((bp: string) => `- ${bp}`).join('\n'));
       }
