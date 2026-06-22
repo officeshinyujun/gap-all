@@ -1,0 +1,124 @@
+{
+  "unit": 4,
+  "unitTitle": "기업의 이해",
+  "rootNode": {
+    "id": "root",
+    "label": "기업 이해",
+    "children": [
+      {
+        "id": "cat_1",
+        "label": "기업 정의",
+        "children": [
+          {
+            "id": "concept_1",
+            "label": "기업 의미",
+            "conceptName": "기업의 의미 및 특징",
+            "frequency": 0,
+            "keywords": [
+              "경제 주체",
+              "이윤 창출",
+              "사회적 책임"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_2",
+            "label": "목적 역할",
+            "conceptName": "기업의 목적과 역할",
+            "frequency": 0,
+            "keywords": [
+              "경제적 목적",
+              "비경제적 목적",
+              "사회적 책임"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_3",
+            "label": "경제 주체",
+            "conceptName": "경제 주체로서의 기업",
+            "frequency": 0,
+            "keywords": [
+              "생산 요소",
+              "재화 공급",
+              "이윤"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_2",
+        "label": "기업 분류",
+        "children": [
+          {
+            "id": "concept_4",
+            "label": "출자 형태",
+            "conceptName": "출자 형태에 따른 기업 분류",
+            "frequency": 0,
+            "keywords": [
+              "사기업",
+              "공기업",
+              "공사 합동"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_5",
+            "label": "사기업 정의",
+            "conceptName": "사기업의 정의 및 특징",
+            "frequency": 0,
+            "keywords": [
+              "개인 기업",
+              "공동 기업",
+              "이윤 창출"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_6",
+            "label": "공기업 정의",
+            "conceptName": "공기업 및 공사 합동 기업의 정의",
+            "frequency": 0,
+            "keywords": [
+              "공공 이익",
+              "사회적 자본",
+              "재정 수입"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_3",
+        "label": "규모 분류",
+        "children": [
+          {
+            "id": "concept_7",
+            "label": "규모 분류",
+            "conceptName": "규모에 따른 기업 분류",
+            "frequency": 0,
+            "keywords": [
+              "대기업",
+              "중견기업",
+              "중소기업"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_8",
+            "label": "기업 규모",
+            "conceptName": "대기업, 중견기업, 중소기업의 정의",
+            "frequency": 0,
+            "keywords": [
+              "자산 총액",
+              "매출액",
+              "종업원 수"
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -28,6 +28,7 @@ export interface QuestionRendererProps {
   selectedOption?: number | null;
   correctAnswer?: number | null;
   showExplanation?: boolean;
+  flat?: boolean;
 }
 
 export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
@@ -37,6 +38,7 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
   selectedOption: externalSelected,
   correctAnswer: correctAnswerProp,
   showExplanation: showExplanationProp,
+  flat,
 }) => {
   const [internalSelected, setInternalSelected] = useState<number | null>(null);
   const [explanationVisible, setExplanationVisible] = useState(showExplanationProp ?? false);
@@ -121,13 +123,21 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
         return <TPLQuantitativeChart data={parsed.data} />;
       case 'TPL_PROMOTIONAL_CANVAS':
         return <TPLPromotionalCanvas data={parsed.data} />;
+      case 'TPL_PLAIN_TEXT':
+        return (
+          <div className={s.stimulusPlainText}>
+            {parsed.data.split('\n').filter(Boolean).map((line, i) => (
+              <p key={i}>{line}</p>
+            ))}
+          </div>
+        );
       default:
         return null;
     }
   };
 
   return (
-    <VStack gap={20} fullWidth className={s.wrapper}>
+    <VStack gap={20} fullWidth className={flat ? s.wrapperFlat : s.wrapper}>
       <HStack gap={12} align="center" fullWidth>
         <div className={s.questionNumber}>{questionNumber}</div>
         <div className={s.questionStemText}>{question_stem}</div>
@@ -174,13 +184,13 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
         })}
       </VStack>
 
-      {isReviewMode && (
+      {isReviewMode && explanation && getExplanationText(explanation) && (
         <VStack gap={12} fullWidth>
           <div className={s.explanationDivider} />
           <div className={s.explanationBox}>
             <Typo.SM size={14} color="primary" style={{ fontWeight: 600, marginBottom: 8 }}>해설</Typo.SM>
             <Typo.SM size={12} color="secondary" as="p" className={s.explanationText}>
-              {explanation ? getExplanationText(explanation) : '해설이 없습니다.'}
+              {getExplanationText(explanation)}
             </Typo.SM>
           </div>
         </VStack>

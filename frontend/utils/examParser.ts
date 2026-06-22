@@ -30,9 +30,18 @@ export function parseStimulus(
   template: string | undefined | null,
   data: unknown,
 ): ParsedStimulus | null {
+  if (typeof data === 'string' && data.trim()) {
+    return { template: 'TPL_PLAIN_TEXT', data };
+  }
+
   const resolvedTemplate = template ?? inferTemplate(data);
   if (!resolvedTemplate) {
-    console.warn('[examParser] 템플릿을 추론할 수 없습니다:', data);
+    if (data && typeof data === 'object' && 'content' in data) {
+      const content = (data as Record<string, unknown>).content;
+      if (typeof content === 'string' && content.trim()) {
+        return { template: 'TPL_PLAIN_TEXT', data: content };
+      }
+    }
     return null;
   }
 
@@ -55,8 +64,15 @@ export function parseStimulus(
       return { template: 'TPL_QUANTITATIVE_CHART', data: data as any };
     case 'TPL_PROMOTIONAL_CANVAS':
       return { template: 'TPL_PROMOTIONAL_CANVAS', data: data as any };
+    case 'TPL_PLAIN_TEXT':
+      return { template: 'TPL_PLAIN_TEXT', data: typeof data === 'string' ? data : String(data) };
     default:
-      console.warn(`[examParser] 알 수 없는 템플릿: ${resolvedTemplate}`);
+      if (data && typeof data === 'object' && 'content' in data) {
+        const content = (data as Record<string, unknown>).content;
+        if (typeof content === 'string' && content.trim()) {
+          return { template: 'TPL_PLAIN_TEXT', data: content };
+        }
+      }
       return null;
   }
 }

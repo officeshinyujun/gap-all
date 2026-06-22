@@ -1,0 +1,154 @@
+{
+  "unit": 16,
+  "unitTitle": "근로 계약과 권익 보호",
+  "rootNode": {
+    "id": "root",
+    "label": "근로 계약",
+    "children": [
+      {
+        "id": "cat_1",
+        "label": "계약 체결",
+        "children": [
+          {
+            "id": "concept_1",
+            "label": "계약 개념",
+            "conceptName": "근로 계약의 개념 및 체결 형식",
+            "frequency": 0,
+            "keywords": [
+              "근로 계약",
+              "임금 지급",
+              "서면 교부"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_2",
+            "label": "작성 유의",
+            "conceptName": "근로 계약서 작성 및 유의 사항",
+            "frequency": 0,
+            "keywords": [
+              "서면 작성",
+              "근로 조건",
+              "벌금"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_3",
+            "label": "필수 조건",
+            "conceptName": "근로 계약서의 필수 근로 조건",
+            "frequency": 0,
+            "keywords": [
+              "임금",
+              "근로 시간",
+              "휴가"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_2",
+        "label": "미성년자 보호",
+        "children": [
+          {
+            "id": "concept_4",
+            "label": "미성년자 보호",
+            "conceptName": "미성년자 근로 보호",
+            "frequency": 0,
+            "keywords": [
+              "법정 대리인",
+              "취직 인허증",
+              "근로 시간 제한"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_3",
+        "label": "권익 침해",
+        "children": [
+          {
+            "id": "concept_5",
+            "label": "침해 종류",
+            "conceptName": "근로자 권익 침해의 종류 및 시정 방법",
+            "frequency": 0,
+            "keywords": [
+              "부당 해고",
+              "임금 체불",
+              "성희롱"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_6",
+            "label": "부당 해고",
+            "conceptName": "부당 해고, 징계 및 노동 행위",
+            "frequency": 0,
+            "keywords": [
+              "해고 절차",
+              "징계 수위",
+              "노동법"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_7",
+            "label": "임금 체불",
+            "conceptName": "임금 체불",
+            "frequency": 0,
+            "keywords": [
+              "지급일 초과",
+              "퇴직금",
+              "합의 연장"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_8",
+            "label": "성희롱",
+            "conceptName": "직장 내 성희롱",
+            "frequency": 0,
+            "keywords": [
+              "성적 굴욕감",
+              "고용 불이익",
+              "시정 요구"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_4",
+        "label": "차별 및 금지",
+        "children": [
+          {
+            "id": "concept_9",
+            "label": "차별 시정",
+            "conceptName": "근로자의 차별 및 시정 제도",
+            "frequency": 0,
+            "keywords": [
+              "차별적 처우",
+              "비정규직",
+              "구제"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_10",
+            "label": "사용자 금지",
+            "conceptName": "근로 계약에서 사용자의 금지 사항",
+            "frequency": 0,
+            "keywords": [
+              "위약금",
+              "임금 상계",
+              "강제 저축"
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+}

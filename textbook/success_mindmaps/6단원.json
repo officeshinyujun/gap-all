@@ -1,0 +1,118 @@
+{
+  "unit": 6,
+  "unitTitle": "제조업의 이해",
+  "rootNode": {
+    "id": "root",
+    "label": "제조업 이해",
+    "children": [
+      {
+        "id": "cat_1",
+        "label": "개념 및 분류",
+        "children": [
+          {
+            "id": "concept_1",
+            "label": "제조업 개념",
+            "conceptName": "제조업의 개념 및 분류",
+            "frequency": 0,
+            "keywords": [
+              "제2차 산업",
+              "원재료",
+              "새로운 제품"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_2",
+            "label": "생산재/소비재",
+            "conceptName": "생산재와 소비재 제조업",
+            "frequency": 0,
+            "keywords": [
+              "B2B",
+              "B2C",
+              "기술력"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_2",
+        "label": "발달 단계",
+        "children": [
+          {
+            "id": "concept_3",
+            "label": "발달 및 단계",
+            "conceptName": "제조업의 발달 및 단계",
+            "frequency": 0,
+            "keywords": [
+              "재래 공업",
+              "경공업",
+              "첨단 공업"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_3",
+        "label": "생산 방식",
+        "children": [
+          {
+            "id": "concept_4",
+            "label": "생산 방식",
+            "conceptName": "제품 생산 방식",
+            "frequency": 0,
+            "keywords": [
+              "개별 생산",
+              "로트 생산",
+              "연속 생산"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_5",
+            "label": "공정/수요",
+            "conceptName": "작업 공정 및 시장 수요에 따른 생산 방식",
+            "frequency": 0,
+            "keywords": [
+              "시장 수요",
+              "작업 공정",
+              "재래 공업"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_4",
+        "label": "생산 체제",
+        "children": [
+          {
+            "id": "concept_6",
+            "label": "생산 체제",
+            "conceptName": "제품 생산 체제 및 구축",
+            "frequency": 0,
+            "keywords": [
+              "투입",
+              "가공",
+              "산출"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_7",
+            "label": "관리 시스템",
+            "conceptName": "생산 관리 시스템",
+            "frequency": 0,
+            "keywords": [
+              "CIM",
+              "SCM",
+              "ERP"
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+}

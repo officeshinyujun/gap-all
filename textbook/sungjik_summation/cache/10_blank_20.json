@@ -1,0 +1,242 @@
+[
+  {
+    "id": 1,
+    "sentence_template": "전공별 직무 수행 능력 탐색은 [blank]을 통해 각 전공에서 요구되는 지식, 기술, 태도를 체계적으로 이해하고 분석하는 과정이다.",
+    "correct_answer": "국가직무능력표준(NCS)",
+    "options": [
+      "직무 기술서",
+      "능력단위",
+      "취업 지원 프로그램",
+      "국가직무능력표준(NCS)"
+    ],
+    "explanation": "전공별 직무 수행 능력 탐색은 국가직무능력표준(NCS)을 통해 이루어진다."
+  },
+  {
+    "id": 2,
+    "sentence_template": "[blank]는 특정 직무의 목적, 업무 내용, 방법, 필요한 자격 등을 체계적으로 정리한 문서이다.",
+    "correct_answer": "직무 기술서",
+    "options": [
+      "능력단위",
+      "국가직무능력표준(NCS)",
+      "취업 지원 프로그램",
+      "직무 기술서"
+    ],
+    "explanation": "직무 기술서는 특정 직무에 대한 정보를 체계적으로 정리한 문서이다."
+  },
+  {
+    "id": 3,
+    "sentence_template": "NCS 수준 체계는 1~8단계로 구분되며, [blank] 졸업생은 주로 2~3수준에 해당한다.",
+    "correct_answer": "특성화고",
+    "options": [
+      "일반고",
+      "전문대",
+      "대학교",
+      "특성화고"
+    ],
+    "explanation": "특성화고 졸업생은 NCS 수준 체계에서 2~3수준에 해당한다."
+  },
+  {
+    "id": 4,
+    "sentence_template": "[blank]는 최대 500만 원의 훈련비를 지원하며, 5년간 유효하다.",
+    "correct_answer": "국민내일배움카드",
+    "options": [
+      "직무 기술서",
+      "NCS 대분류",
+      "취업 지원 프로그램",
+      "국민내일배움카드"
+    ],
+    "explanation": "국민내일배움카드는 훈련비를 지원하는 제도이다."
+  },
+  {
+    "id": 5,
+    "sentence_template": "고용24에서 제공하는 취업 지원 프로그램에는 [blank], 집단 상담 등이 포함된다.",
+    "correct_answer": "CAP@",
+    "options": [
+      "NCS 대분류",
+      "직무 기술서",
+      "능력단위",
+      "CAP@"
+    ],
+    "explanation": "CAP@는 고용24의 취업 지원 프로그램 중 하나이다."
+  },
+  {
+    "id": 6,
+    "sentence_template": "국가직무능력표준(NCS)은 산업 현장에서 직무를 수행하기 위해 요구되는 지식, 기술, 태도 등을 체계화한 것으로, [blank], 중분류, 소분류, 세분류로 구성되어 있다.",
+    "correct_answer": "대분류",
+    "options": [
+      "능력단위",
+      "직무 기술서",
+      "NCS 수준",
+      "대분류"
+    ],
+    "explanation": "NCS는 대분류, 중분류, 소분류, 세분류로 구성되어 있다."
+  },
+  {
+    "id": 7,
+    "sentence_template": "NCS 탐색 단계에서 1단계는 [blank] 홈페이지에 접속하는 것이다.",
+    "correct_answer": "국가직무능력표준(NCS)",
+    "options": [
+      "고용24",
+      "직무 기술서",
+      "국민내일배움카드",
+      "국가직무능력표준(NCS)"
+    ],
+    "explanation": "NCS 탐색의 첫 단계는 NCS 홈페이지에 접속하는 것이다."
+  },
+  {
+    "id": 8,
+    "sentence_template": "NCS 탐색 단계에서 2단계는 [blank] 중 관심 분야 선택이다.",
+    "correct_answer": "대분류(24개)",
+    "options": [
+      "중분류",
+      "소분류",
+      "능력단위",
+      "대분류(24개)"
+    ],
+    "explanation": "NCS 탐색의 두 번째 단계는 대분류 중 관심 분야를 선택하는 것이다."
+  },
+  {
+    "id": 9,
+    "sentence_template": "NCS 탐색 단계에서 3단계는 중분류, 소분류, [blank] 순으로 선택하는 것이다.",
+    "correct_answer": "세분류",
+    "options": [
+      "대분류",
+      "능력단위",
+      "직무 기술서",
+      "세분류"
+    ],
+    "explanation": "NCS 탐색의 세 번째 단계는 세분류를 선택하는 것이다."
+  },
+  {
+    "id": 10,
+    "sentence_template": "NCS 탐색 단계에서 4단계는 [blank] 검색이다.",
+    "correct_answer": "능력단위",
+    "options": [
+      "직무 기술서",
+      "대분류",
+      "중분류",
+      "능력단위"
+    ],
+    "explanation": "NCS 탐색의 마지막 단계는 능력단위를 검색하는 것이다."
+  },
+  {
+    "id": 11,
+    "sentence_template": "전공별 직무 수행 능력 향상 방법은 [blank]을 통해 요구되는 직무 능력을 탐색하고, 이를 기반으로 전문 지식을 함양하는 과정을 포함한다.",
+    "correct_answer": "국가직무능력표준(NCS)",
+    "options": [
+      "직무 기술서",
+      "국민내일배움카드",
+      "취업 지원 프로그램",
+      "국가직무능력표준(NCS)"
+    ],
+    "explanation": "전공별 직무 수행 능력 향상 방법은 NCS를 통해 이루어진다."
+  },
+  {
+    "id": 12,
+    "sentence_template": "구직자는 [blank]을 통해 자신의 전공에 맞는 직무 수행 능력을 탐색하고 향상시킬 수 있다.",
+    "correct_answer": "국가직무능력표준(NCS)",
+    "options": [
+      "직무 기술서",
+      "능력단위",
+      "취업 지원 프로그램",
+      "국가직무능력표준(NCS)"
+    ],
+    "explanation": "구직자는 NCS를 통해 직무 수행 능력을 탐색하고 향상할 수 있다."
+  },
+  {
+    "id": 13,
+    "sentence_template": "[blank]은 산업 현장에서 직무를 수행하기 위해 요구되는 지식, 기술, 태도 등을 체계화한 것이다.",
+    "correct_answer": "국가직무능력표준(NCS)",
+    "options": [
+      "직무 기술서",
+      "능력단위",
+      "취업 지원 프로그램",
+      "국가직무능력표준(NCS)"
+    ],
+    "explanation": "NCS는 직무 수행에 필요한 요소들을 체계화한 것이다."
+  },
+  {
+    "id": 14,
+    "sentence_template": "[blank]은 산업 현장에서 직무를 수행하기 위해 요구되는 지식, 기술, 태도 등을 체계화한 것으로, 대분류에서 세분류까지의 구조로 구성되어 있다.",
+    "correct_answer": "국가직무능력표준(NCS)",
+    "options": [
+      "직무 기술서",
+      "능력단위",
+      "취업 지원 프로그램",
+      "국가직무능력표준(NCS)"
+    ],
+    "explanation": "NCS는 직무 수행을 위한 지식, 기술, 태도를 체계화한 것이다."
+  },
+  {
+    "id": 15,
+    "sentence_template": "[blank]은 최대 500만 원의 훈련비를 지원하며, 5년간 유효하다.",
+    "correct_answer": "국민내일배움카드",
+    "options": [
+      "직무 기술서",
+      "NCS 대분류",
+      "취업 지원 프로그램",
+      "국민내일배움카드"
+    ],
+    "explanation": "국민내일배움카드는 훈련비를 지원하는 제도이다."
+  },
+  {
+    "id": 16,
+    "sentence_template": "NCS 대분류는 [blank]로 구성되어 있으며, 각 대분류는 중분류, 소분류, 세분류로 나뉜다.",
+    "correct_answer": "24개",
+    "options": [
+      "10개",
+      "20개",
+      "30개",
+      "24개"
+    ],
+    "explanation": "NCS 대분류는 총 24개로 구성되어 있다."
+  },
+  {
+    "id": 17,
+    "sentence_template": "NCS 탐색 단계에서 1단계는 [blank] 홈페이지에 접속하는 것이다.",
+    "correct_answer": "국가직무능력표준(NCS)",
+    "options": [
+      "고용24",
+      "직무 기술서",
+      "국민내일배움카드",
+      "국가직무능력표준(NCS)"
+    ],
+    "explanation": "NCS 탐색의 첫 단계는 NCS 홈페이지에 접속하는 것이다."
+  },
+  {
+    "id": 18,
+    "sentence_template": "NCS 탐색 단계에서 2단계는 [blank] 중 관심 분야 선택이다.",
+    "correct_answer": "대분류(24개)",
+    "options": [
+      "중분류",
+      "소분류",
+      "능력단위",
+      "대분류(24개)"
+    ],
+    "explanation": "NCS 탐색의 두 번째 단계는 대분류 중 관심 분야를 선택하는 것이다."
+  },
+  {
+    "id": 19,
+    "sentence_template": "NCS 탐색 단계에서 3단계는 중분류, 소분류, [blank] 순으로 선택하는 것이다.",
+    "correct_answer": "세분류",
+    "options": [
+      "대분류",
+      "능력단위",
+      "직무 기술서",
+      "세분류"
+    ],
+    "explanation": "NCS 탐색의 세 번째 단계는 세분류를 선택하는 것이다."
+  },
+  {
+    "id": 20,
+    "sentence_template": "NCS 탐색 단계에서 4단계는 [blank] 검색이다.",
+    "correct_answer": "능력단위",
+    "options": [
+      "직무 기술서",
+      "대분류",
+      "중분류",
+      "능력단위"
+    ],
+    "explanation": "NCS 탐색의 마지막 단계는 능력단위를 검색하는 것이다."
+  }
+]

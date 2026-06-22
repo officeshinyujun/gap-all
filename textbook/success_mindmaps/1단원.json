@@ -1,0 +1,82 @@
+{
+  "unit": 1,
+  "unitTitle": "일과 직업 및 직업 생활",
+  "rootNode": {
+    "id": "root",
+    "label": "일과 직업",
+    "children": [
+      {
+        "id": "cat_1",
+        "label": "정의와 특징",
+        "children": [
+          {
+            "id": "concept_1",
+            "label": "일과 직업",
+            "conceptName": "일과 직업의 의미 및 특징",
+            "frequency": 0,
+            "keywords": [
+              "윤리성",
+              "생계유지",
+              "자아실현"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_2",
+            "label": "직업 가치",
+            "conceptName": "직업의 가치와 가치관",
+            "frequency": 0,
+            "keywords": [
+              "외재적 가치",
+              "내재적 가치",
+              "자아실현"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_2",
+        "label": "직업 생활",
+        "children": [
+          {
+            "id": "concept_3",
+            "label": "의미와 중요성",
+            "conceptName": "직업 생활의 의미와 중요성",
+            "frequency": 0,
+            "keywords": [
+              "생계 유지",
+              "자아 실현",
+              "사회적 역할"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_4",
+            "label": "개인/사회적 차원",
+            "conceptName": "직업 생활의 중요성 - 개인적 및 사회적 차원",
+            "frequency": 0,
+            "keywords": [
+              "생계 유지",
+              "가치 실현",
+              "사회적 기능"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_5",
+            "label": "다양성",
+            "conceptName": "직업 생활의 다양성",
+            "frequency": 0,
+            "keywords": [
+              "생계 유지",
+              "자아 실현",
+              "사회적 역할"
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+}

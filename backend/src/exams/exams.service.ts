@@ -194,7 +194,8 @@ export class ExamsService {
         stimulusData: item.question.stimulusData,
         optionsList: item.question.optionsList,
         comboBlock: item.question.comboBlock,
-        // 채점 전에는 정답/해설 숨김
+        setGroupId: item.question.setGroupId,
+        setPosition: item.question.setPosition,
         ...(item.userAnswer !== null
           ? {
               correctAnswer: item.question.correctAnswer,
@@ -328,6 +329,8 @@ export class ExamsService {
         comboBlock: item.question.comboBlock,
         correctAnswer: item.question.correctAnswer,
         explanation: item.question.explanation,
+        setGroupId: item.question.setGroupId,
+        setPosition: item.question.setPosition,
       },
     }));
 

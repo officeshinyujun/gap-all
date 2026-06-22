@@ -1,0 +1,112 @@
+{
+  "unit": 8,
+  "unitTitle": "직업 기초 능력",
+  "rootNode": {
+    "id": "root",
+    "label": "직업 기초 능력",
+    "children": [
+      {
+        "id": "cat_1",
+        "label": "능력 개념",
+        "children": [
+          {
+            "id": "concept_1",
+            "label": "직업 능력",
+            "conceptName": "직업 능력의 개념 및 종류",
+            "frequency": 0,
+            "keywords": [
+              "직무 수행",
+              "기초 능력",
+              "NCS"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_2",
+            "label": "직무 수행",
+            "conceptName": "직무 수행 능력의 개념",
+            "frequency": 0,
+            "keywords": [
+              "필수 능력",
+              "선택 능력",
+              "산업 공통"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_2",
+        "label": "능력 종류",
+        "children": [
+          {
+            "id": "concept_3a",
+            "label": "기초 능력 개념",
+            "conceptName": "직업 기초 능력의 개념 및 종류",
+            "frequency": 0,
+            "keywords": [
+              "직업기초능력",
+              "10개 영역",
+              "NCS 기반"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_3",
+            "label": "기초 능력군",
+            "conceptName": "기초 능력군 및 업무 처리 능력군의 종류",
+            "frequency": 0,
+            "keywords": [
+              "의사소통",
+              "수리",
+              "문제 해결"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_4",
+            "label": "적응 능력군",
+            "conceptName": "직장 적응 능력군의 종류",
+            "frequency": 0,
+            "keywords": [
+              "대인 관계",
+              "자기 개발",
+              "직업 윤리"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_3",
+        "label": "능력 향상",
+        "children": [
+          {
+            "id": "concept_5",
+            "label": "향상 방법",
+            "conceptName": "직업 기초 능력의 향상 방법",
+            "frequency": 0,
+            "keywords": [
+              "적응",
+              "효율성",
+              "NCS"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_6",
+            "label": "능력 향상",
+            "conceptName": "의사소통, 수리, 문제 해결, 정보 능력의 향상 방법",
+            "frequency": 0,
+            "keywords": [
+              "의사소통",
+              "수리",
+              "정보 능력"
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "unit": 7,
+  "unitTitle": "서비스업의 이해",
+  "rootNode": {
+    "id": "root",
+    "label": "서비스업 이해",
+    "children": [
+      {
+        "id": "cat_1",
+        "label": "서비스 정의",
+        "children": [
+          {
+            "id": "concept_1",
+            "label": "서비스 의미",
+            "conceptName": "서비스의 의미 및 특징",
+            "frequency": 0,
+            "keywords": [
+              "무형성",
+              "동시성",
+              "이질성",
+              "소멸성"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_2",
+            "label": "서비스업 개념",
+            "conceptName": "서비스업의 개념 및 유형",
+            "frequency": 0,
+            "keywords": [
+              "공공 서비스",
+              "민간 서비스",
+              "고객 상호작용"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_3",
+            "label": "대한민국 서비스업",
+            "conceptName": "대한민국 서비스업",
+            "frequency": 0,
+            "keywords": [
+              "무형성",
+              "공공/민간",
+              "경제 활동"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_2",
+        "label": "서비스 설계",
+        "children": [
+          {
+            "id": "concept_4",
+            "label": "설계 의미",
+            "conceptName": "서비스 설계의 의미 및 요소",
+            "frequency": 0,
+            "keywords": [
+              "서비스 품질",
+              "운영 효율성",
+              "고객 경험"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_3",
+        "label": "생산 방식",
+        "children": [
+          {
+            "id": "concept_5",
+            "label": "생산 방식",
+            "conceptName": "서비스 생산 방식",
+            "frequency": 0,
+            "keywords": [
+              "개별 생산",
+              "대량 생산",
+              "고객 참여"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_6",
+            "label": "접근 유형",
+            "conceptName": "서비스 접근 유형에 따른 생산 방식",
+            "frequency": 0,
+            "keywords": [
+              "개별/대량",
+              "생산 라인",
+              "고객 참여"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_7",
+            "label": "생산 체제",
+            "conceptName": "서비스 생산 체제",
+            "frequency": 0,
+            "keywords": [
+              "서비스 내용",
+              "생산 요소",
+              "고객 참여"
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+}

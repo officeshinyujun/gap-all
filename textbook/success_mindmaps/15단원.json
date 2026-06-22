@@ -1,0 +1,124 @@
+{
+  "unit": 15,
+  "unitTitle": "근로자의 권리와 의무",
+  "rootNode": {
+    "id": "root",
+    "label": "근로자 권리",
+    "children": [
+      {
+        "id": "cat_1",
+        "label": "근로관계법",
+        "children": [
+          {
+            "id": "concept_1",
+            "label": "근로관계",
+            "conceptName": "근로관계의 개념 및 법",
+            "frequency": 0,
+            "keywords": [
+              "근로시간",
+              "해고 예고",
+              "퇴직금"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_2",
+            "label": "헌법과 법",
+            "conceptName": "헌법과 근로관계법의 관계",
+            "frequency": 0,
+            "keywords": [
+              "근로의 권리",
+              "법정주의",
+              "단결 활동권"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_3",
+            "label": "법의 종류",
+            "conceptName": "근로관계법의 종류 및 유형",
+            "frequency": 0,
+            "keywords": [
+              "근로기준법",
+              "임금 지급",
+              "단결권"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_4",
+            "label": "기타 법",
+            "conceptName": "기타 근로관계법",
+            "frequency": 0,
+            "keywords": [
+              "임금 원칙",
+              "퇴직금 요건",
+              "단체 교섭권"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_2",
+        "label": "근로기준법",
+        "children": [
+          {
+            "id": "concept_5",
+            "label": "기준법 개념",
+            "conceptName": "근로기준법의 개념과 원리",
+            "frequency": 0,
+            "keywords": [
+              "근로시간",
+              "해고 예고",
+              "퇴직금"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_6",
+            "label": "기준법 내용",
+            "conceptName": "근로기준법의 주요 내용",
+            "frequency": 0,
+            "keywords": [
+              "연장 근로",
+              "퇴직금",
+              "근로 계약"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_3",
+        "label": "노동 3권",
+        "children": [
+          {
+            "id": "concept_7",
+            "label": "노동 3권",
+            "conceptName": "근로(노동) 3권과 의무",
+            "frequency": 0,
+            "keywords": [
+              "단결권",
+              "교섭권",
+              "행동권"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_8",
+            "label": "노동조합",
+            "conceptName": "노동조합의 역할 및 법적 목적",
+            "frequency": 0,
+            "keywords": [
+              "노동 3권",
+              "조합 목적",
+              "산업 평화"
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "unit": 12,
+  "unitTitle": "의사소통 능력",
+  "rootNode": {
+    "id": "root",
+    "label": "의사소통",
+    "children": [
+      {
+        "id": "cat_1",
+        "label": "의사소통 정의",
+        "children": [
+          {
+            "id": "concept_1",
+            "label": "의사소통 의미",
+            "conceptName": "의사소통의 의미 및 구성 요소",
+            "frequency": 0,
+            "keywords": [
+              "정보",
+              "생각",
+              "감정"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_2",
+            "label": "비언어 소통",
+            "conceptName": "비언어적 의사소통의 의미",
+            "frequency": 0,
+            "keywords": [
+              "신체적 동작",
+              "표정",
+              "시선"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_2",
+        "label": "문서 능력",
+        "children": [
+          {
+            "id": "concept_3",
+            "label": "문서 이해/작성",
+            "conceptName": "문서 이해 및 작성 능력",
+            "frequency": 0,
+            "keywords": [
+              "문서 이해",
+              "문서 작성",
+              "업무 문서"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_4",
+            "label": "문서 종류",
+            "conceptName": "직무 문서의 개념, 종류 및 특징",
+            "frequency": 0,
+            "keywords": [
+              "공문서",
+              "기획서",
+              "보고서"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_5",
+            "label": "문서 작성 원칙",
+            "conceptName": "직무 문서 작성 원칙",
+            "frequency": 0,
+            "keywords": [
+              "목적성",
+              "정확성",
+              "간결성"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_3",
+        "label": "경청/표현",
+        "children": [
+          {
+            "id": "concept_6",
+            "label": "경청/표현 능력",
+            "conceptName": "경청 및 의사 표현 능력",
+            "frequency": 0,
+            "keywords": [
+              "경청",
+              "의사 표현",
+              "공감"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_7",
+            "label": "외국어 능력",
+            "conceptName": "기초 외국어 능력",
+            "frequency": 0,
+            "keywords": [
+              "외국어",
+              "의사소통",
+              "기초"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_4",
+        "label": "갈등 관리",
+        "children": [
+          {
+            "id": "concept_8",
+            "label": "갈등 관리",
+            "conceptName": "갈등 관리와 의사소통",
+            "frequency": 0,
+            "keywords": [
+              "경쟁형",
+              "타협형",
+              "협력형"
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+}

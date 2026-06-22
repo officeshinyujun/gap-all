@@ -1,0 +1,130 @@
+{
+  "unit": 20,
+  "unitTitle": "직업 윤리와 미래 직업",
+  "rootNode": {
+    "id": "root",
+    "label": "직업 윤리",
+    "children": [
+      {
+        "id": "cat_1",
+        "label": "현대 사회",
+        "children": [
+          {
+            "id": "concept_1",
+            "label": "현대 사회",
+            "conceptName": "현대 사회의 특징과 변화",
+            "frequency": 0,
+            "keywords": [
+              "정보 기술",
+              "직업 윤리",
+              "미래 사회"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_2",
+            "label": "미래 사회",
+            "conceptName": "미래 사회의 특징과 변화",
+            "frequency": 0,
+            "keywords": [
+              "지식 노동자",
+              "정보화",
+              "세계화"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_2",
+        "label": "직업 윤리",
+        "children": [
+          {
+            "id": "concept_3",
+            "label": "윤리 의미",
+            "conceptName": "직업 윤리의 의미와 구분",
+            "frequency": 0,
+            "keywords": [
+              "일반 직업 윤리",
+              "특수 직업 윤리",
+              "행동 규범"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_4",
+            "label": "사회 문제",
+            "conceptName": "사회 문제와 직업 윤리의 중요성",
+            "frequency": 0,
+            "keywords": [
+              "행동 규범",
+              "사회 질서",
+              "발전"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_5",
+            "label": "5대 원칙",
+            "conceptName": "직업 윤리의 5대 원칙과 비윤리적 행위 유형",
+            "frequency": 0,
+            "keywords": [
+              "객관성",
+              "공정 경쟁",
+              "비윤리적 행위"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_3",
+        "label": "윤리 유형",
+        "children": [
+          {
+            "id": "concept_6",
+            "label": "근로 윤리",
+            "conceptName": "근로 윤리와 공동체 윤리",
+            "frequency": 0,
+            "keywords": [
+              "근면",
+              "성실",
+              "봉사"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_7",
+            "label": "전통 윤리",
+            "conceptName": "동양 전통 직업 윤리와 덕목",
+            "frequency": 0,
+            "keywords": [
+              "일반 직업 윤리",
+              "특수 직업 윤리",
+              "행위 규범"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_4",
+        "label": "미래 직업",
+        "children": [
+          {
+            "id": "concept_8",
+            "label": "직업 변화",
+            "conceptName": "직업 사회의 변화",
+            "frequency": 0,
+            "keywords": [
+              "정보 기술",
+              "유연한 근로",
+              "직업 윤리"
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+}

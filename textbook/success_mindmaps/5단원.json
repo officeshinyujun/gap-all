@@ -1,0 +1,144 @@
+{
+  "unit": 5,
+  "unitTitle": "기업의 경영 활동",
+  "rootNode": {
+    "id": "root",
+    "label": "경영 활동",
+    "children": [
+      {
+        "id": "cat_1",
+        "label": "경영 정의",
+        "children": [
+          {
+            "id": "concept_1",
+            "label": "경영 의미",
+            "conceptName": "기업 경영의 의미 및 구성 요소",
+            "frequency": 0,
+            "keywords": [
+              "경영 목적",
+              "자본",
+              "인적 자원"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_2",
+            "label": "경영자 분류",
+            "conceptName": "경영자의 분류",
+            "frequency": 0,
+            "keywords": [
+              "최고 경영자",
+              "중간 경영자",
+              "일선 경영자"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_3",
+            "label": "관리 순환",
+            "conceptName": "경영 관리의 의미 및 순환 과정 (PODC)",
+            "frequency": 0,
+            "keywords": [
+              "계획",
+              "조직",
+              "지휘",
+              "통제"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_2",
+        "label": "자원 관리",
+        "children": [
+          {
+            "id": "concept_4",
+            "label": "인적 자원",
+            "conceptName": "인적 자원 관리 활동",
+            "frequency": 0,
+            "keywords": [
+              "확보",
+              "개발",
+              "보상",
+              "유지"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_5",
+            "label": "생산 관리",
+            "conceptName": "생산 관리 활동",
+            "frequency": 0,
+            "keywords": [
+              "생산 계획",
+              "공정 관리",
+              "재고 관리"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_3",
+        "label": "마케팅/재무",
+        "children": [
+          {
+            "id": "concept_6",
+            "label": "마케팅 관리",
+            "conceptName": "마케팅 관리 활동",
+            "frequency": 0,
+            "keywords": [
+              "STP 전략",
+              "마케팅 믹스",
+              "고객 욕구"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_7",
+            "label": "재무 관리",
+            "conceptName": "재무 관리 활동",
+            "frequency": 0,
+            "keywords": [
+              "자금 조달",
+              "투자 결정",
+              "재무 분석"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_4",
+        "label": "회계/관계",
+        "children": [
+          {
+            "id": "concept_8",
+            "label": "회계 정보",
+            "conceptName": "회계 정보 관리 활동",
+            "frequency": 0,
+            "keywords": [
+              "재무제표",
+              "정보 제공",
+              "이용자"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_9",
+            "label": "활동 관계",
+            "conceptName": "기업 경영 활동 요소 간의 관계",
+            "frequency": 0,
+            "keywords": [
+              "경영 목적",
+              "자금",
+              "전략"
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+}

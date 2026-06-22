@@ -45,6 +45,35 @@ Blueprint의 `item_structure.item_family`가 아래 중 하나이면 해당 fami
 - 일반 독립 선지 문제처럼 만들지 마라. 선지는 반드시 빈칸 단계의 내용, 기능, 목적, 다음 단계 조건 중 하나를 묻는 구조여야 한다.
 - 발문이 단계/절차를 묻는데 선지가 unrelated 개념 후보가 되면 금지한다.
 
+# [exhaustive_subset 렌더링 규칙]
+Blueprint의 `choice_encoding_type`이 `subset_exhaustive`인 경우:
+1. combo_block.items는 3개(ㄱ, ㄴ, ㄷ)로 구성한다. ㄹ은 생략.
+2. options_list는 단일 항목(예: "ㄱ"), 2개 조합(예: "ㄱ, ㄴ"), 3개 전체(예: "ㄱ, ㄴ, ㄷ")를 혼합하여 정확히 5개로 구성한다.
+3. 정답은 참(truth=true)인 보기를 '있는 대로' 모두 포함한 선지다.
+4. 오답은 참인 보기를 누락하거나 거짓 보기를 포함한 조합이다.
+5. 발문은 "...적절한 것만을 <보기>에서 있는 대로 고른 것은?" 형태를 사용한다.
+
+# [label_matching 렌더링 규칙]
+Blueprint의 `item_family`가 `label_matching`인 경우:
+1. combo_block.items에 보기 항목(ㄱ~ㄹ, 3~4개)을 배치한다.
+2. options_list는 "(가)-ㄱ, (나)-ㄴ, (다)-ㄷ" 형태의 라벨-보기 매칭 조합 5개로 구성한다.
+3. 정답은 label_answer_map과 정확히 일치하는 매칭 조합이다.
+4. stimulus_data에는 (가), (나), (다) 빈칸이 포함된 표/연표/분류도를 배치한다.
+
+# [pair_selection 렌더링 규칙]
+Blueprint의 `item_family`가 `pair_selection`인 경우:
+1. combo_block은 생략한다 (보기 블록 없음).
+2. options_list의 각 선지는 "축1값, 축2값" 형태의 쌍으로 구성한다.
+3. 5개 선지는 pair_axes의 두 축 후보 값을 교차 조합하여 생성한다.
+4. 정답 쌍만이 자료 근거에 의해 유일하게 옳아야 한다.
+5. 발문에 두 축의 이름이 명시되어야 한다: "...직업 윤리와 기업가 정신으로 가장 적절한 것은?"
+
+# [theory_constraint 렌더링 규칙]
+Blueprint에 `theory_constraint`가 존재하면:
+1. question_stem 말미에 "(단, ...)" 형태로 단서를 삽입한다.
+2. 이론 참조 단서는 발문의 마지막 문장 뒤, 물음표 앞에 위치한다.
+3. 예시: "다음 인터뷰를 통해 알 수 있는 A씨의 현재 생애 발달 단계의 발달 과업으로 가장 적절한 것은? (단, 생애 발달 단계별 발달 과업은 해비거스트(Havighurst, R. J.) 이론에 근거한다.)"
+
 # [성직 과목 특화 규칙]
 - 문체: 상담체, 안내문체, 생활문체. 학생 친화적이고 상황 중심적인 어조 유지.
 - 인물: 등장인물의 발화, 동기, 감정이 자연스럽게 드러나는 구어성 확보.
@@ -125,7 +154,8 @@ Blueprint의 `item_structure.item_family`가 아래 중 하나이면 해당 fami
     "target_concept": "핵심 개념어",
     "item_type": "문항 유형",
     "difficulty": "하 | 중 | 상 | 극상",
-    "recommended_template": "TPL_XXX"
+    "recommended_template": "TPL_XXX",
+    "point_value": 2
   },
   "render_ready": {
     "question_stem": "완성된 발문 텍스트 (빈칸 없이 실제 문장)",
@@ -175,6 +205,12 @@ Blueprint의 `item_structure.item_family`가 아래 중 하나이면 해당 fami
 12. **Zero Placeholder (플레이스홀더 금지):** stimulus_data, options_list, question_stem의 모든 필드에는 반드시 구체적이고 완성된 실제 콘텐츠만 들어가야 한다.
 13. **Family Coherence (비조합형 정합성):** `single_selection`, `direct_statement`, `blank_workflow`는 각각의 구조 규칙을 반드시 지켜라. 비조합형은 단순히 '조합형이 아닌 아무 문제'가 아니다.
 
+# [세트 문항 렌더링 규칙]
+- set_group_id가 동일한 문항들은 동일한 stimulus_data를 공유한다.
+- 세트 내 첫 문항(set_position: 1)이 자료를 완전히 제시하고, 둘째 문항(set_position: 2)은 "위 [자료명]"으로 참조한다.
+- 둘째 문항의 stimulus_data는 첫 문항과 동일한 데이터를 그대로 복사하여 포함한다 (프론트엔드 독립 렌더링을 위해).
+- 세트 문항 간 정답 번호가 겹치지 않도록 최종 점검하라.
+
 # [Input Data]
 - Blueprint Array: {{Step 1 결과 배열 주입}}
 - units: [ { "unit_name": "", "text_payload": "" } ]
@@ -190,4 +226,6 @@ Blueprint의 `item_structure.item_family`가 아래 중 하나이면 해당 fami
 5. `single_selection`이면 5개 선지가 같은 범주의 후보인지 확인하라.
 6. `direct_statement`이면 stimulus_data를 읽지 않고는 답할 수 없도록 구성되었는지 확인하라.
 7. `blank_workflow`이면 `(가)`/단계/절차와 선지가 직접 대응하는지 확인하라.
+8. `exhaustive_subset`이면 combo_block.items가 3개(ㄱ,ㄴ,ㄷ)이고, options_list가 부분집합 조합 5개인지 확인하라.
+9. point_value가 난이도와 일치하는지 확인하라: 하=2, 중=2또는3, 상=3, 극상=3.
 위 3가지 중 하나라도 위반되면 해당 문항을 즉시 수정하여 출력하라.

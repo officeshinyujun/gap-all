@@ -45,7 +45,8 @@ export type ParsedStimulus =
   | { template: 'TPL_INSTRUCTIONAL_SCENE';     data: TPL_INSTRUCTIONAL_SCENE }
   | { template: 'TPL_DIGITAL_FORUM_INTERFACE'; data: TPL_DIGITAL_FORUM_INTERFACE }
   | { template: 'TPL_QUANTITATIVE_CHART';      data: TPL_QUANTITATIVE_CHART }
-  | { template: 'TPL_PROMOTIONAL_CANVAS';      data: TPL_PROMOTIONAL_CANVAS };
+  | { template: 'TPL_PROMOTIONAL_CANVAS';      data: TPL_PROMOTIONAL_CANVAS }
+  | { template: 'TPL_PLAIN_TEXT';              data: string };
 
 // ------------------------------------------------------------
 // 선택지
@@ -87,6 +88,10 @@ export interface ExamQuestionMetadata {
   difficulty?: string;
   /** exam.json에만 존재. 없으면 inferTemplate()으로 자동 추론 */
   recommended_template?: string;
+  /** 출처 시험명 (e.g. "2024학년도 대학수학능력시험 9월 모의평가") */
+  source_exam?: string;
+  /** 문항 번호 */
+  question_number?: number;
 }
 
 // ------------------------------------------------------------

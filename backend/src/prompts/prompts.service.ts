@@ -91,6 +91,12 @@ export class PromptsService {
         .replace('{{STEM_PATTERNS}}', '');
     }
 
+    const stimulusFormatGuide = this.getStimulusFormatGuide();
+    result = result.replace('{{STIMULUS_FORMAT_GUIDE}}', stimulusFormatGuide);
+
+    const setQuestionRules = this.getSetQuestionRules();
+    result = result.replace('{{SET_QUESTION_RULES}}', setQuestionRules);
+
     return result;
   }
 
@@ -115,7 +121,24 @@ export class PromptsService {
       filePath = path.join(this.promptsBasePath, 'step2', 'intergrate.txt');
     }
 
-    return this.readFile(filePath);
+    let result = this.readFile(filePath);
+
+    if (subjectSlug) {
+      const subjectProfile = this.getSubjectProfile(subjectSlug);
+      const distractorRules = this.getDistractorRules(subjectSlug);
+      const stemPatterns = this.getStemPatterns(subjectSlug);
+      result = result
+        .replace('{{SUBJECT_PROFILE}}', subjectProfile)
+        .replace('{{DISTRACTOR_RULES}}', distractorRules)
+        .replace('{{STEM_PATTERNS}}', stemPatterns);
+    } else {
+      result = result
+        .replace('{{SUBJECT_PROFILE}}', '')
+        .replace('{{DISTRACTOR_RULES}}', '')
+        .replace('{{STEM_PATTERNS}}', '');
+    }
+
+    return result;
   }
 
   getStep2PromotionalCanvasPrompt(): string {
@@ -173,6 +196,18 @@ export class PromptsService {
         'stem_patterns',
         `${slug}.txt`,
       ),
+    );
+  }
+
+  private getStimulusFormatGuide(): string {
+    return this.tryReadFile(
+      path.join(this.promptsBasePath, '_shared', 'stimulus_format_guide.txt'),
+    );
+  }
+
+  private getSetQuestionRules(): string {
+    return this.tryReadFile(
+      path.join(this.promptsBasePath, '_shared', 'set_question_rules.txt'),
     );
   }
 }

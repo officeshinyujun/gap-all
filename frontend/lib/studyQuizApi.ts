@@ -28,6 +28,13 @@ export interface FrequencyConcept {
   concepts: FrequencyConceptItem[];
 }
 
+export interface ConceptHighlightV2 {
+  stimulusClues: { quote: string; why: string }[];
+  optionAnalysis: { optionNum: number; verdict: string; reasoning: string }[];
+  solvingFlow: { step: number; action: string }[];
+  takeaway: string;
+}
+
 export interface FrequencyConceptItem {
   rank: number;
   name: string;
@@ -38,7 +45,8 @@ export interface FrequencyConceptItem {
   keyPoints: string[];
   examTips: string[];
   conceptContent: string;
-  sampleQuestion: ExamQuestion & { correct_answer: number };
+  sampleQuestion: ExamQuestion & { correct_answer: number; questionSource?: string; questionNumber?: number };
+  conceptHighlightV2?: ConceptHighlightV2 | null;
 }
 
 export async function fetchFrequencyConcept(

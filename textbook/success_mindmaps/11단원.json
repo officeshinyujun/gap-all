@@ -1,0 +1,112 @@
+{
+  "unit": 11,
+  "unitTitle": "평생 학습과 경력 개발",
+  "rootNode": {
+    "id": "root",
+    "label": "평생 학습",
+    "children": [
+      {
+        "id": "cat_1",
+        "label": "경력 개발",
+        "children": [
+          {
+            "id": "concept_1",
+            "label": "경력 개발",
+            "conceptName": "경력 개발의 의미와 필요성",
+            "frequency": 0,
+            "keywords": [
+              "경력 계획",
+              "자아실현",
+              "전문성"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_2",
+            "label": "목적과 단계",
+            "conceptName": "경력 개발의 목적과 단계",
+            "frequency": 0,
+            "keywords": [
+              "경력 목표",
+              "단계",
+              "SMART 원칙"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_3",
+            "label": "경로 탐색",
+            "conceptName": "경력 개발 경로 탐색",
+            "frequency": 0,
+            "keywords": [
+              "경력 경로",
+              "전략 수립",
+              "실행 평가"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_4",
+            "label": "전공별 경로",
+            "conceptName": "전공별 경력 개발 경로",
+            "frequency": 0,
+            "keywords": [
+              "전공별",
+              "SMART 원칙",
+              "학습 제도"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_2",
+        "label": "직업 세계",
+        "children": [
+          {
+            "id": "concept_5",
+            "label": "직업 변화",
+            "conceptName": "직업 세계의 변화",
+            "frequency": 0,
+            "keywords": [
+              "디지털 대전환",
+              "AI 발달",
+              "평생 학습"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_3",
+        "label": "평생 학습",
+        "children": [
+          {
+            "id": "concept_6",
+            "label": "의미와 중요성",
+            "conceptName": "평생 학습의 의미와 중요성",
+            "frequency": 0,
+            "keywords": [
+              "자기 주도",
+              "기술 혁신",
+              "지식 증가"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_7",
+            "label": "학습 제도",
+            "conceptName": "평생 학습 제도",
+            "frequency": 0,
+            "keywords": [
+              "독학 학위제",
+              "학점은행제",
+              "계좌제"
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+}

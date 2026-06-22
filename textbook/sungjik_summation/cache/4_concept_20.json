@@ -1,0 +1,162 @@
+[
+  {
+    "id": 1,
+    "concept": "기업",
+    "definition": "국민 경제를 구성하는 경제 주체로서 인간이 경제생활을 하는 데 필요한 재화 또는 서비스를 생산하고 공급하여 이윤을 창출하는 조직이다.",
+    "hidden_field": "definition",
+    "correct_value": "국민 경제를 구성하는 경제 주체로서 인간이 경제생활을 하는 데 필요한 재화 또는 서비스를 생산하고 공급하여 이윤을 창출하는 조직이다.",
+    "explanation": "기업은 경제적 목적과 비경제적 목적을 동시에 추구하며, 사회적 책임을 수행하는 역할을 한다."
+  },
+  {
+    "id": 2,
+    "concept": "경제적 목적",
+    "definition": "기업을 존속·발전시키기 위하여 생산 비용을 최소화하고, 자원의 투입에서 산출까지 전 과정을 효율적으로 경영하여 이윤의 극대화를 추구함.",
+    "hidden_field": "definition",
+    "correct_value": "기업을 존속·발전시키기 위하여 생산 비용을 최소화하고, 자원의 투입에서 산출까지 전 과정을 효율적으로 경영하여 이윤의 극대화를 추구함.",
+    "explanation": "경제적 목적은 기업의 이윤 극대화를 목표로 한다."
+  },
+  {
+    "id": 3,
+    "concept": "비경제적 목적",
+    "definition": "시장에서 얻은 이윤만큼 사회적 영향력이 증대됨에 따라 공공성, 공익성 등의 사회적 책임을 수행함.",
+    "hidden_field": "definition",
+    "correct_value": "시장에서 얻은 이윤만큼 사회적 영향력이 증대됨에 따라 공공성, 공익성 등의 사회적 책임을 수행함.",
+    "explanation": "비경제적 목적은 기업의 사회적 책임 수행을 포함한다."
+  },
+  {
+    "id": 4,
+    "concept": "사기업",
+    "definition": "경영에 필요한 자본을 민간인이 출자하여 설립되는 기업임.",
+    "hidden_field": "definition",
+    "correct_value": "경영에 필요한 자본을 민간인이 출자하여 설립되는 기업임.",
+    "explanation": "사기업은 개인 기업과 공동 기업으로 나뉜다."
+  },
+  {
+    "id": 5,
+    "concept": "개인 기업",
+    "definition": "출자자가 소유자인 동시에 경영자이므로 경영상의 모든 책임과 권한은 물론 경영상의 손익도 개인이 부담하는 기업 형태임.",
+    "hidden_field": "definition",
+    "correct_value": "출자자가 소유자인 동시에 경영자이므로 경영상의 모든 책임과 권한은 물론 경영상의 손익도 개인이 부담하는 기업 형태임.",
+    "explanation": "개인 기업은 출자자가 모든 책임을 진다."
+  },
+  {
+    "id": 6,
+    "concept": "공동 기업",
+    "definition": "출자자가 공동으로 자본을 형성하고 책임과 이익을 공동 분배하는 형태임.",
+    "hidden_field": "definition",
+    "correct_value": "출자자가 공동으로 자본을 형성하고 책임과 이익을 공동 분배하는 형태임.",
+    "explanation": "공동 기업은 여러 출자자가 함께 운영한다."
+  },
+  {
+    "id": 7,
+    "concept": "주식회사",
+    "definition": "자본의 증권화, 주주의 유한 책임, 소유와 경영의 분리 등의 특징을 가진다.",
+    "hidden_field": "definition",
+    "correct_value": "자본의 증권화, 주주의 유한 책임, 소유와 경영의 분리 등의 특징을 가진다.",
+    "explanation": "주식회사는 자본을 주식으로 나누어 소유한다."
+  },
+  {
+    "id": 8,
+    "concept": "대기업",
+    "definition": "자산 총액이 5조 원 이상인 기업으로 정의된다.",
+    "hidden_field": "definition",
+    "correct_value": "자산 총액이 5조 원 이상인 기업으로 정의된다.",
+    "explanation": "대기업은 규모가 큰 기업을 의미한다."
+  },
+  {
+    "id": 9,
+    "concept": "중소기업",
+    "definition": "업종별 평균 매출액이 400억~1,800억 원 이하이며, 자산 총액이 5,000억 원 미만인 기업이다.",
+    "hidden_field": "definition",
+    "correct_value": "업종별 평균 매출액이 400억~1,800억 원 이하이며, 자산 총액이 5,000억 원 미만인 기업이다.",
+    "explanation": "중소기업은 상대적으로 작은 규모의 기업이다."
+  },
+  {
+    "id": 10,
+    "concept": "중견기업",
+    "definition": "중소기업 범위를 벗어나고 상호 출자 제한 기업 집단에 속하지 않는 기업이다.",
+    "hidden_field": "definition",
+    "correct_value": "중소기업 범위를 벗어나고 상호 출자 제한 기업 집단에 속하지 않는 기업이다.",
+    "explanation": "중견기업은 중소기업과 대기업의 중간 규모를 가진다."
+  },
+  {
+    "id": 11,
+    "concept": "공기업",
+    "definition": "국가 또는 지방 자치 단체가 공공의 이익을 목적으로 출자하여 경영하는 기업이다.",
+    "hidden_field": "definition",
+    "correct_value": "국가 또는 지방 자치 단체가 공공의 이익을 목적으로 출자하여 경영하는 기업이다.",
+    "explanation": "공기업은 공공의 이익을 위해 운영된다."
+  },
+  {
+    "id": 12,
+    "concept": "공사 합동 기업",
+    "definition": "국가 또는 지방 자치 단체의 공적인 자본과 민간의 사회적 자본을 공동 출자하여 공동으로 경영하는 형태이다.",
+    "hidden_field": "definition",
+    "correct_value": "국가 또는 지방 자치 단체의 공적인 자본과 민간의 사회적 자본을 공동 출자하여 공동으로 경영하는 형태이다.",
+    "explanation": "공사 합동 기업은 공적 자본과 민간 자본의 협력으로 운영된다."
+  },
+  {
+    "id": 13,
+    "concept": "경제 주체",
+    "definition": "인간이 경제생활을 하는 데 필요한 재화 또는 서비스를 생산하고 공급하여 이윤을 창출하는 조직이다.",
+    "hidden_field": "definition",
+    "correct_value": "인간이 경제생활을 하는 데 필요한 재화 또는 서비스를 생산하고 공급하여 이윤을 창출하는 조직이다.",
+    "explanation": "경제 주체는 경제 활동의 중심 역할을 한다."
+  },
+  {
+    "id": 14,
+    "concept": "자산 총액",
+    "definition": "기업의 자본 및 종업원 수 등의 규모에 따라 정의되는 기준이다.",
+    "hidden_field": "definition",
+    "correct_value": "기업의 자본 및 종업원 수 등의 규모에 따라 정의되는 기준이다.",
+    "explanation": "자산 총액은 기업의 규모를 판단하는 중요한 요소이다."
+  },
+  {
+    "id": 15,
+    "concept": "소상공인",
+    "definition": "소기업 중 상시 근로자 수 5~10명 미만인 기업이다.",
+    "hidden_field": "definition",
+    "correct_value": "소기업 중 상시 근로자 수 5~10명 미만인 기업이다.",
+    "explanation": "소상공인은 가장 작은 규모의 기업을 의미한다."
+  },
+  {
+    "id": 16,
+    "concept": "공공성",
+    "definition": "사회적 영향력이 증대됨에 따라 수행하는 사회적 책임을 의미한다.",
+    "hidden_field": "definition",
+    "correct_value": "사회적 영향력이 증대됨에 따라 수행하는 사회적 책임을 의미한다.",
+    "explanation": "공공성은 기업의 비경제적 목적과 관련이 있다."
+  },
+  {
+    "id": 17,
+    "concept": "공익성",
+    "definition": "사회적 책임을 수행하는 기업의 역할을 의미한다.",
+    "hidden_field": "definition",
+    "correct_value": "사회적 책임을 수행하는 기업의 역할을 의미한다.",
+    "explanation": "공익성은 기업의 비경제적 목적을 강조한다."
+  },
+  {
+    "id": 18,
+    "concept": "출자 형태",
+    "definition": "기업은 출자 형태에 따라 사기업, 공기업, 공사 합동 기업으로 분류된다.",
+    "hidden_field": "definition",
+    "correct_value": "기업은 출자 형태에 따라 사기업, 공기업, 공사 합동 기업으로 분류된다.",
+    "explanation": "출자 형태는 기업의 분류 기준 중 하나이다."
+  },
+  {
+    "id": 19,
+    "concept": "경영자",
+    "definition": "출자자가 소유자인 동시에 경영자로서 모든 책임을 지는 사람이다.",
+    "hidden_field": "definition",
+    "correct_value": "출자자가 소유자인 동시에 경영자로서 모든 책임을 지는 사람이다.",
+    "explanation": "경영자는 기업의 운영을 책임지는 핵심 인물이다."
+  },
+  {
+    "id": 20,
+    "concept": "책임",
+    "definition": "기업의 경영상의 모든 권한과 손익을 개인이 부담하는 것을 의미한다.",
+    "hidden_field": "definition",
+    "correct_value": "기업의 경영상의 모든 권한과 손익을 개인이 부담하는 것을 의미한다.",
+    "explanation": "책임은 기업 운영의 중요한 요소이다."
+  }
+]

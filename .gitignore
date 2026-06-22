@@ -69,3 +69,6 @@ lerna-debug.log*
 
 # docs
 /docs/
+
+# Archived data
+/archived/

@@ -56,6 +56,12 @@ export class Question {
   @Column({ name: 'correct_answer' })
   correctAnswer: number;
 
+  @Column({ name: 'set_group_id', type: 'varchar', nullable: true, default: null })
+  setGroupId: string | null;
+
+  @Column({ name: 'set_position', type: 'int', nullable: true, default: null })
+  setPosition: number | null;
+
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;
 

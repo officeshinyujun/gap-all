@@ -13,6 +13,14 @@
   }
 }
 
+.wrapperFlat {
+  width: 100%;
+  padding: 0;
+  background: none;
+  border: none;
+  box-sizing: border-box;
+}
+
 // 문제 번호
 .questionNumber {
   width: 36px;
@@ -127,6 +135,24 @@
 }
 
 // 해설
+.stimulusPlainText {
+  width: 100%;
+  background-color: $background-secondary;
+  border: 1px solid $border-primary;
+  padding: $spacing-16;
+  box-sizing: border-box;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  font-size: 14px;
+  line-height: 1.8;
+  color: $text-primary;
+  word-break: keep-all;
+
+  p {
+    margin: 0 0 $spacing-4;
+    &:last-child { margin: 0; }
+  }
+}
+
 .explanationToggle {
   background: none;
   border: 1px solid $border-primary;

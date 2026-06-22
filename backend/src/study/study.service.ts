@@ -901,17 +901,195 @@ export class StudyService {
     if (!folder) {
       throw new NotFoundException(`지원하지 않는 과목입니다: ${subjectSlug}`);
     }
-    const filePath = path.join(
+    const cardsPath = path.join(
+      this.getTextbookBase(),
+      `${folder === 'sungjik' ? 'success' : 'kongil'}_cards_moi`,
+      `${unitNumber}단원.json`,
+    );
+    const frequencyPath = path.join(
       this.getTextbookBase(),
       `${folder}_frequency`,
       `${unitNumber}단원.json`,
     );
-    if (!fs.existsSync(filePath)) {
+
+    if (fs.existsSync(cardsPath)) {
+      const raw = JSON.parse(fs.readFileSync(cardsPath, 'utf-8'));
+      if (raw.concepts && raw.concepts.length >= 5) {
+        return this.transformCardsToFrequency(raw);
+      }
+      if (fs.existsSync(frequencyPath)) {
+        return JSON.parse(fs.readFileSync(frequencyPath, 'utf-8'));
+      }
+      return this.transformCardsToFrequency(raw);
+    }
+
+    if (!fs.existsSync(frequencyPath)) {
       throw new NotFoundException(
         `${subjectSlug} 과목의 ${unitNumber}단원 frequency concept 파일을 찾을 수 없습니다.`,
       );
     }
-    return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+    return JSON.parse(fs.readFileSync(frequencyPath, 'utf-8'));
+  }
+
+  getMindmap(subjectSlug: string, unitNumber: number): any {
+    const folder = this.SUBJECT_FOLDER_MAP[subjectSlug];
+    if (!folder) {
+      throw new NotFoundException(`지원하지 않는 과목입니다: ${subjectSlug}`);
+    }
+    const mindmapPath = path.join(
+      this.getTextbookBase(),
+      `${folder === 'sungjik' ? 'success' : folder}_mindmaps`,
+      `${unitNumber}단원.json`,
+    );
+    if (!fs.existsSync(mindmapPath)) {
+      throw new NotFoundException(
+        `${subjectSlug} 과목의 ${unitNumber}단원 마인드맵을 찾을 수 없습니다.`,
+      );
+    }
+    return JSON.parse(fs.readFileSync(mindmapPath, 'utf-8'));
+  }
+
+  private transformCardsToFrequency(raw: any): any {
+    const concepts = (raw.concepts || []).map((c: any) => {
+      const realQ = c.realQuestion?.questionData;
+      const textbookExcerpt = c.card?.textbookExcerpt || '';
+      const definition = c.card?.definition || '';
+      const keyPoints = c.card?.keyPoints || [];
+      const caution = c.caution || '';
+      const conceptUsage = c.realQuestion?.conceptUsage || '';
+
+      const conceptContentParts: string[] = [];
+      if (definition) conceptContentParts.push(`## 개념 정의\n${definition}`);
+      if (textbookExcerpt) conceptContentParts.push(`## 교과서 원문\n${textbookExcerpt}`);
+      if (keyPoints.length) conceptContentParts.push(`## 핵심 포인트\n${keyPoints.map((p: string) => `- ${p}`).join('\n')}`);
+      if (caution) conceptContentParts.push(`## ⚠️ 오답 주의\n${caution}`);
+      if (conceptUsage) conceptContentParts.push(`## 실제 출제 포인트\n${conceptUsage}`);
+
+      const guideSteps: any[] = [
+        { type: 'intro', message: `${c.name}에 대해 알아보아요.` },
+        { type: 'definition', title: c.name, content: definition },
+      ];
+      if (keyPoints.length) {
+        guideSteps.push({ type: 'keypoints', title: '핵심 포인트', items: keyPoints });
+      }
+      if (caution) {
+        guideSteps.push({
+          type: 'exampoint',
+          title: '오답 주의',
+          points: [caution],
+          tips: conceptUsage ? [conceptUsage] : [],
+        });
+      }
+      if (c.quiz?.length) {
+        for (const q of c.quiz) {
+          guideSteps.push({
+            type: 'quiz',
+            question: q.question,
+            options: q.options,
+            correctIndex: q.answer,
+            explanation: q.explanation,
+          });
+        }
+      }
+      guideSteps.push({ type: 'guide', message: `${c.name}에 대해 잘 이해하셨나요? 다음으로 넘어가요!` });
+
+      return {
+        rank: c.rank,
+        name: c.name,
+        frequency: c.frequency,
+        sources: c.sources || [],
+        questionFormats: [],
+        description: definition,
+        keyPoints,
+        examTips: caution ? [caution] : [],
+        conceptContent: conceptContentParts.join('\n\n'),
+        sampleQuestion: realQ
+          ? {
+              metadata: realQ.metadata || {
+                source_exam: realQ.source_exam || '',
+                question_number: realQ.number || 0,
+                unit_name: raw.unitTitle || '',
+                target_concept: c.name,
+                item_type: '실전 모의고사',
+                recommended_template: realQ.metadata?.recommended_template ?? undefined,
+              },
+              render_ready: {
+                question_stem: this.stripQuestionNumber(realQ.render_ready?.question_stem || realQ.stem || ''),
+                stimulus_data: realQ.render_ready?.stimulus_data ?? (realQ.stimulus ? { content: realQ.stimulus } : null),
+                options_list: realQ.render_ready?.options_list || realQ.options || [],
+                explanation: realQ.render_ready?.explanation || '',
+              },
+              combo_block: realQ.combo_block || (realQ.box_items && realQ.box_items.length > 0
+                ? { title: '<보기>', items: realQ.box_items.map((text: string, i: number) => ({ key: ['ㄱ','ㄴ','ㄷ','ㄹ'][i] || `${i+1}`, text })) }
+                : null),
+              correct_answer: this.parseCorrectAnswer(realQ.correct_answer ?? realQ.answer),
+              questionNumber: realQ.number || realQ.metadata?.question_number || null,
+              questionSource: realQ.questionSource || realQ.source_exam || '',
+            }
+          : (c.quiz?.[0]
+          ? {
+              metadata: {
+                unit_name: raw.unitTitle || '',
+                target_concept: c.name,
+                item_type: '학습 확인 퀴즈',
+              },
+              render_ready: {
+                question_stem: c.quiz[0].question || '',
+                stimulus_data: null,
+                options_list: c.quiz[0].options || [],
+                explanation: c.quiz[0].explanation || '',
+              },
+              combo_block: null,
+              correct_answer: (c.quiz[0].answer ?? 0) + 1,
+              questionSource: `${c.name} 확인 퀴즈`,
+            }
+          : null),
+        guideSteps,
+        questionHighlights: [],
+        questionExplanation: caution,
+        clueAnalysis: conceptUsage
+          ? {
+              clueSteps: [{
+                targetText: conceptUsage,
+                location: '문제',
+                explanation: conceptUsage,
+                conceptLink: c.name,
+              }],
+              conclusion: caution,
+              markedStimulus: '',
+            }
+          : undefined,
+        conceptHighlight: c.realQuestion?.conceptHighlight || { inStimulus: [], inOptions: [], reason: '' },
+              conceptHighlightV2: c.realQuestion?.conceptHighlightV2 || null,
+      };
+    });
+
+    return {
+      subject: raw.subject,
+      subjectSlug: raw.subjectSlug,
+      unit: raw.unit,
+      unitTitle: raw.unitTitle || '',
+      totalQuestionsAnalyzed: concepts.length,
+      concepts,
+    };
+  }
+
+  /**
+   * "⑤" → 5, "②" → 2, "3" → 3, 5 → 5 등 다양한 정답 형식을 숫자로 변환
+   */
+  private parseCorrectAnswer(value: unknown): number {
+    if (typeof value === 'number') return value;
+    if (typeof value === 'string') {
+      const circledMap: Record<string, number> = { '①': 1, '②': 2, '③': 3, '④': 4, '⑤': 5 };
+      if (circledMap[value]) return circledMap[value];
+      const num = parseInt(value.replace(/[^0-9]/g, ''), 10);
+      if (!isNaN(num) && num >= 1 && num <= 5) return num;
+    }
+    return 1;
+  }
+
+  private stripQuestionNumber(stem: string): string {
+    return stem.replace(/^\d+\.\s*/, '');
   }
 
   getStructuredConcept(subjectSlug: string, unitNumber: number): any {

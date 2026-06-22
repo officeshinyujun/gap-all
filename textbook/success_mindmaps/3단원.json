@@ -1,0 +1,124 @@
+{
+  "unit": 3,
+  "unitTitle": "직업과 자아 실현",
+  "rootNode": {
+    "id": "root",
+    "label": "직업과 자아",
+    "children": [
+      {
+        "id": "cat_1",
+        "label": "성공 정의",
+        "children": [
+          {
+            "id": "concept_1",
+            "label": "성공 의미",
+            "conceptName": "직업적 성공의 의미와 필요 요소",
+            "frequency": 0,
+            "keywords": [
+              "전문가 인정",
+              "자아실현",
+              "사회 공헌"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_2",
+            "label": "성공 직업인",
+            "conceptName": "성공한 직업인의 정의와 공통점",
+            "frequency": 0,
+            "keywords": [
+              "전문가 인정",
+              "자아실현",
+              "경제적 안정"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_3",
+            "label": "바람직한 성공",
+            "conceptName": "바람직한 직업적 성공",
+            "frequency": 0,
+            "keywords": [
+              "전문가 인정",
+              "자아실현",
+              "도전 정신"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_2",
+        "label": "발달 단계",
+        "children": [
+          {
+            "id": "concept_4",
+            "label": "단계별 요건",
+            "conceptName": "생애 발달 단계별 직업적 성공 요건",
+            "frequency": 0,
+            "keywords": [
+              "청소년기",
+              "성년기",
+              "중년기"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_5",
+            "label": "청소년기/성년기",
+            "conceptName": "청소년기와 성년기 직업적 성공 요건",
+            "frequency": 0,
+            "keywords": [
+              "준비 단계",
+              "전문성",
+              "도전 정신"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_6",
+            "label": "중년기/노년기",
+            "conceptName": "중년기와 노년기 직업적 성공 요건",
+            "frequency": 0,
+            "keywords": [
+              "지도력",
+              "재취업",
+              "사회 활동"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_3",
+        "label": "개인 특성",
+        "children": [
+          {
+            "id": "concept_7",
+            "label": "개인 특성",
+            "conceptName": "성공적인 직업 생활을 위한 개인 특성",
+            "frequency": 0,
+            "keywords": [
+              "긍정적 마음",
+              "성실성",
+              "전문가 정신"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_8",
+            "label": "자기 이해",
+            "conceptName": "자기 이해의 중요성",
+            "frequency": 0,
+            "keywords": [
+              "자아 정체감",
+              "자아 존중감",
+              "진로 선택"
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+}

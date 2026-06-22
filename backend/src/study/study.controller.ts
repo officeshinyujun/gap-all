@@ -195,6 +195,14 @@ export class StudyController {
     return this.studyService.getFrequencyConcept(subjectSlug, unitNumber);
   }
 
+  @Get(':subjectSlug/:unitNumber/mindmap')
+  getMindmap(
+    @Param('subjectSlug') subjectSlug: string,
+    @Param('unitNumber', ParseIntPipe) unitNumber: number,
+  ) {
+    return this.studyService.getMindmap(subjectSlug, unitNumber);
+  }
+
   @Get(':subjectSlug/:unitNumber/concept')
   async getConcept(
     @Param('subjectSlug') subjectSlug: string,

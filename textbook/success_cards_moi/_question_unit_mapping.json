@@ -1,0 +1,3533 @@
+[
+  {
+    "source_exam": "2023학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 1,
+    "primary_unit": 20,
+    "secondary_units": [
+      14
+    ],
+    "keywords_matched": [
+      "직업 윤리",
+      "책임",
+      "환경 윤리",
+      "생명 윤리",
+      "기업가 정신",
+      "위험 감수",
+      "진취성",
+      "사회적 책임성"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 2,
+    "primary_unit": 6,
+    "secondary_units": [],
+    "keywords_matched": [
+      "중화학 공업"
+    ],
+    "confidence": "low"
+  },
+  {
+    "source_exam": "2023학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 3,
+    "primary_unit": 2,
+    "secondary_units": [
+      3,
+      20
+    ],
+    "keywords_matched": [
+      "생애 발달",
+      "발달 과업",
+      "해비거스트",
+      "발달 단계",
+      "자기 이해",
+      "책임"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 4,
+    "primary_unit": 6,
+    "secondary_units": [
+      7
+    ],
+    "keywords_matched": [
+      "제조업",
+      "연속 생산",
+      "서비스",
+      "이질성"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 5,
+    "primary_unit": 5,
+    "secondary_units": [
+      13,
+      20
+    ],
+    "keywords_matched": [
+      "경영 관리",
+      "인적 자원 관리",
+      "생산 관리",
+      "마케팅",
+      "재무 관리",
+      "자금 조달",
+      "투자",
+      "회계",
+      "채용",
+      "자기소개서",
+      "경력 기술서",
+      "면접",
+      "블라인드 면접",
+      "토론 면접",
+      "서류 전형",
+      "성실"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 6,
+    "primary_unit": 8,
+    "secondary_units": [
+      13,
+      5,
+      20
+    ],
+    "keywords_matched": [
+      "직업기초능력",
+      "대인 관계 능력",
+      "채용",
+      "자기소개서",
+      "경력 기술서",
+      "면접",
+      "블라인드 면접",
+      "토론 면접",
+      "서류 전형",
+      "자금 조달",
+      "투자",
+      "성실"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 7,
+    "primary_unit": 16,
+    "secondary_units": [
+      15,
+      17,
+      9,
+      20
+    ],
+    "keywords_matched": [
+      "근로 계약서",
+      "퇴직금",
+      "직업능력개발 수당",
+      "훈련연장급여",
+      "근로 계약",
+      "성실"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 8,
+    "primary_unit": 1,
+    "secondary_units": [
+      14,
+      20
+    ],
+    "keywords_matched": [
+      "경제성",
+      "계속성",
+      "외재적",
+      "내재적",
+      "직업 안정",
+      "책임"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 9,
+    "primary_unit": 6,
+    "secondary_units": [
+      12
+    ],
+    "keywords_matched": [
+      "클라크",
+      "다품종 소량",
+      "보고서"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "source_exam": "2023학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 10,
+    "primary_unit": 3,
+    "secondary_units": [
+      14
+    ],
+    "keywords_matched": [
+      "적성",
+      "하렌",
+      "진로 의사 결정",
+      "합리적",
+      "직관적",
+      "의존적",
+      "창업"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 11,
+    "primary_unit": 14,
+    "secondary_units": [
+      3
+    ],
+    "keywords_matched": [
+      "창업",
+      "창업자",
+      "창업 아이템",
+      "창업 자본",
+      "타인 자본",
+      "프랜차이즈",
+      "적성"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 12,
+    "primary_unit": 3,
+    "secondary_units": [
+      10,
+      11,
+      13,
+      14
+    ],
+    "keywords_matched": [
+      "적성",
+      "흥미",
+      "직무 수행 내용",
+      "K-MOOC",
+      "자기소개서",
+      "창업"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "source_exam": "2023학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 13,
+    "primary_unit": 15,
+    "secondary_units": [
+      16
+    ],
+    "keywords_matched": [
+      "퇴직금",
+      "임금 체불",
+      "권익 침해"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 14,
+    "primary_unit": 11,
+    "secondary_units": [],
+    "keywords_matched": [
+      "평생 학습",
+      "학점 인정"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "source_exam": "2023학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 15,
+    "primary_unit": 18,
+    "secondary_units": [
+      19,
+      9
+    ],
+    "keywords_matched": [
+      "업무상 재해",
+      "요양급여",
+      "휴업급여",
+      "노동조합",
+      "노사협의회",
+      "평균 임금"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 16,
+    "primary_unit": 16,
+    "secondary_units": [
+      15,
+      9,
+      20
+    ],
+    "keywords_matched": [
+      "근로 계약서",
+      "친권자",
+      "후견인",
+      "근로기준법",
+      "근로 계약",
+      "휴게 시간",
+      "준법"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 17,
+    "primary_unit": 4,
+    "secondary_units": [
+      20
+    ],
+    "keywords_matched": [
+      "합명",
+      "합자",
+      "유한회사",
+      "물적 회사",
+      "무한책임사원",
+      "유한책임사원",
+      "책임"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 18,
+    "primary_unit": 20,
+    "secondary_units": [],
+    "keywords_matched": [
+      "첨단 기술",
+      "사물인터넷",
+      "바이오",
+      "증강현실"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 19,
+    "primary_unit": 10,
+    "secondary_units": [],
+    "keywords_matched": [
+      "NCS",
+      "국가직무능력표준",
+      "중분류",
+      "소분류",
+      "세분류",
+      "능력단위",
+      "능력단위요소",
+      "수행준거"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 20,
+    "primary_unit": 19,
+    "secondary_units": [],
+    "keywords_matched": [
+      "노동조합",
+      "노동위원회",
+      "단체 교섭",
+      "파업",
+      "직장 폐쇄",
+      "조정"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 대학수학능력시험 성공적인 직업생활",
+    "number": 1,
+    "primary_unit": 1,
+    "secondary_units": [],
+    "keywords_matched": [
+      "직업 가치",
+      "선택적 근로시간",
+      "변화 지향",
+      "직업 안정"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 대학수학능력시험 성공적인 직업생활",
+    "number": 2,
+    "primary_unit": 11,
+    "secondary_units": [
+      13
+    ],
+    "keywords_matched": [
+      "평생 학습",
+      "계약학과",
+      "사내대학",
+      "채용"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 대학수학능력시험 성공적인 직업생활",
+    "number": 3,
+    "primary_unit": 19,
+    "secondary_units": [
+      6
+    ],
+    "keywords_matched": [
+      "노사 관계",
+      "노동조합",
+      "파업",
+      "태업",
+      "조정",
+      "근로자참여 및 협력증진",
+      "제조업"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 대학수학능력시험 성공적인 직업생활",
+    "number": 4,
+    "primary_unit": 6,
+    "secondary_units": [],
+    "keywords_matched": [
+      "호프만",
+      "생산재",
+      "중화학 공업",
+      "주문 생산",
+      "계획 생산",
+      "B2C"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 대학수학능력시험 성공적인 직업생활",
+    "number": 5,
+    "primary_unit": 13,
+    "secondary_units": [
+      4,
+      6
+    ],
+    "keywords_matched": [
+      "채용",
+      "입사 지원서",
+      "경력 기술서",
+      "면접",
+      "상황 면접",
+      "서류 전형",
+      "면접 전형",
+      "주식회사",
+      "제조업"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 대학수학능력시험 성공적인 직업생활",
+    "number": 6,
+    "primary_unit": 1,
+    "secondary_units": [],
+    "keywords_matched": [
+      "외재적",
+      "내재적"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "source_exam": "2023학년도 대학수학능력시험 성공적인 직업생활",
+    "number": 7,
+    "primary_unit": 3,
+    "secondary_units": [
+      20
+    ],
+    "keywords_matched": [
+      "하렌",
+      "진로 의사 결정",
+      "합리적",
+      "직관적",
+      "의존적",
+      "책임"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 대학수학능력시험 성공적인 직업생활",
+    "number": 8,
+    "primary_unit": 7,
+    "secondary_units": [
+      5
+    ],
+    "keywords_matched": [
+      "서비스",
+      "슈메너",
+      "서비스 프로세스 매트릭스",
+      "서비스 공장",
+      "서비스 점포",
+      "전문 서비스",
+      "노동 집약도",
+      "투자",
+      "회계"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 대학수학능력시험 성공적인 직업생활",
+    "number": 9,
+    "primary_unit": 15,
+    "secondary_units": [
+      16,
+      20
+    ],
+    "keywords_matched": [
+      "근로기준법",
+      "미성년자",
+      "전차금 상계",
+      "준법"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 대학수학능력시험 성공적인 직업생활",
+    "number": 10,
+    "primary_unit": 15,
+    "secondary_units": [],
+    "keywords_matched": [
+      "퇴직금"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 대학수학능력시험 성공적인 직업생활",
+    "number": 11,
+    "primary_unit": 18,
+    "secondary_units": [
+      12
+    ],
+    "keywords_matched": [
+      "산업 재해",
+      "불안전한 행동",
+      "요양급여",
+      "휴업급여",
+      "보고서"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 대학수학능력시험 성공적인 직업생활",
+    "number": 12,
+    "primary_unit": 10,
+    "secondary_units": [
+      5,
+      8,
+      13
+    ],
+    "keywords_matched": [
+      "NCS",
+      "국가직무능력표준",
+      "대분류",
+      "중분류",
+      "소분류",
+      "세분류",
+      "능력단위",
+      "능력단위요소",
+      "직무 기술서",
+      "경영 관리",
+      "회계",
+      "직업기초능력",
+      "채용"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 대학수학능력시험 성공적인 직업생활",
+    "number": 13,
+    "primary_unit": 10,
+    "secondary_units": [
+      5,
+      13
+    ],
+    "keywords_matched": [
+      "NCS",
+      "국가직무능력표준",
+      "대분류",
+      "중분류",
+      "소분류",
+      "세분류",
+      "능력단위",
+      "능력단위요소",
+      "직무 기술서",
+      "경영 관리",
+      "인적 자원 관리",
+      "생산 관리",
+      "마케팅",
+      "재무 관리",
+      "회계",
+      "채용"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 대학수학능력시험 성공적인 직업생활",
+    "number": 14,
+    "primary_unit": 17,
+    "secondary_units": [],
+    "keywords_matched": [
+      "훈련연장급여",
+      "상병급여"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 대학수학능력시험 성공적인 직업생활",
+    "number": 15,
+    "primary_unit": 2,
+    "secondary_units": [
+      14,
+      20
+    ],
+    "keywords_matched": [
+      "생애 발달",
+      "발달 과업",
+      "해비거스트",
+      "발달 단계",
+      "창업",
+      "기업가 정신",
+      "사회적 책임성",
+      "책임"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 대학수학능력시험 성공적인 직업생활",
+    "number": 16,
+    "primary_unit": 14,
+    "secondary_units": [
+      1,
+      5
+    ],
+    "keywords_matched": [
+      "창업",
+      "창업자",
+      "타인 자본",
+      "프랜차이즈",
+      "사업 타당성",
+      "시장성",
+      "기술성",
+      "경제성",
+      "투자"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 대학수학능력시험 성공적인 직업생활",
+    "number": 17,
+    "primary_unit": 14,
+    "secondary_units": [
+      20,
+      1,
+      5
+    ],
+    "keywords_matched": [
+      "창업",
+      "창업자",
+      "시장성",
+      "기술성",
+      "경제성",
+      "첨단 기술",
+      "바이오",
+      "증강현실",
+      "인공지능",
+      "투자"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 대학수학능력시험 성공적인 직업생활",
+    "number": 18,
+    "primary_unit": 20,
+    "secondary_units": [],
+    "keywords_matched": [
+      "직업 윤리",
+      "유망 직업",
+      "정보 윤리",
+      "환경 윤리",
+      "생명 윤리"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 대학수학능력시험 성공적인 직업생활",
+    "number": 19,
+    "primary_unit": 8,
+    "secondary_units": [
+      12
+    ],
+    "keywords_matched": [
+      "직업기초능력",
+      "도표 분석",
+      "기초 외국어",
+      "의사소통"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 대학수학능력시험 성공적인 직업생활",
+    "number": 20,
+    "primary_unit": 4,
+    "secondary_units": [
+      12,
+      20
+    ],
+    "keywords_matched": [
+      "합명",
+      "합자",
+      "유한회사",
+      "물적 회사",
+      "무한책임사원",
+      "유한책임사원",
+      "보고서",
+      "책임"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2024학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 1,
+    "primary_unit": 6,
+    "secondary_units": [],
+    "keywords_matched": [
+      "클라크",
+      "제2차 산업",
+      "개별 생산",
+      "주문 생산",
+      "계획 생산"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2024학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 2,
+    "primary_unit": 20,
+    "secondary_units": [],
+    "keywords_matched": [
+      "미래 사회",
+      "유망 직업"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2024학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 3,
+    "primary_unit": 8,
+    "secondary_units": [
+      10,
+      12
+    ],
+    "keywords_matched": [
+      "직업기초능력",
+      "NCS 직업기초",
+      "문제 해결 능력",
+      "대인 관계 능력",
+      "자기 개발 능력",
+      "기초 능력군",
+      "직장 적응 능력군",
+      "NCS",
+      "의사소통"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2024학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 4,
+    "primary_unit": 2,
+    "secondary_units": [],
+    "keywords_matched": [
+      "생애 발달",
+      "발달 과업",
+      "해비거스트",
+      "자아 정체감",
+      "발달 단계"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2024학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 5,
+    "primary_unit": 3,
+    "secondary_units": [],
+    "keywords_matched": [
+      "하렌",
+      "진로 의사 결정",
+      "합리적",
+      "직관적",
+      "의존적"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2024학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 6,
+    "primary_unit": 14,
+    "secondary_units": [
+      5,
+      7,
+      12
+    ],
+    "keywords_matched": [
+      "창업",
+      "창업자",
+      "창업 아이템",
+      "자기 자본",
+      "타인 자본",
+      "자금 조달",
+      "서비스",
+      "보고서"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2024학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 7,
+    "primary_unit": 19,
+    "secondary_units": [],
+    "keywords_matched": [
+      "노사 관계",
+      "노동조합",
+      "노동위원회",
+      "파업",
+      "조정",
+      "중재",
+      "근로자참여 및 협력증진"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2024학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 8,
+    "primary_unit": 10,
+    "secondary_units": [
+      8,
+      13
+    ],
+    "keywords_matched": [
+      "NCS",
+      "국가직무능력표준",
+      "대분류",
+      "중분류",
+      "소분류",
+      "세분류",
+      "능력단위",
+      "NCS 분류체계",
+      "문제 해결 능력",
+      "채용",
+      "입사 지원서",
+      "면접",
+      "서류 전형",
+      "면접 전형"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2024학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 9,
+    "primary_unit": 17,
+    "secondary_units": [],
+    "keywords_matched": [
+      "고용보험",
+      "180일",
+      "출산전후휴가",
+      "육아휴직"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2024학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 10,
+    "primary_unit": 10,
+    "secondary_units": [
+      8
+    ],
+    "keywords_matched": [
+      "NCS",
+      "국가직무능력표준",
+      "세분류",
+      "능력단위",
+      "수행준거",
+      "직업기초능력"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2024학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 11,
+    "primary_unit": 1,
+    "secondary_units": [
+      7,
+      10
+    ],
+    "keywords_matched": [
+      "직업 가치",
+      "서비스",
+      "대분류"
+    ],
+    "confidence": "low"
+  },
+  {
+    "source_exam": "2024학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 12,
+    "primary_unit": 20,
+    "secondary_units": [],
+    "keywords_matched": [
+      "직업 윤리",
+      "봉사",
+      "책임",
+      "환경 윤리",
+      "생명 윤리"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2024학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 13,
+    "primary_unit": 12,
+    "secondary_units": [
+      18
+    ],
+    "keywords_matched": [
+      "보고서",
+      "불안전한 상태"
+    ],
+    "confidence": "low"
+  },
+  {
+    "source_exam": "2024학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 14,
+    "primary_unit": 18,
+    "secondary_units": [
+      7,
+      12
+    ],
+    "keywords_matched": [
+      "산업 재해",
+      "요양급여",
+      "휴업급여",
+      "서비스",
+      "보고서"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2024학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 15,
+    "primary_unit": 15,
+    "secondary_units": [
+      20
+    ],
+    "keywords_matched": [
+      "근로기준법",
+      "연차 유급 휴가",
+      "준법"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2024학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 16,
+    "primary_unit": 1,
+    "secondary_units": [
+      12,
+      19,
+      20
+    ],
+    "keywords_matched": [
+      "직업 가치",
+      "보고서",
+      "조정",
+      "봉사"
+    ],
+    "confidence": "low"
+  },
+  {
+    "source_exam": "2024학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 17,
+    "primary_unit": 11,
+    "secondary_units": [],
+    "keywords_matched": [
+      "평생 학습",
+      "학점 인정",
+      "평생교육"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2024학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 18,
+    "primary_unit": 4,
+    "secondary_units": [
+      20
+    ],
+    "keywords_matched": [
+      "물적 회사",
+      "무한책임사원",
+      "유한책임사원",
+      "책임"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2024학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 19,
+    "primary_unit": 19,
+    "secondary_units": [
+      15,
+      20
+    ],
+    "keywords_matched": [
+      "노동조합",
+      "노동위원회",
+      "조정",
+      "근로기준법",
+      "해고 예고",
+      "준법"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2024학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 20,
+    "primary_unit": 7,
+    "secondary_units": [
+      3
+    ],
+    "keywords_matched": [
+      "서비스",
+      "노동 집약도",
+      "합리적"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "source_exam": "2024학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 1,
+    "primary_unit": 1,
+    "secondary_units": [],
+    "keywords_matched": [
+      "직업의 특징"
+    ],
+    "confidence": "low"
+  },
+  {
+    "source_exam": "2024학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 2,
+    "primary_unit": 3,
+    "secondary_units": [
+      1
+    ],
+    "keywords_matched": [
+      "흥미",
+      "하렌",
+      "진로 의사 결정",
+      "합리적",
+      "직관적",
+      "의존적",
+      "직업 가치",
+      "외재적",
+      "내재적"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2024학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 3,
+    "primary_unit": 5,
+    "secondary_units": [
+      6,
+      20
+    ],
+    "keywords_matched": [
+      "경영자",
+      "최고 경영자",
+      "재무 관리",
+      "자금 조달",
+      "투자",
+      "다품종 소량",
+      "소품종 대량",
+      "책임"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2024학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 4,
+    "primary_unit": 11,
+    "secondary_units": [
+      10,
+      12,
+      13
+    ],
+    "keywords_matched": [
+      "평생 학습",
+      "일학습 병행",
+      "계약학과",
+      "사내대학",
+      "NCS",
+      "보고서",
+      "채용"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2024학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 5,
+    "primary_unit": 1,
+    "secondary_units": [],
+    "keywords_matched": [
+      "재택근무",
+      "선택적 근로시간"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "source_exam": "2024학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 6,
+    "primary_unit": 19,
+    "secondary_units": [
+      16
+    ],
+    "keywords_matched": [
+      "노동조합",
+      "노동위원회",
+      "지방노동위원회",
+      "차별 시정"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2024학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 7,
+    "primary_unit": 6,
+    "secondary_units": [
+      12
+    ],
+    "keywords_matched": [
+      "클라크",
+      "주문 생산",
+      "B2C",
+      "보고서"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2024학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 8,
+    "primary_unit": 14,
+    "secondary_units": [
+      15,
+      1,
+      4,
+      6
+    ],
+    "keywords_matched": [
+      "창업",
+      "창업 자본",
+      "자기 자본",
+      "사업 타당성",
+      "시장성",
+      "기술성",
+      "경제성",
+      "퇴직금",
+      "유한회사",
+      "제조업"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2024학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 9,
+    "primary_unit": 14,
+    "secondary_units": [
+      15,
+      1,
+      4,
+      6,
+      20
+    ],
+    "keywords_matched": [
+      "창업",
+      "시장성",
+      "기술성",
+      "경제성",
+      "퇴직금",
+      "유한회사",
+      "제조업",
+      "책임"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2024학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 10,
+    "primary_unit": 15,
+    "secondary_units": [
+      17,
+      6,
+      20
+    ],
+    "keywords_matched": [
+      "근로기준법",
+      "퇴직금",
+      "고용보험",
+      "제조업",
+      "준법"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2024학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 11,
+    "primary_unit": 13,
+    "secondary_units": [
+      8,
+      12
+    ],
+    "keywords_matched": [
+      "채용",
+      "면접",
+      "면접 전형",
+      "직업기초능력",
+      "도표 분석",
+      "의사소통"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2024학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 12,
+    "primary_unit": 3,
+    "secondary_units": [
+      20
+    ],
+    "keywords_matched": [
+      "적성",
+      "성실"
+    ],
+    "confidence": "low"
+  },
+  {
+    "source_exam": "2024학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 13,
+    "primary_unit": 7,
+    "secondary_units": [
+      20
+    ],
+    "keywords_matched": [
+      "서비스",
+      "이질성",
+      "인공지능"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "source_exam": "2024학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 14,
+    "primary_unit": 14,
+    "secondary_units": [
+      20
+    ],
+    "keywords_matched": [
+      "창업",
+      "첨단 기술"
+    ],
+    "confidence": "low"
+  },
+  {
+    "source_exam": "2024학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 15,
+    "primary_unit": 10,
+    "secondary_units": [
+      13
+    ],
+    "keywords_matched": [
+      "NCS",
+      "대분류",
+      "중분류",
+      "소분류",
+      "세분류",
+      "능력단위",
+      "능력단위요소",
+      "채용",
+      "입사 지원서",
+      "면접",
+      "서류 전형",
+      "면접 전형"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2024학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 16,
+    "primary_unit": 20,
+    "secondary_units": [
+      14
+    ],
+    "keywords_matched": [
+      "직업 윤리",
+      "책임",
+      "첨단 기술",
+      "인공지능",
+      "정보 윤리",
+      "환경 윤리",
+      "생명 윤리",
+      "기업가 정신",
+      "위험 감수",
+      "진취성",
+      "사회적 책임성"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2024학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 17,
+    "primary_unit": 20,
+    "secondary_units": [
+      4,
+      13
+    ],
+    "keywords_matched": [
+      "직업 윤리",
+      "정직",
+      "책임",
+      "ESG",
+      "면접"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2024학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 18,
+    "primary_unit": 2,
+    "secondary_units": [
+      3
+    ],
+    "keywords_matched": [
+      "생애 발달",
+      "발달 과업",
+      "해비거스트",
+      "발달 단계",
+      "적성",
+      "진로 의사 결정"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2024학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 19,
+    "primary_unit": 18,
+    "secondary_units": [
+      9
+    ],
+    "keywords_matched": [
+      "산업 재해",
+      "요양급여",
+      "평균 임금"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2024학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 20,
+    "primary_unit": 19,
+    "secondary_units": [
+      6
+    ],
+    "keywords_matched": [
+      "노사 관계",
+      "노동조합",
+      "노동위원회",
+      "파업",
+      "조정",
+      "노사협의회",
+      "제조업"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 1,
+    "primary_unit": 14,
+    "secondary_units": [
+      20
+    ],
+    "keywords_matched": [
+      "기업가 정신",
+      "위험 감수",
+      "진취성",
+      "혁신성",
+      "사회적 책임성",
+      "책임"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 2,
+    "primary_unit": 10,
+    "secondary_units": [
+      3,
+      7,
+      11
+    ],
+    "keywords_matched": [
+      "NCS",
+      "국가직무능력표준",
+      "중분류",
+      "소분류",
+      "세분류",
+      "능력단위",
+      "NCS 분류체계",
+      "진로 계획",
+      "서비스",
+      "경력 개발"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 3,
+    "primary_unit": 20,
+    "secondary_units": [
+      5,
+      7
+    ],
+    "keywords_matched": [
+      "직업 윤리",
+      "경영 관리",
+      "인적 자원 관리",
+      "서비스"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 4,
+    "primary_unit": 7,
+    "secondary_units": [
+      6
+    ],
+    "keywords_matched": [
+      "서비스",
+      "이질성",
+      "개별 생산"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 5,
+    "primary_unit": 20,
+    "secondary_units": [],
+    "keywords_matched": [
+      "첨단 기술",
+      "사물인터넷",
+      "증강현실"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 6,
+    "primary_unit": 19,
+    "secondary_units": [],
+    "keywords_matched": [
+      "노동조합",
+      "노동위원회",
+      "쟁의 행위",
+      "조정",
+      "중재"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 7,
+    "primary_unit": 11,
+    "secondary_units": [
+      13
+    ],
+    "keywords_matched": [
+      "평생 학습",
+      "학점 인정",
+      "평생교육",
+      "채용"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 8,
+    "primary_unit": 1,
+    "secondary_units": [
+      3
+    ],
+    "keywords_matched": [
+      "직업 가치",
+      "변화 지향",
+      "적성",
+      "흥미"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 9,
+    "primary_unit": 3,
+    "secondary_units": [
+      1
+    ],
+    "keywords_matched": [
+      "적성",
+      "흥미",
+      "진로 의사 결정",
+      "선택적 근로시간"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 10,
+    "primary_unit": 8,
+    "secondary_units": [
+      2
+    ],
+    "keywords_matched": [
+      "직업기초능력",
+      "조직 이해 능력",
+      "업무 처리 능력군",
+      "생애 발달",
+      "발달 과업",
+      "해비거스트",
+      "중년기",
+      "발달 단계"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 11,
+    "primary_unit": 19,
+    "secondary_units": [
+      15,
+      5,
+      9,
+      20
+    ],
+    "keywords_matched": [
+      "쟁의 행위",
+      "파업",
+      "노사협의회",
+      "근로기준법",
+      "연차 유급 휴가",
+      "경영 관리",
+      "근로 계약",
+      "준법"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 12,
+    "primary_unit": 6,
+    "secondary_units": [],
+    "keywords_matched": [
+      "클라크",
+      "연속 생산"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 13,
+    "primary_unit": 18,
+    "secondary_units": [],
+    "keywords_matched": [
+      "업무상 재해"
+    ],
+    "confidence": "low"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 14,
+    "primary_unit": 15,
+    "secondary_units": [
+      18,
+      12,
+      20
+    ],
+    "keywords_matched": [
+      "근로기준법",
+      "5인 미만",
+      "업무상 재해",
+      "요양급여",
+      "보고서",
+      "준법"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 15,
+    "primary_unit": 17,
+    "secondary_units": [
+      14,
+      16
+    ],
+    "keywords_matched": [
+      "고용보험",
+      "훈련연장급여",
+      "상병급여",
+      "창업",
+      "권익 침해"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 16,
+    "primary_unit": 4,
+    "secondary_units": [
+      20
+    ],
+    "keywords_matched": [
+      "인적 회사",
+      "물적 회사",
+      "무한책임사원",
+      "유한책임사원",
+      "책임"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 17,
+    "primary_unit": 8,
+    "secondary_units": [
+      12,
+      20
+    ],
+    "keywords_matched": [
+      "직업기초능력",
+      "경청",
+      "미래 사회"
+    ],
+    "confidence": "low"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 18,
+    "primary_unit": 3,
+    "secondary_units": [],
+    "keywords_matched": [
+      "적성",
+      "흥미",
+      "진로 의사 결정"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 19,
+    "primary_unit": 3,
+    "secondary_units": [
+      14
+    ],
+    "keywords_matched": [
+      "적성",
+      "흥미",
+      "하렌",
+      "진로 의사 결정",
+      "합리적",
+      "직관적",
+      "의존적",
+      "창업"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 20,
+    "primary_unit": 14,
+    "secondary_units": [
+      3
+    ],
+    "keywords_matched": [
+      "창업",
+      "창업자",
+      "창업 자본",
+      "자기 자본",
+      "타인 자본",
+      "프랜차이즈",
+      "적성",
+      "흥미"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2022학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 1,
+    "primary_unit": 13,
+    "secondary_units": [],
+    "keywords_matched": [
+      "면접",
+      "토론 면접",
+      "상황 면접"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2022학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 2,
+    "primary_unit": 1,
+    "secondary_units": [],
+    "keywords_matched": [
+      "직업 가치"
+    ],
+    "confidence": "low"
+  },
+  {
+    "source_exam": "2022학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 3,
+    "primary_unit": 1,
+    "secondary_units": [],
+    "keywords_matched": [
+      "재택근무"
+    ],
+    "confidence": "low"
+  },
+  {
+    "source_exam": "2022학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 4,
+    "primary_unit": 6,
+    "secondary_units": [],
+    "keywords_matched": [
+      "다품종 소량",
+      "소품종 대량"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "source_exam": "2022학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 5,
+    "primary_unit": 17,
+    "secondary_units": [
+      12,
+      18
+    ],
+    "keywords_matched": [
+      "고용보험",
+      "실업 급여",
+      "구직 급여",
+      "취업 촉진 수당",
+      "보고서",
+      "산업 재해"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2022학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 6,
+    "primary_unit": 2,
+    "secondary_units": [
+      3
+    ],
+    "keywords_matched": [
+      "생애 발달",
+      "적성"
+    ],
+    "confidence": "low"
+  },
+  {
+    "source_exam": "2022학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 7,
+    "primary_unit": 5,
+    "secondary_units": [],
+    "keywords_matched": [
+      "인적 자원 관리",
+      "생산 관리",
+      "마케팅",
+      "재무 관리",
+      "회계"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2022학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 8,
+    "primary_unit": 18,
+    "secondary_units": [],
+    "keywords_matched": [
+      "재해 예방"
+    ],
+    "confidence": "low"
+  },
+  {
+    "source_exam": "2022학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 9,
+    "primary_unit": 10,
+    "secondary_units": [
+      5,
+      12,
+      13
+    ],
+    "keywords_matched": [
+      "NCS",
+      "국가직무능력표준",
+      "대분류",
+      "중분류",
+      "소분류",
+      "세분류",
+      "직무 기술서",
+      "직무 수행 내용",
+      "회계",
+      "문서 작성",
+      "채용"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2022학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 10,
+    "primary_unit": 3,
+    "secondary_units": [
+      20
+    ],
+    "keywords_matched": [
+      "적성",
+      "하렌",
+      "진로 의사 결정",
+      "합리적",
+      "직관적",
+      "의존적",
+      "책임"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2022학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 11,
+    "primary_unit": 7,
+    "secondary_units": [],
+    "keywords_matched": [
+      "서비스"
+    ],
+    "confidence": "low"
+  },
+  {
+    "source_exam": "2022학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 12,
+    "primary_unit": 7,
+    "secondary_units": [
+      8
+    ],
+    "keywords_matched": [
+      "서비스",
+      "직업기초능력"
+    ],
+    "confidence": "low"
+  },
+  {
+    "source_exam": "2022학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 13,
+    "primary_unit": 20,
+    "secondary_units": [],
+    "keywords_matched": [
+      "직업 윤리",
+      "성실",
+      "봉사",
+      "준법"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2022학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 14,
+    "primary_unit": 4,
+    "secondary_units": [
+      5,
+      14,
+      20
+    ],
+    "keywords_matched": [
+      "합명",
+      "합자",
+      "유한회사",
+      "주식회사",
+      "자금 조달",
+      "투자",
+      "창업",
+      "책임"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2022학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 15,
+    "primary_unit": 14,
+    "secondary_units": [
+      5,
+      20
+    ],
+    "keywords_matched": [
+      "창업",
+      "창업자",
+      "창업 아이템",
+      "창업 자본",
+      "자금 조달",
+      "투자",
+      "책임"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2022학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 16,
+    "primary_unit": 11,
+    "secondary_units": [],
+    "keywords_matched": [
+      "평생 학습",
+      "학점은행제",
+      "일학습 병행",
+      "계약학과"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2022학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 17,
+    "primary_unit": 8,
+    "secondary_units": [
+      10
+    ],
+    "keywords_matched": [
+      "수리 능력",
+      "자기 개발 능력",
+      "NCS"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2022학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 18,
+    "primary_unit": 7,
+    "secondary_units": [],
+    "keywords_matched": [
+      "서비스"
+    ],
+    "confidence": "low"
+  },
+  {
+    "source_exam": "2022학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 19,
+    "primary_unit": 19,
+    "secondary_units": [
+      15
+    ],
+    "keywords_matched": [
+      "노동조합",
+      "노동위원회",
+      "파업",
+      "직장 폐쇄",
+      "조정",
+      "긴급 조정",
+      "노동 3권",
+      "단체 행동권"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2022학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 20,
+    "primary_unit": 16,
+    "secondary_units": [
+      15,
+      9,
+      20
+    ],
+    "keywords_matched": [
+      "근로 계약서",
+      "근로기준법",
+      "연차 유급 휴가",
+      "근로 계약",
+      "소정 근로 시간",
+      "휴게 시간",
+      "준법"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2022학년도 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 1,
+    "primary_unit": 1,
+    "secondary_units": [],
+    "keywords_matched": [
+      "직업의 특징"
+    ],
+    "confidence": "low"
+  },
+  {
+    "source_exam": "2022학년도 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 2,
+    "primary_unit": 20,
+    "secondary_units": [],
+    "keywords_matched": [
+      "직업 윤리",
+      "근면",
+      "성실",
+      "정직"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2022학년도 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 3,
+    "primary_unit": 20,
+    "secondary_units": [],
+    "keywords_matched": [
+      "사물인터넷"
+    ],
+    "confidence": "low"
+  },
+  {
+    "source_exam": "2022학년도 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 4,
+    "primary_unit": 13,
+    "secondary_units": [
+      3,
+      8,
+      10
+    ],
+    "keywords_matched": [
+      "채용",
+      "자기소개서",
+      "면접",
+      "서류 전형",
+      "면접 전형",
+      "적성",
+      "직업기초능력",
+      "NCS"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2022학년도 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 5,
+    "primary_unit": 16,
+    "secondary_units": [
+      18
+    ],
+    "keywords_matched": [
+      "부당 해고",
+      "구제 신청",
+      "산업 재해"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "source_exam": "2022학년도 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 6,
+    "primary_unit": 15,
+    "secondary_units": [
+      16,
+      20
+    ],
+    "keywords_matched": [
+      "근로기준법",
+      "미성년자",
+      "준법"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2022학년도 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 7,
+    "primary_unit": 18,
+    "secondary_units": [],
+    "keywords_matched": [
+      "산업 재해",
+      "금지 표지",
+      "경고 표지"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2022학년도 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 8,
+    "primary_unit": 8,
+    "secondary_units": [
+      12,
+      13
+    ],
+    "keywords_matched": [
+      "직업기초능력",
+      "정보 능력",
+      "자원 관리 능력",
+      "자기 개발 능력",
+      "경청",
+      "자기소개서"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2022학년도 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 9,
+    "primary_unit": 8,
+    "secondary_units": [
+      10,
+      11,
+      13
+    ],
+    "keywords_matched": [
+      "직업기초능력",
+      "수리 능력",
+      "직무 기술서",
+      "학점은행제",
+      "채용"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2022학년도 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 10,
+    "primary_unit": 14,
+    "secondary_units": [
+      20
+    ],
+    "keywords_matched": [
+      "창업",
+      "창업 아이템",
+      "창업 자본",
+      "기업가 정신",
+      "위험 감수",
+      "진취성",
+      "사회적 책임성",
+      "봉사",
+      "책임"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2022학년도 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 11,
+    "primary_unit": 4,
+    "secondary_units": [
+      20
+    ],
+    "keywords_matched": [
+      "합명",
+      "합자",
+      "주식회사",
+      "인적 회사",
+      "물적 회사",
+      "책임"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2022학년도 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 12,
+    "primary_unit": 6,
+    "secondary_units": [
+      17
+    ],
+    "keywords_matched": [
+      "제조업",
+      "180일"
+    ],
+    "confidence": "low"
+  },
+  {
+    "source_exam": "2022학년도 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 13,
+    "primary_unit": 6,
+    "secondary_units": [
+      7,
+      12
+    ],
+    "keywords_matched": [
+      "제조업",
+      "생산재",
+      "소비재",
+      "다품종 소량",
+      "노동 집약도",
+      "보고서"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2022학년도 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 14,
+    "primary_unit": 5,
+    "secondary_units": [
+      13
+    ],
+    "keywords_matched": [
+      "인적 자원 관리",
+      "생산 관리",
+      "마케팅",
+      "재무 관리",
+      "회계",
+      "채용"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2022학년도 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 15,
+    "primary_unit": 12,
+    "secondary_units": [
+      20
+    ],
+    "keywords_matched": [
+      "보고서",
+      "인공지능"
+    ],
+    "confidence": "low"
+  },
+  {
+    "source_exam": "2022학년도 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 16,
+    "primary_unit": 3,
+    "secondary_units": [
+      13
+    ],
+    "keywords_matched": [
+      "하렌",
+      "진로 의사 결정",
+      "합리적",
+      "직관적",
+      "의존적",
+      "채용"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2022학년도 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 17,
+    "primary_unit": 11,
+    "secondary_units": [
+      13
+    ],
+    "keywords_matched": [
+      "평생 학습",
+      "일학습 병행",
+      "계약학과",
+      "채용"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2022학년도 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 18,
+    "primary_unit": 7,
+    "secondary_units": [],
+    "keywords_matched": [
+      "서비스"
+    ],
+    "confidence": "low"
+  },
+  {
+    "source_exam": "2022학년도 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 19,
+    "primary_unit": 19,
+    "secondary_units": [],
+    "keywords_matched": [
+      "노동조합",
+      "파업",
+      "노사협의회"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2022학년도 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 20,
+    "primary_unit": 2,
+    "secondary_units": [
+      3,
+      20
+    ],
+    "keywords_matched": [
+      "생애 발달",
+      "발달 과업",
+      "해비거스트",
+      "자아 정체감",
+      "발달 단계",
+      "직업적 성공",
+      "책임"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2022학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+    "number": 1,
+    "primary_unit": 20,
+    "secondary_units": [],
+    "keywords_matched": [
+      "직업 윤리",
+      "성실",
+      "정직",
+      "봉사",
+      "준법"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2022학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+    "number": 2,
+    "primary_unit": null,
+    "secondary_units": [],
+    "keywords_matched": [],
+    "confidence": "low"
+  },
+  {
+    "source_exam": "2022학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+    "number": 3,
+    "primary_unit": 1,
+    "secondary_units": [
+      20
+    ],
+    "keywords_matched": [
+      "직업 가치",
+      "봉사"
+    ],
+    "confidence": "low"
+  },
+  {
+    "source_exam": "2022학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+    "number": 4,
+    "primary_unit": 8,
+    "secondary_units": [
+      12
+    ],
+    "keywords_matched": [
+      "직업기초능력",
+      "수리 능력",
+      "정보 능력",
+      "기술 능력",
+      "자원 관리 능력",
+      "보고서"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2022학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+    "number": 5,
+    "primary_unit": 13,
+    "secondary_units": [
+      20
+    ],
+    "keywords_matched": [
+      "채용",
+      "면접",
+      "블라인드 면접",
+      "서류 전형",
+      "면접 전형",
+      "성실"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2022학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+    "number": 6,
+    "primary_unit": 2,
+    "secondary_units": [
+      3,
+      11
+    ],
+    "keywords_matched": [
+      "생애 발달",
+      "자아 정체감",
+      "적성",
+      "흥미",
+      "경력 개발"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "source_exam": "2022학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+    "number": 7,
+    "primary_unit": 11,
+    "secondary_units": [],
+    "keywords_matched": [
+      "평생 학습",
+      "일학습 병행",
+      "계약학과",
+      "평생교육"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2022학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+    "number": 8,
+    "primary_unit": 6,
+    "secondary_units": [
+      4,
+      5,
+      7
+    ],
+    "keywords_matched": [
+      "연속 생산",
+      "다품종 소량",
+      "소품종 대량",
+      "유한회사",
+      "주식회사",
+      "마케팅",
+      "고객 참여"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2022학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+    "number": 9,
+    "primary_unit": 10,
+    "secondary_units": [],
+    "keywords_matched": [
+      "NCS",
+      "국가직무능력표준",
+      "세분류"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2022학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+    "number": 10,
+    "primary_unit": 15,
+    "secondary_units": [
+      9,
+      12,
+      13,
+      20
+    ],
+    "keywords_matched": [
+      "근로기준법",
+      "근로 계약",
+      "소정 근로 시간",
+      "휴게 시간",
+      "보고서",
+      "채용",
+      "준법"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2022학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+    "number": 11,
+    "primary_unit": 20,
+    "secondary_units": [],
+    "keywords_matched": [
+      "사물인터넷",
+      "바이오"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "source_exam": "2022학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+    "number": 12,
+    "primary_unit": 8,
+    "secondary_units": [
+      13,
+      12
+    ],
+    "keywords_matched": [
+      "직업기초능력",
+      "조직 이해 능력",
+      "대인 관계 능력",
+      "자기 개발 능력",
+      "채용",
+      "면접",
+      "갈등 해결"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2022학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+    "number": 13,
+    "primary_unit": 19,
+    "secondary_units": [
+      18,
+      15
+    ],
+    "keywords_matched": [
+      "노동위원회",
+      "단체 교섭",
+      "파업",
+      "직장 폐쇄",
+      "조정",
+      "긴급 조정",
+      "산업 재해",
+      "안전사고",
+      "업무상 재해",
+      "단체 교섭권"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2022학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+    "number": 14,
+    "primary_unit": 14,
+    "secondary_units": [
+      7
+    ],
+    "keywords_matched": [
+      "창업",
+      "창업자",
+      "사업자 등록",
+      "서비스"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2022학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+    "number": 15,
+    "primary_unit": 14,
+    "secondary_units": [
+      7
+    ],
+    "keywords_matched": [
+      "창업",
+      "사업자 등록",
+      "서비스"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "source_exam": "2022학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+    "number": 16,
+    "primary_unit": 3,
+    "secondary_units": [
+      13
+    ],
+    "keywords_matched": [
+      "적성",
+      "흥미",
+      "입사 지원서"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "source_exam": "2022학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+    "number": 17,
+    "primary_unit": 3,
+    "secondary_units": [
+      5,
+      14,
+      20
+    ],
+    "keywords_matched": [
+      "적성",
+      "인적 자원 관리",
+      "창업",
+      "책임"
+    ],
+    "confidence": "low"
+  },
+  {
+    "source_exam": "2022학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+    "number": 18,
+    "primary_unit": 19,
+    "secondary_units": [],
+    "keywords_matched": [
+      "근로자참여 및 협력증진"
+    ],
+    "confidence": "low"
+  },
+  {
+    "source_exam": "2022학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+    "number": 19,
+    "primary_unit": 17,
+    "secondary_units": [
+      16,
+      18,
+      20
+    ],
+    "keywords_matched": [
+      "고용보험",
+      "실업 급여",
+      "부당 해고",
+      "업무상 재해",
+      "성실"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2022학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+    "number": 20,
+    "primary_unit": 4,
+    "secondary_units": [
+      20
+    ],
+    "keywords_matched": [
+      "합명",
+      "합자",
+      "유한회사",
+      "주식회사",
+      "물적 회사",
+      "책임"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 1,
+    "primary_unit": 20,
+    "secondary_units": [],
+    "keywords_matched": [
+      "직업 윤리",
+      "정보 윤리",
+      "환경 윤리"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 2,
+    "primary_unit": 1,
+    "secondary_units": [
+      14
+    ],
+    "keywords_matched": [
+      "경제성",
+      "변화 지향",
+      "직업 안정"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 3,
+    "primary_unit": 11,
+    "secondary_units": [
+      4
+    ],
+    "keywords_matched": [
+      "평생 학습",
+      "일학습 병행",
+      "사내대학",
+      "중소기업"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 4,
+    "primary_unit": 10,
+    "secondary_units": [
+      13,
+      5
+    ],
+    "keywords_matched": [
+      "NCS",
+      "국가직무능력표준",
+      "대분류",
+      "중분류",
+      "소분류",
+      "세분류",
+      "능력단위",
+      "능력단위요소",
+      "채용",
+      "입사 지원서",
+      "면접",
+      "토론 면접",
+      "서류 전형",
+      "필기 전형",
+      "면접 전형",
+      "회계"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 5,
+    "primary_unit": 13,
+    "secondary_units": [
+      8,
+      10,
+      5
+    ],
+    "keywords_matched": [
+      "채용",
+      "입사 지원서",
+      "면접",
+      "토론 면접",
+      "서류 전형",
+      "필기 전형",
+      "면접 전형",
+      "문제 해결 능력",
+      "NCS",
+      "국가직무능력표준",
+      "대분류",
+      "중분류",
+      "소분류",
+      "세분류",
+      "회계"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 6,
+    "primary_unit": 14,
+    "secondary_units": [],
+    "keywords_matched": [
+      "창업",
+      "창업자"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "source_exam": "2023학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 7,
+    "primary_unit": 6,
+    "secondary_units": [
+      12
+    ],
+    "keywords_matched": [
+      "생산재",
+      "경공업",
+      "B2B",
+      "보고서"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 8,
+    "primary_unit": 8,
+    "secondary_units": [
+      20
+    ],
+    "keywords_matched": [
+      "직업기초능력",
+      "미래 사회"
+    ],
+    "confidence": "low"
+  },
+  {
+    "source_exam": "2023학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 9,
+    "primary_unit": 6,
+    "secondary_units": [],
+    "keywords_matched": [
+      "클라크"
+    ],
+    "confidence": "low"
+  },
+  {
+    "source_exam": "2023학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 10,
+    "primary_unit": 15,
+    "secondary_units": [
+      4,
+      20
+    ],
+    "keywords_matched": [
+      "근로기준법",
+      "주식회사",
+      "준법"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 11,
+    "primary_unit": null,
+    "secondary_units": [],
+    "keywords_matched": [],
+    "confidence": "low"
+  },
+  {
+    "source_exam": "2023학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 12,
+    "primary_unit": 4,
+    "secondary_units": [
+      5,
+      20
+    ],
+    "keywords_matched": [
+      "합명",
+      "합자",
+      "유한회사",
+      "주식회사",
+      "인적 회사",
+      "유한책임사원",
+      "자금 조달",
+      "책임"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 13,
+    "primary_unit": 18,
+    "secondary_units": [],
+    "keywords_matched": [
+      "산업 재해",
+      "불안전한 행동",
+      "재해 예방",
+      "경고 표지"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 14,
+    "primary_unit": 18,
+    "secondary_units": [
+      7
+    ],
+    "keywords_matched": [
+      "산업 재해",
+      "재해 예방",
+      "서비스"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "source_exam": "2023학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 15,
+    "primary_unit": 17,
+    "secondary_units": [
+      20
+    ],
+    "keywords_matched": [
+      "실업 급여",
+      "구직 급여",
+      "조기 재취업 수당",
+      "소정 급여 일수",
+      "성실"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 16,
+    "primary_unit": 3,
+    "secondary_units": [],
+    "keywords_matched": [
+      "하렌",
+      "진로 의사 결정",
+      "합리적",
+      "직관적",
+      "의존적"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 17,
+    "primary_unit": 3,
+    "secondary_units": [
+      1,
+      11
+    ],
+    "keywords_matched": [
+      "적성",
+      "흥미",
+      "진로 의사 결정",
+      "합리적",
+      "직업 가치",
+      "경력 개발"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 18,
+    "primary_unit": 20,
+    "secondary_units": [],
+    "keywords_matched": [
+      "첨단 기술",
+      "드론"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "source_exam": "2023학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 19,
+    "primary_unit": 19,
+    "secondary_units": [
+      5
+    ],
+    "keywords_matched": [
+      "노사 관계",
+      "노동조합",
+      "단체 교섭",
+      "쟁의 행위",
+      "조정",
+      "중재",
+      "노사협의회",
+      "경영자"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2023학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 20,
+    "primary_unit": 2,
+    "secondary_units": [
+      3
+    ],
+    "keywords_matched": [
+      "생애 발달",
+      "발달 과업",
+      "해비거스트",
+      "발달 단계",
+      "흥미"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 1,
+    "primary_unit": 1,
+    "secondary_units": [],
+    "keywords_matched": [
+      "외재적",
+      "내재적",
+      "직업 안정"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 2,
+    "primary_unit": 10,
+    "secondary_units": [
+      3
+    ],
+    "keywords_matched": [
+      "NCS",
+      "국가직무능력표준",
+      "대분류",
+      "중분류",
+      "소분류",
+      "세분류",
+      "능력단위",
+      "진로 계획"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 3,
+    "primary_unit": 20,
+    "secondary_units": [
+      2,
+      14
+    ],
+    "keywords_matched": [
+      "직업 윤리",
+      "정직",
+      "생애 발달",
+      "발달 과업",
+      "해비거스트",
+      "발달 단계",
+      "창업"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 4,
+    "primary_unit": 3,
+    "secondary_units": [
+      7,
+      5,
+      14,
+      20
+    ],
+    "keywords_matched": [
+      "하렌",
+      "진로 의사 결정",
+      "합리적",
+      "직관적",
+      "의존적",
+      "서비스",
+      "슈메너",
+      "서비스 프로세스 매트릭스",
+      "전문 서비스",
+      "경영자",
+      "창업",
+      "정직"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 5,
+    "primary_unit": 15,
+    "secondary_units": [
+      9,
+      20
+    ],
+    "keywords_matched": [
+      "퇴직금",
+      "휴게 시간",
+      "성실"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 6,
+    "primary_unit": 8,
+    "secondary_units": [
+      5
+    ],
+    "keywords_matched": [
+      "직업기초능력",
+      "정보 능력",
+      "대인 관계 능력",
+      "마케팅",
+      "재무 관리",
+      "재무제표"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 7,
+    "primary_unit": 14,
+    "secondary_units": [
+      20,
+      5
+    ],
+    "keywords_matched": [
+      "창업",
+      "창업자",
+      "창업 자본",
+      "자기 자본",
+      "책임",
+      "바이오",
+      "자금 조달"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 8,
+    "primary_unit": 6,
+    "secondary_units": [
+      7
+    ],
+    "keywords_matched": [
+      "클라크",
+      "서비스"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 9,
+    "primary_unit": 11,
+    "secondary_units": [
+      7,
+      20
+    ],
+    "keywords_matched": [
+      "경력 개발",
+      "경력 목표",
+      "서비스",
+      "인공지능"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 10,
+    "primary_unit": 6,
+    "secondary_units": [
+      12
+    ],
+    "keywords_matched": [
+      "제조업",
+      "생산재",
+      "소비재",
+      "계획 생산",
+      "B2B",
+      "B2C",
+      "보고서"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 11,
+    "primary_unit": 18,
+    "secondary_units": [],
+    "keywords_matched": [
+      "산업 재해",
+      "요양급여"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 12,
+    "primary_unit": 13,
+    "secondary_units": [
+      10
+    ],
+    "keywords_matched": [
+      "채용",
+      "면접",
+      "토론 면접",
+      "서류 전형",
+      "면접 전형",
+      "NCS"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 13,
+    "primary_unit": 17,
+    "secondary_units": [
+      1
+    ],
+    "keywords_matched": [
+      "180일",
+      "출산전후휴가",
+      "선택적 근로시간"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 14,
+    "primary_unit": 20,
+    "secondary_units": [],
+    "keywords_matched": [
+      "미래 사회",
+      "유망 직업"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 15,
+    "primary_unit": 19,
+    "secondary_units": [
+      4
+    ],
+    "keywords_matched": [
+      "노동조합",
+      "노동위원회",
+      "파업",
+      "태업",
+      "조정",
+      "중재",
+      "주식회사"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 16,
+    "primary_unit": null,
+    "secondary_units": [],
+    "keywords_matched": [],
+    "confidence": "low"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 17,
+    "primary_unit": 20,
+    "secondary_units": [
+      14,
+      3
+    ],
+    "keywords_matched": [
+      "직업 윤리",
+      "인공지능",
+      "정보 윤리",
+      "환경 윤리",
+      "생명 윤리",
+      "기업가 정신",
+      "위험 감수",
+      "진취성",
+      "혁신성",
+      "적성"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 18,
+    "primary_unit": 16,
+    "secondary_units": [
+      15,
+      9,
+      20
+    ],
+    "keywords_matched": [
+      "미성년자",
+      "근로기준법",
+      "휴일 근로",
+      "준법"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 19,
+    "primary_unit": 17,
+    "secondary_units": [
+      18,
+      19
+    ],
+    "keywords_matched": [
+      "고용보험",
+      "업무상 재해",
+      "조정"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+    "number": 20,
+    "primary_unit": 4,
+    "secondary_units": [
+      20
+    ],
+    "keywords_matched": [
+      "유한책임회사",
+      "주식회사",
+      "중견기업",
+      "책임"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+    "number": 1,
+    "primary_unit": 1,
+    "secondary_units": [
+      3
+    ],
+    "keywords_matched": [
+      "직업 가치",
+      "외재적",
+      "내재적",
+      "변화 지향",
+      "적성",
+      "흥미"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+    "number": 2,
+    "primary_unit": 8,
+    "secondary_units": [
+      20,
+      7,
+      10,
+      12
+    ],
+    "keywords_matched": [
+      "직업기초능력",
+      "NCS 직업기초",
+      "10개 영역",
+      "조직 이해 능력",
+      "대인 관계 능력",
+      "업무 처리 능력군",
+      "근로 윤리",
+      "공동체 윤리",
+      "서비스",
+      "NCS",
+      "갈등 관리"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+    "number": 3,
+    "primary_unit": 1,
+    "secondary_units": [
+      4,
+      17
+    ],
+    "keywords_matched": [
+      "탄력적 근로시간",
+      "선택적 근로시간",
+      "중소기업",
+      "육아휴직"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+    "number": 4,
+    "primary_unit": 17,
+    "secondary_units": [],
+    "keywords_matched": [
+      "고용보험",
+      "180일"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+    "number": 5,
+    "primary_unit": 4,
+    "secondary_units": [
+      14,
+      15,
+      5,
+      20
+    ],
+    "keywords_matched": [
+      "유한회사",
+      "유한책임회사",
+      "주식회사",
+      "인적 회사",
+      "창업",
+      "창업자",
+      "창업 자본",
+      "프랜차이즈",
+      "퇴직금",
+      "자금 조달",
+      "책임"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+    "number": 6,
+    "primary_unit": 14,
+    "secondary_units": [],
+    "keywords_matched": [
+      "창업",
+      "창업자",
+      "창업 자본",
+      "타인 자본",
+      "사업자 등록"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+    "number": 7,
+    "primary_unit": 20,
+    "secondary_units": [],
+    "keywords_matched": [
+      "직업 윤리",
+      "정보 윤리",
+      "환경 윤리",
+      "생명 윤리"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+    "number": 8,
+    "primary_unit": 13,
+    "secondary_units": [
+      6,
+      5
+    ],
+    "keywords_matched": [
+      "채용",
+      "입사 지원서",
+      "면접",
+      "상황 면접",
+      "서류 전형",
+      "면접 전형",
+      "호프만",
+      "생산재",
+      "마케팅"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+    "number": 9,
+    "primary_unit": 10,
+    "secondary_units": [],
+    "keywords_matched": [
+      "NCS",
+      "국가직무능력표준",
+      "대분류",
+      "세분류",
+      "능력단위",
+      "NCS 분류체계"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+    "number": 10,
+    "primary_unit": 18,
+    "secondary_units": [
+      17,
+      7
+    ],
+    "keywords_matched": [
+      "산업 재해",
+      "업무상 재해",
+      "휴업급여",
+      "상병급여",
+      "서비스"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+    "number": 11,
+    "primary_unit": 17,
+    "secondary_units": [],
+    "keywords_matched": [
+      "고용보험"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+    "number": 12,
+    "primary_unit": 7,
+    "secondary_units": [],
+    "keywords_matched": [
+      "서비스",
+      "슈메너",
+      "서비스 프로세스 매트릭스",
+      "전문 서비스"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+    "number": 13,
+    "primary_unit": 13,
+    "secondary_units": [
+      1
+    ],
+    "keywords_matched": [
+      "채용",
+      "자기소개서",
+      "경험 기술서",
+      "직업 가치"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+    "number": 14,
+    "primary_unit": 19,
+    "secondary_units": [
+      6
+    ],
+    "keywords_matched": [
+      "노동조합",
+      "파업",
+      "조정",
+      "중재",
+      "제조업"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+    "number": 15,
+    "primary_unit": 2,
+    "secondary_units": [],
+    "keywords_matched": [
+      "생애 발달",
+      "발달 과업",
+      "해비거스트",
+      "자아 정체감",
+      "중년기",
+      "발달 단계"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+    "number": 16,
+    "primary_unit": 20,
+    "secondary_units": [
+      18
+    ],
+    "keywords_matched": [
+      "미래 사회",
+      "첨단 기술",
+      "바이오",
+      "재해 예방"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+    "number": 17,
+    "primary_unit": null,
+    "secondary_units": [],
+    "keywords_matched": [],
+    "confidence": "low"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+    "number": 18,
+    "primary_unit": 11,
+    "secondary_units": [],
+    "keywords_matched": [
+      "계약학과"
+    ],
+    "confidence": "low"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+    "number": 19,
+    "primary_unit": 3,
+    "secondary_units": [
+      6,
+      5,
+      14
+    ],
+    "keywords_matched": [
+      "적성",
+      "흥미",
+      "하렌",
+      "진로 의사 결정",
+      "합리적",
+      "직관적",
+      "의존적",
+      "주문 생산",
+      "계획 생산",
+      "경영자",
+      "창업"
+    ],
+    "confidence": "high"
+  },
+  {
+    "source_exam": "2025학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+    "number": 20,
+    "primary_unit": 15,
+    "secondary_units": [
+      16,
+      20
+    ],
+    "keywords_matched": [
+      "근로기준법",
+      "현장 실습",
+      "위약 예정",
+      "준법"
+    ],
+    "confidence": "high"
+  }
+]

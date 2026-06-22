@@ -84,6 +84,8 @@ export interface GeneratedQuestion {
   explanation: object;
   correctAnswer: number;
   unitName: string;
+  setGroupId: string | null;
+  setPosition: number | null;
 }
 
 export interface ExamGenerationProgressUpdate {
@@ -611,9 +613,12 @@ export class ExamGeneratorService {
           rr.options_list ??
           (rr.options ?? []).map((o: any) => o.text ?? String(o));
 
-        const correctAnswer = Number(
-          item.correct_answer ?? rr.correct_answer ?? 1,
-        );
+        const rawAnswer = item.correct_answer ?? rr.correct_answer;
+        if (rawAnswer == null) {
+          this.logger.warn(`correct_answer 누락, 스킵`);
+          continue;
+        }
+        const correctAnswer = Number(rawAnswer);
 
         if (!Array.isArray(optionsList) || optionsList.length !== 5) {
           this.logger.warn(`선택지 5개 아님 (${optionsList.length}개), 스킵`);
@@ -696,6 +701,8 @@ export class ExamGeneratorService {
           explanation: typeof exp === 'string' ? { judgment: exp } : exp,
           correctAnswer,
           unitName: meta.unit_name ?? '',
+          setGroupId: meta.set_group_id ?? null,
+          setPosition: meta.set_position ?? null,
         });
       } catch (e) {
         this.logger.warn(`문항 파싱 오류, 스킵: ${e.message}`);
@@ -753,7 +760,7 @@ export class ExamGeneratorService {
     const choiceEncodingPlan = item.choice_encoding_plan;
     if (judgmentMap && choiceEncodingPlan?.correct_combination) {
       const correctIdx =
-        Number(item.correct_answer ?? rr.correct_answer ?? 1) - 1;
+        Number(item.correct_answer ?? rr.correct_answer ?? 0) - 1;
       if (correctIdx >= 0 && correctIdx < optionsList.length) {
         const trueStatements = Object.entries(judgmentMap)
           .filter(
@@ -823,7 +830,14 @@ export class ExamGeneratorService {
     const optionsList: string[] =
       rr.options_list ??
       (rr.options ?? []).map((o: any) => o.text ?? String(o));
-    const correctAnswer = Number(item.correct_answer ?? rr.correct_answer ?? 1);
+    const rawAnswer = item.correct_answer ?? rr.correct_answer;
+    if (rawAnswer == null) {
+      return {
+        valid: false,
+        reason: 'correct_answer 누락',
+      };
+    }
+    const correctAnswer = Number(rawAnswer);
 
     if (correctAnswer < 1 || correctAnswer > 5) {
       return {
@@ -1110,6 +1124,8 @@ Output JSON only.`;
         comboBlock: item.comboBlock,
         explanation: item.explanation,
         correctAnswer: item.correctAnswer,
+        setGroupId: item.setGroupId,
+        setPosition: item.setPosition,
       });
 
       await this.questionRepo.save(question);

@@ -1,0 +1,130 @@
+{
+  "unit": 9,
+  "unitTitle": "근로 관계와 법",
+  "rootNode": {
+    "id": "root",
+    "label": "근로 관계",
+    "children": [
+      {
+        "id": "cat_1",
+        "label": "계약과 조건",
+        "children": [
+          {
+            "id": "concept_1",
+            "label": "계약 체결",
+            "conceptName": "근로 계약의 이해 및 체결",
+            "frequency": 0,
+            "keywords": [
+              "근로 계약",
+              "임금 지급",
+              "법적 기준"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_2",
+            "label": "서면 계약",
+            "conceptName": "서면 근로 계약의 중요 사항",
+            "frequency": 0,
+            "keywords": [
+              "근로 조건",
+              "법정 시간",
+              "임금 원칙"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_2",
+        "label": "근로 시간",
+        "children": [
+          {
+            "id": "concept_3",
+            "label": "시간과 휴식",
+            "conceptName": "근로 시간과 휴식의 개념",
+            "frequency": 0,
+            "keywords": [
+              "법정 시간",
+              "연장 근로",
+              "휴게 시간"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_3",
+        "label": "임금과 권리",
+        "children": [
+          {
+            "id": "concept_4",
+            "label": "임금과 최저임금",
+            "conceptName": "임금의 의미 및 최저 임금 제도",
+            "frequency": 0,
+            "keywords": [
+              "임금",
+              "최저 임금",
+              "임금 원칙"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_5",
+            "label": "근로자 권리",
+            "conceptName": "근로자의 권리 및 구제",
+            "frequency": 0,
+            "keywords": [
+              "부당 해고",
+              "노동 행위",
+              "산재 보험"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_6",
+            "label": "부당 해고 구제",
+            "conceptName": "부당 해고 및 노동 행위 구제",
+            "frequency": 0,
+            "keywords": [
+              "부당 해고",
+              "노동 행위",
+              "구제 절차"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_4",
+        "label": "안전과 보험",
+        "children": [
+          {
+            "id": "concept_7",
+            "label": "산업 안전",
+            "conceptName": "산업 안전 및 재해 보상",
+            "frequency": 0,
+            "keywords": [
+              "산업 재해",
+              "산재 보험",
+              "보상 종류"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_8",
+            "label": "사회 보험",
+            "conceptName": "4대 사회 보험의 이해",
+            "frequency": 0,
+            "keywords": [
+              "건강 보험",
+              "국민 연금",
+              "고용 보험"
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+}

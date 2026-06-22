@@ -1,0 +1,128 @@
+[
+  {
+    "unit": 1,
+    "title": "일과 직업 및 직업 생활",
+    "invalid": [],
+    "suspicious": [
+      {
+        "name": "직업의 가치: 경제적 보상, 자기 개발, 사회 공헌",
+        "verdict": "SUSPICIOUS",
+        "reason": "원문에서는 '직업의 가치'에 대한 설명이 포함되어 있으나, '경제적 보상'과 '사회 공헌'은 직업 가치의 구체적인 예시로 언급되며, '자기 개발'은 직업 가치관의 유형으로 설명되고 있어 명확한 일치가 없습니다."
+      }
+    ]
+  },
+  {
+    "unit": 2,
+    "title": "생애 발달과 직업적 성공 (1)",
+    "invalid": [],
+    "suspicious": []
+  },
+  {
+    "unit": 3,
+    "title": "생애 발달과 직업적 성공 (2)",
+    "invalid": [],
+    "suspicious": []
+  },
+  {
+    "unit": 4,
+    "title": "기업의 종류와 형태별 특징",
+    "invalid": [],
+    "suspicious": []
+  },
+  {
+    "unit": 5,
+    "title": "기업의 경영 활동",
+    "invalid": [],
+    "suspicious": []
+  },
+  {
+    "unit": 6,
+    "title": "제조업과 제품 생산 활동",
+    "invalid": [],
+    "suspicious": []
+  },
+  {
+    "unit": 7,
+    "title": "서비스업과 서비스 생산",
+    "invalid": [],
+    "suspicious": []
+  },
+  {
+    "unit": 8,
+    "title": "직업 기초 능력의 종류와 향상",
+    "invalid": [],
+    "suspicious": []
+  },
+  {
+    "unit": 9,
+    "title": "근로 계약과 근로자의 권리 보호",
+    "invalid": [],
+    "suspicious": []
+  },
+  {
+    "unit": 10,
+    "title": "전공별 직무 수행 능력 탐색 (2)",
+    "invalid": [],
+    "suspicious": []
+  },
+  {
+    "unit": 11,
+    "title": "경력 개발과 평생 학습의 의미",
+    "invalid": [],
+    "suspicious": []
+  },
+  {
+    "unit": 12,
+    "title": "의사소통 능력",
+    "invalid": [],
+    "suspicious": []
+  },
+  {
+    "unit": 13,
+    "title": "취업과 창업 및 기업가 정신 (2)",
+    "invalid": [],
+    "suspicious": []
+  },
+  {
+    "unit": 14,
+    "title": "취업과 창업 및 기업가 정신 (3)",
+    "invalid": [],
+    "suspicious": []
+  },
+  {
+    "unit": 15,
+    "title": "근로관계와 법 (1)",
+    "invalid": [],
+    "suspicious": []
+  },
+  {
+    "unit": 16,
+    "title": "근로관계와 법 (2)",
+    "invalid": [],
+    "suspicious": []
+  },
+  {
+    "unit": 17,
+    "title": "고용 서비스와 사회 제도",
+    "invalid": [],
+    "suspicious": []
+  },
+  {
+    "unit": 18,
+    "title": "산업 안전과 재해 예방",
+    "invalid": [],
+    "suspicious": []
+  },
+  {
+    "unit": 19,
+    "title": "협력적인 노사 관계",
+    "invalid": [],
+    "suspicious": []
+  },
+  {
+    "unit": 20,
+    "title": "사회 문제와 직업 윤리 및 미래 사회와 직업 사회",
+    "invalid": [],
+    "suspicious": []
+  }
+]

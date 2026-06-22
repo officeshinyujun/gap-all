@@ -1,0 +1,118 @@
+{
+  "unit": 18,
+  "unitTitle": "산업 재해와 안전",
+  "rootNode": {
+    "id": "root",
+    "label": "산업 재해",
+    "children": [
+      {
+        "id": "cat_1",
+        "label": "재해 개념",
+        "children": [
+          {
+            "id": "concept_1",
+            "label": "안전사고",
+            "conceptName": "안전사고의 종류와 원인 및 대책",
+            "frequency": 0,
+            "keywords": [
+              "불안전한 행동",
+              "하인리히 원칙",
+              "업무상 재해"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_2",
+            "label": "산업 재해",
+            "conceptName": "산업 재해의 개념과 종류",
+            "frequency": 0,
+            "keywords": [
+              "근로자",
+              "업무상 사고",
+              "산업 재해 보험"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_2",
+        "label": "예방과 처리",
+        "children": [
+          {
+            "id": "concept_3",
+            "label": "예방 원칙",
+            "conceptName": "산업 재해 예방 원칙과 처리 방법",
+            "frequency": 0,
+            "keywords": [
+              "재해 예방",
+              "산재 보험",
+              "보상 종류"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_4",
+            "label": "하인리히 원칙",
+            "conceptName": "하인리히의 재해 예방 원칙과 도미노 이론",
+            "frequency": 0,
+            "keywords": [
+              "도미노 이론",
+              "예방 원칙",
+              "업무상 재해"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_5",
+            "label": "예방 대책",
+            "conceptName": "사고 예방 대책 5단계",
+            "frequency": 0,
+            "keywords": [
+              "안전 관리",
+              "사고 예방",
+              "시정책"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_3",
+        "label": "보상 서비스",
+        "children": [
+          {
+            "id": "concept_6",
+            "label": "보상 서비스",
+            "conceptName": "산업 재해 보상 서비스",
+            "frequency": 0,
+            "keywords": [
+              "요양급여",
+              "휴업급여",
+              "장해급여"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_4",
+        "label": "안전 표지",
+        "children": [
+          {
+            "id": "concept_7",
+            "label": "안전 표지",
+            "conceptName": "안전 보건 표지의 종류와 의미",
+            "frequency": 0,
+            "keywords": [
+              "금지 표지",
+              "경고 표지",
+              "지시 표지"
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+}

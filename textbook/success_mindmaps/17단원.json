@@ -1,0 +1,118 @@
+{
+  "unit": 17,
+  "unitTitle": "고용 보험과 사회 안전망",
+  "rootNode": {
+    "id": "root",
+    "label": "고용 보험",
+    "children": [
+      {
+        "id": "cat_1",
+        "label": "고용 서비스",
+        "children": [
+          {
+            "id": "concept_1",
+            "label": "서비스 의미",
+            "conceptName": "고용 서비스의 의미와 중요성",
+            "frequency": 0,
+            "keywords": [
+              "고용 정보",
+              "직업소개",
+              "능력 개발"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_2",
+            "label": "서비스 유형",
+            "conceptName": "고용 서비스의 유형",
+            "frequency": 0,
+            "keywords": [
+              "공공 서비스",
+              "민간 서비스",
+              "정보 제공"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_2",
+        "label": "고용보험 제도",
+        "children": [
+          {
+            "id": "concept_3",
+            "label": "제도 목적",
+            "conceptName": "고용보험 제도의 목적과 적용 대상",
+            "frequency": 0,
+            "keywords": [
+              "실업 예방",
+              "고용 촉진",
+              "생활 안정"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_4",
+            "label": "제도 특징",
+            "conceptName": "고용보험 제도의 종류별 특징",
+            "frequency": 0,
+            "keywords": [
+              "실업 급여",
+              "능력 개발",
+              "고용 안정"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_3",
+        "label": "신청 및 절차",
+        "children": [
+          {
+            "id": "concept_5",
+            "label": "가입 절차",
+            "conceptName": "고용보험 신청 및 가입 절차",
+            "frequency": 0,
+            "keywords": [
+              "자동 적용",
+              "신고",
+              "수급 요건"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_6",
+            "label": "급여 신청",
+            "conceptName": "고용보험 실업 급여 신청 절차",
+            "frequency": 0,
+            "keywords": [
+              "구직 신청",
+              "수급 자격",
+              "실업 인정"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_4",
+        "label": "실업 급여",
+        "children": [
+          {
+            "id": "concept_7",
+            "label": "급여 구분",
+            "conceptName": "실업 급여의 구분 및 구직 급여 일수",
+            "frequency": 0,
+            "keywords": [
+              "구직 급여",
+              "지급 일수",
+              "연령 기준"
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+}

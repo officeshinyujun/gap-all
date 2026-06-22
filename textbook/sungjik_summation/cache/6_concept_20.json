@@ -1,0 +1,162 @@
+[
+  {
+    "id": 1,
+    "concept": "제조업",
+    "definition": "물질 또는 구성 요소에 물리·화학적 작용 등을 가하여 투입된 원재료를 성질이 다른 새로운 제품으로 전환하는 산업으로 정의할 수 있다.",
+    "hidden_field": "definition",
+    "correct_value": "물질 또는 구성 요소에 물리·화학적 작용 등을 가하여 투입된 원재료를 성질이 다른 새로운 제품으로 전환하는 산업으로 정의할 수 있다.",
+    "explanation": "제조업은 원재료를 가공하여 새로운 제품을 생산하는 제2차 산업이다."
+  },
+  {
+    "id": 2,
+    "concept": "생산재",
+    "definition": "산업재라고도 하며, 판매를 목적으로 하는 제품을 생산하기 위해 직·간접적으로 필요한 원자재, 부품, 설비, 소모품 등이 이에 해당함.",
+    "hidden_field": "definition",
+    "correct_value": "산업재라고도 하며, 판매를 목적으로 하는 제품을 생산하기 위해 직·간접적으로 필요한 원자재, 부품, 설비, 소모품 등이 이에 해당함.",
+    "explanation": "생산재는 B2B 중심으로 기술력에 의존하는 제조업의 한 종류이다."
+  },
+  {
+    "id": 3,
+    "concept": "소비재",
+    "definition": "인간이 욕망을 충족시키기 위하여 일상생활에서 직접 소비하는 재화.",
+    "hidden_field": "definition",
+    "correct_value": "인간이 욕망을 충족시키기 위하여 일상생활에서 직접 소비하는 재화.",
+    "explanation": "소비재는 B2C 중심으로 마케팅이 중요한 제조업의 한 종류이다."
+  },
+  {
+    "id": 4,
+    "concept": "제조업의 발달 단계",
+    "definition": "재래 공업, 경공업, 중화학 공업, 첨단 공업으로 나뉜다.",
+    "hidden_field": "definition",
+    "correct_value": "재래 공업, 경공업, 중화학 공업, 첨단 공업으로 나뉜다.",
+    "explanation": "제조업의 발달 단계는 기술과 자본의 집약도에 따라 구분된다."
+  },
+  {
+    "id": 5,
+    "concept": "개별 생산",
+    "definition": "특정 제품을 소량으로 생산하는 방식.",
+    "hidden_field": "definition",
+    "correct_value": "특정 제품을 소량으로 생산하는 방식.",
+    "explanation": "개별 생산은 맞춤형 제품 생산에 적합하다."
+  },
+  {
+    "id": 6,
+    "concept": "로트 생산",
+    "definition": "일정 수량의 제품을 한 번에 생산하는 방식.",
+    "hidden_field": "definition",
+    "correct_value": "일정 수량의 제품을 한 번에 생산하는 방식.",
+    "explanation": "로트 생산은 생산 효율성을 높이는 데 유리하다."
+  },
+  {
+    "id": 7,
+    "concept": "연속 생산",
+    "definition": "제품을 지속적으로 생산하는 방식.",
+    "hidden_field": "definition",
+    "correct_value": "제품을 지속적으로 생산하는 방식.",
+    "explanation": "연속 생산은 대량 생산에 적합하다."
+  },
+  {
+    "id": 8,
+    "concept": "프로젝트 생산",
+    "definition": "특정 프로젝트에 맞춰 제품을 생산하는 방식.",
+    "hidden_field": "definition",
+    "correct_value": "특정 프로젝트에 맞춰 제품을 생산하는 방식.",
+    "explanation": "프로젝트 생산은 대규모 건설이나 특수 제품에 적합하다."
+  },
+  {
+    "id": 9,
+    "concept": "투입",
+    "definition": "제품 생산 과정에서 원재료와 자원을 사용하는 단계.",
+    "hidden_field": "definition",
+    "correct_value": "제품 생산 과정에서 원재료와 자원을 사용하는 단계.",
+    "explanation": "투입 단계는 생산의 시작을 의미한다."
+  },
+  {
+    "id": 10,
+    "concept": "가공",
+    "definition": "투입된 원재료를 변형하여 제품으로 만드는 단계.",
+    "hidden_field": "definition",
+    "correct_value": "투입된 원재료를 변형하여 제품으로 만드는 단계.",
+    "explanation": "가공 단계는 제품의 품질을 결정짓는 중요한 과정이다."
+  },
+  {
+    "id": 11,
+    "concept": "산출",
+    "definition": "가공된 원재료가 최종 제품으로 변환되는 단계.",
+    "hidden_field": "definition",
+    "correct_value": "가공된 원재료가 최종 제품으로 변환되는 단계.",
+    "explanation": "산출 단계는 생산 과정의 마지막 단계이다."
+  },
+  {
+    "id": 12,
+    "concept": "CIM",
+    "definition": "Computer Integrated Manufacturing의 약자로, 컴퓨터를 이용한 통합 제조 시스템.",
+    "hidden_field": "definition",
+    "correct_value": "Computer Integrated Manufacturing의 약자로, 컴퓨터를 이용한 통합 제조 시스템.",
+    "explanation": "CIM은 제조업의 효율성을 극대화하는 시스템이다."
+  },
+  {
+    "id": 13,
+    "concept": "SCM",
+    "definition": "Supply Chain Management의 약자로, 공급망 관리를 의미한다.",
+    "hidden_field": "definition",
+    "correct_value": "Supply Chain Management의 약자로, 공급망 관리를 의미한다.",
+    "explanation": "SCM은 원자재부터 최종 소비자까지의 흐름을 관리한다."
+  },
+  {
+    "id": 14,
+    "concept": "FMS",
+    "definition": "Flexible Manufacturing System의 약자로, 유연한 제조 시스템을 의미한다.",
+    "hidden_field": "definition",
+    "correct_value": "Flexible Manufacturing System의 약자로, 유연한 제조 시스템을 의미한다.",
+    "explanation": "FMS는 다양한 제품을 효율적으로 생산할 수 있게 한다."
+  },
+  {
+    "id": 15,
+    "concept": "ERP",
+    "definition": "Enterprise Resource Planning의 약자로, 기업 자원 계획 시스템을 의미한다.",
+    "hidden_field": "definition",
+    "correct_value": "Enterprise Resource Planning의 약자로, 기업 자원 계획 시스템을 의미한다.",
+    "explanation": "ERP는 기업의 자원을 통합적으로 관리하는 시스템이다."
+  },
+  {
+    "id": 16,
+    "concept": "JIT",
+    "definition": "Just In Time의 약자로, 필요한 때에 필요한 만큼 생산하는 시스템.",
+    "hidden_field": "definition",
+    "correct_value": "Just In Time의 약자로, 필요한 때에 필요한 만큼 생산하는 시스템.",
+    "explanation": "JIT는 재고 비용을 최소화하는 데 도움을 준다."
+  },
+  {
+    "id": 17,
+    "concept": "중간 제품",
+    "definition": "다른 제조업에서 생산한 제품으로, 최종 제품의 일부로 사용되는 제품.",
+    "hidden_field": "definition",
+    "correct_value": "다른 제조업에서 생산한 제품으로, 최종 제품의 일부로 사용되는 제품.",
+    "explanation": "중간 제품은 제조업에서 중요한 역할을 한다."
+  },
+  {
+    "id": 18,
+    "concept": "반제품",
+    "definition": "최종 제품으로 가공되기 전의 상태인 제품.",
+    "hidden_field": "definition",
+    "correct_value": "최종 제품으로 가공되기 전의 상태인 제품.",
+    "explanation": "반제품은 추가 가공을 통해 최종 제품으로 변환된다."
+  },
+  {
+    "id": 19,
+    "concept": "B2B",
+    "definition": "Business to Business의 약자로, 기업 간 거래를 의미한다.",
+    "hidden_field": "definition",
+    "correct_value": "Business to Business의 약자로, 기업 간 거래를 의미한다.",
+    "explanation": "B2B는 생산재 제조업의 주요 거래 형태이다."
+  },
+  {
+    "id": 20,
+    "concept": "B2C",
+    "definition": "Business to Consumer의 약자로, 기업과 소비자 간 거래를 의미한다.",
+    "hidden_field": "definition",
+    "correct_value": "Business to Consumer의 약자로, 기업과 소비자 간 거래를 의미한다.",
+    "explanation": "B2C는 소비재 제조업의 주요 거래 형태이다."
+  }
+]

@@ -1,0 +1,106 @@
+{
+  "unit": 19,
+  "unitTitle": "노사 관계",
+  "rootNode": {
+    "id": "root",
+    "label": "노사 관계",
+    "children": [
+      {
+        "id": "cat_1",
+        "label": "의미와 중요성",
+        "children": [
+          {
+            "id": "concept_1",
+            "label": "노사 관계",
+            "conceptName": "노사 관계의 의미 및 중요성",
+            "frequency": 0,
+            "keywords": [
+              "노사 관계",
+              "산업 평화",
+              "노동 기본권"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_2",
+            "label": "기본 구조",
+            "conceptName": "노사 관계의 기본 구조 및 원칙",
+            "frequency": 0,
+            "keywords": [
+              "정부",
+              "근로자",
+              "사용자"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_2",
+        "label": "노사 주체",
+        "children": [
+          {
+            "id": "concept_3",
+            "label": "양면성 및 주체",
+            "conceptName": "노사 관계의 양면성 및 주체",
+            "frequency": 0,
+            "keywords": [
+              "노사 대등",
+              "상호 불개입",
+              "노사 자치"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_4",
+            "label": "사용자 단체",
+            "conceptName": "사용자 단체 및 정부의 역할",
+            "frequency": 0,
+            "keywords": [
+              "사용자 단체",
+              "경영자",
+              "노사 관계"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_3",
+        "label": "노동조합",
+        "children": [
+          {
+            "id": "concept_5",
+            "label": "조합의 종류",
+            "conceptName": "노동조합의 종류 및 역할",
+            "frequency": 0,
+            "keywords": [
+              "직업별",
+              "산업별",
+              "일반 노조"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_4",
+        "label": "노사 문화",
+        "children": [
+          {
+            "id": "concept_6",
+            "label": "상생 문화",
+            "conceptName": "노사 문화의 의미 및 상생 문화 형성",
+            "frequency": 0,
+            "keywords": [
+              "상생 문화",
+              "노사협의회",
+              "근로자"
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+}

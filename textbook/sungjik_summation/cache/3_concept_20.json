@@ -1,0 +1,162 @@
+[
+  {
+    "id": 1,
+    "concept": "직업적 성공",
+    "definition": "자신이 하고 싶은 일을 하면서 그 분야의 전문가로 인정받고, 자아실현을 이루며 사회 발전에 기여하는 상태를 의미한다.",
+    "hidden_field": "definition",
+    "correct_value": "자신이 하고 싶은 일을 하면서 그 분야의 전문가로 인정받고, 자아실현을 이루며 사회 발전에 기여하는 상태를 의미한다.",
+    "explanation": "직업적 성공은 경제적 안정과 개인의 삶에 대한 보람과 만족을 포함한다."
+  },
+  {
+    "id": 2,
+    "concept": "전문가 인정",
+    "definition": "자신이 하고 싶은 일을 하며 전문가로 인정받는 것",
+    "hidden_field": "definition",
+    "correct_value": "자신이 하고 싶은 일을 하며 전문가로 인정받는 것",
+    "explanation": "전문가 인정은 직업적 성공의 중요한 요소 중 하나이다."
+  },
+  {
+    "id": 3,
+    "concept": "자아실현",
+    "definition": "개인의 잠재적 능력과 가능성을 완전히 발휘하는 것",
+    "hidden_field": "definition",
+    "correct_value": "개인의 잠재적 능력과 가능성을 완전히 발휘하는 것",
+    "explanation": "자아실현은 직업적 성공을 이루기 위한 필수 요소이다."
+  },
+  {
+    "id": 4,
+    "concept": "사회적 기여",
+    "definition": "타인에게 봉사하고 사회적 가치를 실현하는 것",
+    "hidden_field": "definition",
+    "correct_value": "타인에게 봉사하고 사회적 가치를 실현하는 것",
+    "explanation": "사회적 기여는 성공한 직업인의 중요한 특성이다."
+  },
+  {
+    "id": 5,
+    "concept": "경제적 안정",
+    "definition": "직업적 성공을 통해 경제적으로 안정된 상태 유지",
+    "hidden_field": "definition",
+    "correct_value": "직업적 성공을 통해 경제적으로 안정된 상태 유지",
+    "explanation": "경제적 안정은 직업적 성공의 필수적인 요소이다."
+  },
+  {
+    "id": 6,
+    "concept": "긍정적 태도",
+    "definition": "긍정적인 마음과 성실성을 바탕으로 직무 수행",
+    "hidden_field": "definition",
+    "correct_value": "긍정적인 마음과 성실성을 바탕으로 직무 수행",
+    "explanation": "긍정적 태도는 성공한 직업인의 공통적인 특성이다."
+  },
+  {
+    "id": 7,
+    "concept": "자기 이해",
+    "definition": "개인이 자기 자신을 있는 그대로 이해하는 것",
+    "hidden_field": "definition",
+    "correct_value": "개인이 자기 자신을 있는 그대로 이해하는 것",
+    "explanation": "자기 이해는 직업적 성공을 위한 기초 과정이다."
+  },
+  {
+    "id": 8,
+    "concept": "자아 정체감",
+    "definition": "자기 이해의 주요 요소 중 하나로, 개인의 정체성을 형성하는 것",
+    "hidden_field": "definition",
+    "correct_value": "자기 이해의 주요 요소 중 하나로, 개인의 정체성을 형성하는 것",
+    "explanation": "자아 정체감은 올바른 진로 선택에 중요한 역할을 한다."
+  },
+  {
+    "id": 9,
+    "concept": "자아 존중감",
+    "definition": "자기 이해의 주요 요소 중 하나로, 개인이 자신을 긍정적으로 평가하는 것",
+    "hidden_field": "definition",
+    "correct_value": "자기 이해의 주요 요소 중 하나로, 개인이 자신을 긍정적으로 평가하는 것",
+    "explanation": "자아 존중감은 행복한 삶을 위한 중요한 요소이다."
+  },
+  {
+    "id": 10,
+    "concept": "청소년기",
+    "definition": "직업적 성공을 위한 준비 단계로, 긍정적인 마음과 성실한 태도가 필요하다.",
+    "hidden_field": "definition",
+    "correct_value": "직업적 성공을 위한 준비 단계로, 긍정적인 마음과 성실한 태도가 필요하다.",
+    "explanation": "청소년기는 직업적 성공을 위한 기초를 다지는 시기이다."
+  },
+  {
+    "id": 11,
+    "concept": "성년기",
+    "definition": "전문성을 키우고 도전 정신을 발휘해야 하는 시기이다.",
+    "hidden_field": "definition",
+    "correct_value": "전문성을 키우고 도전 정신을 발휘해야 하는 시기이다.",
+    "explanation": "성년기는 직업적 성공을 위한 중요한 발전 단계이다."
+  },
+  {
+    "id": 12,
+    "concept": "중년기",
+    "definition": "지도력과 위기 관리 능력이 요구되는 시기이다.",
+    "hidden_field": "definition",
+    "correct_value": "지도력과 위기 관리 능력이 요구되는 시기이다.",
+    "explanation": "중년기는 직업적 성공을 유지하기 위한 중요한 단계이다."
+  },
+  {
+    "id": 13,
+    "concept": "노년기",
+    "definition": "재취업 훈련 및 사회 활동 참여가 중요한 시기이다.",
+    "hidden_field": "definition",
+    "correct_value": "재취업 훈련 및 사회 활동 참여가 중요한 시기이다.",
+    "explanation": "노년기는 직업적 성공을 위한 적응 단계이다."
+  },
+  {
+    "id": 14,
+    "concept": "직업 윤리",
+    "definition": "직업 생활에서의 윤리적 실수를 저지르지 않도록 하는 책임 의식",
+    "hidden_field": "definition",
+    "correct_value": "직업 생활에서의 윤리적 실수를 저지르지 않도록 하는 책임 의식",
+    "explanation": "직업 윤리는 성공한 직업인의 중요한 특성이다."
+  },
+  {
+    "id": 15,
+    "concept": "지도력",
+    "definition": "중년기 직업적 성공 요건으로, 다양한 경험과 경력을 바탕으로 위기에 슬기롭게 대처하는 능력",
+    "hidden_field": "definition",
+    "correct_value": "중년기 직업적 성공 요건으로, 다양한 경험과 경력을 바탕으로 위기에 슬기롭게 대처하는 능력",
+    "explanation": "지도력은 중년기에 중요한 성공 요소이다."
+  },
+  {
+    "id": 16,
+    "concept": "장인 정신",
+    "definition": "지금까지 쌓아 온 업무나 기술에 대해 갖는 태도",
+    "hidden_field": "definition",
+    "correct_value": "지금까지 쌓아 온 업무나 기술에 대해 갖는 태도",
+    "explanation": "장인 정신은 중년기 후기의 직업적 성공 요건이다."
+  },
+  {
+    "id": 17,
+    "concept": "도전 정신",
+    "definition": "다양한 일에 도전해 보는 태도",
+    "hidden_field": "definition",
+    "correct_value": "다양한 일에 도전해 보는 태도",
+    "explanation": "도전 정신은 성년기 직업적 성공을 위한 필수 요소이다."
+  },
+  {
+    "id": 18,
+    "concept": "전문성",
+    "definition": "업무의 전문성을 키우면서 경력을 쌓아 가는 것",
+    "hidden_field": "definition",
+    "correct_value": "업무의 전문성을 키우면서 경력을 쌓아 가는 것",
+    "explanation": "전문성은 성년기 직업적 성공을 위한 중요한 요건이다."
+  },
+  {
+    "id": 19,
+    "concept": "사회 공헌",
+    "definition": "타인에게 봉사하고 사회적 가치를 실현하는 것",
+    "hidden_field": "definition",
+    "correct_value": "타인에게 봉사하고 사회적 가치를 실현하는 것",
+    "explanation": "사회 공헌은 직업적 성공의 중요한 요소이다."
+  },
+  {
+    "id": 20,
+    "concept": "진로 계획",
+    "definition": "생애 설계자로서 인생의 목표를 가지고 성취를 이루어가는 과정",
+    "hidden_field": "definition",
+    "correct_value": "생애 설계자로서 인생의 목표를 가지고 성취를 이루어가는 과정",
+    "explanation": "진로 계획은 성공한 직업인의 중요한 특성이다."
+  }
+]

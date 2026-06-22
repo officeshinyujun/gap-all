@@ -1,0 +1,142 @@
+{
+  "unit": 2,
+  "unitTitle": "생애 발달과 진로 설계",
+  "rootNode": {
+    "id": "root",
+    "label": "생애 발달",
+    "children": [
+      {
+        "id": "cat_1",
+        "label": "발달 개념",
+        "children": [
+          {
+            "id": "concept_1",
+            "label": "생애 발달",
+            "conceptName": "생애 발달의 개념 및 특징",
+            "frequency": 0,
+            "keywords": [
+              "생애 발달",
+              "발달 단계",
+              "해비거스트"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_2",
+            "label": "발달 과업",
+            "conceptName": "발달 과업의 개념 및 해비거스트의 발달 과업",
+            "frequency": 0,
+            "keywords": [
+              "발달 과업",
+              "해비거스트",
+              "단계별 과업"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_3",
+            "label": "해비거스트 단계",
+            "conceptName": "해비거스트의 생애 발달 단계",
+            "frequency": 0,
+            "keywords": [
+              "해비거스트",
+              "발달 단계",
+              "과업 성취"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_2",
+        "label": "심리 발달",
+        "children": [
+          {
+            "id": "concept_4",
+            "label": "에릭슨 단계",
+            "conceptName": "에릭슨의 심리사회적 발달 단계",
+            "frequency": 0,
+            "keywords": [
+              "에릭슨",
+              "심리사회적 발달",
+              "자아 정체감"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_5",
+            "label": "마샤 정체감",
+            "conceptName": "마샤의 자아 정체감 유형",
+            "frequency": 0,
+            "keywords": [
+              "마샤",
+              "정체감 유형",
+              "위기와 전념"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_3",
+        "label": "진로 발달",
+        "children": [
+          {
+            "id": "concept_6",
+            "label": "레빈슨 주기",
+            "conceptName": "레빈슨의 인생 주기",
+            "frequency": 0,
+            "keywords": [
+              "레빈슨",
+              "인생 주기",
+              "사계절"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_7",
+            "label": "긴즈버그 과정",
+            "conceptName": "긴즈버그의 진로 선택 과정",
+            "frequency": 0,
+            "keywords": [
+              "긴즈버그",
+              "진로 선택",
+              "환상기"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_8",
+            "label": "슈퍼 이론",
+            "conceptName": "슈퍼의 진로 발달 이론",
+            "frequency": 0,
+            "keywords": [
+              "슈퍼",
+              "진로 발달",
+              "생애 역할"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_4",
+        "label": "발달 특징",
+        "children": [
+          {
+            "id": "concept_9",
+            "label": "영아기/청소년기",
+            "conceptName": "영아기 및 청소년기의 발달 특징",
+            "frequency": 0,
+            "keywords": [
+              "영아기",
+              "청소년기",
+              "발달 특징"
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+}

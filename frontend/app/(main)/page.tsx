@@ -112,26 +112,34 @@ export default function Home() {
 
     Promise.allSettled([
       fetchStreak(),
-        Promise.all(SUBJECTS.map(async ({ slug, name }) => {
+      Promise.all(SUBJECTS.map(async ({ slug, name }) => {
         try {
           const data = await fetchUnitsWithProgress(slug);
-          return data.units
-            .filter((unit) => unit.progress > 0)
-            .map((unit) => {
-              const action = getStudyAction(unit, slug);
+          const inProgress = data.units.filter((unit) => unit.progress > 0);
+          if (inProgress.length === 0) return null;
 
-              return {
-              id: `${slug}-${unit.id}`,
-              category: name,
-              title: buildStudyTitle(unit),
-              progress: unit.progress,
-              actionText: action.actionText,
-              actionRoute: action.actionRoute,
-              subjectSlug: slug,
-            };
-            });
+          const latest = inProgress.reduce((prev, curr) => {
+            const prevTime = Math.max(
+              ...prev.subUnits.map((s) => s.lastStudiedAt ? new Date(s.lastStudiedAt).getTime() : 0)
+            );
+            const currTime = Math.max(
+              ...curr.subUnits.map((s) => s.lastStudiedAt ? new Date(s.lastStudiedAt).getTime() : 0)
+            );
+            return currTime > prevTime ? curr : prev;
+          });
+
+          const action = getStudyAction(latest, slug);
+          return {
+            id: `${slug}-${latest.id}`,
+            category: name,
+            title: buildStudyTitle(latest),
+            progress: latest.progress,
+            actionText: action.actionText,
+            actionRoute: action.actionRoute,
+            subjectSlug: slug,
+          } as InProgressStudy;
         } catch {
-          return [] as InProgressStudy[];
+          return null;
         }
       })),
     ]).then(([streakResult, studiesResult]) => {
@@ -144,7 +152,7 @@ export default function Home() {
       }
 
       if (studiesResult.status === 'fulfilled') {
-        setInProgressStudies(studiesResult.value.flat());
+        setInProgressStudies(studiesResult.value.filter((s): s is InProgressStudy => s !== null));
       } else {
         setInProgressStudies([]);
       }

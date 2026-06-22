@@ -1,0 +1,148 @@
+{
+  "unit": 10,
+  "unitTitle": "국가직무능력표준(NCS)과 직무 수행",
+  "rootNode": {
+    "id": "root",
+    "label": "NCS와 직무",
+    "children": [
+      {
+        "id": "cat_1",
+        "label": "NCS 탐색",
+        "children": [
+          {
+            "id": "concept_1",
+            "label": "전공별 탐색",
+            "conceptName": "전공별 직무 수행 능력 탐색",
+            "frequency": 0,
+            "keywords": [
+              "NCS",
+              "직무 수행",
+              "역량 파악"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_2",
+            "label": "NCS 탐색",
+            "conceptName": "국가직무능력표준(NCS) 탐색",
+            "frequency": 0,
+            "keywords": [
+              "대분류",
+              "중분류",
+              "소분류"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_3",
+            "label": "대분류 24개",
+            "conceptName": "NCS 대분류(24개)",
+            "frequency": 0,
+            "keywords": [
+              "대분류",
+              "구성",
+              "탐색"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_2",
+        "label": "직무 기술서",
+        "children": [
+          {
+            "id": "concept_4",
+            "label": "기술서 탐색",
+            "conceptName": "직무 기술서 구성 요소 및 탐색",
+            "frequency": 0,
+            "keywords": [
+              "직무 기술서",
+              "구성 요소",
+              "탐색"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_3",
+        "label": "전공 교육",
+        "children": [
+          {
+            "id": "concept_5",
+            "label": "교육과정 탐색",
+            "conceptName": "소속 전공 교육과정 탐색",
+            "frequency": 0,
+            "keywords": [
+              "교육과정",
+              "전공",
+              "탐색"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_6",
+            "label": "특강 및 체험",
+            "conceptName": "직업인 특강 및 체험 탐색",
+            "frequency": 0,
+            "keywords": [
+              "특강",
+              "체험",
+              "탐색"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_4",
+        "label": "능력 향상",
+        "children": [
+          {
+            "id": "concept_7",
+            "label": "능력 향상 방법",
+            "conceptName": "전공별 직무 수행 능력 향상 방법",
+            "frequency": 0,
+            "keywords": [
+              "능력 향상",
+              "전공별",
+              "교육 훈련"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_8",
+            "label": "취업 역량 강화",
+            "conceptName": "구직자 취업 역량 강화 프로그램 및 자격증 취득",
+            "frequency": 0,
+            "keywords": [
+              "취업 역량",
+              "프로그램",
+              "자격증"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_5",
+        "label": "지원 제도",
+        "children": [
+          {
+            "id": "concept_9",
+            "label": "배움카드 활용",
+            "conceptName": "국민내일배움카드 발급 및 이러닝 활용 방법",
+            "frequency": 0,
+            "keywords": [
+              "배움카드",
+              "이러닝",
+              "지원"
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -13,11 +13,12 @@
   overflow: hidden;
 }
 
+/* ── 헤더 1행 ── */
 .header {
   display: flex;
   align-items: center;
   gap: $spacing-10;
-  padding: $spacing-14 $spacing-16;
+  padding: $spacing-12 $spacing-16;
   border-bottom: 1px solid $border-primary;
   flex-shrink: 0;
 }
@@ -41,49 +42,353 @@
 .headerTitle {
   flex: 1;
   font-family: 'Noto Sans KR', sans-serif;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
   color: $text-primary;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.overviewIconBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: $background-secondary;
+  border: 1.5px solid $border-primary;
+  border-radius: 8px;
+  cursor: pointer;
+  color: $text-secondary;
+  flex-shrink: 0;
+  transition: all 0.15s;
+  &:hover { border-color: $brand-primary; color: $brand-primary; }
+}
+
+.overviewIconBtnActive {
+  border-color: $brand-primary;
+  color: $brand-primary;
+  background: $background-secondary;
+}
+
+/* ── 헤더 2행 ── */
+.subHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-8 $spacing-16;
+  border-bottom: 1px solid $border-primary;
+  flex-shrink: 0;
+  background: $background-secondary;
+}
+
+.slideViewToggle {
+  display: flex;
+  gap: 2px;
+  background: $background-third;
+  border-radius: 8px;
+  padding: 3px;
+}
+
+.slideViewBtn {
+  padding: $spacing-4 $spacing-14;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: $text-secondary;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+  &:hover { color: $text-primary; }
+}
+
+.slideViewBtnActive {
+  background: $background-primary;
+  color: $text-primary;
+  font-weight: 600;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
 }
 
 .headerCount {
   font-size: 12px;
   font-weight: 500;
   color: $text-secondary;
-  background: $background-secondary;
+  background: $background-primary;
+  border: 1px solid $border-primary;
   padding: 2px $spacing-8;
   border-radius: 10px;
 }
 
+/* ── 슬라이드 영역 ── */
 .slideArea {
   flex: 1;
   overflow-y: auto;
   padding: $spacing-20;
-  display: flex;
-  gap: $spacing-20;
   &::-webkit-scrollbar { width: 4px; }
   &::-webkit-scrollbar-thumb { background: $border-primary; border-radius: 2px; }
 }
 
-.conceptColumn {
-  flex: 55;
-  min-width: 0;
+/* ── 개념 학습 뷰 ── */
+.learnView {
   display: flex;
   flex-direction: column;
   gap: $spacing-16;
+  max-width: 720px;
+  margin: 0 auto;
 }
 
-.questionColumn {
-  flex: 45;
+/* ── 문제 적용 뷰 — 2컬럼 ── */
+.questionTwoCol {
+  display: flex;
+  gap: $spacing-20;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.questionCol {
+  flex: 52;
   min-width: 0;
-}
-
-.conceptCard {
   display: flex;
   flex-direction: column;
-  gap: $spacing-16;
+  gap: $spacing-12;
+  position: sticky;
+  top: 0;
 }
 
+.analysisPanel {
+  flex: 48;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid $border-primary;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.analysisPanelTitle {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: $text-secondary;
+  padding: $spacing-12 $spacing-14;
+  background: $background-secondary;
+  border-bottom: 1px solid $border-primary;
+  display: block;
+}
+
+.analysisAccordion {
+  border-bottom: 1px solid $border-primary;
+  &:last-child { border-bottom: none; }
+}
+
+.analysisAccordionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: $spacing-12 $spacing-14;
+  background: $background-primary;
+  border: none;
+  cursor: pointer;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: $text-primary;
+  text-align: left;
+  transition: background 0.15s;
+  &:hover { background: $background-secondary; }
+}
+
+.analysisChevron {
+  font-size: 9px;
+  color: $text-secondary;
+  flex-shrink: 0;
+}
+
+.analysisAccordionBody {
+  padding: $spacing-12 $spacing-14;
+  background: $background-primary;
+  border-top: 1px solid $border-primary;
+}
+
+.noAnalysisText {
+  margin: 0;
+  padding: $spacing-14;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  color: $text-secondary;
+}
+
+.questionSourceRow {
+  padding-bottom: $spacing-8;
+  border-bottom: 1px solid $border-primary;
+}
+
+.questionSourceLabel {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: $text-secondary;
+}
+
+.questionSourceBadge {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 11px;
+  color: $text-secondary;
+  background: $background-primary;
+  border: 1px solid $border-primary;
+  border-radius: 10px;
+  padding: 2px $spacing-8;
+}
+
+/* ── 개념 적용 분석 섹션 ── */
+.analysisDivider {
+  display: flex;
+  align-items: center;
+  gap: $spacing-10;
+  &::before, &::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: $border-primary;
+  }
+}
+
+.analysisDividerLabel {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: $text-secondary;
+  white-space: nowrap;
+  padding: 0 $spacing-4;
+}
+
+.clueBox {
+  padding: $spacing-12 $spacing-14;
+  background: $background-secondary;
+  border: 1px solid $border-primary;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-6;
+}
+
+.clueQuote {
+  margin: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: $text-primary;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.clueWhy {
+  margin: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  color: $text-secondary;
+  line-height: 1.6;
+}
+
+.solvingStep {
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-10;
+  padding: $spacing-10 $spacing-12;
+  background: $background-secondary;
+  border-radius: 8px;
+}
+
+.stepNum {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  background: $brand-primary;
+  color: $background-primary;
+  border-radius: 50%;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.stepText {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  color: $text-primary;
+  line-height: 1.6;
+  padding-top: 2px;
+}
+
+.optionAnalysisRow {
+  padding: $spacing-10 $spacing-12;
+  border-radius: 8px;
+  border: 1px solid $border-primary;
+}
+
+.optionCorrectRow {
+  background: $background-secondary;
+  border-color: $text-correct;
+}
+
+.optionWrongRow {
+  background: $background-secondary;
+}
+
+.optionAnalysisNum {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: $text-primary;
+  flex-shrink: 0;
+  width: 20px;
+}
+
+.verdict {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+  width: 18px;
+}
+
+.verdictO { color: $text-correct; }
+.verdictX { color: $text-wrong; }
+
+.optionReasoning {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  color: $text-secondary;
+  line-height: 1.6;
+}
+
+.takeawayBox {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-8;
+  padding: $spacing-14 $spacing-16;
+  background: $background-secondary;
+  border: 1.5px solid $brand-primary;
+  border-radius: 10px;
+}
+
+.takeawayText {
+  margin: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  color: $text-primary;
+  line-height: 1.7;
+}
+
+/* ── 공통 개념 카드 요소 ── */
 .rankBadge {
   display: flex;
   align-items: center;
@@ -99,6 +404,51 @@
   font-family: 'Noto Sans KR', sans-serif;
 }
 
+.frequencyLabel {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  color: $text-secondary;
+}
+
+.bookmarkBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: transparent;
+  border: 1.5px solid $border-primary;
+  border-radius: 8px;
+  cursor: pointer;
+  color: $text-secondary;
+  flex-shrink: 0;
+  transition: all 0.15s;
+  &:hover:not(:disabled) { border-color: $brand-primary; color: $brand-primary; }
+  &:disabled { opacity: 0.5; cursor: not-allowed; }
+}
+
+.bookmarkBtnActive {
+  border-color: $brand-primary;
+  color: $brand-primary;
+}
+
+.descriptionBox {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-6;
+  padding: $spacing-12 $spacing-14;
+  background: $background-secondary;
+  border-radius: 8px;
+}
+
+.descriptionText {
+  margin: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  color: $text-primary;
+  line-height: 1.7;
+}
+
 .markdownContent {
   font-family: 'Noto Sans KR', sans-serif;
   font-size: 14px;
@@ -110,27 +460,18 @@
     margin: $spacing-12 0 $spacing-8;
     font-weight: 600;
   }
-
   h1 { font-size: 18px; }
   h2 { font-size: 16px; }
   h3 { font-size: 15px; }
-
   p { margin: 0 0 $spacing-8; }
-
-  ul, ol {
-    padding-left: $spacing-16;
-    margin: 0 0 $spacing-8;
-  }
-
+  ul, ol { padding-left: $spacing-16; margin: 0 0 $spacing-8; }
   li { margin-bottom: $spacing-4; }
-
   code {
     background: $background-secondary;
     padding: 1px $spacing-4;
     border-radius: 4px;
     font-size: 13px;
   }
-
   pre {
     background: $background-secondary;
     padding: $spacing-12;
@@ -138,25 +479,21 @@
     overflow-x: auto;
     code { background: none; padding: 0; }
   }
-
   table {
     width: 100%;
     border-collapse: collapse;
     margin: $spacing-8 0;
     font-size: 13px;
-
     th, td {
       border: 1px solid $border-primary;
       padding: $spacing-6 $spacing-8;
       text-align: left;
     }
-
     th {
       background: $background-secondary;
       font-weight: 600;
     }
   }
-
   blockquote {
     border-left: 3px solid $brand-primary;
     padding-left: $spacing-12;
@@ -179,7 +516,6 @@
   font-size: 13px;
   color: $text-primary;
   line-height: 1.8;
-
   li { margin-bottom: $spacing-4; }
 }
 
@@ -187,6 +523,28 @@
   padding: $spacing-12 $spacing-14;
   background: $background-secondary;
   border-left: 3px solid $brand-primary;
+  border-radius: 0 8px 8px 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  color: $text-primary;
+  line-height: 1.7;
+}
+
+.trapBox {
+  padding: $spacing-12 $spacing-14;
+  background: $background-secondary;
+  border-left: 3px solid $text-wrong;
+  border-radius: 0 8px 8px 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  color: $text-primary;
+  line-height: 1.7;
+}
+
+.logicBox {
+  padding: $spacing-12 $spacing-14;
+  background: $background-secondary;
+  border-left: 3px solid $brand-secondary;
   border-radius: 0 8px 8px 0;
   font-family: 'Noto Sans KR', sans-serif;
   font-size: 13px;
@@ -213,35 +571,169 @@
   line-height: 1.6;
 }
 
-.frequencyLabel {
-  font-family: 'Noto Sans KR', sans-serif;
-  font-size: 12px;
-  color: $text-secondary;
-}
-
-.questionWrapper {
-  background: $background-secondary;
-  border: 1px solid $border-primary;
-  border-radius: 12px;
-  padding: $spacing-16;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+.deepLoading {
   display: flex;
-  flex-direction: column;
-  gap: $spacing-12;
-  height: fit-content;
-  position: sticky;
-  top: 0;
-}
-
-.questionSource {
+  align-items: center;
+  gap: $spacing-8;
   font-family: 'Noto Sans KR', sans-serif;
   font-size: 12px;
-  font-weight: 600;
   color: $text-secondary;
-  padding-bottom: $spacing-8;
+}
+
+.spinnerSmall {
+  width: 14px;
+  height: 14px;
+  border: 2px solid $background-third;
+  border-top-color: $brand-primary;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+/* ── 단원 개요 ── */
+.overviewArea {
+  flex: 1;
+  overflow-y: auto;
+  padding: $spacing-20;
+  &::-webkit-scrollbar { width: 4px; }
+  &::-webkit-scrollbar-thumb { background: $border-primary; border-radius: 2px; }
+}
+
+.overviewSectionTitle {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: $text-strong;
+}
+
+.accordionGroup {
+  border: 1px solid $border-primary;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.accordionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: $spacing-14 $spacing-16;
+  background: $background-secondary;
+  border: none;
+  cursor: pointer;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: $text-primary;
+  text-align: left;
+  transition: background 0.15s;
+  &:hover { background: $background-third; }
+}
+
+.accordionChevron {
+  font-size: 10px;
+  color: $text-secondary;
+  flex-shrink: 0;
+}
+
+.sectionSummary {
+  margin: 0;
+  padding: $spacing-12 $spacing-16;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  color: $text-secondary;
+  line-height: 1.7;
   border-bottom: 1px solid $border-primary;
 }
 
+.subAccordionGroup {
+  border-top: 1px solid $border-primary;
+}
+
+.subAccordionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: $spacing-12 $spacing-16 $spacing-12 $spacing-24;
+  background: $background-primary;
+  border: none;
+  cursor: pointer;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: $text-primary;
+  text-align: left;
+  transition: background 0.15s;
+  &:hover { background: $background-secondary; }
+}
+
+.subAccordionBody {
+  padding: $spacing-12 $spacing-16 $spacing-16 $spacing-24;
+  border-top: 1px solid $border-primary;
+  background: $background-primary;
+}
+
+.subText {
+  margin: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  color: $text-primary;
+  line-height: 1.7;
+}
+
+/* ── 푸터 ── */
+.footer {
+  padding: $spacing-12 $spacing-20;
+  border-top: 1px solid $border-primary;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $spacing-10;
+}
+
+.footerHint {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 11px;
+  color: $text-secondary;
+  background: $background-secondary;
+  border: 1px solid $border-primary;
+  padding: 2px $spacing-8;
+  border-radius: 10px;
+}
+
+.navButton {
+  padding: $spacing-8 $spacing-16;
+  border: 1.5px solid $border-primary;
+  border-radius: 8px;
+  background: $background-primary;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: $text-primary;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  &:hover:not(:disabled) { border-color: $brand-primary; color: $brand-primary; }
+  &:disabled { opacity: 0.3; cursor: not-allowed; }
+}
+
+.navButtonPrimary {
+  background: $brand-primary;
+  border-color: $brand-primary;
+  color: $background-primary;
+  &:hover:not(:disabled) { opacity: 0.88; color: $background-primary; }
+}
+
+.navButtonNext {
+  background: $text-strong;
+  border-color: $text-strong;
+  color: $background-primary;
+  &:hover:not(:disabled) { opacity: 0.88; color: $background-primary; }
+}
+
+/* ── 공통 ── */
 .center {
   display: flex;
   align-items: center;
@@ -267,47 +759,7 @@
   font-family: 'Noto Sans KR', sans-serif;
 }
 
-.footer {
-  padding: $spacing-12 $spacing-20;
-  border-top: 1px solid $border-primary;
-  flex-shrink: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: $spacing-10;
-}
-
-.navButton {
-  padding: $spacing-8 $spacing-16;
-  border: 1.5px solid $border-primary;
-  border-radius: 8px;
-  background: $background-primary;
-  font-family: 'Noto Sans KR', sans-serif;
-  font-size: 13px;
-  font-weight: 500;
-  color: $text-primary;
-  cursor: pointer;
-  transition: all 0.15s ease;
-
-  &:hover:not(:disabled) { border-color: $brand-primary; color: $brand-primary; }
-  &:disabled { opacity: 0.3; cursor: not-allowed; }
-}
-
-.navButtonPrimary {
-  background: $brand-primary;
-  border-color: $brand-primary;
-  color: $background-primary;
-  &:hover:not(:disabled) { opacity: 0.88; color: $background-primary; }
-}
-
-.navButtonNext {
-  background: $text-strong;
-  border-color: $text-strong;
-  color: $background-primary;
-  white-space: nowrap;
-  &:hover:not(:disabled) { opacity: 0.88; color: $background-primary; }
-}
-
+/* ── 반응형 ── */
 @media (max-width: 768px) {
   .container {
     width: 100%;
@@ -318,26 +770,37 @@
   }
 
   .header {
-    padding: $spacing-12 $spacing-14;
+    padding: $spacing-10 $spacing-14;
+  }
+
+  .subHeader {
+    padding: $spacing-6 $spacing-14;
   }
 
   .slideArea {
-    flex-direction: column;
     padding: $spacing-14;
-    gap: $spacing-16;
-  }
-
-  .conceptColumn,
-  .questionColumn {
-    flex: none;
-    width: 100%;
-  }
-
-  .questionWrapper {
-    position: static;
   }
 
   .footer {
     padding: $spacing-10 $spacing-14;
+  }
+
+  .learnView, .questionView {
+    max-width: 100%;
+  }
+
+  .questionTwoCol {
+    flex-direction: column;
+  }
+
+  .questionCol {
+    position: static;
+    flex: none;
+    width: 100%;
+  }
+
+  .analysisPanel {
+    flex: none;
+    width: 100%;
   }
 }

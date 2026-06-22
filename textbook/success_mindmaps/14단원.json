@@ -1,0 +1,103 @@
+{
+  "unit": 14,
+  "unitTitle": "창업과 기업가 정신",
+  "rootNode": {
+    "id": "root",
+    "label": "창업과 기업가",
+    "children": [
+      {
+        "id": "cat_1",
+        "label": "창업 정의",
+        "children": [
+          {
+            "id": "concept_1",
+            "label": "창업 의미",
+            "conceptName": "창업의 의미와 목적",
+            "frequency": 0,
+            "keywords": [
+              "비전",
+              "목표",
+              "가치 창출"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_2",
+            "label": "창업 방법",
+            "conceptName": "창업의 방법과 유형",
+            "frequency": 0,
+            "keywords": [
+              "신규 창업",
+              "프랜차이즈",
+              "사업체 인수"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_2",
+        "label": "창업 요소",
+        "children": [
+          {
+            "id": "concept_3",
+            "label": "창업 요소",
+            "conceptName": "창업의 요소",
+            "frequency": 0,
+            "keywords": [
+              "창업자",
+              "아이템",
+              "자본",
+              "시장"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_4",
+            "label": "창업 과정",
+            "conceptName": "창업의 과정과 절차",
+            "frequency": 0,
+            "keywords": [
+              "준비 단계",
+              "설립 단계",
+              "경영 단계"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cat_3",
+        "label": "기업가 정신",
+        "children": [
+          {
+            "id": "concept_5",
+            "label": "기업가 의미",
+            "conceptName": "기업가 정신의 의미와 중요성",
+            "frequency": 0,
+            "keywords": [
+              "위험 감수",
+              "혁신",
+              "경제 성장"
+            ],
+            "children": []
+          },
+          {
+            "id": "concept_6",
+            "label": "기업가 요소",
+            "conceptName": "기업가 정신의 구성 요소",
+            "frequency": 0,
+            "keywords": [
+              "위험 감수성",
+              "진취성",
+              "자율성",
+              "혁신성",
+              "사회적 책임성"
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+}

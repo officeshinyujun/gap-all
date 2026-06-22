@@ -1,0 +1,162 @@
+[
+  {
+    "id": 1,
+    "concept": "구직 활동",
+    "definition": "취업을 위한 일련의 활동으로, 구인 업체 방문, 서류 제출, 면접 응시 등을 포함한다.",
+    "hidden_field": "definition",
+    "correct_value": "취업을 위한 일련의 활동으로, 구인 업체 방문, 서류 제출, 면접 응시 등을 포함한다.",
+    "explanation": "구직 활동은 취업을 위한 다양한 절차를 포함한다."
+  },
+  {
+    "id": 2,
+    "concept": "채용 정보",
+    "definition": "원하는 직업을 갖기 위해 필요한 요건과 직업 생활에 필요한 정보를 제공한다.",
+    "hidden_field": "definition",
+    "correct_value": "원하는 직업을 갖기 위해 필요한 요건과 직업 생활에 필요한 정보를 제공한다.",
+    "explanation": "채용 정보는 직업 선택에 필수적인 정보를 포함한다."
+  },
+  {
+    "id": 3,
+    "concept": "채용 전형",
+    "definition": "서류 전형, 필기 전형, 면접 전형 순으로 이루어지는 과정을 말한다.",
+    "hidden_field": "definition",
+    "correct_value": "서류 전형, 필기 전형, 면접 전형 순으로 이루어지는 과정을 말한다.",
+    "explanation": "채용 전형은 지원자의 적합성을 평가하는 단계이다."
+  },
+  {
+    "id": 4,
+    "concept": "NCS 기반 입사 서류",
+    "definition": "직무와 관련된 정보에 초점을 맞춘다.",
+    "hidden_field": "definition",
+    "correct_value": "직무와 관련된 정보에 초점을 맞춘다.",
+    "explanation": "NCS 기반 입사 서류는 직무 적합성을 강조한다."
+  },
+  {
+    "id": 5,
+    "concept": "자기소개서",
+    "definition": "성장 과정, 성격, 가치관 등을 포함하여 지원자의 역량을 평가한다.",
+    "hidden_field": "definition",
+    "correct_value": "성장 과정, 성격, 가치관 등을 포함하여 지원자의 역량을 평가한다.",
+    "explanation": "자기소개서는 지원자의 개인적 배경을 평가하는 문서이다."
+  },
+  {
+    "id": 6,
+    "concept": "면접 유형",
+    "definition": "지원자의 역량과 인성을 평가하기 위해 다양한 방식으로 진행되는 면접의 형태를 의미한다.",
+    "hidden_field": "definition",
+    "correct_value": "지원자의 역량과 인성을 평가하기 위해 다양한 방식으로 진행되는 면접의 형태를 의미한다.",
+    "explanation": "면접 유형은 평가 방식에 따라 다양하게 나뉜다."
+  },
+  {
+    "id": 7,
+    "concept": "기업 정보",
+    "definition": "기업명, 기업의 비전, 시장 점유율, 추구하는 인재상 등을 포함한다.",
+    "hidden_field": "definition",
+    "correct_value": "기업명, 기업의 비전, 시장 점유율, 추구하는 인재상 등을 포함한다.",
+    "explanation": "기업 정보는 채용 정보의 중요한 요소이다."
+  },
+  {
+    "id": 8,
+    "concept": "직무 정보",
+    "definition": "직무의 내용, 근무 시간, 근무 형태 등을 포함한다.",
+    "hidden_field": "definition",
+    "correct_value": "직무의 내용, 근무 시간, 근무 형태 등을 포함한다.",
+    "explanation": "직무 정보는 지원자가 알아야 할 필수적인 내용이다."
+  },
+  {
+    "id": 9,
+    "concept": "전형 정보",
+    "definition": "입사 관련 서류 제출 방법과 제출 기한 등을 포함한다.",
+    "hidden_field": "definition",
+    "correct_value": "입사 관련 서류 제출 방법과 제출 기한 등을 포함한다.",
+    "explanation": "전형 정보는 채용 과정에서 필요한 정보를 제공한다."
+  },
+  {
+    "id": 10,
+    "concept": "STAR 기법",
+    "definition": "경험을 구조화하여 서술하는 것이 중요하다.",
+    "hidden_field": "definition",
+    "correct_value": "경험을 구조화하여 서술하는 것이 중요하다.",
+    "explanation": "STAR 기법은 면접에서 효과적인 답변을 위해 사용된다."
+  },
+  {
+    "id": 11,
+    "concept": "경험 기술서",
+    "definition": "본인이 학습한 경험이나 수행한 활동 내용을 체계적으로 상세히 기술하는 입사 지원 서류.",
+    "hidden_field": "definition",
+    "correct_value": "본인이 학습한 경험이나 수행한 활동 내용을 체계적으로 상세히 기술하는 입사 지원 서류.",
+    "explanation": "경험 기술서는 지원자의 활동을 기록하는 문서이다."
+  },
+  {
+    "id": 12,
+    "concept": "경력 기술서",
+    "definition": "본인이 수행한 구체적인 직무 영역과 이와 관련된 활동, 경험, 수행 내용 및 역할, 구체적 행동, 주요 성과 등을 체계적으로 상세히 기술하는 입사 지원 서류.",
+    "hidden_field": "definition",
+    "correct_value": "본인이 수행한 구체적인 직무 영역과 이와 관련된 활동, 경험, 수행 내용 및 역할, 구체적 행동, 주요 성과 등을 체계적으로 상세히 기술하는 입사 지원 서류.",
+    "explanation": "경력 기술서는 직무 관련 경력을 기록하는 문서이다."
+  },
+  {
+    "id": 13,
+    "concept": "서류 전형",
+    "definition": "입사 지원서와 자기소개서를 통해 1차 평가하는 단계이다.",
+    "hidden_field": "definition",
+    "correct_value": "입사 지원서와 자기소개서를 통해 1차 평가하는 단계이다.",
+    "explanation": "서류 전형은 지원자의 초기 평가를 담당한다."
+  },
+  {
+    "id": 14,
+    "concept": "필기 전형",
+    "definition": "전공 시험, 인·적성 검사 등으로 능력 검증하는 단계이다.",
+    "hidden_field": "definition",
+    "correct_value": "전공 시험, 인·적성 검사 등으로 능력 검증하는 단계이다.",
+    "explanation": "필기 전형은 지원자의 전문성을 평가한다."
+  },
+  {
+    "id": 15,
+    "concept": "면접 전형",
+    "definition": "지원자의 인품, 언행, 지식 등을 평가하는 최종 단계이다.",
+    "hidden_field": "definition",
+    "correct_value": "지원자의 인품, 언행, 지식 등을 평가하는 최종 단계이다.",
+    "explanation": "면접 전형은 최종 평가를 위한 중요한 과정이다."
+  },
+  {
+    "id": 16,
+    "concept": "AI 면접",
+    "definition": "인공지능을 활용하여 지원자의 표정, 음성, 행동 패턴 등을 분석하여 평가하는 방식이다.",
+    "hidden_field": "definition",
+    "correct_value": "인공지능을 활용하여 지원자의 표정, 음성, 행동 패턴 등을 분석하여 평가하는 방식이다.",
+    "explanation": "AI 면접은 기술을 활용한 새로운 평가 방식이다."
+  },
+  {
+    "id": 17,
+    "concept": "개별 면접",
+    "definition": "1명의 지원자를 평가하는 방식으로, 다양한 질의를 통해 여러 측면을 파악할 수 있다.",
+    "hidden_field": "definition",
+    "correct_value": "1명의 지원자를 평가하는 방식으로, 다양한 질의를 통해 여러 측면을 파악할 수 있다.",
+    "explanation": "개별 면접은 심층적인 평가를 가능하게 한다."
+  },
+  {
+    "id": 18,
+    "concept": "집단 면접",
+    "definition": "여러 명의 지원자를 동시에 평가하여 비교 관찰할 수 있는 방식이다.",
+    "hidden_field": "definition",
+    "correct_value": "여러 명의 지원자를 동시에 평가하여 비교 관찰할 수 있는 방식이다.",
+    "explanation": "집단 면접은 지원자 간의 상호작용을 평가한다."
+  },
+  {
+    "id": 19,
+    "concept": "토론 면접",
+    "definition": "지원자들이 특정 주제를 놓고 토론하며 사고력과 협업 능력을 평가하는 방식이다.",
+    "hidden_field": "definition",
+    "correct_value": "지원자들이 특정 주제를 놓고 토론하며 사고력과 협업 능력을 평가하는 방식이다.",
+    "explanation": "토론 면접은 팀워크와 사고력을 중시한다."
+  },
+  {
+    "id": 20,
+    "concept": "경험 면접",
+    "definition": "지원자의 과거 경험을 기반으로 직무 수행 역량을 평가하는 면접이다.",
+    "hidden_field": "definition",
+    "correct_value": "지원자의 과거 경험을 기반으로 직무 수행 역량을 평가하는 면접이다.",
+    "explanation": "경험 면접은 지원자의 실질적인 역량을 평가한다."
+  }
+]
