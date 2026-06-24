@@ -6,8 +6,8 @@
 ## 성공적인 직업생활 (성직)
 
 ### 1. 신문 기사
-- TPL: TPL_FORMAL_DOCUMENT (doc_type: "news_article")
-- 필수 요소: 출처(○○신문), 날짜(YYYY년 M월 D일 자), 본문, 각주(*용어설명: ...)
+- TPL: TPL_NEWS_ARTICLE (전용 템플릿) 또는 TPL_FORMAL_DOCUMENT (doc_type: "news_article", fallback)
+- 필수 요소: 제목(헤드라인), 출처(○○신문), 날짜(YYYY년 M월 D일 자), 본문, 각주(*용어설명: ...)
 - 예시 발문: "다음 기사에 나타난 ... (으)로 가장 적절한 것은?"
 - 톤: 보도체, 객관적 서술
 
@@ -30,8 +30,8 @@
 - 톤: 보고서체, 데이터 중심
 
 ### 5. 노동위원회 판정서
-- TPL: TPL_FORMAL_DOCUMENT (doc_type: "legal_ruling")
-- 필수 요소: 사건명, 신청인/피신청인, 판정일, 주문(판정 내용), 법조문 인용, 재심 안내
+- TPL: TPL_LEGAL_RULING (전용 템플릿) 또는 TPL_FORMAL_DOCUMENT (doc_type: "legal_ruling", fallback)
+- 필수 요소: 사건번호(예: 2022위원회123), 사건명, 신청인/피신청인, 판정일, 주문(판정 내용), 법조문 인용, 재심 안내
 - 예시 발문: "다음 노동위원회 판정서의 (가)에 들어갈 수 있는 사례로..."
 - 톤: 법률문체, 판정체
 
@@ -42,8 +42,8 @@
 - 톤: 공문서체
 
 ### 7. NCS 직무 화면
-- TPL: TPL_COMPARATIVE_MATRIX + TPL_FORMAL_DOCUMENT 결합
-- 필수 요소: 분류체계(대분류→중분류→소분류→세분류), 능력단위 코드(숫자_버전), 능력단위 정의, 능력단위요소(하위 수행 기준)
+- TPL: TPL_NCS_SCREEN (전용 템플릿) 또는 TPL_COMPARATIVE_MATRIX + TPL_FORMAL_DOCUMENT 결합 (fallback)
+- 필수 요소: 제목, 분류체계(대분류→중분류→소분류→세분류), 능력단위 코드(숫자_버전), 능력단위 정의, 능력단위요소(하위 수행 기준), 수행준거
 - 예시 발문: "다음은 국가직무능력표준(NCS) 구성 항목을 정리한 자료의 일부이다. 이를 통해 알 수 있는 내용으로..."
 - 톤: 시스템 화면체, 코드+설명 병기
 
