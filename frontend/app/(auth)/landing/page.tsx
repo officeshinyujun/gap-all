@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { APP_CONFIG } from '@/constants/app';
-import { useAuth } from '@/contexts/AuthContext';
+import { useAuth } from '@shared/contexts/AuthContext';
 import s from './page.module.scss';
 
 export default function LandingPage() {

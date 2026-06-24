@@ -1,0 +1,746 @@
+{
+  "unit": 16,
+  "unitTitle": "근로 계약과 권익 보호",
+  "subject": "success",
+  "totalQuestions": 8,
+  "questions": [
+    {
+      "conceptName": "근로 계약의 개념 및 체결 형식",
+      "originalSource": "2023학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "근로 계약의 개념 및 체결 형식",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL..."
+        },
+        "render_ready": {
+          "question_stem": "다음은 근로 조건에 대한 상담 사례이다. 상담사가 B씨에게 적합한 근로자 권리와 관련된 조언으로 가장 올바른 것은 무엇인가?",
+          "stimulus_data": {
+            "participants": [
+              {
+                "id": "A",
+                "name": "상담사",
+                "role": "상담사"
+              },
+              {
+                "id": "B",
+                "name": "B씨",
+                "role": "상담자"
+              }
+            ],
+            "messages": [
+              {
+                "participant_id": "A",
+                "text": "이전에 일하던 곳의 상황을 말씀해 주실 수 있나요?",
+                "timestamp": ""
+              },
+              {
+                "participant_id": "B",
+                "text": "저는 계약서에 명시된 대로 고용 보험에 가입된 아르바이트로 일해왔고, 최근 사장님께서 경영상의 사유를 들어 해고하셨습니다. 현재 구직급여를 받고 있는 상태입니다.",
+                "timestamp": ""
+              }
+            ]
+          },
+          "options_list": [
+            "해고에 대한 이의제기를 통해 보상을 받을 수 있다.",
+            "재취업 지원금을 신청하여 받을 수 있다.",
+            "직업 훈련 수당을 신청하여 받을 수 있다.",
+            "직업 안정기관에 상담 요청을 통해 지원을 받을 수 있다.",
+            "근로 계약서에 따라 퇴직금을 청구할 수 있다."
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 2,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "고용 보험에 가입된 아르바이트로 일해왔고",
+            "why": "고용 보험 가입 여부는 근로자의 권리를 이해하는 데 중요한 요소입니다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "O",
+            "reasoning": "해고에 대한 이의제기는 노동자의 권리 보호에 기여할 수 있습니다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "상담 내용을 바탕으로 근로자의 권리를 분석한다."
+          }
+        ],
+        "takeaway": "근로 계약의 조건과 근로자의 권리를 이해하는 것은 성공적인 직업 생활을 위해 필수적입니다."
+      }
+    },
+    {
+      "conceptName": "근로 계약서 작성 및 유의 사항",
+      "originalSource": "2023학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "근로 계약서 작성 및 유의 사항",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL..."
+        },
+        "render_ready": {
+          "question_stem": "다음은 A와 B의 근로 계약서 내용에 대한 설명으로 옳지 않은 것은?",
+          "stimulus_data": {
+            "doc_type": "근로 계약서",
+            "header_info": {
+              "title": "근로 계약서",
+              "date": "",
+              "author": ""
+            },
+            "paragraphs": [
+              {
+                "sub_title": "계약 당사자",
+                "content": "A(이하 '고용주'라 함)와 B(이하 '근로자'라 함)은 아래와 같이 근로 계약을 체결한다."
+              },
+              {
+                "sub_title": "계약 기간",
+                "content": "2023. 1. 1. ~ 6. 30."
+              },
+              {
+                "sub_title": "근무 장소",
+                "content": "(주)△△회사 ○○지점"
+              },
+              {
+                "sub_title": "업무 내용",
+                "content": "고객 서비스 및 매장 운영"
+              },
+              {
+                "sub_title": "소정근로시간",
+                "content": "10시~18시(휴게 시간: 13시~14시)"
+              },
+              {
+                "sub_title": "근무일/휴일",
+                "content": "주 5일 근무/주휴일 매주 토요일"
+              },
+              {
+                "sub_title": "임금 지급 방법",
+                "content": "매월 실적에 따라 지급함."
+              }
+            ],
+            "footnotes": []
+          },
+          "options_list": [
+            "A씨의 임금 지급 방법은 근로기준법에 적합하다.",
+            "A씨가 근로 계약 기간을 6개월로 설정하는 것은 합법적이다.",
+            "B씨의 법적 대리인은 근로 계약을 대신 체결할 수 없다.",
+            "B씨가 5일 동안 출근한 경우, 1주에 1회의 유급 휴일을 보장받는다.",
+            "A씨는 B씨가 동의하지 않는 경우 근로 계약서를 제공하지 않아도 된다."
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 3,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "B씨의 법적 대리인은 근로 계약을 대신 체결할 수 없다.",
+            "why": "법적으로 미성년자의 근로 계약은 법정 대리인이 동의해야 유효하기 때문입니다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "O",
+            "reasoning": "임금 지급 방법이 근로기준법에 부합하므로 적합하다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "O",
+            "reasoning": "근로 계약 기간을 6개월로 설정하는 것은 법적으로 문제가 없다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "X",
+            "reasoning": "미성년자(B씨)의 법적 대리인이 계약을 체결할 수 있으므로 이는 틀린 설명이다."
+          },
+          {
+            "optionNum": 4,
+            "verdict": "O",
+            "reasoning": "주휴일 규정에 따라 B씨는 유급 휴일을 보장받지 않는다."
+          },
+          {
+            "optionNum": 5,
+            "verdict": "O",
+            "reasoning": "근로 계약서는 반드시 제공해야 하며, 동의 여부와 관계없이 교부해야 한다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "주어진 근로 계약서 내용을 분석하고 각 조항의 법적 요건을 검토한다."
+          },
+          {
+            "step": 2,
+            "action": "제시된 선택지 각각의 진위를 판단하여 옳지 않은 설명을 찾아낸다."
+          }
+        ],
+        "takeaway": "근로 계약서의 내용은 법적 효력을 가지며, 미성년자의 경우 법적 대리인의 동의가 필요하다는 점을 유념해야 한다."
+      }
+    },
+    {
+      "conceptName": "근로 계약서의 필수 근로 조건",
+      "originalSource": "2022학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "근로 계약서의 필수 근로 조건",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL..."
+        },
+        "render_ready": {
+          "question_stem": "다음은 상시 근로자 수가 50명인 △△(주)와 B씨가 2022년도에 체결한 근로 계약서 일부이다. 이를 현행 근로기준법과 최저임금법에 근거하여 분석한 내용으로 옳은 것만을 <보기>에서 고른 것은? [3점]",
+          "stimulus_data": {
+            "doc_type": "근로 계약서",
+            "header_info": {
+              "title": "근로 계약서",
+              "date": "",
+              "author": ""
+            },
+            "paragraphs": [
+              {
+                "sub_title": "계약 당사자",
+                "content": "△△(주)(이하 \"사업주\"라 함)와(과) B씨 (이하 \"근로자\"라 함)은(는) 다음과 같이 근로 계약을 체결한다."
+              },
+              {
+                "sub_title": "근로 개시일",
+                "content": "2022년 6월 1일부터(정규직 신입 사원으로 업무 개시)"
+              },
+              {
+                "sub_title": "근무 장소 및 업무 내용",
+                "content": "△△(주), 제품 개발"
+              },
+              {
+                "sub_title": "소정 근로 시간",
+                "content": "09시부터 18시까지 (휴게 시간: 12시 00분부터 13시 00분까지)"
+              },
+              {
+                "sub_title": "근무일/휴일",
+                "content": "매주 5일(매일 단위)근무/주휴일 매주 토요일"
+              },
+              {
+                "sub_title": "임금",
+                "content": "시급 : 9,200원"
+              },
+              {
+                "sub_title": "연차 유급 휴가",
+                "content": "유"
+              },
+              {
+                "sub_title": "사회 보험 적용 여부",
+                "content": "여"
+              },
+              {
+                "sub_title": "근로 계약서 교부",
+                "content": "근로계약 체결과 동시에 본 계약서를 1부만 작성하여 사업주만 보관함."
+              }
+            ],
+            "footnotes": []
+          },
+          "options_list": [
+            "임금은 최저임금법을 준수하였다.",
+            "휴게 시간은 적법하게 부여되었다.",
+            "근로 계약서 교부는 적법하게 이루어졌다.",
+            "B 씨는 정규직 근로자로 근무하게 되었다."
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 1,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "임금은 최저임금법을 준수하였다.",
+            "why": "시급이 최저임금 이상이기 때문에 적법함."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "O",
+            "reasoning": "제시된 시급이 법정 최저임금 이상이므로 적법함."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "O",
+            "reasoning": "휴게 시간이 법적으로 보장된 시간 내에 포함되어 있으므로 적법함."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "X",
+            "reasoning": "근로 계약서 교부가 사업주만 보관하도록 되어 있어 적법하지 않음."
+          },
+          {
+            "optionNum": 4,
+            "verdict": "X",
+            "reasoning": "B 씨는 정규직으로 명시되어 있으므로 기간제 근로자가 아님."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "각 항목을 근로기준법과 최저임금법에 비추어 검토한다."
+          }
+        ],
+        "takeaway": "근로 계약서의 각 조항이 법적으로 적합한지 분석하는 능력을 기르는 것이 중요하다."
+      }
+    },
+    {
+      "conceptName": "미성년자 근로 보호",
+      "originalSource": "2025학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "미성년자 근로 보호",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL..."
+        },
+        "render_ready": {
+          "question_stem": "다음 A, B의 근로계약 사례를 분석한 내용으로 옳은 것은? (단, A는 단시간 근로자, B는 정규 근로자에 해당한다.) [3점]",
+          "stimulus_data": {
+            "headers": [
+              {
+                "id": "h1",
+                "label": "업체명"
+              },
+              {
+                "id": "h2",
+                "label": "근로자(나이)"
+              },
+              {
+                "id": "h3",
+                "label": "계약 기간"
+              },
+              {
+                "id": "h4",
+                "label": "소정 근로시간(휴게시간)"
+              },
+              {
+                "id": "h5",
+                "label": "근무일"
+              }
+            ],
+            "rows": [
+              {
+                "id": "1",
+                "cells": [
+                  "△△카페(상시 근로자 5명)",
+                  "A(15세)",
+                  "1개월",
+                  "10시~15시 (휴게시간 15시~15시 30분)",
+                  "매주 금요일부터 일요일까지"
+                ]
+              },
+              {
+                "id": "2",
+                "cells": [
+                  "△△카페(상시 근로자 5명)",
+                  "B(19세)",
+                  "3개월",
+                  "10시~18시 (휴게시간 12시~13시)",
+                  "매주 금요일부터 일요일까지"
+                ]
+              }
+            ],
+            "selection_chips": []
+          },
+          "options_list": [
+            "사용자는 A의 휴게시간을 적법하게 부여하였다.",
+            "A의 금요일 근로는 미성년자의 휴일 근로를 제한하고 있는 근로기준법에 위반된다.",
+            "사용자는 B의 연령을 증명하는 서류를 사업장에 갖추어야 한다.",
+            "사용자는 B와의 합의에 따라 18시까지 1시간을 초과근로시킬 경우 연장근로 수당을 지급하지 않아도 된다.",
+            "A, B는 기간의 정함이 없는 근로계약을 체결하였다."
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 3,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "A의 금요일 근로는 미성년자의 휴일 근로를 제한하고 있는 근로기준법에 위반된다.",
+            "why": "근로기준법에 따라 미성년자는 특정일에 근로하는 것이 제한된다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "O",
+            "reasoning": "A의 근로시간 내 적법한 휴게시간이 부여되었으므로 맞는 설명이다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "X",
+            "reasoning": "A는 금요일에 근로할 수 있지만, 특정 조건이 있으므로 주의가 필요하다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "O",
+            "reasoning": "근로자의 연령 확인을 위한 서류는 필수이다."
+          },
+          {
+            "optionNum": 4,
+            "verdict": "X",
+            "reasoning": "연장근로 수당은 항상 지급해야 하므로 해당 사항이 아니다."
+          },
+          {
+            "optionNum": 5,
+            "verdict": "X",
+            "reasoning": "A와 B는 모두 기간의 정함이 있는 근로계약을 체결하였다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "사례 분석 후 각 옵션의 법적 근거를 체크한다."
+          },
+          {
+            "step": 2,
+            "action": "정확한 법적 요건에 따라 적합한 정답을 선택한다."
+          }
+        ],
+        "takeaway": "미성년자 근로자의 권리 보호와 관련된 법적 사항을 이해하는 것이 중요하다."
+      }
+    },
+    {
+      "conceptName": "근로자 권익 침해의 종류 및 시정 방법",
+      "originalSource": "2022학년도 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "근로자의 권익 보호 및 산업 재해 관련 법",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL... "
+        },
+        "render_ready": {
+          "question_stem": "다음 사례를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은? [3점]",
+          "stimulus_data": {
+            "case_profile": {
+              "name": "B씨",
+              "context": "정규직 근로자로 상시 근로자 수가 30명인 △△제조업체 소속으로 2년 이상 근무 중이다."
+            },
+            "narrative": "B씨는 정규직 근로자로 상시 근로자 수가 30명인 △△제조업체 소속으로 2년 이상 근무 중이었다. 어느 날 생산라인에서 기계 고장을 수리하다가 다치게 되었고, 4주간의 치료가 필요했다. 치료 중 B씨는 회사로부터 이메일로 해고 통보를 받았다.",
+            "check_items": [
+              {
+                "id": 1,
+                "label": "정규직 근로자 여부",
+                "is_checked": true
+              },
+              {
+                "id": 2,
+                "label": "근무 기간",
+                "is_checked": true
+              },
+              {
+                "id": 3,
+                "label": "사고 발생 여부",
+                "is_checked": true
+              },
+              {
+                "id": 4,
+                "label": "치료 기간",
+                "is_checked": true
+              },
+              {
+                "id": 5,
+                "label": "해고 통보 방법",
+                "is_checked": true
+              }
+            ]
+          },
+          "options_list": [
+            "사례의 해고는 부당 해고에 해당한다.",
+            "사고의 형태는 '기계에 맞음'에 해당한다.",
+            "B씨는 복직을 위해 법원에 소송을 제기할 수 있다."
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 1,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "B씨는 정규직 근로자이며, 근무 기간이 2년 이상이다.",
+            "why": "정규직 근로자와 장기 근속은 근로자의 권익 보호와 관련이 깊다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "O",
+            "reasoning": "해고 통보가 치료 중에 이루어졌고, 이는 부당 해고에 해당한다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "상황을 분석하고 정규직 근로자의 권익을 고려"
+          }
+        ],
+        "takeaway": "근로자는 산업 재해로 인한 치료 중에도 부당 해고로부터 보호받아야 한다."
+      }
+    },
+    {
+      "conceptName": "부당 해고, 징계 및 노동 행위",
+      "originalSource": "GAP AI 생성 (개념 기반)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "부당 해고 및 징계",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_직업윤리"
+        },
+        "render_ready": {
+          "question_stem": "다음은 A 회사의 인사부서에서 일어난 사건에 대한 설명이다. A 회사의 직원인 김 씨는 최근 회사의 경영 방침에 대해 공개적으로 비판하는 글을 사내 게시판에 올렸다. 이후 인사부서는 김 씨에게 해고 통지를 하였고, 그 이유로 '회사에 대한 비방'을 들었다. 그러나 김 씨는 해고 통지 이전에 정당한 해고 절차가 지켜지지 않았고, 회사의 내부 규정에도 명시된 징계 절차를 위반하였다고 주장하고 있다. 이 경우, 김 씨의 해고는 부당한 해고에 해당하는가?",
+          "stimulus_data": {
+            "details": "김 씨는 3년간 A 회사에서 근무하였으며, 경영 방침 비판 글을 올린 후 3일 이내에 해고 통보를 받았다. 회사의 규정에 따르면, 비난에 대한 징계는 경고, 감봉, 해고 순으로 진행되어야 하며, 최소한 2회의 경고가 있어야 한다."
+          },
+          "options_list": [
+            "① 김 씨의 해고는 정당한 이유가 없으므로 부당 해고에 해당한다.",
+            "② 김 씨는 비판적인 의견을 제시했으므로 해고가 정당하다.",
+            "③ 해고 통지 이전에 징계 절차가 지켜지지 않았으므로 부당 해고이다.",
+            "④ 김 씨의 해고는 회사의 정당한 경영 권한이므로 부당 해고가 아니다.",
+            "⑤ 김 씨는 근무 기간이 짧아 해고가 정당하다."
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 3,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 1,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "정당한 해고 절차가 지켜지지 않았고, 회사의 내부 규정에도 명시된 징계 절차를 위반하였다고 주장하고 있다.",
+            "why": "해고 절차와 징계 절차 위반은 부당 해고의 핵심 요건 중 하나이다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "O",
+            "reasoning": "해고 통지 이전에 회사의 징계 절차가 지켜지지 않았기 때문에 부당 해고에 해당한다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "X",
+            "reasoning": "비판적 의견을 제시했더라도 정당한 징계 절차가 필요하다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "O",
+            "reasoning": "징계 절차를 위반하였으므로 부당 해고에 해당한다."
+          },
+          {
+            "optionNum": 4,
+            "verdict": "X",
+            "reasoning": "회사의 경영 권한이 있다고 하더라도 정당한 절차를 따라야 한다."
+          },
+          {
+            "optionNum": 5,
+            "verdict": "X",
+            "reasoning": "근무 기간이 해고의 정당성을 결정하는 요소가 아니다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "사건의 배경과 관련 법규를 확인한다."
+          },
+          {
+            "step": 2,
+            "action": "해고 통지 전에 지켜져야 할 절차를 검토한다."
+          },
+          {
+            "step": 3,
+            "action": "부당 해고의 요건을 판단하여 정답을 선택한다."
+          }
+        ],
+        "takeaway": "부당 해고와 징계의 정의 및 절차를 명확히 이해하고 적용해야 한다."
+      }
+    },
+    {
+      "conceptName": "임금 체불",
+      "originalSource": "GAP AI 생성 (개념 기반)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "임금 체불",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_001"
+        },
+        "render_ready": {
+          "question_stem": "다음은 A 회사에서 근무하던 B 근로자의 사례이다. B 근로자는 4월 1일에 퇴사하였고, 퇴사 후 14일이 지난 4월 15일까지 임금을 지급받지 못하였다. 이에 대해 A 회사의 인사 담당자는 '우리 회사는 특별한 사정이 있어 임금 지급이 지연되었다'고 주장하고 있다. 이 경우 B 근로자는 어떤 권리를 주장할 수 있는가?",
+          "stimulus_data": {
+            "context": "A 회사는 B 근로자의 임금을 4월 1일 지급 예정이었으나, 내부 사정으로 인해 지급이 지연되었다. B 근로자는 4월 15일까지 임금을 받지 못하였고, A 회사는 근로자와의 합의 없이 지급을 지연하였다."
+          },
+          "options_list": [
+            "① A 회사는 임금 지급을 지연한 것이므로 B 근로자는 임금 체불을 주장할 수 있다.",
+            "② B 근로자는 퇴사 후 14일이 지나도 A 회사와 합의가 있었으면 임금을 받을 수 없다.",
+            "③ B 근로자는 특별한 사정이 있었으므로 A 회사에 임금 지급을 요구할 수 없다.",
+            "④ A 회사는 특별한 사정이 있더라도 B 근로자에게 임금을 지급해야 한다.",
+            "⑤ B 근로자는 퇴사 후 14일이 지나면 법적으로 임금을 받을 수 없다."
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 1,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "퇴사 후 14일이 지난 4월 15일까지 임금을 지급받지 못하였다.",
+            "why": "임금 체불의 정의에 해당하며, 정기 지급일을 초과했기 때문에 B 근로자는 권리를 주장할 수 있다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "O",
+            "reasoning": "임금 체불의 정의에 명확히 부합하므로 B 근로자는 권리를 주장할 수 있다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "X",
+            "reasoning": "임금 지급 지연은 합의가 없으면 불법이며, 합의 여부와 관계없이 B 근로자는 임금을 요구할 수 있다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "X",
+            "reasoning": "특별한 사정이 있더라도 임금 지급 의무는 존재하며, B 근로자는 임금 지급을 요구할 수 있다."
+          },
+          {
+            "optionNum": 4,
+            "verdict": "O",
+            "reasoning": "특별한 사정이 있더라도 임금 지급의무는 면제되지 않으므로 B 근로자는 지급 요구가 가능하다."
+          },
+          {
+            "optionNum": 5,
+            "verdict": "X",
+            "reasoning": "퇴사 후 14일 이내에 임금 지급이 이루어져야 하므로, 법적으로도 B 근로자는 임금을 받을 권리가 있다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "B 근로자의 퇴사 후 14일 이내에 임금 지급이 이루어져야 함을 확인한다."
+          },
+          {
+            "step": 2,
+            "action": "A 회사의 주장과 상황을 분석하여 임금 지급 지연의 정당성을 검토한다."
+          },
+          {
+            "step": 3,
+            "action": "임금 체불에 대한 법적 근거를 바탕으로 B 근로자의 권리를 판단한다."
+          }
+        ],
+        "takeaway": "임금 체불은 근로자의 권익을 침해하는 행위이며, 임금 지급은 법적으로 정해진 기한 내에 이루어져야 한다."
+      }
+    },
+    {
+      "conceptName": "직장 내 성희롱",
+      "originalSource": "GAP AI 생성 (개념 기반)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "직장 내 성희롱",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_001"
+        },
+        "render_ready": {
+          "question_stem": "김 과장은 팀원인 이 대리에게 업무 관련 회의 중 다음과 같은 발언을 했습니다. \"너 이번에 발표 잘하면 내가 네가 좋아하는 선물 사줄게.\" 이 발언은 어떤 문제를 야기할 수 있을까요?",
+          "stimulus_data": {
+            "scenario": "김 과장은 이 대리에게 업무 발표에 대해 긍정적인 피드백과 함께 선물을 제안하며, 이는 이 대리가 선호하는 것임을 알고 있습니다. 그러나 이 발언은 이 대리에게 성적 굴욕감을 느끼게 할 수 있습니다."
+          },
+          "options_list": [
+            "① 김 과장의 발언은 단순한 업무 격려로 문제되지 않는다.",
+            "② 이 대리는 김 과장이 제안한 선물을 거부할 수 있는 권리가 없다.",
+            "③ 김 과장의 발언은 성희롱으로 간주될 수 있다.",
+            "④ 이 대리는 김 과장에게 불이익을 당할 수 없다.",
+            "⑤ 김 과장은 이 대리에게 성적 요구를 한 것이 아니므로 성희롱이 아니다."
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 3,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 1,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "김 과장이 제안한 선물은 이 대리가 선호하는 것임을 알고 있다.",
+            "why": "업무와 관련된 발언이지만, 성적 굴욕감을 유발할 수 있는 발언이다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "X",
+            "reasoning": "업무 격려가 아닌 성적 요소가 포함된 발언으로 성희롱의 소지가 있다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "X",
+            "reasoning": "이 대리는 언제든지 선물을 거부할 권리가 있다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "O",
+            "reasoning": "김 과장의 발언은 성적 요구를 포함하고 있어 성희롱으로 간주될 수 있다."
+          },
+          {
+            "optionNum": 4,
+            "verdict": "X",
+            "reasoning": "불이익이 금지되지만, 성희롱의 경우 피해자가 보호받아야 한다."
+          },
+          {
+            "optionNum": 5,
+            "verdict": "X",
+            "reasoning": "성적 요구가 포함되어 있으므로 성희롱으로 판단될 수 있다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "상황을 분석하여 발언의 의도를 파악한다."
+          },
+          {
+            "step": 2,
+            "action": "발언이 성적 굴욕감을 유발할 수 있는지 판단한다."
+          },
+          {
+            "step": 3,
+            "action": "성희롱의 정의와 관련된 법적 측면을 고려하여 정답을 선택한다."
+          }
+        ],
+        "takeaway": "직장 내 성희롱은 육체적, 언어적, 시각적 형태로 나타날 수 있으며, 권리 보호가 중요하다."
+      }
+    }
+  ]
+}

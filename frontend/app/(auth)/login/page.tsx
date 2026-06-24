@@ -4,9 +4,9 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useAuth } from '@/contexts/AuthContext';
+import { useAuth } from '@shared/contexts/AuthContext';
 import { APP_CONFIG } from '@/constants/app';
-import { API_BASE_URL } from '@/lib/auth';
+import { API_BASE_URL } from '@shared/lib/auth';
 import s from './page.module.scss';
 
 type Mode = 'login' | 'register';

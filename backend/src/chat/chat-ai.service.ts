@@ -213,7 +213,126 @@ export class ChatAiService {
     );
   }
 
-  // 임베딩 없을 때 fallback: summation MD 최대 3단원
+  // ============================================================
+  // GPT-4o Vision: 이미지에서 문제 구조 추출
+  // ============================================================
+  async extractQuestionFromImage(imageBuffer: Buffer): Promise<{
+    source_exam: string | null;
+    number: number | null;
+    stem: string;
+    stimulus: string;
+    box_items: string[];
+    options: string[];
+    answer: string;
+    target_concepts: string[];
+  }> {
+    const base64 = imageBuffer.toString('base64');
+
+    const response = await this.openai.chat.completions.create({
+      model: 'gpt-4o',
+      messages: [
+        {
+          role: 'user',
+          content: [
+            {
+              type: 'text',
+              text: `이 이미지는 한국 수능/모의고사 성공적인 직업생활 문제입니다.
+다음 정보를 JSON으로 추출하세요. 없으면 null 또는 빈 배열로 설정하세요.
+
+{
+  "source_exam": "출처 시험명 (예: 2023학년도 대학수학능력시험 성공적인 직업생활) 또는 null",
+  "number": 문항번호(숫자) 또는 null,
+  "stem": "발문 텍스트 (문항번호 제외)",
+  "stimulus": "지문/제시 자료 텍스트 (없으면 빈 문자열)",
+  "box_items": ["ㄱ 보기 내용", "ㄴ 보기 내용"] 또는 [],
+  "options": ["① 선택지 내용", "② 선택지 내용", ...],
+  "answer": "정답 (①②③④⑤ 중 하나) 또는 빈 문자열",
+  "target_concepts": ["관련 개념명1", "개념명2"] (이 문제에서 다루는 핵심 개념, 1~3개)
+}
+
+JSON만 반환하세요.`,
+            },
+            {
+              type: 'image_url',
+              image_url: { url: `data:image/jpeg;base64,${base64}`, detail: 'high' },
+            },
+          ],
+        },
+      ],
+      response_format: { type: 'json_object' },
+    });
+
+    try {
+      const content = response.choices[0]?.message?.content ?? '{}';
+      const parsed = JSON.parse(content);
+      return {
+        source_exam: parsed.source_exam ?? null,
+        number: parsed.number ?? null,
+        stem: parsed.stem ?? '',
+        stimulus: parsed.stimulus ?? '',
+        box_items: parsed.box_items ?? [],
+        options: parsed.options ?? [],
+        answer: parsed.answer ?? '',
+        target_concepts: parsed.target_concepts ?? [],
+      };
+    } catch {
+      return {
+        source_exam: null, number: null, stem: '', stimulus: '',
+        box_items: [], options: [], answer: '', target_concepts: [],
+      };
+    }
+  }
+
+  // ============================================================
+  // GPT-4o: 새 문제 해설 생성
+  // ============================================================
+  async generateQuestionExplanation(extracted: {
+    stem: string;
+    stimulus: string;
+    box_items: string[];
+    options: string[];
+    answer: string;
+    target_concepts: string[];
+  }): Promise<string> {
+    const markers = ['ㄱ', 'ㄴ', 'ㄷ', 'ㄹ'];
+    const prompt = `다음 수능/모의고사 문제를 분석하고 상세한 해설을 작성하세요.
+
+발문: ${extracted.stem}
+
+지문:
+${extracted.stimulus || '(없음)'}
+
+보기:
+${extracted.box_items.length > 0 ? extracted.box_items.map((item, i) => `${markers[i] ?? i + 1}. ${item}`).join('\n') : '(없음)'}
+
+선택지:
+${extracted.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
+
+정답: ${extracted.answer}
+
+다음 형식으로 해설을 작성하세요:
+
+## 문제 분석
+
+**정답: ${extracted.answer}번**
+
+### 풀이 흐름
+1. ...
+2. ...
+
+### 선택지 분석
+(각 보기 또는 선택지별 O/X와 근거)
+
+### 핵심 교훈
+(이 문제 유형에서 반드시 알아야 할 포인트)`;
+
+    const response = await this.openai.chat.completions.create({
+      model: this.model,
+      messages: [{ role: 'user', content: prompt }],
+    });
+
+    return response.choices[0]?.message?.content ?? '해설을 생성할 수 없습니다.';
+  }
   private loadSummationFallback(
     subjectSlug: string,
     startUnit?: number,

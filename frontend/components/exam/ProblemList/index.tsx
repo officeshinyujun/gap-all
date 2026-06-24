@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { VStack } from '../../general/VStack';
 import { ProblemCard } from '../ProblemCard';
-import { SPACING } from '@/constants/spacing';
+import { SPACING } from '@shared/constants/spacing';
 import s from './style.module.scss';
 
 export interface ProblemItem {

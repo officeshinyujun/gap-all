@@ -2,8 +2,8 @@
 
 import { use, useEffect, useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
-import Typo from '@/components/general/Typo';
-import { QuestionRenderer } from '@/components/exam/QuestionStem/QuestionRenderer';
+import Typo from '@shared/ui/Typo';
+import { QuestionRenderer } from '@shared/ui/QuestionStem/QuestionRenderer';
 import {
   fetchSubjectBySlug,
   createExamJob,

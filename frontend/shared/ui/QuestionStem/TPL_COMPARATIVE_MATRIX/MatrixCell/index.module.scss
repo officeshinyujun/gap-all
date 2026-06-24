@@ -1,0 +1,29 @@
+@import '@/styles/variables.scss';
+
+.cell {
+  padding: $spacing-8 $spacing-12;
+  border: 1px solid $border-primary;
+  font-size: 13px;
+  font-weight: $regular;
+  color: $text-primary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  line-height: 1.6;
+  vertical-align: middle;
+  word-break: keep-all;
+}
+
+.left {
+  text-align: left;
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
+.highlight {
+  background-color: $brand-secondary;
+}

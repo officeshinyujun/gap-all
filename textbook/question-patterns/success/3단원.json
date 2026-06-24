@@ -1,0 +1,231 @@
+{
+  "unit": 3,
+  "unitTitle": "직업과 자아 실현",
+  "subject": "success",
+  "totalQuestions": 8,
+  "patterns": [
+    {
+      "conceptId": "success_3_01",
+      "targetConcept": "직업적 성공의 의미와 필요 요소",
+      "frequency": 15,
+      "sourceExam": "2024학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 2,
+      "pattern": {
+        "assessmentIntent": "학생이 A씨의 직업 가치관과 진로 의사 결정 유형을 분석하고, 이를 통해 직업적 성공의 의미와 필요 요소를 이해할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "사례 분석",
+        "skeletonStructure": {
+          "itemFamily": "combination_judgment",
+          "stimulusTPL": "TPL_SEQUENTIAL_WORKFLOW",
+          "blankCount": 0,
+          "boCount": 4,
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true
+        },
+        "distractorBlueprint": [
+          "오답1: '업적주의적 가치관을 가지고 있다.' - A씨의 선택이 부모의 사업을 물려받지 않고 PD가 되는 길을 선택한 점에서 업적주의적 가치관과는 거리가 있다.",
+          "오답2: '진로 의사 결정 유형 중 합리적 유형에 해당한다.' - A씨는 다양한 경험을 통해 직업을 선택했지만, 이는 직관적 요소가 강하므로 합리적 유형으로 보기 어렵다.",
+          "오답3: '직업의 내재적 가치보다 외재적 가치를 중시하고 있다.' - A씨는 PD가 되기 위해 노력하는 과정에서 내재적 가치를 발견했으므로 외재적 가치 중시로 보기 어렵다.",
+          "오답4: '진로 의사 결정에 있어 개인적 요인보다 환경적 요인을 중시하고 있다.' - A씨는 개인의 흥미와 소질을 중시하여 진로를 결정했으므로 환경적 요인 중시로 보기 어렵다."
+        ],
+        "difficultyDriver": "학생이 A씨의 직업 가치관과 진로 의사 결정 유형을 정확히 분석하기 위해서는 다양한 경험과 가치관을 종합적으로 이해하고 비교해야 하므로, 정보의 분산과 다중 조건이 난이도를 높인다.",
+        "stemPattern": "다음 글에 나타난 A씨의 직업 가치관과 진로 의사 결정 유형을 분석한 내용으로 적절한 것만을 <보기>에서 고른 것은?"
+      }
+    },
+    {
+      "conceptId": "success_3_02",
+      "targetConcept": "성공한 직업인의 정의와 공통점",
+      "frequency": 12,
+      "sourceExam": "2025학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 4,
+      "pattern": {
+        "assessmentIntent": "학생이 하렌의 진로 의사 결정 유형 이론을 바탕으로 A와 B의 진로 의사 결정 유형을 비교하고 분석할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "비교/대조",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_COMPARATIVE_MATRIX",
+          "blankCount": 0,
+          "boCount": 0,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: A의 직업 분류를 잘못 이해하여 '전문 경영자'로 잘못 판단함.",
+          "오답2: B의 의사 결정 유형을 잘못 해석하여 감정적 요소가 강조된 유형으로 잘못 설명함.",
+          "오답3: B의 서비스 업종을 잘못 적용하여 '전문 서비스'로 분류하는 오류.",
+          "오답4: A의 의사 결정 유형을 타인의 기대에 과도하게 의존한다고 잘못 판단함.",
+          "오답5: A가 개인적 요인을 중시한다고 잘못 해석하여 B와의 비교에서 오류 발생."
+        ],
+        "difficultyDriver": "학생이 두 개의 서로 다른 진로 의사 결정 유형을 비교하고, 각 유형의 특징을 정확히 이해하고 있어야 하므로, 개념의 유사성과 차이를 명확히 구분해야 하는 점이 난이도를 높인다.",
+        "stemPattern": "위 [자료명]의 A와 B의 진로 의사 결정 유형과 직업 생활을 분석한 내용으로 적절한 것은?"
+      }
+    },
+    {
+      "conceptId": "success_3_03",
+      "targetConcept": "바람직한 직업적 성공",
+      "frequency": 10,
+      "sourceExam": "2024학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 5,
+      "pattern": {
+        "assessmentIntent": "학생이 A씨와 B씨의 직업 선택에 대한 의사 결정 유형을 이해하고, 이를 바탕으로 적절한 설명을 선택할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "분류/매칭",
+        "skeletonStructure": {
+          "itemFamily": "combination_judgment",
+          "stimulusTPL": "TPL_CONVERSATIONAL_FLOW",
+          "blankCount": 0,
+          "boCount": 3,
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true
+        },
+        "distractorBlueprint": [
+          "오답1: 'A씨의 의사 결정 유형은 상상과 정서적 자각에 기초하여 의사 결정을 한다.' - A씨의 결정 과정이 감정적 요소에 기반한다고 잘못 해석하여 제시한 설명.",
+          "오답2: 'B씨의 의사 결정 유형은 실패 시 타인을 탓하기 쉽다.' - B씨의 결정 과정에 대한 부정적인 일반화를 통해 잘못된 인식을 제공.",
+          "오답3: 'A, B 씨의 의사 결정 유형은 충분한 정보를 수집, 분석하여 미래의 상황까지 예측한다.' - 두 사람의 결정 과정이 정보 기반으로만 이루어졌다고 잘못 해석하여 제시한 설명."
+        ],
+        "difficultyDriver": "학생이 A씨와 B씨의 의사 결정 유형을 정확히 이해하고, 각 유형에 대한 설명을 구별하는 데 필요한 사고 과정의 복잡성.",
+        "stemPattern": "위 특강에 나타난 A, B씨의 직업 선택 시 의사 결정 유형에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?"
+      }
+    },
+    {
+      "conceptId": "success_3_04",
+      "targetConcept": "생애 발달 단계별 직업적 성공 요건",
+      "frequency": 10,
+      "sourceExam": "2023학년도 대학수학능력시험 성공적인 직업생활",
+      "questionNumber": 7,
+      "pattern": {
+        "assessmentIntent": "학생이 하렌의 진로 의사 결정 유형 이론에 기반하여 A와 B 유형의 의사 결정 방식을 이해하고, 각 유형의 특징을 비교하여 적절한 설명을 선택할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "비교/대조",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_CONVERSATIONAL_FLOW",
+          "blankCount": 0,
+          "boCount": 0,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: 'A유형은 직관적 의사 결정 유형이다.' - A유형의 특성을 잘못 이해하고, 직관적 결정과 의존적 결정을 혼동함.",
+          "오답2: 'B유형은 미래의 상황까지 예측하여 신중하게 의사 결정을 한다.' - B유형의 특성을 과장하여 설명하며, 직관적 결정의 본질을 왜곡함.",
+          "오답3: 'B유형은 의사 결정 시 정확한 정보에 근거하기 때문에 실패할 확률이 낮다.' - B유형의 의사 결정 방식이 정보 기반이 아닌 순간적인 판단임을 간과함.",
+          "오답4: 'B유형은 A유형에 비해 타인의 기대와 요구에 크게 영향을 받는다.' - B유형의 특성을 잘못 이해하고, A유형의 의존적 특성을 B유형에 잘못 적용함."
+        ],
+        "difficultyDriver": "학생이 두 가지 의사 결정 유형의 차이를 명확히 이해하고, 각 유형의 특성을 정확히 구별해야 하므로 개념 변별이 필요하다.",
+        "stemPattern": "다음 대화에 나타난 의사 결정 유형 A, B에 대한 설명으로 가장 적절한 것은?"
+      }
+    },
+    {
+      "conceptId": "success_3_05",
+      "targetConcept": "청소년기와 성년기 직업적 성공 요건",
+      "frequency": 10,
+      "sourceExam": "2025학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 9,
+      "pattern": {
+        "assessmentIntent": "학생이 A와 B의 직업적 선택과 근무 방식을 분석하여 직업적 성공 요건을 이해하고, 개인적 요인이 직업 선택에 미친 영향을 평가할 수 있는 능력을 측정한다.",
+        "judgmentAxis": "사례 분석",
+        "skeletonStructure": {
+          "itemFamily": "combination_judgment",
+          "stimulusTPL": "TPL_CONVERSATIONAL_FLOW",
+          "blankCount": 0,
+          "boCount": 3,
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true
+        },
+        "distractorBlueprint": [
+          "오답1: 'A 씨의 현재 근무 방식은 근무 장소에 따라 구분하면 재택 근무이다.' - A씨의 근무 방식에 대한 설명이지만, 선택지의 진위를 판단하기 위한 정보가 부족하여 오답으로 구성됨.",
+          "오답2: 'B씨의 현재 근무 방식은 근무 시간에 따라 구분하면 선택적 근로시간제이다.' - B씨의 근무 방식이 선택적 근로시간제에 해당하지 않음에도 불구하고, 근무 시간의 유연성을 강조하여 혼동을 유도함.",
+          "오답3: 'A, B씨가 현재 종사하고 있는 직업을 선택한 진로 의사 결정에는 개인적 요인이 영향을 미쳤다.' - 개인적 요인이 영향을 미쳤다는 점은 맞지만, 이 선택지는 A와 B의 사례를 종합적으로 고려하지 않아 오답으로 설계됨."
+        ],
+        "difficultyDriver": "정보의 복잡성 및 두 참가자의 직업적 상황을 비교하고 분석해야 하는 요구 사항으로 인해 난이도가 증가함.",
+        "stemPattern": "위 [A, B씨의 직업 생활]을 통해 알 수 있는 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?"
+      }
+    },
+    {
+      "conceptId": "success_3_06",
+      "targetConcept": "중년기와 노년기 직업적 성공 요건",
+      "frequency": 10,
+      "sourceExam": "2023학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 10,
+      "pattern": {
+        "assessmentIntent": "학생 A와 B의 진로 의사 결정 과정을 분석하고, 하렌의 진로 의사 결정 유형 이론에 따라 각 학생의 의사 결정 유형을 구별할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "사례 분석",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_CASE_DIAGNOSTIC_FRAME",
+          "blankCount": 0,
+          "boCount": 3,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: 학생 A의 의사 결정 유형을 잘못 해석하여 합리적 유형으로 분류한 경우. 이는 학생 A가 타인의 기대에 영향을 받는 점을 간과한 결과.",
+          "오답2: 학생 B의 수강 신청 행위를 대안 평가 및 결정 단계가 아닌 다른 단계로 잘못 분류한 경우. 이는 학생 B의 의사 결정 과정을 정확히 이해하지 못한 결과.",
+          "오답3: 학생 A의 의사 결정 유형이 학생 B보다 타인의 기대에 덜 영향을 받는다고 잘못 판단한 경우. 이는 두 학생의 의사 결정 과정의 본질적인 차이를 간과한 결과."
+        ],
+        "difficultyDriver": "학생 A와 B의 의사 결정 과정에 대한 이해와 하렌의 이론 적용 능력, 그리고 각 선택지의 미세한 차이를 구별하는 능력이 난이도를 결정짓는 핵심 요소.",
+        "stemPattern": "위 사례를 통해 알 수 있는 학생 A, B의 진로 의사 결정에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?"
+      }
+    },
+    {
+      "conceptId": "success_3_07",
+      "targetConcept": "성공적인 직업 생활을 위한 개인 특성",
+      "frequency": 8,
+      "sourceExam": "2022학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 10,
+      "pattern": {
+        "assessmentIntent": "학생이 자신의 직업 선택 과정에서 의사 결정 유형을 이해하고, 이를 바탕으로 자신의 특성과 상황을 고려하여 합리적인 결정을 내릴 수 있는 능력을 평가한다.",
+        "judgmentAxis": "사례 분석",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_CASE_DIAGNOSTIC_FRAME",
+          "blankCount": 0,
+          "boCount": 0,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: '자신의 특성을 고려하여 신중하게 선택한 의사 결정 유형이다.' - 이 선택지는 학생이 자신의 적성과 부모님의 기대를 모두 고려한 결정을 내렸다는 점을 간과하고, 단순히 신중함만을 강조하여 잘못된 해석을 유도한다.",
+          "오답2: '의사 결정을 하는 데 있어서 빠르고 즉흥적인 의사 결정 유형이다.' - 이 선택지는 학생이 부모님의 반대에도 불구하고 즉흥적으로 결정을 내렸다는 잘못된 인식을 제공하여, 의사 결정 과정의 깊이를 무시한다.",
+          "오답3: '타인의 기대와 요구에 의해 크게 영향을 받는 의사 결정 유형이다.' - 이 선택지는 학생이 부모님의 기대를 고려했지만, 최종적으로 자신의 결정을 내렸다는 점을 간과하여 잘못된 방향으로 유도한다.",
+          "오답4: '자신이 내린 결정에 대하여 책임을 지지 않으려는 의사 결정 유형이다.' - 이 선택지는 학생이 자신의 결정을 내리고 부모님을 설득한 과정을 무시하고, 책임 회피라는 잘못된 해석을 제공한다.",
+          "오답5: '정보 탐색 과정이 없으므로 실패로 이어질 확률이 높은 의사 결정 유형이다.' - 이 선택지는 학생이 직업 적성 검사를 통해 정보를 탐색한 과정을 무시하고, 정보 부족으로 인한 실패 가능성을 강조하여 잘못된 결론을 유도한다."
+        ],
+        "difficultyDriver": "학생이 의사 결정 유형을 이해하고, 주어진 사례에서 적절한 유형을 선택하기 위해서는 여러 요소를 종합적으로 고려해야 하므로, 정보의 분산과 다중 조건이 난이도를 높인다.",
+        "stemPattern": "다음 직업 선택 과정 사례에서 알 수 있는 의사 결정 유형에 대한 설명으로 가장 적절한 것은?"
+      }
+    },
+    {
+      "conceptId": "success_3_08",
+      "targetConcept": "자기 이해의 중요성",
+      "frequency": 8,
+      "sourceExam": "2022학년도 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 16,
+      "pattern": {
+        "assessmentIntent": "학생 A와 B의 진로 의사 결정 유형을 분석하고, 하렌의 이론에 기반하여 그들의 의사 결정 과정을 이해할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "분류/매칭",
+        "skeletonStructure": {
+          "itemFamily": "combination_judgment",
+          "stimulusTPL": "TPL_CONVERSATIONAL_FLOW",
+          "blankCount": 0,
+          "boCount": 4,
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true
+        },
+        "distractorBlueprint": [
+          "오답1: 학생 A의 의사 결정 유형에 대한 설명이 과도하게 부정적이며, 실제 의사 결정 과정의 복잡성을 반영하지 않는다.",
+          "오답2: 학생 B의 의사 결정 유형을 단순히 의존적이라고만 설명하여, 그가 부모님의 영향을 받는 맥락을 간과한다.",
+          "오답3: '실행 단계'에 대한 설명이 잘못되어, 학생 A와 B의 현재 상태를 정확히 반영하지 않는다.",
+          "오답4: 학생 A의 의사 결정 유형이 학생 B보다 주변 사람의 영향을 덜 받는다는 주장이 사실과 다르며, 두 학생의 의사 결정 과정의 차이를 잘못 해석하고 있다."
+        ],
+        "difficultyDriver": "학생들의 의사 결정 과정에 대한 이해와 하렌의 이론 적용 능력, 그리고 두 학생의 사례를 비교하는 복잡성.",
+        "stemPattern": "다음은 진로 의사 결정에 관한 교사와 학생들의 대화이다. 물음에 답하시오."
+      }
+    }
+  ]
+}

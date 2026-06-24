@@ -300,6 +300,22 @@ export class StudyService {
     return JSON.parse(jsonMatch[1]);
   }
 
+  getSummationV2Cards(subjectSlug: string, unitNumber: number): any {
+    const folder = this.SUBJECT_FOLDER_MAP[subjectSlug];
+    if (!folder) {
+      throw new NotFoundException(`지원하지 않는 과목입니다: ${subjectSlug}`);
+    }
+    const v2Path = path.join(
+      this.getTextbookBase(),
+      `${folder}_summation_v2`,
+      `${unitNumber}단원.json`,
+    );
+    if (fs.existsSync(v2Path)) {
+      return JSON.parse(fs.readFileSync(v2Path, 'utf-8'));
+    }
+    return this.getSummationCards(subjectSlug, unitNumber);
+  }
+
   async updateSummationCards(
     subjectSlug: string,
     unitNumber: number,
@@ -949,6 +965,80 @@ export class StudyService {
     return JSON.parse(fs.readFileSync(mindmapPath, 'utf-8'));
   }
 
+  private transformedCache: Map<number, any> = new Map();
+
+  private findBestTransformedMatch(
+    transformedData: any,
+    cardConceptName: string,
+  ): any | null {
+    if (!transformedData?.questions?.length) return null;
+
+    // 1. exact match
+    let match = transformedData.questions.find(
+      (q: any) => q.conceptName === cardConceptName,
+    );
+    if (match) return match;
+
+    // 2. contains / substring match
+    match = transformedData.questions.find(
+      (q: any) =>
+        q.conceptName.includes(cardConceptName) ||
+        cardConceptName.includes(q.conceptName),
+    );
+    if (match) return match;
+
+    // 3. longest common substring ratio
+    const clean = (s: string) => s.replace(/[^가-힣]/g, '');
+    const a = clean(cardConceptName);
+    let bestScore = 0;
+    let bestMatch: any = null;
+
+    for (const q of transformedData.questions) {
+      const b = clean(q.conceptName);
+      let maxLen = 0;
+      for (let i = 0; i < a.length; i++) {
+        for (let j = 0; j < b.length; j++) {
+          let k = 0;
+          while (i + k < a.length && j + k < b.length && a[i + k] === b[j + k])
+            k++;
+          if (k > maxLen) maxLen = k;
+        }
+      }
+      const score = maxLen / Math.max(a.length, b.length);
+      if (score > bestScore) {
+        bestScore = score;
+        bestMatch = q;
+      }
+    }
+
+    return bestScore >= 0.2 ? bestMatch : null;
+  }
+
+  private loadTransformedQuestions(unit: number, subjectSlug: string): any {
+    const cacheKey = unit;
+    if (this.transformedCache.has(cacheKey)) {
+      return this.transformedCache.get(cacheKey)!;
+    }
+    const filePath = path.join(
+      this.getTextbookBase(),
+      'transformed-questions',
+      subjectSlug === 'success' ? 'success' : subjectSlug,
+      `${unit}단원.json`,
+    );
+    if (!fs.existsSync(filePath)) {
+      this.transformedCache.set(cacheKey, null);
+      return null;
+    }
+    try {
+      const raw = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+      this.transformedCache.set(cacheKey, raw);
+      return raw;
+    } catch {
+      this.transformedCache.set(cacheKey, null);
+      return null;
+    }
+  }
+
   private transformCardsToFrequency(raw: any): any {
     const concepts = (raw.concepts || []).map((c: any) => {
       const realQ = c.realQuestion?.questionData;
@@ -957,6 +1047,14 @@ export class StudyService {
       const keyPoints = c.card?.keyPoints || [];
       const caution = c.caution || '';
       const conceptUsage = c.realQuestion?.conceptUsage || '';
+
+      // Try to load transformed question (저작권 안전 변형)
+      const unitNum = raw.unit ?? 0;
+      const subjectSlug = raw.subjectSlug ?? 'success';
+      const transformedData = this.loadTransformedQuestions(unitNum, subjectSlug);
+      const transformedEntry = this.findBestTransformedMatch(transformedData, c.name);
+      const tq = transformedEntry?.sampleQuestion;
+      const tqV2 = transformedEntry?.conceptHighlightV2;
 
       const conceptContentParts: string[] = [];
       if (definition) conceptContentParts.push(`## 개념 정의\n${definition}`);
@@ -999,11 +1097,30 @@ export class StudyService {
         frequency: c.frequency,
         sources: c.sources || [],
         questionFormats: [],
-        description: definition,
+         description: c.card?.enrichedDefinition || definition,
         keyPoints,
         examTips: caution ? [caution] : [],
         conceptContent: conceptContentParts.join('\n\n'),
-        sampleQuestion: realQ
+        sampleQuestion: tq
+          ? {
+              metadata: {
+                source_exam: 'GAP 유사 변형문제',
+                target_concept: c.name,
+                item_type: '실전 모의고사',
+                recommended_template: tq.metadata?.recommended_template ?? undefined,
+              },
+              render_ready: tq.render_ready ?? {
+                question_stem: '',
+                stimulus_data: null,
+                options_list: [],
+              },
+              combo_block: tq.combo_block ?? null,
+              correct_answer: typeof tq.correct_answer === 'number' ? tq.correct_answer : this.parseCorrectAnswer(tq.correct_answer),
+              questionNumber: null,
+              questionSource: 'GAP 유사 변형문제',
+              rawStimulus: '',
+            }
+          : realQ
           ? {
               metadata: realQ.metadata || {
                 source_exam: realQ.source_exam || '',
@@ -1025,6 +1142,7 @@ export class StudyService {
               correct_answer: this.parseCorrectAnswer(realQ.correct_answer ?? realQ.answer),
               questionNumber: realQ.number || realQ.metadata?.question_number || null,
               questionSource: realQ.questionSource || realQ.source_exam || '',
+              rawStimulus: realQ.stimulus ?? '',
             }
           : (c.quiz?.[0]
           ? {
@@ -1059,8 +1177,8 @@ export class StudyService {
               markedStimulus: '',
             }
           : undefined,
-        conceptHighlight: c.realQuestion?.conceptHighlight || { inStimulus: [], inOptions: [], reason: '' },
-              conceptHighlightV2: c.realQuestion?.conceptHighlightV2 || null,
+        conceptHighlight: tqV2?.optionAnalysis ? { inStimulus: tqV2.stimulusClues?.map((s: any) => s.quote) || [], inOptions: [], reason: tqV2.takeaway || '' } : (c.realQuestion?.conceptHighlight || { inStimulus: [], inOptions: [], reason: '' }),
+              conceptHighlightV2: tqV2 || c.realQuestion?.conceptHighlightV2 || null,
       };
     });
 
@@ -1109,4 +1227,126 @@ export class StudyService {
     }
     return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
   }
+
+  // ============================================================
+  // 이미지 문제 검색: source_exam + number로 기존 문제 매칭
+  // ============================================================
+  findQuestionBySourceAndNumber(
+    sourceExam: string | null,
+    number: number | null,
+  ): any | null {
+    if (!sourceExam || !number) return null;
+    const folders = ['success_cards_moi', 'kongil_cards_moi'];
+    for (const folder of folders) {
+      const base = path.join(this.getTextbookBase(), folder);
+      if (!fs.existsSync(base)) continue;
+      const files = fs.readdirSync(base).filter(f => /^\d+단원\.json$/.test(f));
+      for (const file of files) {
+        try {
+          const d = JSON.parse(fs.readFileSync(path.join(base, file), 'utf-8'));
+          for (const concept of d.concepts ?? []) {
+            const qd = concept.realQuestion?.questionData;
+            if (!qd) continue;
+            const qSourceExam: string = qd.source_exam ?? '';
+            const qNumber: number = qd.number ?? 0;
+            if (
+              qNumber === number &&
+              (qSourceExam === sourceExam ||
+                qSourceExam.includes(sourceExam) ||
+                sourceExam.includes(qSourceExam))
+            ) {
+              return {
+                conceptName: concept.name,
+                unitNumber: parseInt(file.replace('단원.json', ''), 10),
+                questionData: qd,
+                conceptHighlightV2: concept.realQuestion?.conceptHighlightV2 ?? null,
+              };
+            }
+          }
+        } catch { continue; }
+      }
+    }
+    return null;
+  }
+
+  // ============================================================
+  // 유사 문제 검색: 개념명 기준으로 cards_moi에서 검색
+  // ============================================================
+  findSimilarByConceptNames(
+    conceptNames: string[],
+    limit = 5,
+  ): any[] {
+    if (!conceptNames || conceptNames.length === 0) return [];
+    const results: any[] = [];
+    const folders = ['success_cards_moi', 'kongil_cards_moi'];
+    for (const folder of folders) {
+      const base = path.join(this.getTextbookBase(), folder);
+      if (!fs.existsSync(base)) continue;
+      const files = fs.readdirSync(base).filter(f => /^\d+단원\.json$/.test(f));
+      for (const file of files) {
+        if (results.length >= limit) break;
+        try {
+          const d = JSON.parse(fs.readFileSync(path.join(base, file), 'utf-8'));
+          for (const concept of d.concepts ?? []) {
+            if (results.length >= limit) break;
+            const matchedNames = conceptNames.filter(name => {
+              const nameWords = name.split(/\s+/).filter(w => w.length > 1);
+              const conceptWords = concept.name.split(/\s+/).filter(w => w.length > 1);
+              
+              // 1. 완전 일치 또는 부분 문자열 일치
+              if (concept.name.includes(name) || name.includes(concept.name)) return true;
+              
+              // 2. 단어 단위 교집합 확인
+              return nameWords.some(nw => concept.name.includes(nw)) || 
+                     conceptWords.some(cw => name.includes(cw));
+            });
+            if (matchedNames.length === 0) continue;
+            const qd = concept.realQuestion?.questionData;
+            if (!qd?.render_ready) continue;
+            results.push({
+              conceptName: concept.name,
+              matchedConcepts: matchedNames,
+              unitNumber: parseInt(file.replace('단원.json', ''), 10),
+              sourceExam: qd.source_exam ?? '',
+              questionNumber: qd.number ?? null,
+              question: {
+                metadata: qd.metadata ?? {},
+                render_ready: qd.render_ready,
+                combo_block: qd.combo_block ?? buildComboBlock(qd.box_items),
+                correct_answer: parseAnswer(qd.correct_answer ?? qd.answer),
+                rawStimulus: qd.stimulus ?? '',
+              },
+              conceptHighlightV2: concept.realQuestion?.conceptHighlightV2 ?? null,
+            });
+          }
+        } catch { continue; }
+      }
+    }
+    return results;
+  }
+}
+
+function buildComboBlock(boxItems: string[] | undefined): { title: string; items: { key: string; text: string }[] } | null {
+  if (!boxItems || boxItems.length === 0) return null;
+  const markers = ['ㄱ', 'ㄴ', 'ㄷ', 'ㄹ'];
+  return {
+    title: '보기',
+    items: boxItems.map((item, i) => ({
+      key: markers[i] ?? `${i + 1}`,
+      text: item,
+    })),
+  };
+}
+
+function parseAnswer(ans: string | number | undefined): number | null {
+  if (ans === undefined || ans === null) return null;
+  if (typeof ans === 'number') return ans;
+  const trimmed = ans.trim();
+  // Handle "①", "②" etc.
+  const circled = trimmed.match(/[①-⑤]/);
+  if (circled) return '①②③④⑤'.indexOf(circled[0]) + 1;
+  // Handle plain number string
+  const num = parseInt(trimmed, 10);
+  if (!isNaN(num) && num >= 1 && num <= 5) return num;
+  return null;
 }

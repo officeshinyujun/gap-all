@@ -3,7 +3,7 @@
 import React from 'react';
 import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
-import { QuestionRenderer } from '@/components/exam/QuestionStem/QuestionRenderer';
+import { QuestionRenderer } from '@shared/ui/QuestionStem/QuestionRenderer';
 import type { ExamItem } from '@/lib/examApi';
 
 interface ExamPdfCaptureProps {

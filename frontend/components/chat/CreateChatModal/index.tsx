@@ -1,12 +1,12 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { VStack } from '@/components/general/VStack';
-import { HStack } from '@/components/general/HStack';
-import { Select } from '@/components/general/Select';
-import Typo from '@/components/general/Typo';
-import { SPACING } from '@/constants/spacing';
-import { API_BASE_URL } from '@/lib/auth';
+import { VStack } from '@shared/ui/VStack';
+import { HStack } from '@shared/ui/HStack';
+import { Select } from '@shared/ui/Select';
+import Typo from '@shared/ui/Typo';
+import { SPACING } from '@shared/constants/spacing';
+import { API_BASE_URL } from '@shared/lib/auth';
 import s from './style.module.scss';
 
 interface Subject {

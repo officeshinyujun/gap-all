@@ -1,0 +1,626 @@
+{
+  "unit": 17,
+  "unitTitle": "고용 보험과 사회 안전망",
+  "subject": "success",
+  "totalQuestions": 7,
+  "questions": [
+    {
+      "conceptName": "고용 서비스의 의미와 중요성",
+      "originalSource": "2025학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "고용 서비스의 의미와 중요성",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL..."
+        },
+        "render_ready": {
+          "question_stem": "다음 고용지원 서비스 관련 게시판의 (가)에 들어갈 수 있는 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은? [3점]",
+          "stimulus_data": {
+            "forum_name": "고용지원 서비스 Q&A 게시판",
+            "main_post": {
+              "author": "익명",
+              "title": "구직 지원 조건 문의",
+              "content": "저는 28세이며, 2023년 3월 1일 첫 직장인 △△정보기술(주)에 입사하여 주 5일 40시간, 결근 없이 근무하였으나 2024년 5월 15일에 회사가 경영난으로 폐업하여 일을 그만두게 되었습니다. 이후 직무 향상을 위해 자비로 온라인 강의를 수강하고 있으며, 현재 재취업을 준비 중입니다. 고용지원 서비스에 대해 알아보고 있는데, 구직 지원 조건과 지원 가능 여부가 궁금합니다.",
+              "timestamp": "2024-09-01"
+            },
+            "comments": []
+          },
+          "options_list": [
+            "현재 구직 지원을 신청하면 실업이 인정된 날부터 지원금을 받을 수 있습니다.",
+            "2024년 5월 15일의 이직은 구직 지원 자격에 영향을 미치지 않는 정당한 이직 사유입니다.",
+            "이직일 이전 18개월 동안의 보험 가입 기간이 합산하여 180일 이상이어야 하는 구직 지원 요건을 충족합니다."
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 4,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "고용지원 서비스에 대해 알아보고 있는데",
+            "why": "구직자의 재취업 지원을 위해 고용 서비스의 중요성을 강조하기 위함."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "O",
+            "reasoning": "실업 인정 후 지원금 지급은 고용지원 서비스의 기본 원칙에 부합."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "O",
+            "reasoning": "정당한 이직 사유는 구직 지원 자격에 영향을 미치지 않음."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "O",
+            "reasoning": "보험 가입 기간 요건을 충족함으로써 지원 자격을 명확히 함."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "제공된 정보를 바탕으로 각 보기의 적합성을 평가한다."
+          },
+          {
+            "step": 2,
+            "action": "정답이 포함된 보기 조합을 선택한다."
+          }
+        ],
+        "takeaway": "고용 서비스의 이해는 구직자의 권리와 지원을 받을 수 있는 조건을 명확히 하는 데 중요하다."
+      }
+    },
+    {
+      "conceptName": "고용 서비스의 유형",
+      "originalSource": "2022학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "고용 서비스의 유형",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL..."
+        },
+        "render_ready": {
+          "question_stem": "다음 사례 분석을 통해 A씨와 B씨가 신청한 보험의 적합성을 판단할 때 옳은 것은 무엇인가? [3점]",
+          "stimulus_data": {
+            "doc_type": "사례 분석 보고서",
+            "header_info": {
+              "title": "사례 분석 보고서",
+              "date": "",
+              "author": ""
+            },
+            "paragraphs": [
+              {
+                "sub_title": "3학년 1반 이름",
+                "content": "000"
+              },
+              {
+                "sub_title": "1. 보험 적용 가능 여부에 대한 사례 분석",
+                "content": ""
+              },
+              {
+                "sub_title": "1) **보험 신청 사례**",
+                "content": "자영업자 A씨는 사업장에서의 법적 문제로 인해 영업이 중단되었다. 이를 계기로 A씨는 생계 유지의 필요성으로 인해 실업 급여를 신청하였다."
+              },
+              {
+                "sub_title": "2) **보험 신청 사례**",
+                "content": "레스토랑에서 일하는 조리사 B씨는 조리 도중 사고로 부상을 입어 병원 치료를 받았다. 이 사건은 산업 재해로 인정받아 B씨는 해당 보험 급여를 신청하였다."
+              }
+            ],
+            "footnotes": []
+          },
+          "options_list": [
+            "A씨는 실업 급여와 재취업 지원금을 받을 수 있다.",
+            "B씨는 근로복지공단을 통해 치료비를 청구할 수 있다.",
+            "A씨의 사례는 고용보험법을, B씨의 사례는 산업재해보상보험법을 적용받는다.",
+            "A씨와 B씨가 신청한 보험은 저축형 보험의 성격을 지닌다.",
+            "A씨와 B씨가 청구한 보험 급여는 타인에게 양도할 수 없다."
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 1,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "A씨는 사업장에서의 법적 문제로 인해 영업이 중단되었다.",
+            "why": "이 사건은 A씨의 실업 급여 신청의 정당성을 보여준다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "O",
+            "reasoning": "A씨는 실업 급여를 받을 자격이 있으며, 재취업 지원금도 신청 가능하다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "O",
+            "reasoning": "B씨는 산업 재해로 인정받아 치료비를 청구할 수 있다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "X",
+            "reasoning": "A씨의 사례는 고용보험법을 적용받고, B씨는 산업재해보상보험법을 적용받는다."
+          },
+          {
+            "optionNum": 4,
+            "verdict": "X",
+            "reasoning": "신청한 보험은 저축형 보험의 성격을 갖지 않는다."
+          },
+          {
+            "optionNum": 5,
+            "verdict": "X",
+            "reasoning": "보험 급여는 양도가 불가능하다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "사례를 분석하여 각 개인의 상황을 이해한다."
+          },
+          {
+            "step": 2,
+            "action": "각 보험의 적용 범위를 확인한다."
+          },
+          {
+            "step": 3,
+            "action": "정확한 선택지를 고른다."
+          }
+        ],
+        "takeaway": "보험 신청의 적합성을 분석하기 위해서는 각 개인의 상황과 보험의 적용 범위를 명확히 이해해야 한다."
+      }
+    },
+    {
+      "conceptName": "고용보험 제도의 목적과 적용 대상",
+      "originalSource": "2024학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "고용보험 제도의 목적과 적용 대상",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL-001"
+        },
+        "render_ready": {
+          "question_stem": "다음은 고용보험에 대한 질의응답 내용이다. (가)에 들어갈 내용으로 적절한 것만을 <보기>에서 선택하시오. [3점]",
+          "stimulus_data": {
+            "forum_name": "Q&A 게시판",
+            "main_post": {
+              "author": "직장인",
+              "title": "출산휴가 및 육아휴직에 대한 질문",
+              "content": "안녕하세요? 저는 2023년 4월에 출산 예정인 직장인입니다. 저는 2022년 9월 1일에 정규직으로 제조업체에 취업하여 결근 없이 근무하고 있습니다. 우리 회사는 상시 근로자가 10명이며, 4대 사회보험료를 모두 납부하고 있습니다. 출산휴가를 사용하고 싶은데, 고용보험에서 지원하는 출산휴가 급여를 받을 수 있을까요? 또한 출산휴가 종료 후 육아휴직을 사용할 수 있는지 궁금합니다.",
+              "timestamp": "2023-02-15"
+            },
+            "comments": []
+          },
+          "options_list": [
+            "'출산휴가'와 '육아휴직'은 함께 사용할 수 없습니다.",
+            "'출산휴가' 시작일 기준으로 피보험 단위 기간이 180일 이하이므로 급여를 받을 수 없습니다.",
+            "'육아휴직' 시작일 기준으로 피보험 단위 기간이 180일 이상이면 급여를 받을 수 있습니다."
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 2,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 1,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "'출산휴가'와 '육아휴직'은 함께 사용할 수 없습니다.",
+            "why": "고용보험의 정책과 관련된 사항으로, 법적 제한이 있음."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "O",
+            "reasoning": "'출산휴가'와 '육아휴직'은 동시에 사용할 수 없기 때문에 맞는 내용."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "X",
+            "reasoning": "'출산휴가' 급여 조건에 대해 잘못된 해석."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "O",
+            "reasoning": "'육아휴직'의 급여 수령 조건이 정확하게 설명됨."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "제시된 질문과 보기를 검토한다."
+          },
+          {
+            "step": 2,
+            "action": "각 보기가 고용보험법에 부합하는지 분석한다."
+          },
+          {
+            "step": 3,
+            "action": "정답을 선택한다."
+          }
+        ],
+        "takeaway": "고용보험의 목적과 적용 대상에 대한 이해는 필수적이다."
+      }
+    },
+    {
+      "conceptName": "고용보험 제도의 종류별 특징",
+      "originalSource": "2025학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "고용보험 제도의 종류별 특징",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL..."
+        },
+        "render_ready": {
+          "question_stem": "다음은 구직급여에 대한 설명이다. (가)에 해당하는 내용을 <보기>에서 선택하시오. (단, 구직급여 수급자격자에 한함.) [3점]",
+          "stimulus_data": {
+            "doc_type": "구직급여 안내서",
+            "header_info": {
+              "title": "구직급여의 목적 및 종류",
+              "date": "",
+              "author": ""
+            },
+            "paragraphs": [
+              {
+                "sub_title": "구직급여의 목적",
+                "content": "실직 후 구직자의 생활 안정을 지원하기 위해 지급된다."
+              },
+              {
+                "sub_title": "구직급여의 종류",
+                "content": "구직급여는 기본급여와 (가)로 나뉜다. 기본급여는 소정의 지급 기간이 정해져 있으며, 특정 조건에 따라 연장 가능하다. (가)는 구직자의 신속한 재취업을 장려하기 위한 제도이다."
+              }
+            ],
+            "footnotes": []
+          },
+          "options_list": [
+            "직업안정기관의 장이 필요하다고 판단하는 경우, 주거 이전에 필요한 경비를 지원한다.",
+            "직업안정기관의 소개로 원거리 직장에 구직활동을 하는 경우, 교통비 및 숙박비를 지원한다.",
+            "취업이 어려운 자에게는 소정급여일수를 초과하여 추가 금액을 지급한다."
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 3,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "실직 후 구직자의 생활 안정을 지원하기 위해 지급된다.",
+            "why": "구직급여의 목적을 이해하는 데 도움을 주기 위함."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "O",
+            "reasoning": "주거 이전 경비 지원은 구직자의 재취업을 돕기 위한 조치로 적절하다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "O",
+            "reasoning": "원거리 직장 구직 시 교통비 및 숙박비 지원은 구직 지원의 일환으로 적합하다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "O",
+            "reasoning": "취업이 어려운 자에게 추가 금액 지급은 해당 제도의 취지에 맞다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "구직급여의 목적과 종류를 이해하고, 주어진 보기를 분석한다."
+          },
+          {
+            "step": 2,
+            "action": "각 보기가 (가)의 정의에 부합하는지 판단한다."
+          }
+        ],
+        "takeaway": "구직급여의 목적 및 종류에 대해 명확히 이해하고, 관련 규정을 숙지해야 한다."
+      }
+    },
+    {
+      "conceptName": "고용보험 신청 및 가입 절차",
+      "originalSource": "2023학년도 대학수학능력시험 성공적인 직업생활",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "고용보험 신청 및 가입 절차",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL..."
+        },
+        "render_ready": {
+          "question_stem": "다음 사례의 C, D씨에게 적용될 수 있는 사회 보험에 대한 내용으로 가장 적절한 것은? [3점]",
+          "stimulus_data": {
+            "headers": [
+              {
+                "id": "h1",
+                "label": "항목"
+              },
+              {
+                "id": "h2",
+                "label": "C씨"
+              },
+              {
+                "id": "h3",
+                "label": "D씨"
+              }
+            ],
+            "rows": [
+              {
+                "id": "1",
+                "cells": [
+                  "근무 기간",
+                  "4년 2개월",
+                  "6년 3개월"
+                ]
+              },
+              {
+                "id": "2",
+                "cells": [
+                  "나이",
+                  "28세",
+                  "45세"
+                ]
+              },
+              {
+                "id": "3",
+                "cells": [
+                  "퇴직 사유",
+                  "자발적 퇴직",
+                  "실직 후 가족 돌봄"
+                ]
+              },
+              {
+                "id": "4",
+                "cells": [
+                  "구직급여 수령 여부",
+                  "신청 예정",
+                  "수령 중"
+                ]
+              },
+              {
+                "id": "5",
+                "cells": [
+                  "추가 수당",
+                  "재취업 희망",
+                  "사회 보험 혜택 유지 희망"
+                ]
+              }
+            ]
+          },
+          "options_list": [
+            "C씨는 재취업을 위해 구직급여를 신청할 수 있다.",
+            "C씨가 받고자 하는 사회 보험은 상시 근로자가 5인 이상인 사업장에만 적용된다.",
+            "D씨가 받고자 하는 사회 보험에는 직업훈련 수당이 포함된다.",
+            "D씨가 재취업 전까지 받을 수 있는 구직급여의 소정급여일수는 180일이다.",
+            "C씨와 D씨는 보험 수급자격을 인정받기 위해 관련 서류를 고용노동부에 제출해야 한다."
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 1,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "C씨는 재취업을 위해 구직급여를 신청할 수 있다.",
+            "why": "C씨의 근무 기간과 나이를 고려할 때 구직급여 신청 자격이 있다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "O",
+            "reasoning": "C씨는 구직급여를 신청할 수 있는 조건을 충족하므로 이 선택지가 맞다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "C씨와 D씨의 상황을 분석하여 각각의 수급 가능성을 판단한다."
+          }
+        ],
+        "takeaway": "사회 보험에 대한 이해가 필요하며, 각자의 상황에 맞는 보험을 신청하는 것이 중요하다."
+      }
+    },
+    {
+      "conceptName": "고용보험 실업 급여 신청 절차",
+      "originalSource": "2025학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "고용보험 실업 급여 신청 절차",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL..."
+        },
+        "render_ready": {
+          "question_stem": "다음의 고용보험 관련 기사를 분석한 후, 이를 [(주)○○ 기업 사례]에 적용한 내용으로 옳은 것만을 <보기>에서 고른 것은? [3점]",
+          "stimulus_data": {
+            "headers": [
+              {
+                "id": "h1",
+                "label": "대상자"
+              },
+              {
+                "id": "h2",
+                "label": "이직 연령"
+              },
+              {
+                "id": "h3",
+                "label": "이직 전 근무 시간"
+              },
+              {
+                "id": "h4",
+                "label": "입사 연령"
+              },
+              {
+                "id": "h5",
+                "label": "이직 사유"
+              },
+              {
+                "id": "h6",
+                "label": "실업 신고 현황"
+              }
+            ],
+            "rows": [
+              {
+                "id": "1",
+                "cells": [
+                  "C",
+                  "70세",
+                  "주당 25시간",
+                  "65세",
+                  "경영진의 결정으로 인한 구조조정",
+                  "의료적 이유로 3개월간 취업 불가"
+                ]
+              },
+              {
+                "id": "2",
+                "cells": [
+                  "D",
+                  "65세",
+                  "주당 35시간",
+                  "30세",
+                  "자신의 사업을 시작하기 위해 퇴사",
+                  "요리 강습을 듣기 위해 준비 중"
+                ]
+              }
+            ],
+            "selection_chips": []
+          },
+          "options_list": [
+            "고용보험 보험료는 사업주와 근로자가 동등하게 부담한다.",
+            "C씨의 이직 사유는 '정당한 해고'에 해당한다.",
+            "C씨가 구직급여를 받을 수 있는 자격이 인정될 경우, 상병급여를 받을 수 있다.",
+            "D씨가 요리 강습을 받는 경우, 훈련 연장급여를 받을 수 있다."
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 1,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "고용보험 보험료는 사업주와 근로자가 동등하게 부담한다.",
+            "why": "고용보험의 기본 원칙을 반영하여 정확한 사실을 나타냄."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "O",
+            "reasoning": "정확한 고용보험의 부담 구조를 설명하고 있다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "주어진 조건을 바탕으로 각 항목의 정확성을 판단한다."
+          }
+        ],
+        "takeaway": "고용보험 실업 급여 신청 절차와 관련된 개념을 명확히 이해하고 적용할 수 있어야 한다."
+      }
+    },
+    {
+      "conceptName": "실업 급여의 구분 및 구직 급여 일수",
+      "originalSource": "2023학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "실업 급여의 구분 및 구직 급여 일수",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL..."
+        },
+        "render_ready": {
+          "question_stem": "다음 사례에서 C, D씨에게 적용될 사회 보험에 대해 분석한 내용으로 적절한 것은? (단, C, D씨는 장애인에 해당하지 않는다.)",
+          "stimulus_data": {
+            "case_profile": {
+              "name": "C씨와 D씨",
+              "context": "4대 사회 보험에 가입한 상태로 각각 12년, 8년 동안 성실하게 근무한 회사 직원"
+            },
+            "narrative": "C씨와 D씨는 4대 사회 보험에 가입한 상태로 각각 12년, 8년 동안 성실하게 근무한 회사 직원이다. 그러나 최근 경제 상황 악화로 인해 회사가 구조조정을 단행하며, 두 사람 모두 회사의 권유에 따라 비자발적으로 2022년 5월 1일 퇴사하였다. C씨는 퇴사 시점에서 만 40세, D씨는 만 50세였다. 이들은 퇴사 후 2022년 5월 8일 해당 웹사이트에 구직 등록을 하고, 실업 급여를 신청하여 수령하였다. 이후 C씨는 2022년 7월 15일에, D씨는 2022년 8월 30일에 새로운 직장에 재취업하게 되었다."
+          },
+          "options_list": [
+            "C씨는 특별 연장 급여를 받을 수 있다.",
+            "D씨는 재취업 후에도 훈련 연장 급여를 받을 수 있다.",
+            "C씨는 조기 재취업 수당을 받을 수 있다.",
+            "D씨는 근로복지공단에 직접 방문하여 실업 급여를 신청하였다.",
+            "C씨와 D씨가 재취업하지 않았을 때 수령할 수 있는 구직 급여의 소정 급여 일수는 다르다."
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 5,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "C씨와 D씨는 4대 사회 보험에 가입한 상태로 각각 12년, 8년 동안 성실하게 근무한 회사 직원이다.",
+            "why": "사회 보험 가입 기간과 근무 성실도가 실업 급여 수령 자격에 영향을 미친다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "X",
+            "reasoning": "C씨의 나이를 고려할 때 특별 연장 급여를 받을 수 없다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "X",
+            "reasoning": "D씨는 훈련 연장 급여를 신청할 수 있는 조건이 만족되지 않는다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "O",
+            "reasoning": "C씨는 조기 재취업 수당을 조건에 따라 받을 수 있다."
+          },
+          {
+            "optionNum": 4,
+            "verdict": "X",
+            "reasoning": "D씨는 온라인으로 실업 급여를 신청했을 가능성이 크다."
+          },
+          {
+            "optionNum": 5,
+            "verdict": "O",
+            "reasoning": "C씨와 D씨의 재취업 시점에 따라 구직 급여의 소정 급여 일수가 다를 수 있다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "C씨와 D씨의 퇴사 시점과 나이를 비교하여 실업 급여 수령 자격을 검토한다."
+          },
+          {
+            "step": 2,
+            "action": "각각의 구직 급여 수령 조건을 확인하고, 재취업 여부에 따른 소정 급여 일수를 분석한다."
+          }
+        ],
+        "takeaway": "실업 급여와 관련된 조건을 이해하고, 각 사례에 맞는 규정을 적용하는 것이 중요하다."
+      }
+    }
+  ]
+}

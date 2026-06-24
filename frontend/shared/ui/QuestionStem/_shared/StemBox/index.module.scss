@@ -1,0 +1,18 @@
+@import '@/styles/variables.scss';
+
+.stemBox {
+  background-color: $background-primary;
+  border-radius: 0;
+  padding: $spacing-16;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+}
+
+.default {
+  border: none;
+}
+
+.bordered {
+  border: none;
+}

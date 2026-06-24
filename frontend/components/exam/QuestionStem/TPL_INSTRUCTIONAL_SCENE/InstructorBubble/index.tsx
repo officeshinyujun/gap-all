@@ -1,7 +1,7 @@
 import React from 'react';
 import cs from 'classnames';
-import { HStack } from '@/components/general/HStack';
-import { VStack } from '@/components/general/VStack';
+import { HStack } from '@shared/ui/HStack';
+import { VStack } from '@shared/ui/VStack';
 import s from './index.module.scss';
 
 export interface InstructorBubbleProps {

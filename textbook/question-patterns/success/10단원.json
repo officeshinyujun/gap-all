@@ -1,0 +1,255 @@
+{
+  "unit": 10,
+  "unitTitle": "국가직무능력표준(NCS)과 직무 수행",
+  "subject": "success",
+  "totalQuestions": 9,
+  "patterns": [
+    {
+      "conceptId": "success_10_01",
+      "targetConcept": "전공별 직무 수행 능력 탐색",
+      "frequency": 15,
+      "sourceExam": "2025학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 2,
+      "pattern": {
+        "assessmentIntent": "이 문제는 학생이 국가직무능력표준(NCS) 경력 개발 로드맵을 이해하고, 이를 바탕으로 직무 수행 능력에 대한 올바른 판단을 내릴 수 있는지를 평가한다.",
+        "judgmentAxis": "자료 해석 및 개념 변별",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_FORMAL_DOCUMENT",
+          "blankCount": 3,
+          "boCount": 5,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: '직무는 '03. 외식경영'이다.' - NCS 경력 개발 로드맵의 내용을 잘못 해석하여 직무를 특정하는 오류.",
+          "오답2: 'A씨는 매장운영 선임자가 되기 위해 'NCS 학습모듈'을 활용할 계획이다.' - 경력 개발 로드맵의 진로 계획을 잘못 이해하여 잘못된 진로 선택을 제시.",
+          "오답3: '(가)는 직능 유형이 유사한 분야를 25개로 구분한 것이다.' - NCS 분류체계의 내용을 잘못 해석하여 잘못된 정보를 제공.",
+          "오답4: '(다)는 (나)의 성취 여부 평가 방법을 제시한 것이다.' - 능력 단위의 평가 방법에 대한 오해로 인해 잘못된 선택.",
+          "오답5: '(나)는 능력단위를 구성하는 핵심 하위 능력을 기술한 것이다.' - 능력 단위의 정의를 잘못 이해하여 잘못된 설명을 제시."
+        ],
+        "difficultyDriver": "정보의 복잡성과 다중 조건을 이해하고, 각 요소 간의 관계를 명확히 파악해야 하는 점에서 난이도가 결정된다.",
+        "stemPattern": "다음은 국가직무능력표준(NCS) 경력 개발 로드맵의 일부이다. 이를 통해 알 수 있는 내용으로 옳은 것은?"
+      }
+    },
+    {
+      "conceptId": "success_10_02",
+      "targetConcept": "국가직무능력표준(NCS) 탐색",
+      "frequency": 18,
+      "sourceExam": "2025학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 2,
+      "pattern": {
+        "assessmentIntent": "학생 A의 진로 계획서를 통해 국가직무능력표준(NCS) 관련 내용을 이해하고, 이를 바탕으로 올바른 정보를 선택할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "자료 해석 및 개념 변별",
+        "skeletonStructure": {
+          "itemFamily": "truth_combination",
+          "stimulusTPL": "TPL_FORMAL_DOCUMENT",
+          "blankCount": 0,
+          "boCount": 4,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: '02. 농산식품유통'은 직무를 구성하는 기본 단위이다. - NCS의 분류 체계에서 소분류와 세분류의 개념을 혼동하여 잘못된 정보를 제공.",
+          "오답2: '21. 식품가공'은 NCS 분류 체계 중 대분류에 해당한다. - 사실이지만, 이 문항의 요구사항과는 관련이 없으므로 오답으로 작용.",
+          "오답3: 직업능력개발훈련기준의 '수준'에 나타난 숫자가 낮을수록 높은 숙련도와 역량이 요구된다. - NCS의 수준 개념을 잘못 해석하여 혼란을 초래.",
+          "오답4: 학생 A는 NCS 능력단위를 교육훈련에서 학습할 수 있도록 구성한 '교수·학습 자료'를 활용할 계획이다. - 학생 A의 계획과 관련된 정보이나, NCS 활용 계획의 구체성을 결여하여 오답으로 작용."
+        ],
+        "difficultyDriver": "NCS의 분류 체계에 대한 이해와 관련된 정보의 정확한 해석이 필요하여, 개념의 혼동과 정보의 분산이 난이도를 높인다.",
+        "stemPattern": "다음은 학생 A의 [진로 계획서] 일부이다. 이를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 고른 것은?"
+      }
+    },
+    {
+      "conceptId": "success_10_03",
+      "targetConcept": "NCS 대분류(24개)",
+      "frequency": 18,
+      "sourceExam": "2023학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 4,
+      "pattern": {
+        "assessmentIntent": "이 문제는 학생이 NCS 기반 채용 계획서의 내용을 분석하고, 각 항목의 정의와 관계를 이해하여 적절한 설명을 선택할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "자료 해석 및 개념 변별",
+        "skeletonStructure": {
+          "itemFamily": "combination_judgment",
+          "stimulusTPL": "TPL_FORMAL_DOCUMENT",
+          "blankCount": 0,
+          "boCount": 3,
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true
+        },
+        "distractorBlueprint": [
+          "오답1: '(가)는 NCS 구성 항목 중 '능력단위요소'에 해당한다.' - 이 선택지는 '(가)'의 정의를 정확히 이해하지 못한 경우에 해당하며, 능력단위요소와 비품관리의 관계를 혼동한 것이다.",
+          "오답2: '(나)는 (가)의 성취 여부를 판단하기 위해 개인들이 도달해야 하는 수행 기준을 제시한 것이다.' - 이 선택지는 '(나)'의 정의를 잘못 해석하여, 수행 기준이 아닌 업무 지원의 정의를 잘못 연결한 경우이다.",
+          "오답3: ''수준'의 숫자가 클수록 고수준의 숙련도, 역량을 요구한다.' - 이 선택지는 '수준'의 개념을 잘못 이해하여, 숫자의 크기와 숙련도의 관계를 혼동한 경우이다."
+        ],
+        "difficultyDriver": "정보의 분산과 각 항목 간의 관계를 이해해야 하므로, 학생이 각 항목의 정의를 명확히 알고 있어야 한다.",
+        "stemPattern": "다음은 ○○기업의 국가직무능력표준(NCS) 기반 채용 계획서의 일부이다. 물음에 답하시오."
+      }
+    },
+    {
+      "conceptId": "success_10_04",
+      "targetConcept": "직무 기술서 구성 요소 및 탐색",
+      "frequency": 15,
+      "sourceExam": "2024학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 8,
+      "pattern": {
+        "assessmentIntent": "이 문제는 지원자가 NCS 기반 채용 공고문을 분석하고, 직무 기술서의 구성 요소와 채용 절차에 대한 이해도를 평가한다.",
+        "judgmentAxis": "자료 해석 및 개념 변별",
+        "skeletonStructure": {
+          "itemFamily": "combination_judgment",
+          "stimulusTPL": "TPL_FORMAL_DOCUMENT",
+          "blankCount": 0,
+          "boCount": 4,
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true
+        },
+        "distractorBlueprint": [
+          "오답1: '국가직무능력표준(NCS)의 능력단위 수준을 알 수 있다.' - NCS의 능력단위 수준에 대한 정보는 제공되지 않으며, 채용 공고문에서 직접적으로 언급되지 않음.",
+          "오답2: '서류 전형에서는 직무 관련 역량과 경험을 중심으로 평가한다.' - 서류 전형의 평가 기준이 명확히 제시되지 않았고, NCS 기반 서류 제출이 강조됨.",
+          "오답3: '2차 면접은 '압박 면접'에 해당한다.' - 2차 면접의 형식이 논의 중심으로 진행되며, 압박 면접이라는 설명은 부적절함."
+        ],
+        "difficultyDriver": "정보의 다양성과 채용 절차의 복잡성으로 인해 지원자가 정확한 정보를 추출하고 판단하는 데 어려움이 있음.",
+        "stemPattern": "다음은 [채용 공고문]의 일부이다. 이에 대한 설명으로 적절한 것만을 <보기>에서 고른 것은?"
+      }
+    },
+    {
+      "conceptId": "success_10_05",
+      "targetConcept": "소속 전공 교육과정 탐색",
+      "frequency": 18,
+      "sourceExam": "2022학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 9,
+      "pattern": {
+        "assessmentIntent": "학생이 NCS 기반 채용에 대한 이해도를 평가하고, 직무 기술서의 내용을 바탕으로 관련 정보를 분석하고 판단할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "자료 해석 및 개념 변별",
+        "skeletonStructure": {
+          "itemFamily": "combination_judgment",
+          "stimulusTPL": "TPL_FORMAL_DOCUMENT",
+          "blankCount": 0,
+          "boCount": 3,
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true
+        },
+        "distractorBlueprint": [
+          "오답1: (가) 선택지는 세분류의 능력 단위와 요소를 잘못 해석하여 제시함.",
+          "오답2: (나) 선택지는 대분류의 정의를 일반적인 설명으로 변형하여 혼동을 유도함.",
+          "오답3: (다) 선택지는 채용 분야의 요구 사항을 잘못 이해하여 문서 관리와 관련 없는 내용을 포함함."
+        ],
+        "difficultyDriver": "정보의 정확한 해석과 관련 개념의 변별이 요구되며, 각 선택지의 진위를 판단하기 위한 논리적 사고가 필요하다.",
+        "stemPattern": "다음은 [NCS 기반 채용 직무 기술서]의 일부이다. 이에 대한 설명으로 적절한 것만을 <보기>에서 고른 것은?"
+      }
+    },
+    {
+      "conceptId": "success_10_06",
+      "targetConcept": "직업인 특강 및 체험 탐색",
+      "frequency": 18,
+      "sourceExam": "2022학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 9,
+      "pattern": {
+        "assessmentIntent": "학생이 국가직무능력표준(NCS)의 능력 단위에 대한 이해도를 평가하고, 주어진 자료를 바탕으로 올바른 설명을 선택할 수 있는 능력을 측정한다.",
+        "judgmentAxis": "자료 해석 및 개념 변별",
+        "skeletonStructure": {
+          "itemFamily": "truth_combination",
+          "stimulusTPL": "TPL_COMPARATIVE_MATRIX",
+          "blankCount": 0,
+          "boCount": 3,
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true
+        },
+        "distractorBlueprint": [
+          "오답1: '직무를 구성하는 기본 단위는 '인장 관리하기'이다.' - 이 선택지는 NCS의 정의를 잘못 해석하여 직무 단위를 일반화한 것으로, 실제 정의와 일치하지 않는다.",
+          "오답2: '(가)에 들어갈 내용은 국가직무능력표준(NCS) 분류 체계 중 '세분류'이다.' - 이 선택지는 NCS의 분류 체계에 대한 이해 부족으로, 세분류가 아닌 능력 단위를 잘못 연결한 것이다.",
+          "오답3: '(나)의 항목은 '인장 관리하기' 능력의 성취 여부를 판단하기 위해 개인들이 도달해야 하는 수행의 기준을 제시한 것이다.' - 이 선택지는 수행 기준에 대한 오해로, 실제로는 능력 단위 정의와 관련이 없다."
+        ],
+        "difficultyDriver": "자료의 복잡성과 선택지 간의 유사성으로 인해 학생이 개념을 정확히 이해하고 구별해야 하는 난이도가 높아진다.",
+        "stemPattern": "다음은 국가직무능력표준(NCS)의 능력 단위를 검색한 화면 일부이다. 이에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?"
+      }
+    },
+    {
+      "conceptId": "success_10_07",
+      "targetConcept": "전공별 직무 수행 능력 향상 방법",
+      "frequency": 15,
+      "sourceExam": "2025학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 9,
+      "pattern": {
+        "assessmentIntent": "학생이 NCS(국가직무능력표준)와 관련된 직무 수행 능력 향상 방법을 이해하고, 이를 바탕으로 올바른 정보를 선택할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "자료 해석 및 개념 변별",
+        "skeletonStructure": {
+          "itemFamily": "combination_judgment",
+          "stimulusTPL": "TPL_FORMAL_DOCUMENT",
+          "blankCount": 0,
+          "boCount": 4,
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true
+        },
+        "distractorBlueprint": [
+          "오답1: '(가)는 '06.애완동물미용'이다.' - NCS 분류체계와 관련된 정보가 잘못 해석되어 제시됨.",
+          "오답2: '(나)는 능력단위를 구성하는 핵심 하위 능력을 기술한 것이다.' - NCS의 정의와 개념을 혼동하여 잘못된 설명을 제공.",
+          "오답3: ''24.농림어업'은 직능 유형의 유사성에 따라 대분류로 분류된 24개 중 하나이다.' - NCS의 대분류 개념을 정확히 이해하지 못하고 일반화하여 제시.",
+          "오답4: ''2402010807_18v1 보조견훈련'은 '2402010806_18v1 반려견 예절교육'보다 높은 숙련도와 경력이 요구된다.' - 두 능력단위 간의 관계를 잘못 해석하여 제시."
+        ],
+        "difficultyDriver": "정보의 정확한 해석과 NCS 개념의 이해가 요구되며, 선택지 간의 유사성으로 인해 혼동이 발생할 수 있다.",
+        "stemPattern": "다음은 [학생 A의 진로 조사 활동지]이다. 이를 통해 알 수 있는 NCS에 대한 내용으로 옳은 것만을 <보기>에서 고른 것은?"
+      }
+    },
+    {
+      "conceptId": "success_10_08",
+      "targetConcept": "구직자 취업 역량 강화 프로그램 및 자격증 취득",
+      "frequency": 10,
+      "sourceExam": "2024학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 10,
+      "pattern": {
+        "assessmentIntent": "학생이 NCS의 구성 요소와 NCS 학습모듈 간의 관계를 이해하고, 이를 바탕으로 적절한 설명을 선택할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "비교/대조",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_COMPARATIVE_MATRIX",
+          "blankCount": 0,
+          "boCount": 3,
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: 'NCS 학습모듈은 NCS 능력단위의 '교수·학습 자료'이다.' - NCS의 정의와 학습모듈의 관계를 혼동하여 잘못된 설명을 제공.",
+          "오답2: '(가)는 국가직무능력표준(NCS)의 직무를 구성하는 기본 단위이다.' - (가)의 정의를 정확히 이해하지 못하고, NCS의 기본 단위에 대한 오해를 반영.",
+          "오답3: '(나)는 (가)를 구성하는 중요한 핵심 하위 능력을 기술한 것이다.' - (나)의 역할을 잘못 해석하여 NCS의 구성 요소 간의 관계를 왜곡."
+        ],
+        "difficultyDriver": "NCS의 구성 요소와 학습모듈 간의 관계를 이해하고 비교하는 데 필요한 정보의 복잡성과 개념의 유사성.",
+        "stemPattern": "다음은 'NCS의 구성 요소' 및 'NCS와 NCS 학습모듈의 연결 체계' 일부이다. 이에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?"
+      }
+    },
+    {
+      "conceptId": "success_10_09",
+      "targetConcept": "국민내일배움카드 발급 및 이러닝 활용 방법",
+      "frequency": 18,
+      "sourceExam": "2023학년도 대학수학능력시험 성공적인 직업생활",
+      "questionNumber": 12,
+      "pattern": {
+        "assessmentIntent": "이 문제는 학생이 직무 기술서의 내용을 분석하고, 필요한 지식과 기술을 이해하여 올바른 정보를 선택할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "자료 해석 및 개념 변별",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_FORMAL_DOCUMENT",
+          "blankCount": 0,
+          "boCount": 3,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: '직무를 구성하는 기본단위는 '01. PR'이다.' - 이 선택지는 직무 기술서의 세부 내용을 잘못 해석하여 직무의 기본 단위를 잘못 이해한 경우를 반영한다.",
+          "오답2: ''필요 지식'에 포함된 내용은 능력단위를 구성하는 핵심 하위 능력을 수행하는 데 필요한 지식이다.' - 이 선택지는 필요 지식과 능력 단위의 관계를 혼동하여 잘못된 정보를 제공한다.",
+          "오답3: ''필요 기술'에 의하면 직업기초능력 중 컴퓨터 활용 능력이 요구된다.' - 이 선택지는 필요 기술의 범위를 잘못 해석하여 직업기초능력과의 관계를 왜곡한 경우를 나타낸다."
+        ],
+        "difficultyDriver": "정보의 정확한 해석과 개념 간의 관계를 이해해야 하므로, 다중 조건과 유사 개념 변별이 난이도를 높이는 핵심 요소이다.",
+        "stemPattern": "위 직무 기술서에 대한 분석 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?"
+      }
+    }
+  ]
+}

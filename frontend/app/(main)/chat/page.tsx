@@ -2,12 +2,12 @@
 
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
-import Typo from '@/components/general/Typo';
-import { VStack } from '@/components/general/VStack';
-import { HStack } from '@/components/general/HStack';
+import Typo from '@shared/ui/Typo';
+import { VStack } from '@shared/ui/VStack';
+import { HStack } from '@shared/ui/HStack';
 import { Settings, ArrowUp, Menu, X } from 'lucide-react';
-import { SPACING } from '@/constants/spacing';
-import { API_BASE_URL } from '@/lib/auth';
+import { SPACING } from '@shared/constants/spacing';
+import { API_BASE_URL } from '@shared/lib/auth';
 import { CreateChatModal } from '@/components/chat/CreateChatModal';
 import { ChatWindow } from '@/components/chat/ChatWindow';
 import s from './page.module.scss';

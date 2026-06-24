@@ -1,0 +1,13 @@
+@import '@/styles/variables.scss';
+
+.row {
+  transition: background-color 0.1s;
+}
+
+.even {
+  background-color: $background-primary;
+}
+
+.odd {
+  background-color: $background-secondary;
+}

@@ -1,0 +1,202 @@
+{
+  "unit": 11,
+  "unitTitle": "평생 학습과 경력 개발",
+  "subject": "success",
+  "totalQuestions": 7,
+  "patterns": [
+    {
+      "conceptId": "success_11_01",
+      "targetConcept": "경력 개발의 의미와 필요성",
+      "frequency": 15,
+      "sourceExam": "2023학년도 대학수학능력시험 성공적인 직업생활",
+      "questionNumber": 2,
+      "pattern": {
+        "assessmentIntent": "학생이 평생 학습 제도의 다양한 유형을 이해하고, 주어진 사례에 적합한 제도를 선택할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "빈칸 추론",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_SEQUENTIAL_WORKFLOW",
+          "blankCount": 1,
+          "boCount": 0,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: '사내대학'은 기업 내에서 운영되는 교육 프로그램으로, 평생 학습 제도와는 다소 차이가 있다.",
+          "오답2: '독학 학위제'는 개인이 독학으로 학위를 취득하는 방식으로, 특정 산업체와의 연계가 부족하다.",
+          "오답3: '학점 은행제'는 다양한 학습 경로를 통해 학점을 취득할 수 있는 제도로, 특정 채용 조건과는 관련이 없다.",
+          "오답4: '평생 학습 계좌제'는 개인의 학습 이력을 관리하는 제도로, 채용 조건형 운영 사례와는 직접적인 연관이 없다."
+        ],
+        "difficultyDriver": "학생이 제시된 사례를 이해하고, 각 선택지의 정의와 특징을 비교하여 적합성을 판단해야 하므로, 유사 개념 변별이 난이도를 결정짓는 핵심 요소이다.",
+        "stemPattern": "다음 안내문에서 (가)에 들어갈 평생 학습 제도로 옳은 것은?"
+      }
+    },
+    {
+      "conceptId": "success_11_02",
+      "targetConcept": "직업 세계의 변화",
+      "frequency": 15,
+      "sourceExam": "2023학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 3,
+      "pattern": {
+        "assessmentIntent": "학생들이 직업 세계의 변화에 대한 이해를 바탕으로 평생 학습 제도의 종류를 구별하고, 실무형 인재 양성을 위한 제도의 특징을 파악할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "빈칸 추론",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": null,
+          "blankCount": 1,
+          "boCount": 5,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: '사내대학' - 기업 내에서 운영되는 교육 프로그램으로, 평생 학습 제도와는 다소 다른 개념으로 혼동할 수 있도록 설계됨.",
+          "오답2: '독학 학위제' - 개인이 독학으로 학위를 취득하는 제도로, 실무 경험과의 연계성이 부족하여 오답으로 설정됨.",
+          "오답3: '학점 은행제' - 학점을 쌓아 다양한 교육을 받을 수 있는 제도로, 평생 학습의 개념과는 다르지만 유사한 점을 이용해 혼동을 유도함.",
+          "오답4: '평생학습 계좌제' - 개인의 평생 학습을 지원하는 제도로, 실무형 인재 양성과의 직접적인 연관성이 약해 오답으로 설정됨."
+        ],
+        "difficultyDriver": "정확한 제도의 이해와 실무형 인재 양성의 맥락을 파악해야 하므로, 관련 개념의 유사성과 차별성을 구별하는 난이도가 존재한다.",
+        "stemPattern": "다음 기사에서 (가)에 들어갈 평생 학습 제도로 옳은 것은?"
+      }
+    },
+    {
+      "conceptId": "success_11_03",
+      "targetConcept": "경력 개발의 목적과 단계",
+      "frequency": 15,
+      "sourceExam": "2024학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 4,
+      "pattern": {
+        "assessmentIntent": "학생이 평생 학습 제도의 다양한 유형과 그 특징을 이해하고, 주어진 자료를 바탕으로 적절한 제도를 선택할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "자료 해석 및 개념 변별",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_COMPARATIVE_MATRIX",
+          "blankCount": 0,
+          "boCount": 0,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: '계약학과'는 특정 학과에 대한 설명이 부족하여 혼동을 줄 수 있지만, 실제로는 평생 학습 제도와는 다소 거리가 있다.",
+          "오답2: '사내대학'은 기업 내 교육 시스템을 의미하지만, 평생 학습 제도의 정의와는 맞지 않다.",
+          "오답3: '독학 학위제'는 자율적인 학습을 강조하지만, 주어진 자료와의 연관성이 약하다.",
+          "오답4: '학점 은행제'는 학점 취득 방식에 대한 설명이지만, 평생 학습 제도의 목적과는 다소 차이가 있다."
+        ],
+        "difficultyDriver": "자료의 복잡성과 각 제도의 특징을 이해하고 비교하는 데 필요한 사고 과정의 난이도",
+        "stemPattern": "다음은 [수행 평가 보고서]의 일부이다. 이에 해당하는 평생 학습 제도로 가장 적절한 것은?"
+      }
+    },
+    {
+      "conceptId": "success_11_04",
+      "targetConcept": "경력 개발 경로 탐색",
+      "frequency": 12,
+      "sourceExam": "2025학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 7,
+      "pattern": {
+        "assessmentIntent": "학생이 평생 학습 제도를 활용하여 경력 개발 경로를 탐색하고, 이를 통해 올바른 결론에 도달할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "사례 분석 및 원리 적용",
+        "skeletonStructure": {
+          "itemFamily": "combination_judgment",
+          "stimulusTPL": "TPL_CASE_DIAGNOSTIC_FRAME",
+          "blankCount": 0,
+          "boCount": 0,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: (가)와 (나)가 기업의 졸업생 채용 조건과 관련이 없다는 점을 간과하여 잘못된 선택을 하도록 유도함.",
+          "오답2: (가)를 통해 자격증을 취득할 수 없다는 잘못된 정보에 기반하여 선택하도록 유도함.",
+          "오답3: (가)가 참여 기업의 특성에 따라 나뉘지 않는다는 오해를 통해 잘못된 결론에 도달하도록 유도함."
+        ],
+        "difficultyDriver": "사례의 복잡성과 각 조건에 대한 이해도를 요구하는 다중 조건의 존재",
+        "stemPattern": "다음 [사례]에 나타난 평생 학습 제도를 활용하여 [학습 활동]을 수행할 경우 최종 도착지로 옳은 것은?"
+      }
+    },
+    {
+      "conceptId": "success_11_05",
+      "targetConcept": "전공별 경력 개발 경로",
+      "frequency": 12,
+      "sourceExam": "2022학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 7,
+      "pattern": {
+        "assessmentIntent": "학생이 평생 학습 제도의 개념을 이해하고, 주어진 설명에 맞는 제도를 올바르게 선택할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "개념 변별",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": null,
+          "blankCount": 0,
+          "boCount": 0,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: 계약학과 - 특정 학과의 계약을 통한 교육 방식으로, 평생 학습 제도와는 다소 다른 개념이다.",
+          "오답2: 학점 은행제 - 학점을 쌓아 학위를 취득하는 제도로, 평생 학습 제도의 특정 요소일 수 있으나 주어진 설명과는 일치하지 않는다.",
+          "오답3: 일학습 병행제 - 일과 학습을 병행하는 제도로, 평생 학습의 일부 요소를 포함하지만 주어진 설명의 핵심과는 다르다.",
+          "오답4: 평생 학습 계좌제 - 개인의 학습 이력을 관리하는 제도로, 주어진 설명의 핵심 내용과는 맞지 않는다."
+        ],
+        "difficultyDriver": "주어진 설명의 복잡성과 다양한 평생 학습 제도의 유사성으로 인해 올바른 선택을 하기 위한 개념 변별이 필요하다.",
+        "stemPattern": "다음 글에서 설명하고 있는 평생 학습 제도로 옳은 것은?"
+      }
+    },
+    {
+      "conceptId": "success_11_06",
+      "targetConcept": "평생 학습의 의미와 중요성",
+      "frequency": 10,
+      "sourceExam": "2022학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 16,
+      "pattern": {
+        "assessmentIntent": "학생이 평생 학습의 개념과 그 중요성을 이해하고, 주어진 사례를 통해 적절한 평생 학습 제도를 선택할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "사례 분석",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_CASE_DIAGNOSTIC_FRAME",
+          "blankCount": 0,
+          "boCount": 0,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: '계약학과'는 특정 계약을 통해 학습하는 제도로, A씨의 사례와는 관련이 없다.",
+          "오답2: '독학 학위제'는 개인이 독학으로 학위를 취득하는 방식으로, A씨가 활용한 제도와는 다르다.",
+          "오답3: '일학습 병행제'는 학습과 일을 병행하는 제도이나, A씨의 사례에서는 학점 인정 제도가 핵심이다.",
+          "오답4: '평생 학습 계좌제'는 평생 학습을 위한 자금을 지원하는 제도로, A씨의 사례와는 직접적인 연관이 없다."
+        ],
+        "difficultyDriver": "학생이 사례를 분석하고, 여러 평생 학습 제도 중에서 A씨의 상황에 가장 적합한 것을 선택해야 하므로, 개념의 이해와 적용 능력이 요구된다.",
+        "stemPattern": "다음 [A 씨의 성공 사례]를 통해 알 수 있는 평생 학습 제도로 옳은 것은?"
+      }
+    },
+    {
+      "conceptId": "success_11_07",
+      "targetConcept": "평생 학습 제도",
+      "frequency": 10,
+      "sourceExam": "2024학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 17,
+      "pattern": {
+        "assessmentIntent": "평생 학습 제도에 대한 이해도를 평가하며, 주어진 설명을 바탕으로 적절한 설명을 선택할 수 있는 능력을 측정한다.",
+        "judgmentAxis": "분류/매칭",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_FORMAL_DOCUMENT",
+          "blankCount": 1,
+          "boCount": 3,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: '산업계 주도로 진행되는 현장 기반 훈련 제도이다.' - 평생 학습 제도의 정의와는 관련이 없으며, 특정 산업 기반 훈련을 설명하고 있어 혼동을 유도한다.",
+          "오답2: '국가·지방자치단체·산업체가 소속 직원의 직무 능력 향상을 위해 대학에 교육을 의뢰하는 과정이다.' - 평생 학습 제도의 목적과는 다르며, 교육 의뢰 과정에 대한 설명으로 오해를 일으킬 수 있다.",
+          "오답3: '학점을 인정받기 위해서는 학점 인정 신청 당시 고등학교를 졸업하였거나 이와 같은 수준 이상의 학력이 있다고 인정되어야 한다.' - 학점 인정 요건을 설명하고 있으나, 평생 학습 제도의 전반적인 내용을 반영하지 않아 오답으로 설계되었다."
+        ],
+        "difficultyDriver": "정보의 분산과 다중 조건을 요구하며, 각 선택지가 평생 학습 제도의 다양한 측면을 반영하고 있어 혼동을 유발할 수 있다.",
+        "stemPattern": "다음 글에 나타난 평생 학습 제도 (가)에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?"
+      }
+    }
+  ]
+}

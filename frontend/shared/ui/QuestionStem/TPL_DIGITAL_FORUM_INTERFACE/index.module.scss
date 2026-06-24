@@ -1,0 +1,25 @@
+@import '@/styles/variables.scss';
+
+.forumWrapper {
+  width: 100%;
+  border: 1.5px solid $text-strong;
+  overflow: hidden;
+}
+
+.commentsSection {
+  width: 100%;
+  border-top: 1px solid $border-primary;
+  background-color: $background-secondary;
+}
+
+.commentsHeader {
+  padding: $spacing-8 $spacing-16;
+  border-bottom: 1px solid $border-primary;
+}
+
+.commentsCount {
+  font-size: 12px;
+  font-weight: $semi-bold;
+  color: $text-secondary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+}

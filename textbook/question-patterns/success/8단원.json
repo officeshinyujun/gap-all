@@ -1,0 +1,201 @@
+{
+  "unit": 8,
+  "unitTitle": "직업 기초 능력",
+  "subject": "success",
+  "totalQuestions": 7,
+  "patterns": [
+    {
+      "conceptId": "success_8_01",
+      "targetConcept": "직업 능력의 개념 및 종류",
+      "frequency": 18,
+      "sourceExam": "2025학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 2,
+      "pattern": {
+        "assessmentIntent": "이 문제는 학생이 직업 능력의 개념과 종류를 이해하고, 주어진 설명과 보기에서 올바른 정보를 선택할 수 있는지를 평가한다.",
+        "judgmentAxis": "분류/매칭",
+        "skeletonStructure": {
+          "itemFamily": "combination_judgment",
+          "stimulusTPL": "TPL_FORMAL_DOCUMENT",
+          "blankCount": 3,
+          "boCount": 4,
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true
+        },
+        "distractorBlueprint": [
+          "오답1: '(가)는 조직 이해 능력이다.' - (가)의 정의와 관련이 없는 잘못된 정보로, 직업 능력의 다른 영역과 혼동하게 만든다.",
+          "오답2: '(나)는 업무 처리 능력군에 속한다.' - (나)의 정의는 사고력과 문제 처리 능력에 관한 것이므로, 잘못된 분류를 통해 혼란을 유도한다.",
+          "오답3: '(다)는 '업무 수행에 필요한 인적 자원을 확인하고 할당하는 능력'이다.' - (다)의 정의와 관련이 없는 내용으로, 직업 능력의 다른 측면을 잘못 연결하여 오해를 일으킨다.",
+          "오답4: '(가), (나)는 직종이나 직위에 상관없이 모든 직업인들에게 공통적으로 요구되는 기본적인 능력에 포함된다.' - (가)와 (나)의 정의를 일반화하여 잘못된 일반론을 제시함으로써 혼란을 초래한다."
+        ],
+        "difficultyDriver": "정보의 분산과 각 능력의 정의가 유사하여 개념 변별이 필요함.",
+        "stemPattern": "다음 [NCS 직업기초능력 수행 평가 활동지]의 (가)~(다)에 대한 설명으로 옳은 것만을 <보기>에서 고른 것은?"
+      }
+    },
+    {
+      "conceptId": "success_8_02",
+      "targetConcept": "직무 수행 능력의 개념",
+      "frequency": 18,
+      "sourceExam": "2024학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 3,
+      "pattern": {
+        "assessmentIntent": "이 문제는 학생이 직무 수행 능력의 다양한 요소를 이해하고, 2022년과 2023년의 성취도를 비교하여 변화의 의미를 분석할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "자료 해석",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_QUANTITATIVE_CHART",
+          "blankCount": 0,
+          "boCount": 3,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: '기초 능력군에 속하는 능력의 성취도는 향상되지 않았다.' - 이 선택지는 2022년과 2023년의 성취도를 비교할 때, 실제로는 향상된 수치가 존재함에도 불구하고 잘못된 해석을 기반으로 하고 있다.",
+          "오답2: '직장 적응 능력군에 속하는 능력의 성취도는 향상되었다.' - 이 선택지는 직무 수행 능력의 특정 군에 대한 잘못된 일반화를 포함하고 있으며, 실제로는 대인 관계 능력과 조직 이해 능력이 향상된 것을 반영하지 않는다.",
+          "오답3: ''사고력'을 포함하는 능력의 성취도는 향상되었다.' - 이 선택지는 문제 해결 능력의 성취도가 향상된 것을 잘못 해석하여, 사고력이라는 개념을 포함한 능력의 성취도에 대한 오해를 불러일으킨다."
+        ],
+        "difficultyDriver": "정보의 비교와 해석이 필요하며, 각 능력의 성취도 변화에 대한 정확한 이해가 요구된다.",
+        "stemPattern": "그래프는 [NCS 직업기초능력평가 결과]를 나타낸 것이다. 2022년 대비 2023년의 결과를 분석한 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?"
+      }
+    },
+    {
+      "conceptId": "success_8_03",
+      "targetConcept": "직업 기초 능력의 개념 및 종류",
+      "frequency": 18,
+      "sourceExam": "2022학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 4,
+      "pattern": {
+        "assessmentIntent": "이 문제는 A사원과 B팀장이 각각 갖춘 직업기초능력을 비교하여, 그들의 능력 유형을 정확히 이해하고 구분할 수 있는지를 평가한다.",
+        "judgmentAxis": "비교/대조",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_COMPARATIVE_MATRIX",
+          "blankCount": 0,
+          "boCount": 0,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: '수리 능력 - 기술 능력'은 A사원의 정보 활용 능력과 관련이 없으며, 수리 능력과 기술 능력을 혼동하여 만든 오답.",
+          "오답2: '수리 능력 - 자원 관리 능력'은 B팀장의 인적 자원 관리 능력과 관련이 없으며, 수리 능력의 적용을 잘못 해석하여 만든 오답.",
+          "오답3: '정보 능력 - 기술 능력'은 A사원의 능력 중 정보 활용 능력을 강조하지만, 기술 능력과의 연결이 부적절하여 오답.",
+          "오답4: '의사 소통 능력 - 기술 능력'은 문제의 맥락과 맞지 않으며, 의사 소통 능력의 중요성을 간과한 오답."
+        ],
+        "difficultyDriver": "정보의 명확한 구분과 두 인물의 능력에 대한 이해가 필요하여, 유사 개념을 변별하는 과정이 난이도를 결정짓는다.",
+        "stemPattern": "다음 역량 평가서를 통해 알 수 있는 A사원과 B팀장이 갖춘 직업기초능력으로 가장 적절한 것은?"
+      }
+    },
+    {
+      "conceptId": "success_8_04",
+      "targetConcept": "기초 능력군 및 업무 처리 능력군의 종류",
+      "frequency": 18,
+      "sourceExam": "2023학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 6,
+      "pattern": {
+        "assessmentIntent": "이 문제는 지원자가 채용 공고에서 요구하는 직업 기초 능력과 전형 방법에 대한 이해도를 평가하고, 이를 바탕으로 적절한 정보를 선택할 수 있는 능력을 측정한다.",
+        "judgmentAxis": "자료 해석 및 정보 선택",
+        "skeletonStructure": {
+          "itemFamily": "combination_judgment",
+          "stimulusTPL": "TPL_FORMAL_DOCUMENT",
+          "blankCount": 0,
+          "boCount": 4,
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true
+        },
+        "distractorBlueprint": [
+          "오답1: '담당 세부 업무에서 요구하는 직업기초능력은 대인 관계 능력이다.' - 이 선택지는 세부 업무의 내용과 관련이 없으며, 대인 관계 능력은 명시되지 않았다.",
+          "오답2: '1차 면접은 지원자와의 학연, 지연, 혈연 등을 알지 못하는 상태에서 진행된다.' - 이 선택지는 블라인드 면접의 정의를 잘못 이해한 것으로, 실제로는 이러한 요소를 배제하는 것이 맞다.",
+          "오답3: '2차 면접은 1명의 지원자를 여러 명의 면접관이 평가하는 방식으로 진행된다.' - 이 선택지는 2차 면접의 방식에 대한 잘못된 설명으로, 면접 방식이 다르게 진행될 수 있다.",
+          "오답4: '제출 서류에는 직무 영역과 관련하여 지원자가 수행한 내용 및 역할, 활동 성과 등을 기록한 서류가 포함된다.' - 이 선택지는 제출 서류의 일반적인 내용과는 맞지만, 채용 공고에서 명시된 서류 목록과는 일치하지 않는다."
+        ],
+        "difficultyDriver": "정보의 정확한 해석과 관련된 세부 사항을 이해해야 하므로, 지원자가 채용 공고의 내용을 정확히 분석하고 판단하는 능력이 요구된다.",
+        "stemPattern": "위 [채용 공고문]을 통해 알 수 있는 내용으로 적절한 것만을 <보기>에서 고른 것은?"
+      }
+    },
+    {
+      "conceptId": "success_8_05",
+      "targetConcept": "직장 적응 능력군의 종류",
+      "frequency": 18,
+      "sourceExam": "2025학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 6,
+      "pattern": {
+        "assessmentIntent": "이 문제는 학생이 직장 내 다양한 부서의 업무 추진 내용을 분석하고, 각 부서에 필요한 직업기초능력을 이해하며, 이를 바탕으로 적절한 선택지를 고를 수 있는 능력을 평가한다.",
+        "judgmentAxis": "비교/대조",
+        "skeletonStructure": {
+          "itemFamily": "combination_judgment",
+          "stimulusTPL": "TPL_COMPARATIVE_MATRIX",
+          "blankCount": 0,
+          "boCount": 4,
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true
+        },
+        "distractorBlueprint": [
+          "오답1: 'A부서의 업무 추진에 필요한 직업기초능력은 대인 관계 능력을 포함하고 있다.' - A부서의 업무가 갈등 조절과 관련되어 있어 대인 관계 능력이 필요하다고 주장하나, 이는 실제로는 대인 관계 능력 외에도 다른 능력이 필요할 수 있다.",
+          "오답2: 'B, C부서의 업무 추진에 필요한 직업기초능력은 정보 능력을 포함하고 있다.' - B부서는 정보 능력이 필요하지만 C부서는 품질 향상과 관련된 분석 능력이 더 중요하므로 잘못된 주장이다.",
+          "오답3: 'B부서의 업무 추진 내용은 기업의 경영 활동 중 재무 관리 활동에 해당한다.' - B부서의 업무는 재무 관리와 관련이 있지만, 재무제표 작성은 더 넓은 범위의 경영 활동에 포함되므로 이 진술은 부정확하다.",
+          "오답4: 'C부서의 업무 추진 내용은 기업의 경영 활동 중 마케팅 관리 활동에 해당한다.' - C부서의 업무는 품질 관리와 관련이 있으며 마케팅 관리와는 관련이 없으므로 잘못된 주장이다."
+        ],
+        "difficultyDriver": "정보의 분산과 각 부서의 업무 내용에 대한 이해가 필요하여, 학생이 각 부서의 특성을 정확히 파악하고 비교해야 하므로 난이도가 높다.",
+        "stemPattern": "다음은 기업 A~C부서의 업무 추진 내용이다. 이에 대한 분석으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?"
+      }
+    },
+    {
+      "conceptId": "success_8_06",
+      "targetConcept": "직업 기초 능력의 향상 방법",
+      "frequency": 18,
+      "sourceExam": "2022학년도 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 8,
+      "pattern": {
+        "assessmentIntent": "학생 A와 B의 자기소개서를 분석하여 각자의 직업 기초 능력을 이해하고 비교할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "비교/대조",
+        "skeletonStructure": {
+          "itemFamily": "combination_judgment",
+          "stimulusTPL": "TPL_COMPARATIVE_MATRIX",
+          "blankCount": 0,
+          "boCount": 3,
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true
+        },
+        "distractorBlueprint": [
+          "오답1: '학생 A의 자기소개서에서 자원 관리 능력'은 학생 A의 경험과 역량에 대한 잘못된 해석으로, 실제로는 공감과 경청의 자세가 강조된다.",
+          "오답2: '학생 B의 자기소개서에서 자기 개발 능력'은 학생 B의 경험을 잘못 해석한 것으로, 실제로는 내성적인 성격 극복과 운동 능력 향상이 강조된다.",
+          "오답3: '학생 A, B의 자기소개서에서 공통적으로 정보 능력'은 두 학생의 자기소개서에서 정보 능력에 대한 언급이 없기 때문에 잘못된 선택이다."
+        ],
+        "difficultyDriver": "학생들의 경험과 역량에 대한 이해를 요구하며, 각자의 자기소개서에서의 정보 해석과 비교가 필요하여 난이도가 증가한다.",
+        "stemPattern": "다음은 자기소개서 사례 모음집의 일부이다. 이를 통해 알 수 있는 학생 A, B의 직업기초능력에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?"
+      }
+    },
+    {
+      "conceptId": "success_8_07",
+      "targetConcept": "의사소통, 수리, 문제 해결, 정보 능력의 향상 방법",
+      "frequency": 14,
+      "sourceExam": "2022학년도 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 9,
+      "pattern": {
+        "assessmentIntent": "이 문제는 학생이 직무 수행 능력 향상을 위한 다양한 방법을 이해하고, 이를 바탕으로 적절한 선택지를 구별할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "분류/매칭",
+        "skeletonStructure": {
+          "itemFamily": "combination_judgment",
+          "stimulusTPL": "TPL_FORMAL_DOCUMENT",
+          "blankCount": 0,
+          "boCount": 4,
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true
+        },
+        "distractorBlueprint": [
+          "오답1: '학점은행제를 이용하였다.' - 이 선택지는 직무 수행 능력 향상과 직접적인 관련이 없으며, 일반적인 학습 방법으로 오해할 수 있다.",
+          "오답2: '직업기초능력 중 '수리 능력'의 하위 능력인 '기초 연산 능력'을 향상시켰다.' - 이 선택지는 특정 능력 향상에 대한 언급이지만, 제공된 자료와 직접적으로 연결되지 않아 오답으로 구성되었다.",
+          "오답3: '회사의 목적, 조직 등에 관한 내용 및 규칙을 이해하기 쉽게 정리한 문서를 분석하였다.' - 이 선택지는 직무 수행과 관련된 활동처럼 보이지만, 강사 A의 경로와는 관련이 없어 오답으로 설계되었다."
+        ],
+        "difficultyDriver": "정보의 명확성 및 관련성, 선택지 간의 유사성, 직무 수행 능력에 대한 이해도",
+        "stemPattern": "다음은 직무 수행 능력 향상을 위한 [선배 초청 특강]이다. 강사 A씨에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?"
+      }
+    }
+  ]
+}

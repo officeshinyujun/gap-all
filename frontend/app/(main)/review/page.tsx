@@ -4,11 +4,11 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { VStack } from '@/components/general/VStack';
-import { HStack } from '@/components/general/HStack';
-import Typo from '@/components/general/Typo';
-import { SPACING } from '@/constants/spacing';
-import { HeaderActions } from '@/components/general/HeaderActions';
+import { VStack } from '@shared/ui/VStack';
+import { HStack } from '@shared/ui/HStack';
+import Typo from '@shared/ui/Typo';
+import { SPACING } from '@shared/constants/spacing';
+import { HeaderActions } from '@shared/ui/HeaderActions';
 import {
   fetchReviewRecommendations,
   submitReviewResult,
@@ -22,7 +22,7 @@ import {
   type ConceptExplanation,
 } from '@/lib/studyQuizApi';
 import { pollExamJob, fetchExam, type ExamData } from '@/lib/examApi';
-import { QuestionRenderer } from '@/components/exam/QuestionStem/QuestionRenderer';
+import { QuestionRenderer } from '@shared/ui/QuestionStem/QuestionRenderer';
 import s from './page.module.scss';
 
 const markdownComponents = {

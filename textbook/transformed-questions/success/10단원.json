@@ -1,0 +1,1013 @@
+{
+  "unit": 10,
+  "unitTitle": "국가직무능력표준(NCS)과 직무 수행",
+  "subject": "success",
+  "totalQuestions": 9,
+  "questions": [
+    {
+      "conceptName": "전공별 직무 수행 능력 탐색",
+      "originalSource": "2025학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "전공별 직무 수행 능력 탐색",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_FORMAL_DOCUMENT"
+        },
+        "render_ready": {
+          "question_stem": "다음은 새로운 경력 개발 로드맵의 일부이다. 이를 통해 알 수 있는 내용으로 옳은 것은?",
+          "stimulus_data": {
+            "doc_type": "경력 개발 로드맵",
+            "header_info": {
+              "title": "NCS 경력 개발 로드맵",
+              "date": "",
+              "author": "서비스 운영 담당자 B"
+            },
+            "paragraphs": [
+              {
+                "sub_title": "NCS 분류체계",
+                "content": "| (가) | 중분류 | 소분류 | 세분류 |\n|---|---|---|---|\n| 14. 서비스 관리 | 02. 고객 서비스 운영 | 04. 서비스 품질 관리 | 02. 품질 개선 관리 |\n\n| 분류번호 | (나) | 수준 | (다) |\n|---|---|---|---|\n| 1402020204_21v1 | 고객 피드백 분석 | 3 | 고객 피드백 분석은 서비스 개선을 위해 고객의 의견을 수집하고 분석하는 능력이다."
+              },
+              {
+                "sub_title": "진로 계획",
+                "content": "서비스 운영 담당자 (2수준) ➡ NCS의 능력 단위를 기반으로 한 교육 자료를 이용하여 직무 역량 강화하기 ➡ 서비스 운영 관리자 (3수준)"
+              }
+            ],
+            "footnotes": []
+          },
+          "options_list": [
+            "직무는 '04. 서비스 품질 관리'이다.",
+            "B씨는 서비스 운영 관리자가 되기 위해 'NCS 교육 자료'를 활용할 계획이다.",
+            "(가)는 직능 유형이 유사한 분야를 30개로 구분한 것이다.",
+            "(나)는 능력 단위를 구성하는 핵심 하위 능력을 설명한 것이다.",
+            "(다)는 (나)의 성취 여부를 평가하는 방법을 제시한 것이다."
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 2,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "고객 피드백 분석은 서비스 개선을 위해 고객의 의견을 수집하고 분석하는 능력이다.",
+            "why": "이 설명은 고객 서비스 관리의 핵심 능력을 강조한다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "X",
+            "reasoning": "'04. 서비스 품질 관리'의 직무는 잘못된 선택으로, 경력 개발 로드맵에 명시된 내용과 부합하지 않다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "O",
+            "reasoning": "B씨가 서비스 운영 관리자가 되기 위해 NCS 교육 자료를 활용한다는 것은 경력 개발 로드맵에 맞는 올바른 진로 계획이다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "X",
+            "reasoning": "(가)는 30개로 구분된다는 내용은 잘못된 해석이다."
+          },
+          {
+            "optionNum": 4,
+            "verdict": "O",
+            "reasoning": "(나)는 능력 단위를 구성하는 핵심 하위 능력을 설명하고 있어 올바른 선택이다."
+          },
+          {
+            "optionNum": 5,
+            "verdict": "X",
+            "reasoning": "(다)는 평가 방법의 설명이 아닌 다른 내용을 포함하여 잘못된 선택이다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "자료를 읽고 각 항목의 내용을 이해한다."
+          },
+          {
+            "step": 2,
+            "action": "각 선택지를 검토하여 자료와 일치하는지 확인한다."
+          },
+          {
+            "step": 3,
+            "action": "정확한 정보를 바탕으로 선택지를 평가하여 정답을 선택한다."
+          }
+        ],
+        "takeaway": "경력 개발 로드맵을 이해하고 직무 수행 능력에 대한 올바른 판단을 내리는 것이 중요하다."
+      }
+    },
+    {
+      "conceptName": "국가직무능력표준(NCS) 탐색",
+      "originalSource": "2025학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "국가직무능력표준(NCS) 탐색",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_FORMAL_DOCUMENT"
+        },
+        "render_ready": {
+          "question_stem": "다음은 학생 B의 [진로 계획서] 일부이다. 이를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 고른 것은?",
+          "stimulus_data": {
+            "doc_type": "진로 계획서",
+            "header_info": {
+              "title": "진로 계획서",
+              "date": "",
+              "author": "정보과학고등학교 3학년 B"
+            },
+            "paragraphs": [
+              {
+                "sub_title": "희망 직업",
+                "content": "데이터 분석가"
+              },
+              {
+                "sub_title": "희망 직업 분야 국가직무능력표준(NCS) 활용 계획",
+                "content": "NCS 분류 내용\n| 대분류 | 중분류 | 소분류 | 세분류 |\n|---|---|---|---|\n| 13. 정보처리 | 01. 데이터분석 | 01. 데이터분석 | 01. 데이터마이닝 |\n| | | | 02. 통계분석 |\n| | | | 03. 데이터시각화 |"
+              }
+            ]
+          },
+          "options_list": [
+            "'02. 통계분석'은 직무를 구성하는 기본 단위이다.",
+            "'13. 정보처리'은 NCS 분류 체계 중 대분류에 해당한다.",
+            "직업능력개발훈련기준의 '수준'에 나타난 숫자가 낮을수록 낮은 숙련도와 역량이 요구된다.",
+            "학생 B는 NCS 능력단위를 교육훈련에서 학습할 수 있도록 구성한 '강의 자료'를 활용할 계획이다."
+          ]
+        },
+        "combo_block": {
+          "title": "<보기>",
+          "items": [
+            {
+              "key": "ㄱ",
+              "text": "'02. 통계분석'은 직무를 구성하는 기본 단위이다."
+            },
+            {
+              "key": "ㄴ",
+              "text": "'13. 정보처리'은 NCS 분류 체계 중 대분류에 해당한다."
+            },
+            {
+              "key": "ㄷ",
+              "text": "직업능력개발훈련기준의 '수준'에 나타난 숫자가 낮을수록 낮은 숙련도와 역량이 요구된다."
+            },
+            {
+              "key": "ㄹ",
+              "text": "학생 B는 NCS 능력단위를 교육훈련에서 학습할 수 있도록 구성한 '강의 자료'를 활용할 계획이다."
+            }
+          ]
+        },
+        "correct_answer": 2,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 1,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "'13. 정보처리'은 NCS 분류 체계 중 대분류에 해당한다.",
+            "why": "정확한 정보로, NCS의 대분류 체계에 대한 이해를 나타내기 때문."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "X",
+            "reasoning": "'02. 통계분석'은 소분류에 해당하며, 기본 단위가 아님."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "O",
+            "reasoning": "'13. 정보처리'는 NCS 분류 체계 중 대분류로 정확한 정보."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "X",
+            "reasoning": "NCS의 수준은 숫자가 높을수록 높은 숙련도와 역량을 요구함."
+          },
+          {
+            "optionNum": 4,
+            "verdict": "X",
+            "reasoning": "학생 B의 계획은 관련 있으나, 구체성이 결여되어 오답."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "자료를 꼼꼼히 읽고 NCS 분류 체계에 대한 이해를 바탕으로 답을 선택한다."
+          },
+          {
+            "step": 2,
+            "action": "각 보기를 검토하여 진위 여부를 판단한다."
+          }
+        ],
+        "takeaway": "NCS의 체계와 직무 능력 단위의 정확한 이해가 필요하다."
+      }
+    },
+    {
+      "conceptName": "NCS 대분류(24개)",
+      "originalSource": "2023학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "NCS 대분류",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_FORMAL_DOCUMENT"
+        },
+        "render_ready": {
+          "question_stem": "다음은 XYZ 기업의 국가직무능력표준(NCS) 기반 채용 계획서의 일부이다. 물음에 답하시오.",
+          "stimulus_data": {
+            "doc_type": "채용 계획서",
+            "header_info": {
+              "title": "국가직무능력표준(NCS) 기반 채용 계획서",
+              "date": "2023-10-01",
+              "author": "인사팀"
+            },
+            "paragraphs": [
+              {
+                "sub_title": "직무 설명 자료",
+                "content": "| 채용 분야 | 대분류 | 중분류 | 소분류 | 세분류 | 분류번호 | (가) | 수준 |\n|---|---|---|---|---|---|---|---|\n| 마케팅 | 03. 경영·마케팅 | 01. 마케팅 기획 | 01. 광고 | 01. 광고 | 0301010104_21v3 | 캠페인 관리 | 2 |\n| | | | | | | 캠페인 관리는 제품의 홍보와 소비자 인식을 높이기 위해 필요한 광고 전략을 수립하고 실행하는 능력이다. | |\n| (나) | | | | | 0301010107_21v3 | 시장 조사 | 3 |\n| | | | | | | 시장 조사는 소비자의 요구와 시장 트렌드를 분석하여 마케팅 전략을 개선할 수 있는 능력이다. | "
+              },
+              {
+                "sub_title": "전형 방법",
+                "content": "서류 전형(NCS 기반 지원서, 직무 능력 소개서 제출) → 필기 전형 → 면접 전형(1차: 개인 면접, 2차: 그룹 토의(20분 이내)) → 인턴십 기간 → 최종 채용"
+              }
+            ],
+            "footnotes": []
+          },
+          "options_list": [
+            "ㄱ",
+            "ㄷ",
+            "ㄱ, ㄴ",
+            "ㄴ, ㄷ",
+            "ㄱ, ㄴ, ㄷ"
+          ]
+        },
+        "combo_block": {
+          "title": "<보기>",
+          "items": [
+            {
+              "key": "ㄱ",
+              "text": "(가)는 NCS 구성 항목 중 '능력단위요소'에 해당한다."
+            },
+            {
+              "key": "ㄷ",
+              "text": "(나)는 (가)의 성취 여부를 판단하기 위해 개인들이 도달해야 하는 수행 기준을 제시한 것이다."
+            },
+            {
+              "key": "ㄱ",
+              "text": "'수준'의 숫자가 클수록 고수준의 숙련도, 역량을 요구한다."
+            }
+          ]
+        },
+        "correct_answer": 2,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 1,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "캠페인 관리는 제품의 홍보와 소비자 인식을 높이기 위해 필요한 광고 전략을 수립하고 실행하는 능력이다.",
+            "why": "이 문장은 (가) 항목의 정의를 설명하며, 해당 역할의 중요성을 강조한다."
+          },
+          {
+            "quote": "시장 조사는 소비자의 요구와 시장 트렌드를 분석하여 마케팅 전략을 개선할 수 있는 능력이다.",
+            "why": "이 문장은 (나) 항목의 정의를 명확히 하여, 그 기능을 설명하고 있다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "O",
+            "reasoning": "(가)의 정의에 따르면 캠페인 관리는 능력단위요소로 분류된다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "O",
+            "reasoning": "(나)의 정의는 (가)의 성취를 판단하기 위한 기준을 제공한다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "X",
+            "reasoning": "'수준'의 숫자가 클수록 고수준의 숙련도를 요구하는 것이 아니라, 각 항목의 특성에 따라 달라질 수 있다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "주어진 자료를 바탕으로 (가)와 (나)의 정의를 이해한다."
+          },
+          {
+            "step": 2,
+            "action": "각 선택지를 분석하여 사실 여부를 판단한다."
+          },
+          {
+            "step": 3,
+            "action": "정확한 선택지를 조합하여 답을 결정한다."
+          }
+        ],
+        "takeaway": "NCS 기반의 채용 계획서를 분석하여 각 항목의 정의와 관계를 명확히 이해하는 것이 중요하다."
+      }
+    },
+    {
+      "conceptName": "직무 기술서 구성 요소 및 탐색",
+      "originalSource": "2024학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "직무 기술서 구성 요소 및 탐색",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_FORMAL_DOCUMENT"
+        },
+        "render_ready": {
+          "question_stem": "다음은 △△(주) NCS 기반 채용 공고문의 일부이다. 이에 대한 설명으로 적절한 것만을 <보기>에서 고른 것은?",
+          "stimulus_data": {
+            "doc_type": "채용 공고문",
+            "header_info": {
+              "title": "△△(주) NCS 기반 채용 공고문",
+              "date": "",
+              "author": ""
+            },
+            "paragraphs": [
+              {
+                "sub_title": "채용 분야",
+                "content": "정보 기술 관리"
+              },
+              {
+                "sub_title": "NCS 분류체계",
+                "content": "대분류: 30. 정보통신\n중분류: 01. 정보기술\n소분류: 04. IT 서비스 관리\n세분류: 03. 소프트웨어 개발"
+              },
+              {
+                "sub_title": "채용 절차",
+                "content": "서류 전형: • 제출 서류: NCS 기반 입사 지원서, 경력 기술서, 직무 관련 포트폴리오\n면접 전형 1차: • 직무 관련 주제에 대한 발표 자료를 작성하여 제출\n• 제출한 자료를 바탕으로 15분 동안 면접관 앞에서 해당 주제에 대한 해결 방안과 계획 등을 발표\n면접 전형 2차: • 주어진 주제를 가지고 4명의 지원자가 찬성 팀과 반대 팀으로 나뉘어 20분간 토론하며 평가받음\n• 면접관은 실질적인 의견을 제시하지 않음."
+              }
+            ],
+            "footnotes": []
+          },
+          "options_list": [
+            "국가직무능력표준(NCS)의 기준을 이해할 수 있다.",
+            "서류 전형에서는 직무 관련 기술과 경험을 중심으로 평가한다.",
+            "1차 면접은 지원자의 발표 능력을 평가할 수 있다.",
+            "2차 면접은 '토론 면접'에 해당한다."
+          ]
+        },
+        "combo_block": {
+          "title": "<보기>",
+          "items": [
+            {
+              "key": "ㄱ",
+              "text": "국가직무능력표준(NCS)의 기준을 이해할 수 있다."
+            },
+            {
+              "key": "ㄴ",
+              "text": "서류 전형에서는 직무 관련 기술과 경험을 중심으로 평가한다."
+            },
+            {
+              "key": "ㄷ",
+              "text": "1차 면접은 지원자의 발표 능력을 평가할 수 있다."
+            },
+            {
+              "key": "ㄹ",
+              "text": "2차 면접은 '토론 면접'에 해당한다."
+            }
+          ]
+        },
+        "correct_answer": 3,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "채용 절차에서 1차 면접은 지원자의 발표 능력을 평가한다고 명시되어 있다.",
+            "why": "1차 면접의 내용이 발표 자료 작성 및 발표로 구성되어 있어 발표 능력을 평가하는 것이 맞다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "X",
+            "reasoning": "NCS 기준에 대한 정보는 명시되어 있지 않다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "X",
+            "reasoning": "서류 전형의 평가 기준이 구체적으로 설명되지 않았다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "O",
+            "reasoning": "1차 면접에서 발표 자료를 요구하고 있어 발표 능력을 평가한다고 볼 수 있다."
+          },
+          {
+            "optionNum": 4,
+            "verdict": "O",
+            "reasoning": "2차 면접이 토론 형식으로 진행되어 있어 토론 면접으로 분류할 수 있다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "주어진 채용 공고문의 내용을 분석하여 각 전형의 목적을 이해한다."
+          },
+          {
+            "step": 2,
+            "action": "보기의 각 설명이 채용 공고문의 내용과 일치하는지를 검토한다."
+          },
+          {
+            "step": 3,
+            "action": "적절한 설명을 조합하여 정답을 선택한다."
+          }
+        ],
+        "takeaway": "채용 공고문을 통해 각 전형의 목적과 평가 기준을 정확히 이해하는 것이 중요하다."
+      }
+    },
+    {
+      "conceptName": "소속 전공 교육과정 탐색",
+      "originalSource": "2022학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "소속 전공 교육과정 탐색",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_FORMAL_DOCUMENT"
+        },
+        "render_ready": {
+          "question_stem": "다음은 △△기업이 NCS 기반 인재 채용을 위해 제공한 자료의 일부이다. 이에 대한 설명으로 적절한 것만을 <보기>에서 고른 것은?",
+          "stimulus_data": {
+            "doc_type": "직무 설명서",
+            "header_info": {
+              "title": "NCS 기반 인재 채용 직무 설명서",
+              "date": "2023-10-01",
+              "author": "△△기업 인사팀"
+            },
+            "paragraphs": [
+              {
+                "sub_title": "채용 분야",
+                "content": "정보 기술"
+              },
+              {
+                "sub_title": "분류 체계",
+                "content": "대분류: 01. 정보통신\n중분류: 01. 소프트웨어 개발\n소분류: 02. 시스템 분석\n세분류: 01. 프로그램 설계"
+              },
+              {
+                "sub_title": "직무 수행 내용",
+                "content": "[소프트웨어 개발] 요구 사항 분석 및 설계, 코드 작성 및 테스트 수행\n[시스템 유지보수] 기존 시스템 점검 및 오류 수정, 사용자 지원"
+              }
+            ],
+            "footnotes": []
+          },
+          "options_list": [
+            "(가)의 내용은 세분류 '01. 프로그램 설계'의 능력 단위와 능력 단위 요소이다.",
+            "대분류 '01. 정보통신'은 국가직무능력표준(NCS)에서 직업별로 정의한 것이다.",
+            "△△기업의 채용 분야는 정보 기술 업무를 수행하기 위한 소프트웨어 개발 및 시스템 유지보수 능력을 요구한다."
+          ]
+        },
+        "combo_block": {
+          "title": "<보기>",
+          "items": [
+            {
+              "key": "ㄱ",
+              "text": "(가)의 내용은 세분류 '01. 프로그램 설계'의 능력 단위와 능력 단위 요소이다."
+            },
+            {
+              "key": "ㄴ",
+              "text": "대분류 '01. 정보통신'은 국가직무능력표준(NCS)에서 직업별로 정의한 것이다."
+            },
+            {
+              "key": "ㄷ",
+              "text": "△△기업의 채용 분야는 정보 기술 업무를 수행하기 위한 소프트웨어 개발 및 시스템 유지보수 능력을 요구한다."
+            }
+          ]
+        },
+        "correct_answer": 3,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "요구 사항 분석 및 설계, 코드 작성 및 테스트 수행",
+            "why": "직무 수행 내용에서 소프트웨어 개발의 구체적인 작업을 설명하고 있다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "O",
+            "reasoning": "세분류와 능력 단위 요소의 정의가 일치한다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "O",
+            "reasoning": "대분류에 대한 정의가 정확하다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "O",
+            "reasoning": "채용 분야의 요구 사항이 정확하게 기술되어 있다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "자료의 세부 내용을 분석하여 각 설명의 진위를 판단한다."
+          },
+          {
+            "step": 2,
+            "action": "각 선택지의 내용이 직무 설명서와 일치하는지 교차 검증한다."
+          },
+          {
+            "step": 3,
+            "action": "올바른 선택지를 조합하여 최종 답안을 결정한다."
+          }
+        ],
+        "takeaway": "NCS 기반 채용의 이해를 바탕으로 직무 기술서의 내용을 정확히 해석하는 능력이 필요하다."
+      }
+    },
+    {
+      "conceptName": "직업인 특강 및 체험 탐색",
+      "originalSource": "2022학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "직업인 특강 및 체험 탐색",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_COMPARATIVE_MATRIX"
+        },
+        "render_ready": {
+          "question_stem": "다음은 직무능력 기준의 한 부분을 나타낸 것이다. 이에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+          "stimulus_data": {
+            "headers": [
+              {
+                "id": "h1",
+                "label": "직무 코드"
+              },
+              {
+                "id": "h2",
+                "label": "능력 단위 제목"
+              },
+              {
+                "id": "h3",
+                "label": "능력 단위 설명"
+              }
+            ],
+            "rows": [
+              {
+                "id": "1",
+                "cells": [
+                  "0301010205_23v1",
+                  "프로젝트 관리",
+                  "프로젝트 관리는 팀이 목표를 달성하기 위해 자원과 일정을 계획하고 조정하는 능력이다."
+                ]
+              },
+              {
+                "id": "2",
+                "cells": [
+                  "(가)",
+                  "(나)",
+                  "0301010205_23v1.1 프로젝트 일정 관리하기\n1.1 프로젝트 일정의 중요성을 이해하고 적절한 일정 계획을 수립할 수 있다.\n1.2 프로젝트의 진행 상황에 따라 일정을 조정할 수 있다."
+                ]
+              }
+            ],
+            "selection_chips": []
+          },
+          "options_list": [
+            "직무를 구성하는 기본 단위는 '프로젝트 일정 관리하기'이다.",
+            "(가)에 들어갈 내용은 직무능력 기준의 '대분류'이다.",
+            "(나)의 항목은 '프로젝트 일정 관리하기' 능력의 성취 여부를 판단하기 위해 개인들이 달성해야 하는 수행 기준을 제시한 것이다."
+          ]
+        },
+        "combo_block": {
+          "title": "<보기>",
+          "items": [
+            {
+              "key": "ㄱ",
+              "text": "직무를 구성하는 기본 단위는 '프로젝트 일정 관리하기'이다."
+            },
+            {
+              "key": "ㄴ",
+              "text": "(가)에 들어갈 내용은 직무능력 기준의 '대분류'이다."
+            },
+            {
+              "key": "ㄷ",
+              "text": "(나)의 항목은 '프로젝트 일정 관리하기' 능력의 성취 여부를 판단하기 위해 개인들이 달성해야 하는 수행 기준을 제시한 것이다."
+            }
+          ]
+        },
+        "correct_answer": 3,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "프로젝트 관리는 팀이 목표를 달성하기 위해 자원과 일정을 계획하고 조정하는 능력이다.",
+            "why": "이 문장은 프로젝트 관리의 정의를 명확히 제시하고 있다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "X",
+            "reasoning": "직무 구성 단위에 대한 설명이 아닌 정의와 관련이 없다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "X",
+            "reasoning": "직무능력 기준의 대분류와 관련된 내용이 아님."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "O",
+            "reasoning": "'프로젝트 일정 관리하기'의 성취 기준을 설명하고 있어 옳다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "제시된 자료를 읽고 각 항목의 의미를 파악한다."
+          },
+          {
+            "step": 2,
+            "action": "보기에서 각 설명이 자료와 어떻게 연결되는지 검토한다."
+          },
+          {
+            "step": 3,
+            "action": "옳은 설명을 선택하여 정답을 결정한다."
+          }
+        ],
+        "takeaway": "직무능력 기준의 각 항목은 직무 수행의 성패를 좌우하는 핵심 요소로, 이를 잘 이해하고 해석하는 것이 중요하다."
+      }
+    },
+    {
+      "conceptName": "전공별 직무 수행 능력 향상 방법",
+      "originalSource": "2025학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "전공별 직무 수행 능력 향상 방법",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_GENERAL_DOCUMENT"
+        },
+        "render_ready": {
+          "question_stem": "다음은 [학생 B의 진로 탐색 보고서]이다. 이를 통해 알 수 있는 NCS에 대한 내용으로 옳은 것만을 <보기>에서 고른 것은?",
+          "stimulus_data": {
+            "doc_type": "진로 탐색 보고서",
+            "header_info": {
+              "title": "학생 B의 진로 탐색 보고서",
+              "date": "",
+              "author": ""
+            },
+            "paragraphs": [
+              {
+                "sub_title": "희망 직업",
+                "content": "환경 보호 전문가"
+              },
+              {
+                "sub_title": "자료 정리",
+                "content": "NCS(국가직무능력표준) 사이트에서 희망 직업과 관련된 세분류 중 '환경 관리'를 찾아 자료를 정리함."
+              },
+              {
+                "sub_title": "NCS 분류체계",
+                "content": "42. 환경관리 > 01. 환경보전 > 01. 자원관리 > (가) > (나)"
+              }
+            ],
+            "footnotes": [
+              {
+                "content": "4201010101_21v1 환경영향평가(수준3)"
+              },
+              {
+                "content": "4201010102_21v1 지속가능한 개발(수준5)"
+              }
+            ]
+          },
+          "options_list": [
+            "(가)는 '07.자원관리기술'이다.",
+            "(나)는 능력단위를 구성하는 중요 하위 능력을 설명한 것이다.",
+            "'42. 환경관리'는 직능 유형의 유사성에 따라 대분류로 분류된 42개 중 하나이다.",
+            "'4201010102_21v1 지속가능한 개발'은 '4201010101_21v1 환경영향평가'보다 높은 숙련도와 경력이 요구된다."
+          ]
+        },
+        "combo_block": {
+          "title": "<보기>",
+          "items": [
+            {
+              "key": "ㄱ",
+              "text": "(가)는 '07.자원관리기술'이다."
+            },
+            {
+              "key": "ㄴ",
+              "text": "(나)는 능력단위를 구성하는 중요 하위 능력을 설명한 것이다."
+            },
+            {
+              "key": "ㄷ",
+              "text": "'42. 환경관리'는 직능 유형의 유사성에 따라 대분류로 분류된 42개 중 하나이다."
+            },
+            {
+              "key": "ㄹ",
+              "text": "'4201010102_21v1 지속가능한 개발'은 '4201010101_21v1 환경영향평가'보다 높은 숙련도와 경력이 요구된다."
+            }
+          ]
+        },
+        "correct_answer": 4,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "NCS(국가직무능력표준) 사이트에서 희망 직업과 관련된 세분류 중 '환경 관리'를 찾아 자료를 정리함.",
+            "why": "NCS의 세분류를 이해하고 관련된 직업 정보를 올바르게 해석할 수 있는 능력을 평가하기 위해."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "X",
+            "reasoning": "(가)의 내용이 NCS 분류체계와 맞지 않음."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "O",
+            "reasoning": "(나)는 NCS의 능력 단위 구성에 대한 올바른 설명임."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "O",
+            "reasoning": "'42. 환경관리'는 대분류로서 정확한 정보임."
+          },
+          {
+            "optionNum": 4,
+            "verdict": "O",
+            "reasoning": "'4201010102_21v1 지속가능한 개발'의 숙련도 설명이 정확함."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "제시된 자료를 읽고 NCS와 관련된 내용을 이해한다."
+          },
+          {
+            "step": 2,
+            "action": "각 선택지를 검토하고 옳은 정보를 선택한다."
+          }
+        ],
+        "takeaway": "NCS 개념과 관련 직무 정보를 명확히 이해하고 해석할 수 있는 능력이 중요하다."
+      }
+    },
+    {
+      "conceptName": "구직자 취업 역량 강화 프로그램 및 자격증 취득",
+      "originalSource": "2024학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "구직자 취업 역량 강화 프로그램 및 자격증 취득",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_COMPARATIVE_MATRIX"
+        },
+        "render_ready": {
+          "question_stem": "다음은 '직업능력 개발 체계' 및 '직업능력 개발 모듈의 연결 구조' 일부이다. 이에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+          "stimulus_data": {
+            "headers": [
+              {
+                "id": "h1",
+                "label": "직업능력 개발 체계"
+              },
+              {
+                "id": "h2",
+                "label": "직업능력 개발 모듈"
+              }
+            ],
+            "rows": [
+              {
+                "id": "1",
+                "cells": [
+                  "세부 항목 (가)",
+                  "직업능력 개발 모듈명"
+                ]
+              },
+              {
+                "id": "2",
+                "cells": [
+                  "능력 단위",
+                  "직업능력 개발 모듈 목표"
+                ]
+              },
+              {
+                "id": "3",
+                "cells": [
+                  "실행 기준",
+                  "학습 주제"
+                ]
+              },
+              {
+                "id": "4",
+                "cells": [
+                  "지식, 기술, 태도",
+                  "학습 목표"
+                ]
+              },
+              {
+                "id": "5",
+                "cells": [
+                  "기초 직업 능력",
+                  "학습 내용"
+                ]
+              }
+            ],
+            "selection_chips": []
+          },
+          "options_list": [
+            "직업능력 개발 모듈은 직업능력 단위의 '교육 자료'이다.",
+            "(가)는 직업능력 개발 체계의 기본 구성 요소이다.",
+            "(나)는 (가)를 구성하는 중요한 세부 능력을 서술한 것이다."
+          ]
+        },
+        "combo_block": {
+          "title": "<보기>",
+          "items": [
+            {
+              "key": "ㄱ",
+              "text": "직업능력 개발 모듈은 직업능력 단위의 '교육 자료'이다."
+            },
+            {
+              "key": "ㄴ",
+              "text": "(가)는 직업능력 개발 체계의 기본 구성 요소이다."
+            },
+            {
+              "key": "ㄷ",
+              "text": "(나)는 (가)를 구성하는 중요한 세부 능력을 서술한 것이다."
+            }
+          ]
+        },
+        "correct_answer": 3,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "직업능력 개발 체계의 기본 구성 요소",
+            "why": "직업능력 개발 모듈과의 관계를 파악하는 데 필수적이다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "X",
+            "reasoning": "직업능력 개발 모듈은 단순한 교육 자료가 아니라 종합적인 체계를 포함한다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "O",
+            "reasoning": "(가)는 직업능력 개발 체계의 핵심적인 구성 요소로, 올바른 설명이다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "O",
+            "reasoning": "(나)는 (가)의 세부 내용을 설명하는 것으로 정확하다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "문제를 읽고 각 설명의 정확성을 평가한다."
+          },
+          {
+            "step": 2,
+            "action": "각 보기의 내용을 비교하여 올바른 조합을 찾는다."
+          }
+        ],
+        "takeaway": "직업능력 개발 체계와 모듈 간의 관계를 정확히 이해하는 것이 중요하다."
+      }
+    },
+    {
+      "conceptName": "국민내일배움카드 발급 및 이러닝 활용 방법",
+      "originalSource": "2023학년도 대학수학능력시험 성공적인 직업생활",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "직업훈련 카드 발급 및 온라인 교육 활용 방법",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_OFFICIAL_DOCUMENT"
+        },
+        "render_ready": {
+          "question_stem": "다음 직무 설명서에 대한 분석 내용으로 적절한 것만을 <보기>에서 선택하시오.",
+          "stimulus_data": {
+            "doc_type": "직무 설명서",
+            "header_info": {
+              "title": "△△주식회사 직무 설명서",
+              "date": "2023-10-01",
+              "author": "인사팀"
+            },
+            "paragraphs": [
+              {
+                "sub_title": "채용 분야",
+                "content": "정보 기술"
+              },
+              {
+                "sub_title": "분류체계",
+                "content": "대분류: 03. 정보통신\n중분류: 02. 소프트웨어 개발\n소분류: 01. 웹 개발\n세분류: 02. 프론트엔드"
+              },
+              {
+                "sub_title": "직무수행내용",
+                "content": "(프론트엔드) 사용자 인터페이스를 설계하고, 웹 애플리케이션을 개발하여 최적의 사용자 경험을 제공함"
+              },
+              {
+                "sub_title": "능력단위",
+                "content": "01. HTML/CSS 활용\n02. 자바스크립트 프로그래밍"
+              },
+              {
+                "sub_title": "능력단위요소",
+                "content": "0202010101_21v1.0 웹 페이지 구조 설계하기\n0202010102_21v1.0 동적 웹 콘텐츠 구현하기"
+              },
+              {
+                "sub_title": "필요 지식",
+                "content": "(프론트엔드) 웹 기술의 기초, 사용자 경험 디자인"
+              },
+              {
+                "sub_title": "필요 기술",
+                "content": "(프론트엔드) 코드 디버깅 능력, 버전 관리 도구 사용 능력"
+              }
+            ],
+            "footnotes": []
+          },
+          "options_list": [
+            "직무를 구성하는 기본단위는 '01. 웹 개발'이다.",
+            "'필요 지식'에 포함된 내용은 능력단위를 구성하는 핵심 하위 능력을 수행하는 데 필요한 지식이다.",
+            "'필요 기술'에 의하면 직업기초능력 중 프로그래밍 능력이 요구된다."
+          ]
+        },
+        "combo_block": {
+          "title": "<보기>",
+          "items": [
+            {
+              "key": "ㄱ",
+              "text": "직무를 구성하는 기본단위는 '01. 웹 개발'이다."
+            },
+            {
+              "key": "ㄴ",
+              "text": "'필요 지식'에 포함된 내용은 능력단위를 구성하는 핵심 하위 능력을 수행하는 데 필요한 지식이다."
+            },
+            {
+              "key": "ㄷ",
+              "text": "'필요 기술'에 의하면 직업기초능력 중 프로그래밍 능력이 요구된다."
+            }
+          ]
+        },
+        "correct_answer": 2,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "프론트엔드",
+            "why": "직무 수행의 세부 영역을 명시하며, 요구되는 지식과 기술을 이해하는 데 도움이 된다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "X",
+            "reasoning": "직무의 기본단위는 '01. 웹 개발'이 아니라 '프론트엔드'와 같은 세부 직무이다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "O",
+            "reasoning": "'필요 지식'은 능력단위와의 관계를 정확히 반영하고 있다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "X",
+            "reasoning": "'필요 기술'은 넓은 범위를 포함하므로 '프로그래밍 능력'만으로 제한되지 않는다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "직무 설명서를 면밀히 분석하여 각 항목의 관계를 이해한다."
+          },
+          {
+            "step": 2,
+            "action": "보기에서 각 선택지가 직무 설명서의 내용과 일치하는지를 검토한다."
+          },
+          {
+            "step": 3,
+            "action": "올바른 선택지를 선택하여 문제를 해결한다."
+          }
+        ],
+        "takeaway": "직무 설명서의 내용을 충분히 이해하고, 필요한 지식과 기술의 관계를 명확히 파악하는 것이 중요하다."
+      }
+    }
+  ]
+}

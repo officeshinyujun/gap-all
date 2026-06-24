@@ -1,0 +1,259 @@
+{
+  "unit": 2,
+  "unitTitle": "생애 발달과 진로 설계",
+  "subject": "success",
+  "totalQuestions": 9,
+  "patterns": [
+    {
+      "conceptId": "success_2_01",
+      "targetConcept": "생애 발달의 개념 및 특징",
+      "frequency": 18,
+      "sourceExam": "2023학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 3,
+      "pattern": {
+        "assessmentIntent": "학생이 생애 발달 단계 이론을 이해하고, 특정 사례를 통해 해당 단계에서의 발달 과업을 식별할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "사례 분석",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_CONVERSATIONAL_FLOW",
+          "blankCount": 0,
+          "boCount": 0,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: '은퇴 후 생활 수준 유지를 위해 준비를 한다.' - 이 선택지는 생애 발달의 후반 단계에 해당하는 내용으로, A씨의 현재 상황과 맞지 않음.",
+          "오답2: '체력 저하에 적응하며 건강 약화에 따른 활동량을 줄인다.' - 이 선택지는 노년기에 해당하는 발달 과업으로, A씨의 현재 생애 단계와 관련이 없음.",
+          "오답3: '자기 이해를 바탕으로 다양한 진로 탐색 및 경험을 쌓는다.' - 이 선택지는 청소년기나 초기 성인기에 해당하는 발달 과업으로, A씨의 현재 상황과는 거리가 있음.",
+          "오답4: '직장에서는 경력자로서의 역할과 책임을 다하며 노후를 준비한다.' - 이 선택지는 중년기에 해당하는 발달 과업으로, A씨가 현재 지도자로 활동 중인 점과 맞지 않음."
+        ],
+        "difficultyDriver": "학생이 생애 발달 단계 이론을 정확히 이해하고, 주어진 사례에서 적절한 발달 과업을 추론해야 하므로, 개념의 정확한 이해와 사례 분석 능력이 요구됨.",
+        "stemPattern": "다음 인터뷰를 통해 알 수 있는 A씨의 현재 생애 발달 단계의 발달 과업으로 가장 적절한 것은?"
+      }
+    },
+    {
+      "conceptId": "success_2_02",
+      "targetConcept": "발달 과업의 개념 및 해비거스트의 발달 과업",
+      "frequency": 18,
+      "sourceExam": "2024학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 4,
+      "pattern": {
+        "assessmentIntent": "학생이 해비거스트의 발달 과업 이론을 바탕으로 A와 B의 생애 발달 단계에서의 진로 설정 및 은퇴 목표에 대한 이해도를 평가한다.",
+        "judgmentAxis": "개념 변별",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_CONVERSATIONAL_FLOW",
+          "blankCount": 0,
+          "boCount": 5,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: A 씨의 진로 설정 시기에 대한 발달 과업으로 '자아 정체감 형성하기'를 제시하였으나, 이는 A 씨의 발달 단계와 맞지 않음.",
+          "오답2: A 씨의 은퇴 시기에 대한 발달 과업으로 '성인 관점에서 사회적 가치 수용'을 제시하였으나, 이는 A 씨의 목표와 관련이 없음.",
+          "오답3: B 씨의 진로 설정 시기에 대한 발달 과업으로 '또래 친구들과 어울리기'를 제시하였으나, 이는 B 씨의 성인기 발달 과업과 관련이 없음.",
+          "오답4: B 씨의 은퇴 시기에 대한 발달 과업으로 '인생 철학 확립하기'를 제시하였으나, 이는 B 씨의 목표와 맞지 않음.",
+          "오답5: A, B 씨의 직업인으로 일하기 시작한 시기의 발달 과업으로 '직업 수행에 필요한 지식과 기술 학습'을 제시하였으나, 이는 두 사람의 경력과 관련이 없음."
+        ],
+        "difficultyDriver": "학생이 각 인물의 생애 발달 단계와 관련된 발달 과업을 정확히 이해하고 구분해야 하므로, 개념의 유사성과 발달 단계의 복잡성이 난이도를 높임.",
+        "stemPattern": "위 특강을 통해 알 수 있는 A, B씨의 생애 발달 단계의 발달 과업에 대한 설명으로 가장 적절한 것은?"
+      }
+    },
+    {
+      "conceptId": "success_2_03",
+      "targetConcept": "해비거스트의 생애 발달 단계",
+      "frequency": 18,
+      "sourceExam": "2023학년도 대학수학능력시험 성공적인 직업생활",
+      "questionNumber": 15,
+      "pattern": {
+        "assessmentIntent": "학생이 해비거스트의 생애 발달 단계 이론을 이해하고, 이를 바탕으로 A씨의 발달 과업과 기업가 정신을 분석할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "사례 분석",
+        "skeletonStructure": {
+          "itemFamily": "combination_judgment",
+          "stimulusTPL": "TPL_CONVERSATIONAL_FLOW",
+          "blankCount": 0,
+          "boCount": 3,
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true
+        },
+        "distractorBlueprint": [
+          "오답1: '첫 직장 생활을 시작한 시점의 발달 과업에는 '직업 수행에 필요한 지식과 기술의 학습'이 포함된다.' - 이 선택지는 A씨의 첫 직장 경험을 잘못 해석하여 발달 과업을 잘못 연결한 경우.",
+          "오답2: '전통 가구 제작 기법을 배운 시점의 발달 과업에는 '은퇴와 수입 감소에 적응'이 포함된다.' - 이 선택지는 A씨의 나이에 따른 발달 과업을 잘못 이해하여, 해당 시점의 발달 과업을 잘못 적용한 경우.",
+          "오답3: '가구 디자인 교육 회사의 창업·운영 시 중요하게 생각한 기업가 정신의 구성 요소 중 하나는 '사회적 책임성'이다.' - 이 선택지는 A씨의 기업가 정신을 잘못 해석하여, 실제로 강조한 요소와 다르게 설정한 경우."
+        ],
+        "difficultyDriver": "정보의 분산과 다중 조건을 요구하는 점, 해비거스트 이론의 이해도를 평가하는 점이 난이도를 높인다.",
+        "stemPattern": "다음 인터뷰를 통해 알 수 있는 A씨의 발달 과업과 기업가 정신에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?"
+      }
+    },
+    {
+      "conceptId": "success_2_04",
+      "targetConcept": "에릭슨의 심리사회적 발달 단계",
+      "frequency": 18,
+      "sourceExam": "2025학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 15,
+      "pattern": {
+        "assessmentIntent": "학생들이 에릭슨의 심리사회적 발달 단계에 대한 이해를 바탕으로 각 단계에서 요구되는 발달 과업을 올바르게 식별하고 조합할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "분류/매칭",
+        "skeletonStructure": {
+          "itemFamily": "combination_judgment",
+          "stimulusTPL": "TPL_INSTRUCTIONAL_SCENE",
+          "blankCount": 0,
+          "boCount": 0,
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: '갑, 을' - 두 학생이 서로 다른 발달 과업을 선택하여 혼합된 조합을 형성함.",
+          "오답2: '갑, 병' - 두 학생이 서로 다른 발달 과업을 선택하여 혼합된 조합을 형성함.",
+          "오답3: '을, 병' - 두 학생이 서로 다른 발달 과업을 선택하여 혼합된 조합을 형성함.",
+          "오답4: '을, 정' - 두 학생이 서로 다른 발달 과업을 선택하여 혼합된 조합을 형성함.",
+          "오답5: '병, 정' - 두 학생이 서로 다른 발달 과업을 선택하여 혼합된 조합을 형성함."
+        ],
+        "difficultyDriver": "학생들이 각 발달 단계에 대한 이해도를 바탕으로 올바른 조합을 선택해야 하므로, 발달 과업의 유사성과 학생들의 선택지 간의 혼동 가능성이 난이도를 높인다.",
+        "stemPattern": "다음은 생애 발달 단계에 대한 수업 장면이다. 교사의 질문에 옳게 답한 학생만을 <보기>에서 고른 것은?"
+      }
+    },
+    {
+      "conceptId": "success_2_05",
+      "targetConcept": "레빈슨의 인생 주기",
+      "frequency": 18,
+      "sourceExam": "2024학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 18,
+      "pattern": {
+        "assessmentIntent": "학생이 레빈슨의 인생 주기 이론을 바탕으로 A씨의 생애 발달 단계와 진로 의사 결정 과정을 분석하고 이해할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "사례 분석",
+        "skeletonStructure": {
+          "itemFamily": "combination_judgment",
+          "stimulusTPL": "TPL_CASE_DIAGNOSTIC_FRAME",
+          "blankCount": 0,
+          "boCount": 3,
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true
+        },
+        "distractorBlueprint": [
+          "오답1: 'A씨가 재기에 성공한 시기의 발달 과업에는 '인생 철학 확립하기'가 포함된다.' - 이 선택지는 A씨의 재기 과정에서의 발달 과업을 잘못 해석하여, 실제로는 인생 철학 확립이 아닌 다른 과업이 해당 시기에 더 적합하다는 점에서 오답이다.",
+          "오답2: 'A씨가 양계장을 폐업한 시기의 발달 특성에 '급격한 정서 변화와 부모로부터의 정서적 독립'이 포함된다.' - 이 선택지는 A씨의 폐업 시기에 해당하는 발달 특성을 잘못 적용하여, 실제로는 다른 발달 특성이 더 적합하다는 점에서 오답이다.",
+          "오답3: 'A씨가 적성과 가치관 검사를 한 행위는 의사 결정 과정 중 '대안 평가 및 결정 단계'에 해당한다.' - 이 선택지는 A씨의 진로 결정 과정에서의 단계 구분을 잘못하여, 실제로는 진로 상담이 더 적합한 단계라는 점에서 오답이다."
+        ],
+        "difficultyDriver": "학생이 A씨의 사례를 통해 다양한 발달 단계와 진로 의사 결정 과정을 이해하고, 이를 바탕으로 올바른 선택지를 구별해야 하므로, 정보의 복잡성과 개념의 유사성으로 인해 난이도가 결정된다.",
+        "stemPattern": "다음 사례를 통해 알 수 있는 A씨의 생애 발달 단계와 진로 의사 결정 과정에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?"
+      }
+    },
+    {
+      "conceptId": "success_2_06",
+      "targetConcept": "긴즈버그의 진로 선택 과정",
+      "frequency": 18,
+      "sourceExam": "2022학년도 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 20,
+      "pattern": {
+        "assessmentIntent": "학생이 긴즈버그의 진로 선택 과정과 해비거스트의 생애 발달 단계 이론을 이해하고, 각 단계에 적합한 발달 과업을 식별할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "비교/대조",
+        "skeletonStructure": {
+          "itemFamily": "combination_judgment",
+          "stimulusTPL": "TPL_COMPARATIVE_MATRIX",
+          "blankCount": 0,
+          "boCount": 4,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": true
+        },
+        "distractorBlueprint": [
+          "오답1: '성인들로부터 정서적 독립 및 직업 준비하기'는 (가)와 (나) 모두에 해당하지 않으며, 발달 단계와 관련성이 낮다.",
+          "오답2: '배우자 선택 및 사회적 집단 활동 참여하기'는 (가)와 관련이 있지만 (나)와는 관련이 없으므로 부적절하다.",
+          "오답3: '신체적 노화 적응 및 은퇴 후 여가 시간 활용법 학습하기'는 주로 노년기에 해당하며, (가)와 (나)와는 관련이 없다.",
+          "오답4: '신체적·생리적 변화 적응 및 직업 세계 만족감 성취하기'는 (가)와 관련이 있지만 (나)와는 관련이 없으므로 부적절하다."
+        ],
+        "difficultyDriver": "학생이 각 발달 단계에 따른 정서적 변화와 직업적 성공의 요건을 정확히 이해하고, 이를 바탕으로 적절한 발달 과업을 선택해야 하므로 개념 변별이 필요하다.",
+        "stemPattern": "표는 생애 발달 단계에 따른 정서적 변화와 직업적 성공의 요건을 나타낸 것이다. (가), (나)에 해당하는 발달 과업으로 가장 적절한 것만을 <보기>에서 고른 것은?"
+      }
+    },
+    {
+      "conceptId": "success_2_07",
+      "targetConcept": "마샤의 자아 정체감 유형",
+      "frequency": 18,
+      "sourceExam": "2023학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 20,
+      "pattern": {
+        "assessmentIntent": "학생이 마샤의 자아 정체감 유형을 이해하고, 주어진 직업 사례를 통해 발달 과업을 분석하여 적절한 선택지를 고를 수 있는 능력을 평가한다.",
+        "judgmentAxis": "사례 분석",
+        "skeletonStructure": {
+          "itemFamily": "combination_judgment",
+          "stimulusTPL": "TPL_SEQUENTIAL_WORKFLOW",
+          "blankCount": 0,
+          "boCount": 3,
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true
+        },
+        "distractorBlueprint": [
+          "오답1: '일본과 중국에서 활동한 시기의 발달 과업에는 신체적, 지적, 사회적, 도덕적 발달이 포함된다.' - 이 선택지는 발달 과업의 범위를 잘못 이해하여 일반적인 발달 영역을 나열함으로써 오답을 구성하였다.",
+          "오답2: '처음 패션 디자이너로 활동한 시기의 발달 과업에는 성인 관점에서 사회적 가치 수용이 포함된다.' - 이 선택지는 특정 발달 과업을 잘못 적용하여 A씨의 초기 경력과 관련이 없는 내용을 포함시켜 오답을 만들었다."
+        ],
+        "difficultyDriver": "학생이 직업 사례와 발달 과업 간의 관계를 이해하고, 각 선택지의 정확성을 판단하기 위해 필요한 정보의 분산과 개념의 유사성을 구별하는 능력.",
+        "stemPattern": "다음 직업 사례에 나타난 A씨에 대한 분석 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?"
+      }
+    },
+    {
+      "conceptId": "success_2_08",
+      "targetConcept": "슈퍼의 진로 발달 이론",
+      "frequency": 18,
+      "sourceExam": "2022학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 6,
+      "pattern": {
+        "assessmentIntent": "학생이 슈퍼의 진로 발달 이론을 이해하고, 생애 발달 시기에 따른 과업과 경력 개발 경로를 적절히 연결할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "빈칸 추론",
+        "skeletonStructure": {
+          "itemFamily": "combination_judgment",
+          "stimulusTPL": "TPL_SEQUENTIAL_WORKFLOW",
+          "blankCount": 2,
+          "boCount": 0,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: '부모와의 애착 형성 - 나의 가치 유지 노력'은 생애 발달 시기에 적합하지 않은 연결로, 초기 경력 재평가와 관련이 없다.",
+          "오답2: '부모와의 애착 형성 - 초기 경력 재평가 및 생산성 유지'는 부모와의 관계가 경력 재평가에 영향을 미친다는 점에서 혼동을 줄 수 있다.",
+          "오답3: '기본 생활 습관 형성 - 진로 선택을 위한 흥미, 적성 검사'는 기본 생활 습관과 진로 선택의 직접적인 연관성을 잘못 연결하였다.",
+          "오답4: '경제적, 심리적으로 독립 - 초기 경력 재평가 및 생산성 유지'는 독립과 경력 재평가의 관계를 잘못 해석하였다.",
+          "오답5: '경제적, 심리적으로 독립 - 진로 선택을 위한 흥미, 적성 검사'는 독립과 진로 선택의 관계를 혼동하게 만든다."
+        ],
+        "difficultyDriver": "학생이 슈퍼의 이론을 이해하고, 생애 발달 단계와 경력 개발 과업을 정확히 연결해야 하므로, 개념의 이해와 적용이 필요하다.",
+        "stemPattern": "다음은 [A씨가 작성한 생애 발달 시기에 따른 과업과 경력 개발 경로]의 (가), (나)에 대한 설명으로 옳은 것만을 <보기>에서 고른 것은?"
+      }
+    },
+    {
+      "conceptId": "success_2_09",
+      "targetConcept": "영아기 및 청소년기의 발달 특징",
+      "frequency": 18,
+      "sourceExam": "2022학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 6,
+      "pattern": {
+        "assessmentIntent": "이 문제는 영아기 및 청소년기의 발달 특징을 이해하고, 진로 선택 과정에서 적절한 행동을 구분할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "개념 변별",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_CONVERSATIONAL_FLOW",
+          "blankCount": 0,
+          "boCount": 5,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: '미래 희망 직업에 대한 가치관을 정립한다.' - 진로 선택에 있어 가치관 정립은 중요한 과정이지만, 이 시기에 적절하지 않은 행동으로 설정되어 있다.",
+          "오답2: '진로 선택을 위한 의사 결정 능력을 함양한다.' - 의사 결정 능력 함양은 필요하지만, 이 시기에 적합한 행동이 아니다.",
+          "오답3: '적성을 발견하고 자신에게 맞는 진로를 탐색한다.' - 적성 발견과 진로 탐색은 필수적이지만, 질문의 맥락에서 적절하지 않은 선택으로 제시된다.",
+          "오답4: '관심 있는 직업 정보를 조사하여 다양한 직업에 대한 이해도를 높인다.' - 직업 정보 조사도 중요하지만, 이 시기에 적합한 행동이 아니다."
+        ],
+        "difficultyDriver": "문제의 난이도는 다양한 진로 선택 관련 행동을 이해하고, 그 중에서 부적절한 행동을 식별하는 데 필요한 사고 과정의 복잡성에 의해 결정된다.",
+        "stemPattern": "다음 [자료명]의 글쓴이가 속한 생애 발달 시기에 진로 선택을 위해 해야 할 일로 적절하지 않은 것은?"
+      }
+    }
+  ]
+}

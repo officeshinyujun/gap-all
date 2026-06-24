@@ -1,0 +1,89 @@
+@import '@/styles/variables.scss';
+
+// 프로필 + 서술 통합 박스
+.caseBox {
+  width: 100%;
+  border: 1.5px solid $text-strong;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+// 프로필 헤더
+.profileHeader {
+  width: 100%;
+  padding: $spacing-12 $spacing-16;
+  background-color: $background-secondary;
+  border-bottom: 1px solid $border-primary;
+  box-sizing: border-box;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  background-color: $brand-secondary;
+  border: 1.5px solid $brand-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.avatarInitial {
+  font-size: 15px;
+  font-weight: $bold;
+  color: $brand-primary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+}
+
+.profileName {
+  font-size: 14px;
+  font-weight: $semi-bold;
+  color: $text-primary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+}
+
+.profileContext {
+  font-size: 12px;
+  font-weight: $regular;
+  color: $text-secondary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  line-height: 1.4;
+}
+
+// 서술 본문
+.narrativeBody {
+  width: 100%;
+  padding: $spacing-16 $spacing-20;
+  background-color: $background-primary;
+  box-sizing: border-box;
+}
+
+.narrativeText {
+  font-size: 13px;
+  font-weight: $regular;
+  color: $text-primary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  line-height: 1.9;
+  margin: 0;
+  word-break: keep-all;
+}
+
+// 진단 항목
+.checkList {
+  border: 1px solid $border-primary;
+  overflow: hidden;
+}
+
+.checkListHeader {
+  padding: $spacing-8 $spacing-12;
+  background-color: $brand-secondary;
+  border-bottom: 1px solid $border-primary;
+}
+
+.checkListTitle {
+  font-size: 12px;
+  font-weight: $semi-bold;
+  color: $brand-primary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  letter-spacing: 0.05em;
+}

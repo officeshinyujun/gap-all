@@ -1,0 +1,400 @@
+{
+  "unit": 5,
+  "unitTitle": "기업의 경영 활동",
+  "subject": "success",
+  "totalQuestions": 4,
+  "questions": [
+    {
+      "conceptName": "기업 경영의 의미 및 구성 요소",
+      "originalSource": "2024학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "기업 경영의 의미 및 구성 요소",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_SEQUENTIAL_WORKFLOW"
+        },
+        "render_ready": {
+          "question_stem": "다음 글에 나타난 C, D씨의 기업 경영 활동을 분석한 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+          "stimulus_data": {
+            "orientation": "vertical",
+            "steps": [
+              {
+                "idx": 1,
+                "label": "시장 조사",
+                "desc": "C 씨가 새로운 전자기기 시장 조사를 실시함.",
+                "is_missing": false
+              },
+              {
+                "idx": 2,
+                "label": "자금 조달",
+                "desc": "D 씨로부터 자금을 조달받아 사업 계획을 수립함.",
+                "is_missing": false
+              },
+              {
+                "idx": 3,
+                "label": "회사의 설립",
+                "desc": "조달한 자본으로 ▲▲ 기업을 설립함.",
+                "is_missing": false
+              },
+              {
+                "idx": 4,
+                "label": "생산 기술 개발",
+                "desc": "친환경적인 제품의 생산 기술을 개발함.",
+                "is_missing": false
+              },
+              {
+                "idx": 5,
+                "label": "상품 출시",
+                "desc": "개발한 제품을 시장에 성공적으로 출시함.",
+                "is_missing": false
+              }
+            ]
+          },
+          "options_list": [
+            "C씨는 ▲▲기업의 최고 운영 책임자이다.",
+            "○○ 기업 D씨의 경영 활동은 인사 관리 활동에 해당한다.",
+            "▲▲기업의 생산 방식으로 대량 생산보다 맞춤형 생산이 더 적합하다."
+          ]
+        },
+        "combo_block": {
+          "title": "<보기>",
+          "items": [
+            {
+              "key": "ㄱ",
+              "text": "C씨는 ▲▲기업의 최고 운영 책임자이다."
+            },
+            {
+              "key": "ㄴ",
+              "text": "○○ 기업 D씨의 경영 활동은 인사 관리 활동에 해당한다."
+            },
+            {
+              "key": "ㄷ",
+              "text": "▲▲기업의 생산 방식으로 대량 생산보다 맞춤형 생산이 더 적합하다."
+            }
+          ]
+        },
+        "correct_answer": 5,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "C 씨가 새로운 전자기기 시장 조사를 실시함.",
+            "why": "C 씨의 시장 조사는 기업 경영의 첫 단계로, 시장의 수요를 반영하여 사업 방향을 설정하는 데 중요한 역할을 한다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "X",
+            "reasoning": "C씨의 역할에 대한 정보가 부족하여 사실과 다를 수 있음."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "X",
+            "reasoning": "D씨의 활동이 인사 관리와 관련이 없음을 간과함."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "X",
+            "reasoning": "기업의 생산 방식에 대한 일반적인 이해 부족으로 잘못된 주장을 함."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "제시된 정보에서 C, D씨의 경영 활동을 분석하여 각 활동의 적절성을 평가한다."
+          }
+        ],
+        "takeaway": "기업 경영 활동은 시장 조사, 자금 조달, 회사 설립 등 다양한 단계를 포함하며, 각 단계의 중요성을 이해하는 것이 필요하다."
+      }
+    },
+    {
+      "conceptName": "경영자의 분류",
+      "originalSource": "2023학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "경영자의 분류",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_FORMAL_DOCUMENT"
+        },
+        "render_ready": {
+          "question_stem": "주어진 채용 공고에서 해당 부서의 주 업무가 속하는 경영 관리 활동으로 가장 적절한 것은?",
+          "stimulus_data": {
+            "doc_type": "채용공고",
+            "header_info": {
+              "title": "△△사 채용 안내",
+              "date": "",
+              "author": ""
+            },
+            "paragraphs": [
+              {
+                "sub_title": "모집 부서 및 인원",
+                "content": "△△사에서는 열정을 가진 인재를 모집합니다.\n• 모집 부서 및 인원: 재무 부서 3명"
+              },
+              {
+                "sub_title": "전형 방법",
+                "content": "서류 심사 ➡ 1차 면접(구술 면접) ➡ 2차 면접(프레젠테이션 면접)\n※ 제출 서류: 이력서, 자기소개서, 경력 증명서"
+              },
+              {
+                "sub_title": "재무 부서 주 업무",
+                "content": "• 자금 관리 및 회계 결산"
+              },
+              {
+                "sub_title": "담당 세부 업무",
+                "content": "- 금융 자산의 수익률 분석 및 보고서 작성\n- 예산 집행 계획 수립을 위한 기초 자료 정리"
+              }
+            ],
+            "footnotes": []
+          },
+          "options_list": [
+            "생산 관리",
+            "재무 관리",
+            "마케팅 전략",
+            "인사 관리",
+            "정보 기술 관리"
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 2,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "자금 관리 및 회계 결산",
+            "why": "재무 부서의 주 업무로, 경영 관리 활동 중 재무 관리에 해당함."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "X",
+            "reasoning": "생산 관리는 생산 과정과 관련된 업무로, 자금 관리와는 무관함."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "O",
+            "reasoning": "재무 관리가 자금 관리 및 회계 결산과 직접적으로 연결됨."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "X",
+            "reasoning": "마케팅 전략은 시장 조사 및 광고 관련 업무로, 재무 부서의 주 업무와는 관련이 없음."
+          },
+          {
+            "optionNum": 4,
+            "verdict": "X",
+            "reasoning": "인사 관리는 인사 및 조직 관리와 관련된 업무로, 자금 관리와는 무관함."
+          },
+          {
+            "optionNum": 5,
+            "verdict": "X",
+            "reasoning": "정보 기술 관리는 IT 시스템 관리와 관련된 업무로, 재무 부서의 주 업무와는 차이가 있음."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "제공된 채용 공고 내용을 분석하여 주 업무를 도출한다."
+          },
+          {
+            "step": 2,
+            "action": "각 선택지를 검토하여, 주 업무와 관련된 경영 관리 활동을 식별한다."
+          },
+          {
+            "step": 3,
+            "action": "적절한 선택지를 선택하여 정답을 확인한다."
+          }
+        ],
+        "takeaway": "경영 관리 활동의 다양한 분류를 이해하고, 주어진 정보에서 관련 업무를 식별하는 능력이 중요하다."
+      }
+    },
+    {
+      "conceptName": "경영 관리의 의미 및 순환 과정 (PODC)",
+      "originalSource": "2022학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "경영 관리의 의미 및 순환 과정 (PODC)",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_기사"
+        },
+        "render_ready": {
+          "question_stem": "다음 기사에 나타난 △△주식회사의 경영 활동 종류로 가장 적절한 것은?",
+          "stimulus_data": {
+            "content": "영국 런던증권거래소에 상장된 한국의 △△주식회사가 1주당 40파운드로 공모가를 설정했다고 발표했다. 이 회사는 이번 상장을 통해 약 6조 원에 달하는 자금을 확보할 수 있을 것으로 보인다. △△주식회사 관계자는 \"이번에 조달된 자본을 통해 지속 가능한 경영 전략을 추진할 계획이다.\"라고 전했다.\n-△△뉴스, 2022년 4월 5일 자-"
+          },
+          "options_list": [
+            "재무 관리",
+            "생산 관리",
+            "회계 관리",
+            "마케팅 관리",
+            "전략 관리"
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 5,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "지속 가능한 경영 전략을 추진할 계획이다.",
+            "why": "자본 조달이 기업의 장기 전략과 연결되어 있음을 나타내므로, 경영 관리의 전략적 측면을 강조하고 있다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "X",
+            "reasoning": "'재무 관리'는 자본 조달과 관련이 있지만, 지속 가능성에 대한 언급이 부족하다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "X",
+            "reasoning": "'생산 관리'는 제품 생산을 다루지만, 이번 사례의 초점은 자본 조달과 경영 전략에 있다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "X",
+            "reasoning": "'회계 관리'는 재무 기록에 중점을 두며, 경영 전략과의 연결성이 낮다."
+          },
+          {
+            "optionNum": 4,
+            "verdict": "X",
+            "reasoning": "'마케팅 관리'는 제품 판매와 관련이 있지만, 이번 사례에서 강조된 것은 자본 조달이다."
+          },
+          {
+            "optionNum": 5,
+            "verdict": "O",
+            "reasoning": "'전략 관리'는 자본을 활용한 장기 계획과 관련이 있으므로, 주어진 사례와 가장 잘 맞는다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "기사 내용을 읽고 주된 경영 활동을 파악한다."
+          },
+          {
+            "step": 2,
+            "action": "주어진 선택지 중에서 경영 활동의 종류를 비교 분석한다."
+          },
+          {
+            "step": 3,
+            "action": "가장 적절한 경영 활동을 선택한다."
+          }
+        ],
+        "takeaway": "경영 활동은 자본 조달뿐만 아니라 장기적인 전략과 연결됨을 이해해야 한다."
+      }
+    },
+    {
+      "conceptName": "인적 자원 관리 활동",
+      "originalSource": "2022학년도 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "인적 자원 관리 활동",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_FORMAL_DOCUMENT"
+        },
+        "render_ready": {
+          "question_stem": "다음은 신입 사원 [채용 계획서]의 일부이다. 채용될 사원의 담당 업무가 포함된 경영 활동으로 가장 적절한 것은?",
+          "stimulus_data": {
+            "doc_type": "채용 계획서",
+            "header_info": {
+              "title": "신입 사원 채용 계획서",
+              "date": "2023-10-01",
+              "author": "ABC 기업 인사팀"
+            },
+            "paragraphs": [
+              {
+                "sub_title": "채용 목적",
+                "content": "혁신적인 아이디어와 열정을 가진 신입 사원 확보"
+              },
+              {
+                "sub_title": "필요 인원",
+                "content": "5명"
+              },
+              {
+                "sub_title": "담당 업무",
+                "content": "• 고객의 요구를 분석하고, 맞춤형 솔루션을 제공하기 위해 시장 조사와 데이터 분석을 수행하는 업무"
+              }
+            ],
+            "footnotes": []
+          },
+          "options_list": [
+            "제조 관리",
+            "재무 운영",
+            "영업 관리",
+            "인적 자원 관리",
+            "정보 시스템 관리"
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 4,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "고객의 요구를 분석하고, 맞춤형 솔루션을 제공하기 위해 시장 조사와 데이터 분석을 수행하는 업무",
+            "why": "이 문장은 고객 중심의 접근 방식과 데이터 기반 의사결정의 중요성을 강조하며, 이는 인적 자원 관리의 핵심 요소와 관련이 있다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "X",
+            "reasoning": "제조 관리와 관련된 업무는 생산 공정과 관련된 것이기 때문에 이 문제의 담당 업무와는 부합하지 않는다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "X",
+            "reasoning": "재무 운영은 재무 관련 활동에 집중하므로 고객 요구 분석과는 직접적인 연관이 없다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "X",
+            "reasoning": "영업 관리는 판매와 관련된 업무로, 제시된 업무와는 관련성이 낮다."
+          },
+          {
+            "optionNum": 4,
+            "verdict": "O",
+            "reasoning": "인적 자원 관리는 고객의 요구를 이해하고 인재를 적재적소에 배치하는 데 필수적이다."
+          },
+          {
+            "optionNum": 5,
+            "verdict": "X",
+            "reasoning": "정보 시스템 관리는 기술적 측면에 집중하므로 주어진 업무와 직접적인 관련이 없다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "주어진 자료에서 담당 업무의 핵심 내용을 파악한다."
+          },
+          {
+            "step": 2,
+            "action": "각 선택지의 경영 활동과 담당 업무의 관계를 비교한다."
+          },
+          {
+            "step": 3,
+            "action": "가장 관련성이 높은 선택지를 선택한다."
+          }
+        ],
+        "takeaway": "신입 직원의 역할과 인적 자원 관리의 중요성을 이해하는 것은 성공적인 조직 운영에 필수적이다."
+      }
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+@import '@/styles/variables.scss';
+
+.bulletSection {
+  width: 100%;
+  padding: $spacing-12 $spacing-16;
+  background-color: $background-primary;
+  border: 1px solid $border-primary;
+  border-radius: 0;
+  box-sizing: border-box;
+}

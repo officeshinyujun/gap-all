@@ -1,0 +1,614 @@
+{
+  "unit": 7,
+  "unitTitle": "서비스업의 이해",
+  "subject": "success",
+  "totalQuestions": 7,
+  "questions": [
+    {
+      "conceptName": "서비스의 의미 및 특징",
+      "originalSource": "2025학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "서비스의 의미 및 특징",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_COMPARATIVE_MATRIX"
+        },
+        "render_ready": {
+          "question_stem": "다음 C, D 씨의 서비스 활동 사례에 대한 분석 내용으로 적절한 것만을 <보기>에서 고른 것은?",
+          "stimulus_data": {
+            "headers": [
+              {
+                "id": "h1",
+                "label": "직업"
+              },
+              {
+                "id": "h2",
+                "label": "위치"
+              },
+              {
+                "id": "h3",
+                "label": "전문성"
+              },
+              {
+                "id": "h4",
+                "label": "고객 수요"
+              }
+            ],
+            "rows": [
+              {
+                "id": "1",
+                "cells": [
+                  "교사 C씨",
+                  "대도시",
+                  "초등 교육 분야",
+                  "증가 추세"
+                ]
+              },
+              {
+                "id": "2",
+                "cells": [
+                  "운동 코치 D씨",
+                  "체육관",
+                  "피트니스 서비스",
+                  "높은 수요"
+                ]
+              }
+            ]
+          },
+          "options_list": [
+            "C 씨는 서비스의 특수성 때문에 교육 방식을 변경할 계획이다.",
+            "D 씨는 개인 맞춤형 서비스를 제공하고 있다.",
+            "서비스 공급 주체에 따라 분류하면 C 씨는 공공 서비스업에, D 씨는 민간 서비스업에 종사하고 있다.",
+            "서비스 수요 주체에 따라 분류하면 C 씨는 소비자 서비스업에, D 씨는 생산자 서비스업에 종사하고 있다."
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 3,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "C 씨는 공공 서비스업에 종사하고 있으며, D 씨는 민간 서비스업에 해당한다.",
+            "why": "C 씨는 교육 분야에서 일하고 있으며, 이는 일반적으로 공공 서비스에 해당하므로 적절한 분석이다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "O",
+            "reasoning": "C 씨의 서비스 방식 변경은 사례와 부합하지 않는다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "O",
+            "reasoning": "D 씨의 서비스 방식은 맞지만, 이는 주어진 정보와 일치하지 않는다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "X",
+            "reasoning": "C 씨의 공공 서비스업 종사 사실은 맞고 D 씨의 민간 서비스업 종사도 맞다."
+          },
+          {
+            "optionNum": 4,
+            "verdict": "O",
+            "reasoning": "C 씨의 역할과 D 씨의 역할을 잘못 분류하고 있다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "각 사례의 직업적 특성과 고객 수요를 분석하여 적절한 선택지를 고른다."
+          }
+        ],
+        "takeaway": "서비스의 종류와 공급 주체에 대한 이해는 사례 분석에서 중요하다."
+      }
+    },
+    {
+      "conceptName": "서비스업의 개념 및 유형",
+      "originalSource": "2023학년도 대학수학능력시험 성공적인 직업생활",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "서비스업의 개념 및 유형",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_COMPARATIVE_MATRIX"
+        },
+        "render_ready": {
+          "question_stem": "다음은 [서비스 제공 방식]을 나타낸 것이다. (가), (나)에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+          "stimulus_data": {
+            "headers": [
+              {
+                "id": "h1",
+                "label": "노동 집약도 \\ 고객과의 상호 작용 및 고객 맞춤화 정도"
+              },
+              {
+                "id": "h2",
+                "label": "낮음"
+              },
+              {
+                "id": "h3",
+                "label": "높음"
+              }
+            ],
+            "rows": [
+              {
+                "id": "1",
+                "cells": [
+                  "서비스 센터<br>(예: 여행사, 부동산 중개업체 등)",
+                  "서비스 사무소<br>(예: 치과, 세탁소 등)"
+                ]
+              },
+              {
+                "id": "2",
+                "cells": [
+                  "(가)",
+                  "(나)"
+                ]
+              }
+            ],
+            "selection_chips": []
+          },
+          "options_list": [
+            "(가)는 변리사, 세무사, 건축사가 제공하는 전문 서비스에 해당한다.",
+            "(나)는 '서비스 센터'에 비해 자본 투자 비중이 낮다.",
+            "(가)는 (나)에 비해 서비스 산출물의 표준화 정도가 더 높다."
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 4,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "(가)는 변리사, 세무사, 건축사가 제공하는 전문 서비스에 해당한다.",
+            "why": "전문 서비스의 정의와 그에 따른 특성에 대한 이해를 요구한다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "O",
+            "reasoning": "(가)의 서비스 유형을 정확히 설명하고 있으며, 전문 서비스의 정의와 맞아떨어진다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "X",
+            "reasoning": "(나)의 특성을 언급하지만, (가)와의 비교가 부족하여 전체적으로 맞지 않다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "X",
+            "reasoning": "(가)와 (나)의 비교를 포함하고 있지만, 실제 서비스 유형에 대한 이해가 부족하여 오답으로 처리된다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "주어진 서비스 제공 방식에 대한 이해를 바탕으로 (가)와 (나)를 비교하여 적절한 설명을 찾아야 한다."
+          }
+        ],
+        "takeaway": "서비스 유형의 특성과 비교를 통해 적절한 설명을 선택하는 능력을 기르는 것이 중요하다."
+      }
+    },
+    {
+      "conceptName": "대한민국 서비스업",
+      "originalSource": "2025학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "서비스업의 분류 및 이론적 적용",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_직업탐구"
+        },
+        "render_ready": {
+          "question_stem": "다음 서비스 사례에서 B기업을 분석한 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+          "stimulus_data": {
+            "content": "B기업은 국내외 500여 개의 온라인 플랫폼으로부터 물류 관리 업무를 위탁받아 제품의 보관, 포장, 그리고 배송 과정까지 총괄하는 물류 전문 회사이다. 이 기업은 최첨단 자동화 시스템을 통해 작업 효율성을 극대화하고 있으며, 최근에는 드론을 활용한 배송 서비스도 도입하고 있다."
+          },
+          "options_list": [
+            "공급 주체에 따라 분류할 때 '민간 서비스업'에 해당한다.",
+            "수요 주체에 따라 분류할 때 '소비자 서비스업'에 해당한다.",
+            "제공하는 서비스는 슈메너(Schmenner, R. W.)의 서비스 프로세스 매트릭스 이론에 따르면 '운영 서비스'에 해당한다."
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 2,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "B기업은 국내외 500여 개의 온라인 플랫폼으로부터 물류 관리 업무를 위탁받아 제품의 보관, 포장, 그리고 배송 과정까지 총괄하는 물류 전문 회사이다.",
+            "why": "이 문장은 B기업의 서비스 모델과 운영 방식을 설명하고 있어, 서비스업의 이해를 돕는다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "O",
+            "reasoning": "B기업은 민간 기업으로서 서비스를 제공하므로, 민간 서비스업에 해당한다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "O",
+            "reasoning": "B기업의 서비스는 소비자에게 제공되므로 소비자 서비스업으로 분류된다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "O",
+            "reasoning": "B기업의 서비스는 물류 운영에 관한 것으로, 슈메너의 이론에 따르면 운영 서비스로 분류된다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "B기업의 서비스 모델을 분석하여 제공하는 서비스의 성격을 이해한다."
+          },
+          {
+            "step": 2,
+            "action": "제공하는 서비스가 어떤 분류에 속하는지 판단한다."
+          },
+          {
+            "step": 3,
+            "action": "각 보기의 진위를 확인하여 적절한 선택지를 고른다."
+          }
+        ],
+        "takeaway": "서비스업의 다양한 분류 기준과 이론을 이해하고 실제 사례에 적용하는 능력을 기르는 것이 중요하다."
+      }
+    },
+    {
+      "conceptName": "서비스 설계의 의미 및 요소",
+      "originalSource": "2024학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "서비스 설계의 의미 및 요소",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_CASE_DIAGNOSTIC_FRAME"
+        },
+        "render_ready": {
+          "question_stem": "다음 글에 나타난 B회사의 설명으로 가장 적절한 것은?",
+          "stimulus_data": {
+            "case_profile": {
+              "name": "B 회사",
+              "context": "소프트웨어 품질 검증 서비스 제공"
+            },
+            "narrative": "B 회사는 클린 룸 환경에서 고객사의 소프트웨어 애플리케이션의 기능 및 성능을 검증하여 '합격'과 '불합격' 판별을 수행하는 서비스를 제공하고 있다. 그러나 경험이 부족한 검증 인력으로 인해 높은 오류율이 발생하고 있으며, 이로 인해 고객사로부터 불만이 제기되고 있다. 이를 개선하기 위해 AI 기반의 자동화 테스트 시스템을 도입하여 검증 서비스를 향상시키고 있다."
+          },
+          "options_list": [
+            "B회사의 서비스는 재판매가 가능하다.",
+            "B회사는 서비스의 이질성을 줄이기 위한 시스템을 도입하였다.",
+            "B회사는 공급 주체에 따라 분류할 때 '공공 서비스업'에 해당한다.",
+            "B 회사는 수요 주체에 따라 분류할 때 '기업 서비스업'에 해당한다.",
+            "B회사는 고객사의 참여를 유도하는 서비스 생산 방식을 적용하고 있다."
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 2,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "B 회사는 클린 룸 환경에서 고객사의 소프트웨어 애플리케이션의 기능 및 성능을 검증하여 '합격'과 '불합격' 판별을 수행하는 서비스를 제공하고 있다.",
+            "why": "서비스의 본질을 이해하는 데 중요한 정보로, 검증 서비스의 특성을 설명하고 있다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "X",
+            "reasoning": "재판매 가능성에 대한 정보가 제공되지 않으며, 소프트웨어 검증 서비스와 직접적인 관련이 없다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "O",
+            "reasoning": "AI 시스템 도입이 숙련도 문제를 해결하기 위한 조치로, 서비스의 이질성을 줄이기 위한 적절한 설명이다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "X",
+            "reasoning": "B회사는 산업용 소프트웨어 검증 서비스를 제공하므로 공공 서비스업에 해당하지 않는다."
+          },
+          {
+            "optionNum": 4,
+            "verdict": "X",
+            "reasoning": "B회사는 고객사(기업)를 대상으로 서비스를 제공하므로 소비자 서비스업에 해당하지 않는다."
+          },
+          {
+            "optionNum": 5,
+            "verdict": "X",
+            "reasoning": "고객사의 참여 유도에 대한 언급이 없으며, 서비스의 본질과 관련이 없다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "주어진 사례에서 B회사의 서비스 제공 방식을 분석하고, AI 시스템 도입의 목적을 이해한다."
+          },
+          {
+            "step": 2,
+            "action": "선택지에서 B회사의 서비스와 관련된 정보를 바탕으로 올바른 설명을 선택한다."
+          }
+        ],
+        "takeaway": "사례 분석을 통해 서비스 설계의 요소와 AI 시스템의 역할에 대한 이해를 높여야 한다."
+      }
+    },
+    {
+      "conceptName": "서비스 생산 방식",
+      "originalSource": "2024학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "서비스 생산 방식의 이해",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_COMPARATIVE_MATRIX"
+        },
+        "render_ready": {
+          "question_stem": "다음은 기업 D~F의 서비스 사례이다. 이에 대한 분석 내용으로 적절한 것만을 <보기>에서 고른 것은?",
+          "stimulus_data": {
+            "headers": [
+              {
+                "id": "h1",
+                "label": "기업"
+              },
+              {
+                "id": "h2",
+                "label": "내용"
+              }
+            ],
+            "rows": [
+              {
+                "id": "1",
+                "cells": [
+                  "기업 D",
+                  "정해진 시간에 고객의 사무실에 방문하여 맞춤형 청소 서비스를 제공하고 있다. 비대면으로 서비스 예약을 할 수 있어 고객들에게 인기가 높다."
+                ]
+              },
+              {
+                "id": "2",
+                "cells": [
+                  "기업 E",
+                  "전국 주요 도시에 비즈니스 센터를 운영하는 기업으로, 다양한 서비스 제공업체와 협력하여 합리적인 가격에 사무 공간을 제공하고 있다."
+                ]
+              },
+              {
+                "id": "3",
+                "cells": [
+                  "기업 F",
+                  "동일 품질의 제품을 구매하여 전국 50개의 매장에서 동일한 가격으로 판매하고 있다. 이들 매장은 모두 셀프 서비스 방식으로 운영되고 있어 소비자에게 저렴한 가격으로 제품을 공급한다."
+                ]
+              }
+            ],
+            "selection_chips": []
+          },
+          "options_list": [
+            "기업 D의 서비스는 대량 생산 방식으로 제공된다.",
+            "기업 F는 서비스 과정에 고객을 참여시키는 방식을 취하고 있다.",
+            "기업 E와 F는 기업 D에 비해 노동 집약도가 낮다.",
+            "기업 D~F의 서비스는 다른 재화나 서비스의 유통 과정에 투입된다."
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 2,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "정해진 시간에 고객의 사무실에 방문하여 맞춤형 청소 서비스를 제공하고 있다.",
+            "why": "기업 D의 서비스는 고객 맞춤형으로 제공되므로 대량 생산 방식이 아니다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "O",
+            "reasoning": "기업 D의 서비스는 개별 소비자에게 맞춤형으로 제공되므로 대량 생산 방식이 아니다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "X",
+            "reasoning": "기업 F는 셀프 서비스 매장으로 고객 참여가 있지만, 서비스 과정의 핵심 요소는 아니다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "X",
+            "reasoning": "기업 E와 F는 각각 다른 서비스 모델을 가지고 있으며, 노동 집약도의 비교가 어렵다."
+          },
+          {
+            "optionNum": 4,
+            "verdict": "X",
+            "reasoning": "각 기업의 서비스는 독립적으로 운영되며, 유통 과정에 직접적으로 투입되지 않는다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "각 기업의 서비스 방식과 제공 특징을 이해하고 분석한다."
+          },
+          {
+            "step": 2,
+            "action": "보기에서 각 서비스의 제공 방식에 대한 올바른 진술을 찾는다."
+          },
+          {
+            "step": 3,
+            "action": "정답을 선택하고, 오답의 이유를 명확히 이해한다."
+          }
+        ],
+        "takeaway": "서비스 생산 방식에 대한 이해는 각 기업의 서비스 제공 모델을 분석하는 데 중요하며, 이를 통해 고객 맞춤형 서비스와 대량 생산 방식의 차이를 명확히 할 수 있다."
+      }
+    },
+    {
+      "conceptName": "서비스 접근 유형에 따른 생산 방식",
+      "originalSource": "2022학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "미래 산업 사회의 변화 이해",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_..."
+        },
+        "render_ready": {
+          "question_stem": "다음 뉴스 내용을 통해 알 수 있는 미래 산업 사회의 모습에 대한 설명으로 가장 적절한 것은?",
+          "stimulus_data": {
+            "content": "지구의 기후 변화로 인해 해양 생태계가 위협받고 있으며, 해수 온도가 상승하고 있습니다. 이로 인해 다양한 해양 생물들이 멸종 위기에 처하고 있습니다. 따라서 여러 나라에서는 해양 보호와 지속 가능한 어업을 위한 정책을 강화하고 있습니다."
+          },
+          "options_list": [
+            "디지털 헬스케어 산업이 발전할 것이다.",
+            "해양 생태계를 보호하기 위한 새로운 산업이 등장할 것이다.",
+            "자동차 산업의 전환이 가속화될 것이다.",
+            "스마트 농업이 보편화될 것이다.",
+            "우주 산업이 활성화될 것이다."
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 1,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "해양 생태계가 위협받고 있으며, 해수 온도가 상승하고 있습니다.",
+            "why": "기후 변화와 해양 생태계의 문제는 미래 산업 사회에서 중요한 이슈가 될 것이기 때문입니다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "O",
+            "reasoning": "해양 생태계 보호에 대한 관심이 높아짐에 따라 관련 산업의 필요성이 커질 것으로 예상되기 때문입니다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "X",
+            "reasoning": "해양 생태계 보호와 지속 가능한 어업의 필요성이 있지만, 디지털 헬스케어와는 직접적인 연결이 부족하다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "X",
+            "reasoning": "자동차 산업의 변화는 기후 변화와 관련이 있지만, 뉴스의 주제와는 관련이 적다."
+          },
+          {
+            "optionNum": 4,
+            "verdict": "X",
+            "reasoning": "스마트 농업은 기후 변화 대응의 일환일 수 있으나, 해양 생태계 보호와는 관계가 적다."
+          },
+          {
+            "optionNum": 5,
+            "verdict": "X",
+            "reasoning": "우주 산업은 기후 변화와는 직접적인 관계가 없다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "뉴스의 내용을 이해하고, 해양 생태계와 관련된 산업의 변화를 분석한다."
+          },
+          {
+            "step": 2,
+            "action": "각 선택지를 검토하고, 해양 생태계 보호와의 관련성을 평가한다."
+          },
+          {
+            "step": 3,
+            "action": "가장 관련성이 높은 선택지를 선택한다."
+          }
+        ],
+        "takeaway": "기후 변화가 산업 사회에 미치는 영향을 이해하고, 그에 따른 산업의 변화 예측 능력을 기르는 것이 중요하다."
+      }
+    },
+    {
+      "conceptName": "서비스 생산 체제",
+      "originalSource": "2022학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "직업기초능력 평가",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_CHECKLIST_EXAMPLE"
+        },
+        "render_ready": {
+          "question_stem": "다음은 직업능력 평가 체크리스트의 일부이다. (가)~(다)에 대한 설명으로 적절한 것만을 <보기>에서 고른 것은?",
+          "stimulus_data": {
+            "case_profile": {
+              "name": "직업능력 평가 체크리스트",
+              "context": "직업능력을 평가하기 위한 체크리스트 예시"
+            },
+            "narrative": "직업능력 평가 체크리스트(예시)\n| 직업능력 | 하위영역 | 문항 | 그렇다 | 그렇지 않다 |\n|---|---|---|---|---|\n| (가) | ××× | 직장 내에서 필요한 정보를 이해하고 업무 수행에 필요한 요점을 추출할 수 있다. | ○ | |\n| | ××× | 동료의 의견을 주의 깊게 듣고 내용을 파악할 수 있다. | ○ | |\n| (나) | ××× | 직장 내에서 발생한 문제를 해결하기 위해 창의적이고 비판적으로 사고할 수 있다. | ○ | |\n| | ××× | 직장에서 발생하는 문제를 올바르게 인식하고 적절한 해결책을 제시할 수 있다. | ○ | |\n| (다) | ××× | 직장 내의 갈등 상황을 원활하게 조정할 수 있다. | ○ | |\n| | ××× | 고객의 요구를 이해하고 다양한 상황에 대처할 수 있다. | ○ | |"
+          },
+          "options_list": [
+            "(가)에는 업무와 관련된 정보를 수집하고 관리하는 능력이 포함된다.",
+            "(나)에는 조직의 구조를 올바르게 이해하는 능력이 포함된다.",
+            "(다)에는 다양한 배경을 가진 사람들과의 협업 능력이 포함된다.",
+            "(가)~(다)는 모든 직무에 공통적으로 필요한 능력이다."
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 4,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 1,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "직장 내에서 필요한 정보를 이해하고 업무 수행에 필요한 요점을 추출할 수 있다.",
+            "why": "이 문항은 직장 생활에서의 정보 처리 능력을 평가하는 데 초점을 맞추고 있다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "X",
+            "reasoning": "이 선택지는 (가)의 내용과 관련이 있지만, 체크리스트의 주된 초점인 직업능력과는 직접적인 연관이 없다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "X",
+            "reasoning": "이 선택지는 (나)의 내용과 관련이 있지만, 문제 해결 능력에 대한 설명이 부족하다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "X",
+            "reasoning": "이 선택지는 (다)의 내용과 관련이 있지만, 갈등 조정 능력에 대한 설명이 부족하다."
+          },
+          {
+            "optionNum": 4,
+            "verdict": "O",
+            "reasoning": "이 선택지는 (가)~(다)의 공통 능력을 잘 반영하고 있다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "각 항목에 대한 설명을 주의 깊게 읽고, 어떤 항목이 적절히 설명되고 있는지 판단한다."
+          },
+          {
+            "step": 2,
+            "action": "보기의 설명이 각 항목의 내용과 얼마나 일치하는지를 비교한다."
+          },
+          {
+            "step": 3,
+            "action": "적절한 설명으로 판단되는 선택지를 고른다."
+          }
+        ],
+        "takeaway": "직업능력 체크리스트의 각 항목이 직무 수행에 필요한 능력임을 명확히 이해하고, 이를 기반으로 적절한 선택지를 판단하는 능력이 필요하다."
+      }
+    }
+  ]
+}

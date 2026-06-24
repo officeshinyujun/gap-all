@@ -1,0 +1,581 @@
+{
+  "unit": 14,
+  "unitTitle": "창업과 기업가 정신",
+  "subject": "success",
+  "totalQuestions": 6,
+  "questions": [
+    {
+      "conceptName": "창업의 의미와 목적",
+      "originalSource": "2025학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "창업의 의미와 목적",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_CONVERSATIONAL_FLOW"
+        },
+        "render_ready": {
+          "question_stem": "다음 기업 경영 사례 발표에 나타난 C, D씨의 기업가 정신으로 가장 적절한 것은?",
+          "stimulus_data": {
+            "participants": [
+              {
+                "id": "C",
+                "name": "C씨",
+                "role": "전통 수공예품 제작자"
+              },
+              {
+                "id": "D",
+                "name": "D씨",
+                "role": "사회적 기업 운영자"
+              }
+            ],
+            "messages": [
+              {
+                "participant_id": "C",
+                "text": "저는 25년 동안 전통 방식으로 수공예품을 제작해왔습니다. 최근 대량 생산업체와 경쟁이 치열해지면서 원자재 가격이 상승하고 있지만, 전통 기술을 유지하는 것이 중요하다고 믿습니다.",
+                "timestamp": ""
+              },
+              {
+                "participant_id": "D",
+                "text": "우리 기업은 이윤을 추구하는 것뿐만 아니라 지역 사회에 기여하는 것을 큰 목표로 삼고 있습니다. 최근 지역 아동센터에 후원을 진행한 것도 이러한 가치의 일환입니다.",
+                "timestamp": ""
+              }
+            ]
+          },
+          "options_list": [
+            "C씨: 혁신성, D씨: 진취성",
+            "C씨: 혁신성, D씨: 사회적 책임성",
+            "C씨: 위험 감수성, D씨: 혁신성",
+            "C씨: 위험 감수성, D씨: 사회적 책임성",
+            "C씨: 사회적 책임성, D씨: 혁신성"
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 4,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "C씨는 전통 기술을 유지하는 것의 중요성을 강조하고 있습니다.",
+            "why": "이것은 C씨의 경영 철학이 보수적이고 위험 감수성이 낮음을 보여줍니다."
+          },
+          {
+            "quote": "D씨는 사회적 기여를 통해 기업의 가치를 강조하고 있습니다.",
+            "why": "이로 인해 D씨는 사회적 책임성을 중시하는 경영 방침을 나타냅니다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "X",
+            "reasoning": "C씨의 보수적인 접근과 D씨의 사회적 책임성은 연결되지 않습니다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "X",
+            "reasoning": "C씨의 혁신성은 그의 전통적인 방식과 맞지 않습니다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "X",
+            "reasoning": "C씨의 위험 감수성과 D씨의 혁신성을 연결하는 것은 부적절합니다."
+          },
+          {
+            "optionNum": 4,
+            "verdict": "O",
+            "reasoning": "C씨의 위험 감수성과 D씨의 사회적 책임성 연결은 적절한 분석입니다."
+          },
+          {
+            "optionNum": 5,
+            "verdict": "X",
+            "reasoning": "C씨의 사회적 책임성 강조는 그의 경영 철학과 맞지 않습니다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "C씨와 D씨의 사례를 분석하여 각자의 기업가 정신을 이해한다."
+          },
+          {
+            "step": 2,
+            "action": "각 인물의 특성이 어떤 사례에 적합한지를 판단한다."
+          }
+        ],
+        "takeaway": "창업의 의미와 목적은 개인의 철학과 경영 전략에 따라 다양하게 나타날 수 있으며, 사회적 책임도 중요한 요소로 고려되어야 한다."
+      }
+    },
+    {
+      "conceptName": "창업의 방법과 유형",
+      "originalSource": "2024학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "창업의 개념과 자금 조달 방법",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_FORMAL_DOCUMENT"
+        },
+        "render_ready": {
+          "question_stem": "다음은 새로운 창업 아이디어에 관한 계획서이다. 이에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+          "stimulus_data": {
+            "doc_type": "창업 계획서",
+            "header_info": {
+              "title": "온라인 쇼핑몰 창업 계획서",
+              "date": "",
+              "author": "학생 B"
+            },
+            "paragraphs": [
+              {
+                "sub_title": "상호명 및 창업자",
+                "content": "상호명: BB쇼핑\n창업자: 학생 B"
+              },
+              {
+                "sub_title": "창업 예정일 및 종업원 수",
+                "content": "창업 예정일: 2024. 3. 1.\n종업원 수(예정): 3명"
+              },
+              {
+                "sub_title": "창업 아이템",
+                "content": "패션 의류 온라인 쇼핑몰"
+              },
+              {
+                "sub_title": "창업 동기와 목적",
+                "content": "• 패션의류 시장의 빠른 성장에 발맞춰, 소비자에게 다양한 상품을 제공하는 온라인 플랫폼을 구축하여 편리한 쇼핑 환경을 제공\n• 창업을 통한 일자리 창출 및 지역 경제 활성화 기여"
+              },
+              {
+                "sub_title": "예상 소요 자금",
+                "content": "웹사이트 개발비: 5,000,000원\n재고 구매비: 10,000,000원\n마케팅 비용: 3,000,000원\n급여: 6,000,000원"
+              },
+              {
+                "sub_title": "자금 조달 계획",
+                "content": "본인 저축: 8,000,000원\n은행 대출: 16,000,000원"
+              }
+            ],
+            "footnotes": []
+          },
+          "options_list": [
+            "창업 아이템이 명확하게 정의되어 있다.",
+            "창업 목적에 경제적 측면이 포함되어 있다.",
+            "자금 조달 계획이 자기 자본과 외부 자본으로 나눠져 있다.",
+            "예상 소요 자금에서 마케팅 비용이 가장 적다."
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 2,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "창업 아이템이 명확하게 정의되어 있다.",
+            "why": "아이템이 패션 의류 온라인 쇼핑몰로 구체적이기 때문."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "O",
+            "reasoning": "창업 아이템이 명확히 정의되어 있어 맞는 설명."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "O",
+            "reasoning": "창업 목적에서 경제적 측면이 포함되어 있어 맞는 설명."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "O",
+            "reasoning": "자금 조달 계획에 자기 자본과 외부 자본이 나누어져 있어 맞는 설명."
+          },
+          {
+            "optionNum": 4,
+            "verdict": "X",
+            "reasoning": "예상 소요 자금에서 마케팅 비용이 가장 적지 않다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "계획서의 내용을 분석하여 적절한 설명을 선택한다."
+          }
+        ],
+        "takeaway": "창업 계획서의 요소와 자금 조달 방법을 이해하고 분석하는 능력을 기르는 것이 중요하다."
+      }
+    },
+    {
+      "conceptName": "창업의 요소",
+      "originalSource": "2025학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "창업의 기본 요소와 관련된 이해도 평가",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_창업_사례_분석"
+        },
+        "render_ready": {
+          "question_stem": "다음의 창업 사례를 분석한 내용을 바탕으로 올바른 선택지를 고르시오.",
+          "stimulus_data": {},
+          "options_list": [
+            "C는 창업자가 2024년 8월 15일까지 사업자 등록을 관할 구청에 제출해야 한다고 주장하였다.",
+            "D는 C에게 기존 사업 계획서보다 창업자의 권한이 더 강화된 창업 모델을 제안하였다.",
+            "변경된 사업 계획서에서 창업 자본의 운영 자금 비율은 이전보다 더 높아졌다.",
+            "변경된 사업 계획서에서 창업 자본 중 타인 자본의 비율은 이전 계획서와 비교하여 증가하였다."
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 3,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "창업자는 사업을 시작하기 위해 필요한 자본, 자원, 계획 등을 고려해야 한다.",
+            "why": "창업의 기본 요소를 이해하기 위해 사례 분석이 필요하다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "X",
+            "reasoning": "실제로 사업자 등록은 법원에서가 아니라 구청에서 이루어진다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "X",
+            "reasoning": "제안된 창업 모델이 창업자의 권한을 강화한다고 하지만, 실제로는 권한이 감소할 수 있다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "O",
+            "reasoning": "변경된 사업 계획서에서 운영 자금 비율이 증가한 것은 실제 사례와 일치한다."
+          },
+          {
+            "optionNum": 4,
+            "verdict": "X",
+            "reasoning": "타인 자본 비율의 증가는 기존 사업 계획서와의 비교에서 사실과 다르다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "주어진 창업 사례를 분석하여 각 선택지의 내용을 검토한다."
+          },
+          {
+            "step": 2,
+            "action": "각 선택지가 창업의 요소와 관련하여 올바른지 판단한다."
+          },
+          {
+            "step": 3,
+            "action": "정확한 정보를 바탕으로 정답을 선택한다."
+          }
+        ],
+        "takeaway": "창업의 기본 요소와 관련된 지식을 바탕으로 사례를 분석하고, 사실과 일치하는 선택지를 고르는 능력을 기르는 것이 중요하다."
+      }
+    },
+    {
+      "conceptName": "창업의 과정과 절차",
+      "originalSource": "2025학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "창업의 과정과 절차",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_COMPARATIVE_MATRIX"
+        },
+        "render_ready": {
+          "question_stem": "아래는 두 개의 스타트업 사례입니다. 두 기업의 창업 과정을 비교하여 적절한 선택지를 고르세요.",
+          "stimulus_data": {
+            "headers": [
+              {
+                "id": "h1",
+                "label": "스타트업 성공 사례"
+              },
+              {
+                "id": "h2",
+                "label": "기업명 C 기업"
+              },
+              {
+                "id": "h3",
+                "label": "기업명 D 기업"
+              }
+            ],
+            "rows": [
+              {
+                "id": "1",
+                "cells": [
+                  "사업 내용",
+                  "신재생 에너지를 이용한 전기차 충전소 설치 및 운영",
+                  "지역 특산물을 활용한 간편식 배달 서비스"
+                ]
+              },
+              {
+                "id": "2",
+                "cells": [
+                  "창업 자본",
+                  "15억 원",
+                  "3억 원"
+                ]
+              },
+              {
+                "id": "3",
+                "cells": [
+                  "자금 용도",
+                  "설비 구축비 10억 원, 운영 자금 5억 원",
+                  "플랫폼 개발비 1억 원, 마케팅비 2억 원"
+                ]
+              },
+              {
+                "id": "4",
+                "cells": [
+                  "자금 조달 원천",
+                  "개인 투자자 6억 원, 정부 지원금 4억 원, 은행 대출 5억 원",
+                  "가족 지원금 1억 원, 창업 경진대회 상금 2억 원"
+                ]
+              },
+              {
+                "id": "5",
+                "cells": [
+                  "기업 형태",
+                  "법인 기업",
+                  "개인 기업"
+                ]
+              }
+            ],
+            "selection_chips": []
+          },
+          "options_list": [
+            "C기업의 형태는 D기업의 형태에 비해 법적 설립 절차가 더 복잡하다.",
+            "C기업은 D기업에 비해 창업 자본 대비 운영 자금의 비율이 더 낮다.",
+            "D기업의 창업 방법은 온라인 플랫폼 창업으로 해당된다.",
+            "D기업의 창업자는 회사의 채무에 대해 출자 금액 한도 내에서만 책임을 진다.",
+            "D기업은 C기업에 비해 창업 자본 대비 자기 자본의 비율이 더 높다."
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 4,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "C기업은 법인으로 설립되어 복잡한 절차를 요구한다.",
+            "why": "법인 기업의 설립 절차는 개인 기업에 비해 더 복잡하기 때문에 이 점을 알고 있어야 한다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "X",
+            "reasoning": "C기업이 법인이라는 점은 맞지만, 복잡하다는 주장은 잘못된 해석이다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "X",
+            "reasoning": "운영 자금 비율이 더 낮다는 주장은 사실이 아니다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "X",
+            "reasoning": "D기업의 창업 방법은 온라인 플랫폼 창업이 아니라 간편식 배달 서비스이다."
+          },
+          {
+            "optionNum": 4,
+            "verdict": "O",
+            "reasoning": "D기업의 창업자는 회사의 채무에 대해 출자 금액 한도 내에서 책임을 진다."
+          },
+          {
+            "optionNum": 5,
+            "verdict": "X",
+            "reasoning": "D기업의 자기 자본 비율이 높다는 주장은 잘못된 정보이다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "두 기업의 창업 사례를 비교 분석한다."
+          },
+          {
+            "step": 2,
+            "action": "각 선택지의 내용을 검토하여 사실 여부를 판단한다."
+          },
+          {
+            "step": 3,
+            "action": "정확한 정보를 바탕으로 적절한 선택지를 고른다."
+          }
+        ],
+        "takeaway": "기업의 형태와 자금 조달 구조는 창업 과정에서 중요한 요소이며, 이들 간의 차이를 명확히 이해해야 올바른 판단을 할 수 있다."
+      }
+    },
+    {
+      "conceptName": "기업가 정신의 의미와 중요성",
+      "originalSource": "2024학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "기업가 정신의 이해 및 창업 사례 분석",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_CASE_DIAGNOSTIC_FRAME"
+        },
+        "render_ready": {
+          "question_stem": "위 [창업 성공 사례]를 통해 알 수 있는 C, D씨에 대한 설명으로 적절하지 않은 것은?",
+          "stimulus_data": {
+            "case_profile": {
+              "name": "C씨와 D씨의 창업 사례",
+              "context": "비건 간편식 사업과 천연 화장품 브랜드 런칭",
+              "narrative": "C씨는 2015년 자신이 운영하던 요리 블로그를 바탕으로 비건 간편식 브랜드인 '○○비건'을 설립하였다. C씨는 시장 조사와 소비자 피드백을 통해 제품 개발을 진행하였고, 2019년에는 비건 간편식 시장에서 매출 1위를 기록하였다. D씨는 C씨와 협력하여 비건 화장품 사업을 런칭하기 위해 2020년부터 기존의 화장품 유통업체를 퇴사하고, 개인 자본과 투자 유치를 통해 '△△화장품'을 설립하였다. D씨는 제품의 차별성을 강조한 마케팅 전략을 통해 사업 시작 3년 만에 업계 톱 5에 진입하는 성과를 거두었다."
+            },
+            "check_items": [
+              {
+                "id": 1,
+                "label": "C씨의 창업 배경 및 시장 분석",
+                "is_checked": true
+              },
+              {
+                "id": 2,
+                "label": "D씨의 사업 성과 및 전략",
+                "is_checked": true
+              }
+            ]
+          },
+          "options_list": [
+            "C씨는 창업 전에 제품 시장 조사를 실시하였다.",
+            "C씨의 브랜드는 비건 간편식 시장에서 높은 점유율을 기록하였다.",
+            "D씨는 화장품 업계에 신규로 진입하였다.",
+            "D씨의 사업 모델에는 초기 투자금이 필요하다.",
+            "C씨의 창업 방법은 D씨의 창업 방법에 비해 더 많은 위험을 동반한다."
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 3,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "C씨는 시장 조사와 소비자 피드백을 통해 제품 개발을 진행하였다.",
+            "why": "C씨의 사전 준비 과정이 창업 성공의 중요한 요소임을 강조함."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "O",
+            "reasoning": "C씨는 창업 전에 충분한 시장 조사를 실시하였다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "O",
+            "reasoning": "C씨의 브랜드는 비건 간편식 시장에서 높은 점유율을 기록하였다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "X",
+            "reasoning": "D씨는 기존의 화장품 유통업체에서 퇴사한 것일 뿐, 신규 진입자가 아니다."
+          },
+          {
+            "optionNum": 4,
+            "verdict": "O",
+            "reasoning": "D씨의 사업 모델에는 초기 투자금이 필요하다."
+          },
+          {
+            "optionNum": 5,
+            "verdict": "O",
+            "reasoning": "C씨의 창업 방법은 시장 조사와 피드백을 통해 안정성을 확보하였다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "주어진 사례를 분석하여 C씨와 D씨의 창업 배경과 성과를 이해한다."
+          },
+          {
+            "step": 2,
+            "action": "각 선택지를 검토하여 사실에 기반한 진술과 부정확한 진술을 구분한다."
+          },
+          {
+            "step": 3,
+            "action": "적절하지 않은 설명을 선택하여 정답을 도출한다."
+          }
+        ],
+        "takeaway": "기업가 정신은 성공적인 창업을 위해 시장 조사와 소비자 분석이 필수적임을 인식해야 한다."
+      }
+    },
+    {
+      "conceptName": "기업가 정신의 구성 요소",
+      "originalSource": "2024학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "기업가 정신의 구성 요소",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_CASE_DIAGNOSTIC_FRAME"
+        },
+        "render_ready": {
+          "question_stem": "위 창업 성공 사례의 (가)~(다)에 대한 설명으로 옳은 것만을 <보기>에서 고른 것은?",
+          "stimulus_data": {
+            "case_profile": {
+              "name": "C씨와 D씨의 창업 사례",
+              "context": "스마트폰 액세서리 제조업체 창립과 온라인 쇼핑몰 운영",
+              "narrative": "C씨는 2015년 자신의 저축 1억 원으로 스마트폰 액세서리 회사인 ○○(주)를 설립하였다. C씨는 창업 전에 스마트폰 액세서리 시장의 트렌드 및 소비자 선호 분석을 실시하였고, 그 결과를 바탕으로 사업을 시작하였다. C씨는 직원인 D씨와 함께 소비자 맞춤형 '○○액세서리'를 개발하여 2020년 중반에 국내 시장 점유율 1위를 달성하였다. 한편 D씨는 전자상거래에 대한 관심이 많아 2021년에 ○○(주)를 퇴사하고, 개인 자본을 활용하여 온라인 쇼핑몰인 △△(주)를 창립하였다. D씨는 사업 시작 3년 만에 업계에서 가장 인기 있는 쇼핑몰로 성장하였다."
+            }
+          },
+          "options_list": [
+            "C 씨가 설립한 기업의 형태는 자본금 출자가 자율적인 형태이다.",
+            "D씨가 운영하는 쇼핑몰은 모든 사원이 출자 의무가 있는 형태이다.",
+            "D씨의 창업은 C씨의 사업 성공을 기반으로 한 전환점이다."
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 2,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 1,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "D씨의 창업은 C씨의 사업 성공을 기반으로 한 전환점이다.",
+            "why": "D씨의 사업 모델은 C씨의 성공적인 창업 사례에서 영향을 받았음을 시사한다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "X",
+            "reasoning": "C 씨의 기업 형태는 자본금 출자가 자율적이지 않고, 특정 형태에 따라 다르다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "O",
+            "reasoning": "D씨의 쇼핑몰은 창업 초기 C씨의 사업 모델에 기초한 것이다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "X",
+            "reasoning": "D씨의 창업은 C씨의 성공을 기반으로 하였으나, 직접적인 전환점이라고 하기는 어렵다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "사례를 분석하여 각 기업 형태의 특징을 이해한다."
+          },
+          {
+            "step": 2,
+            "action": "각 선택지의 사실관계를 검토하여 정답을 결정한다."
+          }
+        ],
+        "takeaway": "기업가 정신의 구성 요소를 이해하고, 창업 사례를 통해 기업 형태의 특징을 분석하는 것이 중요하다."
+      }
+    }
+  ]
+}

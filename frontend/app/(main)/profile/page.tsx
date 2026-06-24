@@ -1,11 +1,11 @@
 'use client';
 
 import React, { useEffect, useState, useCallback } from 'react';
-import { VStack } from '@/components/general/VStack';
-import { HStack } from '@/components/general/HStack';
-import Typo from '@/components/general/Typo';
-import { HeaderActions } from '@/components/general/HeaderActions';
-import { SPACING } from '@/constants/spacing';
+import { VStack } from '@shared/ui/VStack';
+import { HStack } from '@shared/ui/HStack';
+import Typo from '@shared/ui/Typo';
+import { HeaderActions } from '@shared/ui/HeaderActions';
+import { SPACING } from '@shared/constants/spacing';
 import s from './page.module.scss';
 import { User } from 'lucide-react';
 import {
@@ -14,7 +14,7 @@ import {
     NotificationSettings,
 } from '@/lib/notificationApi';
 import { fetchUserProfile, fetchUserStats, deleteAccount, type UserProfile, type UserStats } from '@/lib/userApi';
-import { useAuth } from '@/contexts/AuthContext';
+import { useAuth } from '@shared/contexts/AuthContext';
 import { fetchUnitsWithProgress } from '@/lib/studyApi';
 import { registerPushSubscription, unregisterPushSubscription } from '@/utils/pushSubscription';
 

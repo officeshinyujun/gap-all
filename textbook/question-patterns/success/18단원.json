@@ -1,0 +1,207 @@
+{
+  "unit": 18,
+  "unitTitle": "산업 재해와 안전",
+  "subject": "success",
+  "totalQuestions": 7,
+  "patterns": [
+    {
+      "conceptId": "success_18_01",
+      "targetConcept": "안전사고의 종류와 원인 및 대책",
+      "frequency": 12,
+      "sourceExam": "2022학년도 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 7,
+      "pattern": {
+        "assessmentIntent": "학생이 산업 재해의 사례를 분석하고, 각 사례에 대한 적절한 보상 및 조치 사항을 이해하고 있는지를 평가한다.",
+        "judgmentAxis": "사례 분석 및 개념 변별",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_CASE_DIAGNOSTIC_FRAME",
+          "blankCount": 0,
+          "boCount": 0,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: '[사례 1]의 A씨는 상병 보상 연금을 지급받을 수 있다.' - 이 오답은 A씨가 요양 치료를 받았지만 상병 보상 연금의 지급 조건을 잘못 이해한 경우.",
+          "오답2: '[사례 1]의 A씨는 요양 급여를 지급받을 수 있다.' - 이 오답은 요양 급여와 상병 보상 연금의 차이를 혼동한 경우.",
+          "오답3: '[사례 2]의 B씨는 장해 급여를 지급받을 수 있다.' - 이 오답은 B씨가 장해 판정을 받았지만 장해 급여의 지급 조건을 잘못 이해한 경우.",
+          "오답4: '[사례 2]의 B씨는 입원 기간에 대해 휴업 급여를 지급받을 수 있다.' - 이 오답은 B씨의 입원 기간에 대한 보상 개념을 잘못 이해한 경우.",
+          "오답5: '[사례 1]의 설치 표지는 '경고 표지', [사례 2]의 설치 표지는 '금지 표지'이다.' - 이 오답은 표지의 종류를 잘못 이해한 경우."
+        ],
+        "difficultyDriver": "사고 사례에 대한 이해와 보상 체계에 대한 정확한 지식이 요구되며, 각 사례의 조치 사항과 결과를 비교하는 복잡성이 난이도를 높인다.",
+        "stemPattern": "다음 산업 재해 [사례 1], [사례 2]를 통해 알 수 있는 내용으로 옳지 않은 것은?"
+      }
+    },
+    {
+      "conceptId": "success_18_02",
+      "targetConcept": "산업 재해의 개념과 종류",
+      "frequency": 15,
+      "sourceExam": "2025학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 10,
+      "pattern": {
+        "assessmentIntent": "이 문제는 산업 재해의 사례를 분석하고, 관련된 법적 및 재정적 지원을 이해하는 능력을 평가한다.",
+        "judgmentAxis": "사례 분석",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_CASE_DIAGNOSTIC_FRAME",
+          "blankCount": 0,
+          "boCount": 0,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: '간병급여를 신청하여 지급받을 수 있다.' - 간병급여는 치료와 관련된 직접적인 비용을 지원하는 것이지만, 이 사례에서는 치료가 완료된 후의 상황을 다루고 있어 부적절하다.",
+          "오답2: '직업재활급여를 신청하여 지급받을 수 있다.' - 직업재활급여는 재활 후 취업 지원을 위한 것이지만, A는 이미 정상 근무를 하고 있어 해당되지 않는다.",
+          "오답3: '최초 부상의 업무상 재해 인정 사유는 '업무상 질병'에 해당한다.' - 최초 부상은 명백한 사고로 인한 것이므로 업무상 질병이 아닌 업무상 재해로 분류된다.",
+          "오답4: '연장된 치료 기간에 대해 상병급여를 신청하여 지급받을 수 있다.' - A는 추가상병으로 인정받았지만, 연장된 치료 기간에 대한 상병급여는 해당되지 않는다."
+        ],
+        "difficultyDriver": "사례의 복잡성과 관련 법적 지원의 이해를 요구하는 정보의 분산",
+        "stemPattern": "다음 A의 산업 재해 사례를 분석한 내용으로 옳은 것은?"
+      }
+    },
+    {
+      "conceptId": "success_18_03",
+      "targetConcept": "산업 재해 예방 원칙과 처리 방법",
+      "frequency": 15,
+      "sourceExam": "2023학년도 대학수학능력시험 성공적인 직업생활",
+      "questionNumber": 11,
+      "pattern": {
+        "assessmentIntent": "이 문제는 산업 재해 예방 원칙과 처리 방법에 대한 이해를 평가하며, 주어진 사례를 바탕으로 적절한 판단을 내릴 수 있는 능력을 요구한다.",
+        "judgmentAxis": "사례 분석",
+        "skeletonStructure": {
+          "itemFamily": "combination_judgment",
+          "stimulusTPL": "TPL_FORMAL_DOCUMENT",
+          "blankCount": 0,
+          "boCount": 4,
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true
+        },
+        "distractorBlueprint": [
+          "오답1: 'A씨에게 적용된 사회 보험의 보험료는 사업주가 전액 부담한다.' - 이 선택지는 사회 보험의 일반적인 원칙을 반영하나, 특정 사례에 대한 정확한 적용이 부족하여 오답으로 구성됨.",
+          "오답2: 'A씨 사고의 직접적인 원인은 '불안전한 행동 및 상태'에 해당한다.' - 이 선택지는 사고 원인 분석에서 언급된 내용을 반영하지만, 사고의 직접적인 원인으로서의 명확성이 결여되어 있어 오답으로 설계됨.",
+          "오답3: 'A씨는 요양으로 취업하지 못한 기간에 대하여 1일당 임금의 전액을 휴업급여로 받을 수 있다.' - 이 선택지는 요양급여와 관련된 일반적인 규정을 반영하나, 특정 사례에 대한 정확한 적용이 부족하여 오답으로 구성됨."
+        ],
+        "difficultyDriver": "사고 원인 분석과 관련된 정보의 복잡성 및 선택지 간의 유사성으로 인해 정확한 판단을 요구하는 난이도.",
+        "stemPattern": "다음은 재해 사례 보고서의 일부이다. A씨에 대해 분석한 내용으로 적절한 것만을 <보기>에서 고른 것은?"
+      }
+    },
+    {
+      "conceptId": "success_18_04",
+      "targetConcept": "산업 재해 보상 서비스",
+      "frequency": 15,
+      "sourceExam": "2025학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 11,
+      "pattern": {
+        "assessmentIntent": "학생이 산업 재해 사례를 분석하고, 관련 법규 및 보상 제도를 이해하여 적절한 결론을 도출할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "사례 분석",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_CASE_DIAGNOSTIC_FRAME",
+          "blankCount": 0,
+          "boCount": 0,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: '직업재활급여를 받을 수 있다.' - 이 선택지는 산업 재해의 유형과 보상 조건을 잘못 이해한 경우에 해당한다.",
+          "오답2: '사고 형태는 '끼임'에 해당한다.' - 사고의 구체적인 경위를 잘못 해석하여 잘못된 사고 형태를 제시한 경우이다.",
+          "오답3: '상병보상연금을 지급받을 수 있다.' - 치료 후 복귀 여부와 관련된 조건을 잘못 이해한 경우에 해당한다.",
+          "오답4: '혜택받은 사회보험의 보험료는 사업주와 근로자가 함께 부담한다.' - 사회보험의 부담 구조에 대한 오해로 인해 잘못된 정보를 제공한 경우이다."
+        ],
+        "difficultyDriver": "사례의 복잡성과 관련 법규의 이해도, 그리고 선택지 간의 유사성으로 인해 난이도가 결정된다.",
+        "stemPattern": "다음 [A의 산업 재해 사례]에 대한 설명으로 옳은 것만을 <보기>에서 고른 것은?"
+      }
+    },
+    {
+      "conceptId": "success_18_05",
+      "targetConcept": "하인리히의 재해 예방 원칙과 도미노 이론",
+      "frequency": 15,
+      "sourceExam": "2023학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 13,
+      "pattern": {
+        "assessmentIntent": "학생이 하인리히의 재해 예방 원칙과 도미노 이론을 바탕으로 산업 재해 사례를 분석하고, 적절하지 않은 설명을 식별할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "사례 분석 및 개념 변별",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_CASE_DIAGNOSTIC_FRAME",
+          "blankCount": 0,
+          "boCount": 5,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: '인적 사고에 해당한다.' - 하인리히의 이론에 따라 인적 요인이 포함되지만, 이 설명은 사례의 구체적인 원인 분석을 간과하고 있다.",
+          "오답2: '사고의 형태는 '낙하'에 해당한다.' - 사고의 결과는 낙하일 수 있지만, 실제 원인은 감전으로 인한 추락이므로 이 설명은 부정확하다.",
+          "오답3: '사고의 직접적인 원인은 '불안전한 행동'이다.' - 불안전한 행동이 원인 중 하나일 수 있지만, 이 설명은 사고의 복합적 원인을 단순화하고 있다.",
+          "오답4: '설치한 산업 안전보건표지는 '경고 표지'에 해당한다.' - 표지의 종류에 대한 정보가 부족하여 이 설명은 정확하지 않다.",
+          "오답5: '재해 예방 대책에서 필요한 개인 보호구에는 안전대가 있다.' - 안전대가 필요할 수 있지만, 주어진 사례에서는 고소 작업 시 필요한 보호구에 대한 구체적인 언급이 없으므로 이 설명은 부적절하다."
+        ],
+        "difficultyDriver": "사고 원인과 예방 대책에 대한 이해를 요구하며, 다양한 개념을 비교하고 분석해야 하므로 난이도가 높다.",
+        "stemPattern": "다음은 산업 재해 사례집에 소개된 사례이다. 물음에 답하시오."
+      }
+    },
+    {
+      "conceptId": "success_18_06",
+      "targetConcept": "사고 예방 대책 5단계",
+      "frequency": 15,
+      "sourceExam": "2024학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 14,
+      "pattern": {
+        "assessmentIntent": "학생이 산업 재해 보상 서비스의 종류를 이해하고, 주어진 사례에 적합하지 않은 보상 서비스를 식별할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "분류/매칭",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_CASE_DIAGNOSTIC_FRAME",
+          "blankCount": 0,
+          "boCount": 0,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: 요양급여 - 일반적으로 재해 후 치료를 위한 보상으로 적절하나, 특정 사례에 대한 적합성은 고려되지 않음.",
+          "오답2: 휴업급여 - 재해로 인해 일시적으로 일을 하지 못하는 경우에 지급되며, 사례와 관련성이 있음.",
+          "오답3: 상병보상연금 - 장기적인 치료가 필요한 경우에 지급되는 보상으로, 사례와 관련성이 있음.",
+          "오답4: 직업재활급여 - 재해 후 직장 복귀를 위한 지원으로, 사례와 관련성이 있음.",
+          "오답5: 장해보상일시금 - 장해가 발생했을 때 지급되는 보상으로, 사례와 관련성이 있으나, 발문에서 요구하는 '적절하지 않은 것'에 해당하지 않음."
+        ],
+        "difficultyDriver": "학생이 각 보상 서비스의 목적과 적용 조건을 이해하고, 주어진 사례와의 적합성을 판단해야 하므로, 개념의 변별력이 요구된다.",
+        "stemPattern": "위 재해 사례에서 제공될 수 있는 산업 재해 보상 서비스로 적절하지 않은 것은?"
+      }
+    },
+    {
+      "conceptId": "success_18_07",
+      "targetConcept": "안전 보건 표지의 종류와 의미",
+      "frequency": 8,
+      "sourceExam": "2023학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 15,
+      "pattern": {
+        "assessmentIntent": "이 문제는 근로자의 안전과 보건에 관련된 사례를 분석하고, 그에 대한 적절한 대응 방안을 평가하는 능력을 측정한다.",
+        "judgmentAxis": "사례 분석",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_CASE_DIAGNOSTIC_FRAME",
+          "blankCount": 0,
+          "boCount": 0,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: 'A씨는 국민 건강 보험의 진료 수가를 기준으로 요양급여를 받을 수 있다.' - 이 선택지는 국민 건강 보험의 기본적인 요양급여에 대한 일반적인 사실을 언급하여 혼동을 유도한다.",
+          "오답2: 'A씨는 치료 기간 동안 1일 평균 임금의 80%에 해당하는 금액을 휴업급여로 받을 수 있다.' - 이 선택지는 휴업급여의 일반적인 규정을 제시하여 실제 사례와의 연결을 약화시킨다.",
+          "오답3: '△△지부는 단체교섭권을 행사하고 있다.' - 이 선택지는 노동조합의 일반적인 권한을 언급하여 사실과의 연관성을 약화시킨다.",
+          "오답4: '△△지부는 동일 산업에 근무하는 근로자들로 구성된 노동조합에 해당한다.' - 이 선택지는 노동조합의 정의를 설명하여 혼동을 유발한다.",
+          "오답5: '○○건설은 근로자와 사용자를 대표하는 동수의 위원으로 구성되는 노사협의회를 설치할 의무가 있다.' - 이 선택지는 노사협의회의 일반적인 구성 원칙을 언급하여 실제 사례와의 관련성을 떨어뜨린다."
+        ],
+        "difficultyDriver": "사례의 복잡성과 관련된 정보의 분산, 그리고 근로자의 권리와 의무에 대한 이해도를 요구하는 점이 난이도를 높인다.",
+        "stemPattern": "다음 재해 사례에 대한 분석 내용으로 옳지 않은 것은?"
+      }
+    }
+  ]
+}

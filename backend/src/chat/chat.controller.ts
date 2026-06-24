@@ -8,7 +8,14 @@ import {
   UseGuards,
   HttpCode,
   HttpStatus,
+  UseInterceptors,
+  UploadedFile,
+  Res,
 } from '@nestjs/common';
+import { FileInterceptor } from '@nestjs/platform-express';
+import type { Response } from 'express';
+import * as path from 'path';
+import * as fs from 'fs';
 import { ChatService } from './chat.service';
 import { CreateSessionDto } from './dto/create-session.dto';
 import { SendMessageDto } from './dto/send-message.dto';
@@ -58,5 +65,24 @@ export class ChatController {
     @Body() dto: SendMessageDto,
   ) {
     return this.chatService.sendMessage(user.id, sessionId, dto);
+  }
+
+  @Post('sessions/:sessionId/image-question')
+  @UseInterceptors(FileInterceptor('image'))
+  async imageQuestion(
+    @CurrentUser() user: CurrentUserPayload,
+    @Param('sessionId') sessionId: string,
+    @UploadedFile() file: Express.Multer.File,
+  ) {
+    return this.chatService.processImageQuestion(user.id, sessionId, file.buffer);
+  }
+
+  @Get('images/:filename')
+  getImage(@Param('filename') filename: string, @Res() res: Response) {
+    const filePath = path.join(process.cwd(), 'uploads', filename);
+    if (fs.existsSync(filePath)) {
+      return res.sendFile(filePath);
+    }
+    return res.status(404).send('Not found');
   }
 }

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { VStack } from '@/components/general/VStack';
-import { HStack } from '@/components/general/HStack';
-import { Select } from '@/components/general/Select';
-import { SPACING } from '@/constants/spacing';
-import { Difficulty } from '@/types/exam';
+import { VStack } from '@shared/ui/VStack';
+import { HStack } from '@shared/ui/HStack';
+import { Select } from '@shared/ui/Select';
+import { SPACING } from '@shared/constants/spacing';
+import { Difficulty } from '@shared/types/exam';
 import s from './style.module.scss';
-import Typo from '@/components/general/Typo';
-import { API_BASE_URL } from '@/lib/auth';
+import Typo from '@shared/ui/Typo';
+import { API_BASE_URL } from '@shared/lib/auth';
 import { fetchSubjectBySlug } from '@/lib/examApi';
 
 interface CreateExamModalProps {
@@ -14,6 +14,8 @@ interface CreateExamModalProps {
     onClose: () => void;
     subjectName: string;
     onCreated?: (jobId: string) => void;
+    defaultStartUnit?: number;
+    defaultEndUnit?: number;
 }
 
 // subjectName → slug 매핑
@@ -29,9 +31,9 @@ const DIFFICULTY_MAP: Record<Difficulty, string> = {
     [Difficulty.INTERGRATE]: 'INTERGRATE',
 };
 
-export function CreateExamModal({ isOpen, onClose, subjectName, onCreated }: CreateExamModalProps) {
-    const [startUnit, setStartUnit] = useState(1);
-    const [endUnit, setEndUnit] = useState(3);
+export function CreateExamModal({ isOpen, onClose, subjectName, onCreated, defaultStartUnit = 1, defaultEndUnit = 3 }: CreateExamModalProps) {
+    const [startUnit, setStartUnit] = useState(defaultStartUnit);
+    const [endUnit, setEndUnit] = useState(defaultEndUnit);
     const [difficulty, setDifficulty] = useState<Difficulty>(Difficulty.MIDDLE);
     const [questionCount, setQuestionCount] = useState(20);
     const [prompt, setPrompt] = useState('');

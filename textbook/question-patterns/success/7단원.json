@@ -1,0 +1,202 @@
+{
+  "unit": 7,
+  "unitTitle": "서비스업의 이해",
+  "subject": "success",
+  "totalQuestions": 7,
+  "patterns": [
+    {
+      "conceptId": "success_7_01",
+      "targetConcept": "서비스의 의미 및 특징",
+      "frequency": 8,
+      "sourceExam": "2025학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 4,
+      "pattern": {
+        "assessmentIntent": "학생이 서비스의 의미와 특징을 이해하고, 사례를 통해 서비스 활동의 차별성과 분류를 분석할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "사례 분석 및 개념 변별",
+        "skeletonStructure": {
+          "itemFamily": "combination_judgment",
+          "stimulusTPL": "TPL_COMPARATIVE_MATRIX",
+          "blankCount": 0,
+          "boCount": 4,
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true
+        },
+        "distractorBlueprint": [
+          "오답1: A 씨의 서비스 이질성을 강조하여 사무소 이전을 계획하고 있다는 내용은 실제 사례와 맞지 않음.",
+          "오답2: B 씨의 개별 생산 방식이 아닌, 미용 서비스는 일반적으로 표준화된 방식으로 제공됨.",
+          "오답3: A 씨가 공공 서비스업에 종사한다는 주장은 그의 전문성이 기업 간 분쟁 분야임을 고려할 때 부적절함.",
+          "오답4: A 씨가 생산자 서비스업에 종사한다는 주장은 그의 역할이 법률 서비스를 제공하는 소비자 서비스업에 해당함을 간과함."
+        ],
+        "difficultyDriver": "사례 간의 차별성과 서비스의 분류 기준을 이해하고 적용하는 데 필요한 복합적인 사고 과정.",
+        "stemPattern": "다음 [A, B 씨의 서비스 활동 사례]에 대한 분석 내용으로 적절한 것만을 <보기>에서 고른 것은?"
+      }
+    },
+    {
+      "conceptId": "success_7_02",
+      "targetConcept": "서비스업의 개념 및 유형",
+      "frequency": 6,
+      "sourceExam": "2023학년도 대학수학능력시험 성공적인 직업생활",
+      "questionNumber": 8,
+      "pattern": {
+        "assessmentIntent": "학생이 서비스 생산 방식에 대한 이해를 바탕으로, 주어진 사례를 비교하고 적절한 설명을 선택할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "비교/대조",
+        "skeletonStructure": {
+          "itemFamily": "combination_judgment",
+          "stimulusTPL": "TPL_COMPARATIVE_MATRIX",
+          "blankCount": 2,
+          "boCount": 3,
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true
+        },
+        "distractorBlueprint": [
+          "오답1: '(가)는 변호사, 회계사, 건축사가 제공하는 전문 서비스에 해당한다.' - 이 설명은 (가)의 서비스 유형을 정확히 설명하지만, (나)와의 비교가 부족하여 오답으로 간주된다.",
+          "오답2: '(나)는 '서비스 공장'에 비해 자본 투자 비중이 낮다.' - 이 설명은 (나)의 특성을 언급하지만, (가)와의 비교가 없어서 전체적으로 맞지 않다.",
+          "오답3: '(가)는 (나)에 비해 서비스 산출물의 표준화 정도가 더 높다.' - 이 설명은 (가)와 (나)의 비교를 포함하고 있지만, 실제 서비스 유형에 대한 이해가 부족하여 오답으로 처리된다."
+        ],
+        "difficultyDriver": "학생이 서비스 유형의 특성을 이해하고, 두 가지 사례를 비교하여 적절한 설명을 선택해야 하므로, 유사 개념 변별과 추론 단계 수가 난이도를 결정짓는 핵심 요소이다.",
+        "stemPattern": "다음은 [서비스 생산 방식]을 나타낸 것이다. (가), (나)에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?"
+      }
+    },
+    {
+      "conceptId": "success_7_03",
+      "targetConcept": "대한민국 서비스업",
+      "frequency": 6,
+      "sourceExam": "2025학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 12,
+      "pattern": {
+        "assessmentIntent": "학생이 A기업의 서비스 모델을 이해하고, 이를 바탕으로 서비스업의 분류 및 이론적 적용을 평가할 수 있는 능력을 측정한다.",
+        "judgmentAxis": "사례 분석 및 개념 변별",
+        "skeletonStructure": {
+          "itemFamily": "combination_judgment",
+          "stimulusTPL": null,
+          "blankCount": 0,
+          "boCount": 3,
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true
+        },
+        "distractorBlueprint": [
+          "오답1: '수요 주체에 따라 분류할 때 '생산자 서비스업'에 해당한다.' - 이 선택지는 A기업의 서비스가 생산자에게 제공되는 것이 아니라 소비자에게 제공되는 점을 간과하여 잘못된 분류를 제시한다.",
+          "오답2: '제공하는 서비스는 슈메너(Schmenner, R. W.)의 서비스 프로세스 매트릭스 이론에 따르면 '전문 서비스'에 해당한다.' - A기업의 서비스는 물류 서비스로, 전문 서비스가 아닌 운영 서비스에 해당하므로 이론적 적용이 잘못되었다."
+        ],
+        "difficultyDriver": "학생이 서비스업의 다양한 분류 기준과 이론을 이해하고, 이를 실제 사례에 적용하는 능력의 복잡성으로 인해 난이도가 결정된다.",
+        "stemPattern": "다음 서비스 사례에서 A기업을 분석한 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?"
+      }
+    },
+    {
+      "conceptId": "success_7_04",
+      "targetConcept": "서비스 설계의 의미 및 요소",
+      "frequency": 5,
+      "sourceExam": "2024학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 13,
+      "pattern": {
+        "assessmentIntent": "학생이 서비스 설계의 의미와 요소를 이해하고, 주어진 사례를 바탕으로 적절한 설명을 선택할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "사례 분석",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_CASE_DIAGNOSTIC_FRAME",
+          "blankCount": 0,
+          "boCount": 0,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: 'A회사의 서비스는 재판매가 가능하다.' - 서비스의 재판매 가능성에 대한 정보가 주어진 자료에 명시되어 있지 않으며, 서비스의 본질과 관련이 없다.",
+          "오답2: 'A회사는 서비스의 이질성을 줄이기 위한 시스템을 도입하였다.' - AI 시스템 도입이 이질성을 줄이는 것과 직접적으로 연결되지 않으며, 숙련도 문제를 해결하기 위한 조치로 해석될 수 있다.",
+          "오답3: 'A회사는 공급 주체에 따라 분류할 때 '공공 서비스업'에 해당한다.' - A회사는 산업용 렌즈 검수 서비스를 제공하므로 공공 서비스업에 해당하지 않는다.",
+          "오답4: 'A 회사는 수요 주체에 따라 분류할 때 '소비자 서비스업'에 해당한다.' - A회사는 고객사(기업)를 대상으로 서비스를 제공하므로 소비자 서비스업에 해당하지 않는다.",
+          "오답5: 'A회사는 고객사의 참여를 유도하는 서비스 생산 방식을 적용하고 있다.' - 고객사의 참여 유도에 대한 언급이 없으며, 서비스의 본질과 관련이 없다."
+        ],
+        "difficultyDriver": "주어진 사례에서 핵심 정보를 파악하고, 오답과의 구별을 위해 서비스 설계의 요소를 이해해야 하므로 유사 개념 변별이 필요하다.",
+        "stemPattern": "다음 글에 나타난 A회사에 대한 설명으로 가장 적절한 것은?"
+      }
+    },
+    {
+      "conceptId": "success_7_05",
+      "targetConcept": "서비스 생산 방식",
+      "frequency": 5,
+      "sourceExam": "2024학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 20,
+      "pattern": {
+        "assessmentIntent": "학생이 서비스 생산 방식에 대한 이해를 바탕으로 기업 사례를 분석하고, 각 기업의 서비스 제공 방식의 차이를 구별할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "비교/대조",
+        "skeletonStructure": {
+          "itemFamily": "combination_judgment",
+          "stimulusTPL": "TPL_COMPARATIVE_MATRIX",
+          "blankCount": 0,
+          "boCount": 4,
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true
+        },
+        "distractorBlueprint": [
+          "오답1: '기업 A의 서비스는 대량 생산 방식으로 제공된다.' - 기업 A의 서비스는 개별 소비자에게 맞춤형으로 제공되므로 대량 생산 방식이 아님.",
+          "오답2: '기업 C는 서비스 과정에 고객을 참여시키는 방식을 취하고 있다.' - 기업 C는 셀프 주유소로 운영되지만, 고객 참여는 서비스 과정의 핵심 요소가 아님.",
+          "오답3: '기업 B와 C는 기업 A에 비해 노동 집약도가 낮다.' - 기업 B와 C는 각각 다른 서비스 모델을 가지고 있으며, 노동 집약도는 단순 비교가 어려움.",
+          "오답4: '기업 A~C의 서비스는 다른 재화나 서비스의 유통 과정에 투입된다.' - 각 기업의 서비스는 독립적으로 운영되며, 유통 과정에 직접적으로 투입되지 않음."
+        ],
+        "difficultyDriver": "각 기업의 서비스 방식에 대한 이해와 비교 분석이 필요하여, 학생이 개념을 정확히 이해하고 적용해야 함.",
+        "stemPattern": "다음은 기업 A~C의 서비스 사례이다. 이에 대한 분석 내용으로 적절한 것만을 <보기>에서 고른 것은?"
+      }
+    },
+    {
+      "conceptId": "success_7_06",
+      "targetConcept": "서비스 접근 유형에 따른 생산 방식",
+      "frequency": 5,
+      "sourceExam": "2022학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 11,
+      "pattern": {
+        "assessmentIntent": "학생이 주어진 뉴스 내용을 바탕으로 미래 산업 사회의 변화를 이해하고, 그에 따른 적절한 설명을 선택할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "자료 해석 및 개념 변별",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": null,
+          "blankCount": 0,
+          "boCount": 0,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: '네트워크를 이용한 물류 산업이 성장할 것이다.' - 미래 산업의 변화와 관련된 내용이지만, 뉴스 내용과 직접적인 연관성이 부족하다.",
+          "오답2: '고령화 사회로 노인 전용 서비스 산업이 확대될 것이다.' - 사회적 변화에 대한 예측이지만, 뉴스의 주제인 환경 문제와는 관련이 없다.",
+          "오답3: '인간의 다양성과 개성을 존중하는 시대가 심화될 것이다.' - 사회적 가치의 변화에 대한 언급이지만, 뉴스 내용과의 연결이 약하다.",
+          "오답4: '여가 생활이 중요시되어 문화 콘텐츠 산업이 확대될 것이다.' - 여가와 문화 콘텐츠의 중요성을 언급하지만, 뉴스의 주제와는 관련이 적다."
+        ],
+        "difficultyDriver": "뉴스 내용의 이해와 그에 따른 미래 예측을 요구하는 복합적인 사고 과정이 필요하다.",
+        "stemPattern": "다음 뉴스 내용을 통해 알 수 있는 미래 산업 사회의 모습에 대한 설명으로 가장 적절한 것은?"
+      }
+    },
+    {
+      "conceptId": "success_7_07",
+      "targetConcept": "서비스 생산 체제",
+      "frequency": 5,
+      "sourceExam": "2022학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 12,
+      "pattern": {
+        "assessmentIntent": "이 문제는 학생이 직업기초능력 체크리스트의 각 항목에 대한 이해도를 평가하고, 직무 수행에 필요한 공통 능력을 식별할 수 있는지를 확인한다.",
+        "judgmentAxis": "분류/매칭",
+        "skeletonStructure": {
+          "itemFamily": "combination_judgment",
+          "stimulusTPL": "TPL_CASE_DIAGNOSTIC_FRAME",
+          "blankCount": 3,
+          "boCount": 4,
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true
+        },
+        "distractorBlueprint": [
+          "오답1: '(가)에는 업무와 관련된 정보를 수집, 분석, 관리, 활용하는 데 있어 컴퓨터를 사용하는 능력이 포함된다.' - 이 선택지는 (가)의 내용과 관련이 있지만, 체크리스트의 주된 초점인 직업기초능력과는 직접적인 연관이 없다.",
+          "오답2: '(나)에는 업무 수행과 관련하여 조직의 체제를 올바르게 이해하는 능력이 포함된다.' - 이 선택지는 (나)의 내용과 관련이 있지만, 문제 해결 능력에 대한 설명이 부족하다.",
+          "오답3: '(다)에는 다양한 배경을 가진 사람들과 함께 업무를 수행하는 능력이 포함된다.' - 이 선택지는 (다)의 내용과 관련이 있지만, 갈등 조정 능력에 대한 설명이 부족하다.",
+          "오답4: '(가)~(다)는 직종이나 직위에 상관없이 직무 수행을 위해 공통으로 필요한 능력이다.' - 이 선택지는 전반적인 개념을 설명하지만, 각 항목의 구체적인 내용을 반영하지 않는다."
+        ],
+        "difficultyDriver": "정보의 분산과 각 항목에 대한 정확한 이해가 필요하며, 선택지 간의 유사성이 학생의 판단을 어렵게 만든다.",
+        "stemPattern": "다음은 직업기초능력 체크리스트의 일부이다. (가)~(다)에 대한 설명으로 적절한 것만을 <보기>에서 고른 것은?"
+      }
+    }
+  ]
+}

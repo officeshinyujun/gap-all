@@ -1,0 +1,533 @@
+{
+  "unit": 1,
+  "unitTitle": "일과 직업 및 직업 생활",
+  "subject": "success",
+  "totalQuestions": 5,
+  "questions": [
+    {
+      "conceptName": "일과 직업의 의미 및 특징",
+      "originalSource": "2023학년도 대학수학능력시험 성공적인 직업생활",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "일과 직업의 의미 및 특징",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_CONVERSATIONAL_FLOW"
+        },
+        "render_ready": {
+          "question_stem": "다음 특강에서 B씨의 직업 선택 과정과 근무 방식에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+          "stimulus_data": {
+            "participants": [
+              {
+                "id": "B",
+                "name": "B씨",
+                "role": "참석자"
+              }
+            ],
+            "messages": [
+              {
+                "participant_id": "B",
+                "text": "대학 시절부터 안정적인 수입이 보장되는 직업보다는 창의적인 일을 하고 싶었습니다. 그러나 졸업 후 직업 적성 검사 결과를 통해 안정적인 직업이 필요하다는 것을 깨닫고, 현재는 재택근무를 통해 일하고 있습니다. 처음에는 출퇴근이 걱정되었지만, 지금은 집에서 일하는 것이 더 효율적이라는 것을 알게 되었습니다.",
+                "timestamp": ""
+              }
+            ]
+          },
+          "options_list": [
+            "근무 방식은 재택근무이다.",
+            "추구하는 직업 가치가 '창의성'에서 '안정성'으로 바뀌었다.",
+            "직업 선택 시 활용한 검사에서는 개인의 적성을 평가할 수 있다."
+          ]
+        },
+        "combo_block": {
+          "title": "<보기>",
+          "items": [
+            {
+              "key": "ㄱ",
+              "text": "근무 방식은 재택근무이다."
+            },
+            {
+              "key": "ㄴ",
+              "text": "추구하는 직업 가치가 '창의성'에서 '안정성'으로 바뀌었다."
+            },
+            {
+              "key": "ㄷ",
+              "text": "직업 선택 시 활용한 검사에서는 개인의 적성을 평가할 수 있다."
+            }
+          ]
+        },
+        "correct_answer": 4,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "안정적인 직업이 필요하다는 것을 깨닫고",
+            "why": "B씨가 직업 가치관의 변화를 이해하고 이를 통해 현재의 직업을 선택했음을 나타내는 단서입니다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "O",
+            "reasoning": "B씨는 현재 재택근무를 하고 있다고 명시하고 있습니다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "O",
+            "reasoning": "B씨가 안정적 직업을 필요로 하게 된 배경을 설명하므로, 직업 가치의 변화가 반영되어 있습니다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "X",
+            "reasoning": "B씨는 직업 적성 검사에 대한 언급은 하였으나, 적성 평가에 대한 구체적인 내용을 제공하지 않았습니다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "주어진 자료를 읽고, B씨의 직업 선택 과정과 근무 방식을 파악합니다."
+          },
+          {
+            "step": 2,
+            "action": "제시된 보기를 통해 각 설명의 정확성을 판단합니다."
+          },
+          {
+            "step": 3,
+            "action": "정확한 설명을 선택하여 답안을 작성합니다."
+          }
+        ],
+        "takeaway": "직업 선택에서의 개인의 가치관 변화와 근무 방식의 중요성을 이해하는 것이 필요하다."
+      }
+    },
+    {
+      "conceptName": "직업의 가치와 가치관",
+      "originalSource": "2025학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "직업의 가치와 가치관",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_기출"
+        },
+        "render_ready": {
+          "question_stem": "다음 내용에서 (가) 직업관이 중시하는 가치를 <보기>에서 선택하시오.",
+          "stimulus_data": {
+            "content": "현대 사회에서는 직업에 대한 가치관이 다양해지고 있으며, 이를 외부적 가치와 내부적 가치로 나눌 수 있다. 최근 많은 직장인들이 안정적인 고용과 복지 혜택을 중요하게 생각하는 (가) 직업관을 선호하는 경향이 뚜렷하게 나타나고 있다.\n-△△신문, 2025년 8월 15일 자-"
+          },
+          "options_list": [
+            "재정적 보상",
+            "자기 개발 기회",
+            "안정적인 근무 조건",
+            "업무에서의 만족감"
+          ]
+        },
+        "combo_block": {
+          "title": "<보기>",
+          "items": [
+            {
+              "key": "ㄱ",
+              "text": "재정적 보상"
+            },
+            {
+              "key": "ㄴ",
+              "text": "자기 개발 기회"
+            },
+            {
+              "key": "ㄷ",
+              "text": "안정적인 근무 조건"
+            },
+            {
+              "key": "ㄹ",
+              "text": "업무에서의 만족감"
+            }
+          ]
+        },
+        "correct_answer": 2,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "안정적인 고용과 복지 혜택을 중요하게 생각하는 (가) 직업관",
+            "why": "직업관이 외부적 가치인 안정성과 복지를 중시한다는 점을 나타냄."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "X",
+            "reasoning": "'재정적 보상'은 외부적 가치로 (가) 직업관의 중시 가치와는 다르다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "O",
+            "reasoning": "'자기 개발 기회'는 내부적 가치로 (가) 직업관과는 관련이 없다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "O",
+            "reasoning": "'안정적인 근무 조건'은 외부적 가치로 (가) 직업관의 중시 가치와 부합한다."
+          },
+          {
+            "optionNum": 4,
+            "verdict": "X",
+            "reasoning": "'업무에서의 만족감'은 내부적 가치로, (가) 직업관과는 관련이 없다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "자료를 읽고 (가) 직업관의 중시 가치를 파악한다."
+          },
+          {
+            "step": 2,
+            "action": "주어진 보기 중에서 외부적 가치에 해당하는 항목을 선택한다."
+          }
+        ],
+        "takeaway": "직업관의 가치 이해는 직업 선택에 있어 중요한 기준이 된다."
+      }
+    },
+    {
+      "conceptName": "직업 생활의 의미와 중요성",
+      "originalSource": "2025학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "직업 생활의 의미와 중요성",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_CONVERSATIONAL_FLOW"
+        },
+        "render_ready": {
+          "question_stem": "다음 사례에 나타난 직업인 C, D씨의 직업 가치관에 대한 설명으로 적절한 것만을 <보기>에서 고른 것은?",
+          "stimulus_data": {
+            "participants": [
+              {
+                "id": "C",
+                "name": "C씨",
+                "role": "직업인"
+              },
+              {
+                "id": "D",
+                "name": "D씨",
+                "role": "직업인"
+              }
+            ],
+            "messages": [
+              {
+                "participant_id": "C",
+                "text": "부모님이 운영하시는 전통 찻집을 이어받아 자부심을 느끼고 있습니다. 저는 직업 선택 시 안정성과 직장 내 환경을 중요하게 생각하여 직원들의 행복한 근무 환경을 위해 노력하고 있습니다.",
+                "timestamp": ""
+              },
+              {
+                "participant_id": "D",
+                "text": "어릴 적부터 다양한 직업을 탐색하는 것을 즐겼고, 제 적성과 열정을 살려 크리에이티브 디렉터가 되었습니다. 현재 여러 프로젝트에 참여하며 흥미로운 직업 생활을 누리고 있습니다.",
+                "timestamp": ""
+              }
+            ]
+          },
+          "options_list": [
+            "C씨는 '전통적 직업관'을 갖고 있다.",
+            "D씨는 직업의 가치 중 '창의성 지향'을 중요시하고 있다.",
+            "C씨는 '외재적 직업 가치'를, D씨는 '내재적 직업 가치'를 중요시하고 있다."
+          ]
+        },
+        "combo_block": {
+          "title": "<보기>",
+          "items": [
+            {
+              "key": "ㄱ",
+              "text": "C씨는 '전통적 직업관'을 갖고 있다."
+            },
+            {
+              "key": "ㄴ",
+              "text": "D씨는 직업의 가치 중 '창의성 지향'을 중요시하고 있다."
+            },
+            {
+              "key": "ㄷ",
+              "text": "C씨는 '외재적 직업 가치'를, D씨는 '내재적 직업 가치'를 중요시하고 있다."
+            }
+          ]
+        },
+        "correct_answer": 3,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "C씨는 직업 선택 시 안정성과 직장 내 환경을 중요하게 생각한다.",
+            "why": "C씨의 발언에서 안정성과 직원 행복을 강조하는 점은 그가 외재적 가치도 고려하고 있음을 나타낸다."
+          },
+          {
+            "quote": "D씨는 제 적성과 열정을 살려 크리에이티브 디렉터가 되었다.",
+            "why": "D씨의 직업 선택 과정은 내재적 가치와 개인의 흥미를 중시하는 것을 보여준다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "O",
+            "reasoning": "C씨는 전통적인 직업을 이어받아 자부심을 느끼고 있어 전통적 직업관을 갖고 있다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "O",
+            "reasoning": "D씨는 자신의 적성과 열정을 중시하며 창의성을 중요한 가치로 보고 있다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "X",
+            "reasoning": "C씨는 외재적 가치를 포함하고 있으나, D씨는 내재적 가치를 중심으로 직업을 선택했다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "C씨와 D씨의 발언을 분석하여 각자의 직업 가치관을 구분한다."
+          },
+          {
+            "step": 2,
+            "action": "주어진 보기를 통해 각 직업인의 가치관에 대한 적절한 설명을 선택한다."
+          }
+        ],
+        "takeaway": "직업 가치관은 개인의 경험과 선호에 따라 다양하게 형성되며, 이를 이해하는 것은 직업 선택에 중요한 영향을 미친다."
+      }
+    },
+    {
+      "conceptName": "직업 생활의 중요성 - 개인적 및 사회적 차원",
+      "originalSource": "2023학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "직업 생활의 중요성 - 개인적 및 사회적 차원",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_CONVERSATIONAL_FLOW"
+        },
+        "render_ready": {
+          "question_stem": "다음 대화에서 학생 C, D의 답변에 대한 분석 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+          "stimulus_data": {
+            "participants": [
+              {
+                "id": "T",
+                "name": "상담사",
+                "role": "상담사"
+              },
+              {
+                "id": "C",
+                "name": "학생 C",
+                "role": "학생"
+              },
+              {
+                "id": "D",
+                "name": "학생 D",
+                "role": "학생"
+              }
+            ],
+            "messages": [
+              {
+                "participant_id": "T",
+                "text": "여러분은 어떤 직업을 생각하고 있나요?",
+                "timestamp": ""
+              },
+              {
+                "participant_id": "C",
+                "text": "저는 안정적인 직업을 원해요. 요즘 직업 불안이 커서 장기적으로 일할 수 있는 곳에서 일하고 싶어요.",
+                "timestamp": ""
+              },
+              {
+                "participant_id": "D",
+                "text": "저는 새로운 경험을 하고 싶어요. 똑같은 일을 반복하는 것은 지루하거든요. 다양한 일을 하면서 성장할 수 있는 직업을 찾고 싶어요.",
+                "timestamp": ""
+              }
+            ]
+          },
+          "options_list": [
+            "학생 C는 직업의 가치 중 '안정성'을 중시하고 있다.",
+            "학생 D는 직업의 가치 중 '다양성'을 중시하고 있다.",
+            "학생 C와 D는 직업의 요건 중 '안정된 수입'을 고려하고 있다.",
+            "학생 C는 직업의 가치 중 '새로움'을 중시하고 있다.",
+            "학생 D는 직업의 가치 중 '재정적 안정'을 중시하고 있다."
+          ]
+        },
+        "combo_block": {
+          "title": "<보기>",
+          "items": [
+            {
+              "key": "ㄱ",
+              "text": "학생 C는 직업의 가치 중 '안정성'을 중시하고 있다."
+            },
+            {
+              "key": "ㄴ",
+              "text": "학생 D는 직업의 가치 중 '다양성'을 중시하고 있다."
+            },
+            {
+              "key": "ㄷ",
+              "text": "학생 C와 D는 직업의 요건 중 '안정된 수입'을 고려하고 있다."
+            }
+          ]
+        },
+        "correct_answer": 5,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "학생 C는 안정적인 직업을 원해요.",
+            "why": "직업 안정의 중요성을 강조하고 있다."
+          },
+          {
+            "quote": "학생 D는 새로운 경험을 하고 싶어요.",
+            "why": "직업의 다양성을 중시하고 있다는 점을 나타낸다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "O",
+            "reasoning": "학생 C는 안정성을 중시하고 있다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "O",
+            "reasoning": "학생 D는 다양성을 중시하고 있다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "O",
+            "reasoning": "학생 C와 D 모두 안정된 수입을 고려하고 있다."
+          },
+          {
+            "optionNum": 4,
+            "verdict": "X",
+            "reasoning": "학생 C는 새로움을 중시하지 않는다."
+          },
+          {
+            "optionNum": 5,
+            "verdict": "X",
+            "reasoning": "학생 D는 재정적 안정보다는 다양성을 중시한다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "학생 C와 D의 발언을 비교하여 각자의 가치관을 분석한다."
+          },
+          {
+            "step": 2,
+            "action": "각 학생의 발언에서 중시하는 직업의 가치와 요건을 정리한다."
+          },
+          {
+            "step": 3,
+            "action": "정답이 포함된 보기에서 선택지를 고른다."
+          }
+        ],
+        "takeaway": "직업 선택 시 개인의 가치관이 중요하며, 안정성과 다양성의 균형을 고려해야 한다."
+      }
+    },
+    {
+      "conceptName": "직업 생활의 다양성",
+      "originalSource": "2023학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "직업 생활의 다양성",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_QUANTITATIVE_CHART"
+        },
+        "render_ready": {
+          "question_stem": "다음 조사 결과를 바탕으로 Z세대의 직장 선택 시 중요시하는 요소에 대한 설명으로 적절한 것을 <보기>에서 고른 것은?",
+          "stimulus_data": {
+            "chart_type": "bar",
+            "axes": [
+              {
+                "id": "x",
+                "label": "직장 선택 시 고려 요소"
+              },
+              {
+                "id": "y",
+                "label": "비율 (%)"
+              }
+            ],
+            "datasets": [
+              {
+                "label": "근무 환경 중요도",
+                "values": [
+                  50,
+                  30,
+                  15,
+                  5
+                ]
+              },
+              {
+                "label": "성장 기회 선호도",
+                "values": [
+                  55,
+                  25,
+                  10,
+                  10
+                ]
+              }
+            ]
+          },
+          "options_list": [
+            "직장의 안정성보다 유연한 근무 환경을 중시한다.",
+            "직업의 특성 중 연봉보다 개인의 성장 가능성을 중시한다.",
+            "직업의 보상 중 외적인 보상보다 내적인 성취를 더 중요하게 생각한다."
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 4,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "Z세대는 직장 선택 시 근무 환경을 가장 중시한다고 조사되었다.",
+            "why": "직장 선택의 주요 요소를 이해하는 데 중요한 정보이기 때문"
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "O",
+            "reasoning": "조사 결과에 따르면 유연한 근무 환경이 중요한 요소로 나타났으므로 올바른 설명이다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "O",
+            "reasoning": "Z세대는 개인의 성장 가능성에 중점을 두고 직업을 선택하는 경향이 있다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "O",
+            "reasoning": "Z세대는 내적인 성취를 외적인 보상보다 더 중시하는 경향이 있음을 보여준다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "주어진 자료를 바탕으로 Z세대의 직장 선택 요소를 이해한다."
+          },
+          {
+            "step": 2,
+            "action": "각 보기의 설명이 자료에 부합하는지 검토한다."
+          },
+          {
+            "step": 3,
+            "action": "적절한 보기를 선택하여 정답을 도출한다."
+          }
+        ],
+        "takeaway": "Z세대의 직장 선택 기준은 근무 환경과 개인의 성장 가능성을 중시하는 경향이 있다."
+      }
+    }
+  ]
+}

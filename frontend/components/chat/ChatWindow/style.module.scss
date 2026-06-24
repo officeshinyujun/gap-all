@@ -207,3 +207,324 @@
     cursor: not-allowed;
   }
 }
+
+/* ── 이미지 업로드 ── */
+.imageBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: $background-secondary;
+  border: 1.5px solid $border-primary;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: $text-secondary;
+  transition: all 0.15s;
+  &:hover:not(:disabled) { border-color: $brand-primary; color: $brand-primary; }
+  &:disabled { opacity: 0.5; cursor: not-allowed; }
+}
+
+.imagePreviewArea {
+  padding: $spacing-8 $spacing-24;
+  display: flex;
+  align-items: center;
+  gap: $spacing-12;
+  justify-content: center;
+}
+
+.imagePreview {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid $border-primary;
+  }
+}
+
+.imageRemoveBtn {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: $text-secondary;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $background-primary;
+  &:hover { background: $text-wrong; }
+}
+
+/* ── 유사 문제 섹션 ── */
+.similarSection {
+  max-width: 700px;
+  width: 100%;
+  margin-top: $spacing-8;
+}
+
+.similarTitle {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: $text-secondary;
+  margin-bottom: $spacing-8;
+}
+
+.similarCards {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-8;
+}
+
+.similarCard {
+  border: 1px solid $border-primary;
+  border-radius: 10px;
+  overflow: hidden;
+  background: $background-primary;
+}
+
+.similarCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: $spacing-12 $spacing-14;
+  background: $background-secondary;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s;
+  &:hover { background: $background-third; }
+}
+
+.similarCardSource {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 11px;
+  color: $text-secondary;
+  margin-bottom: 2px;
+}
+
+.similarCardConcept {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: $text-primary;
+}
+
+.similarCardChevron {
+  font-size: 10px;
+  color: $text-secondary;
+  flex-shrink: 0;
+}
+
+.similarCardBody {
+  padding: $spacing-14;
+  border-top: 1px solid $border-primary;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-12;
+}
+
+.revealBtn {
+  width: 100%;
+  padding: $spacing-10;
+  background: $background-secondary;
+  border: 1.5px solid $brand-primary;
+  border-radius: 8px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: $brand-primary;
+  cursor: pointer;
+  transition: all 0.15s;
+  &:hover { background: $background-third; }
+}
+
+/* 해설 아코디언 */
+.explanationBtn {
+  width: 100%;
+  padding: $spacing-8;
+  background: none;
+  border: 1px dashed $border-primary;
+  border-radius: 6px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: $text-secondary;
+  cursor: pointer;
+  transition: all 0.15s;
+  margin-top: $spacing-4;
+  &:hover {
+    border-color: $brand-primary;
+    color: $brand-primary;
+  }
+}
+
+.explanationPanel {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-12;
+  padding: $spacing-12;
+  background: $background-secondary;
+  border-radius: 8px;
+  margin-top: $spacing-8;
+}
+
+.sectionTitle {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: $text-strong;
+}
+
+.solvingStep {
+  display: flex;
+  gap: $spacing-8;
+  align-items: flex-start;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+  color: $text-primary;
+}
+
+.stepNum {
+  flex-shrink: 0;
+  font-weight: 600;
+  color: $brand-primary;
+}
+
+.stepText {
+  flex: 1;
+}
+
+.optionRow {
+  display: flex;
+  gap: $spacing-6;
+  align-items: flex-start;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+  padding: $spacing-6 $spacing-8;
+  border-radius: 6px;
+}
+
+.optionCorrectRow {
+  background: rgba(76, 175, 80, 0.08);
+}
+
+.optionWrongRow {
+  background: rgba(244, 67, 54, 0.08);
+}
+
+.optionLabel {
+  flex-shrink: 0;
+  min-width: 24px;
+  font-weight: 600;
+}
+
+.verdictO {
+  color: $text-correct;
+  font-weight: 600;
+}
+
+.verdictX {
+  color: $text-wrong;
+  font-weight: 600;
+}
+
+.optionReasoning {
+  flex: 1;
+  color: $text-primary;
+}
+
+.takeawayText {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+  color: $text-primary;
+  white-space: pre-wrap;
+}
+
+/* ── 유사점 ── */
+.similarityRow {
+  display: flex;
+  gap: $spacing-6;
+  align-items: flex-start;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  line-height: 1.6;
+  color: $text-primary;
+}
+
+.similarityIcon {
+  flex-shrink: 0;
+  font-size: 12px;
+}
+
+.similarityText {
+  strong { font-weight: 600; }
+}
+
+/* ── 지문 원문 하이라이트 ── */
+.rawStimulusBox {
+  padding: $spacing-12;
+  background: $background-primary;
+  border: 1px solid $border-primary;
+  border-radius: 8px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  line-height: 1.8;
+  color: $text-primary;
+  white-space: pre-wrap;
+  word-break: keep-all;
+  margin-bottom: $spacing-8;
+}
+
+.stimulusHighlight {
+  background: $brand-secondary;
+  color: $brand-primary;
+  border-radius: 3px;
+  padding: 0 2px;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.clueList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-6;
+}
+
+.clueBox {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-4;
+  padding: $spacing-8 $spacing-10;
+  background: $background-primary;
+  border-radius: 6px;
+}
+
+.clueQuote {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  line-height: 1.6;
+  color: $text-primary;
+}
+
+.clueWhy {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 11px;
+  line-height: 1.5;
+  color: $text-secondary;
+}

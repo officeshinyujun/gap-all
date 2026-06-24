@@ -1,11 +1,11 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { VStack } from '@/components/general/VStack';
-import { HStack } from '@/components/general/HStack';
-import Typo from '@/components/general/Typo';
-import { SPACING } from '@/constants/spacing';
-import { HeaderActions } from '@/components/general/HeaderActions';
+import { VStack } from '@shared/ui/VStack';
+import { HStack } from '@shared/ui/HStack';
+import Typo from '@shared/ui/Typo';
+import { SPACING } from '@shared/constants/spacing';
+import { HeaderActions } from '@shared/ui/HeaderActions';
 import { fetchConceptBookmarks, removeConceptBookmark, fetchConceptByName, type ConceptBookmark, type ConceptExplanation } from '@/lib/studyQuizApi';
 import s from './page.module.scss';
 

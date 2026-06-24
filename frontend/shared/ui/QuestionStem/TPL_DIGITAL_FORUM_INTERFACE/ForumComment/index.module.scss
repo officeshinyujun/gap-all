@@ -1,0 +1,46 @@
+@import '@/styles/variables.scss';
+
+.comment {
+  width: 100%;
+  padding: $spacing-10 $spacing-16 $spacing-10 $spacing-24;
+  border-bottom: 1px solid $border-primary;
+  background-color: $background-primary;
+  box-sizing: border-box;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
+    background-color: $background-secondary;
+  }
+}
+
+.commentIndex {
+  font-size: 12px;
+  font-weight: $regular;
+  color: $text-secondary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+}
+
+.authorIcon {
+  font-size: 12px;
+}
+
+.author {
+  font-size: 12px;
+  font-weight: $semi-bold;
+  color: $brand-primary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+}
+
+.text {
+  font-size: 13px;
+  font-weight: $regular;
+  color: $text-primary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  line-height: 1.7;
+  margin: 0;
+  padding-left: $spacing-20;
+  word-break: keep-all;
+}

@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { API_BASE_URL } from '@/lib/auth';
+import { API_BASE_URL } from '@shared/lib/auth';
 
 export default function GoogleCallbackPage() {
   useEffect(() => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import cs from 'classnames';
-import { VStack } from '@/components/general/VStack';
-import { HStack } from '@/components/general/HStack';
+import { VStack } from '@shared/ui/VStack';
+import { HStack } from '@shared/ui/HStack';
 import type { ForumCommentData } from '@/types/questionstem';
 import s from './index.module.scss';
 
@@ -29,7 +29,7 @@ export const ForumComment: React.FC<ForumCommentProps> = ({
         <span className={s.authorIcon}>👤</span>
         <span className={s.author}>{comment.author}</span>
       </HStack>
-      <p className={s.text}>{comment.text}</p>
+      <p className={s.text}>{comment.content ?? comment.text}</p>
     </VStack>
   );
 };

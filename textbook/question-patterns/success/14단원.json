@@ -1,0 +1,178 @@
+{
+  "unit": 14,
+  "unitTitle": "창업과 기업가 정신",
+  "subject": "success",
+  "totalQuestions": 6,
+  "patterns": [
+    {
+      "conceptId": "success_14_01",
+      "targetConcept": "창업의 의미와 목적",
+      "frequency": 15,
+      "sourceExam": "2025학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 1,
+      "pattern": {
+        "assessmentIntent": "학생이 A씨와 B씨의 기업가 정신을 이해하고, 각 사례에 적합한 특성을 올바르게 연결할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "비교/대조",
+        "skeletonStructure": {
+          "itemFamily": "pair_selection",
+          "stimulusTPL": "TPL_CONVERSATIONAL_FLOW",
+          "blankCount": 0,
+          "boCount": 0,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: A씨의 혁신성과 B씨의 진취성을 연결한 선택지로, A씨의 보수적인 경영 방침과는 맞지 않음.",
+          "오답2: A씨의 혁신성과 B씨의 사회적 책임성을 연결한 선택지로, A씨의 전통적인 접근 방식과 상충함.",
+          "오답3: A씨의 위험 감수성과 B씨의 혁신성을 연결한 선택지로, B씨의 사회적 책임 강조와는 일치하지 않음.",
+          "오답4: A씨의 위험 감수성과 B씨의 사회적 책임성을 연결한 선택지로, A씨의 보수적인 태도와는 맞지 않음.",
+          "오답5: A씨의 사회적 책임성과 B씨의 혁신성을 연결한 선택지로, A씨의 경영 철학과는 부합하지 않음."
+        ],
+        "difficultyDriver": "학생이 두 인물의 기업가 정신을 비교하고, 각 특성이 어떤 사례에 적합한지를 판단해야 하므로, 개념의 이해와 적용이 필요하다.",
+        "stemPattern": "다음 기업 운영 사례 발표에 나타난 A, B씨의 기업가 정신으로 가장 적절한 것은?"
+      }
+    },
+    {
+      "conceptId": "success_14_02",
+      "targetConcept": "창업의 방법과 유형",
+      "frequency": 15,
+      "sourceExam": "2024학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 6,
+      "pattern": {
+        "assessmentIntent": "학생이 창업 계획서의 내용을 분석하고, 창업의 기본 요소 및 자금 조달 방법에 대한 이해도를 평가한다.",
+        "judgmentAxis": "자료 해석 및 개념 변별",
+        "skeletonStructure": {
+          "itemFamily": "combination_judgment",
+          "stimulusTPL": "TPL_FORMAL_DOCUMENT",
+          "blankCount": 0,
+          "boCount": 4,
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true
+        },
+        "distractorBlueprint": [
+          "오답1: '창업의 3요소가 포함되어 있다.' - 창업의 3요소가 무엇인지에 대한 명확한 이해 부족으로 인해 발생한 오답.",
+          "오답2: '창업 목적에 사회적 측면이 포함되어 있다.' - 창업 동기와 목적에서 사회적 측면이 언급되지만, 주된 목적이 경제적 측면에 초점을 맞추고 있어 오답.",
+          "오답3: '창업 자금은 자기 자본과 타인 자본으로 구성되어 있다.' - 자금 조달 계획에서 자기 자본과 정책 자금 대출이 언급되지만, 타인 자본의 정의가 모호하여 오답.",
+          "오답4: '시설 자금보다 운전 자금에 더 많은 금액이 소요될 것으로 예상하고 있다.' - 예상 소요 자금에서 시설 자금과 운전 자금의 구분이 명확하지 않아 잘못된 추론으로 인한 오답."
+        ],
+        "difficultyDriver": "자료의 복잡성과 창업 관련 개념의 이해도, 선택지 간의 유사성으로 인해 난이도가 결정된다.",
+        "stemPattern": "다음은 창업 계획서 작성에 관한 수행 평가 보고서이다. 이에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?"
+      }
+    },
+    {
+      "conceptId": "success_14_03",
+      "targetConcept": "창업의 요소",
+      "frequency": 15,
+      "sourceExam": "2025학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 6,
+      "pattern": {
+        "assessmentIntent": "학생이 창업 사례를 분석하고, 창업의 요소에 대한 이해를 바탕으로 적절한 정보를 선택할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "사례 분석",
+        "skeletonStructure": {
+          "itemFamily": "combination_judgment",
+          "stimulusTPL": null,
+          "blankCount": 0,
+          "boCount": 4,
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true
+        },
+        "distractorBlueprint": [
+          "오답1: A는 사업자 등록을 법원에 신청해야 한다는 사실을 잘못 이해하여, 실제 기한이나 절차를 혼동한 경우.",
+          "오답2: B의 컨설팅 의견이 창업자의 자율권을 보장한다고 주장하지만, 실제로는 창업 방법의 차이를 잘못 해석한 경우.",
+          "오답3: 수정 후 사업 계획서에서 창업 자본에 대한 운전 자금 비율이 감소했다는 사실을 잘못 해석하여, 오히려 증가했다고 잘못 판단한 경우.",
+          "오답4: 수정 후 사업 계획서에서 타인 자본의 비율이 감소했다고 주장하지만, 실제로는 변동이 없거나 증가한 경우."
+        ],
+        "difficultyDriver": "학생이 창업 사례의 세부 사항을 정확히 이해하고, 각 선택지의 진위를 판단하기 위해 필요한 정보의 양과 복잡성.",
+        "stemPattern": "위 창업 사례를 분석한 내용으로 적절한 것만을 <보기>에서 고른 것은?"
+      }
+    },
+    {
+      "conceptId": "success_14_04",
+      "targetConcept": "창업의 과정과 절차",
+      "frequency": 15,
+      "sourceExam": "2025학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 7,
+      "pattern": {
+        "assessmentIntent": "학생이 A기업과 B기업의 창업 과정과 절차를 비교 분석하고, 각 기업의 특징을 이해하여 적절한 선택지를 고를 수 있는 능력을 평가한다.",
+        "judgmentAxis": "비교/대조",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_COMPARATIVE_MATRIX",
+          "blankCount": 0,
+          "boCount": 5,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: A기업의 형태가 법인 기업이라는 점을 강조하여 법적 설립 절차가 간단하다는 잘못된 인식을 유도함.",
+          "오답2: 창업 자본 대비 시설 자금의 비율을 잘못 해석하여 A기업이 더 낮다는 잘못된 결론을 이끌어냄.",
+          "오답3: B기업의 창업 방법을 점포 창업으로 잘못 분류하여 창업 형태에 대한 오해를 유발함.",
+          "오답4: B기업의 창업자가 회사의 채무에 대해 출자 금액 한도로 책임을 진다는 점을 잘못 이해하여 개인 기업의 책임 구조를 혼동하게 함.",
+          "오답5: 창업 자본 대비 자기 자본의 비율을 잘못 계산하여 B기업이 더 낮다는 잘못된 정보를 제공함."
+        ],
+        "difficultyDriver": "정보의 복잡성과 두 기업 간의 비교를 요구하는 점에서 난이도가 증가하며, 각 기업의 창업 자본 및 자금 조달 원천에 대한 이해가 필요하다.",
+        "stemPattern": "위 사례에 나타난 A, B기업의 창업을 분석한 내용으로 적절한 것은?"
+      }
+    },
+    {
+      "conceptId": "success_14_05",
+      "targetConcept": "기업가 정신의 의미와 중요성",
+      "frequency": 12,
+      "sourceExam": "2024학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 8,
+      "pattern": {
+        "assessmentIntent": "학생이 기업가 정신의 의미와 중요성을 이해하고, 창업 사례를 통해 창업자의 배경과 사업 성과를 분석할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "사례 분석 및 개념 변별",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_CASE_DIAGNOSTIC_FRAME",
+          "blankCount": 0,
+          "boCount": 0,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: 'A씨의 창업 자금은 자기 자본에 해당한다.' - A씨의 자금 출처에 대한 오해를 기반으로 한 오답.",
+          "오답2: 'A씨는 창업 전에 사업 타당성 분석을 실시하였다.' - 사실에 기반한 진술로, A씨의 분석을 강조하여 혼동을 유도.",
+          "오답3: 'B씨의 창업 방법은 신규 기업 창업에 해당한다.' - B씨의 사업 전환을 신규 창업으로 잘못 해석하여 발생한 오답.",
+          "오답4: 'B씨의 창업 요소에는 창업 자본이 포함되어 있다.' - 창업 자본의 개념을 일반화하여 잘못된 해석을 유도.",
+          "오답5: 'A씨의 창업 방법은 B씨의 창업 방법에 비해 시장 진입에 불리하다.' - 두 창업 방법의 비교에서 잘못된 결론을 도출하도록 설계된 오답."
+        ],
+        "difficultyDriver": "사례의 복잡성과 창업자의 다양한 배경 정보로 인해 학생이 정확한 정보를 추론하고 변별하는 데 필요한 사고 과정의 난이도가 높아진다.",
+        "stemPattern": "위 [창업 성공 사례]를 통해 알 수 있는 A, B 씨에 대한 설명으로 적절하지 않은 것은?"
+      }
+    },
+    {
+      "conceptId": "success_14_06",
+      "targetConcept": "기업가 정신의 구성 요소",
+      "frequency": 12,
+      "sourceExam": "2024학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 9,
+      "pattern": {
+        "assessmentIntent": "학생이 기업가 정신의 구성 요소를 이해하고, 창업 사례를 통해 기업 형태의 특징을 분석할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "사례 분석 및 개념 변별",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_CASE_DIAGNOSTIC_FRAME",
+          "blankCount": 0,
+          "boCount": 3,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: 'A 씨가 설립한 기업의 형태는 유한 책임 사원과 무한 책임 사원으로 구성된다.' - 기업 형태에 대한 잘못된 이해를 바탕으로 한 오답.",
+          "오답2: 'B씨가 인수한 기업의 형태는 사원 전원이 자본에 대한 출자 의무가 있다.' - 기업의 출자 의무에 대한 잘못된 정보로 구성된 오답.",
+          "오답3: 'B씨가 인수한 기업의 형태는 A씨가 설립한 기업의 형태에 비해 회사 설립 절차가 간단하다.' - 두 기업 형태의 설립 절차를 비교하는 데 있어 잘못된 전제를 사용한 오답."
+        ],
+        "difficultyDriver": "사례에 대한 이해와 기업 형태의 특징을 정확히 구분해야 하므로, 정보의 복잡성과 개념의 유사성으로 인해 난이도가 증가한다.",
+        "stemPattern": "위 창업 성공 사례의 (가)~(다)에 대한 설명으로 옳은 것만을 <보기>에서 고른 것은?"
+      }
+    }
+  ]
+}

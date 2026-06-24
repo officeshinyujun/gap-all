@@ -8,6 +8,8 @@ import { Repository } from 'typeorm';
 import OpenAI from 'openai';
 import { TextbookService, UnitPayload } from '../textbook/textbook.service';
 import { PromptsService } from '../prompts/prompts.service';
+import { PatternMatcherService } from './pattern-matcher.service';
+import { SimilarityValidatorService } from './similarity-validator.service';
 import { Question } from '../entities/question.entity';
 import { Subject } from '../entities/subject.entity';
 import { Unit } from '../entities/unit.entity';
@@ -116,6 +118,8 @@ export class ExamGeneratorService {
     private readonly aiUsageLogRepo: Repository<AiUsageLog>,
     private readonly textbookService: TextbookService,
     private readonly promptsService: PromptsService,
+    private readonly patternMatcher: PatternMatcherService,
+    private readonly similarityValidator: SimilarityValidatorService,
   ) {
     this.openai = new OpenAI({
       apiKey: process.env.OPENAI_API_KEY,
@@ -167,6 +171,8 @@ export class ExamGeneratorService {
       0,
       targetConcepts,
       reportProgress,
+      startUnitNum,
+      endUnitNum,
     );
     this.logger.log(`Step 1 완료: ${blueprint.length}개 Blueprint`);
 
@@ -225,6 +231,9 @@ export class ExamGeneratorService {
         customPrompt,
         0,
         targetConcepts,
+        undefined,
+        startUnitNum,
+        endUnitNum,
       );
       const extraRaw = await this.runStep2(
         extraBlueprint,
@@ -242,11 +251,44 @@ export class ExamGeneratorService {
       semanticValid = semanticValid.slice(0, questionCount);
     }
 
+    // 4.75. 유사도 검증 (기출문제와 유사한 문항 제거)
     await this.reportProgress(reportProgress, {
-      stage: 'semantic_validation',
-      progress: 82,
+      stage: 'similarity_check',
+      progress: 83,
+      message: '기출문제 유사도 검증 중입니다.',
+    });
+
+    const similarityFiltered: GeneratedQuestion[] = [];
+    for (const item of semanticValid) {
+      const comboText = item.comboBlock
+        ? `${item.comboBlock.title}: ${item.comboBlock.items.map((i) => i.text).join(' ')}`
+        : '';
+      const result = await this.similarityValidator.validate(
+        item.questionStem,
+        item.stimulusData,
+        item.optionsList,
+        comboText,
+      );
+      if (result.passed) {
+        similarityFiltered.push(item);
+      } else {
+        this.logger.warn(
+          `유사도 검증 탈락: ${item.targetConcept} (${result.reason})`,
+        );
+      }
+    }
+    semanticValid = similarityFiltered;
+
+    if (semanticValid.length === 0) {
+      this.logger.warn('모든 문항이 유사도 검증에 탈락했습니다. 기존 문항 유지.');
+      semanticValid = similarityFiltered.length > 0 ? similarityFiltered : semanticValid;
+    }
+
+    await this.reportProgress(reportProgress, {
+      stage: 'similarity_check',
+      progress: 85,
       status: 'success',
-      message: `최종 ${semanticValid.length}개 문항 확정`,
+      message: `유사도 검증 완료: ${semanticValid.length}개 통과`,
     });
 
     // 5. DB 저장 (재사용 체크)
@@ -272,6 +314,8 @@ export class ExamGeneratorService {
     retryCount = 0,
     targetConcepts?: string[],
     reportProgress?: ExamGenerationProgressReporter,
+    startUnitNum?: number,
+    endUnitNum?: number,
   ): Promise<any[]> {
     if (retryCount === 0) {
       await this.reportProgress(reportProgress, {
@@ -295,11 +339,22 @@ export class ExamGeneratorService {
           : u.text_payload,
     }));
 
+    const patternContext =
+      startUnitNum != null && endUnitNum != null
+        ? this.patternMatcher.formatPatternContext(
+            subjectSlug,
+            startUnitNum,
+            endUnitNum,
+            targetConcepts,
+          )
+        : '';
+
     const userContent = [
       step1Prompt,
       '',
       buildItemFamilyQuotaPrompt(subjectSlug, questionCount),
       '',
+      ...(patternContext ? [patternContext, ''] : []),
       `# [Input Data]`,
       `- total_item_count: ${questionCount}`,
       `- units: ${JSON.stringify(truncatedUnits)}`,

@@ -1,0 +1,25 @@
+@import '@/styles/variables.scss';
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: $spacing-6 $spacing-12;
+  background-color: $background-secondary;
+  border: 1px dashed $border-primary;
+  border-radius: 0;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+}
+
+.bracket {
+  font-size: 13px;
+  font-weight: $semi-bold;
+  color: $text-secondary;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: $medium;
+  color: $text-secondary;
+  font-style: italic;
+}

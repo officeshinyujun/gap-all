@@ -1,0 +1,319 @@
+{
+  "unit": 20,
+  "unitTitle": "직업 윤리와 미래 직업",
+  "subject": "success",
+  "totalQuestions": 8,
+  "questions": [
+    {
+      "conceptName": "현대 사회의 특징과 변화",
+      "originalSource": "2023학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {},
+        "render_ready": {
+          "question_stem": "다음 사례에서 나타난 직업 윤리와 기업가 정신으로 가장 적절한 것은?",
+          "stimulus_data": {
+            "content": "최근 한 연구기관의 조사에 따르면, 전국의 1,200대 무인 단말기 중 장애인이 접근할 수 있는 기기는 단 1대에 불과하다는 결과가 나왔다. 내년 시행될 예정인 법안은 장애인이 자유롭게 사용할 수 있는 무인 기기의 설치를 의무화하고 있으나, 정부는 민간의 재정 부담을 고려해 점진적인 도입을 검토하고 있다. 이에 A사 대표는 모든 사용자가 장애 여부와 관계없이 편리하게 이용할 수 있는 시스템 개발에 나서겠다고 밝혔다.\\n*배리어 프리(Barrier Free): 사회적 약자가 물리적, 제도적 장벽 없이 생활할 수 있도록 하는 것\\n-○○뉴스, 2022년 3월 3일 기사-"
+          },
+          "options_list": [
+            "환경 윤리, 혁신성",
+            "생명 윤리, 위험 감수성",
+            "생명 윤리, 사회적 책임감",
+            "장애인 윤리, 혁신성",
+            "장애인 윤리, 사회적 책임감"
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 5,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [],
+        "optionAnalysis": [],
+        "solvingFlow": [],
+        "takeaway": ""
+      }
+    },
+    {
+      "conceptName": "사회 문제와 직업 윤리의 중요성",
+      "originalSource": "2022학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {},
+        "render_ready": {
+          "question_stem": "다음 상황에서 A, B씨가 지켜야 할 직업 윤리로 가장 적절한 것은?",
+          "stimulus_data": {
+            "participants": [
+              {
+                "id": "A",
+                "name": "A씨",
+                "role": "식품 제조업체 관리자"
+              },
+              {
+                "id": "B",
+                "name": "B씨",
+                "role": "생산 직원"
+              }
+            ],
+            "messages": [
+              {
+                "participant_id": "A",
+                "text": "내가 운영하는 식품 공장에서 원가를 낮추기 위해 유통기한이 지난 원료를 사용해도 소비자들은 모르겠지.",
+                "timestamp": ""
+              },
+              {
+                "participant_id": "B",
+                "text": "팀장님이 오늘까지 작업 보고서를 제출하라고 하셨는데, 제대로 작성하지 않았어. 그냥 대충 작성해도 문제가 없겠지.",
+                "timestamp": ""
+              }
+            ]
+          },
+          "options_list": [
+            "정직성, 준법성",
+            "정직성, 책임감",
+            "성실성, 책임감",
+            "성실성, 정직성",
+            "준법성, 책임감"
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 1,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [],
+        "optionAnalysis": [],
+        "solvingFlow": [],
+        "takeaway": ""
+      }
+    },
+    {
+      "conceptName": "직업 윤리의 의미와 구분",
+      "originalSource": "2023학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {},
+        "render_ready": {
+          "question_stem": "다음 기사 내용과 관련된 직업 윤리의 유형으로 올바른 것을 <보기>에서 선택하시오.",
+          "stimulus_data": {
+            "content": "최근 한 지역에서 주민들이 정체불명의 냄새로 어려움을 겪고 있는데, 조사 결과 ○○회사 소속 팀장 A씨의 지시로 하천에 오염된 폐수를 불법으로 방류한 사실이 드러났습니다. 또한, △△은행의 정보 관리 담당자 B씨가 고객의 개인정보를 무단으로 외부에 유출하여 판매한 사건이 발생하였습니다. 이와 같은 사건들은 사회의 안정과 발전을 위해 직업 윤리에 대한 심도 깊은 논의가 필요함을 시사합니다."
+          },
+          "options_list": [
+            "ㄱ, ㄴ",
+            "ㄱ, ㄷ",
+            "ㄴ, ㄷ",
+            "ㄴ, ㄹ",
+            "ㄷ, ㄹ"
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 2,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [],
+        "optionAnalysis": [],
+        "solvingFlow": [],
+        "takeaway": ""
+      }
+    },
+    {
+      "conceptName": "근로 윤리와 공동체 윤리",
+      "originalSource": "2024학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {},
+        "render_ready": {
+          "question_stem": "다음 사례에 나타난 기술의 발전을 통해 진화할 가능성이 높은 직업으로 가장 적절한 것은?",
+          "stimulus_data": {
+            "content": "최근 보안과 개인정보 보호의 필요성이 증가함에 따라 다양한 생체 인식 기술들이 발전하고 있다. 특히 얼굴 인식 기술은 높은 정확성과 편리함으로 인해 많은 기업에서 활용되고 있으며, 이 기술은 개인의 독특한 생리적 특징을 기반으로 하기 때문에 위조가 어렵고 신뢰성이 높다는 장점이 있다."
+          },
+          "options_list": [
+            "정보 보안 전문가",
+            "인공지능 윤리 컨설턴트",
+            "스마트 시티 개발자",
+            "생체 인식 시스템 엔지니어",
+            "사이버 범죄 조사관"
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 3,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [],
+        "optionAnalysis": [],
+        "solvingFlow": [],
+        "takeaway": ""
+      }
+    },
+    {
+      "conceptName": "동양 전통 직업 윤리와 덕목",
+      "originalSource": "2022학년도 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {},
+        "render_ready": {
+          "question_stem": "다음 사례를 통해 알 수 있는 직업 윤리의 원칙으로 가장 적절한 것은?",
+          "stimulus_data": {
+            "doc_type": "윤리 경영 방향서",
+            "header_info": {
+              "title": "윤리 경영 방향 설정",
+              "date": "",
+              "author": "△△기업"
+            },
+            "paragraphs": [
+              {
+                "sub_title": "도입 목적",
+                "content": "△△기업은 업계 최초로 윤리 경영 방향을 설정하였다."
+              },
+              {
+                "sub_title": "경영 원칙",
+                "content": "모든 업무를 투명하게 수행하며 약속을 지키기 위해 필요한 규범을 준수하는 '정직한 경영'을 새롭게 설정하였다."
+              },
+              {
+                "sub_title": "임직원 서약",
+                "content": "모든 직원은 입사 시 윤리 규범 준수 서약서를 작성하도록 되어 있다."
+              }
+            ],
+            "footnotes": []
+          },
+          "options_list": [
+            "객관성",
+            "전문성",
+            "고객 중심",
+            "정직과 신뢰",
+            "근면과 성실"
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 3,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [],
+        "optionAnalysis": [],
+        "solvingFlow": [],
+        "takeaway": ""
+      }
+    },
+    {
+      "conceptName": "직업 윤리의 5대 원칙과 비윤리적 행위 유형",
+      "originalSource": "2025학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {},
+        "render_ready": {
+          "question_stem": "다음은 한 상인이 비즈니스에서의 경험을 정리한 내용 중 일부이다. 이 내용을 바탕으로 직업 윤리를 분석한 것으로 적절한 것을 <보기>에서 고른 것은? (단, 제시된 자료 외의 것은 고려하지 않는다.) [3점]",
+          "stimulus_data": {
+            "content": "상인은 자신의 사업을 확장하기 위해 돈을 빌리기로 결심했다. 그는 한 투자자에게 접근하여 큰 금액을 대출받았다. 투자자는 그의 자신감 있는 태도를 보고 바로 자금을 지원하기로 했다. 상인은 시장에서 과일을 대량으로 구매하였고, 가격을 높여 판매하기 시작했다. 결국 그는 상품이 부족해져 다른 상인들에게 높은 가격으로 다시 구매해야만 했다."
+          },
+          "options_list": [
+            "상인에게 요구되는 직업 윤리 원칙은 '투명한 거래의 원칙'이다.",
+            "투자자는 자본 관리 활동 중 '위험 관리 활동'을 수행하였다.",
+            "상인과 투자자가 종사하는 업종은 소매업에 해당한다."
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 1,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [],
+        "optionAnalysis": [],
+        "solvingFlow": [],
+        "takeaway": ""
+      }
+    },
+    {
+      "conceptName": "미래 사회의 특징과 변화",
+      "originalSource": "2025학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {},
+        "render_ready": {
+          "question_stem": "아래의 X, Y의 생애 주기와 직업적 가치관에 대한 설명 중 맞는 것을 <보기>에서 선택하시오. (단, 생애 주기별 발달 과업은 에릭슨(Erikson) 이론에 기반한다.) [3점]",
+          "stimulus_data": {
+            "case_profile": {
+              "name": "직업인 X와 Y",
+              "context": "X는 데이터 분석에 재능을 발휘하며 스타트업을 창립한 청년이고, Y는 가족의 영향을 받아 경영 분야에서 일하는 디자인 전공 졸업생이다."
+            },
+            "narrative": "안녕하세요, 데이터 기반의 의사결정을 지원하는 스타트업의 CEO인 X(25세)입니다. 어릴 적부터 데이터 분석에 대한 흥미가 있었고, 이를 활용해 창업을 결심했습니다. 창업을 위해 필요한 시장 조사와 네트워킹을 통해 IT 관련 학과에 진학하였고, 여러 프로젝트를 통해 경험을 쌓았습니다. 반면, 디자인 특성화 고등학교를 졸업한 Y(30세)는 경영 분야에서 일하고 있습니다. 디자인에 대한 열망이 있었지만, 부모님의 권유로 경영학을 선택하였습니다. 현재는 '투명한 경영'을 실천하며 고객과의 신뢰를 쌓고 있습니다.",
+            "check_items": [
+              {
+                "id": 1,
+                "label": "X는 창업을 위해 어떤 준비를 했는가?",
+                "is_checked": false
+              },
+              {
+                "id": 2,
+                "label": "Y는 경영 분야에 종사하게 된 배경은 무엇인가?",
+                "is_checked": false
+              }
+            ]
+          },
+          "options_list": [
+            "X가 속한 생애 주기의 발달 과업에는 '자아 정체감 형성'이 포함된다.",
+            "Y가 속한 생애 주기의 발달 과업에는 '사회적 책임 수용'이 포함된다.",
+            "직업적 가치관 중 X는 '혁신의 원칙', Y는 '투명성과 신뢰의 원칙'을 따르고 있다."
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 4,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [],
+        "optionAnalysis": [],
+        "solvingFlow": [],
+        "takeaway": ""
+      }
+    },
+    {
+      "conceptName": "직업 사회의 변화",
+      "originalSource": "2025학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {},
+        "render_ready": {
+          "question_stem": "다음 설명에 해당하는 첨단 기술은 무엇인가?",
+          "stimulus_data": {
+            "slogan": "스마트 라이프 지원 ○○ 주택",
+            "bullets": [
+              "스마트폰을 통해 가전제품을 원격으로 제어할 수 있는 시스템",
+              "모바일 애플리케이션으로 출입문을 제어하는 스마트 잠금장치",
+              "조명 및 온도 조절을 위한 무선 통신 기술",
+              "실내 대기질을 측정하고 자동으로 환기하는 시스템"
+            ],
+            "visual_elements": [],
+            "missing_part": ""
+          },
+          "options_list": [
+            "인공지능 기술",
+            "사물인터넷 기술",
+            "블록체인 기술",
+            "가상현실 기술",
+            "드론 기술"
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 1,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [],
+        "optionAnalysis": [],
+        "solvingFlow": [],
+        "takeaway": ""
+      }
+    }
+  ]
+}

@@ -1,9 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
-import { VStack } from '@/components/general/VStack';
-import Typo from '@/components/general/Typo';
-import { SPACING } from '@/constants/spacing';
+import { VStack } from '@shared/ui/VStack';
+import Typo from '@shared/ui/Typo';
+import { SPACING } from '@shared/constants/spacing';
 import type { ConceptPair } from '@/types/studyQuiz';
 import { ConceptCard } from './ConceptCard';
 import { RevealPanel } from './RevealPanel';

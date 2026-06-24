@@ -2,11 +2,11 @@
 
 import { use, useEffect, useState, useCallback } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import Typo from '@/components/general/Typo';
-import { VStack } from '@/components/general/VStack';
-import { HStack } from '@/components/general/HStack';
-import { SPACING } from '@/constants/spacing';
-import { QuestionRenderer } from '@/components/exam/QuestionStem/QuestionRenderer';
+import Typo from '@shared/ui/Typo';
+import { VStack } from '@shared/ui/VStack';
+import { HStack } from '@shared/ui/HStack';
+import { SPACING } from '@shared/constants/spacing';
+import { QuestionRenderer } from '@shared/ui/QuestionStem/QuestionRenderer';
 import {
   fetchExam,
   submitExam,
@@ -14,6 +14,7 @@ import {
   type ExamData,
   type ExamResult,
 } from '@/lib/examApi';
+import { fetchFrequencyConcept, type FrequencyConcept } from '@/lib/studyQuizApi';
 import s from './page.module.scss';
 
 type PageState = 'loading' | 'ready' | 'result' | 'review' | 'error';
@@ -27,6 +28,8 @@ export default function ExamDetailPage({
   const router = useRouter();
   const searchParams = useSearchParams();
   const isReviewEntry = searchParams.get('review') === '1';
+  const learnedUnitsParam = searchParams.get('learnedUnits') ?? '';
+  const learnedUnits = learnedUnitsParam.split(',').map(Number).filter(Boolean);
 
   const [pageState, setPageState] = useState<PageState>('loading');
   const [examData, setExamData] = useState<ExamData | null>(null);
@@ -36,11 +39,17 @@ export default function ExamDetailPage({
   const [answers, setAnswers] = useState<Record<number, number>>({});
   const [errorMsg, setErrorMsg] = useState('');
 
+  const [retriedQuestions, setRetriedQuestions] = useState<Set<number>>(new Set());
+  const [hintOpen, setHintOpen] = useState(false);
+  const [hintData, setHintData] = useState<FrequencyConcept | null>(null);
+  const [hintLoading, setHintLoading] = useState(false);
+
   const loadExam = useCallback(async () => {
     setPageState('loading');
     setCurrentIndex(0);
     setAnswers({});
     setExamResult(null);
+    setRetriedQuestions(new Set());
     try {
       if (isReviewEntry) {
         const result = await fetchExamResult(examId);
@@ -62,6 +71,11 @@ export default function ExamDetailPage({
     loadExam();
   }, [loadExam]);
 
+  useEffect(() => {
+    setHintOpen(false);
+    setHintData(null);
+  }, [currentIndex]);
+
   const total = examData?.items.length ?? 0;
   const current = examData?.items[currentIndex];
   const isLast = currentIndex === total - 1;
@@ -70,6 +84,11 @@ export default function ExamDetailPage({
   const scorePercent = examResult
     ? Math.round((examResult.correctCount / examResult.totalCount) * 100)
     : 0;
+
+  const currentUnitNumber = current?.unitNumber ?? null;
+  const isUnlearned = currentUnitNumber != null
+    && learnedUnits.length > 0
+    && !learnedUnits.includes(currentUnitNumber);
 
   function handleSelectAnswer(orderIndex: number, optionNumber: number) {
     setAnswers((prev) => ({ ...prev, [orderIndex]: optionNumber }));
@@ -92,9 +111,33 @@ export default function ExamDetailPage({
     }
   }
 
+  async function handleHint() {
+    if (!currentUnitNumber) return;
+    if (hintData) { setHintOpen(true); return; }
+    setHintLoading(true);
+    try {
+      const data = await fetchFrequencyConcept(subject, currentUnitNumber);
+      setHintData(data);
+      setHintOpen(true);
+    } catch { /* ignore */ }
+    setHintLoading(false);
+  }
+
+  function handleRetry() {
+    if (!current) return;
+    setRetriedQuestions((prev) => new Set(prev).add(current.orderIndex));
+    setAnswers((prev) => {
+      const next = { ...prev };
+      delete next[current.orderIndex];
+      return next;
+    });
+  }
+
+  const hasRetried = current ? retriedQuestions.has(current.orderIndex) : false;
+  const isWrongAfterRetry = current && hasRetried && currentAnswer !== undefined;
+
   return (
     <div className={s.container}>
-      {/* 헤더 */}
       <div className={s.header}>
         <button className={s.backButton} onClick={() => router.back()}>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -109,7 +152,6 @@ export default function ExamDetailPage({
         )}
       </div>
 
-      {/* 콘텐츠 */}
       <div className={s.cardArea}>
         {pageState === 'loading' && (
           <div className={s.center}>
@@ -128,14 +170,41 @@ export default function ExamDetailPage({
         )}
 
         {pageState === 'ready' && current && (
-          <div className={s.questionWrap}>
-            <QuestionRenderer
-              question={current.question}
-              questionNumber={current.orderIndex}
-              selectedOption={currentAnswer ?? null}
-              onSelect={(num) => handleSelectAnswer(current.orderIndex, num)}
-            />
-          </div>
+          <VStack gap={SPACING.s12} fullWidth>
+            {isUnlearned && (
+              <HStack justify="between" align="center" fullWidth className={s.unlearnedBanner}>
+                <HStack gap={SPACING.s8} align="center">
+                  <span className={s.unlearnedBadge}>미학습 단원</span>
+                  <Typo.MD size={12} color="secondary">
+                    {currentUnitNumber}단원 개념이 포함된 문제예요
+                  </Typo.MD>
+                </HStack>
+                <button
+                  className={s.hintButton}
+                  onClick={handleHint}
+                  disabled={hintLoading}
+                >
+                  {hintLoading ? '로딩 중...' : '힌트 보기'}
+                </button>
+              </HStack>
+            )}
+
+            <div className={s.questionWrap}>
+              <QuestionRenderer
+                question={current.question}
+                questionNumber={current.orderIndex}
+                selectedOption={currentAnswer ?? null}
+                onSelect={(num) => handleSelectAnswer(current.orderIndex, num)}
+                correctAnswer={isWrongAfterRetry ? (current.question.correct_answer ?? null) : null}
+              />
+            </div>
+
+            {currentAnswer !== undefined && !hasRetried && isUnlearned && (
+              <button className={s.retryHintButton} onClick={handleRetry}>
+                개념 확인 후 재시도 →
+              </button>
+            )}
+          </VStack>
         )}
 
         {pageState === 'result' && examResult && (
@@ -177,7 +246,6 @@ export default function ExamDetailPage({
         )}
       </div>
 
-      {/* 푸터 */}
       <div className={s.footer}>
         {pageState === 'ready' && current && (
           <>
@@ -243,6 +311,40 @@ export default function ExamDetailPage({
           </div>
         )}
       </div>
+
+      {hintOpen && hintData && (
+        <div className={s.hintOverlay} onClick={() => setHintOpen(false)}>
+          <div className={s.hintModal} onClick={(e) => e.stopPropagation()}>
+            <HStack justify="between" align="center" fullWidth className={s.hintModalHeader}>
+              <Typo.MD size={14} color="primary" style={{ fontWeight: 600 }}>
+                {currentUnitNumber}단원 핵심 개념
+              </Typo.MD>
+              <button className={s.hintModalClose} onClick={() => setHintOpen(false)}>✕</button>
+            </HStack>
+            <VStack gap={SPACING.s12} fullWidth className={s.hintModalBody}>
+              {hintData.concepts.slice(0, 5).map((concept, i) => (
+                <VStack key={i} gap={SPACING.s6} fullWidth className={s.hintConceptItem}>
+                  <HStack gap={SPACING.s8} align="center">
+                    <span className={s.hintRankBadge}>{concept.rank}</span>
+                    <Typo.MD size={14} color="primary" style={{ fontWeight: 600 }}>{concept.name}</Typo.MD>
+                    <Typo.MD size={12} color="secondary">{concept.frequency}회 출제</Typo.MD>
+                  </HStack>
+                  {concept.description && (
+                    <Typo.MD size={12} color="secondary">{concept.description}</Typo.MD>
+                  )}
+                  {concept.keyPoints.length > 0 && (
+                    <ul className={s.hintKeyPoints}>
+                      {concept.keyPoints.slice(0, 2).map((p, j) => (
+                        <li key={j}>{p}</li>
+                      ))}
+                    </ul>
+                  )}
+                </VStack>
+              ))}
+            </VStack>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

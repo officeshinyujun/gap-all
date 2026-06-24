@@ -1,0 +1,13 @@
+@import '@/styles/variables.scss';
+
+.tableWrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid $border-primary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+}

@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ExamsService } from './exams.service';
 import { ExamsController } from './exams.controller';
 import { ExamGeneratorService } from './exam-generator.service';
+import { PatternMatcherService } from './pattern-matcher.service';
 import { ExamRecord } from '../entities/exam-record.entity';
 import { ExamItem } from '../entities/exam-item.entity';
 import { Question } from '../entities/question.entity';
@@ -11,6 +12,7 @@ import { Unit } from '../entities/unit.entity';
 import { AiUsageLog } from '../entities/ai-usage-log.entity';
 import { IncorrectRecord } from '../entities/incorrect-record.entity';
 import { ExamGenerationJobsService } from './exam-generation-jobs.service';
+import { SimilarityValidatorService } from './similarity-validator.service';
 import { TextbookModule } from '../textbook/textbook.module';
 import { PromptsModule } from '../prompts/prompts.module';
 import { NotificationsModule } from '../notifications/notifications.module';
@@ -31,7 +33,7 @@ import { NotificationsModule } from '../notifications/notifications.module';
     NotificationsModule,
   ],
   controllers: [ExamsController],
-  providers: [ExamsService, ExamGeneratorService, ExamGenerationJobsService],
+  providers: [ExamsService, ExamGeneratorService, ExamGenerationJobsService, PatternMatcherService, SimilarityValidatorService],
   exports: [ExamsService],
 })
 export class ExamsModule {}

@@ -10,7 +10,7 @@ import s from "./page.module.scss";
 import { HeaderActions } from "@/components/general/HeaderActions";
 import { fetchReviewRecommendations, type ReviewRecommendationsResponse } from '@/lib/studyQuizApi';
 import { fetchStreak, fetchUnitsWithProgress, type ApiUnit } from '@/lib/studyApi';
-import { useAuth } from '@/contexts/AuthContext';
+import { useAuth } from '@shared/contexts/AuthContext';
 
 const SUBJECTS = [
   { slug: 'success', name: '성직 스터디' },

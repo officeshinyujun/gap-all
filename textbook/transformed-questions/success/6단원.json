@@ -1,0 +1,631 @@
+{
+  "unit": 6,
+  "unitTitle": "제조업의 이해",
+  "subject": "success",
+  "totalQuestions": 7,
+  "questions": [
+    {
+      "conceptName": "제조업의 개념 및 분류",
+      "originalSource": "2024학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "제조업의 개념 및 분류",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_FORMAL_DOCUMENT"
+        },
+        "render_ready": {
+          "question_stem": "다음 기사의 △△기업에 대해 분석한 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+          "stimulus_data": {
+            "doc_type": "기사",
+            "header_info": {
+              "title": "식품 산업의 혁신",
+              "date": "2023년 4월 15일",
+              "author": "××신문"
+            },
+            "paragraphs": [
+              {
+                "sub_title": "식품 산업의 혁신",
+                "content": "최근 식품 시장은 소비자의 건강과 환경을 고려한 제품 개발로 변화하고 있다. 이러한 흐름에 따라 식품 제조사인 △△기업은 전통적인 대량 생산에서 벗어나, 고객의 요구에 맞춘 개인화된 식품을 제공하는 플랫폼으로 전환하였다."
+              }
+            ],
+            "footnotes": []
+          },
+          "options_list": [
+            "기존 생산 방식에 비해 통일된 제품을 생산한다.",
+            "주문 생산 방식에서 대량 생산 방식으로 전환하였다.",
+            "업종은 스미스(Smith, J. D.)의 산업 분류에 의하면 제2차 산업에 해당한다."
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 4,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "소비자의 건강과 환경을 고려한 제품 개발로 변화하고 있다.",
+            "why": "이 문장은 식품 산업의 변화 방향을 명확히 제시하며, 제조업의 개념을 이해하는 데 중요한 맥락을 제공한다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "X",
+            "reasoning": "개인화된 식품을 제공하는 방식은 통일된 제품 생산과 정반대의 개념이다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "X",
+            "reasoning": "주문 생산에서 대량 생산으로의 전환은 잘못된 방향 제시로, 기사 내용과 모순된다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "X",
+            "reasoning": "스미스의 산업 분류가 아닌 현대의 식품 제조업 특성을 반영하지 못하고 있다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "기사 내용을 읽고 제조업의 개념 및 변화 방향을 이해한다."
+          },
+          {
+            "step": 2,
+            "action": "주어진 선택지를 분석하여 각 선택지가 기사 내용과 얼마나 일치하는지 판단한다."
+          },
+          {
+            "step": 3,
+            "action": "올바른 선택지를 조합하여 정답을 도출한다."
+          }
+        ],
+        "takeaway": "제조업의 변화는 소비자의 요구를 반영하는 방향으로 이루어지며, 이러한 변화는 기존의 생산 방식을 재고하게 한다."
+      }
+    },
+    {
+      "conceptName": "생산재와 소비재 제조업",
+      "originalSource": "2023학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "생산재와 소비재 제조업의 차이 및 컨설팅 효과 이해",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_COMPARATIVE_MATRIX"
+        },
+        "render_ready": {
+          "question_stem": "다음 컨설팅 사례집을 통해 알 수 있는 C, D 기업에 대한 내용으로 적절한 것만을 <보기>에서 고른 것은?",
+          "stimulus_data": {
+            "headers": [
+              {
+                "id": "h1",
+                "label": "구분"
+              },
+              {
+                "id": "h2",
+                "label": "C 기업"
+              },
+              {
+                "id": "h3",
+                "label": "D 기업"
+              }
+            ],
+            "rows": [
+              {
+                "id": "1",
+                "cells": [
+                  "업종",
+                  "전자기기 제조업",
+                  "패션 소매업"
+                ]
+              },
+              {
+                "id": "2",
+                "cells": [
+                  "현황",
+                  "• 제품 다양성 부족<br>• 품질 관리의 어려움",
+                  "• 인건비 증가로 인한 가격 경쟁력 저하<br>• 비일관적인 고객 서비스 경험"
+                ]
+              },
+              {
+                "id": "3",
+                "cells": [
+                  "컨설팅 내용",
+                  "• 새로운 제품 라인 개발<br>• 생산 자동화를 위한 최신 기계 도입",
+                  "• 온라인 주문 시스템 구축<br>• 고객 피드백을 통한 서비스 개선"
+                ]
+              }
+            ],
+            "selection_chips": []
+          },
+          "options_list": [
+            "C기업은 생산 과정의 자동화를 제안받았다.",
+            "D기업은 고객 서비스의 일관성을 높이기 위해 조언받았다.",
+            "C기업과 D기업의 최종 생산물은 유형적 특성을 지닌다.",
+            "C기업은 D기업에 비해 고객 피드백을 덜 반영하고 있다."
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 3,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "• 제품 다양성 부족<br>• 품질 관리의 어려움",
+            "why": "C기업의 현황을 통해 제품의 질적 문제를 확인할 수 있다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "O",
+            "reasoning": "C기업의 컨설팅 내용에 생산 자동화가 포함되어 있어 사실과 일치한다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "O",
+            "reasoning": "D기업의 서비스 개선 조치가 고객 서비스의 일관성을 높이는 방향으로 제안되었다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "O",
+            "reasoning": "C기업과 D기업 모두 유형적 제품을 생산하므로 이 선택지는 맞다."
+          },
+          {
+            "optionNum": 4,
+            "verdict": "X",
+            "reasoning": "고객 피드백 반영에 대한 정보가 명확하지 않아 비교가 어렵다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "주어진 자료를 분석하여 각 기업의 컨설팅 내용을 비교한다."
+          },
+          {
+            "step": 2,
+            "action": "보기에서 사실과 일치하는 진술을 확인한다."
+          }
+        ],
+        "takeaway": "기업의 생산재와 소비재에 대한 이해를 통해 적절한 컨설팅 내용을 비교할 수 있어야 한다."
+      }
+    },
+    {
+      "conceptName": "제조업의 발달 및 단계",
+      "originalSource": "2023학년도 대학수학능력시험 성공적인 직업생활",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "제조업의 발달 및 전자상거래",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_..."
+        },
+        "render_ready": {
+          "question_stem": "다음 기사의 B 공방에 대해 분석한 내용으로 적절한 것만을 <보기>에서 고른 것은?",
+          "stimulus_data": {
+            "content": "B 공방에서 제작되는 도자기가 해외에서 큰 인기를 끌고 있다. B 공방은 전통을 계속 이어간다는 자부심을 가지고, 일상생활에서 사용되는 도자기를 지난 30년 동안 지속적으로 만들어 온 기업이다. 이러한 노력과 끈기가 성공의 원천으로 평가받고 있다. 과거에는 고객의 주문에 따라 수작업으로 하나씩 제작했지만, 온라인 쇼핑의 발전 이후 개인 소비자에게 인터넷으로 판매하는 수량이 증가함에 따라 '자동화 설비'를 도입하고, 월별 판매 예측을 통해 생산하고 있다.\n* 자동화 설비: 생산 과정에서 기계와 자동화 기술을 활용하여 효율적으로 제품을 만드는 설비\n-△△신문, 2023년 5월 15일 자-"
+          },
+          "options_list": [
+            "온라인 쇼핑 유형은 B2C에 해당한다.",
+            "제품 생산 방식은 맞춤 생산에서 대량 생산으로 전환되었다.",
+            "전통 수공업에서 첨단 제조업으로 발전했다.",
+            "생산 제품은 스미스(Smith, J.)의 산업 분류 방식에 따르면 소비재 산업의 일부에 해당한다."
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 1,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "B 공방은 전통을 계속 이어간다는 자부심을 가지고, 일상생활에서 사용되는 도자기를 지난 30년 동안 지속적으로 만들어 온 기업이다.",
+            "why": "이 문장은 B 공방의 전통과 지속적인 생산을 강조하여, 제조업의 발달과 관련된 중요한 배경 정보를 제공한다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "O",
+            "reasoning": "B2C는 소비자에게 직접 판매하는 전자상거래 유형으로, 주어진 사례와 일치한다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "X",
+            "reasoning": "주문 생산에서 대량 생산으로의 전환이 아니라, 개인 소비자에게 판매가 증가하면서 생산 방식이 자동화로 변화한 것이다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "X",
+            "reasoning": "전통 수공업에서 첨단 제조업으로의 발전은 일반적인 경향일 수 있지만, B 공방의 사례에는 해당하지 않는다."
+          },
+          {
+            "optionNum": 4,
+            "verdict": "X",
+            "reasoning": "스미스의 산업 분류는 소비재와 관련이 있지만, 도자기는 생산재가 아닌 소비재에 해당하므로 잘못된 정보이다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "기사의 내용을 분석하여 B 공방의 생산 및 판매 방식에 대한 정보를 파악한다."
+          },
+          {
+            "step": 2,
+            "action": "각 보기의 내용이 기사와 어떻게 연결되는지를 검토하여 적절한 선택지를 찾는다."
+          }
+        ],
+        "takeaway": "제조업의 발전과 전자상거래의 변화가 기업 운영에 미치는 영향을 이해하고, 주어진 정보에서 올바른 결론을 도출하는 능력이 중요하다."
+      }
+    },
+    {
+      "conceptName": "제품 생산 방식",
+      "originalSource": "2024학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "기업의 생산 방식과 시장 전략 이해",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_COMPARATIVE_MATRIX"
+        },
+        "render_ready": {
+          "question_stem": "다음은 [기업 분석 보고서]의 일부이다. 이에 대한 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+          "stimulus_data": {
+            "headers": [
+              {
+                "id": "h1",
+                "label": "기업명"
+              },
+              {
+                "id": "h2",
+                "label": "생산품"
+              },
+              {
+                "id": "h3",
+                "label": "생산 과정"
+              },
+              {
+                "id": "h4",
+                "label": "시장 확대 계획"
+              }
+            ],
+            "rows": [
+              {
+                "id": "1",
+                "cells": [
+                  "X기업",
+                  "주방 가전",
+                  "고객 요구 → 프로토타입 개발 → 고객 피드백 → 생산 → 최종 제품",
+                  "소셜 미디어 캠페인을 통해 브랜드 인지도 강화"
+                ]
+              },
+              {
+                "id": "2",
+                "cells": [
+                  "Y기업",
+                  "DIY 키트",
+                  "시장 분석 → 설계 → 외주 생산 → 완제품",
+                  "에듀테크 플랫폼과 협력하여 교육 시장 진출"
+                ]
+              }
+            ],
+            "selection_chips": []
+          },
+          "options_list": [
+            "X기업의 업종은 클라크(C. G. Clark)의 산업 분류에 따르면 2차 산업에 해당한다.",
+            "Y기업은 에듀테크 플랫폼과의 협력을 통해 B2C 거래에 적합하다.",
+            "X기업은 Y기업에 비해 시장 수요에 따른 생산 방식의 유형 중 '주문 생산'에 적합하다."
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 1,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "X기업은 고객 요구를 반영한 프로토타입 개발을 통해 최종 제품을 생산한다.",
+            "why": "X기업은 고객의 요구에 맞춘 생산 과정을 거치므로 주문 생산 방식에 적합하다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "O",
+            "reasoning": "X기업의 업종은 주방 가전을 포함하므로 2차 산업에 해당하는 것이 맞다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "X",
+            "reasoning": "Y기업의 협력은 교육 시장을 겨냥하고 있지만, B2C 거래에 적합하다는 설명은 충분하지 않다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "X",
+            "reasoning": "X기업의 생산 방식이 주문 생산에 적합하다는 주장은 Y기업과의 비교가 부족하다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "기업의 생산 과정과 시장 전략을 이해하기 위해 제공된 자료를 분석한다."
+          },
+          {
+            "step": 2,
+            "action": "각 보기의 내용을 검토하여 적절한 설명을 선택한다."
+          }
+        ],
+        "takeaway": "기업의 생산 방식과 시장 전략을 비교 분석하는 능력은 직업생활에 필수적이다."
+      }
+    },
+    {
+      "conceptName": "작업 공정 및 시장 수요에 따른 생산 방식",
+      "originalSource": "2023학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "작업 공정 및 시장 수요에 따른 생산 방식 이해",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_COMPARATIVE_MATRIX"
+        },
+        "render_ready": {
+          "question_stem": "다음 수행 평가 보고서의 X~Z기업에 대한 분석 내용으로 적절한 것만을 <보기>에서 고른 것은?",
+          "stimulus_data": {
+            "headers": [
+              {
+                "id": "h1",
+                "label": "구분"
+              },
+              {
+                "id": "h2",
+                "label": "사업 활동"
+              }
+            ],
+            "rows": [
+              {
+                "id": "1",
+                "cells": [
+                  "X기업",
+                  "고급 전자기기를 제조하여 글로벌 유통망을 통해 판매함."
+                ]
+              },
+              {
+                "id": "2",
+                "cells": [
+                  "Y기업",
+                  "친환경 건축 자재를 생산하고, 대형 건설사들과 계약하여 공급함."
+                ]
+              },
+              {
+                "id": "3",
+                "cells": [
+                  "Z기업",
+                  "디지털 콘텐츠를 제작하여 다양한 온라인 플랫폼을 통해 소비자에게 직접 판매함."
+                ]
+              }
+            ],
+            "selection_chips": []
+          },
+          "options_list": [
+            "X 기업의 생산 방식은 글로벌 시장에서의 수요를 반영하여 제품을 디자인하는 방식이다.",
+            "Y기업은 B2B 모델을 통해 거래가 이루어진다.",
+            "Z기업은 상품의 특성에 따라 분류하면 서비스 산업에 해당한다.",
+            "X기업과 Z기업의 산출물은 소비재이다."
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 2,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "X기업은 고급 전자기기를 제조하여 글로벌 유통망을 통해 판매함.",
+            "why": "이 정보는 X기업의 생산 방식이 시장의 글로벌 수요를 반영하고 있음을 나타냅니다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "X",
+            "reasoning": "X기업의 생산 방식이 시장의 수요를 반영한다고 잘못 해석하여 오답."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "O",
+            "reasoning": "Y기업의 거래 형태가 B2B 모델에 적합하므로 정답."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "X",
+            "reasoning": "Z기업의 상품이 서비스 산업에 해당하지 않아서 오답."
+          },
+          {
+            "optionNum": 4,
+            "verdict": "X",
+            "reasoning": "X기업의 산출물은 소비재지만 Z기업의 산출물은 서비스 형태이기 때문에 오답."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "주어진 기업의 사업 활동을 분석하여 각 선택지의 정확성을 평가한다."
+          },
+          {
+            "step": 2,
+            "action": "정확한 정보에 기반해 올바른 선택지를 고른다."
+          }
+        ],
+        "takeaway": "작업 공정 및 시장 수요에 따른 기업의 생산 방식과 거래 형태를 이해하는 것이 중요하다."
+      }
+    },
+    {
+      "conceptName": "제품 생산 체제 및 구축",
+      "originalSource": "2022학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "기업의 생산 방식 및 특징 비교",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_COMPARATIVE_MATRIX"
+        },
+        "render_ready": {
+          "question_stem": "다음 C, D기업의 생산 활동 사례에 대한 설명으로 옳은 것만을 <보기>에서 고른 것은?",
+          "stimulus_data": {
+            "headers": [
+              {
+                "id": "h1",
+                "label": "기업"
+              },
+              {
+                "id": "h2",
+                "label": "주요 사업"
+              },
+              {
+                "id": "h3",
+                "label": "특징"
+              }
+            ],
+            "rows": [
+              {
+                "id": "1",
+                "cells": [
+                  "C기업",
+                  "스마트폰 제조",
+                  "고급 자동화 기계 사용, 혁신적인 디자인, 사용자 맞춤형 옵션"
+                ]
+              },
+              {
+                "id": "2",
+                "cells": [
+                  "D기업",
+                  "데이터 분석 서비스",
+                  "중소기업 대상, 전문 데이터 분석가 팀 운영, 지속적인 피드백 제공"
+                ]
+              }
+            ],
+            "selection_chips": []
+          },
+          "options_list": [
+            "C기업은 생산 방식에 있어 다양한 모델 생산보다 대량 생산에 적합하다.",
+            "D기업은 고객의 요구를 반영하여 서비스를 제공하는 기업이다.",
+            "C기업은 D기업에 비해 생산 과정에서 고객의 참여가 낮다."
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 1,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "C기업은 스마트폰 제조업체로 대량 생산에 적합한 시스템을 운영하고 있다.",
+            "why": "C기업의 생산 방식이 대량 생산에 적합하다는 정보를 제공하여 선택지를 판단하는 데 필요하다."
+          },
+          {
+            "quote": "D기업은 중소기업을 위한 데이터 분석 서비스를 제공하며, 고객의 요구를 반영한다.",
+            "why": "D기업의 서비스 제공 방식이 고객의 요구 반영과 관련이 있어 선택지를 판단하는 데 중요하다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "O",
+            "reasoning": "C기업의 생산 방식이 다양한 모델보다 대량 생산에 적합하다는 설명은 사실이다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "O",
+            "reasoning": "D기업은 고객의 요구를 반영하여 서비스를 제공하는 것이 맞다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "X",
+            "reasoning": "C기업의 생산 과정에서 고객 참여도가 낮다는 정보는 제공되지 않아 오답이다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "각 기업의 특징과 생산 방식을 비교하여 보기의 진위를 판단한다."
+          },
+          {
+            "step": 2,
+            "action": "올바른 설명을 선택하여 선택지를 고른다."
+          }
+        ],
+        "takeaway": "기업의 생산 방식과 특징을 비교 분석하는 능력은 직업 세계에서 필수적인 역량이다."
+      }
+    },
+    {
+      "conceptName": "생산 관리 시스템",
+      "originalSource": "2025학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "기업 분석 및 업종 이해",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_기업분석"
+        },
+        "render_ready": {
+          "question_stem": "위 사례를 통해 알 수 있는 C, D기업에 대한 분석 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+          "stimulus_data": {},
+          "options_list": [
+            "C기업은 '지속 가능한 개발'을 지향하고 있다.",
+            "D기업은 수요 주체에 따라 분류하면 '소비자 서비스업'에 해당한다.",
+            "스미스(Smith, J. A.)의 산업 분류에 따르면 C, D기업의 업종은 '정보통신업'에 속하는 산업에 해당한다."
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 1,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "C, D기업에 대한 분석 내용",
+            "why": "학생들이 기업의 특성과 업종을 이해하고 비교하는 능력을 평가하기 위해 필요한 정보."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "O",
+            "reasoning": "C기업이 '지속 가능한 개발'을 지향하는 것은 사실로, 올바른 정보로 평가됨."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "X",
+            "reasoning": "D기업이 '소비자 서비스업'에 해당한다는 주장은 잘못된 업종 분류로 오답."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "X",
+            "reasoning": "스미스의 산업 분류에 따른 C, D기업의 업종이 '정보통신업'에 속한다는 주장은 사실과 다름."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "학생이 C, D기업의 특성을 비교하고, 각 기업의 업종을 정확히 이해해야 함."
+          }
+        ],
+        "takeaway": "기업의 특성과 업종에 대한 이해는 직업 선택 및 진로 설정에 중요한 요소임."
+      }
+    }
+  ]
+}

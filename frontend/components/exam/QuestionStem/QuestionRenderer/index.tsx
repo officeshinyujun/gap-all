@@ -1,9 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
-import { VStack } from '@/components/general/VStack';
-import { HStack } from '@/components/general/HStack';
-import Typo from '@/components/general/Typo';
+import { VStack } from '@shared/ui/VStack';
+import { HStack } from '@shared/ui/HStack';
+import Typo from '@shared/ui/Typo';
 import { SelectionChip } from '../_shared/SelectionChip';
 import {
   TPLComparativeMatrix,
@@ -16,9 +16,9 @@ import {
   TPLQuantitativeChart,
   TPLPromotionalCanvas,
 } from '../index';
-import { parseStimulus, getTemplateLabel, inferTemplate } from '@/utils/examParser';
-import type { ExamQuestion, ParsedStimulus } from '@/types/examQuestion';
-import { getExplanationText, getOptionNumber, normalizeOptions } from '@/types/examQuestion';
+import { parseStimulus, getTemplateLabel, inferTemplate } from '@shared/utils/examParser';
+import type { ExamQuestion, ParsedStimulus } from '@shared/types/examQuestion';
+import { getExplanationText, getOptionNumber, normalizeOptions } from '@shared/types/examQuestion';
 import s from './index.module.scss';
 
 export interface QuestionRendererProps {

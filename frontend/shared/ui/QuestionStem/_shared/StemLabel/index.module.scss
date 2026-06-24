@@ -1,0 +1,12 @@
+@import '@/styles/variables.scss';
+
+.stemLabel {
+  font-size: 13px;
+  font-weight: $medium;
+  color: $text-primary;
+  margin: 0 0 $spacing-16 0;
+  padding-bottom: $spacing-8;
+  border-bottom: 1px solid $border-primary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  line-height: 1.6;
+}

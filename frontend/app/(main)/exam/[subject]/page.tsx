@@ -1,16 +1,16 @@
 "use client";
 import React, { useState, use, useEffect, useCallback, useRef } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { X, Download, FileText } from 'lucide-react';
-import { HStack } from '@/components/general/HStack';
-import { VStack } from '@/components/general/VStack';
-import Typo from '@/components/general/Typo';
-import { Tag } from '@/components/general/Tag';
+import { HStack } from '@shared/ui/HStack';
+import { VStack } from '@shared/ui/VStack';
+import Typo from '@shared/ui/Typo';
+import { Tag } from '@shared/ui/Tag';
 import { ProblemList, type ProblemItem } from '@/components/exam/ProblemList';
 import { CreateExamModal } from '@/components/exam/CreateExamModal';
-import { HeaderActions } from '@/components/general/HeaderActions';
-import { SPACING } from '@/constants/spacing';
-import { getSubjectName } from '@/utils/subject';
+import { HeaderActions } from '@shared/ui/HeaderActions';
+import { SPACING } from '@shared/constants/spacing';
+import { getSubjectName } from '@shared/utils/subject';
 import { fetchExams, pollExamJob, type ExamListItem, type ExamJobStatus } from '@/lib/examApi';
 import s from './page.module.scss';
 
@@ -47,6 +47,16 @@ export default function ExamPage({ params }: { params: Promise<{ subject: string
   const subject = unwrappedParams.subject;
   const subjectName = getSubjectName(subject);
   const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const learnedUnitsParam = searchParams.get('learnedUnits') ?? '';
+  const learnedUnitsArr = learnedUnitsParam.split(',').map(Number).filter(Boolean);
+  const defaultStart = learnedUnitsArr.length > 0 ? Math.min(...learnedUnitsArr) : 1;
+  const defaultEnd = learnedUnitsArr.length > 0 ? Math.max(...learnedUnitsArr) : 3;
+
+  function examHref(examId: string) {
+    return `/exam/${subject}/${examId}${learnedUnitsParam ? `?learnedUnits=${learnedUnitsParam}` : ''}`;
+  }
 
   const [items, setItems] = useState<ProblemItem[]>([]);
   const [loading, setLoading] = useState(true);
@@ -307,7 +317,7 @@ export default function ExamPage({ params }: { params: Promise<{ subject: string
               <HStack fullWidth gap={SPACING.s8}>
                 <button
                   className={`${s.startButton} ${s.outlineButton}`}
-                  onClick={() => selectedItem.id && router.push(`/exam/${subject}/${selectedItem.id}`)}
+                  onClick={() => selectedItem.id && router.push(examHref(selectedItem.id))}
                 >
                   <Typo.MD size={14} color="brand" style={{ fontWeight: 600 }}>
                     {selectedItem.score !== '미채점' ? '다시 풀기' : '문제 풀기'}
@@ -344,6 +354,8 @@ export default function ExamPage({ params }: { params: Promise<{ subject: string
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         subjectName={subjectName}
+        defaultStartUnit={defaultStart}
+        defaultEndUnit={defaultEnd}
         onCreated={(jobId) => {
           setActiveJobId(jobId);
           setJobStatus({ jobId, status: 'pending', progress: 0, stage: 'starting', message: '문제 생성을 시작합니다...' });
@@ -401,7 +413,7 @@ export default function ExamPage({ params }: { params: Promise<{ subject: string
 
             <button
               className={s.startButton}
-              onClick={() => selectedItem.id && router.push(`/exam/${subject}/${selectedItem.id}`)}
+              onClick={() => selectedItem.id && router.push(examHref(selectedItem.id))}
             >
               <Typo.MD size={14} color="primary" style={{ fontWeight: 600, color: '#fff' }}>문제 풀기</Typo.MD>
             </button>

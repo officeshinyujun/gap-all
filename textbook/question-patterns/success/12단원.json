@@ -1,0 +1,61 @@
+{
+  "unit": 12,
+  "unitTitle": "의사소통 능력",
+  "subject": "success",
+  "totalQuestions": 2,
+  "patterns": [
+    {
+      "conceptId": "success_12_01",
+      "targetConcept": "의사소통의 의미 및 구성 요소",
+      "frequency": 18,
+      "sourceExam": "2024학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 13,
+      "pattern": {
+        "assessmentIntent": "학생이 재해 사례를 분석하고, 의사소통의 의미 및 구성 요소를 이해하여 적절한 판단을 내릴 수 있는 능력을 평가한다.",
+        "judgmentAxis": "사례 분석",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_CASE_DIAGNOSTIC_FRAME",
+          "blankCount": 0,
+          "boCount": 3,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: '사고의 형태는 '부딪힘'에 해당한다.' - 사고의 원인과 형태를 혼동하여 잘못된 정보를 제공.",
+          "오답2: ''업무상 사고'에 의한 '업무상의 재해'에 해당한다.' - 사고의 정의를 잘못 이해하여 일반적인 개념을 적용.",
+          "오답3: '사고의 직접적인 원인은 '불안전한 상태 및 행동'이다.' - 사고 원인에 대한 구체적인 분석 없이 일반화된 진술로 오해를 유도."
+        ],
+        "difficultyDriver": "사고 원인과 대책에 대한 정보가 복잡하게 얽혀 있어, 학생이 정확한 판단을 내리기 위해서는 세부 사항을 면밀히 분석해야 한다.",
+        "stemPattern": "위 [재해 사례] 보고서를 분석한 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?"
+      }
+    },
+    {
+      "conceptId": "success_12_02",
+      "targetConcept": "문서 이해 및 작성 능력",
+      "frequency": 18,
+      "sourceExam": "2022학년도 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 15,
+      "pattern": {
+        "assessmentIntent": "학생이 주어진 보고서를 통해 문서의 핵심 내용을 이해하고, 올바른 정보를 선택하는 능력을 평가한다.",
+        "judgmentAxis": "자료 해석 및 진리 조합",
+        "skeletonStructure": {
+          "itemFamily": "combination_judgment",
+          "stimulusTPL": "TPL_FORMAL_DOCUMENT",
+          "blankCount": 0,
+          "boCount": 3,
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true
+        },
+        "distractorBlueprint": [
+          "오답1: '근로조건의 항목은 표준근로계약서에 포함되는 항목이다.' - 이 선택지는 근로조건의 일반적인 이해를 바탕으로 하여, 실제 보고서의 내용과는 다소 차이가 있는 정보를 제공하여 혼란을 유도한다.",
+          "오답2: '기타 사항에는 연금 수령 연령이 되면 납부한 보험료를 기준으로 매월 연금으로 지급받을 수 있는 사회 보장 제도가 포함된다.' - 이 선택지는 사회 보장 제도에 대한 일반적인 지식을 활용하여, 보고서의 내용과 관련이 없는 정보를 제시함으로써 오해를 일으킨다."
+        ],
+        "difficultyDriver": "정보의 정확한 해석과 진리 조합을 요구하는 복합적인 사고 과정",
+        "stemPattern": "다음 [○○산업 현장 견학 보고서]를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?"
+      }
+    }
+  ]
+}

@@ -82,6 +82,22 @@
   margin: $spacing-8 0;
 }
 
+.examCTAButton {
+  width: 100%;
+  padding: $spacing-14 $spacing-16;
+  background: $brand-primary;
+  border: none;
+  border-radius: $spacing-12;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: $background-primary;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  text-align: center;
+  &:hover { opacity: 0.88; }
+}
+
 .subUnitDetailItem {
   width: 100%;
   padding: $spacing-16 $spacing-20;

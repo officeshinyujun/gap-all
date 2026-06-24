@@ -3,7 +3,7 @@ import React from 'react';
 import { HStack } from '../../general/HStack';
 import { VStack } from '../../general/VStack';
 import Typo from '../../general/Typo';
-import { SPACING } from '@/constants/spacing';
+import { SPACING } from '@shared/constants/spacing';
 import s from './style.module.scss';
 import { ProblemItem } from '../ProblemList';
 

@@ -2,12 +2,12 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
-import { HStack } from '@/components/general/HStack';
+import { HStack } from '@shared/ui/HStack';
 import { Bell, Moon, User } from 'lucide-react';
-import { SPACING } from '@/constants/spacing';
+import { SPACING } from '@shared/constants/spacing';
 import { fetchNotifications, markNotificationRead, type NotificationItem } from '@/lib/notificationApi';
-import { useTheme } from '@/contexts/ThemeContext';
-import { SM, MD } from '@/components/general/Typo';
+import { useTheme } from '@shared/contexts/ThemeContext';
+import { SM, MD } from '@shared/ui/Typo';
 import s from './style.module.scss';
 
 interface HeaderActionsProps {

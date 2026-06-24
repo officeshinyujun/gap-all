@@ -1,0 +1,148 @@
+{
+  "unit": 16,
+  "unitTitle": "근로 계약과 권익 보호",
+  "subject": "success",
+  "totalQuestions": 5,
+  "patterns": [
+    {
+      "conceptId": "success_16_01",
+      "targetConcept": "근로 계약의 개념 및 체결 형식",
+      "frequency": 15,
+      "sourceExam": "2023학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 7,
+      "pattern": {
+        "assessmentIntent": "이 문제는 근로 계약의 개념과 관련된 사회 보험 및 근로 관계에 대한 이해를 평가하며, 상담 사례를 통해 적절한 조치를 제안할 수 있는 능력을 측정한다.",
+        "judgmentAxis": "사례 분석",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_CONVERSATIONAL_FLOW",
+          "blankCount": 0,
+          "boCount": 0,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: '퇴직금 지급을 요청하여 받을 수 있다.' - 근로 계약 종료 후 퇴직금 지급이 일반적이나, A씨의 상황에서는 해고 사유와 관련된 법적 요건이 충족되지 않아 오답.",
+          "오답2: '훈련연장급여를 신청하여 받을 수 있다.' - A씨는 이미 직업 훈련 과정을 이수했으므로, 추가적인 연장급여 신청이 필요하지 않아 오답.",
+          "오답3: '조기재취업 수당을 신청하여 받을 수 있다.' - A씨는 현재 구직급여를 받고 있어 조기재취업 수당 신청이 불필요하므로 오답.",
+          "오답4: '법정기한 내 국가인권위원회에 신청을 통해 구제받을 수 있다.' - A씨의 경우 인권위원회에 신청할 사유가 명확하지 않아 오답."
+        ],
+        "difficultyDriver": "정보의 복잡성과 상담 사례의 구체성으로 인해 적절한 선택지를 찾기 위한 추론 단계가 필요하다.",
+        "stemPattern": "다음은 [근로권익센터의 상담 사례]이다. 상담사가 A씨에게 제안할 수 있는 사회 보험 및 근로 관계에 대한 내용으로 가장 적절한 것은?"
+      }
+    },
+    {
+      "conceptId": "success_16_02",
+      "targetConcept": "근로 계약서 작성 및 유의 사항",
+      "frequency": 15,
+      "sourceExam": "2023학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 16,
+      "pattern": {
+        "assessmentIntent": "학생이 근로 계약서의 내용을 이해하고, 관련 법규를 적용하여 올바른 판단을 내릴 수 있는 능력을 평가한다.",
+        "judgmentAxis": "사례 분석",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_FORMAL_DOCUMENT",
+          "blankCount": 0,
+          "boCount": 5,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: A씨의 임금 지급 방법은 근로기준법을 준수하고 있다. - 임금 지급 방법에 대한 법적 기준을 잘못 이해하거나, 실제 계약서 내용을 간과하여 잘못된 판단을 유도.",
+          "오답2: A씨가 근로 계약 기간을 6개월로 정해서 계약을 체결하는 것은 근로기준법 위반이다. - 근로 계약 기간에 대한 법적 규정을 잘못 해석하여 오해를 불러일으킴.",
+          "오답3: B씨의 친권자나 후견인은 근로 계약을 대리할 수 없다. - 미성년자의 근로 계약에 대한 법적 대리인의 역할을 잘못 이해하여 잘못된 정보를 제공.",
+          "오답4: B씨가 일주일에 5일 개근하였을 경우 1주에 2회의 유급 휴일을 보장받는다. - 유급 휴일에 대한 법적 규정을 잘못 해석하여 잘못된 주장을 하도록 유도.",
+          "오답5: A씨는 B씨가 거부할 경우 근로 계약서를 교부하지 않아도 된다. - 근로 계약서 교부 의무에 대한 법적 규정을 잘못 이해하여 잘못된 결론을 이끌어냄."
+        ],
+        "difficultyDriver": "근로 계약서의 내용과 관련 법규에 대한 이해도를 요구하며, 각 선택지의 법적 해석이 유사하여 혼동을 줄 수 있는 점.",
+        "stemPattern": "다음 근로 계약서에 나타난 A, B씨의 근로 계약 내용에 대한 설명으로 옳은 것은?"
+      }
+    },
+    {
+      "conceptId": "success_16_03",
+      "targetConcept": "근로 계약서의 필수 근로 조건",
+      "frequency": 15,
+      "sourceExam": "2022학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 20,
+      "pattern": {
+        "assessmentIntent": "이 문제는 근로 계약서의 필수 근로 조건을 이해하고, 이를 현행 법률에 비추어 분석할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "사례 분석",
+        "skeletonStructure": {
+          "itemFamily": "combination_judgment",
+          "stimulusTPL": "TPL_FORMAL_DOCUMENT",
+          "blankCount": 0,
+          "boCount": 4,
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true
+        },
+        "distractorBlueprint": [
+          "오답1: 'A 씨는 기간제 근로자로 근무하게 되었다.' - 이 선택지는 계약서 내용과 상충하여, 근로자의 신분을 잘못 이해한 경우를 반영한다.",
+          "오답2: '휴게 시간은 적법하게 부여되었다.' - 이 선택지는 근로 기준법에 따른 휴게 시간 규정을 잘못 해석한 경우를 나타낸다.",
+          "오답3: '근로 계약서 교부는 적법하게 이루어졌다.' - 계약서의 교부 방식이 법적 요건을 충족하지 않음을 간과한 경우를 반영한다.",
+          "오답4: '임금은 최저임금법을 준수하였다.' - 최저임금 기준을 잘못 이해하거나 계산한 경우를 나타낸다."
+        ],
+        "difficultyDriver": "정보의 정확한 해석과 법률 지식의 적용이 요구되며, 계약서의 여러 조항을 종합적으로 고려해야 하므로 난이도가 높다.",
+        "stemPattern": "다음은 [근로 계약서]의 (가)~(다)에 대한 설명으로 옳은 것만을 <보기>에서 고른 것은?"
+      }
+    },
+    {
+      "conceptId": "success_16_04",
+      "targetConcept": "미성년자 근로 보호",
+      "frequency": 15,
+      "sourceExam": "2025학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 18,
+      "pattern": {
+        "assessmentIntent": "이 문제는 학생이 미성년자 근로자의 법적 보호와 관련된 규정을 이해하고, 주어진 사례를 바탕으로 적법성과 위반 사항을 분석할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "사례 분석 및 법적 규정 적용",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_COMPARATIVE_MATRIX",
+          "blankCount": 0,
+          "boCount": 0,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: '사용자는 A의 휴게시간을 적법하게 부여하였다.' - A의 근로시간과 휴게시간이 법적 기준에 부합하지 않음을 간과한 오답.",
+          "오답2: 'A의 일요일 근로는 미성년자의 휴일 근로를 제한하고 있는 근로기준법에 위반된다.' - A의 근로계약이 주중에만 이루어졌음을 무시한 오답.",
+          "오답3: '사용자는 B의 연령을 증명하는 가족관계기록사항에 관한 증명서를 사업장에 갖추어야 한다.' - B가 성년자임을 고려하지 않은 오답.",
+          "오답4: '사용자는 B와의 합의에 따라 18시까지 1시간을 초과근로시킬 경우 연장근로 가산수당을 지급하지 않아도 된다.' - 법적 규정을 잘못 해석한 오답.",
+          "오답5: 'A, B는 기간의 정함이 없는 근로계약을 체결하였다.' - 실제 계약 기간이 명시되어 있음에도 불구하고 잘못된 정보를 기반으로 한 오답."
+        ],
+        "difficultyDriver": "문제의 난이도는 주어진 사례의 복잡성과 법적 규정의 이해도를 요구하는 점에서 결정된다.",
+        "stemPattern": "다음 A, B의 근로계약 사례를 분석한 내용으로 옳은 것은?"
+      }
+    },
+    {
+      "conceptId": "success_16_05",
+      "targetConcept": "근로자 권익 침해의 종류 및 시정 방법",
+      "frequency": 15,
+      "sourceExam": "2022학년도 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 5,
+      "pattern": {
+        "assessmentIntent": "이 문제는 근로자의 권익 침해 사례를 분석하고, 부당 해고와 관련된 법적 절차를 이해할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "사례 분석",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_CASE_DIAGNOSTIC_FRAME",
+          "blankCount": 0,
+          "boCount": 3,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: '사고의 형태는 물체에 맞음에 해당한다.' - 사고의 구체적인 상황을 잘못 해석하여 발생한 오답.",
+          "오답2: 'A씨는 복직을 위하여 법정기한 내 중소벤처기업부에 구제 신청을 할 수 있다.' - 법적 절차에 대한 오해로 인해 발생한 오답."
+        ],
+        "difficultyDriver": "사례의 복잡성과 법적 지식의 필요성, 그리고 선택지 간의 유사성으로 인해 난이도가 결정된다.",
+        "stemPattern": "다음 [산업 재해 사례]의 (가)~(다)에 대한 설명으로 옳은 것만을 <보기>에서 고른 것은?"
+      }
+    }
+  ]
+}

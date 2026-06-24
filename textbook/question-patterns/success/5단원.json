@@ -1,0 +1,121 @@
+{
+  "unit": 5,
+  "unitTitle": "기업의 경영 활동",
+  "subject": "success",
+  "totalQuestions": 4,
+  "patterns": [
+    {
+      "conceptId": "success_5_01",
+      "targetConcept": "기업 경영의 의미 및 구성 요소",
+      "frequency": 10,
+      "sourceExam": "2024학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 3,
+      "pattern": {
+        "assessmentIntent": "학생이 기업 경영의 다양한 활동을 이해하고, 이를 바탕으로 A, B씨의 경영 활동을 분석하여 적절한 선택지를 고를 수 있는 능력을 평가한다.",
+        "judgmentAxis": "사례 분석",
+        "skeletonStructure": {
+          "itemFamily": "combination_judgment",
+          "stimulusTPL": "TPL_SEQUENTIAL_WORKFLOW",
+          "blankCount": 0,
+          "boCount": 3,
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true
+        },
+        "distractorBlueprint": [
+          "오답1: 'A씨는 △△기업의 최고 경영자이다.' - A씨의 역할에 대한 정보가 부족하여 사실과 다를 수 있음.",
+          "오답2: '○○ 기업 B씨의 경영 활동은 재무 관리 활동에 해당한다.' - B씨의 활동이 재무 관리와 관련이 없음을 간과함.",
+          "오답3: '△△기업의 생산 방식으로 다품종 소량 생산보다 소품종 대량 생산이 적합하다.' - 기업의 생산 방식에 대한 일반적인 이해 부족으로 잘못된 주장을 함."
+        ],
+        "difficultyDriver": "정보의 다양성과 각 활동 간의 관계를 이해해야 하므로, 학생이 각 활동의 의미와 중요성을 파악하는 데 필요한 사고 과정이 복잡하다.",
+        "stemPattern": "다음 글에 나타난 A, B씨의 기업 경영 활동을 분석한 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?"
+      }
+    },
+    {
+      "conceptId": "success_5_02",
+      "targetConcept": "경영자의 분류",
+      "frequency": 7,
+      "sourceExam": "2023학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 5,
+      "pattern": {
+        "assessmentIntent": "학생이 경영 관리 활동의 분류를 이해하고, 주어진 채용 공고에서 해당 부서의 주 업무를 올바르게 식별할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "분류/매칭",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_FORMAL_DOCUMENT",
+          "blankCount": 0,
+          "boCount": 0,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: 생산 관리 - 생산 과정과 관련된 업무로 오해할 수 있지만, 주 업무는 자금 관리와 관련이 없다.",
+          "오답2: 마케팅 관리 - 시장 조사 및 광고와 관련된 업무로, 사업 관리부의 주 업무와는 관련이 없다.",
+          "오답3: 인적 자원 관리 - 인사 및 조직 관리와 관련된 업무로, 자금 조달과는 무관하다.",
+          "오답4: 회계 정보 관리 - 회계 기록 및 보고와 관련된 업무로, 자금 조달의 직접적인 관리와는 차이가 있다."
+        ],
+        "difficultyDriver": "주어진 정보에서 경영 관리 활동의 분류를 정확히 이해하고, 관련 없는 선택지를 구별하는 능력에 따라 난이도가 결정된다.",
+        "stemPattern": "위 채용 공고문에 나타난 모집 부서의 주 업무가 속하는 경영 관리 활동으로 가장 적절한 것은?"
+      }
+    },
+    {
+      "conceptId": "success_5_03",
+      "targetConcept": "경영 관리의 의미 및 순환 과정 (PODC)",
+      "frequency": 10,
+      "sourceExam": "2022학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 7,
+      "pattern": {
+        "assessmentIntent": "학생이 경영 관리의 다양한 종류를 이해하고, 주어진 사례를 통해 적절한 경영 활동을 식별할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "개념 변별",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": null,
+          "blankCount": 0,
+          "boCount": 0,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: '재무 관리'는 자본 조달과 관련이 있지만, 주어진 사례에서 강조된 것은 기업 가치 극대화로 경영 활동의 다른 측면을 반영하지 않음.",
+          "오답2: '생산 관리'는 제품 생산과 관련된 관리이지만, 주어진 사례에서는 자본 조달과 기업 가치 극대화가 중심이므로 관련성이 낮음.",
+          "오답3: '회계 관리'는 재무 기록과 보고에 중점을 두지만, 사례의 주제와는 직접적인 연관이 없음.",
+          "오답4: '마케팅 관리'는 시장에서의 제품 판매와 관련이 있지만, 자본 조달과 기업 가치 극대화와는 거리가 있음.",
+          "오답5: '인적 자원 관리'는 인력 관리와 관련이 있지만, 주어진 사례에서는 자본 조달과 기업 가치 극대화가 주요 초점이므로 적절하지 않음."
+        ],
+        "difficultyDriver": "주어진 사례에서 경영 관리의 다양한 종류를 이해하고, 그 중에서 적절한 선택지를 식별하는 과정에서의 개념 변별 능력 요구.",
+        "stemPattern": "다음 [기사]에 나타난 △△기업의 경영 활동 종류로 가장 적절한 것은?"
+      }
+    },
+    {
+      "conceptId": "success_5_04",
+      "targetConcept": "인적 자원 관리 활동",
+      "frequency": 6,
+      "sourceExam": "2022학년도 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 14,
+      "pattern": {
+        "assessmentIntent": "이 문제는 신입 직원의 담당 업무와 관련된 경영 활동을 이해하고, 이를 통해 적절한 인적 자원 관리 활동을 식별할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "분류/매칭",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_FORMAL_DOCUMENT",
+          "blankCount": 0,
+          "boCount": 0,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: '생산 관리' - 생산 과정과 관련된 업무로 오해할 수 있는 선택지.",
+          "오답2: '재무 관리' - 재무 관련 업무와 혼동할 수 있지만, 직접적인 정보 제공과는 거리가 있음.",
+          "오답3: '마케팅 관리' - 고객과의 소통 및 정보 제공을 강조하지만, 주어진 업무와는 관련성이 낮음.",
+          "오답4: '인적 자원 관리' - 인적 자원과 관련된 업무로 보일 수 있으나, 주어진 업무의 내용과는 맞지 않음.",
+          "오답5: '회계 정보 관리' - 회계와 관련된 정보 제공을 포함하지만, 경영 활동의 범위와는 다소 차이가 있음."
+        ],
+        "difficultyDriver": "정보의 명확성 및 경영 활동 간의 유사성으로 인해 선택지를 구별하는 데 필요한 추론 단계 수.",
+        "stemPattern": "다음은 신입 직원 [채용 계획서]의 일부이다. 채용될 직원의 담당 업무가 속하는 기업의 경영 활동으로 가장 적절한 것은?"
+      }
+    }
+  ]
+}

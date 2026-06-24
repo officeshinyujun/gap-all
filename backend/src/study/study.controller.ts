@@ -158,6 +158,14 @@ export class StudyController {
     return this.studyService.getSummationCards(subjectSlug, unitNumber);
   }
 
+  @Get(':subjectSlug/summation-v2/:unitNumber')
+  getSummationV2Cards(
+    @Param('subjectSlug') subjectSlug: string,
+    @Param('unitNumber', ParseIntPipe) unitNumber: number,
+  ) {
+    return this.studyService.getSummationV2Cards(subjectSlug, unitNumber);
+  }
+
   @Put(':subjectSlug/summation/:unitNumber')
   async updateSummationCards(
     @Param('subjectSlug') subjectSlug: string,

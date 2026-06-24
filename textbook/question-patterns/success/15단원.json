@@ -1,0 +1,231 @@
+{
+  "unit": 15,
+  "unitTitle": "근로자의 권리와 의무",
+  "subject": "success",
+  "totalQuestions": 8,
+  "patterns": [
+    {
+      "conceptId": "success_15_01",
+      "targetConcept": "근로관계의 개념 및 법",
+      "frequency": 8,
+      "sourceExam": "2023학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 13,
+      "pattern": {
+        "assessmentIntent": "이 문제는 근로자의 권익 침해 사례를 분석하고, 관련 법적 지식과 사례 적용 능력을 평가한다.",
+        "judgmentAxis": "사례 분석",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_CASE_DIAGNOSTIC_FRAME",
+          "blankCount": 0,
+          "boCount": 3,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: '받지 못한 임금 외에 퇴직금으로 1일 평균임금의 30일분을 받을 수 있다.'는 퇴직금 지급 조건에 대한 오해를 기반으로 하여, 실제 상황과 맞지 않는 정보를 제공한다.",
+          "오답2: '고용노동부에 진정서를 제출하면 근로감독관의 조사로 법 위반 사실이 확인되는 경우 사용자에게 시정 지시가 내려진다.'는 법적 절차에 대한 과장된 설명으로, 실제 상황에서의 복잡성을 간과하고 있다."
+        ],
+        "difficultyDriver": "사례의 복잡성과 법적 지식의 적용이 요구되며, 근로자의 권익 침해에 대한 이해도가 필요하다.",
+        "stemPattern": "다음 A씨의 권익 침해 사례에 대한 분석 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?"
+      }
+    },
+    {
+      "conceptId": "success_15_02",
+      "targetConcept": "헌법과 근로관계법의 관계",
+      "frequency": 8,
+      "sourceExam": "2023학년도 대학수학능력시험 성공적인 직업생활",
+      "questionNumber": 9,
+      "pattern": {
+        "assessmentIntent": "이 문제는 헌법과 근로관계법의 관계를 이해하고, 주어진 사례를 통해 법적 권리와 의무를 분석할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "사례 분석 및 법적 원리 적용",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_CONVERSATIONAL_FLOW",
+          "blankCount": 0,
+          "boCount": 0,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: 'A씨의 근로기준법상 야간근로 시간은 7시간이다.' - 이 선택지는 A씨의 근로시간을 잘못 해석하여 법적 기준을 왜곡한 것으로, 실제 근로시간을 고려하지 않은 오류를 포함한다.",
+          "오답2: '○○편의점의 사용자는 야간근로에 대하여 통상임금의 100분의 50 이상을 가산하여 지급하여야 한다.' - 이 선택지는 가산수당의 비율을 잘못 제시하여 법적 규정을 오해하게 만든다.",
+          "오답3: '△△기업의 사용자는 근로기준법상 전차금 상계 금지 규정을 위반하였다.' - 이 선택지는 B씨의 사례와 관련된 법적 규정을 잘못 적용하여 혼란을 초래한다.",
+          "오답4: '○○편의점과 △△기업의 사용자는 부당노동행위를 하였다.' - 이 선택지는 두 사례의 법적 문제를 부당노동행위로 일반화하여 사실관계를 왜곡한다."
+        ],
+        "difficultyDriver": "사례의 복잡성과 법적 원리의 적용이 요구되며, 각 사례의 세부사항을 정확히 이해하고 비교해야 하므로 난이도가 높다.",
+        "stemPattern": "다음 A, B 씨의 근로 관계에 대한 대화를 분석한 내용으로 가장 적절한 것은?"
+      }
+    },
+    {
+      "conceptId": "success_15_03",
+      "targetConcept": "근로(노동) 3권과 의무",
+      "frequency": 6,
+      "sourceExam": "2023학년도 대학수학능력시험 성공적인 직업생활",
+      "questionNumber": 10,
+      "pattern": {
+        "assessmentIntent": "이 문제는 근로계약 및 연장근무에 대한 법적 권리와 의무를 이해하고 적용할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "사례 분석",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_DIGITAL_FORUM_INTERFACE",
+          "blankCount": 1,
+          "boCount": 5,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: '연장근로 시간은 1일당 1시간 30분입니다.' - 실제 연장근로 시간 계산을 잘못 이해하여 제시된 정보와 불일치.",
+          "오답2: '연장근로 수당으로 1일 최소 4만원을 받을 수 있습니다.' - 연장근로 수당 계산에서 통상임금을 잘못 적용하여 제시.",
+          "오답3: '부여받은 휴게시간보다 30분 이상을 추가로 받아야 적법합니다.' - 법적 기준을 잘못 해석하여 잘못된 정보를 제공.",
+          "오답4: '○○기업의 사용자는 10일의 연차 유급휴가를 주어야 합니다.' - 연차 유급휴가의 법적 기준을 잘못 이해하여 제시.",
+          "오답5: '○○기업의 사용자는 2022년 12월 31일까지 퇴직금을 지급해야 합니다.' - 퇴직금 지급 시점을 잘못 이해하여 제시."
+        ],
+        "difficultyDriver": "정보의 복잡성과 법적 규정의 이해도, 그리고 사례에 대한 정확한 분석 능력.",
+        "stemPattern": "다음 노동권익센터 민원마당의 (가)에 들어갈 수 있는 답변으로 옳은 것은?"
+      }
+    },
+    {
+      "conceptId": "success_15_04",
+      "targetConcept": "근로관계법의 종류 및 유형",
+      "frequency": 8,
+      "sourceExam": "2024학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 15,
+      "pattern": {
+        "assessmentIntent": "학생 A의 근로계약 조건과 관련된 법적 규정을 이해하고 적용할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "사례 분석",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_DIGITAL_FORUM_INTERFACE",
+          "blankCount": 0,
+          "boCount": 0,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: '학생 A의 하루 소정근로시간은 3시간이다.' - 근로시간에 대한 정확한 이해 부족으로 인한 오답.",
+          "오답2: '학생 A는 고용노동부장관으로부터 취직인허증을 발급받아야 한다.' - 학생의 근로계약에 대한 법적 요건을 잘못 해석한 오답.",
+          "오답3: '학생 A가 주 15시간 이상을 근무할 경우 사용자는 연차 유급 휴가를 주어야 한다.' - 연차 유급 휴가의 조건에 대한 오해로 인한 오답.",
+          "오답4: '사용자는 학생 A에게 백화점 상품권으로 임금을 지급할 수 있다.' - 임금 지급 방식에 대한 법적 규정을 잘못 이해한 오답.",
+          "오답5: '사용자는 영업을 중단할 경우 평균임금의 100분의 70에 해당하는 휴업수당을 학생 A에게 지급하여야 한다.' - 휴업수당 지급 조건에 대한 잘못된 해석으로 인한 오답."
+        ],
+        "difficultyDriver": "학생 A의 사례를 바탕으로 한 법적 규정의 이해와 적용 능력, 다양한 조건의 해석이 요구됨.",
+        "stemPattern": "다음 상담 이메일에 나타난 근로 관계를 분석한 내용으로 적절한 것은?"
+      }
+    },
+    {
+      "conceptId": "success_15_05",
+      "targetConcept": "근로기준법의 개념과 원리",
+      "frequency": 8,
+      "sourceExam": "2024학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 10,
+      "pattern": {
+        "assessmentIntent": "근로기준법의 개념과 원리를 이해하고, 주어진 사례를 바탕으로 법적 판단을 내릴 수 있는 능력을 평가한다.",
+        "judgmentAxis": "사례 분석 및 원리 적용",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_COMPARATIVE_MATRIX",
+          "blankCount": 0,
+          "boCount": 0,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: 근로자 A씨의 야간근로 시간에 대한 오해를 바탕으로, 실제 법적 기준과 다르게 계산하여 제시함.",
+          "오답2: 연차 유급휴가에 대한 법적 규정을 잘못 해석하여, 기업의 의무를 과소평가함.",
+          "오답3: 해고 방식에 대한 법적 기준을 잘못 이해하여 부당해고의 정의를 잘못 적용함.",
+          "오답4: 퇴직금 지급 시기를 잘못 이해하여, 법적 요구사항을 왜곡함.",
+          "오답5: 고용보험 가입 의무에 대한 잘못된 정보로 인해 두 기업 모두 가입해야 한다고 잘못 주장함."
+        ],
+        "difficultyDriver": "사례의 복잡성과 법적 원리의 적용이 요구되며, 각 사례에 대한 법적 판단을 내리는 과정에서의 혼동 가능성이 난이도를 높임.",
+        "stemPattern": "다음 (가), (나)기업의 노동 관계 사례를 분석한 내용으로 옳지 않은 것은?"
+      }
+    },
+    {
+      "conceptId": "success_15_06",
+      "targetConcept": "근로기준법의 주요 내용",
+      "frequency": 8,
+      "sourceExam": "2025학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 14,
+      "pattern": {
+        "assessmentIntent": "이 문제는 근로기준법의 주요 내용을 이해하고, 재해 사례를 통해 법적 규정을 적용할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "사례 분석",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_CASE_DIAGNOSTIC_FRAME",
+          "blankCount": 0,
+          "boCount": 0,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: 'A군의 사고 형태는 '넘어짐'에 해당한다.' - 사고 형태에 대한 일반적인 이해를 요구하지만, 주어진 사례에서 명확히 언급되지 않아 오답.",
+          "오답2: 'A군은 한국산업안전보건공단으로부터 요양급여를 지급받는다.' - 요양급여 지급 여부는 사례에 명시되지 않아 사실과 다름.",
+          "오답3: 'A군의 작업장 정리 작업은 근로기준법상 근로시간에 산정되지 않는다.' - 작업장 정리는 근로시간에 포함되므로 잘못된 주장.",
+          "오답4: '상시 근로자가 5인 미만인 모든 사업장은 A군이 신청한 사회 보험이 적용되지 않는다.' - 사회 보험 적용 기준에 대한 오해로 인한 오답."
+        ],
+        "difficultyDriver": "사례의 복잡성과 법적 규정의 이해도를 요구하는 점에서 난이도가 결정된다.",
+        "stemPattern": "다음은 [재해 사례 보고서]의 일부이다. 이를 통해 알 수 있는 내용으로 옳은 것은?"
+      }
+    },
+    {
+      "conceptId": "success_15_07",
+      "targetConcept": "노동조합의 역할 및 법적 목적",
+      "frequency": 8,
+      "sourceExam": "2022학년도 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 6,
+      "pattern": {
+        "assessmentIntent": "학생이 노동조합의 역할과 법적 목적을 이해하고, 주어진 근무일지를 바탕으로 근로기준법에 따른 근로자의 권리를 판단할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "자료 해석 및 비교/대조",
+        "skeletonStructure": {
+          "itemFamily": "combination_judgment",
+          "stimulusTPL": "TPL_COMPARATIVE_MATRIX",
+          "blankCount": 0,
+          "boCount": 3,
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true
+        },
+        "distractorBlueprint": [
+          "오답1: 'A씨는 법정 휴게시간을 보장받고 있다.' - A씨의 근무시간에 대한 정보가 명시되어 있으나, 법정 휴게시간이 보장되는지에 대한 명확한 근거가 부족하여 오답으로 구성됨.",
+          "오답2: 'B씨의 1일 근로시간은 법정 근로시간을 준수하고 있다.' - B씨의 근로시간이 법정 근로시간을 초과하는 경우가 있을 수 있으나, 주어진 정보만으로는 이를 판단할 수 없어 오답으로 설계됨.",
+          "오답3: 'A씨는 재택 근무, B씨는 교대 근무를 하고 있다.' - A씨의 근무 형태는 재택 근무로 명시되어 있으나, B씨의 근무 형태가 교대 근무인지 여부는 자료에서 확인할 수 없어 오답으로 구성됨."
+        ],
+        "difficultyDriver": "주어진 자료에서 근로자의 권리와 의무를 정확히 해석하고 비교하는 과정에서 발생하는 정보의 복잡성과 다중 조건의 판단 필요성.",
+        "stemPattern": "다음 [근무일지]의 (가)~(다)에 대한 설명으로 옳은 것만을 <보기>에서 고른 것은?"
+      }
+    },
+    {
+      "conceptId": "success_15_08",
+      "targetConcept": "기타 근로관계법",
+      "frequency": 8,
+      "sourceExam": "2022학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 10,
+      "pattern": {
+        "assessmentIntent": "학생이 근로 계약 사례를 분석하고, 관련 법규를 이해하여 옳은 진술을 선택할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "사례 분석",
+        "skeletonStructure": {
+          "itemFamily": "combination_judgment",
+          "stimulusTPL": "TPL_FORMAL_DOCUMENT",
+          "blankCount": 0,
+          "boCount": 4,
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true
+        },
+        "distractorBlueprint": [
+          "오답1: '고용 형태는 단시간 근로자에 해당한다.' - 주어진 정보에서 근로 계약 기간과 소정 근로 시간을 고려할 때, 이 진술은 잘못된 해석에 기반하고 있다.",
+          "오답2: '휴게 시간은 근로기준법을 준수하고 있다.' - 주어진 정보에서 휴게 시간이 명시되어 있으나, 근로기준법의 구체적인 규정을 반영하지 않아 오해를 불러일으킬 수 있다.",
+          "오답3: '1주간의 총 소정 근로 시간은 35시간이다.' - 주어진 소정 근로 시간(9시간)과 주 5일 근무를 고려할 때, 총 근로 시간은 45시간으로 잘못된 계산에 의한 오답이다."
+        ],
+        "difficultyDriver": "정보의 정확한 해석과 법규에 대한 이해가 필요하며, 주어진 정보에서 올바른 진술을 선택하는 과정에서의 혼동 가능성이 난이도를 높인다.",
+        "stemPattern": "다음 수행 평가 보고서의 근로 계약 사례에 대한 분석 내용으로 옳은 것만을 <보기>에서 고른 것은?"
+      }
+    }
+  ]
+}

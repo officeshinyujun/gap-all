@@ -1,0 +1,274 @@
+{
+  "unit": 9,
+  "unitTitle": "근로 관계와 법",
+  "subject": "success",
+  "totalQuestions": 10,
+  "patterns": [
+    {
+      "conceptId": "success_9_근로기준법상 근로시간의 규정",
+      "targetConcept": "근로기준법상 근로시간의 규정",
+      "frequency": 0,
+      "sourceExam": "unknown",
+      "questionNumber": 0,
+      "pattern": {
+        "assessmentIntent": "근로기준법에 대한 이해 및 적용 능력 평가",
+        "judgmentAxis": "법적 규정의 해석 및 사례 분석",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_dialogue_analysis",
+          "blankCount": 0,
+          "boCount": 0,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: A씨의 근로기준법상 야간근로 시간은 7시간이다.",
+          "오답2: ○○편의점의 사용자는 야간근로에 대하여 통상임금의 100분의 50 이상을 가산하여 지급하여야 한다.",
+          "오답3: △△기업의 사용자는 근로기준법상 전차금 상계 금지 규정을 위반하였다.",
+          "오답4: ○○편의점과 △△기업의 사용자는 부당노동행위를 하였다."
+        ],
+        "difficultyDriver": "법적 규정의 이해와 사례 적용의 복잡성",
+        "stemPattern": "대화 분석을 통한 법적 규정의 적용"
+      }
+    },
+    {
+      "conceptId": "success_9_법정 근로 시간과 소정 근로 시간의 ",
+      "targetConcept": "법정 근로 시간과 소정 근로 시간의 차이 (법정 기준 vs. 사용자와 근로자 간 합의)",
+      "frequency": 0,
+      "sourceExam": "unknown",
+      "questionNumber": 0,
+      "pattern": {
+        "assessmentIntent": "법정 근로 시간과 소정 근로 시간의 차이를 이해하고 적용할 수 있는 능력 평가",
+        "judgmentAxis": "근로기준법 이해 및 적용",
+        "skeletonStructure": {
+          "itemFamily": "combination_judgment",
+          "stimulusTPL": "TPL_근무일지_비교",
+          "blankCount": 0,
+          "boCount": 0,
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true
+        },
+        "distractorBlueprint": [
+          "오답1: A씨의 근로시간이 법정 근로시간을 초과한다는 잘못된 해석",
+          "오답2: B씨의 근로시간이 법정 근로시간 내에 포함된다는 잘못된 해석"
+        ],
+        "difficultyDriver": "문제의 복잡성과 근로기준법에 대한 이해도",
+        "stemPattern": "근무일지를 기반으로 한 비교 및 판단"
+      }
+    },
+    {
+      "conceptId": "success_9_임금의 정의 및 지급 원칙 (통화, ",
+      "targetConcept": "임금의 정의 및 지급 원칙 (통화, 직접, 전액, 정기 지급 원칙)",
+      "frequency": 0,
+      "sourceExam": "unknown",
+      "questionNumber": 0,
+      "pattern": {
+        "assessmentIntent": "근로 계약 사례에 대한 분석 및 임금 지급 원칙 이해 평가",
+        "judgmentAxis": "임금의 정의 및 지급 원칙",
+        "skeletonStructure": {
+          "itemFamily": "combination_judgment",
+          "stimulusTPL": "TPL_사례_분석",
+          "blankCount": 0,
+          "boCount": 0,
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true
+        },
+        "distractorBlueprint": [
+          "오답1: 임금 지급 원칙을 잘못 이해한 경우",
+          "오답2: 근로 계약 기간에 대한 잘못된 해석"
+        ],
+        "difficultyDriver": "사례 분석의 복잡성과 임금 지급 원칙의 이해도",
+        "stemPattern": "사례 기반의 선택형 문제로, 주어진 정보에 대한 정확한 판단을 요구"
+      }
+    },
+    {
+      "conceptId": "success_9_부당 노동 행위의 정의",
+      "targetConcept": "부당 노동 행위의 정의",
+      "frequency": 0,
+      "sourceExam": "unknown",
+      "questionNumber": 0,
+      "pattern": {
+        "assessmentIntent": "부당 노동 행위의 정의와 관련된 직업 생활의 사례를 이해하고 평가하기",
+        "judgmentAxis": "직업 생활에서의 선택과 그 결과에 대한 이해",
+        "skeletonStructure": {
+          "itemFamily": "combination_judgment",
+          "stimulusTPL": "TPL_직업생활_사례",
+          "blankCount": 0,
+          "boCount": 0,
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true
+        },
+        "distractorBlueprint": [
+          "오답1: A씨의 근무 방식이 부당 노동 행위에 해당한다.",
+          "오답2: B씨의 건강 회복이 직업 생활에 부정적인 영향을 미친다."
+        ],
+        "difficultyDriver": "사례 분석 및 선택지 조합의 복잡성",
+        "stemPattern": "사례 기반 선택지 조합 문제"
+      }
+    },
+    {
+      "conceptId": "success_9_법정 근로 시간과 소정 근로 시간의 ",
+      "targetConcept": "법정 근로 시간과 소정 근로 시간의 차이",
+      "frequency": 0,
+      "sourceExam": "unknown",
+      "questionNumber": 0,
+      "pattern": {
+        "assessmentIntent": "법정 근로 시간과 소정 근로 시간의 차이를 이해하고 비교하는 능력 평가",
+        "judgmentAxis": "근로계약 내용의 비교 및 이해",
+        "skeletonStructure": {
+          "itemFamily": "combination_judgment",
+          "stimulusTPL": "TPL_table_comparison",
+          "blankCount": 0,
+          "boCount": 0,
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true
+        },
+        "distractorBlueprint": [
+          "오답1: A씨와 B씨의 근로계약 기간이 동일하다고 잘못 판단하는 경우",
+          "오답2: 소정근로시간이 동일하다고 잘못 판단하는 경우"
+        ],
+        "difficultyDriver": "법정 근로 시간과 소정 근로 시간의 개념 이해 및 비교 능력에 따라 난이도가 결정됨",
+        "stemPattern": "비교 및 선택형 문제로, 주어진 표를 기반으로 옳은 내용을 선택하도록 요구"
+      }
+    },
+    {
+      "conceptId": "success_9_근로기준법상 근로시간의 규정 (탄력적",
+      "targetConcept": "근로기준법상 근로시간의 규정 (탄력적 근로시간제, 선택적 근로시간제)",
+      "frequency": 0,
+      "sourceExam": "unknown",
+      "questionNumber": 0,
+      "pattern": {
+        "assessmentIntent": "근로기준법상 근로시간의 규정에 대한 이해 및 적용 능력 평가",
+        "judgmentAxis": "근로시간 제도에 대한 이해도 및 실제 사례 분석 능력",
+        "skeletonStructure": {
+          "itemFamily": "combination_judgment",
+          "stimulusTPL": "TPL_사례_분석",
+          "blankCount": 0,
+          "boCount": 0,
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true
+        },
+        "distractorBlueprint": [
+          "오답1: 선택적 근로시간제의 포인트가 육아휴직보다 높다는 잘못된 해석",
+          "오답2: 탄력적 근로시간제가 육아기 근로시간 단축보다 더 많은 인원이 참여했다는 잘못된 해석"
+        ],
+        "difficultyDriver": "중급 (근로기준법에 대한 기본적인 이해가 필요함)",
+        "stemPattern": "사례 기반 문제로, 주어진 데이터를 통해 올바른 선택지를 고르는 형태"
+      }
+    },
+    {
+      "conceptId": "success_9_유연근무제의 종류",
+      "targetConcept": "유연근무제의 종류",
+      "frequency": 0,
+      "sourceExam": "unknown",
+      "questionNumber": 0,
+      "pattern": {
+        "assessmentIntent": "직업관의 가치 이해 및 선택 능력 평가",
+        "judgmentAxis": "직업관의 외재적 및 내재적 가치 구분",
+        "skeletonStructure": {
+          "itemFamily": "combination_judgment",
+          "stimulusTPL": "TPL_기사_직업관",
+          "blankCount": 0,
+          "boCount": 0,
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true
+        },
+        "distractorBlueprint": [
+          "오답1: ㄱ, ㄴ - 외재적 가치와 내재적 가치 혼합",
+          "오답2: ㄴ, ㄷ - 내재적 가치만 포함"
+        ],
+        "difficultyDriver": "직업관의 가치에 대한 이해도 및 선택의 복잡성",
+        "stemPattern": "기사 기반의 가치 선택 문제"
+      }
+    },
+    {
+      "conceptId": "success_9_임금의 정의 및 지급 원칙",
+      "targetConcept": "임금의 정의 및 지급 원칙",
+      "frequency": 0,
+      "sourceExam": "unknown",
+      "questionNumber": 0,
+      "pattern": {
+        "assessmentIntent": "임금의 정의 및 지급 원칙에 대한 이해 평가",
+        "judgmentAxis": "근로계약 및 근무 상황 분석",
+        "skeletonStructure": {
+          "itemFamily": "combination_judgment",
+          "stimulusTPL": "TPL_근로계약_근무상황",
+          "blankCount": 0,
+          "boCount": 0,
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true
+        },
+        "distractorBlueprint": [
+          "오답1: 근로시간에 대한 잘못된 해석",
+          "오답2: 임금 지급 원칙에 대한 오해"
+        ],
+        "difficultyDriver": "문제의 복잡성과 근로계약 및 근무 상황에 대한 이해도",
+        "stemPattern": "주어진 근로계약과 근무 상황을 바탕으로 옳은 내용을 선택하는 문제"
+      }
+    },
+    {
+      "conceptId": "success_9_부당 해고의 정의 및 구제 절차",
+      "targetConcept": "부당 해고의 정의 및 구제 절차",
+      "frequency": 0,
+      "sourceExam": "unknown",
+      "questionNumber": 0,
+      "pattern": {
+        "assessmentIntent": "부당 해고 및 근로기준법 관련 지식 평가",
+        "judgmentAxis": "법적 이해도 및 사례 분석 능력",
+        "skeletonStructure": {
+          "itemFamily": "combination_judgment",
+          "stimulusTPL": "TPL_사례_분석",
+          "blankCount": 0,
+          "boCount": 0,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: A씨의 근로기준법상 야간근로 시간은 7시간이다.",
+          "오답2: ○○편의점의 사용자는 야간근로에 대하여 통상임금의 100분의 50 이상을 가산하여 지급하여야 한다.",
+          "오답3: △△기업의 사용자는 근로기준법상 전차금 상계 금지 규정을 위반하였다.",
+          "오답4: ○○편의점과 △△기업의 사용자는 부당노동행위를 하였다."
+        ],
+        "difficultyDriver": "사례 분석 및 법적 규정 이해의 복잡성",
+        "stemPattern": "사례 기반 질문"
+      }
+    },
+    {
+      "conceptId": "success_9_휴게 시간의 법적 기준",
+      "targetConcept": "휴게 시간의 법적 기준",
+      "frequency": 0,
+      "sourceExam": "unknown",
+      "questionNumber": 0,
+      "pattern": {
+        "assessmentIntent": "근로기준법에 대한 이해 및 적용 능력 평가",
+        "judgmentAxis": "법적 기준 및 근로자의 권리 인식",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_dialogue_analysis | null",
+          "blankCount": 0,
+          "boCount": 0,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: A씨의 근로기준법상 야간근로 시간은 7시간이다.",
+          "오답2: ○○편의점의 사용자는 야간근로에 대하여 통상임금의 100분의 50 이상을 가산하여 지급하여야 한다.",
+          "오답3: △△기업의 사용자는 근로기준법상 전차금 상계 금지 규정을 위반하였다.",
+          "오답4: ○○편의점과 △△기업의 사용자는 부당노동행위를 하였다."
+        ],
+        "difficultyDriver": "법적 기준에 대한 이해와 사례 분석 능력",
+        "stemPattern": "대화 분석을 통한 법적 기준 이해"
+      }
+    }
+  ]
+}

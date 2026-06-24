@@ -2,12 +2,12 @@
 
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { HStack } from '@/components/general/HStack';
-import { VStack } from '@/components/general/VStack';
-import { Sidebar } from '@/components/general/Sidebar';
-import { useAuth } from '@/contexts/AuthContext';
+import { HStack } from '@shared/ui/HStack';
+import { VStack } from '@shared/ui/VStack';
+import { Sidebar } from '@shared/ui/Sidebar';
+import { useAuth } from '@shared/contexts/AuthContext';
 import s from './layout.module.scss';
-import { SPACING } from '@/constants/spacing';
+import { SPACING } from '@shared/constants/spacing';
 
 export default function MainLayout({
   children,

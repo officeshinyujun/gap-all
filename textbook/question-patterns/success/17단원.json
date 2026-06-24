@@ -1,0 +1,204 @@
+{
+  "unit": 17,
+  "unitTitle": "고용 보험과 사회 안전망",
+  "subject": "success",
+  "totalQuestions": 7,
+  "patterns": [
+    {
+      "conceptId": "success_17_01",
+      "targetConcept": "고용 서비스의 의미와 중요성",
+      "frequency": 20,
+      "sourceExam": "2025학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 4,
+      "pattern": {
+        "assessmentIntent": "학생이 고용보험의 구직급여 수급 자격 요건에 대한 이해를 바탕으로, 주어진 사례에 적합한 정보를 선택할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "자료 해석 및 개념 변별",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_DIGITAL_FORUM_INTERFACE",
+          "blankCount": 1,
+          "boCount": 3,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: '현재 구직급여를 신청하면 실업의 인정을 받은 날에 대해 구직급여를 지급받을 수 있습니다.' - 이 선택지는 구직급여 수급 요건에 대한 정확한 정보를 제공하지 않으며, 실업 인정일과 수급 요건의 관계를 혼동하게 만든다.",
+          "오답2: '2023년 6월 30일에 이직한 것은 구직급여의 수급자격이 제한되지 않는 정당한 이직 사유에 해당됩니다.' - 이 선택지는 이직 사유에 대한 잘못된 해석을 제공하여, 학생이 이직 사유의 적합성을 잘못 판단하도록 유도한다.",
+          "오답3: '이직일 이전 18개월 동안의 피보험 단위기간이 합산하여 180일 이상이어야 하는 구직급여의 수급 요건은 충족합니다.' - 이 선택지는 피보험 단위기간의 요건을 잘못 이해하게 하여, 학생이 수급 요건을 충족하지 못하는 경우를 간과하도록 만든다."
+        ],
+        "difficultyDriver": "학생이 제공된 정보에서 정확한 요건을 추론하고, 오답과의 차별성을 인식하는 데 필요한 사고 과정의 복잡성",
+        "stemPattern": "다음 [고용보험 Q&A 게시판]의 (가)에 들어갈 수 있는 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?"
+      }
+    },
+    {
+      "conceptId": "success_17_02",
+      "targetConcept": "고용 서비스의 유형",
+      "frequency": 20,
+      "sourceExam": "2022학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 5,
+      "pattern": {
+        "assessmentIntent": "학생이 사회 보험의 유형과 적용 사례를 분석하고, 각 사례에 대한 적절한 보험 급여를 이해할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "사례 분석",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_FORMAL_DOCUMENT",
+          "blankCount": 0,
+          "boCount": 5,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: A씨가 구직 급여와 취업 촉진 수당을 받을 수 있다고 제시하였으나, A씨는 자영업자로서 실업 급여를 신청한 상황이므로 잘못된 정보이다.",
+          "오답2: B씨가 근로복지공단에 요양 급여를 신청한다고 하였으나, B씨는 산업 재해로 인정받아 보험 급여를 신청한 것이므로 이 또한 잘못된 정보이다.",
+          "오답3: A씨의 사례가 산업재해보상보험법을 적용받는다고 하였으나, A씨는 고용보험법에 해당하는 실업 급여를 신청한 것이므로 잘못된 정보이다.",
+          "오답4: A씨와 B씨가 신청한 보험이 저축성 보험의 성격을 갖는다고 하였으나, 이들은 각각 실업 급여와 산업 재해 보험 급여로 저축성과는 관련이 없다.",
+          "오답5: A씨와 B씨가 신청한 보험 급여를 제3자에게 양도할 수 있다고 하였으나, 보험 급여는 개인에게 귀속되며 양도가 불가능하다."
+        ],
+        "difficultyDriver": "사례에 대한 정확한 이해와 보험의 종류에 대한 구분이 필요하며, 각 사례의 맥락을 고려한 추론이 요구된다.",
+        "stemPattern": "다음 수행 평가 보고서에서 A, B씨가 신청한 사회 보험에 대해 분석한 내용으로 옳은 것은?"
+      }
+    },
+    {
+      "conceptId": "success_17_03",
+      "targetConcept": "고용보험 제도의 목적과 적용 대상",
+      "frequency": 18,
+      "sourceExam": "2024학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 9,
+      "pattern": {
+        "assessmentIntent": "학생이 고용보험 제도의 목적과 적용 대상을 이해하고, 주어진 사례를 바탕으로 올바른 정보를 선택할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "사례 분석",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_DIGITAL_FORUM_INTERFACE",
+          "blankCount": 1,
+          "boCount": 3,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: '출산전후휴가'와 '육아휴직'은 연속으로 사용할 수 없습니다. - 이 오답은 고용보험 제도의 규정을 잘못 이해한 것으로, 실제로는 연속 사용이 가능하다는 점에서 잘못된 정보이다.",
+          "오답2: '출산전후휴가' 개시 예정일 이전에 피보험 단위기간이 합산하여 180일 이하이므로 '출산전후휴가 급여'는 받을 수 없습니다. - 이 오답은 피보험 단위기간의 계산을 잘못 적용하여, 실제로는 조건을 충족할 수 있는 경우를 간과한 것이다.",
+          "오답3: '육아휴직' 개시 예정일 이전에 현재 직장에서의 피보험 단위 기간이 합산하여 180일 이상이므로 사용자로부터 30일 이상 '육아휴직'을 부여받는다면 '육아휴직 급여' 수령이 가능합니다. - 이 오답은 조건을 충족하는 것처럼 보이지만, 실제로는 사용자와의 협의가 필요하다는 점에서 불완전한 정보를 제공한다."
+        ],
+        "difficultyDriver": "정보의 복잡성, 고용보험 제도의 세부 규정 이해, 사례에 대한 정확한 분석 능력",
+        "stemPattern": "다음은 고용보험에 관한 Q&A 게시판의 질의답변 내용이다. (가)에 들어갈 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?"
+      }
+    },
+    {
+      "conceptId": "success_17_04",
+      "targetConcept": "고용보험 제도의 종류별 특징",
+      "frequency": 18,
+      "sourceExam": "2025학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 11,
+      "pattern": {
+        "assessmentIntent": "학생이 고용보험 제도의 종류별 특징을 이해하고, 구직급여 수급자격자에 대한 실업급여의 내용을 정확히 구분할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "분류/매칭",
+        "skeletonStructure": {
+          "itemFamily": "combination_judgment",
+          "stimulusTPL": "TPL_FORMAL_DOCUMENT",
+          "blankCount": 1,
+          "boCount": 3,
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true
+        },
+        "distractorBlueprint": [
+          "오답1: '취업하여 주거를 이전하는 자로서 직업안정기관의 장이 필요하다고 인정 시 그에 필요한 경비를 지급한다.' - 이 선택지는 구직급여와 관련된 조건을 잘못 해석하여, 실업급여의 목적과 맞지 않는 내용을 포함하고 있다.",
+          "오답2: '직업안정기관의 소개에 따라 먼 거리에 있는 직장으로 구직 활동을 한 자에게 교통비, 숙박비 등의 소요 비용을 지급한다.' - 이 선택지는 실업급여의 지원 범위를 벗어난 구직 활동 지원에 대한 내용으로, 실업급여의 정의와 일치하지 않는다.",
+          "오답3: '취업이 특히 곤란하고 생활이 어려운 자로서 직업안정기관의 장이 인정 시 소정급여일수를 초과하여 일정 금액을 지급한다.' - 이 선택지는 실업급여의 조건을 잘못 이해하여, 구직급여와는 다른 지원 방식을 제시하고 있다."
+        ],
+        "difficultyDriver": "정보의 분산과 구직급여와 관련된 다양한 조건을 이해하고 구분해야 하므로, 학생이 실업급여의 목적과 종류를 명확히 이해해야 한다.",
+        "stemPattern": "다음은 실업급여에 대한 내용이다. (가)의 종류에 해당하는 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?"
+      }
+    },
+    {
+      "conceptId": "success_17_05",
+      "targetConcept": "고용보험 신청 및 가입 절차",
+      "frequency": 15,
+      "sourceExam": "2023학년도 대학수학능력시험 성공적인 직업생활",
+      "questionNumber": 14,
+      "pattern": {
+        "assessmentIntent": "학생이 고용보험 신청 및 가입 절차에 대한 이해를 바탕으로 A씨와 B씨의 사례를 비교하고, 각 사례에 적합한 사회 보험 내용을 판단할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "비교/대조",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_COMPARATIVE_MATRIX",
+          "blankCount": 0,
+          "boCount": 0,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: A씨의 치료 기간에 대한 상병급여 신청 가능성을 잘못 이해하여, 치료 기간에 대한 조건을 잘못 제시함.",
+          "오답2: A씨의 사회 보험 적용 조건을 잘못 해석하여, 상시 근로자 기준을 잘못 설명함.",
+          "오답3: B씨의 취업촉진 수당에 대한 내용을 잘못 이해하여, 훈련연장급여의 포함 여부를 잘못 기술함.",
+          "오답4: B씨의 구직급여 소정급여일수를 잘못 제시하여, 실제와 다른 정보를 제공함.",
+          "오답5: A씨와 B씨의 보험 수급자격 서류 제출처를 잘못 이해하여, 잘못된 기관을 언급함."
+        ],
+        "difficultyDriver": "사례에 대한 정보의 다양성과 각 사례의 조건이 다르기 때문에, 학생이 각 사례를 정확히 비교하고 판단하는 데 필요한 사고 과정의 복잡성이 난이도를 결정짓는다.",
+        "stemPattern": "다음 사례의 A, B씨에게 적용될 수 있는 사회 보험에 대한 내용으로 가장 적절한 것은?"
+      }
+    },
+    {
+      "conceptId": "success_17_06",
+      "targetConcept": "고용보험 실업 급여 신청 절차",
+      "frequency": 15,
+      "sourceExam": "2025학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 15,
+      "pattern": {
+        "assessmentIntent": "학생이 고용보험 실업 급여 신청 절차와 관련된 사례를 분석하고, 주어진 정보에 기반하여 옳은 내용을 선택할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "사례 분석 및 원리 적용",
+        "skeletonStructure": {
+          "itemFamily": "combination_judgment",
+          "stimulusTPL": "TPL_COMPARATIVE_MATRIX",
+          "blankCount": 0,
+          "boCount": 4,
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true
+        },
+        "distractorBlueprint": [
+          "오답1: 'A씨의 이직 사유는 '부당노동행위'에 해당하는 근로자 권익 침해이다.' - 이직 사유에 대한 잘못된 해석으로, 실제 이직 사유는 권고사직으로 명시되어 있다.",
+          "오답2: 'A씨가 구직급여의 수급자격을 인정받을 경우 상병급여를 지급받을 수 있다.' - 상병급여는 구직급여와는 별개의 개념으로, 잘못된 정보 제공.",
+          "오답3: 'B씨는 요리 학원에 등록하여 수강할 경우 훈련연장급여를 지급받을 수 있다.' - 훈련연장급여는 특정 조건을 충족해야 하며, B씨의 경우 해당 조건을 충족하지 않는다.",
+          "오답4: '고용보험 보험료 중 (가)에 드는 비용을 충당하기 위한 보험료는 사업주와 근로자가 절반씩 부담한다.' - 이 내용은 사실이지만, 문제의 맥락과 관련이 적어 선택지로서의 유효성이 떨어진다."
+        ],
+        "difficultyDriver": "정보의 복잡성과 사례에 대한 이해도, 각 선택지의 유사성으로 인해 올바른 선택을 하기 위한 추론 단계 수가 증가한다.",
+        "stemPattern": "다음의 사회 보험 관련 기사를 분석한 후, 이를 [(주)△△ 기업 사례]에 적용한 내용으로 옳은 것만을 <보기>에서 고른 것은?"
+      }
+    },
+    {
+      "conceptId": "success_17_07",
+      "targetConcept": "실업 급여의 구분 및 구직 급여 일수",
+      "frequency": 18,
+      "sourceExam": "2023학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 15,
+      "pattern": {
+        "assessmentIntent": "학생이 실업 급여의 구분과 구직 급여 일수를 이해하고, 주어진 사례를 통해 이를 적용할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "사례 분석",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_CASE_DIAGNOSTIC_FRAME",
+          "blankCount": 0,
+          "boCount": 0,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: A씨는 특별 연장 급여를 받을 수 있다. - A씨의 조건을 잘못 해석하여 특별 연장 급여의 자격 요건을 충족한다고 잘못 판단함.",
+          "오답2: A씨는 재취업 후에도 훈련 연장 급여를 받을 수 있다. - 재취업 후 훈련 연장 급여의 조건을 잘못 이해하여 A씨가 해당 조건을 충족한다고 잘못 판단함.",
+          "오답3: B씨는 조기 재취업 수당을 받을 수 있다. - B씨의 재취업 시점과 조기 재취업 수당의 조건을 혼동하여 잘못된 정보를 제공함.",
+          "오답4: B씨는 근로복지공단에 직접 방문하여 실업 급여를 신청하였다. - 신청 방법에 대한 오해로 인해 잘못된 절차를 제시함.",
+          "오답5: A씨와 B씨가 재취업하지 않았을 때 수령할 수 있는 구직 급여의 소정 급여 일수는 같다. - 구직 급여의 소정 급여 일수에 대한 이해 부족으로 잘못된 비교를 제시함."
+        ],
+        "difficultyDriver": "사례의 복잡성과 실업 급여 관련 규정에 대한 이해도를 요구하는 다중 조건의 분석이 필요함.",
+        "stemPattern": "다음 사례에서 A, B씨에게 적용될 사회 보험에 대해 분석한 내용으로 적절한 것은?"
+      }
+    }
+  ]
+}

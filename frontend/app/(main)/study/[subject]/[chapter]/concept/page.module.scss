@@ -804,3 +804,319 @@
     width: 100%;
   }
 }
+
+/* ── 헤더 탭 그룹 ── */
+.headerTabGroup {
+  display: flex;
+  gap: 2px;
+  background: $background-secondary;
+  border-radius: 8px;
+  padding: 3px;
+  flex-shrink: 0;
+}
+
+.headerTabBtn {
+  padding: $spacing-4 $spacing-10;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: $text-secondary;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+  &:hover { color: $text-primary; }
+}
+
+.headerTabBtnActive {
+  background: $background-primary;
+  color: $text-primary;
+  font-weight: 600;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+/* ── 학습 탭 progress bar ── */
+.progressBar {
+  flex: 1;
+  height: 4px;
+  background: $background-third;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: $brand-primary;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.progressLabel {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: $text-secondary;
+  white-space: nowrap;
+}
+
+/* ── 학습 탭 콘텐츠 ── */
+.learnView {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-16;
+  max-width: 720px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.learnStepBadge {
+  display: inline-block;
+  padding: 2px $spacing-10;
+  background: $background-secondary;
+  border: 1px solid $border-primary;
+  border-radius: 10px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: $text-secondary;
+  align-self: flex-start;
+}
+
+.learnDescription {
+  margin: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 14px;
+  color: $text-primary;
+  line-height: 1.8;
+  word-break: keep-all;
+}
+
+/* 목차 */
+.tocItem {
+  display: flex;
+  align-items: center;
+  gap: $spacing-10;
+  padding: $spacing-10 $spacing-14;
+  background: $background-secondary;
+  border: 1px solid $border-primary;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s;
+  &:hover { border-color: $brand-primary; background: $background-third; }
+}
+
+.tocNum {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  background: $brand-primary;
+  color: $background-primary;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.tocTitle {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: $text-primary;
+}
+
+/* 개념 미리보기 태그 */
+.conceptPreviewTag {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-4;
+  padding: 3px $spacing-10;
+  background: $background-secondary;
+  border: 1px solid $border-primary;
+  border-radius: 12px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  color: $text-primary;
+}
+
+.conceptPreviewRank {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  background: $brand-primary;
+  color: $background-primary;
+  border-radius: 50%;
+  font-size: 9px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* 관련 개념 카드 */
+.relatedConceptCard {
+  border: 1px solid $border-primary;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.relatedConceptHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: $spacing-12 $spacing-14;
+  background: $background-secondary;
+  border: none;
+  cursor: pointer;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: $text-primary;
+  text-align: left;
+  transition: background 0.15s;
+  &:hover { background: $background-third; }
+}
+
+.relatedConceptBody {
+  padding: $spacing-12 $spacing-14;
+  border-top: 1px solid $border-primary;
+  background: $background-primary;
+}
+
+.goToQuestionBtn {
+  width: 100%;
+  padding: $spacing-10 $spacing-14;
+  background: $background-secondary;
+  border: 1.5px solid $brand-primary;
+  border-radius: 8px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: $brand-primary;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-align: center;
+  &:hover { background: $background-third; }
+}
+
+/* 마무리 개념 아이템 */
+.finishConceptItem {
+  padding: $spacing-14;
+  background: $background-secondary;
+  border: 1px solid $border-primary;
+  border-radius: 10px;
+}
+
+/* key_concepts 토글 버튼 */
+.keyConceptsToggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: $spacing-10 $spacing-14;
+  background: $background-secondary;
+  border: 1.5px solid $brand-primary;
+  border-radius: 8px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: $brand-primary;
+  cursor: pointer;
+  transition: background 0.15s;
+  &:hover { background: $background-third; }
+}
+
+/* key_concept 아이템 */
+.keyConceptItem {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-8;
+  padding: $spacing-14;
+  background: $background-secondary;
+  border: 1px solid $border-primary;
+  border-radius: 10px;
+}
+
+.keyConceptDef {
+  margin: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  color: $text-secondary;
+  line-height: 1.7;
+}
+
+.goToQuestionBtnSmall {
+  padding: $spacing-4 $spacing-10;
+  background: transparent;
+  border: 1px solid $brand-primary;
+  border-radius: 6px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: $brand-primary;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.15s;
+  &:hover { background: $background-secondary; }
+}
+
+/* ── 핵심 포인트 토글 + 카드 그리드 ── */
+.keyPointsToggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+}
+
+.keyPointsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: $spacing-10;
+}
+
+.keyPointCard {
+  padding: $spacing-12 $spacing-14;
+  background: $background-secondary;
+  border: 1px solid $border-primary;
+  border-radius: 10px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  line-height: 1.7;
+  color: $text-primary;
+
+  p { margin: 0; }
+}
+
+/* ── 지문 원본 하이라이팅 ── */
+.rawStimulusBox {
+  padding: $spacing-14;
+  background: $background-secondary;
+  border: 1px solid $border-primary;
+  border-radius: 10px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  line-height: 1.9;
+  color: $text-primary;
+  white-space: pre-wrap;
+  word-break: keep-all;
+}
+
+.stimulusHighlight {
+  background: $brand-secondary;
+  color: $brand-primary;
+  border-radius: 3px;
+  padding: 0 2px;
+  font-style: normal;
+  font-weight: 600;
+}

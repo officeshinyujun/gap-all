@@ -1,0 +1,230 @@
+{
+  "unit": 20,
+  "unitTitle": "직업 윤리와 미래 직업",
+  "subject": "success",
+  "totalQuestions": 8,
+  "patterns": [
+    {
+      "conceptId": "success_20_01",
+      "targetConcept": "현대 사회의 특징과 변화",
+      "frequency": 10,
+      "sourceExam": "2023학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 1,
+      "pattern": {
+        "assessmentIntent": "이 문제는 학생이 직업 윤리와 기업가 정신의 개념을 이해하고, 주어진 사례를 바탕으로 적절한 조합을 선택할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "개념 변별",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": null,
+          "blankCount": 0,
+          "boCount": 0,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: '환경 윤리, 진취성' - 환경 윤리는 주제와 관련이 없으며, 진취성은 기업가 정신의 일부로 보일 수 있지만, 직업 윤리와의 연결이 부족하다.",
+          "오답2: '생명 윤리, 위험 감수성' - 생명 윤리는 특정 분야에 국한된 개념으로, 주어진 사례와의 관련성이 낮다.",
+          "오답3: '생명 윤리, 사회적 책임성' - 사회적 책임성은 관련성이 있지만, 생명 윤리와의 조합이 적절하지 않다.",
+          "오답4: '장애인 윤리, 진취성' - 장애인 윤리는 특정 집단에 대한 윤리적 고려를 포함하지만, 진취성과의 조합이 사례의 핵심을 반영하지 않는다."
+        ],
+        "difficultyDriver": "주어진 사례의 복잡성과 직업 윤리 및 기업가 정신의 개념적 연결을 이해하는 데 필요한 추론 단계 수가 난이도를 결정짓는다.",
+        "stemPattern": "다음 기사에 나타난 직업 윤리와 기업가 정신으로 가장 적절한 것은?"
+      }
+    },
+    {
+      "conceptId": "success_20_02",
+      "targetConcept": "사회 문제와 직업 윤리의 중요성",
+      "frequency": 15,
+      "sourceExam": "2022학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 1,
+      "pattern": {
+        "assessmentIntent": "이 문제는 학생이 사회 문제와 직업 윤리의 중요성을 이해하고, 주어진 상황에서 적절한 직업 윤리를 선택할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "사례 분석",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_CONVERSATIONAL_FLOW",
+          "blankCount": 0,
+          "boCount": 5,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: '준법성, 봉사성' - 직업 윤리의 중요성을 강조하지만, 상황에 맞지 않는 봉사성을 포함하여 혼란을 유도.",
+          "오답2: '성실성, 준법성' - 성실성은 긍정적이지만, 상황에서의 부정행위를 간과하게 하여 잘못된 선택을 유도.",
+          "오답3: '성실성, 정직성' - 정직성은 중요하지만, 상황의 법적 측면을 간과하게 하여 부적절한 선택을 유도.",
+          "오답4: '봉사성, 준법성' - 봉사성을 강조하여 직업 윤리의 본질을 흐리게 하여 잘못된 선택을 유도."
+        ],
+        "difficultyDriver": "주어진 상황에서 직업 윤리를 선택하는 과정에서의 복잡한 윤리적 판단과 사회적 책임의 이해가 난이도를 결정짓는다.",
+        "stemPattern": "다음 장면에서 A, B씨가 갖추어야 할 직업 윤리로 가장 적절한 것은?"
+      }
+    },
+    {
+      "conceptId": "success_20_03",
+      "targetConcept": "직업 윤리의 의미와 구분",
+      "frequency": 15,
+      "sourceExam": "2023학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 1,
+      "pattern": {
+        "assessmentIntent": "학생이 직업 윤리의 다양한 개념을 이해하고, 주어진 사례에 적합한 윤리적 원칙을 구별할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "분류/매칭",
+        "skeletonStructure": {
+          "itemFamily": "combination_judgment",
+          "stimulusTPL": null,
+          "blankCount": 0,
+          "boCount": 4,
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true
+        },
+        "distractorBlueprint": [
+          "오답1: 성 윤리 - 직업 윤리와 관련이 있지만, 주어진 사례와는 직접적인 연관성이 없어서 오답으로 구성됨.",
+          "오답2: 환경 윤리 - 하천에 오·폐수를 방류한 사례와 관련이 있지만, 정보 유출 사건과는 관련이 없어 혼동을 줄 수 있음.",
+          "오답3: 장애인 윤리 - 직업 윤리의 한 부분이지만, 주어진 사례와 전혀 관련이 없어 선택지에서 제외됨.",
+          "오답4: 정보 윤리 - 고객 정보 유출 사건과 관련이 있지만, 다른 선택지와의 조합에서만 정답이 될 수 있어 혼란을 초래함."
+        ],
+        "difficultyDriver": "주어진 사례의 복잡성과 다양한 윤리 개념 간의 유사성으로 인해 학생이 올바른 선택을 하기 위해서는 깊은 이해와 분석이 필요하다.",
+        "stemPattern": "다음 뉴스 내용과 관련된 직업 윤리로 적절한 것만을 <보기>에서 고른 것은?"
+      }
+    },
+    {
+      "conceptId": "success_20_04",
+      "targetConcept": "근로 윤리와 공동체 윤리",
+      "frequency": 15,
+      "sourceExam": "2024학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 2,
+      "pattern": {
+        "assessmentIntent": "학생이 기술 발전에 따른 직업의 변화를 이해하고, 주어진 사례를 바탕으로 미래 사회에서 유망한 직업을 선택할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "사례 분석",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": null,
+          "blankCount": 0,
+          "boCount": 0,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: 항공·우주 공학자 - 기술의 발전과 관련이 있지만, 홍채 인식 기술과 직접적인 연관성이 부족하여 오답으로 구성됨.",
+          "오답2: 온실가스 인증 심사원 - 환경 관련 직업이지만, 주어진 기술과의 연관성이 약해 오답으로 설정됨.",
+          "오답3: 국제 의료 코디네이터 - 의료 분야의 직업이지만, 홍채 인식 기술과의 직접적인 연결이 없어서 오답으로 구성됨.",
+          "오답4: 폐기물 에너지화 연구원 - 환경 문제 해결을 위한 직업이지만, 기술의 적용과 관련성이 낮아 오답으로 설정됨."
+        ],
+        "difficultyDriver": "주어진 사례에서 기술의 특성과 관련 직업을 연결하는 추론 과정이 필요하여 난이도가 증가한다.",
+        "stemPattern": "다음 사례에 나타난 기술을 활용한 미래 사회의 유망 직업으로 가장 적절한 것은?"
+      }
+    },
+    {
+      "conceptId": "success_20_05",
+      "targetConcept": "동양 전통 직업 윤리와 덕목",
+      "frequency": 15,
+      "sourceExam": "2022학년도 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 2,
+      "pattern": {
+        "assessmentIntent": "학생이 동양 전통 직업 윤리와 덕목을 이해하고, 주어진 사례를 통해 직업 윤리의 원칙을 적용할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "사례 분석",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_FORMAL_DOCUMENT",
+          "blankCount": 0,
+          "boCount": 0,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: '객관성'은 직업 윤리와 관련이 있지만, 사례에서 강조된 정도 경영의 원칙과는 직접적인 연관이 없다.",
+          "오답2: '전문성'은 직업 수행에 중요한 요소이나, 주어진 사례에서 다루고 있는 윤리적 원칙과는 거리가 있다.",
+          "오답3: '고객 중심'은 현대 경영에서 중요한 가치이나, 사례의 핵심은 윤리 경영 시스템에 대한 것이므로 적절하지 않다.",
+          "오답4: '근면과 성실'은 긍정적인 직업 윤리의 덕목이지만, 사례에서 강조된 윤리적 원칙과는 직접적인 연관이 없다."
+        ],
+        "difficultyDriver": "사례의 구체적인 내용과 직업 윤리 원칙 간의 연관성을 이해하고 분석하는 데 필요한 사고 과정의 복잡성.",
+        "stemPattern": "다음 [자료명] 사례를 통해 알 수 있는 직업 윤리의 원칙으로 가장 적절한 것은?"
+      }
+    },
+    {
+      "conceptId": "success_20_06",
+      "targetConcept": "직업 윤리의 5대 원칙과 비윤리적 행위 유형",
+      "frequency": 15,
+      "sourceExam": "2025학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 3,
+      "pattern": {
+        "assessmentIntent": "학생이 직업 윤리의 5대 원칙과 비윤리적 행위 유형을 이해하고, 주어진 사례를 통해 적절한 직업 윤리를 분석할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "사례 분석",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": null,
+          "blankCount": 0,
+          "boCount": 3,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: '허생에게 요구되는 직업 윤리 원칙은 '공정 경쟁의 원칙'이다.' - 이 선택지는 허생의 행동이 비윤리적임에도 불구하고 공정 경쟁 원칙을 적용하려는 잘못된 해석을 기반으로 한다.",
+          "오답2: '변 부자는 경영 관리 활동 중 '인적 자원 관리 활동'을 수행하였다.' - 이 선택지는 변 부자가 단순히 대출을 해준 것으로 인적 자원 관리 활동을 수행했다고 잘못 해석한 것이다.",
+          "오답3: '허생과 변 부자가 종사하는 업종은 서비스업에 해당한다.' - 이 선택지는 허생과 변 부자의 실제 업종이 상품 거래임에도 불구하고 잘못된 업종 분류를 통해 혼동을 일으킨다."
+        ],
+        "difficultyDriver": "사례의 복잡성과 직업 윤리 원칙의 적용을 요구하는 점에서 난이도가 결정된다.",
+        "stemPattern": "다음은 학생이 허생전을 요약한 내용 중 일부이다. 이에 나타난 직업 생활을 분석한 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?"
+      }
+    },
+    {
+      "conceptId": "success_20_07",
+      "targetConcept": "미래 사회의 특징과 변화",
+      "frequency": 10,
+      "sourceExam": "2025학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 3,
+      "pattern": {
+        "assessmentIntent": "학생이 미래 사회의 특징과 변화에 대한 이해를 바탕으로 생애 발달 단계와 직업 윤리 원칙을 올바르게 연결할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "비교/대조",
+        "skeletonStructure": {
+          "itemFamily": "combination_judgment",
+          "stimulusTPL": "TPL_CASE_DIAGNOSTIC_FRAME",
+          "blankCount": 0,
+          "boCount": 3,
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true
+        },
+        "distractorBlueprint": [
+          "오답1: 'A가 속한 시기의 발달 과업에는 '또래 친구들과 어울리기'가 있다.' - A의 발달 과업을 잘못 이해하여 일반적인 청소년기의 발달 과업으로 잘못 연결함.",
+          "오답2: 'B가 속한 시기의 발달 과업에는 '성인 관점에서 사회적 가치 수용'이 있다.' - B의 발달 과업을 잘못 해석하여 성인으로서의 가치 수용을 일반화함.",
+          "오답3: '직업 윤리 원칙 중 A는 '전문성의 원칙', B는 '정직과 신용의 원칙'을 따르고 있다.' - A와 B의 직업 윤리를 잘못 연결하여 각각의 직업에 맞지 않는 윤리를 부여함."
+        ],
+        "difficultyDriver": "학생이 두 인물의 생애 발달 단계와 직업 윤리를 비교하고, 각각의 특성을 정확히 이해하고 연결해야 하므로 정보의 분산과 개념의 유사성을 구별하는 능력이 요구된다.",
+        "stemPattern": "위 [자료명]의 생애 발달 단계와 직업 윤리 원칙에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?"
+      }
+    },
+    {
+      "conceptId": "success_20_08",
+      "targetConcept": "직업 사회의 변화",
+      "frequency": 15,
+      "sourceExam": "2025학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 5,
+      "pattern": {
+        "assessmentIntent": "학생이 첨단 기술의 개념을 이해하고, 주어진 홍보물의 내용과 관련된 기술을 올바르게 식별할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "개념 변별",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_PROMOTIONAL_CANVAS",
+          "blankCount": 0,
+          "boCount": 0,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: 나노 기술 - 나노 기술은 물질의 미세한 조작에 관한 것으로, 주어진 홍보물의 스마트 홈 기술과 직접적인 연관성이 부족하다.",
+          "오답2: 핀테크 기술 - 핀테크는 금융 기술을 의미하며, 주어진 자료의 주제인 스마트 홈 기술과는 관련이 없다.",
+          "오답3: 증강현실 기술 - 증강현실은 가상 정보를 현실에 겹쳐 보여주는 기술로, 주어진 홍보물의 내용과는 맞지 않는다.",
+          "오답4: 웨어러블 로봇 기술 - 웨어러블 로봇은 개인의 신체에 착용하는 로봇 기술로, 스마트 홈 기술과는 관련성이 낮다."
+        ],
+        "difficultyDriver": "학생이 다양한 기술 개념을 이해하고, 주어진 정보에서 관련성을 추론해야 하므로, 유사 개념 변별과 정보 해석이 난이도를 결정짓는 핵심 요소이다.",
+        "stemPattern": "다음 [홍보물]에 나타난 첨단 기술로 가장 적절한 것은?"
+      }
+    }
+  ]
+}

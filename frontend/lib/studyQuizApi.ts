@@ -45,7 +45,7 @@ export interface FrequencyConceptItem {
   keyPoints: string[];
   examTips: string[];
   conceptContent: string;
-  sampleQuestion: ExamQuestion & { correct_answer: number; questionSource?: string; questionNumber?: number };
+  sampleQuestion: ExamQuestion & { correct_answer: number; questionSource?: string; questionNumber?: number; rawStimulus?: string };
   conceptHighlightV2?: ConceptHighlightV2 | null;
 }
 
@@ -350,4 +350,66 @@ export async function fetchStructuredConcept(
   } catch {
     return null;
   }
+}
+
+export interface SummationCardContent {
+  title: string;
+  description: string;
+  bullet_points: string[];
+  trap_points: string[];
+  integrated_data?: {
+    table?: string;
+    logic_flow?: string;
+    visual_analysis?: string;
+  };
+  tags: string[];
+}
+
+export interface SummationCard {
+  content: SummationCardContent;
+}
+
+export interface SummationData {
+  subject: string;
+  totalCards: number;
+  cards: SummationCard[];
+}
+
+export async function fetchSummationCards(
+  subjectSlug: string,
+  unitNumber: number,
+): Promise<SummationData> {
+  return apiFetch<SummationData>(`/study/${subjectSlug}/summation/${unitNumber}`);
+}
+
+export interface SummationV2KeyConcept {
+  name: string;
+  definition: string;
+  key_points: string[];
+  caution: string;
+}
+
+export interface SummationV2CardContent {
+  title: string;
+  body: string;
+  key_concepts: SummationV2KeyConcept[];
+  exam_tips: string[];
+  trap_points: string[];
+}
+
+export interface SummationV2Card {
+  content: SummationV2CardContent;
+}
+
+export interface SummationV2Data {
+  unit: number;
+  unitTitle: string;
+  cards: SummationV2Card[];
+}
+
+export async function fetchSummationV2Cards(
+  subjectSlug: string,
+  unitNumber: number,
+): Promise<SummationV2Data> {
+  return apiFetch<SummationV2Data>(`/study/${subjectSlug}/summation-v2/${unitNumber}`);
 }

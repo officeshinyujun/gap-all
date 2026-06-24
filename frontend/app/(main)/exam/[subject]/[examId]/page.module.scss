@@ -258,3 +258,148 @@
     font-size: 14px;
   }
 }
+
+/* 미학습 배너 */
+.unlearnedBanner {
+  padding: $spacing-10 $spacing-14;
+  background: $background-secondary;
+  border: 1px solid $border-primary;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.unlearnedBadge {
+  display: inline-block;
+  padding: 2px $spacing-8;
+  background: $background-third;
+  border: 1px solid $border-primary;
+  border-radius: 10px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: $text-secondary;
+  white-space: nowrap;
+}
+
+.hintButton {
+  padding: $spacing-6 $spacing-12;
+  background: $brand-primary;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: $background-primary;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 0.15s;
+  flex-shrink: 0;
+  &:hover:not(:disabled) { opacity: 0.88; }
+  &:disabled { opacity: 0.5; cursor: not-allowed; }
+}
+
+.retryHintButton {
+  width: 100%;
+  padding: $spacing-12;
+  background: $background-secondary;
+  border: 1.5px solid $brand-primary;
+  border-radius: 10px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: $brand-primary;
+  cursor: pointer;
+  transition: all 0.15s;
+  &:hover { background: $background-third; }
+}
+
+/* 힌트 모달 */
+.hintOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 1000;
+
+  @media (min-width: 769px) {
+    align-items: center;
+  }
+}
+
+.hintModal {
+  width: 100%;
+  max-width: 560px;
+  max-height: 80vh;
+  background: $background-primary;
+  border-radius: 16px 16px 0 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  @media (min-width: 769px) {
+    border-radius: 16px;
+    max-height: 70vh;
+  }
+}
+
+.hintModalHeader {
+  padding: $spacing-16 $spacing-20;
+  border-bottom: 1px solid $border-primary;
+  flex-shrink: 0;
+}
+
+.hintModalClose {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $background-secondary;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  color: $text-secondary;
+  &:hover { background: $background-third; }
+}
+
+.hintModalBody {
+  overflow-y: auto;
+  padding: $spacing-16 $spacing-20;
+  &::-webkit-scrollbar { width: 4px; }
+  &::-webkit-scrollbar-thumb { background: $border-primary; border-radius: 2px; }
+}
+
+.hintConceptItem {
+  padding: $spacing-12 $spacing-14;
+  background: $background-secondary;
+  border-radius: 10px;
+  border: 1px solid $border-primary;
+}
+
+.hintRankBadge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  background: $brand-primary;
+  color: $background-primary;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.hintKeyPoints {
+  margin: 0;
+  padding-left: $spacing-14;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  color: $text-secondary;
+  line-height: 1.7;
+  li { margin-bottom: 2px; }
+}

@@ -1,0 +1,14 @@
+@import '@/styles/variables.scss';
+
+.participantList {
+  padding-bottom: $spacing-8;
+  border-bottom: 1px solid $border-primary;
+}
+
+.dialogBox {
+  width: 100%;
+  border: 1.5px solid $text-strong;
+  padding: $spacing-16 $spacing-20;
+  box-sizing: border-box;
+  background-color: $background-primary;
+}

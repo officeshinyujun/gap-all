@@ -27,6 +27,9 @@ export class ChatMessage {
   @Column({ type: 'text' })
   message: string;
 
+  @Column({ name: 'similar_questions', type: 'jsonb', nullable: true })
+  similarQuestions: any;
+
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;
 

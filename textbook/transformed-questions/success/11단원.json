@@ -1,0 +1,680 @@
+{
+  "unit": 11,
+  "unitTitle": "평생 학습과 경력 개발",
+  "subject": "success",
+  "totalQuestions": 7,
+  "questions": [
+    {
+      "conceptName": "경력 개발의 의미와 필요성",
+      "originalSource": "2023학년도 대학수학능력시험 성공적인 직업생활",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "경력 개발의 의미와 필요성",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_SEQUENTIAL_WORKFLOW"
+        },
+        "render_ready": {
+          "question_stem": "다음 안내문에서 (가)에 들어갈 평생 학습 제도로 옳은 것은?",
+          "stimulus_data": {
+            "orientation": "vertical",
+            "steps": [
+              {
+                "idx": 1,
+                "label": "직업 연계 교육 설계",
+                "desc": "기업이 교육 기관과 협력하여 직무 관련 교육 과정을 설계 및 운영한다.",
+                "is_missing": false
+              },
+              {
+                "idx": 2,
+                "label": "학생 입학 및 과정 수료",
+                "desc": "학생이 교육 기관에 입학하여 해당 교육 과정을 수료한다.",
+                "is_missing": false
+              },
+              {
+                "idx": 3,
+                "label": "졸업과 취업 연계",
+                "desc": "학생이 졸업 후 협력 기업에 취업된다.",
+                "is_missing": false
+              }
+            ]
+          },
+          "options_list": [
+            "전문대학",
+            "사내 연수 프로그램",
+            "자율 학습 제도",
+            "학점 인정 제도",
+            "평생 교육 인증제"
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 1,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "기업이 교육 기관과 협력하여 직무 관련 교육 과정을 설계 및 운영한다.",
+            "why": "이 문장은 (가)에 들어갈 제도의 특성을 설명하고 있으며, 해당 제도가 기업과의 연계를 강조하고 있다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "O",
+            "reasoning": "전문대학은 특정 산업과의 연계를 위해 설계된 교육 과정으로, 제시된 사례와 잘 맞는다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "X",
+            "reasoning": "사내 연수 프로그램은 특정 기업 내에서만 운영되며, 외부 교육 기관과의 협력이 없다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "X",
+            "reasoning": "자율 학습 제도는 개인이 스스로 학습하는 방식으로, 기업과의 협력적 교육 과정과는 거리가 있다."
+          },
+          {
+            "optionNum": 4,
+            "verdict": "X",
+            "reasoning": "학점 인정 제도는 다양한 경로로 학점을 인정받는 제도로, 기업 연계 교육과는 관련이 없다."
+          },
+          {
+            "optionNum": 5,
+            "verdict": "X",
+            "reasoning": "평생 교육 인증제는 개인의 학습 이력을 관리하는 제도로, 특정 기업과의 협력이 포함되지 않는다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "안내문에서 제시된 교육 과정의 특징을 분석하여, 기업과의 연계를 고려한 제도를 선택한다."
+          }
+        ],
+        "takeaway": "경력 개발을 위한 평생 학습 제도의 중요성과 다양성을 이해하고, 실질적인 사례를 통해 적합한 제도를 판단하는 능력을 기른다."
+      }
+    },
+    {
+      "conceptName": "직업 세계의 변화",
+      "originalSource": "2023학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "직업 세계의 변화",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_기사형"
+        },
+        "render_ready": {
+          "question_stem": "다음 기사에서 (가)에 들어갈 평생 학습 제도로 옳은 것은?",
+          "stimulus_data": {
+            "content": "최근 5년간 지역의 중소기업 500여 곳과 대학교에서 3,000명이 넘는 직장인이 실무형 인재 양성을 위한 프로그램인 (가)에 참여하였다. 이 제도는 근무하면서 학습할 수 있는 기회를 제공하여 기업의 신규 인력들이 장기적으로 회사에 남아 핵심 인재로 성장할 수 있도록 돕고, 취업을 희망하는 청년들에게는 현장 경험을 쌓을 수 있는 기회를 제공한다. 전문대학과 대학교에서도 참여 학생들이 현장 실습을 통해 소정의 지원금을 받으며 실무 능력을 키울 수 있어 높은 평가를 받고 있다."
+          },
+          "options_list": [
+            "사내 교육 프로그램",
+            "자기 주도 학위제",
+            "학점 인정 제도",
+            "일과 학습 병행 제도",
+            "평생 교육 계좌제"
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 4,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "실무형 인재 양성을 위한 프로그램인 (가)에 참여하였다.",
+            "why": "프로그램의 목적이 실무형 인재 양성임을 강조한다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "X",
+            "reasoning": "사내 교육 프로그램은 기업 내부에서만 진행되므로 실무형 인재 양성과의 연관성이 적다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "X",
+            "reasoning": "자기 주도 학위제는 개인의 독학을 강조하므로 실무 경험과의 연결이 부족하다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "X",
+            "reasoning": "학점 인정 제도는 다양한 교육 기회를 제공하지만 실무와의 직접적인 연관성은 약하다."
+          },
+          {
+            "optionNum": 4,
+            "verdict": "O",
+            "reasoning": "일과 학습 병행 제도는 현장에서의 경험과 학습을 동시에 가능하게 하여 실무형 인재 양성을 지원한다."
+          },
+          {
+            "optionNum": 5,
+            "verdict": "X",
+            "reasoning": "평생 교육 계좌제는 개인의 학습을 지원하지만 실무 경험과의 직접적인 연관성이 약하다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "기사 내용을 읽고 (가)에 들어갈 내용을 유추한다."
+          },
+          {
+            "step": 2,
+            "action": "주어진 선택지를 검토하여 각 선택지가 제시하는 제도의 특징을 파악한다."
+          },
+          {
+            "step": 3,
+            "action": "실무형 인재 양성과 관련된 제도를 선택하여 정답을 결정한다."
+          }
+        ],
+        "takeaway": "직업 세계의 변화에 맞춰 평생 학습 제도의 중요성과 그 특징을 이해하는 것이 필요하다."
+      }
+    },
+    {
+      "conceptName": "경력 개발의 목적과 단계",
+      "originalSource": "2024학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "경력 개발의 목적과 단계",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_COMPARATIVE_MATRIX"
+        },
+        "render_ready": {
+          "question_stem": "다음은 [직업 교육 프로그램 보고서]의 일부이다. 이에 해당하는 평생 학습 제도로 가장 적절한 것은?",
+          "stimulus_data": {
+            "headers": [
+              {
+                "id": "h1",
+                "label": "제도"
+              },
+              {
+                "id": "h2",
+                "label": "특징"
+              }
+            ],
+            "rows": [
+              {
+                "id": "1",
+                "cells": [
+                  "산업 연계형",
+                  "기업이 필요로 하는 인재를 기르기 위해 현장 교육과 이론 교육을 결합하여 제공하며, 교육을 이수한 자에게는 해당 분야의 자격증을 부여하는 제도"
+                ]
+              },
+              {
+                "id": "2",
+                "cells": [
+                  "학위 취득형",
+                  "일하면서 학위를 취득할 수 있도록 지원하는 형태"
+                ]
+              },
+              {
+                "id": "3",
+                "cells": [
+                  "기술 연수형",
+                  "직무에 필요한 기술을 집중적으로 교육받아 자격을 취득하게 되는 과정"
+                ]
+              },
+              {
+                "id": "4",
+                "cells": [
+                  "신입생 단계",
+                  "직업교육을 제공할 수 있는 기관에서 고등학교, 전문대학, 대학교 재학생을 대상으로 한 직무 교육 프로그램"
+                ]
+              },
+              {
+                "id": "5",
+                "cells": [
+                  "재직자 연수형",
+                  "직원에게 직무 관련 교육을 제공하고, 이수 후에는 경력 인증서를 발급하는 제도"
+                ]
+              }
+            ],
+            "selection_chips": []
+          },
+          "options_list": [
+            "기술 연수제",
+            "학위 연계 프로그램",
+            "사내 직무 교육",
+            "직업 훈련 센터",
+            "산업 연계형 교육"
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 5,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "기업이 필요로 하는 인재를 기르기 위해",
+            "why": "해당 제도가 기업과 교육 기관 간의 협력을 통해 인재를 양성하는 목적을 가지고 있다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "X",
+            "reasoning": "'기술 연수제'는 특정 기술에만 초점을 맞추어 교육하는 것이므로, 제도의 목적과 부합하지 않는다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "X",
+            "reasoning": "'학위 연계 프로그램'은 학위 취득에 중점을 두어 제도의 정의와는 거리가 있다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "X",
+            "reasoning": "'사내 직무 교육'은 특정 기업의 교육에 국한되며, 일반적인 평생 학습 제도의 범주에 속하지 않는다."
+          },
+          {
+            "optionNum": 4,
+            "verdict": "X",
+            "reasoning": "'직업 훈련 센터'는 특정 장소에서만 이루어지는 교육 프로그램으로, 전반적인 제도의 성격과 다르다."
+          },
+          {
+            "optionNum": 5,
+            "verdict": "O",
+            "reasoning": "'산업 연계형 교육'은 기업의 요구와 교육 프로그램이 연계되어 자격증을 부여하는 제도로, 주어진 자료와 가장 잘 맞는다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "제시된 자료를 통해 각 제도의 특징을 분석한다."
+          },
+          {
+            "step": 2,
+            "action": "제도의 목적과 특징이 주어진 질문과 어떻게 연결되는지를 판단한다."
+          },
+          {
+            "step": 3,
+            "action": "적절한 제도를 선택하기 위해 각 옵션을 비교하고 분석한다."
+          }
+        ],
+        "takeaway": "각 평생 학습 제도의 특징을 이해하고, 이를 바탕으로 적합한 제도를 선택하는 능력을 개발하는 것이 중요하다."
+      }
+    },
+    {
+      "conceptName": "경력 개발 경로 탐색",
+      "originalSource": "2025학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "경력 개발 경로 탐색",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_CASE_DIAGNOSTIC_FRAME"
+        },
+        "render_ready": {
+          "question_stem": "다음 [사례]에 나타난 직업 교육 제도를 활용하여 [학습 활동]을 수행할 경우 최종 도착지로 옳은 것은?",
+          "stimulus_data": {
+            "case_profile": {
+              "name": "직업 교육 제도",
+              "context": "사례와 학습 활동을 통해 직업 교육 제도의 활용 사례를 분석하고 학습 활동을 진행하는 내용."
+            },
+            "narrative": "[사례]\n| 직업 교육 제도 | (가) | (나) |\n|---|---|---|\n| 활용 사례 | 김은 작년에 수강한 직업 관련 과정 덕분에 취업 시 필요한 자격을 갖추게 됨. | 이은 2024년에 직업 훈련원에서 실시하는 자격 시험에 합격하여 전문 자격증을 취득할 수 있었음. |\n[학습 활동]\n위 [사례]의 직업 교육 제도 (가), (나)에 대한 물음에 옳게 응답한 후 게임판의 최종 도착지를 찾아보십시오.\n출발 ➡ (가)와 (나)는 기업이 자격증 취득을 위한 교육을 제공하는 제도인가? (예: 위쪽으로 이동 / 아니요: 아래쪽으로 이동)\n[아니요 이동 후] ➡ (가)를 통해 특정 직업에 필요한 자격증을 받을 수 있는가? (예: 오른쪽으로 이동 / 아니요: A로 이동)\n[예 이동 후] ➡ (가)는 제공되는 교육의 종류에 따라 '기본 과정'과 '전문 과정'으로 구분되는가? (예: C로 이동 / 아니요: B로 이동)",
+            "check_items": [
+              {
+                "id": 1,
+                "label": "(가)와 (나)는 기업이 자격증 취득을 위한 교육을 제공하는 제도인가?",
+                "is_checked": false
+              },
+              {
+                "id": 2,
+                "label": "(가)를 통해 특정 직업에 필요한 자격증을 받을 수 있는가?",
+                "is_checked": false
+              },
+              {
+                "id": 3,
+                "label": "(가)는 제공되는 교육의 종류에 따라 '기본 과정'과 '전문 과정'으로 구분되는가?",
+                "is_checked": false
+              }
+            ]
+          },
+          "options_list": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E"
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 2,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "김은 작년에 수강한 직업 관련 과정 덕분에 취업 시 필요한 자격을 갖추게 됨.",
+            "why": "직업 교육 제도가 경력 개발에 기여하는 사례를 보여줍니다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "X",
+            "reasoning": "(가)와 (나)는 기업의 자격증 취득 지원과 관련이 없으므로 선택할 수 없습니다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "O",
+            "reasoning": "(가)를 통해 자격증을 받을 수 있기 때문에 올바른 선택입니다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "X",
+            "reasoning": "(가)는 교육의 종류에 따라 구분되지 않는다는 잘못된 정보에 기반하고 있습니다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "사례를 분석하여 (가)와 (나)에 대한 질문을 확인합니다."
+          },
+          {
+            "step": 2,
+            "action": "(가)와 (나)가 기업이 자격증 취득을 위한 교육을 제공하는 제도인지 판단합니다."
+          },
+          {
+            "step": 3,
+            "action": "(가)를 통해 자격증을 받을 수 있는지 확인하여 최종 도착지를 결정합니다."
+          }
+        ],
+        "takeaway": "직업 교육 제도는 경력 개발에 중요한 역할을 하며, 다양한 경로를 통해 자격을 취득할 수 있음을 이해해야 합니다."
+      }
+    },
+    {
+      "conceptName": "전공별 경력 개발 경로",
+      "originalSource": "2022학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "전공별 경력 개발 경로",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_리포트형"
+        },
+        "render_ready": {
+          "question_stem": "다음 글에서 설명하고 있는 평생 학습 제도로 옳은 것은?",
+          "stimulus_data": {
+            "content": "한국평생교육진흥원은 고등학교 졸업 이상의 학력을 가진 사람에게 대학교를 다니지 않아도 학위를 취득할 수 있도록 지원하며, 직장과 학습을 병행할 수 있게 하는 다양한 프로그램을 운영하고 있다. 이 제도는 독립적으로 학습하는 이들에게 국가에서 인정하는 학위를 부여하여 평생 교육의 가치를 실현하고, 개인의 성장과 사회적 발전에 기여하는 것을 목표로 한다."
+          },
+          "options_list": [
+            "전문대학 계약제",
+            "학점 취득 시스템",
+            "독립 학위 취득 제도",
+            "일과 학습 통합 제도",
+            "평생 교육 계좌 시스템"
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 3,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "독립적으로 학습하는 이들에게 국가에서 인정하는 학위를 부여하여 평생 교육의 가치를 실현하고",
+            "why": "해당 설명이 독학 학위제의 핵심 취지를 직접적으로 언급하고 있다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "X",
+            "reasoning": "전문대학 계약제는 특정 학과와의 계약을 통한 교육 방식으로, 평생 학습 제도와는 다르다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "X",
+            "reasoning": "학점 취득 시스템은 학점을 기반으로 한 제도이며 평생 학습 제도의 한 요소일 수 있지만 주어진 설명과는 일치하지 않는다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "O",
+            "reasoning": "독립 학위 취득 제도는 주어진 설명과 일치하며, 평생 학습을 통해 학위를 취득하는 방식이다."
+          },
+          {
+            "optionNum": 4,
+            "verdict": "X",
+            "reasoning": "일과 학습 통합 제도는 학습과 일을 병행하는 것이지만 주어진 설명의 핵심과는 다르다."
+          },
+          {
+            "optionNum": 5,
+            "verdict": "X",
+            "reasoning": "평생 교육 계좌 시스템은 개인의 학습 이력을 관리하는 제도로, 주어진 설명의 핵심 내용과는 맞지 않는다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "주어진 글의 내용을 통해 평생 학습 제도의 개념을 이해한다."
+          },
+          {
+            "step": 2,
+            "action": "각 선택지를 검토하여 주어진 설명에 가장 잘 맞는 제도를 찾는다."
+          },
+          {
+            "step": 3,
+            "action": "정답을 선택하고 그 이유를 분석한다."
+          }
+        ],
+        "takeaway": "평생 학습 제도의 개념과 특징을 이해하고, 그에 맞는 제도를 정확히 구별하는 능력이 중요하다."
+      }
+    },
+    {
+      "conceptName": "평생 학습의 의미와 중요성",
+      "originalSource": "2022학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "평생 학습의 의미와 중요성",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_CASE_DIAGNOSTIC_FRAME"
+        },
+        "render_ready": {
+          "question_stem": "다음 B 씨의 성공 사례를 통해 알 수 있는 평생 학습 제도로 옳은 것은?",
+          "stimulus_data": {
+            "case_profile": {
+              "name": "B씨",
+              "context": "직장 생활을 하면서 공부를 병행함"
+            },
+            "narrative": "B씨는 이미 직장에 다니고 있었으나, 더 나은 직업적 기회를 얻기 위해 공부를 결심했다. 그는 다양한 온라인 강좌와 워크숍을 통해 필요한 기술을 배우고 자격증을 취득했다. 또한, 직장에서의 경험을 학점으로 인정받을 수 있는 제도를 알게 되어 이를 활용하여 학위를 취득하였다. 최종적으로 그는 자신의 경력을 발전시키는 데 성공하였다.",
+            "check_items": [
+              {
+                "id": 1,
+                "label": "직장 생활을 하면서 학습한 내용 확인",
+                "is_checked": false
+              },
+              {
+                "id": 2,
+                "label": "온라인 강좌 활용 여부 확인",
+                "is_checked": false
+              },
+              {
+                "id": 3,
+                "label": "자격증 취득 여부 확인",
+                "is_checked": false
+              },
+              {
+                "id": 4,
+                "label": "학위 취득 여부 확인",
+                "is_checked": false
+              }
+            ]
+          },
+          "options_list": [
+            "정규 교육과정",
+            "직업 훈련 프로그램",
+            "학점 인정 제도",
+            "자율 학습 제도",
+            "전문 자격증 과정"
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 3,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "B씨는 다양한 온라인 강좌와 워크숍을 통해 필요한 기술을 배우고 자격증을 취득했다.",
+            "why": "B씨가 활용한 제도는 학점 인정 제도로, 직장 경험과 학습 내용을 학점으로 인정받아 학위 취득이 가능하다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "X",
+            "reasoning": "'정규 교육과정'은 B씨의 사례와 맞지 않다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "X",
+            "reasoning": "'직업 훈련 프로그램'은 B씨가 선택한 학습 방식과는 다르다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "O",
+            "reasoning": "'학점 인정 제도'는 B씨가 활용한 제도로, 그의 경험과 학습이 학점으로 인정되었다."
+          },
+          {
+            "optionNum": 4,
+            "verdict": "X",
+            "reasoning": "'자율 학습 제도'는 B씨의 학습 방법에 대한 설명이 부족하다."
+          },
+          {
+            "optionNum": 5,
+            "verdict": "X",
+            "reasoning": "'전문 자격증 과정'은 B씨가 자격증을 취득했지만, 학위 취득과는 직접적인 관련이 없다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "B씨의 사례를 읽고, 어떤 평생 학습 제도를 적용했는지 분석한다."
+          },
+          {
+            "step": 2,
+            "action": "제공된 선택지 중에서 B씨의 상황에 적합한 제도를 선택한다."
+          }
+        ],
+        "takeaway": "평생 학습은 개인의 경력 발전에 중요한 역할을 하며, 다양한 경로를 통해 학습할 수 있다."
+      }
+    },
+    {
+      "conceptName": "평생 학습 제도",
+      "originalSource": "2024학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "평생 학습 제도",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_FORMAL_DOCUMENT"
+        },
+        "render_ready": {
+          "question_stem": "다음 글에 나타난 평생 학습 제도 (가)에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+          "stimulus_data": {
+            "doc_type": "제도 설명서",
+            "header_info": {
+              "title": "평생 학습 제도 안내",
+              "date": "2023-10",
+              "author": "한국평생교육진흥원"
+            },
+            "paragraphs": [
+              {
+                "sub_title": "제도 개요",
+                "content": "한국평생교육진흥원이 주관하는 평생 학습 제도 중 하나인 (가)은/는 「지속적 교육 지원에 관한 법률」에 근거하여 정규 교육기관 외에서도 이루어지는 다양한 학습 활동과 자격을 학점으로 인정하는 시스템이다."
+              },
+              {
+                "sub_title": "학위 취득 요건",
+                "content": "이 제도를 통해 필요한 학점을 인정받고 정해진 요건을 충족하면 학위를 받을 수 있는 기회를 제공한다."
+              }
+            ],
+            "footnotes": []
+          },
+          "options_list": [
+            "산업체의 요구에 따라 운영되는 현장 실습 프로그램이다.",
+            "정부와 기업이 협력하여 직원 교육을 위한 맞춤형 프로그램을 개발하는 과정이다.",
+            "학점을 인정받기 위해서는 학점 인정 신청 시 고등학교 졸업 이상의 학력이 요구된다."
+          ]
+        },
+        "combo_block": {
+          "title": "<보기>",
+          "items": [
+            {
+              "key": "ㄱ",
+              "text": "산업체의 요구에 따라 운영되는 현장 실습 프로그램이다."
+            },
+            {
+              "key": "ㄴ",
+              "text": "정부와 기업이 협력하여 직원 교육을 위한 맞춤형 프로그램을 개발하는 과정이다."
+            },
+            {
+              "key": "ㄷ",
+              "text": "학점을 인정받기 위해서는 학점 인정 신청 시 고등학교 졸업 이상의 학력이 요구된다."
+            }
+          ]
+        },
+        "correct_answer": 3,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 1,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "정규 교육기관 외에서도 이루어지는 다양한 학습 활동과 자격을 학점으로 인정하는 시스템이다.",
+            "why": "평생 학습 제도의 핵심 기능을 설명하고 있다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "X",
+            "reasoning": "산업체의 요구에 따른 프로그램은 평생 학습 제도의 정의와 맞지 않다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "X",
+            "reasoning": "정부와 기업의 협력 교육은 평생 학습 제도의 직접적인 설명이 아니다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "O",
+            "reasoning": "학점 인정 요건을 정확히 반영하고 있어 적절하다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "제공된 글을 읽고 평생 학습 제도의 정의와 요건을 이해한다."
+          },
+          {
+            "step": 2,
+            "action": "각 보기의 내용이 제도와 어떻게 관련되는지를 분석한다."
+          },
+          {
+            "step": 3,
+            "action": "정확한 설명을 선택하여 정답을 결정한다."
+          }
+        ],
+        "takeaway": "평생 학습 제도의 목적과 요건을 명확히 이해하는 것이 중요하다."
+      }
+    }
+  ]
+}

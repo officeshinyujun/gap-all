@@ -170,7 +170,7 @@ export class ExamsService {
   async findOne(userId: string, examId: string, userRole?: string) {
     const exam = await this.examRepo.findOne({
       where: { id: examId },
-      relations: ['subject', 'tags', 'items', 'items.question'],
+      relations: ['subject', 'tags', 'items', 'items.question', 'items.question.unit'],
       order: { items: { orderIndex: 'ASC' } },
     });
 
@@ -184,6 +184,8 @@ export class ExamsService {
       orderIndex: item.orderIndex,
       userAnswer: item.userAnswer,
       isCorrect: item.isCorrect,
+      unitNumber: item.question.unit?.unitNumber ?? null,
+      targetConcept: item.question.targetConcept,
       question: {
         id: item.question.id,
         targetConcept: item.question.targetConcept,

@@ -1,0 +1,1006 @@
+{
+  "unit": 2,
+  "unitTitle": "생애 발달과 진로 설계",
+  "subject": "success",
+  "totalQuestions": 9,
+  "questions": [
+    {
+      "conceptName": "생애 발달의 개념 및 특징",
+      "originalSource": "2023학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "생애 발달의 개념 및 특징",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_CONVERSATIONAL_FLOW"
+        },
+        "render_ready": {
+          "question_stem": "다음 대화를 통해 알 수 있는 B씨의 현재 생애 발달 단계의 발달 과업으로 가장 적절한 것은?",
+          "stimulus_data": {
+            "participants": [
+              {
+                "id": "B",
+                "name": "B씨",
+                "role": "커피 로스터"
+              },
+              {
+                "id": "I",
+                "name": "인터뷰어",
+                "role": "진행자"
+              }
+            ],
+            "messages": [
+              {
+                "participant_id": "I",
+                "text": "안녕하세요? 오늘은 커피 로스터로 활동하고 있는 B씨를 만나보겠습니다. 언제부터 커피에 관심을 가지게 되었나요?",
+                "timestamp": ""
+              },
+              {
+                "participant_id": "B",
+                "text": "대학생 때 친구의 추천으로 커피를 처음 접했습니다. 커피의 깊은 맛과 향에 매료되어, 그 후로는 다양한 원두를 공부하며 로스터로서의 길을 걷기 시작했습니다. 3년 전, 결국 제 카페를 열게 되었고, 현재는 새로 입사한 직원들을 교육하며 팀을 이끌고 있습니다. 제 목표는 5년 내에 국내 대회에서 수상하는 것입니다.",
+                "timestamp": ""
+              }
+            ]
+          },
+          "options_list": [
+            "이직 후 새로운 직무에 적응하기 위해 노력한다.",
+            "직장 내에서의 경험을 바탕으로 전문성을 강화한다.",
+            "자신의 경력을 쌓으면서 진로를 재설계한다.",
+            "가족과의 관계를 회복하기 위해 노력한다.",
+            "후배들에게 지식을 전수하며 사회적 책임을 다한다."
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 5,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "현재는 새로 입사한 직원들을 교육하며 팀을 이끌고 있습니다.",
+            "why": "B씨는 후배들에게 지식을 전수하며 자신의 전문성을 키우고 사회 구성원으로서의 역할을 수행하고 있다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "X",
+            "reasoning": "이직 후 적응은 B씨의 현재 상황과 관련이 없다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "O",
+            "reasoning": "직장 내 경험을 통해 전문성을 강화하는 것이 현재 B씨의 활동에 부합한다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "X",
+            "reasoning": "진로 재설계는 B씨의 현재 역할과는 거리가 있다."
+          },
+          {
+            "optionNum": 4,
+            "verdict": "X",
+            "reasoning": "가족과의 관계 회복은 대화에서 언급되지 않았다."
+          },
+          {
+            "optionNum": 5,
+            "verdict": "O",
+            "reasoning": "후배들에게 지식을 전수하는 것이 B씨의 현재 발달 과업에 적합하다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "대화 내용을 분석하여 B씨의 현재 상황과 발달 과업을 파악한다."
+          },
+          {
+            "step": 2,
+            "action": "주어진 선택지들을 검토하여 가장 적합한 발달 과업을 선택한다."
+          }
+        ],
+        "takeaway": "전문성을 갖춘 사회 구성원으로서의 역할 수행이 중요하다."
+      }
+    },
+    {
+      "conceptName": "발달 과업의 개념 및 해비거스트의 발달 과업",
+      "originalSource": "2024학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "발달 과업의 개념 및 해비거스트의 발달 과업",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_CONVERSATIONAL_FLOW"
+        },
+        "render_ready": {
+          "question_stem": "위 대화를 통해 알 수 있는 C, D씨의 생애 발달 단계의 발달 과업에 대한 설명으로 가장 적절한 것은?",
+          "stimulus_data": {
+            "participants": [
+              {
+                "id": "C",
+                "name": "C씨",
+                "role": "의사"
+              },
+              {
+                "id": "D",
+                "name": "D씨",
+                "role": "교사"
+              }
+            ],
+            "messages": [
+              {
+                "participant_id": "C",
+                "text": "제가 12살 때, 의사가 되어 환자를 치료하는 모습을 보고 큰 감명을 받았습니다. 그때부터 의학에 관심을 가지게 되었고, 의과대학에 진학하여 30세에 병원에서 일하게 되었습니다. 앞으로 60세에 은퇴한 후에는 의료봉사를 통해 사회에 기여하고 싶습니다.",
+                "timestamp": ""
+              },
+              {
+                "participant_id": "D",
+                "text": "저는 고등학교 시절에 친구의 조언으로 교육학을 전공하게 되었습니다. 현재 32세로, 초등학교에서 교사로 5년째 재직 중입니다. 제가 원하는 은퇴 시기는 65세로, 그 후에는 교육 관련 자문 활동을 하고 싶습니다.",
+                "timestamp": ""
+              }
+            ]
+          },
+          "options_list": [
+            "C 씨가 진로를 설정한 시기의 발달 과업에는 '자아 정체감 형성하기'가 있다.",
+            "C 씨가 희망하는 은퇴 시기의 발달 과업에는 '사회적 책임 수용'이 있다.",
+            "D 씨가 진로를 설정한 시기의 발달 과업에는 '또래와의 관계 형성하기'가 있다.",
+            "D 씨가 희망하는 은퇴 시기의 발달 과업에는 '인생의 목표 설정하기'가 있다.",
+            "C, D 씨가 직업인으로 일하기 시작한 시기의 발달 과업에는 '전문 지식과 기술 습득하기'가 있다."
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 5,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "C씨는 의사가 되기로 결심한 경험을 이야기하며, 은퇴 후 의료봉사에 대한 바람을 언급하였다.",
+            "why": "C 씨의 진로 설정 시기와 은퇴 목표는 발달 과업 이론에 근거하여 분석 가능하다."
+          },
+          {
+            "quote": "D씨는 교육학 전공 후 교사로서의 경험과 은퇴 후 활동 계획을 공유하였다.",
+            "why": "D 씨의 경력과 은퇴 목표는 발달 과업 이론과 관련이 있다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "X",
+            "reasoning": "C 씨의 진로 설정 시기의 발달 과업은 '자아 정체감 형성하기'가 아닌 '전문 지식과 기술 습득하기'로 볼 수 있다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "O",
+            "reasoning": "C 씨의 은퇴 목표는 '사회적 책임 수용'에 해당하며, 이는 그가 의료봉사에 대한 관심을 보인 덕분이다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "X",
+            "reasoning": "D 씨의 진로 설정 시기는 '또래와의 관계 형성하기'보다는 '전문 지식과 기술 습득하기'에 더 가깝다."
+          },
+          {
+            "optionNum": 4,
+            "verdict": "O",
+            "reasoning": "D 씨의 은퇴 목표는 '인생의 목표 설정하기'와 관련이 있으며, 이는 그의 교육 관련 자문 활동 계획에서 드러난다."
+          },
+          {
+            "optionNum": 5,
+            "verdict": "O",
+            "reasoning": "C, D 씨 모두 직업인으로 일하기 시작한 시기의 발달 과업으로 '전문 지식과 기술 습득하기'를 갖고 있다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "대화를 통해 두 사람의 진로 설정 시기와 은퇴 목표를 이해한다."
+          },
+          {
+            "step": 2,
+            "action": "각 인물의 발달 과업을 해비거스트 이론에 따라 분석한다."
+          }
+        ],
+        "takeaway": "생애 발달 단계에서의 발달 과업은 개인의 진로와 목표 설정에 큰 영향을 미친다."
+      }
+    },
+    {
+      "conceptName": "해비거스트의 생애 발달 단계",
+      "originalSource": "2023학년도 대학수학능력시험 성공적인 직업생활",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "해비거스트의 생애 발달 단계",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_CONVERSATIONAL_FLOW"
+        },
+        "render_ready": {
+          "question_stem": "다음 인터뷰를 통해 알 수 있는 B씨의 발달 과업과 기업가 정신에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+          "stimulus_data": {
+            "participants": [
+              {
+                "id": "A",
+                "name": "기자",
+                "role": "기자"
+              },
+              {
+                "id": "B",
+                "name": "B씨",
+                "role": "개발자"
+              }
+            ],
+            "messages": [
+              {
+                "participant_id": "A",
+                "text": "청소년을 위한 코딩 캠프 운영 과정에 대해 설명해 주세요.",
+                "timestamp": ""
+              },
+              {
+                "participant_id": "B",
+                "text": "대학교에서 컴퓨터 공학을 전공한 후, 25세에 첫 직장에서 소프트웨어 개발을 시작했습니다. 40세에 인공지능 관련 기술을 배우고 이를 활용하여 혁신적인 애플리케이션을 개발했습니다. 50세에 청소년들에게 코딩을 가르치기 위해 교육 회사를 설립하였고, 현재는 무료 코딩 캠프를 운영하고 있습니다.",
+                "timestamp": ""
+              }
+            ]
+          },
+          "options_list": [
+            "첫 직장 경험 시기의 발달 과업에는 '직업에 필요한 기술 습득'이 포함된다.",
+            "인공지능 기술을 배운 시기의 발달 과업에는 '은퇴 후 생활 준비'가 포함된다.",
+            "코딩 교육 회사의 창업 시 중요하게 여긴 기업가 정신의 요소 중 하나는 '사회적 기여'이다."
+          ]
+        },
+        "combo_block": {
+          "title": "<보기>",
+          "items": [
+            {
+              "key": "ㄱ",
+              "text": "첫 직장 경험 시기의 발달 과업에는 '직업에 필요한 기술 습득'이 포함된다."
+            },
+            {
+              "key": "ㄴ",
+              "text": "인공지능 기술을 배운 시기의 발달 과업에는 '은퇴 후 생활 준비'가 포함된다."
+            },
+            {
+              "key": "ㄷ",
+              "text": "코딩 교육 회사의 창업 시 중요하게 여긴 기업가 정신의 요소 중 하나는 '사회적 기여'이다."
+            }
+          ]
+        },
+        "correct_answer": 3,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "대학교에서 컴퓨터 공학을 전공한 후, 25세에 첫 직장에서 소프트웨어 개발을 시작했습니다.",
+            "why": "첫 직장 경험은 직업에 필요한 기술 습득과 관련된 발달 과업을 잘 나타낸다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "O",
+            "reasoning": "B씨의 첫 직장 경험은 직업에 필요한 기술을 배우는 것과 관련이 있다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "X",
+            "reasoning": "인공지능 기술 습득 시기는 은퇴 준비와 관련된 발달 과업이 아니다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "O",
+            "reasoning": "B씨의 기업가 정신은 사회적 기여를 중시하는 것으로 해석된다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "B씨의 인터뷰 내용을 분석하여 각 발달 과업과 기업가 정신 요소를 확인한다."
+          }
+        ],
+        "takeaway": "발달 과업과 기업가 정신의 연결성을 이해하는 것이 중요하다."
+      }
+    },
+    {
+      "conceptName": "에릭슨의 심리사회적 발달 단계",
+      "originalSource": "2025학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "에릭슨의 심리사회적 발달 단계",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_INSTRUCTIONAL_SCENE"
+        },
+        "render_ready": {
+          "question_stem": "다음은 개별 발달 단계에 대한 교실의 상황이다. 교사의 질문에 올바르게 대답한 학생의 조합을 <보기>에서 선택하시오.",
+          "stimulus_data": {
+            "instructor": {
+              "id": "T1",
+              "name": "김 선생님",
+              "role": "교사"
+            },
+            "canvas_content": {
+              "title": "발달 단계 학습",
+              "items": [
+                {
+                  "stage": "(가)기초 단계",
+                  "task": "기본적인 사회적 기술 습득하기"
+                },
+                {
+                  "stage": "(나)청소년기",
+                  "task": "자아 정체성 탐색하기"
+                },
+                {
+                  "stage": "(다)성인 초기",
+                  "task": "사회적 책임감 형성하기"
+                },
+                {
+                  "stage": "(라)중년기",
+                  "task": "가족과 직장 사이의 균형 찾기"
+                }
+              ]
+            },
+            "students": [
+              {
+                "id": "S1",
+                "name": "민수",
+                "role": "학생"
+              },
+              {
+                "id": "S2",
+                "name": "소라",
+                "role": "학생"
+              },
+              {
+                "id": "S3",
+                "name": "지훈",
+                "role": "학생"
+              },
+              {
+                "id": "S4",
+                "name": "하늘",
+                "role": "학생"
+              }
+            ]
+          },
+          "options_list": [
+            "민수, 소라",
+            "민수, 지훈",
+            "소라, 지훈",
+            "소라, 하늘",
+            "지훈, 하늘"
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 3,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "각 단계에서 요구되는 발달 과업은 서로 다르다.",
+            "why": "학생들이 각 발달 단계에 대해 이해하고, 이에 따른 적절한 발달 과업을 식별해야 하므로."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "X",
+            "reasoning": "민수는 기초 단계의 발달 과업을 선택하고, 소라는 청소년기의 과업을 선택하여 혼합된 조합을 형성함."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "X",
+            "reasoning": "민수는 기초 단계의 과업을 선택하고, 지훈은 청소년기의 과업을 선택하여 혼합된 조합을 형성함."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "O",
+            "reasoning": "소라는 청소년기의 과업을 선택하고, 지훈은 성인 초기의 과업을 선택하여 올바른 조합을 형성함."
+          },
+          {
+            "optionNum": 4,
+            "verdict": "X",
+            "reasoning": "소라는 청소년기의 과업을 선택하고, 하늘은 중년기의 과업을 선택하여 혼합된 조합을 형성함."
+          },
+          {
+            "optionNum": 5,
+            "verdict": "X",
+            "reasoning": "지훈은 성인 초기의 과업을 선택하고, 하늘은 중년기의 과업을 선택하여 혼합된 조합을 형성함."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "각 학생이 선택한 발달 과업을 확인한다."
+          },
+          {
+            "step": 2,
+            "action": "학생들이 선택한 발달 과업이 각 단계에 맞는지 분석한다."
+          },
+          {
+            "step": 3,
+            "action": "올바른 조합을 찾아 답안을 선택한다."
+          }
+        ],
+        "takeaway": "각 발달 단계의 과업을 이해하고, 학생들이 올바른 조합을 선택할 수 있도록 하는 것이 중요하다."
+      }
+    },
+    {
+      "conceptName": "레빈슨의 인생 주기",
+      "originalSource": "2024학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "레빈슨의 인생 주기",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_CASE_DIAGNOSTIC_FRAME"
+        },
+        "render_ready": {
+          "question_stem": "다음 사례를 통해 알 수 있는 B씨의 생애 발달 단계와 진로 의사 결정 과정에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은? (단, 생애 발달 단계별 발달 과업은 해비거스트(Havighurst, R. J.) 이론에 근거한다.)",
+          "stimulus_data": {
+            "case_profile": {
+              "name": "B 씨",
+              "context": "농업 분야에 대한 진로 선택과 창업 경험"
+            },
+            "narrative": "B 씨는 어릴 적부터 식물 재배에 관심이 많아 자주 가족과 함께 정원에서 식물을 기르고, 중학교 진로 상담을 통해 농업 분야에 진로를 정했다. 이후 농업 전문 고등학교에 진학하여 농업 관련 지식을 쌓고 졸업 후, 자신의 농장을 시작했다. 하지만 갑작스러운 자연재해로 큰 피해를 입고 사업을 중단하게 되었고, 여러 직업을 경험하며 자금을 모아 다시 농사를 시작하게 되었다.",
+            "check_items": [
+              {
+                "id": 1,
+                "label": "어릴 적 식물 재배 경험",
+                "is_checked": true
+              },
+              {
+                "id": 2,
+                "label": "진로 상담을 통한 직업 선택",
+                "is_checked": true
+              },
+              {
+                "id": 3,
+                "label": "전문 지식 습득을 위한 교육 이수",
+                "is_checked": true
+              },
+              {
+                "id": 4,
+                "label": "사업 실패 후 재기 노력",
+                "is_checked": true
+              }
+            ]
+          },
+          "options_list": [
+            "B씨가 재기에 성공한 시기의 발달 과업에는 '자아 정체성 확립하기'가 포함된다.",
+            "B씨가 직업 적성을 평가한 행위는 의사 결정 과정 중 '대안 탐색 단계'에 해당한다.",
+            "B씨가 농장을 폐업한 시기의 발달 특성에 '정서적 불안정과 사회적 독립'이 포함된다."
+          ]
+        },
+        "combo_block": {
+          "title": "<보기>",
+          "items": [
+            {
+              "key": "ㄱ",
+              "text": "B씨가 재기에 성공한 시기의 발달 과업에는 '자아 정체성 확립하기'가 포함된다."
+            },
+            {
+              "key": "ㄴ",
+              "text": "B씨가 직업 적성을 평가한 행위는 의사 결정 과정 중 '대안 탐색 단계'에 해당한다."
+            },
+            {
+              "key": "ㄷ",
+              "text": "B씨가 농장을 폐업한 시기의 발달 특성에 '정서적 불안정과 사회적 독립'이 포함된다."
+            }
+          ]
+        },
+        "correct_answer": 2,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "B 씨는 어릴 적부터 식물 재배에 관심이 많아 자주 가족과 함께 정원에서 식물을 기르고, 중학교 진로 상담을 통해 농업 분야에 진로를 정했다.",
+            "why": "B 씨의 초기 관심과 진로 선택은 그의 생애 발달 단계와 진로 의사 결정 과정의 기초를 이루는 중요한 요소이다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "X",
+            "reasoning": "B씨의 재기 성공 시기에 '자아 정체성 확립하기'라는 발달 과업이 포함되지는 않으며, 다른 과업이 더 적합하다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "O",
+            "reasoning": "B씨의 직업 적성 평가 행위는 의사 결정 과정 중 '대안 탐색 단계'에 해당한다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "X",
+            "reasoning": "B씨가 농장을 폐업한 시기의 발달 특성은 '정서적 불안정과 사회적 독립'이 아닌, 다른 특성이 더 적합하다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "B씨의 사례를 바탕으로 각 발달 단계와 의사 결정 과정을 분석한다."
+          },
+          {
+            "step": 2,
+            "action": "제시된 선택지들을 검토하여 적절한 설명을 고른다."
+          }
+        ],
+        "takeaway": "생애 발달 단계와 진로 의사 결정 과정의 관계를 이해하고, 사례를 바탕으로 적절한 선택지를 구별하는 능력이 중요하다."
+      }
+    },
+    {
+      "conceptName": "긴즈버그의 진로 선택 과정",
+      "originalSource": "2022학년도 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "긴즈버그의 진로 선택 과정",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_COMPARATIVE_MATRIX"
+        },
+        "render_ready": {
+          "question_stem": "다음 표는 개인의 발달 단계에 따른 정서적 변화와 직업적 성공의 주요 요소를 제시하고 있다. (가), (나)에 해당하는 발달 과업으로 가장 적절한 것을 <보기>에서 선택하시오.",
+          "stimulus_data": {
+            "headers": [
+              {
+                "id": "h1",
+                "label": "발달 단계"
+              },
+              {
+                "id": "h2",
+                "label": "정서적 변화"
+              },
+              {
+                "id": "h3",
+                "label": "직업적 성공의 요소"
+              }
+            ],
+            "rows": [
+              {
+                "id": "1",
+                "cells": [
+                  "(가)",
+                  "• 격렬한 감정의 변화를 경험하며, 자아의 탐색이 이루어진다.",
+                  "직업 선택에 대한 가치와 의미를 고민한다."
+                ]
+              },
+              {
+                "id": "2",
+                "cells": [
+                  "(나)",
+                  "• 가족과의 긍정적인 관계 형성을 위해 노력한다.",
+                  "• 부모 세대에 대한 책임을 느끼고 그 의무를 다하려 한다.",
+                  "• 다양한 경험을 바탕으로 위기 대처 능력을 기른다."
+                ]
+              }
+            ],
+            "selection_chips": []
+          },
+          "options_list": [
+            "성인기의 정서적 독립 및 직업 준비하기",
+            "파트너 선택 및 지역 사회 활동 참여하기",
+            "노화에 대한 적응 및 은퇴 후 여가 활용법 배우기",
+            "신체적 변화 적응 및 직업에 대한 만족감 증진하기"
+          ]
+        },
+        "combo_block": {
+          "title": "<보기>",
+          "items": [
+            {
+              "key": "ㄱ",
+              "text": "성인기의 정서적 독립 및 직업 준비하기"
+            },
+            {
+              "key": "ㄴ",
+              "text": "파트너 선택 및 지역 사회 활동 참여하기"
+            },
+            {
+              "key": "ㄷ",
+              "text": "노화에 대한 적응 및 은퇴 후 여가 활용법 배우기"
+            },
+            {
+              "key": "ㄹ",
+              "text": "신체적 변화 적응 및 직업에 대한 만족감 증진하기"
+            }
+          ]
+        },
+        "correct_answer": 2,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "개인의 발달 단계에 따른 정서적 변화와 직업적 성공의 주요 요소",
+            "why": "발달 단계에 따른 적절한 발달 과업 선택을 평가하기 위한 기준"
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "X",
+            "reasoning": "정서적 독립은 (가)와 (나) 모두에 해당하지 않으므로 부적절하다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "O",
+            "reasoning": "(가)와 (나) 모두에 해당하는 발달 과업이다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "X",
+            "reasoning": "노화 적응은 주로 노년기에 해당하며 (가)와 (나)와는 관련이 없다."
+          },
+          {
+            "optionNum": 4,
+            "verdict": "X",
+            "reasoning": "직업에 대한 만족감 증진은 (가)와 관련이 있지만 (나)와는 관련이 없다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "주어진 발달 단계의 정서적 변화와 직업적 성공의 요소를 분석한다."
+          },
+          {
+            "step": 2,
+            "action": "각 발달 과업이 어떤 단계에 해당하는지 비교하여 선택지를 평가한다."
+          }
+        ],
+        "takeaway": "발달 단계에 따라 적절한 발달 과업을 선택하는 능력이 중요하다."
+      }
+    },
+    {
+      "conceptName": "마샤의 자아 정체감 유형",
+      "originalSource": "2023학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "마샤의 자아 정체감 유형",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_SEQUENTIAL_WORKFLOW"
+        },
+        "render_ready": {
+          "question_stem": "다음 직업 사례에 나타난 B씨에 대한 분석 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은? (단, 생애 발달 단계별 발달 과업은 해비거스트(Havighurst, R. J.) 이론에 근거한다.) [3점]",
+          "stimulus_data": {
+            "orientation": "vertical",
+            "steps": [
+              {
+                "idx": 1,
+                "label": "어린 시절 꿈",
+                "desc": "B 씨는 어린 시절부터 요리사가 되는 것을 꿈꿨다.",
+                "is_missing": false
+              },
+              {
+                "idx": 2,
+                "label": "첫 직장",
+                "desc": "25세에 이탈리아의 레스토랑에서 첫 요리사로 일하기 시작했다.",
+                "is_missing": false
+              },
+              {
+                "idx": 3,
+                "label": "프랑스 요리 경험",
+                "desc": "30대에 프랑스의 유명한 요리학교에서 훈련을 받았다.",
+                "is_missing": false
+              },
+              {
+                "idx": 4,
+                "label": "미슐랭 스타 획득",
+                "desc": "40대에 자신의 레스토랑을 운영하며 미슐랭 스타를 받았다.",
+                "is_missing": false
+              },
+              {
+                "idx": 5,
+                "label": "아시아 진출",
+                "desc": "50대에 아시아 시장에 진출하여 새로운 요리 스타일을 선보였다.",
+                "is_missing": false
+              },
+              {
+                "idx": 6,
+                "label": "롤 모델",
+                "desc": "B 씨는 성공적인 요리사로서 많은 이들에게 영감을 주는 인물이 되었다.",
+                "is_missing": false
+              }
+            ]
+          },
+          "options_list": [
+            "'전통적인 직업' 개념보다 '진취적인 직업' 개념에 충실하였다.",
+            "프랑스 요리 경험의 발달 과업에는 '신체적, 감정적, 사회적, 문화적 발달'이 포함된다.",
+            "첫 요리사로 활동한 시기의 발달 과업에는 '성인 관점에서 직업적 가치 수용'이 포함된다."
+          ]
+        },
+        "combo_block": {
+          "title": "<보기>",
+          "items": [
+            {
+              "key": "ㄱ",
+              "text": "'전통적인 직업' 개념보다 '진취적인 직업' 개념에 충실하였다."
+            },
+            {
+              "key": "ㄴ",
+              "text": "프랑스 요리 경험의 발달 과업에는 '신체적, 감정적, 사회적, 문화적 발달'이 포함된다."
+            },
+            {
+              "key": "ㄷ",
+              "text": "첫 요리사로 활동한 시기의 발달 과업에는 '성인 관점에서 직업적 가치 수용'이 포함된다."
+            }
+          ]
+        },
+        "correct_answer": 3,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "B 씨는 어린 시절부터 요리사가 되는 것을 꿈꿨다.",
+            "why": "자아 정체감 형성을 위한 초기 꿈의 중요성을 나타낸다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "O",
+            "reasoning": "'진취적인 직업' 개념은 B 씨의 경력과 잘 어울린다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "X",
+            "reasoning": "발달 과업의 범위가 잘못 이해되어 일반적인 발달 영역을 나열한 것이다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "O",
+            "reasoning": "B 씨의 초기 경력과 관련된 발달 과업을 정확히 반영하고 있다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "B 씨의 직업적 경로를 분석하여 각 발달 과업을 확인한다."
+          },
+          {
+            "step": 2,
+            "action": "각 선택지를 검토하여 올바른 발달 과업을 찾아낸다."
+          }
+        ],
+        "takeaway": "직업적 경험과 발달 과업 간의 관계를 이해하는 것이 중요하다."
+      }
+    },
+    {
+      "conceptName": "슈퍼의 진로 발달 이론",
+      "originalSource": "2022학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "슈퍼의 진로 발달 이론",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_SEQUENTIAL_WORKFLOW"
+        },
+        "render_ready": {
+          "question_stem": "다음은 B씨가 작성한 생애 발달 시기에 따른 과업과 경력 개발 경로를 나타낸 것이다. (가), (나)에 들어갈 내용으로 가장 적절한 것은?",
+          "stimulus_data": {
+            "orientation": "vertical",
+            "steps": [
+              {
+                "idx": 1,
+                "label": "자아 인식 강화",
+                "desc": "자신의 가치와 정체성을 명확히 이해하는 단계.",
+                "is_missing": false
+              },
+              {
+                "idx": 2,
+                "label": "중년의 변화 수용",
+                "desc": "중년기에 접어들며 사회적, 심리적 변화에 적응하는 단계.",
+                "is_missing": false
+              },
+              {
+                "idx": 3,
+                "label": "노후 준비",
+                "desc": "노후 생활을 위한 계획과 준비를 하는 단계.",
+                "is_missing": false
+              },
+              {
+                "idx": 4,
+                "label": "진로 목표 설정",
+                "desc": "자신의 적성과 흥미를 파악하여 진로 목표를 설정하는 단계.",
+                "is_missing": false
+              },
+              {
+                "idx": 5,
+                "label": "직무 기술 개발",
+                "desc": "업무 경험을 통해 직무 능력을 향상시키는 단계.",
+                "is_missing": false
+              },
+              {
+                "idx": 6,
+                "label": "은퇴 후 활동 계획",
+                "desc": "은퇴 후의 다양한 활동을 계획하는 단계.",
+                "is_missing": false
+              }
+            ]
+          },
+          "options_list": [
+            "가족과의 관계 형성 - 나의 목표 지속적 유지",
+            "가족과의 관계 형성 - 초기 직업 재조정 및 성과 유지",
+            "기본적인 생활 태도 정립 - 진로 선택을 위한 흥미, 적성 분석",
+            "경제적, 정서적으로 자립 - 초기 직업 재조정 및 성과 유지",
+            "경제적, 정서적으로 자립 - 진로 선택을 위한 흥미, 적성 분석"
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 4,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "자아 인식 강화는 개인의 정체성을 확립하는 중요한 과정이다.",
+            "why": "이 단계에서 개인은 자신에 대한 이해를 바탕으로 진로 목표를 설정할 수 있다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "X",
+            "reasoning": "가족과의 관계 형성과 지속적인 목표 유지가 직접적으로 연관되지 않는다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "X",
+            "reasoning": "가족과의 관계 형성이 초기 직업 재조정과 관련성이 낮다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "X",
+            "reasoning": "기본적인 생활 태도와 진로 선택의 관계를 잘못 연결하였다."
+          },
+          {
+            "optionNum": 4,
+            "verdict": "O",
+            "reasoning": "경제적, 정서적으로 자립하는 과정에서 초기 직업 재조정이 필요하다."
+          },
+          {
+            "optionNum": 5,
+            "verdict": "X",
+            "reasoning": "독립과 진로 선택 간의 관계가 모호하게 설정되어 있다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "주어진 생애 발달 단계와 경력 개발 과업을 분석하여 가장 적절한 연결을 선택한다."
+          }
+        ],
+        "takeaway": "진로 발달 이론의 각 단계는 개인의 경력 개발에 중요한 영향을 미친다."
+      }
+    },
+    {
+      "conceptName": "영아기 및 청소년기의 발달 특징",
+      "originalSource": "2022학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "sampleQuestion": {
+        "metadata": {
+          "source_exam": "GAP 유사 변형문제",
+          "target_concept": "영아기 및 청소년기의 발달 특징",
+          "item_type": "실전 모의고사",
+          "recommended_template": "TPL_CONVERSATIONAL_FLOW"
+        },
+        "render_ready": {
+          "question_stem": "다음 대화의 글쓴이가 속한 생애 발달 시기에 직업 선택을 위해 해야 할 일로 적절하지 않은 것은?",
+          "stimulus_data": {
+            "participants": [
+              {
+                "id": "C",
+                "name": "민수",
+                "role": "학생"
+              },
+              {
+                "id": "D",
+                "name": "아버지",
+                "role": "부모"
+              }
+            ],
+            "messages": [
+              {
+                "participant_id": "D",
+                "text": "너의 꿈이 무엇인지 생각해 본 적 있어?",
+                "timestamp": ""
+              },
+              {
+                "participant_id": "C",
+                "text": "여러 가지에 관심이 있지만, 나에게 맞는 것이 뭔지 잘 모르겠어요.",
+                "timestamp": ""
+              },
+              {
+                "participant_id": "D",
+                "text": "이런 고민은 흔한 일이니 괜찮아.",
+                "timestamp": ""
+              },
+              {
+                "participant_id": "C",
+                "text": "전문학교에 가서 자격증을 따려고 노력 중인데, 어떤 걸 더 준비해야 할지 모르겠어요.",
+                "timestamp": ""
+              }
+            ]
+          },
+          "options_list": [
+            "미래에 대한 직업 목표를 세운다.",
+            "직업 선택을 위한 판단 능력을 키운다.",
+            "자신의 적성을 찾아 적합한 진로를 모색한다.",
+            "신체적 노화에 대비하고 은퇴 후 계획을 세운다.",
+            "관심 있는 직업에 대한 정보를 수집하여 이해를 넓힌다."
+          ]
+        },
+        "combo_block": null,
+        "correct_answer": 4,
+        "questionSource": "GAP 유사 변형문제",
+        "questionNumber": 0,
+        "rawStimulus": ""
+      },
+      "conceptHighlightV2": {
+        "stimulusClues": [
+          {
+            "quote": "자신의 적성을 찾아 적합한 진로를 모색한다.",
+            "why": "청소년기는 적성과 진로 탐색이 중요한 시기이다."
+          }
+        ],
+        "optionAnalysis": [
+          {
+            "optionNum": 1,
+            "verdict": "O",
+            "reasoning": "미래 직업 목표 설정은 청소년기에 적절한 행동이다."
+          },
+          {
+            "optionNum": 2,
+            "verdict": "O",
+            "reasoning": "직업 선택을 위한 판단 능력을 키우는 것은 필요하다."
+          },
+          {
+            "optionNum": 3,
+            "verdict": "O",
+            "reasoning": "적성을 찾는 것은 필수적이다."
+          },
+          {
+            "optionNum": 4,
+            "verdict": "X",
+            "reasoning": "신체적 노화와 은퇴 준비는 이 시기에 적절하지 않다."
+          },
+          {
+            "optionNum": 5,
+            "verdict": "O",
+            "reasoning": "직업 정보 수집은 중요하지만, 진로 선택에 대한 직접적인 행동이 아니다."
+          }
+        ],
+        "solvingFlow": [
+          {
+            "step": 1,
+            "action": "대화 내용을 분석하여 글쓴이의 발달 시기를 파악한다."
+          },
+          {
+            "step": 2,
+            "action": "각 보기의 적절성을 평가한다."
+          },
+          {
+            "step": 3,
+            "action": "부적절한 선택지를 선택한다."
+          }
+        ],
+        "takeaway": "청소년기는 진로 탐색과 적성 발견이 중요한 시기이므로, 신체적 노화나 은퇴 준비는 이 시기에 적절하지 않다."
+      }
+    }
+  ]
+}

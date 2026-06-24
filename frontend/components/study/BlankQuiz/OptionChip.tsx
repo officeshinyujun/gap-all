@@ -1,9 +1,9 @@
 'use client';
 
 import React from 'react';
-import { HStack } from '@/components/general/HStack';
-import Typo from '@/components/general/Typo';
-import { SPACING } from '@/constants/spacing';
+import { HStack } from '@shared/ui/HStack';
+import Typo from '@shared/ui/Typo';
+import { SPACING } from '@shared/constants/spacing';
 import s from './style.module.scss';
 
 interface OptionChipProps {

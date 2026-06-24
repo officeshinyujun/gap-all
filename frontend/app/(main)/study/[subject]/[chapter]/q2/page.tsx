@@ -2,7 +2,7 @@
 
 import { use, useEffect, useState, useRef } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import Typo from '@/components/general/Typo';
+import Typo from '@shared/ui/Typo';
 import { fetchConceptPairs, updateStudyProgress, postIncorrectRecords } from '@/lib/studyQuizApi';
 import { fetchUnitId } from '@/lib/studyApi';
 import type { ConceptPair, QuizCount } from '@/types/studyQuiz';

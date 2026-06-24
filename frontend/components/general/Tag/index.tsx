@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { HStack } from '../HStack';
 import Typo from '../Typo';
-import { SPACING } from '@/constants/spacing';
+import { SPACING } from '@shared/constants/spacing';
 import s from './style.module.scss';
 
 interface TagProps {

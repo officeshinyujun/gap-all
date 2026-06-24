@@ -1,0 +1,143 @@
+{
+  "unit": 1,
+  "unitTitle": "일과 직업 및 직업 생활",
+  "subject": "success",
+  "totalQuestions": 5,
+  "patterns": [
+    {
+      "conceptId": "success_1_01",
+      "targetConcept": "일과 직업의 의미 및 특징",
+      "frequency": 8,
+      "sourceExam": "2023학년도 대학수학능력시험 성공적인 직업생활",
+      "questionNumber": 1,
+      "pattern": {
+        "assessmentIntent": "학생이 직업 선택 과정에서의 가치관 변화와 근무 방식을 이해하고, 이를 바탕으로 적절한 설명을 선택할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "자료 해석 및 개념 변별",
+        "skeletonStructure": {
+          "itemFamily": "combination_judgment",
+          "stimulusTPL": "TPL_CONVERSATIONAL_FLOW",
+          "blankCount": 0,
+          "boCount": 3,
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true
+        },
+        "distractorBlueprint": [
+          "오답1: '근무 방식은 선택적 근로시간제이다.' - 주어진 자료에서 A씨의 근무 방식이 선택적 근로시간제라는 정보는 명시되어 있지 않으며, 이는 잘못된 해석에 기반한 오답이다.",
+          "오답2: '직업 선택 시 활용한 웹 사이트에서는 직업에 대한 정보를 탐색할 수 있다.' - A씨가 언급한 웹 사이트는 직업 가치관 검사 결과를 제공하는 것이지, 직업 정보 탐색에 대한 언급이 없으므로 사실과 다르다."
+        ],
+        "difficultyDriver": "정보의 분산과 직업 가치관의 변화에 대한 이해가 필요하여, 학생이 여러 요소를 종합적으로 고려해야 하므로 난이도가 높다.",
+        "stemPattern": "다음 특강에서 A씨의 직업 선택 과정과 근무 방식에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?"
+      }
+    },
+    {
+      "conceptId": "success_1_02",
+      "targetConcept": "직업의 가치와 가치관",
+      "frequency": 8,
+      "sourceExam": "2025학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 1,
+      "pattern": {
+        "assessmentIntent": "학생이 직업관의 가치에 대한 이해를 바탕으로 주어진 자료에서 적절한 가치를 선택할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "분류/매칭",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": null,
+          "blankCount": 1,
+          "boCount": 4,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: '금전적 보상'은 외재적 직업관의 가치로, (가) 직업관과는 관련이 없으므로 오답이다.",
+          "오답2: '자신의 역량 발휘'는 내재적 직업관의 가치로, (가) 직업관의 중시 가치와 일치하지 않기 때문에 오답이다.",
+          "오답3: '일 자체에서 얻는 성취감'은 내재적 직업관의 가치로, (가) 직업관과는 관련이 없으므로 오답이다.",
+          "오답4: '안전한 근무 환경'은 외재적 직업관의 가치로, (가) 직업관의 중시 가치와는 다르기 때문에 오답이다."
+        ],
+        "difficultyDriver": "자료에서 제시된 직업관의 개념을 이해하고, 외재적 가치와 내재적 가치를 구분하는 능력이 요구되므로 난이도가 높다.",
+        "stemPattern": "다음 기사에 나타난 (가) 직업관에서 중시하는 가치로 적절한 것만을 <보기>에서 고른 것은?"
+      }
+    },
+    {
+      "conceptId": "success_1_03",
+      "targetConcept": "직업 생활의 의미와 중요성",
+      "frequency": 7,
+      "sourceExam": "2025학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 1,
+      "pattern": {
+        "assessmentIntent": "학생이 직업인 A와 B의 직업 가치관을 이해하고, 이를 바탕으로 각각의 가치관을 구분하여 설명할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "사례 분석",
+        "skeletonStructure": {
+          "itemFamily": "combination_judgment",
+          "stimulusTPL": "TPL_CONVERSATIONAL_FLOW",
+          "blankCount": 0,
+          "boCount": 3,
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true
+        },
+        "distractorBlueprint": [
+          "오답1: 'A씨는 귀속주의적 직업관을 갖고 있다.' - A씨의 발언에서 경제적 보상과 근무 환경을 중요시하는 점이 귀속주의적 직업관과 혼동될 수 있으나, 실제로는 복리 후생을 고려하는 점에서 내재적 가치도 포함된다.",
+          "오답2: 'B씨는 직업의 가치 중 변화 지향을 중요시하고 있다.' - B씨가 다양한 분야를 경험하며 만족스러운 직업 생활을 하고 있다는 점은 변화 지향적 요소를 포함하지만, 그의 발언에서 변화 지향이 주된 가치관으로 드러나지 않기 때문에 오답이다.",
+          "오답3: 'A씨는 내재적 직업 가치를, B씨는 외재적 직업 가치를 중요시하고 있다.' - A씨는 경제적 보상과 근무 환경을 모두 고려하고 있어 내재적 가치와 외재적 가치가 혼합되어 있으며, B씨는 흥미와 적성에 맞는 직업을 찾았으므로 내재적 가치를 더 중요시한다."
+        ],
+        "difficultyDriver": "학생이 두 직업인의 발언을 분석하고, 각 발언에서 나타나는 가치관을 정확히 구분해야 하므로, 유사 개념 변별과 추론 단계가 필요하다.",
+        "stemPattern": "다음 사례에 나타난 직업인 A, B씨의 직업 가치관에 대한 설명으로 적절한 것만을 <보기>에서 고른 것은?"
+      }
+    },
+    {
+      "conceptId": "success_1_04",
+      "targetConcept": "직업 생활의 중요성 - 개인적 및 사회적 차원",
+      "frequency": 7,
+      "sourceExam": "2023학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 2,
+      "pattern": {
+        "assessmentIntent": "학생들이 직업의 가치와 요건을 이해하고, 이를 바탕으로 서로 다른 직업관을 비교 분석할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "비교/대조",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_CONVERSATIONAL_FLOW",
+          "blankCount": 0,
+          "boCount": 3,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: 학생 A와 B의 직업관을 혼동하여 두 학생의 가치관을 잘못 연결한 경우.",
+          "오답2: 학생 A와 B가 경제성을 고려한다고 잘못 해석하여 두 학생의 발언을 동일시한 경우.",
+          "오답3: 학생 B의 발언을 학생 A의 가치관으로 잘못 해석하여 '직업 안정'을 중시한다고 잘못 판단한 경우."
+        ],
+        "difficultyDriver": "학생들이 각 발언의 의미를 정확히 이해하고, 서로 다른 직업관을 비교하는 과정에서 발생하는 혼동.",
+        "stemPattern": "다음 대화에서 학생 A, B의 답변에 대한 분석 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?"
+      }
+    },
+    {
+      "conceptId": "success_1_05",
+      "targetConcept": "직업 생활의 다양성",
+      "frequency": 7,
+      "sourceExam": "2023학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
+      "questionNumber": 8,
+      "pattern": {
+        "assessmentIntent": "학생이 MZ세대의 기업 선택 시 고려 요소를 이해하고, 주어진 자료를 바탕으로 적절한 설명을 선택할 수 있는 능력을 평가한다.",
+        "judgmentAxis": "자료 해석 및 개념 변별",
+        "skeletonStructure": {
+          "itemFamily": "single_selection",
+          "stimulusTPL": "TPL_QUANTITATIVE_CHART",
+          "blankCount": 0,
+          "boCount": 3,
+          "choiceType": "single_correct",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "오답1: '기업의 사회적 책임보다 복지 제도를 중시한다.' - MZ세대의 가치관을 반영하지 못하고, 기업 선택의 주요 요소를 잘못 해석한 경우.",
+          "오답2: '직업의 요건 중 계속성보다 경제성을 중시한다.' - 직업의 지속성과 안정성을 간과하고, 경제성만을 강조하여 MZ세대의 선택 기준을 왜곡한 경우.",
+          "오답3: '직업의 가치 중 외재적 가치보다 내재적 가치를 중시한다.' - MZ세대가 내재적 가치보다 외재적 가치를 더 중시하는 경향을 반영하지 못한 경우."
+        ],
+        "difficultyDriver": "자료 해석 능력과 MZ세대의 가치관에 대한 이해가 요구되며, 선택지 간의 미세한 차이를 구별해야 하는 점이 난이도를 높인다.",
+        "stemPattern": "다음 설문 조사 결과를 통해 알 수 있는 MZ세대의 기업 선택 시 고려 요소에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?"
+      }
+    }
+  ]
+}

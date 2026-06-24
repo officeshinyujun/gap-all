@@ -2,8 +2,8 @@
 
 import { use, useEffect, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import Typo from '@/components/general/Typo';
-import { SPACING } from '@/constants/spacing';
+import Typo from '@shared/ui/Typo';
+import { SPACING } from '@shared/constants/spacing';
 import { fetchBlankQuestions, updateStudyProgress, postIncorrectRecords } from '@/lib/studyQuizApi';
 import { fetchUnitId } from '@/lib/studyApi';
 import type { BlankQuestion, QuizCount } from '@/types/studyQuiz';
