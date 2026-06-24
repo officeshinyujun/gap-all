@@ -22,6 +22,89 @@ const OPENAI_TIMEOUT_MS = Number(process.env.OPENAI_TIMEOUT_MS) || 120_000;
 // 단원 텍스트 최대 길이 (문자 수) — 이 이상은 잘라서 전송
 const MAX_UNIT_TEXT_LENGTH = Number(process.env.MAX_UNIT_TEXT_LENGTH) || 12_000;
 
+// 실제 수능/모의평가 11개 시험 분석 기반 단원별 출제 비중 (%)
+const UNIT_REAL_WEIGHTS: Record<number, number> = {
+  1: 7.41,
+  2: 4.17,
+  3: 7.87,
+  4: 4.63,
+  5: 1.85,
+  6: 6.94,
+  7: 4.17,
+  8: 6.02,
+  9: 0.5,
+  10: 5.56,
+  11: 5.09,
+  12: 0.93,
+  13: 4.17,
+  14: 7.41,
+  15: 5.09,
+  16: 2.31,
+  17: 4.63,
+  18: 5.09,
+  19: 6.94,
+  20: 9.72,
+};
+
+// 숫자놀음(수치/계산) 단원 — TPL_QUANTITATIVE_CHART, TPL_COMPARATIVE_MATRIX 적극 권장
+const NUMBER_PLAY_UNITS = new Set([5, 6, 9, 16, 17]);
+
+const NUMBER_PLAY_PROMPT_SNIPPET = `\n## [수치 데이터 활용 지시 — 해당 단원]
+이 단원은 실제 수능에서 수치 데이터/계산 문제가 자주 출제되는 단원입니다:
+- 가능한 TPL_QUANTITATIVE_CHART(차트), TPL_COMPARATIVE_MATRIX(비교표)를 활용하라.
+- 임금/근로시간/생산량/급여/보험료 등 구체적인 숫자 데이터를 자료에 포함하라.
+- '…을 계산하시오' 또는 '…을 구하시오' 형태의 발문을 적극 허용한다.
+- 표 안의 수치를 비교/분석하여 답을 도출하는 문제 유형을 권장한다.`;
+
+/**
+ * 선택된 단원 범위 내에서 실제 기출 비중을 기준으로
+ * 각 단원에 할당할 문항 수를 계산한다.
+ */
+function computeUnitWeights(
+  startUnit: number,
+  endUnit: number,
+  questionCount: number,
+): Map<number, number> {
+  const range: number[] = [];
+  for (let u = startUnit; u <= endUnit; u++) {
+    if (UNIT_REAL_WEIGHTS[u] !== undefined) range.push(u);
+  }
+
+  const totalWeight = range.reduce((sum, u) => sum + UNIT_REAL_WEIGHTS[u], 0);
+  if (totalWeight <= 0) {
+    const perUnit = Math.floor(questionCount / range.length);
+    const rem = questionCount % range.length;
+    const map = new Map<number, number>();
+    range.forEach((u, i) => map.set(u, perUnit + (i < rem ? 1 : 0)));
+    return map;
+  }
+
+  const raw = range.map((u) => ({
+    unit: u,
+    raw: (UNIT_REAL_WEIGHTS[u] / totalWeight) * questionCount,
+  }));
+
+  // 정수 할당 (largest remainder method)
+  let allocated = 0;
+  const result = raw.map((r) => {
+    const floor = Math.floor(r.raw);
+    allocated += floor;
+    return { unit: r.unit, base: floor, frac: r.raw - floor };
+  });
+
+  result.sort((a, b) => b.frac - a.frac);
+  for (let i = 0; allocated < questionCount && i < result.length; i++) {
+    result[i].base++;
+    allocated++;
+  }
+
+  const map = new Map<number, number>();
+  for (const r of result) {
+    if (r.base > 0) map.set(r.unit, r.base);
+  }
+  return map;
+}
+
 function buildItemFamilyQuotaPrompt(
   subjectSlug: string,
   questionCount: number,
@@ -154,146 +237,141 @@ export class ExamGeneratorService {
     );
     this.logger.log(`텍스트북 로딩 완료: ${units.length}개 단원`);
 
+    // 2. 단원별 문항 할당량 계산
+    const unitWeights = computeUnitWeights(startUnitNum, endUnitNum, questionCount);
+    this.logger.log(
+      `단원 할당: ${[...unitWeights.entries()].map(([u, c]) => `${u}단원=${c}문항`).join(', ')}`,
+    );
+
     await this.reportProgress(reportProgress, {
       stage: 'loading_textbook',
       progress: 25,
       status: 'success',
-      message: `교과서 ${units.length}개 단원 로딩 완료`,
+      message: `교과서 ${units.length}개 단원 로딩 완료 (${unitWeights.size}개 단원에 분배)`,
     });
 
-    // 2. Step 1: Blueprint 생성
-    const blueprint = await this.runStep1(
-      units,
-      difficulty,
-      questionCount,
-      subjectSlug,
-      customPrompt,
-      0,
-      targetConcepts,
-      reportProgress,
-      startUnitNum,
-      endUnitNum,
-    );
-    this.logger.log(`Step 1 완료: ${blueprint.length}개 Blueprint`);
+    // 3. 단원별 개별 생성
+    const allValid: GeneratedQuestion[] = [];
+    let unitIdx = 0;
+    const totalUnits = unitWeights.size;
 
-    // 3. Step 2: 실제 문항 데이터 생성
-    const rawItems = await this.runStep2(
-      blueprint,
-      units,
-      subjectSlug,
-      0,
-      reportProgress,
-    );
-    this.logger.log(`Step 2 완료: ${rawItems.length}개 문항`);
+    for (const [unitNum, count] of unitWeights) {
+      unitIdx++;
+      const unitPayload = units.find(
+        (u) => u.unit_name === `${unitNum}단원` || u.unit_name.includes(`Unit_${String(unitNum).padStart(2, '0')}`),
+      ) || { unit_name: `${unitNum}단원`, text_payload: '' };
+      const singleUnits = [unitPayload];
 
-    await this.reportProgress(reportProgress, {
-      stage: 'validating',
-      progress: 75,
-      message: '생성된 문항 구조를 검증하는 중입니다.',
-    });
+      const isNumberPlay = NUMBER_PLAY_UNITS.has(unitNum);
+      const numPlayHint = isNumberPlay ? NUMBER_PLAY_PROMPT_SNIPPET : '';
 
-    // 4. 파싱 + 구조 검증
-    const validated = this.validateItems(rawItems);
-
-    await this.reportProgress(reportProgress, {
-      stage: 'validating',
-      progress: 78,
-      status: 'success',
-      message: `구조 검증 완료: ${validated.length}개 유효`,
-    });
-
-    // 4.5. 의미적 검증 + 부족분 재생성 (최대 2회)
-    let semanticValid = await this.runSemanticValidation(
-      validated,
-      reportProgress,
-    );
-    let retryRound = 0;
-    const maxRetries = 2;
-
-    while (semanticValid.length < questionCount && retryRound < maxRetries) {
-      retryRound++;
-      const deficit = questionCount - semanticValid.length;
       this.logger.log(
-        `의미적 검증 후 ${deficit}개 부족, 재생성 시도 (${retryRound}/${maxRetries})`,
+        `--- ${unitNum}단원 ${count}문항 생성 시작 (${unitIdx}/${totalUnits})${isNumberPlay ? ' [숫자놀음]' : ''} ---`,
       );
 
       await this.reportProgress(reportProgress, {
-        stage: 'semantic_regeneration',
-        progress: 80,
-        message: `부족한 ${deficit}개 문항 재생성 중 (${retryRound}/${maxRetries})`,
+        stage: 'generating',
+        progress: 30 + Math.round((unitIdx / totalUnits) * 40),
+        message: `${unitNum}단원 ${count}문항 생성 중...`,
       });
 
-      const extraBlueprint = await this.runStep1(
-        units,
+      // 3a. Step 1: Blueprint 생성 (단원별)
+      const blueprint = await this.runStep1(
+        singleUnits,
         difficulty,
-        deficit,
+        count,
         subjectSlug,
-        customPrompt,
+        customPrompt ? `${customPrompt}\n${numPlayHint}` : numPlayHint,
         0,
         targetConcepts,
         undefined,
-        startUnitNum,
-        endUnitNum,
+        unitNum,
+        unitNum,
       );
-      const extraRaw = await this.runStep2(
-        extraBlueprint,
-        units,
+
+      // 3b. Step 2: 실제 문항 데이터 생성
+      const rawItems = await this.runStep2(
+        blueprint,
+        singleUnits,
         subjectSlug,
         0,
       );
-      const extraValidated = this.validateItems(extraRaw);
-      const extraSemantic = await this.runSemanticValidation(extraValidated);
 
-      semanticValid = [...semanticValid, ...extraSemantic];
-    }
+      // 3c. 구조 검증
+      const validated = this.validateItems(rawItems);
 
-    if (semanticValid.length > questionCount) {
-      semanticValid = semanticValid.slice(0, questionCount);
-    }
-
-    // 4.75. 유사도 검증 (기출문제와 유사한 문항 제거)
-    await this.reportProgress(reportProgress, {
-      stage: 'similarity_check',
-      progress: 83,
-      message: '기출문제 유사도 검증 중입니다.',
-    });
-
-    const similarityFiltered: GeneratedQuestion[] = [];
-    for (const item of semanticValid) {
-      const comboText = item.comboBlock
-        ? `${item.comboBlock.title}: ${item.comboBlock.items.map((i) => i.text).join(' ')}`
-        : '';
-      const result = await this.similarityValidator.validate(
-        item.questionStem,
-        item.stimulusData,
-        item.optionsList,
-        comboText,
-      );
-      if (result.passed) {
-        similarityFiltered.push(item);
-      } else {
-        this.logger.warn(
-          `유사도 검증 탈락: ${item.targetConcept} (${result.reason})`,
+      // 3d. 의미적 검증 + 부족분 재생성 (최대 2회)
+      let semValid = await this.runSemanticValidation(validated);
+      let retryRound = 0;
+      while (semValid.length < count && retryRound < 2) {
+        retryRound++;
+        const deficit = count - semValid.length;
+        const extraBp = await this.runStep1(
+          singleUnits, difficulty, deficit, subjectSlug,
+          numPlayHint, 0, targetConcepts, undefined, unitNum, unitNum,
         );
+        const extraRaw = await this.runStep2(extraBp, singleUnits, subjectSlug, 0);
+        const extraVal = this.validateItems(extraRaw);
+        const extraSem = await this.runSemanticValidation(extraVal);
+        semValid = [...semValid, ...extraSem];
       }
-    }
-    semanticValid = similarityFiltered;
+      if (semValid.length > count) semValid = semValid.slice(0, count);
 
-    if (semanticValid.length === 0) {
-      this.logger.warn('모든 문항이 유사도 검증에 탈락했습니다. 기존 문항 유지.');
-      semanticValid = similarityFiltered.length > 0 ? similarityFiltered : semanticValid;
+      // 3e. 유사도 검증
+      for (const item of semValid) {
+        const ct = item.comboBlock
+          ? `${item.comboBlock.title}: ${item.comboBlock.items.map((i) => i.text).join(' ')}`
+          : '';
+        const result = await this.similarityValidator.validate(
+          item.questionStem, item.stimulusData, item.optionsList, ct,
+        );
+        if (result.passed) allValid.push(item);
+      }
+
+      this.logger.log(
+        `--- ${unitNum}단원 완료: ${semValid.length}개 → 유사도 통과 ${allValid.length - allValid.filter(i => !semValid.includes(i)).length}개 ---`,
+      );
+    }
+
+    if (allValid.length === 0) {
+      this.logger.warn('모든 문항이 유사도/검증에 탈락했습니다.');
     }
 
     await this.reportProgress(reportProgress, {
       stage: 'similarity_check',
       progress: 85,
       status: 'success',
-      message: `유사도 검증 완료: ${semanticValid.length}개 통과`,
+      message: `전체 유사도 검증 완료: ${allValid.length}개 통과`,
     });
 
-    // 5. DB 저장 (재사용 체크)
+    // 4. 부족분 채움 (전체 questionCount보다 적으면 추가 생성)
+    let finalItems = allValid;
+    if (finalItems.length < questionCount) {
+      const deficit = questionCount - finalItems.length;
+      this.logger.log(`전체 ${deficit}개 부족, 통합 재생성`);
+      const fallbackBp = await this.runStep1(
+        units, difficulty, deficit, subjectSlug,
+        customPrompt, 0, targetConcepts, undefined,
+        startUnitNum, endUnitNum,
+      );
+      const fallbackRaw = await this.runStep2(fallbackBp, units, subjectSlug, 0);
+      const fallbackVal = this.validateItems(fallbackRaw);
+      const fallbackSem = await this.runSemanticValidation(fallbackVal);
+      for (const item of fallbackSem) {
+        const ct = item.comboBlock ? `${item.comboBlock.title}: ${item.comboBlock.items.map((i) => i.text).join(' ')}` : '';
+        const r = await this.similarityValidator.validate(item.questionStem, item.stimulusData, item.optionsList, ct);
+        if (r.passed) finalItems.push(item);
+        if (finalItems.length >= questionCount) break;
+      }
+    }
+
+    if (finalItems.length > questionCount) {
+      finalItems = finalItems.slice(0, questionCount);
+    }
+
+    // 5. DB 저장
     const questions = await this.saveQuestions(
-      semanticValid,
+      finalItems,
       subjectId,
       subjectSlug,
       reportProgress,
