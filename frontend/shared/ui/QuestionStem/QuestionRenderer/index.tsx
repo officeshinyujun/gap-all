@@ -71,7 +71,7 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
       case 'TPL_COMPARATIVE_MATRIX': {
         const raw = parsed.data;
         const rowIds = raw.rows.map((r) => String(r.id));
-        const chipsAreRowLabels = raw.selection_chips.every((chip) =>
+        const chipsAreRowLabels = raw.selection_chips?.every((chip) =>
           rowIds.includes(chip)
         );
 
