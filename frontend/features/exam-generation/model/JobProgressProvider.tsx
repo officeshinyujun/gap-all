@@ -22,8 +22,13 @@ export function useJobProgress() {
   return useContext(JobProgressContext);
 }
 
+const STORAGE_KEY = 'gap_active_job_id';
+
 export function JobProgressProvider({ children }: { children: React.ReactNode }) {
-  const [activeJobId, setActiveJobId] = useState<string | null>(null);
+  const [activeJobId, setActiveJobId] = useState<string | null>(() => {
+    if (typeof window === 'undefined') return null;
+    return sessionStorage.getItem(STORAGE_KEY);
+  });
   const [jobStatus, setJobStatus] = useState<ExamJobStatus | null>(null);
   const pollingRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
@@ -58,8 +63,16 @@ export function JobProgressProvider({ children }: { children: React.ReactNode })
     };
   }, [activeJobId]);
 
-  const startJob = useCallback((jobId: string) => {
+  const saveActiveJobId = useCallback((jobId: string | null) => {
     setActiveJobId(jobId);
+    if (typeof window !== 'undefined') {
+      if (jobId) sessionStorage.setItem(STORAGE_KEY, jobId);
+      else sessionStorage.removeItem(STORAGE_KEY);
+    }
+  }, []);
+
+  const startJob = useCallback((jobId: string) => {
+    saveActiveJobId(jobId);
     setJobStatus({
       jobId,
       status: 'pending',
@@ -67,12 +80,12 @@ export function JobProgressProvider({ children }: { children: React.ReactNode })
       stage: 'starting',
       message: '문제 생성을 시작합니다...',
     });
-  }, []);
+  }, [saveActiveJobId]);
 
   const dismissJob = useCallback(() => {
-    setActiveJobId(null);
+    saveActiveJobId(null);
     setJobStatus(null);
-  }, []);
+  }, [saveActiveJobId]);
 
   return (
     <JobProgressContext.Provider value={{ activeJobId, jobStatus, startJob, dismissJob }}>
