@@ -2,6 +2,7 @@ import {
   Controller,
   Get,
   Post,
+  Patch,
   Delete,
   Body,
   Param,
@@ -95,6 +96,16 @@ export class ExamsController {
     @Body() body: { answers: { examItemId: string; answer: number }[] },
   ) {
     return this.examsService.submit(user.id, examId, body.answers);
+  }
+
+  @Patch(':examId/answers')
+  @HttpCode(HttpStatus.OK)
+  async saveAnswers(
+    @CurrentUser() user: CurrentUserPayload,
+    @Param('examId') examId: string,
+    @Body() body: { answers: { examItemId: string; answer: number }[] },
+  ) {
+    return this.examsService.saveAnswers(user.id, examId, body.answers);
   }
 
   @Get(':examId/result')

@@ -224,6 +224,31 @@ export class ExamsService {
   }
 
   // ============================================================
+  // 답안 저장 (채점 없음, 중간 저장)
+  // ============================================================
+  async saveAnswers(
+    userId: string,
+    examId: string,
+    answers: { examItemId: string; answer: number }[],
+  ) {
+    const exam = await this.examRepo.findOne({
+      where: { id: examId },
+      relations: ['items'],
+    });
+    if (!exam) throw new NotFoundException('시험을 찾을 수 없습니다.');
+    if (exam.userId !== userId)
+      throw new ForbiddenException('접근 권한이 없습니다.');
+
+    for (const ans of answers) {
+      const item = exam.items.find((i) => i.id === ans.examItemId);
+      if (!item) continue;
+      item.userAnswer = ans.answer;
+      await this.examItemRepo.save(item);
+    }
+    return { saved: answers.length };
+  }
+
+  // ============================================================
   // 답안 제출 + 채점
   // ============================================================
   async submit(

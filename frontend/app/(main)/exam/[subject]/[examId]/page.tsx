@@ -1,6 +1,6 @@
 'use client';
 
-import { use, useEffect, useState, useCallback } from 'react';
+import { use, useEffect, useState, useCallback, useRef } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Typo from '@shared/ui/Typo';
 import { VStack } from '@shared/ui/VStack';
@@ -10,6 +10,7 @@ import { QuestionRenderer } from '@shared/ui/QuestionStem/QuestionRenderer';
 import {
   fetchExam,
   submitExam,
+  saveExamAnswers,
   fetchExamResult,
   type ExamData,
   type ExamResult,
@@ -38,6 +39,8 @@ export default function ExamDetailPage({
   const [reviewIndex, setReviewIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<number, number>>({});
   const [errorMsg, setErrorMsg] = useState('');
+  const [saving, setSaving] = useState(false);
+  const saveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const [retriedQuestions, setRetriedQuestions] = useState<Set<number>>(new Set());
   const [hintOpen, setHintOpen] = useState(false);
@@ -75,6 +78,40 @@ export default function ExamDetailPage({
     setHintOpen(false);
     setHintData(null);
   }, [currentIndex]);
+
+  // Restore saved answers on mount
+  useEffect(() => {
+    if (!examData) return;
+    const saved: Record<number, number> = {};
+    for (const item of examData.items) {
+      if (item.userAnswer != null) {
+        saved[item.orderIndex] = item.userAnswer;
+      }
+    }
+    if (Object.keys(saved).length > 0) {
+      setAnswers(saved);
+    }
+  }, [examData]);
+
+  // Auto-save answers with debounce
+  useEffect(() => {
+    if (!examId || Object.keys(answers).length === 0) return;
+    if (saveTimer.current) clearTimeout(saveTimer.current);
+    saveTimer.current = setTimeout(async () => {
+      setSaving(true);
+      try {
+        const formatted = Object.entries(answers).map(([orderIdx, answer]) => {
+          const item = examData?.items.find((i) => i.orderIndex === Number(orderIdx));
+          return item ? { examItemId: item.id, answer } : null;
+        }).filter(Boolean) as { examItemId: string; answer: number }[];
+        if (formatted.length > 0) await saveExamAnswers(examId, formatted);
+      } catch {
+        // silently retry next time
+      }
+      setSaving(false);
+    }, 1500);
+    return () => { if (saveTimer.current) clearTimeout(saveTimer.current); };
+  }, [answers, examId, examData]);
 
   const total = examData?.items.length ?? 0;
   const current = examData?.items[currentIndex];
@@ -148,7 +185,10 @@ export default function ExamDetailPage({
           {examData?.title ?? '시험'}
         </span>
         {pageState === 'ready' && total > 0 && (
-          <span className={s.headerCount}>{currentIndex + 1} / {total}</span>
+          <>
+            <span className={s.headerCount}>{currentIndex + 1} / {total}</span>
+            {saving && <span className={s.savingIndicator}>저장 중...</span>}
+          </>
         )}
       </div>
 

@@ -82,6 +82,7 @@ export interface ExamItem {
   question: ExamQuestion;
   unitNumber?: number | null;
   targetConcept?: string;
+  userAnswer?: number | null;
 }
 
 export interface ExamData {
@@ -151,6 +152,16 @@ export async function fetchExam(examId: string): Promise<ExamData> {
 }
 
 // 답안 제출
+export async function saveExamAnswers(
+  examId: string,
+  answers: { examItemId: string; answer: number }[],
+): Promise<{ saved: number }> {
+  return apiFetch<{ saved: number }>(`/exams/${examId}/answers`, {
+    method: 'PATCH',
+    body: JSON.stringify({ answers }),
+  });
+}
+
 export async function submitExam(
   examId: string,
   answers: { examItemId: string; answer: number }[],
