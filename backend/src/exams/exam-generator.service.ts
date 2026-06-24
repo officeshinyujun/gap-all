@@ -621,7 +621,7 @@ export class ExamGeneratorService {
 
       const response = await this.openai.chat.completions.create(
         {
-          model: process.env.OPENAI_MODEL ?? 'gpt-4o',
+          model: process.env.OPENAI_STEP2_MODEL ?? 'gpt-4o',
           messages: [
             { role: 'system', content: this.promptsService.getPersona() },
             { role: 'user', content: userContent },
@@ -637,7 +637,7 @@ export class ExamGeneratorService {
         await this.aiUsageLogRepo.save(
           this.aiUsageLogRepo.create({
             source: AiUsageSource.EXAM_STEP2,
-            model: process.env.OPENAI_MODEL ?? 'gpt-4o',
+            model: process.env.OPENAI_STEP2_MODEL ?? 'gpt-4o',
             promptTokens: response.usage.prompt_tokens ?? 0,
             completionTokens: response.usage.completion_tokens ?? 0,
             totalTokens: response.usage.total_tokens ?? 0,
@@ -670,7 +670,7 @@ export class ExamGeneratorService {
 
         const response = await this.openai.chat.completions.create(
           {
-            model: process.env.OPENAI_MODEL ?? 'gpt-4o',
+            model: process.env.OPENAI_STEP2_MODEL ?? 'gpt-4o',
             messages: [
               { role: 'system', content: this.promptsService.getPersona() },
               { role: 'user', content: userContent },
@@ -686,7 +686,7 @@ export class ExamGeneratorService {
           await this.aiUsageLogRepo.save(
             this.aiUsageLogRepo.create({
               source: AiUsageSource.EXAM_STEP2,
-              model: process.env.OPENAI_MODEL ?? 'gpt-4o',
+              model: process.env.OPENAI_STEP2_MODEL ?? 'gpt-4o',
               promptTokens: response.usage.prompt_tokens ?? 0,
               completionTokens: response.usage.completion_tokens ?? 0,
               totalTokens: response.usage.total_tokens ?? 0,
