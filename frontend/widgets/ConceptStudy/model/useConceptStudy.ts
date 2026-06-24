@@ -48,7 +48,7 @@ export function useConceptStudy(subject: string, unitNumber: number, chapter: st
   // persist helpers
   const setMainTab = (tab: MainTab) => { setMainTabState(tab); sessionStorage.setItem(`${cacheKey}-mainTab`, JSON.stringify(tab)); };
   const setSlideView = (view: SlideView) => { setSlideViewState(view); sessionStorage.setItem(`${cacheKey}-slideView`, JSON.stringify(view)); };
-  const setCurrentIndex = (idx: number) => { setCurrentIndexState(idx); sessionStorage.setItem(`${cacheKey}-index`, String(idx)); };
+  const persistIndex = (idx: number) => sessionStorage.setItem(`${cacheKey}-index`, String(idx));
 
   // data fetch
   useEffect(() => {
@@ -112,12 +112,24 @@ export function useConceptStudy(subject: string, unitNumber: number, chapter: st
   };
 
   const handlePrev = () => {
-    if (slideView === 'question') setSlideView('learn');
-    else if (currentIndex > 0) { setCurrentIndex(currentIndex - 1); setSlideView('learn'); }
+    if (slideView === 'question') {
+      setSlideView('learn');
+    } else if (currentIndex > 0) {
+      const next = currentIndex - 1;
+      setCurrentIndexState(next);
+      persistIndex(next);
+    }
   };
   const handleNext = () => {
-    if (slideView === 'learn') setSlideView('question');
-    else if (currentIndex < total - 1) { setCurrentIndex(currentIndex + 1); setSlideView('learn'); }
+    if (slideView === 'learn') {
+      setSlideView('question');
+    } else if (currentIndex < total - 1) {
+      const next = currentIndex + 1;
+      setCurrentIndexState(next);
+      persistIndex(next);
+      setSlideViewState('learn');
+      sessionStorage.setItem(`${cacheKey}-slideView`, JSON.stringify('learn'));
+    }
   };
   const handleComplete = async () => {
     try { const unitId = await fetchUnitId(subject, unitNumber); if (unitId) await updateStudyProgress(unitId, 'BASIC_CONCEPT', 100); } catch { /* ignore */ }
@@ -130,7 +142,7 @@ export function useConceptStudy(subject: string, unitNumber: number, chapter: st
 
   return {
     mainTab, setMainTab, slideView, setSlideView,
-    loading, error, data, concepts, current, total, currentIndex, setCurrentIndex,
+    loading, error, data, concepts, current, total, currentIndex,
     deepCache, deepLoading, deep,
     structured, structuredLoading, openSections, toggleSection,
     bookmarks, bookmarkLoading, isBookmarked, handleBookmark,

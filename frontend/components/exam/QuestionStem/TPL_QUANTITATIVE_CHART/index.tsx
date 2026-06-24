@@ -25,17 +25,17 @@ export const TPLQuantitativeChart: React.FC<TPLQuantitativeChartProps> = ({
             <thead>
               <tr>
                 <th className={s.th}>구분</th>
-                {data.datasets.map((ds) => (
-                  <th key={ds.label} className={s.th}>{ds.label}</th>
+                {data.datasets.map((ds, dsIdx) => (
+                  <th key={ds.label ?? dsIdx} className={s.th}>{ds.label}</th>
                 ))}
               </tr>
             </thead>
             <tbody>
               {data.axes.map((axis, axisIdx) => (
-                <tr key={axis.key}>
+                <tr key={axis.key ?? axisIdx}>
                   <td className={s.tdLabel}>{axis.label}</td>
-                  {data.datasets.map((ds) => (
-                    <td key={ds.label} className={s.td}>
+                  {data.datasets.map((ds, dsIdx) => (
+                    <td key={ds.label ?? dsIdx} className={s.td}>
                       {ds.values[axisIdx] ?? '-'}
                     </td>
                   ))}
