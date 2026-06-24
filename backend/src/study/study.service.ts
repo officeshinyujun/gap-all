@@ -1031,7 +1031,7 @@ export class StudyService {
               },
               render_ready: {
                 question_stem: this.stripQuestionNumber(realQ.render_ready?.question_stem || realQ.stem || ''),
-                stimulus_data: realQ.render_ready?.stimulus_data ?? (realQ.stimulus ? { content: realQ.stimulus } : null),
+                stimulus_data: this.normalizeRealStimulus(realQ.render_ready?.stimulus_data) ?? (realQ.stimulus ? { content: realQ.stimulus } : null),
                 options_list: realQ.render_ready?.options_list || realQ.options || [],
                 explanation: realQ.render_ready?.explanation || '',
               },
@@ -1107,6 +1107,20 @@ export class StudyService {
 
   private stripQuestionNumber(stem: string): string {
     return stem.replace(/^\d+\.\s*/, '');
+  }
+
+  private normalizeRealStimulus(stimulus: any): any {
+    if (!stimulus || typeof stimulus !== 'object') return stimulus;
+    if ('participants' in stimulus && 'messages' in stimulus) {
+      const messages = (stimulus.messages as any[]).map((msg) => {
+        if ('participant_id' in msg && !('p_id' in msg)) {
+          return { ...msg, p_id: msg.participant_id };
+        }
+        return msg;
+      });
+      return { ...stimulus, messages };
+    }
+    return stimulus;
   }
 
   getStructuredConcept(subjectSlug: string, unitNumber: number): any {
