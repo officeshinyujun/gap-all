@@ -1,6 +1,8 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, Logger, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+import { ConfigService } from '@nestjs/config';
+import * as webpush from 'web-push';
 import {
   Notification,
   NotificationType,
@@ -12,6 +14,8 @@ import { CreatePushSubscriptionDto } from './dto/create-push-subscription.dto';
 
 @Injectable()
 export class NotificationsService {
+  private readonly logger = new Logger(NotificationsService.name);
+
   constructor(
     @InjectRepository(Notification)
     private readonly notificationRepo: Repository<Notification>,
@@ -19,6 +23,7 @@ export class NotificationsService {
     private readonly settingRepo: Repository<NotificationSetting>,
     @InjectRepository(PushSubscription)
     private readonly pushSubRepo: Repository<PushSubscription>,
+    private readonly configService: ConfigService,
   ) {}
 
   async findAllByUser(userId: string) {
@@ -113,5 +118,55 @@ export class NotificationsService {
       isRead: false,
     });
     return this.notificationRepo.save(notification);
+  }
+
+  async createAndPushNotification(
+    userId: string,
+    type: NotificationType,
+    title: string,
+    message: string,
+    url: string,
+  ): Promise<Notification> {
+    const notification = await this.createNotification(userId, type, title, message);
+    await this.sendPush(userId, title, message, url).catch((err) =>
+      this.logger.error(`Push failed for user ${userId}: ${err.message}`),
+    );
+    return notification;
+  }
+
+  private async sendPush(userId: string, title: string, body: string, url: string) {
+    const vapidPublic = this.configService.get<string>('VAPID_PUBLIC_KEY');
+    const vapidPrivate = this.configService.get<string>('VAPID_PRIVATE_KEY');
+    const vapidSubject =
+      this.configService.get<string>('VAPID_SUBJECT') || 'mailto:admin@example.com';
+
+    if (!vapidPublic || !vapidPrivate) {
+      this.logger.warn('VAPID keys not configured, skipping push');
+      return;
+    }
+
+    webpush.setVapidDetails(vapidSubject, vapidPublic, vapidPrivate);
+
+    const subscriptions = await this.pushSubRepo.find({ where: { userId } });
+    const payload = JSON.stringify({ title, body, url });
+
+    for (const sub of subscriptions) {
+      try {
+        await webpush.sendNotification(
+          {
+            endpoint: sub.endpoint,
+            keys: { p256dh: sub.p256dh, auth: sub.auth },
+          },
+          payload,
+        );
+      } catch (err: any) {
+        if (err.statusCode === 410 || err.statusCode === 404) {
+          await this.pushSubRepo.remove(sub);
+          this.logger.log(`Removed expired subscription ${sub.id}`);
+        } else {
+          this.logger.error(`Push failed for ${sub.id}: ${err.message}`);
+        }
+      }
+    }
   }
 }

@@ -367,11 +367,13 @@ export class ExamsService {
 
     this.examGenerationJobsService.complete(userIdJobId, userId, exam.id);
 
-    await this.notificationsService.createNotification(
+    const subjectSlug = exam.subject?.slug ?? '';
+    await this.notificationsService.createAndPushNotification(
       userId,
       NotificationType.EXAM_COMPLETE,
       '시험 생성 완료',
       `${exam.title} 시험이 생성되었습니다. 지금 바로 풀어보세요!`,
+      `/exam/${subjectSlug}`,
     );
   }
 

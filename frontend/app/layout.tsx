@@ -4,6 +4,8 @@ import "./globals.css";
 import { APP_CONFIG } from "@/constants/app";
 import { AuthProvider } from "@shared/contexts/AuthContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
+import { JobProgressProvider } from "@features/exam-generation/model/JobProgressProvider";
+import { ExamGenerationToast } from "@widgets/ExamGenerationToast/ui/ExamGenerationToast";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,7 +36,10 @@ export default function RootLayout({
       <body>
         <ThemeProvider>
           <AuthProvider>
-            {children}
+            <JobProgressProvider>
+              {children}
+              <ExamGenerationToast />
+            </JobProgressProvider>
           </AuthProvider>
         </ThemeProvider>
       </body>

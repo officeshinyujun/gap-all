@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, use, useEffect, useCallback, useRef } from 'react';
+import React, { useState, use, useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { X, Download, FileText } from 'lucide-react';
 import { HStack } from '@shared/ui/HStack';
@@ -11,7 +11,8 @@ import { CreateExamModal } from '@/components/exam/CreateExamModal';
 import { HeaderActions } from '@shared/ui/HeaderActions';
 import { SPACING } from '@shared/constants/spacing';
 import { getSubjectName } from '@shared/utils/subject';
-import { fetchExams, pollExamJob, type ExamListItem, type ExamJobStatus } from '@/lib/examApi';
+import { fetchExams, type ExamListItem } from '@/lib/examApi';
+import { useJobProgress } from '@features/exam-generation/model/JobProgressProvider';
 import s from './page.module.scss';
 
 const DIFFICULTY_LABEL: Record<string, string> = {
@@ -66,9 +67,7 @@ export default function ExamPage({ params }: { params: Promise<{ subject: string
   const [showMobileDetail, setShowMobileDetail] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [activeJobId, setActiveJobId] = useState<string | null>(null);
-  const [jobStatus, setJobStatus] = useState<ExamJobStatus | null>(null);
-  const pollingRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const { activeJobId, jobStatus, dismissJob, startJob } = useJobProgress();
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth <= 768);
@@ -78,38 +77,10 @@ export default function ExamPage({ params }: { params: Promise<{ subject: string
   }, []);
 
   useEffect(() => {
-    if (!activeJobId) return;
-
-    const poll = async () => {
-      try {
-        const status = await pollExamJob(activeJobId);
-        setJobStatus(status);
-        if (status.status === 'completed' || status.status === 'failed') {
-          if (pollingRef.current) clearInterval(pollingRef.current);
-          pollingRef.current = null;
-          if (status.status === 'completed') {
-            setActiveJobId(null);
-            setJobStatus(null);
-            loadExams();
-          }
-        }
-      } catch {
-        setJobStatus((prev) => prev ? { ...prev, status: 'failed', message: '폴링 중 오류 발생' } : null);
-        if (pollingRef.current) clearInterval(pollingRef.current);
-        pollingRef.current = null;
-      }
-    };
-
-    poll();
-    pollingRef.current = setInterval(poll, 2500);
-
-    return () => {
-      if (pollingRef.current) {
-        clearInterval(pollingRef.current);
-        pollingRef.current = null;
-      }
-    };
-  }, [activeJobId]);
+    if (jobStatus?.status === 'completed') {
+      loadExams();
+    }
+  }, [jobStatus?.status]);
 
   const handleCloseMobileDetail = () => {
     setIsClosing(true);
@@ -231,7 +202,7 @@ export default function ExamPage({ params }: { params: Promise<{ subject: string
                   <Typo.MD size={12} color="secondary">{jobStatus.message}</Typo.MD>
                   <button
                     className={s.bannerDismiss}
-                    onClick={() => { setActiveJobId(null); setJobStatus(null); }}
+                    onClick={() => { /* dismissed, rely on global toast */ }}
                   >
                     <Typo.MD size={12} color="brand">닫기</Typo.MD>
                   </button>
@@ -357,8 +328,7 @@ export default function ExamPage({ params }: { params: Promise<{ subject: string
         defaultStartUnit={defaultStart}
         defaultEndUnit={defaultEnd}
         onCreated={(jobId) => {
-          setActiveJobId(jobId);
-          setJobStatus({ jobId, status: 'pending', progress: 0, stage: 'starting', message: '문제 생성을 시작합니다...' });
+          startJob(jobId);
         }}
       />
 
