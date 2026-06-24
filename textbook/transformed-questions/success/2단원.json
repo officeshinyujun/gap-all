@@ -375,7 +375,31 @@
             "지훈, 하늘"
           ]
         },
-        "combo_block": null,
+        "combo_block": {
+          "title": "<보기>",
+          "items": [
+            {
+              "key": "ㄱ",
+              "text": "민수, 소라"
+            },
+            {
+              "key": "ㄴ",
+              "text": "민수, 지훈"
+            },
+            {
+              "key": "ㄷ",
+              "text": "소라, 지훈"
+            },
+            {
+              "key": "ㄹ",
+              "text": "소라, 하늘"
+            },
+            {
+              "key": "ㅁ",
+              "text": "지훈, 하늘"
+            }
+          ]
+        },
         "correct_answer": 3,
         "questionSource": "GAP 유사 변형문제",
         "questionNumber": 0,

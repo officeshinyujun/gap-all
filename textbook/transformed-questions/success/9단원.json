@@ -6,7 +6,7 @@
   "questions": [
     {
       "conceptName": "근로기준법상 근로시간의 규정",
-      "originalSource": "?",
+      "originalSource": "2023학년도 대학수학능력시험 성공적인 직업생활",
       "sampleQuestion": {
         "metadata": {},
         "render_ready": {
@@ -37,7 +37,7 @@
     },
     {
       "conceptName": "법정 근로 시간과 소정 근로 시간의 차이 (법정 기준 vs. 사용자와 근로자 간 합의)",
-      "originalSource": "?",
+      "originalSource": "2022학년도 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
       "sampleQuestion": {
         "metadata": {},
         "render_ready": {
@@ -53,7 +53,27 @@
             "⑤ ㄱ, ㄴ, ㄷ"
           ]
         },
-        "combo_block": null,
+        "combo_block": {
+          "title": "<보기>",
+          "items": [
+            {
+              "key": "ㄱ",
+              "text": "A씨는 주 5일 근무를 하며, 주간에 사무실에서 근무한다."
+            },
+            {
+              "key": "ㄴ",
+              "text": "B씨는 주말에 근무하지 않으며, 병원에서 주로 야간 근무를 한다."
+            },
+            {
+              "key": "ㄷ",
+              "text": "A씨와 B씨 모두 휴게시간이 포함된 근무시간을 가지고 있다."
+            },
+            {
+              "key": "ㄹ",
+              "text": "B씨는 수요일에 휴무를 가지며, 목요일과 금요일에 병원에서 근무한다."
+            }
+          ]
+        },
         "correct_answer": 1,
         "questionSource": "GAP 유사 변형문제",
         "questionNumber": 0,
@@ -68,7 +88,7 @@
     },
     {
       "conceptName": "임금의 정의 및 지급 원칙 (통화, 직접, 전액, 정기 지급 원칙)",
-      "originalSource": "?",
+      "originalSource": "2022학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
       "sampleQuestion": {
         "metadata": {},
         "render_ready": {
@@ -84,7 +104,27 @@
             "⑤ ㄷ, ㄹ"
           ]
         },
-        "combo_block": null,
+        "combo_block": {
+          "title": "<보기>",
+          "items": [
+            {
+              "key": "ㄱ",
+              "text": "근로 계약 기간은 2021년 2월 1일부터 2021년 8월 31일까지이다."
+            },
+            {
+              "key": "ㄴ",
+              "text": "근무일은 매주 월요일부터 금요일까지이며, 휴일은 매주 토·일요일이다."
+            },
+            {
+              "key": "ㄷ",
+              "text": "소정 근로 시간은 하루 8시간이며, 추가 근로 시간은 없다."
+            },
+            {
+              "key": "ㄹ",
+              "text": "임금은 시간당 12,000원으로 정해져 있다."
+            }
+          ]
+        },
         "correct_answer": 1,
         "questionSource": "GAP 유사 변형문제",
         "questionNumber": 0,
@@ -99,7 +139,7 @@
     },
     {
       "conceptName": "부당 노동 행위의 정의",
-      "originalSource": "?",
+      "originalSource": "2025학년도 대학수학능력시험 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
       "sampleQuestion": {
         "metadata": {},
         "render_ready": {
@@ -115,7 +155,27 @@
             "⑤ ㄱ, ㄴ, ㄷ"
           ]
         },
-        "combo_block": null,
+        "combo_block": {
+          "title": "<보기>",
+          "items": [
+            {
+              "key": "ㄱ",
+              "text": "A씨는 데이터 분석에 흥미를 느껴 데이터 사이언티스트가 되었다."
+            },
+            {
+              "key": "ㄴ",
+              "text": "B씨는 높은 급여를 제안한 회사에 입사했지만 건강이 악화되어 직업을 변경했다."
+            },
+            {
+              "key": "ㄷ",
+              "text": "B씨는 현재 스스로 근무 시간을 조정하며 충분한 휴식을 취하고 있다."
+            },
+            {
+              "key": "ㄹ",
+              "text": "A씨는 재택근무를 하며 다양한 프로젝트를 통해 창의력을 발전시키고자 한다."
+            }
+          ]
+        },
         "correct_answer": 1,
         "questionSource": "GAP 유사 변형문제",
         "questionNumber": 0,
@@ -130,7 +190,7 @@
     },
     {
       "conceptName": "법정 근로 시간과 소정 근로 시간의 차이",
-      "originalSource": "?",
+      "originalSource": "2023학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
       "sampleQuestion": {
         "metadata": {},
         "render_ready": {
@@ -146,7 +206,27 @@
             "⑤ ㄴ, ㄷ, ㄹ"
           ]
         },
-        "combo_block": null,
+        "combo_block": {
+          "title": "<보기>",
+          "items": [
+            {
+              "key": "ㄱ",
+              "text": "A 씨는 ㈜XYZ에서 상시 근로자로 근무하고 있다."
+            },
+            {
+              "key": "ㄴ",
+              "text": "B 씨는 ㈜ABC에서 계약직으로 근무하고 있다."
+            },
+            {
+              "key": "ㄷ",
+              "text": "A 씨의 월급은 2,500,000원이다."
+            },
+            {
+              "key": "ㄹ",
+              "text": "B 씨는 연차 유급휴가가 없다."
+            }
+          ]
+        },
         "correct_answer": 1,
         "questionSource": "GAP 유사 변형문제",
         "questionNumber": 0,
@@ -161,7 +241,7 @@
     },
     {
       "conceptName": "근로기준법상 근로시간의 규정 (탄력적 근로시간제, 선택적 근로시간제)",
-      "originalSource": "?",
+      "originalSource": "2025학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
       "sampleQuestion": {
         "metadata": {},
         "render_ready": {
@@ -177,7 +257,27 @@
             "⑤ ㄱ, ㄴ, ㄷ"
           ]
         },
-        "combo_block": null,
+        "combo_block": {
+          "title": "<보기>",
+          "items": [
+            {
+              "key": "ㄱ",
+              "text": "유연근무제를 도입한 직원 수는 6명이다."
+            },
+            {
+              "key": "ㄴ",
+              "text": "재택근무를 실시한 직원 수는 10명이다."
+            },
+            {
+              "key": "ㄷ",
+              "text": "선택적 근로시간제를 도입한 직원 수는 20명이다."
+            },
+            {
+              "key": "ㄹ",
+              "text": "탄력적 근로시간제를 도입한 직원 수는 12명이다."
+            }
+          ]
+        },
         "correct_answer": 1,
         "questionSource": "GAP 유사 변형문제",
         "questionNumber": 0,
@@ -192,7 +292,7 @@
     },
     {
       "conceptName": "유연근무제의 종류",
-      "originalSource": "?",
+      "originalSource": "2025학년도 대학수학능력시험 9월 모의평가 직업탐구 영역(성공적인 직업생활)",
       "sampleQuestion": {
         "metadata": {},
         "render_ready": {
@@ -208,7 +308,27 @@
             "⑤ ㄷ, ㄹ"
           ]
         },
-        "combo_block": null,
+        "combo_block": {
+          "title": "<보기>",
+          "items": [
+            {
+              "key": "ㄱ",
+              "text": "직업의 안전성을 중요시하는 가치"
+            },
+            {
+              "key": "ㄴ",
+              "text": "복지 혜택을 중시하는 가치"
+            },
+            {
+              "key": "ㄷ",
+              "text": "개인의 성장과 발전을 중시하는 가치"
+            },
+            {
+              "key": "ㄹ",
+              "text": "사회적 지위와 명성을 중시하는 가치"
+            }
+          ]
+        },
         "correct_answer": 1,
         "questionSource": "GAP 유사 변형문제",
         "questionNumber": 0,
@@ -223,7 +343,7 @@
     },
     {
       "conceptName": "임금의 정의 및 지급 원칙",
-      "originalSource": "?",
+      "originalSource": "2025학년도 대학수학능력시험 직업탐구 영역(성공적인 직업생활)",
       "sampleQuestion": {
         "metadata": {},
         "render_ready": {
@@ -239,7 +359,27 @@
             "⑤ ㄷ, ㄹ"
           ]
         },
-        "combo_block": null,
+        "combo_block": {
+          "title": "<보기>",
+          "items": [
+            {
+              "key": "ㄱ",
+              "text": "갑은 4월 둘째 주 토요일에 5시간을 근무하였다."
+            },
+            {
+              "key": "ㄴ",
+              "text": "을은 4월 둘째 주 목요일과 금요일에 각각 1시간의 추가 근무를 하였다."
+            },
+            {
+              "key": "ㄷ",
+              "text": "갑과 을은 모두 4월에 결근 없이 근무하였다."
+            },
+            {
+              "key": "ㄹ",
+              "text": "갑과 을의 시급은 동일하다."
+            }
+          ]
+        },
         "correct_answer": 1,
         "questionSource": "GAP 유사 변형문제",
         "questionNumber": 0,
@@ -254,7 +394,7 @@
     },
     {
       "conceptName": "부당 해고의 정의 및 구제 절차",
-      "originalSource": "?",
+      "originalSource": "2023학년도 대학수학능력시험 성공적인 직업생활",
       "sampleQuestion": {
         "metadata": {},
         "render_ready": {
@@ -285,7 +425,7 @@
     },
     {
       "conceptName": "휴게 시간의 법적 기준",
-      "originalSource": "?",
+      "originalSource": "2023학년도 대학수학능력시험 성공적인 직업생활",
       "sampleQuestion": {
         "metadata": {},
         "render_ready": {
@@ -322,35 +462,53 @@
           "source_exam": "GAP 유사 변형문제",
           "target_concept": "근로 계약의 이해 및 체결",
           "item_type": "실전 모의고사",
-          "recommended_template": "TPL_001"
+          "recommended_template": "TPL_CONVERSATIONAL_FLOW"
         },
         "render_ready": {
-          "question_stem": "다음은 A 회사에서 근로 계약을 체결하고자 하는 B 근로자와 인사 담당자 간의 대화 내용이다. 이 대화에서 B 근로자는 자신의 근로 조건에 대해 질문하고 있으며, 인사 담당자는 이에 대해 답변하고 있다. 대화 내용을 바탕으로 B 근로자가 고려해야 할 올바른 근로 계약의 요소는 무엇인가?",
+          "question_stem": "대화 내용을 바탕으로 B 근로자가 고려해야 할 올바른 근로 계약의 요소는 무엇인가? (보기 참조)",
           "stimulus_data": {
-            "dialogue": [
+            "participants": [
               {
-                "speaker": "B",
-                "content": "제가 일하려는 시간은 어떻게 되나요? 주말에도 일을 해야 하나요?"
+                "id": "B",
+                "name": "B 근로자",
+                "role": "근로자"
               },
               {
-                "speaker": "인사 담당자",
-                "content": "기본적으로 주 40시간 근무를 원칙으로 하고, 필요시 연장 근로에 대한 합의를 통해 최대 12시간까지 가능합니다."
+                "id": "인사 담당자",
+                "name": "인사 담당자",
+                "role": "인사 담당자"
+              }
+            ],
+            "messages": [
+              {
+                "participant_id": "B",
+                "text": "제가 일하려는 시간은 어떻게 되나요? 주말에도 일을 해야 하나요?",
+                "timestamp": ""
               },
               {
-                "speaker": "B",
-                "content": "임금은 어떻게 지급되나요?"
+                "participant_id": "인사 담당자",
+                "text": "기본적으로 주 40시간 근무를 원칙으로 하고, 필요시 연장 근로에 대한 합의를 통해 최대 12시간까지 가능합니다.",
+                "timestamp": ""
               },
               {
-                "speaker": "인사 담당자",
-                "content": "임금은 매달 정기적으로 지급되며, 최저 임금 이상으로 지급됩니다."
+                "participant_id": "B",
+                "text": "임금은 어떻게 지급되나요?",
+                "timestamp": ""
               },
               {
-                "speaker": "B",
-                "content": "부당 해고 시에는 어떻게 할 수 있나요?"
+                "participant_id": "인사 담당자",
+                "text": "임금은 매달 정기적으로 지급되며, 최저 임금 이상으로 지급됩니다.",
+                "timestamp": ""
               },
               {
-                "speaker": "인사 담당자",
-                "content": "부당 해고가 발생할 경우, 3개월 이내에 구제 신청을 할 수 있습니다."
+                "participant_id": "B",
+                "text": "부당 해고 시에는 어떻게 할 수 있나요?",
+                "timestamp": ""
+              },
+              {
+                "participant_id": "인사 담당자",
+                "text": "부당 해고가 발생할 경우, 3개월 이내에 구제 신청을 할 수 있습니다.",
+                "timestamp": ""
               }
             ]
           },
@@ -362,7 +520,31 @@
             "⑤ 근로자는 계약 체결 시 근무 시간에 대해 협의할 필요가 없다."
           ]
         },
-        "combo_block": null,
+        "combo_block": {
+          "title": "<보기>",
+          "items": [
+            {
+              "key": "①",
+              "text": "근로 계약은 구두로만 체결할 수 있다."
+            },
+            {
+              "key": "②",
+              "text": "임금 지급은 정기적으로 이루어져야 하며, 최저 임금 이상이어야 한다."
+            },
+            {
+              "key": "③",
+              "text": "연장 근로는 주 40시간을 초과하여 할 수 없다."
+            },
+            {
+              "key": "④",
+              "text": "부당 해고 구제 절차는 해고 당일에 신청해야 한다."
+            },
+            {
+              "key": "⑤",
+              "text": "근로자는 계약 체결 시 근무 시간에 대해 협의할 필요가 없다."
+            }
+          ]
+        },
         "correct_answer": 2,
         "questionSource": "GAP 유사 변형문제",
         "questionNumber": 0,
@@ -427,12 +609,12 @@
           "source_exam": "GAP 유사 변형문제",
           "target_concept": "서면 근로 계약의 중요 사항",
           "item_type": "실전 모의고사",
-          "recommended_template": "TPL_001"
+          "recommended_template": "TPL_PLAIN_TEXT"
         },
         "render_ready": {
-          "question_stem": "A씨는 새로 입사한 회사에서 근로 계약서를 작성하기로 했습니다. 이 계약서에 반드시 포함되어야 할 사항으로 옳지 않은 것은 무엇인가요?",
+          "question_stem": "A씨는 새로 입사한 회사에서 근로 계약서를 작성하기로 했습니다. 이 계약서에 반드시 포함되어야 할 사항으로 옳지 않은 것은 무엇인가요? <보기>",
           "stimulus_data": {
-            "scenario": "A씨는 회사와의 계약을 통해 매월 200만원의 임금을 받기로 하였으며, 주 5일 근무, 연 15일의 유급 휴가를 포함한 계약을 체결하기로 하였습니다. 또한, 계약서에는 해고 시 3개월 이내에 지방노동위원회에 구제 절차를 신청해야 한다는 내용이 포함되었습니다."
+            "content": "A씨는 회사와의 계약을 통해 매월 200만원의 임금을 받기로 하였으며, 주 5일 근무, 연 15일의 유급 휴가를 포함한 계약을 체결하기로 하였습니다. 또한, 계약서에는 해고 시 3개월 이내에 지방노동위원회에 구제 절차를 신청해야 한다는 내용이 포함되었습니다."
           },
           "options_list": [
             "① 근로 조건을 명시해야 한다.",
@@ -442,7 +624,31 @@
             "⑤ 유급 휴가일 수를 계약서에 포함시켜야 한다."
           ]
         },
-        "combo_block": null,
+        "combo_block": {
+          "title": "<보기>",
+          "items": [
+            {
+              "key": "①",
+              "text": "근로 조건을 명시해야 한다."
+            },
+            {
+              "key": "②",
+              "text": "법정 근로 시간인 1일 8시간을 준수해야 한다."
+            },
+            {
+              "key": "③",
+              "text": "임금은 매달 정기적으로 지급되어야 한다."
+            },
+            {
+              "key": "④",
+              "text": "계약서에는 해고 사유를 구체적으로 명시해야 한다."
+            },
+            {
+              "key": "⑤",
+              "text": "유급 휴가일 수를 계약서에 포함시켜야 한다."
+            }
+          ]
+        },
         "correct_answer": 4,
         "questionSource": "GAP 유사 변형문제",
         "questionNumber": 0,
@@ -507,23 +713,43 @@
           "source_exam": "GAP 유사 변형문제",
           "target_concept": "산업 안전 및 재해 보상",
           "item_type": "실전 모의고사",
-          "recommended_template": "TPL_산업재해_보상"
+          "recommended_template": "TPL_CONVERSATIONAL_FLOW"
         },
         "render_ready": {
-          "question_stem": "아래의 대화는 한 회사의 근로자들이 산업 재해에 대해 이야기하는 내용이다. 이 대화를 바탕으로 질문에 답하시오.",
+          "question_stem": "위 대화를 바탕으로 질문에 답하시오. <보기>를 참고하세요.",
           "stimulus_data": {
-            "dialogue": [
+            "participants": [
               {
-                "workerA": "최근에 우리 팀에서 일어난 사고 때문에 걱정이 많아. 그 친구가 다쳤다고 하더라."
+                "id": "A",
+                "name": "workerA",
+                "role": "근로자"
               },
               {
-                "workerB": "맞아, 하지만 다행히 회사에서 산재 보험이 있어서 치료비는 걱정하지 않아도 된다고 했어."
+                "id": "B",
+                "name": "workerB",
+                "role": "근로자"
+              }
+            ],
+            "messages": [
+              {
+                "participant_id": "A",
+                "text": "최근에 우리 팀에서 일어난 사고 때문에 걱정이 많아. 그 친구가 다쳤다고 하더라.",
+                "timestamp": ""
               },
               {
-                "workerA": "그렇다면 그 친구는 어떤 보상을 받을 수 있을까?"
+                "participant_id": "B",
+                "text": "맞아, 하지만 다행히 회사에서 산재 보험이 있어서 치료비는 걱정하지 않아도 된다고 했어.",
+                "timestamp": ""
               },
               {
-                "workerB": "산재 보험 덕분에 요양 급여도 받을 수 있고, 만약 장해가 남으면 장해 급여도 받을 수 있겠지."
+                "participant_id": "A",
+                "text": "그렇다면 그 친구는 어떤 보상을 받을 수 있을까?",
+                "timestamp": ""
+              },
+              {
+                "participant_id": "B",
+                "text": "산재 보험 덕분에 요양 급여도 받을 수 있고, 만약 장해가 남으면 장해 급여도 받을 수 있겠지.",
+                "timestamp": ""
               }
             ]
           },
@@ -535,7 +761,31 @@
             "⑤ 산재 보험은 근로자의 자발적인 신청이 있어야만 적용된다."
           ]
         },
-        "combo_block": null,
+        "combo_block": {
+          "title": "<보기>",
+          "items": [
+            {
+              "key": "①",
+              "text": "근로자는 산업 재해로 인한 치료비만 보상받을 수 있다."
+            },
+            {
+              "key": "②",
+              "text": "산재 보험은 사용자의 과실 여부에 관계없이 보상한다."
+            },
+            {
+              "key": "③",
+              "text": "장해 급여는 근로자가 사망한 경우에만 지급된다."
+            },
+            {
+              "key": "④",
+              "text": "요양 급여는 근로자가 일을 하지 않았을 때만 지급된다."
+            },
+            {
+              "key": "⑤",
+              "text": "산재 보험은 근로자의 자발적인 신청이 있어야만 적용된다."
+            }
+          ]
+        },
         "correct_answer": 2,
         "questionSource": "GAP 유사 변형문제",
         "questionNumber": 0,
@@ -600,10 +850,10 @@
           "source_exam": "GAP 유사 변형문제",
           "target_concept": "4대 사회 보험의 이해",
           "item_type": "실전 모의고사",
-          "recommended_template": "TPL_001"
+          "recommended_template": "TPL_CASE_DIAGNOSTIC_FRAME"
         },
         "render_ready": {
-          "question_stem": "다음은 A씨가 최근에 겪은 상황에 대한 설명이다. A씨는 최근 직장에서 일하다가 부상을 당해 병원에서 치료를 받았다. 이로 인해 A씨는 치료비와 함께 하루의 근로 소득이 중단되었다. A씨는 이러한 상황에서 어떤 사회 보험이 가장 적절하게 대응할 수 있는지를 분석하고, 그 이유를 선택하시오.",
+          "question_stem": "A씨는 최근 직장에서 일하다가 부상을 당해 병원에서 치료를 받았다. 이로 인해 A씨는 치료비와 함께 하루의 근로 소득이 중단되었다. A씨는 이러한 상황에서 어떤 사회 보험이 가장 적절하게 대응할 수 있는지를 분석하고, 그 이유를 선택하시오. <보기>",
           "stimulus_data": {
             "A씨의 상황": {
               "부상": "업무상 재해",
@@ -619,7 +869,31 @@
             "⑤ 건강 보험: 예방적 조치와 건강 증진에 집중한다."
           ]
         },
-        "combo_block": null,
+        "combo_block": {
+          "title": "<보기>",
+          "items": [
+            {
+              "key": "①",
+              "text": "건강 보험: 질병 및 부상에 대한 치료비 지원을 제공한다."
+            },
+            {
+              "key": "②",
+              "text": "국민 연금: 노령 및 장애와 관련된 소득 지원을 한다."
+            },
+            {
+              "key": "③",
+              "text": "고용 보험: 실직 시 실업 급여를 지급한다."
+            },
+            {
+              "key": "④",
+              "text": "산재 보험: 업무상 재해로 인한 치료비와 보상금을 지급한다."
+            },
+            {
+              "key": "⑤",
+              "text": "건강 보험: 예방적 조치와 건강 증진에 집중한다."
+            }
+          ]
+        },
         "correct_answer": 4,
         "questionSource": "GAP 유사 변형문제",
         "questionNumber": 1,

@@ -965,80 +965,6 @@ export class StudyService {
     return JSON.parse(fs.readFileSync(mindmapPath, 'utf-8'));
   }
 
-  private transformedCache: Map<number, any> = new Map();
-
-  private findBestTransformedMatch(
-    transformedData: any,
-    cardConceptName: string,
-  ): any | null {
-    if (!transformedData?.questions?.length) return null;
-
-    // 1. exact match
-    let match = transformedData.questions.find(
-      (q: any) => q.conceptName === cardConceptName,
-    );
-    if (match) return match;
-
-    // 2. contains / substring match
-    match = transformedData.questions.find(
-      (q: any) =>
-        q.conceptName.includes(cardConceptName) ||
-        cardConceptName.includes(q.conceptName),
-    );
-    if (match) return match;
-
-    // 3. longest common substring ratio
-    const clean = (s: string) => s.replace(/[^가-힣]/g, '');
-    const a = clean(cardConceptName);
-    let bestScore = 0;
-    let bestMatch: any = null;
-
-    for (const q of transformedData.questions) {
-      const b = clean(q.conceptName);
-      let maxLen = 0;
-      for (let i = 0; i < a.length; i++) {
-        for (let j = 0; j < b.length; j++) {
-          let k = 0;
-          while (i + k < a.length && j + k < b.length && a[i + k] === b[j + k])
-            k++;
-          if (k > maxLen) maxLen = k;
-        }
-      }
-      const score = maxLen / Math.max(a.length, b.length);
-      if (score > bestScore) {
-        bestScore = score;
-        bestMatch = q;
-      }
-    }
-
-    return bestScore >= 0.2 ? bestMatch : null;
-  }
-
-  private loadTransformedQuestions(unit: number, subjectSlug: string): any {
-    const cacheKey = unit;
-    if (this.transformedCache.has(cacheKey)) {
-      return this.transformedCache.get(cacheKey)!;
-    }
-    const filePath = path.join(
-      this.getTextbookBase(),
-      'transformed-questions',
-      subjectSlug === 'success' ? 'success' : subjectSlug,
-      `${unit}단원.json`,
-    );
-    if (!fs.existsSync(filePath)) {
-      this.transformedCache.set(cacheKey, null);
-      return null;
-    }
-    try {
-      const raw = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-      this.transformedCache.set(cacheKey, raw);
-      return raw;
-    } catch {
-      this.transformedCache.set(cacheKey, null);
-      return null;
-    }
-  }
-
   private transformCardsToFrequency(raw: any): any {
     const concepts = (raw.concepts || []).map((c: any) => {
       const realQ = c.realQuestion?.questionData;
@@ -1047,14 +973,6 @@ export class StudyService {
       const keyPoints = c.card?.keyPoints || [];
       const caution = c.caution || '';
       const conceptUsage = c.realQuestion?.conceptUsage || '';
-
-      // Try to load transformed question (저작권 안전 변형)
-      const unitNum = raw.unit ?? 0;
-      const subjectSlug = raw.subjectSlug ?? 'success';
-      const transformedData = this.loadTransformedQuestions(unitNum, subjectSlug);
-      const transformedEntry = this.findBestTransformedMatch(transformedData, c.name);
-      const tq = transformedEntry?.sampleQuestion;
-      const tqV2 = transformedEntry?.conceptHighlightV2;
 
       const conceptContentParts: string[] = [];
       if (definition) conceptContentParts.push(`## 개념 정의\n${definition}`);
@@ -1101,26 +1019,7 @@ export class StudyService {
         keyPoints,
         examTips: caution ? [caution] : [],
         conceptContent: conceptContentParts.join('\n\n'),
-        sampleQuestion: tq
-          ? {
-              metadata: {
-                source_exam: 'GAP 유사 변형문제',
-                target_concept: c.name,
-                item_type: '실전 모의고사',
-                recommended_template: tq.metadata?.recommended_template ?? undefined,
-              },
-              render_ready: tq.render_ready ?? {
-                question_stem: '',
-                stimulus_data: null,
-                options_list: [],
-              },
-              combo_block: tq.combo_block ?? null,
-              correct_answer: typeof tq.correct_answer === 'number' ? tq.correct_answer : this.parseCorrectAnswer(tq.correct_answer),
-              questionNumber: null,
-              questionSource: 'GAP 유사 변형문제',
-              rawStimulus: '',
-            }
-          : realQ
+        sampleQuestion: realQ
           ? {
               metadata: realQ.metadata || {
                 source_exam: realQ.source_exam || '',
@@ -1177,8 +1076,8 @@ export class StudyService {
               markedStimulus: '',
             }
           : undefined,
-        conceptHighlight: tqV2?.optionAnalysis ? { inStimulus: tqV2.stimulusClues?.map((s: any) => s.quote) || [], inOptions: [], reason: tqV2.takeaway || '' } : (c.realQuestion?.conceptHighlight || { inStimulus: [], inOptions: [], reason: '' }),
-              conceptHighlightV2: tqV2 || c.realQuestion?.conceptHighlightV2 || null,
+        conceptHighlight: c.realQuestion?.conceptHighlight || { inStimulus: [], inOptions: [], reason: '' },
+              conceptHighlightV2: c.realQuestion?.conceptHighlightV2 || null,
       };
     });
 
@@ -1324,6 +1223,7 @@ export class StudyService {
     }
     return results;
   }
+
 }
 
 function buildComboBlock(boxItems: string[] | undefined): { title: string; items: { key: string; text: string }[] } | null {
