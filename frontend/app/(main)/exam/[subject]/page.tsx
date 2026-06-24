@@ -67,7 +67,7 @@ export default function ExamPage({ params }: { params: Promise<{ subject: string
   const [showMobileDetail, setShowMobileDetail] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const { activeJobId, jobStatus, dismissJob, startJob } = useJobProgress();
+  const { activeJobId, jobStatus, startJob } = useJobProgress();
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth <= 768);
@@ -182,41 +182,6 @@ export default function ExamPage({ params }: { params: Promise<{ subject: string
               </svg>
             </div>
           </HStack>
-
-          {/* Generation Progress Banner */}
-          {activeJobId && jobStatus && (
-            <VStack className={s.generationBanner} gap={SPACING.s8} fullWidth>
-              <HStack fullWidth justify="between" align="center">
-                <HStack gap={SPACING.s8} align="center">
-                  {jobStatus.status !== 'failed' && <div className={s.bannerSpinner} />}
-                  <Typo.MD size={14} color="primary">
-                    {jobStatus.status === 'failed' ? '문제 생성 실패' : '문제 생성 중...'}
-                  </Typo.MD>
-                </HStack>
-                {jobStatus.status !== 'failed' && (
-                  <Typo.MD size={12} color="secondary">{jobStatus.progress}%</Typo.MD>
-                )}
-              </HStack>
-              {jobStatus.status === 'failed' ? (
-                <VStack gap={SPACING.s4}>
-                  <Typo.MD size={12} color="secondary">{jobStatus.message}</Typo.MD>
-                  <button
-                    className={s.bannerDismiss}
-                    onClick={() => { /* dismissed, rely on global toast */ }}
-                  >
-                    <Typo.MD size={12} color="brand">닫기</Typo.MD>
-                  </button>
-                </VStack>
-              ) : (
-                <VStack gap={SPACING.s4} fullWidth>
-                  <div className={s.progressTrack}>
-                    <div className={s.progressFill} style={{ width: `${jobStatus.progress}%` }} />
-                  </div>
-                  <Typo.MD size={10} color="secondary">{jobStatus.message}</Typo.MD>
-                </VStack>
-              )}
-            </VStack>
-          )}
 
           {/* List */}
           {loading ? (
