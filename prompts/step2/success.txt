@@ -170,6 +170,41 @@ Blueprint에 `theory_constraint`가 존재하면:
   "performance_criteria": "Array<string>"
 }
 
+13. TPL_DECISION_MATRIX
+{
+  "title": "string",
+  "criteria": "Array<{ id: string, label: string, weight: number }>",
+  "alternatives": "Array<{ id: string, label: string, scores: number[], total?: number }>"
+}
+
+14. TPL_RADAR_CHART
+{
+  "title": "string",
+  "axes": "Array<{ key: string, label: string, max: number }>",
+  "datasets": "Array<{ label: string, values: number[] }>"
+}
+
+15. TPL_DIAGNOSTIC_TEST
+{
+  "title": "string",
+  "items": "Array<{ id: string, question: string, answer?: boolean, score?: number }>",
+  "scoring_guide": "string"
+}
+
+16. TPL_TIMELINE
+{
+  "title": "string",
+  "events": "Array<{ date: string, label: string, description: string, is_key_event?: boolean }>"
+}
+
+17. TPL_GAME_FORMAT
+{
+  "game_type": "'twenty_questions' | 'quiz' | 'roleplay'",
+  "host": "{ name: string, role: string }",
+  "participants": "Array<{ id: string, name: string }>",
+  "rounds": "Array<{ round: number, question: string, options?: string[], correct?: number }>"
+}
+
 # [Output JSON Schema]
 각 문항 객체는 반드시 아래 구조를 완전히 갖춰야 한다. 필드 누락 시 시스템 오류로 간주한다.
 {
