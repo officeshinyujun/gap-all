@@ -1,7 +1,9 @@
+@import '@/styles/variables.scss';
+
 .toast {
   position: fixed;
-  bottom: 24px;
-  right: 24px;
+  bottom: $spacing-24;
+  right: $spacing-24;
   z-index: 9999;
   transform: translateX(120%);
   transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
@@ -14,11 +16,11 @@
 .body {
   display: flex;
   align-items: center;
-  gap: 12px;
-  background: #1a1a2e;
-  color: #fff;
-  padding: 14px 20px;
-  border-radius: 12px;
+  gap: $spacing-12;
+  background: $background-fourth;
+  color: $text-primary;
+  padding: $spacing-14 $spacing-20;
+  border-radius: $spacing-12;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
   min-width: 280px;
   max-width: 400px;
@@ -32,8 +34,8 @@
 .spinner {
   width: 20px;
   height: 20px;
-  border: 2.5px solid rgba(255, 255, 255, 0.25);
-  border-top-color: #fff;
+  border: 2.5px solid $border-primary;
+  border-top-color: $text-primary;
   border-radius: 50%;
   animation: spin 0.7s linear infinite;
   flex-shrink: 0;
@@ -50,7 +52,7 @@
 
 .title {
   font-size: 14px;
-  font-weight: 600;
+  font-weight: $semi-bold;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -58,20 +60,20 @@
 
 .progress {
   font-size: 12px;
-  color: rgba(255, 255, 255, 0.6);
-  margin-top: 2px;
+  color: $text-secondary;
+  margin-top: $spacing-4;
 }
 
 .close {
   background: none;
   border: none;
-  color: rgba(255, 255, 255, 0.5);
+  color: $text-secondary;
   font-size: 14px;
   cursor: pointer;
-  padding: 4px;
+  padding: $spacing-4;
   flex-shrink: 0;
 }
 
 .close:hover {
-  color: #fff;
+  color: $text-primary;
 }
