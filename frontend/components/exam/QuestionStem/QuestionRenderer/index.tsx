@@ -70,6 +70,7 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
     switch (parsed.template) {
       case 'TPL_COMPARATIVE_MATRIX': {
         const raw = parsed.data;
+        if (!raw.rows || !raw.headers) return null;
         const rowIds = raw.rows.map((r) => String(r.id));
         const chipsAreRowLabels = raw.selection_chips?.every((chip) =>
           rowIds.includes(chip)

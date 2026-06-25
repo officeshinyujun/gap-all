@@ -27,10 +27,16 @@ def step3_frequency_count(extracted, output_dir):
 
         all_concepts_in_q = item.get("primary_concepts", []) + item.get("secondary_concepts", [])
 
-        for concept in item.get("primary_concepts", []):
+        # 변별력 향상: 같은 단원 내 N개 개념이 동시 태깅되면 weight를 N으로 나눠 분산
+        primary_in_unit = [c for c in item.get("primary_concepts", []) if c in unit_concepts[unit]]
+        secondary_in_unit = [c for c in item.get("secondary_concepts", []) if c in unit_concepts[unit]]
+        primary_count = max(len(primary_in_unit), 1)
+        secondary_count = max(len(secondary_in_unit), 1)
+
+        for concept in primary_in_unit:
             entry = unit_concepts[unit][concept]
-            entry["raw_count"] += 1
-            entry["weighted_count"] += weight
+            entry["raw_count"] += 1.0 / primary_count
+            entry["weighted_count"] += weight / primary_count
             if source and source not in entry["sources"]:
                 entry["sources"].append(source)
             entry["questions"].append(item.get("_question_text", "")[:500])
@@ -38,10 +44,10 @@ def step3_frequency_count(extracted, output_dir):
                 if other != concept:
                     entry["co_concepts"][other] += 1
 
-        for concept in item.get("secondary_concepts", []):
+        for concept in secondary_in_unit:
             entry = unit_concepts[unit][concept]
-            entry["raw_count"] += 0.5
-            entry["weighted_count"] += weight * 0.5
+            entry["raw_count"] += 0.5 / secondary_count
+            entry["weighted_count"] += (weight * 0.5) / secondary_count
             if source and source not in entry["sources"]:
                 entry["sources"].append(source)
             for other in all_concepts_in_q:
