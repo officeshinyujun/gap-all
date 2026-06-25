@@ -42,6 +42,7 @@ export function JobProgressProvider({ children }: { children: React.ReactNode })
         if (status.status === 'completed' || status.status === 'failed') {
           if (pollingRef.current) clearInterval(pollingRef.current);
           pollingRef.current = null;
+          sessionStorage.removeItem(STORAGE_KEY);
         }
       } catch {
         setJobStatus((prev) =>
@@ -49,6 +50,8 @@ export function JobProgressProvider({ children }: { children: React.ReactNode })
         );
         if (pollingRef.current) clearInterval(pollingRef.current);
         pollingRef.current = null;
+        // 오류 발생 시에도 jobId 제거
+        sessionStorage.removeItem(STORAGE_KEY);
       }
     };
 
