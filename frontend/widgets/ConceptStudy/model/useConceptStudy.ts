@@ -43,7 +43,7 @@ export function useConceptStudy(subject: string, unitNumber: number, chapter: st
   const [openSections, setOpenSections] = useState<Record<string, boolean>>({});
   const [bookmarks, setBookmarks] = useState<ConceptBookmark[]>([]);
   const [bookmarkLoading, setBookmarkLoading] = useState<Record<string, boolean>>({});
-  const [openAnalysis, setOpenAnalysis] = useState<Record<string, boolean>>({ solvingFlow: true });
+  const [openAnalysis, setOpenAnalysis] = useState<Record<string, boolean>>({ solvingFlow: true, stimulusClues: true, optionAnalysis: true });
 
   // persist helpers
   const setMainTab = (tab: MainTab) => { setMainTabState(tab); sessionStorage.setItem(`${cacheKey}-mainTab`, JSON.stringify(tab)); };

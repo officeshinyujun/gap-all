@@ -88,6 +88,53 @@ function convertSummationToV2() {
 // ============================================================
 // 2. frequency → cards_moi 변환
 // ============================================================
+function extractReadableText(stimulusData, template) {
+  if (!stimulusData || typeof stimulusData !== 'object') return '';
+  if (template === 'TPL_COMPARATIVE_MATRIX' && Array.isArray(stimulusData.rows)) {
+    const headers = (stimulusData.headers ?? []).map(h => h.label).join(' | ');
+    const rows = stimulusData.rows.map(r => (r.cells ?? []).join(' | ')).join('\n');
+    return (headers ? headers + '\n' : '') + rows;
+  }
+  if (template === 'TPL_FORMAL_DOCUMENT' && Array.isArray(stimulusData.paragraphs)) {
+    return stimulusData.paragraphs.map(p => p.content ?? '').join('\n');
+  }
+  if (template === 'TPL_CONVERSATIONAL_FLOW' && Array.isArray(stimulusData.messages)) {
+    return stimulusData.messages.map(m => (m.p_id ?? '') + ': ' + (m.text ?? '')).join('\n');
+  }
+  if (template === 'TPL_CASE_DIAGNOSTIC_FRAME') {
+    const profile = stimulusData.case_profile;
+    return (profile?.context ?? '') + '\n' + (stimulusData.narrative ?? '');
+  }
+  if (template === 'TPL_INSTRUCTIONAL_SCENE') {
+    const parts = [];
+    if (stimulusData.instructor?.text) parts.push('[교사] ' + stimulusData.instructor.text);
+    if (stimulusData.canvas_content?.data && typeof stimulusData.canvas_content.data === 'string') {
+      parts.push(stimulusData.canvas_content.data);
+    }
+    if (Array.isArray(stimulusData.students)) {
+      stimulusData.students.forEach(st => {
+        if (st.text) parts.push('[학생] ' + st.text);
+      });
+    }
+    return parts.join('\n');
+  }
+  if (template === 'TPL_DIGITAL_FORUM_INTERFACE') {
+    const parts = [stimulusData.forum_name ?? ''];
+    if (stimulusData.main_post?.content) parts.push(stimulusData.main_post.content);
+    if (Array.isArray(stimulusData.comments)) {
+      stimulusData.comments.forEach(c => { if (c.text) parts.push(c.text); });
+    }
+    return parts.join('\n');
+  }
+  if (template === 'TPL_SEQUENTIAL_WORKFLOW' && Array.isArray(stimulusData.steps)) {
+    return stimulusData.steps.map(s => (s.label ?? '') + ': ' + (s.desc ?? '')).join(' → ');
+  }
+  if (template === 'TPL_QUANTITATIVE_CHART' && Array.isArray(stimulusData.datasets)) {
+    return stimulusData.datasets.map(ds => ds.label + ': ' + (ds.values ?? []).join(', ')).join('\n');
+  }
+  return JSON.stringify(stimulusData, null, 2);
+}
+
 function convertFrequencyToCardsMoi() {
   console.log('=== Converting frequency to cards_moi ===');
   if (!fs.existsSync(FREQUENCY_DIR)) {
@@ -115,7 +162,7 @@ function convertFrequencyToCardsMoi() {
           questionData: hasSample ? {
             number: 0,
             source_exam: (concept.sources ?? [])[0] ?? '',
-            stimulus: '',
+            stimulus: renderReady.stimulus_data ? extractReadableText(renderReady.stimulus_data, meta.recommended_template) : '',
             stem: renderReady.question_stem ?? '',
             box_items: (renderReady.combo_block?.items ?? []).map(i => i.text),
             options: renderReady.options_list ?? [],
