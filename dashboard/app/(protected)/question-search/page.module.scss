@@ -1,0 +1,151 @@
+@import '@/styles/variables.scss';
+
+.page {
+  width: 100%;
+  padding: $spacing-24;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.searchPanel {
+  width: 100%;
+  padding: $spacing-16;
+  background: $background-primary;
+  border: 1px solid $border-primary;
+  border-radius: $spacing-12;
+  flex-shrink: 0;
+}
+
+.searchInput {
+  width: 100%;
+  padding: $spacing-10 $spacing-14;
+  font-size: 14px;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  border: 1px solid $border-primary;
+  border-radius: $spacing-8;
+  outline: none;
+  box-sizing: border-box;
+
+  &:focus {
+    border-color: $brand-primary;
+  }
+}
+
+.select {
+  padding: $spacing-8 $spacing-12;
+  font-size: 12px;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  border: 1px solid $border-primary;
+  border-radius: $spacing-8;
+  background: $background-primary;
+  color: $text-primary;
+  outline: none;
+}
+
+.searchBtn {
+  padding: $spacing-8 $spacing-20;
+  font-size: 13px;
+  font-weight: $semi-bold;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  color: $background-primary;
+  background: $brand-primary;
+  border: none;
+  border-radius: $spacing-8;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.5;
+  }
+
+  &:hover:not(:disabled) {
+    opacity: 0.85;
+  }
+}
+
+.body {
+  flex: 1;
+  overflow: hidden;
+  gap: $spacing-16;
+}
+
+.resultList {
+  width: 360px;
+  flex-shrink: 0;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.resultItem {
+  width: 100%;
+  padding: $spacing-10 $spacing-12;
+  background: none;
+  border: none;
+  border-bottom: 1px solid $border-primary;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.1s;
+
+  &:hover {
+    background: $background-secondary;
+  }
+}
+
+.resultItemActive {
+  background: $background-third;
+}
+
+.resultStem {
+  display: block;
+  font-size: 12px;
+  font-weight: $medium;
+  color: $text-primary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  line-height: 1.5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.resultBadge {
+  display: inline-block;
+  padding: 1px 6px;
+  font-size: 10px;
+  font-weight: $semi-bold;
+  color: $brand-primary;
+  background: rgba($brand-primary, 0.1);
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+}
+
+.resultMeta {
+  font-size: 10px;
+  color: $text-secondary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+}
+
+.detail {
+  flex: 1;
+  overflow-y: auto;
+  height: 100%;
+  background: $background-primary;
+  border: 1px solid $border-primary;
+  border-radius: $spacing-12;
+}
+
+.emptyState {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.selectedHeader {
+  padding: $spacing-12 $spacing-20;
+  border-bottom: 1px solid $border-primary;
+}
+
+.selectedQuestion {
+  padding: $spacing-20;
+}

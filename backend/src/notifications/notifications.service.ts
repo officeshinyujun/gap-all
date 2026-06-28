@@ -44,11 +44,18 @@ export class NotificationsService {
     const notification = await this.notificationRepo.findOne({
       where: { id: notificationId, userId },
     });
-    if (!notification) {
-      throw new NotFoundException('알림을 찾을 수 없습니다.');
-    }
+    if (!notification) throw new NotFoundException('Notification not found');
+
     notification.isRead = true;
     return this.notificationRepo.save(notification);
+  }
+
+  async markAllAsRead(userId: string) {
+    await this.notificationRepo.update(
+      { userId, isRead: false },
+      { isRead: true },
+    );
+    return { success: true };
   }
 
   async deleteNotification(userId: string, notificationId: string) {

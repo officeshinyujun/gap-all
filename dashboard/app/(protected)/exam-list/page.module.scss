@@ -253,3 +253,15 @@
     border-color: $text-wrong;
   }
 }
+
+.tplBadge {
+  display: inline-block;
+  padding: 2px 6px;
+  font-size: 10px;
+  font-weight: $semi-bold;
+  font-family: 'Courier New', monospace;
+  color: $text-primary;
+  background-color: $background-third;
+  border-radius: 4px;
+  white-space: nowrap;
+}

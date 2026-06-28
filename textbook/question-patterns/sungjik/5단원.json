@@ -1,0 +1,532 @@
+{
+  "unitNumber": 5,
+  "subject": "sungjik",
+  "totalQuestions": 21,
+  "entries": [
+    {
+      "questionIndex": 0,
+      "patternId": "MATCH_CORPORATE_MANAGEMENT_ELEMENTS",
+      "name": "기업 경영 구성 요소 매칭",
+      "intent": "기사 내용을 바탕으로 기업 경영의 구성 요소를 식별하고, 보기에서 적절한 것을 선택하도록 유도한다.",
+      "stemPattern": "다음 기사에 나타난 기업 경영의 구성 요소로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "기사",
+        "기업 경영",
+        "구성 요소"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "기사 내용을 다른 기업 사례로 변경",
+        "구성 요소의 범위를 확장"
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "IDENTIFY_MARKETING_STRATEGY_STAGE",
+      "name": "마케팅 전략 단계 식별",
+      "intent": "마케팅 전략 수립 사례를 통해 특정 단계에 대한 설명을 정확히 이해하고 선택하도록 유도한다.",
+      "stemPattern": "다음은 ◯◯기업의 마케팅 전략 수립 사례이다. (가)에 들어갈 단계에 대한 설명으로 가장 적절한 것은?",
+      "indicators": [
+        "마케팅 전략",
+        "단계",
+        "설명"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 마케팅 전략 사례로 변경",
+        "단계의 순서를 바꾸어 제시"
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "ANALYZE_MANAGER_CLASSIFICATION",
+      "name": "경영자 분류 분석",
+      "intent": "학급 퀴즈 대회의 결과를 분석하여 경영자 분류에 대한 이해를 평가한다.",
+      "stemPattern": "다음 경영자의 분류에 관한 학급 퀴즈 대회의 결과를 분석한 내용으로 옳은 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "경영자 분류",
+        "퀴즈 대회",
+        "분석"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "퀴즈 문제의 내용을 변경",
+        "점수 배점을 다르게 설정"
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "ARRANGE_MANAGEMENT_CYCLE",
+      "name": "경영 관리 순환 과정 배열",
+      "intent": "경영 활동을 경영 관리 순환 과정의 순서대로 배열하여 이해도를 평가한다.",
+      "stemPattern": "다음 ◯◯(주)가 수행한 경영 활동을 경영 관리 순환 과정의 순서대로 바르게 배열한 것은?",
+      "indicators": [
+        "경영 활동",
+        "순환 과정",
+        "순서"
+      ],
+      "judgmentAxes": [
+        "procedure"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "활동의 내용을 변경",
+        "순환 과정의 단계 수를 조정"
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "IDENTIFY_PARTICIPATION_SYSTEM",
+      "name": "경영 참가 제도 식별",
+      "intent": "인터뷰 내용을 통해 경영 참가 제도의 종류를 식별하도록 유도한다.",
+      "stemPattern": "다음 인터뷰 내용에 나타난 경영 참가 제도의 종류로 옳은 것은?",
+      "indicators": [
+        "인터뷰",
+        "경영 참가 제도",
+        "종류"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "인터뷰 내용을 다른 기업 사례로 변경",
+        "제도의 종류를 다양화"
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "EXPLAIN_MANAGEMENT_PROCESS",
+      "name": "경영 관리 과정 설명",
+      "intent": "기사 내용을 통해 경영 관리 과정에 대한 설명을 정확히 이해하고 선택하도록 유도한다.",
+      "stemPattern": "다음 기사를 통해 알 수 있는 경영 관리 과정에 대한 설명으로 가장 적절한 것은?",
+      "indicators": [
+        "기사",
+        "경영 관리 과정",
+        "설명"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "기사 내용을 다른 사례로 변경",
+        "과정의 순서를 바꾸어 제시"
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "SELECT_CORRECT_4P_DESCRIPTION",
+      "name": "4P 전략 설명 선택",
+      "intent": "마케팅 믹스(4P) 전략에 대한 수행 평가 자료를 통해 올바른 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음은 마케팅 믹스(4P) 전략에 대한 수행 평가 자료이다. 이에 대한 설명으로 옳은 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "마케팅 믹스",
+        "4P 전략",
+        "설명"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "평가 자료의 내용을 변경",
+        "4P의 구성 요소를 다양화"
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "MATCH_CORPORATE_ACTIVITY",
+      "name": "기업 부문별 활동 매칭",
+      "intent": "드라마 등장인물의 업무를 통해 기업의 부문별 활동을 식별하도록 유도한다.",
+      "stemPattern": "다음 드라마 등장인물 소개를 보고, 등장인물들의 업무에 해당하는 기업의 부문별 활동으로 옳은 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "드라마",
+        "등장인물",
+        "기업 부문별 활동"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "등장인물의 역할을 변경",
+        "부문별 활동의 범위를 확장"
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "EXPLAIN_CORPORATE_FORM_FEATURES",
+      "name": "기업 형태 특징 설명",
+      "intent": "채용 공고문을 통해 기업 형태의 특징을 설명하도록 유도한다.",
+      "stemPattern": "위 채용 공고문의 (주) 바이오가 속한 기업 형태의 특징에 대한 설명으로 가장 적절한 것은?",
+      "indicators": [
+        "채용 공고문",
+        "기업 형태",
+        "특징"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "기업 정보를 다른 사례로 변경",
+        "특징의 범위를 다양화"
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "IDENTIFY_ACCOUNTING_REPORT",
+      "name": "회계 보고서 식별",
+      "intent": "채용 공고문의 내용을 통해 회계 보고서의 종류를 식별하도록 유도한다.",
+      "stemPattern": "위 채용 공고문의 ㉠의 종류에 해당하는 회계 보고서로 옳은 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "채용 공고문",
+        "회계 보고서",
+        "종류"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "회계 관련 내용을 다른 사례로 변경",
+        "보고서의 종류를 다양화"
+      ]
+    },
+    {
+      "questionIndex": 10,
+      "patternId": "ANALYZE_SOCIAL_INSURANCE_CASE",
+      "name": "사회 보험 사례 분석",
+      "intent": "수행 평가 보고서를 통해 사회 보험 신청 사례를 분석하도록 유도한다.",
+      "stemPattern": "다음 수행 평가 보고서에서 A, B씨가 신청한 사회 보험에 대해 분석한 내용으로 옳은 것은?",
+      "indicators": [
+        "수행 평가 보고서",
+        "사회 보험",
+        "분석"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "사례의 내용을 변경",
+        "보험 종류를 다양화"
+      ]
+    },
+    {
+      "questionIndex": 0,
+      "patternId": "CASE_DIAGNOSTIC_SELECTION",
+      "name": "산업 재해 사례 분석",
+      "intent": "산업 재해 사례를 통해 관련된 개념을 이해하고, 옳은 내용을 선택하도록 유도",
+      "stemPattern": "다음 산업 재해 사례를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "산업 재해 사례",
+        "옳은 것만을"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "scenario analysis"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "사례를 다른 산업으로 변경",
+        "보기 항목을 추가"
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "JOB_POSTING_ANALYSIS",
+      "name": "채용 공고문 분석",
+      "intent": "채용 공고문을 통해 기업의 복리후생, 기업 형태, 면접 방법 등을 파악하고 적절한 내용을 선택하도록 유도",
+      "stemPattern": "다음 채용 공고문을 통해 알 수 있는 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "채용 공고문",
+        "적절한 것만을"
+      ],
+      "judgmentAxes": [
+        "document interpretation",
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_DOCUMENT_ANALYSIS"
+      ],
+      "variationTips": [
+        "공고문의 기업 형태를 변경",
+        "복리후생 항목을 추가"
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "JOB_PLAN_EVALUATION",
+      "name": "채용 계획서 전형 방법 평가",
+      "intent": "채용 계획서의 전형 방법에 대한 설명을 평가하여 적절하지 않은 내용을 찾도록 유도",
+      "stemPattern": "위 채용 계획서에 나타난 ○○기업의 [전형 방법]에 대한 설명으로 적절하지 않은 것은?",
+      "indicators": [
+        "채용 계획서",
+        "적절하지 않은 것"
+      ],
+      "judgmentAxes": [
+        "procedure evaluation",
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_PROCEDURE_EVALUATION"
+      ],
+      "variationTips": [
+        "전형 방법을 구체화",
+        "적절한 설명을 추가"
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "JOB_POSTING_ACTIVITY_MATCH",
+      "name": "모집 부서의 경영 관리 활동 매칭",
+      "intent": "채용 공고문을 통해 모집 부서의 주 업무를 경영 관리 활동과 매칭하도록 유도",
+      "stemPattern": "위 채용 공고문에 나타난 모집 부서의 주 업무가 속하는 경영 관리 활동으로 가장 적절한 것은?",
+      "indicators": [
+        "채용 공고문",
+        "경영 관리 활동"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "activity classification"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_ACTIVITY_MATCH"
+      ],
+      "variationTips": [
+        "경영 관리 활동의 범주를 변경",
+        "업무 설명을 구체화"
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "JOB_PLAN_CONTENT_SELECTION",
+      "name": "채용 계획 공고문 내용 선택",
+      "intent": "채용 계획 공고문을 통해 기업 형태와 전형 방법을 파악하고 적절한 내용을 선택하도록 유도",
+      "stemPattern": "다음 ○○기업 채용 계획 공고문을 통해 알 수 있는 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "채용 계획 공고문",
+        "적절한 것만을"
+      ],
+      "judgmentAxes": [
+        "document interpretation",
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_DOCUMENT_ANALYSIS"
+      ],
+      "variationTips": [
+        "기업 형태를 다양화",
+        "전형 방법을 구체화"
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "DECISION_TYPE_ANALYSIS",
+      "name": "의사 결정 유형 분석",
+      "intent": "특강 내용을 통해 의사 결정 유형을 분석하고 적절한 설명을 선택하도록 유도",
+      "stemPattern": "위 특강에 나타난 A, B씨의 직업 선택 시 의사 결정 유형에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "특강",
+        "의사 결정 유형"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "theory application"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_THEORY_APPLICATION"
+      ],
+      "variationTips": [
+        "의사 결정 유형을 추가",
+        "특강 내용을 구체화"
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "WORK_STYLE_ANALYSIS",
+      "name": "근무 방식 분석",
+      "intent": "글을 통해 A씨의 근무 방식을 분석하고 적절한 설명을 선택하도록 유도",
+      "stemPattern": "다음 글에 나타난 A씨의 근무 방식으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "근무 방식",
+        "적절한 것만을"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "scenario analysis"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_SCENARIO_ANALYSIS"
+      ],
+      "variationTips": [
+        "근무 방식의 조건을 변경",
+        "보기 항목을 추가"
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "NCS_SELF_INTRO_ANALYSIS",
+      "name": "자기소개서 사례 분석",
+      "intent": "NCS 기반 자기소개서 사례를 통해 학생들의 역량을 분석하고 적절한 설명을 선택하도록 유도",
+      "stemPattern": "다음은 [NCS 기반 자기소개서 사례집]의 일부이다. 학생 A, B에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "자기소개서 사례",
+        "적절한 것만을"
+      ],
+      "judgmentAxes": [
+        "document interpretation",
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_DOCUMENT_ANALYSIS"
+      ],
+      "variationTips": [
+        "학생들의 경험을 다양화",
+        "보기 항목을 추가"
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "TECHNOLOGY_SELECTION",
+      "name": "첨단 기술 선택",
+      "intent": "홍보물에서 첨단 기술을 파악하고 가장 적절한 것을 선택하도록 유도",
+      "stemPattern": "다음 홍보물에 나타난 첨단 기술로 가장 적절한 것은?",
+      "indicators": [
+        "홍보물",
+        "첨단 기술"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "technology identification"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_TECHNOLOGY_IDENTIFICATION"
+      ],
+      "variationTips": [
+        "첨단 기술의 범주를 변경",
+        "홍보물 내용을 구체화"
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "CONTRACT_ANALYSIS",
+      "name": "근로계약 내용 분석",
+      "intent": "근로계약 내용을 근로자 A의 상황에 적용하여 분석하고 옳은 내용을 선택하도록 유도",
+      "stemPattern": "다음 [근로계약 내용]을 [근로자 A의 상황]에 적용하여 분석한내용으로 옳은 것은?",
+      "indicators": [
+        "근로계약 내용",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "document interpretation",
+        "scenario analysis"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CONTRACT_ANALYSIS"
+      ],
+      "variationTips": [
+        "근로계약 조건을 변경",
+        "근로자 상황을 구체화"
+      ]
+    }
+  ]
+}

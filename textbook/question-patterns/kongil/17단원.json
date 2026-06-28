@@ -1,0 +1,519 @@
+{
+  "unitNumber": 17,
+  "subject": "kongil",
+  "totalQuestions": 19,
+  "entries": [
+    {
+      "questionIndex": 1,
+      "patternId": "ENV-INT-COM-001",
+      "name": "International Environmental Agreement Compliance",
+      "intent": "Identify examples of compliance with international environmental agreements.",
+      "stemPattern": "다음 포스터에 나타난 국제 환경 협약을 준수한 사례로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "국제 환경 협약",
+        "준수한 사례"
+      ],
+      "judgmentAxes": [
+        "Compliance",
+        "International Agreements"
+      ],
+      "itemFamilies": [
+        "Recycling",
+        "Substitution",
+        "Conservation",
+        "Eco-friendly Methods"
+      ],
+      "templates": [
+        "Which examples comply with international environmental agreements?"
+      ],
+      "variationTips": [
+        "Include different types of environmental agreements and compliance examples."
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "ENV-POL-IDENT-001",
+      "name": "Identify Type of Air Pollution",
+      "intent": "Determine the type of air pollution based on the given process.",
+      "stemPattern": "위 [오염 물질 생성 과정]에서 알 수 있는 대기 오염의 종류로 가장 적절한 것은?",
+      "indicators": [
+        "오염 물질 생성 과정",
+        "대기 오염의 종류"
+      ],
+      "judgmentAxes": [
+        "Pollution Type",
+        "Air Quality"
+      ],
+      "itemFamilies": [
+        "Primary Pollutants",
+        "Secondary Pollutants"
+      ],
+      "templates": [
+        "What type of air pollution is indicated by the process?"
+      ],
+      "variationTips": [
+        "Use different pollution processes to identify various types of air pollution."
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "ENV-POL-ANAL-002",
+      "name": "Analyze Air Pollution Data",
+      "intent": "Analyze given data to answer questions about air pollution.",
+      "stemPattern": "[2~3] 다음은 대기 오염에 대한 설명 자료이다. 물음에 답하시오.",
+      "indicators": [
+        "대기 오염",
+        "설명 자료"
+      ],
+      "judgmentAxes": [
+        "Data Analysis",
+        "Pollution Characteristics"
+      ],
+      "itemFamilies": [
+        "Concentration Units",
+        "Pollutant Types"
+      ],
+      "templates": [
+        "Analyze the data to answer questions about air pollution."
+      ],
+      "variationTips": [
+        "Include different data sets and questions related to air pollution."
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "ENV-CLIM-EVAL-001",
+      "name": "Evaluate Climate Change Report",
+      "intent": "Evaluate the correctness of answers in a climate change report.",
+      "stemPattern": "다음은 기후 변화 현상에 대한 수행 평가 보고서이다. 옳게 작성한 답안만을 있는 대로 고른 것은?",
+      "indicators": [
+        "기후 변화",
+        "수행 평가 보고서"
+      ],
+      "judgmentAxes": [
+        "Correctness",
+        "Climate Change"
+      ],
+      "itemFamilies": [
+        "Acid Rain",
+        "Greenhouse Gases",
+        "International Agreements"
+      ],
+      "templates": [
+        "Select the correctly written answers in the climate change report."
+      ],
+      "variationTips": [
+        "Include different climate change phenomena and evaluation criteria."
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "ENV-WATER-ANAL-001",
+      "name": "Analyze Water Quality Report",
+      "intent": "Identify correct statements about water quality from a report.",
+      "stemPattern": "다음은 A, B 하천의 평균 수질 측정 결과 보고서의 일부이다. 이에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "수질 측정 결과",
+        "적절한 설명"
+      ],
+      "judgmentAxes": [
+        "Water Quality",
+        "Correctness"
+      ],
+      "itemFamilies": [
+        "Chemical Oxygen Demand",
+        "Dissolved Oxygen",
+        "Acidity"
+      ],
+      "templates": [
+        "Select the correct statements about water quality from the report."
+      ],
+      "variationTips": [
+        "Include different water quality parameters and their implications."
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "ENV-INDUSTRY-IMPACT-001",
+      "name": "Evaluate Industrial Pollution Impact",
+      "intent": "Evaluate the impact of industrial pollution based on given descriptions.",
+      "stemPattern": "다음은 ◯◯공업 단지 환경 오염 피해 발생 현황을 나타낸 것이다. (가)~(다)에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "환경 오염 피해",
+        "옳은 설명"
+      ],
+      "judgmentAxes": [
+        "Pollution Impact",
+        "Correctness"
+      ],
+      "itemFamilies": [
+        "Eutrophication",
+        "Heavy Metals",
+        "Particulate Matter"
+      ],
+      "templates": [
+        "Select the correct descriptions of industrial pollution impact."
+      ],
+      "variationTips": [
+        "Include different types of industrial pollution and their effects."
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "ENV-TECH-APPL-001",
+      "name": "Apply Advanced Technology in Pollution Control",
+      "intent": "Identify the most appropriate content to fill in the blank regarding pollution control using advanced technology.",
+      "stemPattern": "다음은 첨단 기술을 활용한 환경 오염 방지 및 관리 사례에 대한 수업 자료이다. (가)에 들어갈 내용으로 가장 적절한 것은?",
+      "indicators": [
+        "첨단 기술",
+        "환경 오염 방지"
+      ],
+      "judgmentAxes": [
+        "Technology Application",
+        "Pollution Control"
+      ],
+      "itemFamilies": [
+        "IoT",
+        "Data Analysis",
+        "Predictive Modeling"
+      ],
+      "templates": [
+        "What is the most appropriate content to fill in the blank regarding pollution control?"
+      ],
+      "variationTips": [
+        "Include different advanced technologies and their applications in pollution control."
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "ENV-DISEASE-CAUSE-001",
+      "name": "Identify Causes of Environmental Diseases",
+      "intent": "Identify the causes of diseases and air pollution from environmental incident logs.",
+      "stemPattern": "다음은 환경 오염 사건 일지를 통해 알 수 있는 A 도시 인근에서 확인된 질병의 원인 물질과 B 도시에서 발생한 대기 오염으로 옳은 것은?",
+      "indicators": [
+        "환경 오염 사건 일지",
+        "질병의 원인 물질"
+      ],
+      "judgmentAxes": [
+        "Disease Causes",
+        "Pollution Sources"
+      ],
+      "itemFamilies": [
+        "Toxic Substances",
+        "Air Pollutants"
+      ],
+      "templates": [
+        "Identify the causes of diseases and air pollution from the logs."
+      ],
+      "variationTips": [
+        "Include different environmental incidents and their health impacts."
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "ENV-TECH-IMPACT-001",
+      "name": "Evaluate Environmental Protection Technology",
+      "intent": "Evaluate the implications of environmental protection technology from an article.",
+      "stemPattern": "다음은 환경 보호 기술에 관한 기사이다. 이를 통해 알 수 있는 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "환경 보호 기술",
+        "적절한 내용"
+      ],
+      "judgmentAxes": [
+        "Technology Impact",
+        "Correctness"
+      ],
+      "itemFamilies": [
+        "IoT Applications",
+        "Pollution Monitoring",
+        "Data Accuracy"
+      ],
+      "templates": [
+        "Select the correct implications of environmental protection technology from the article."
+      ],
+      "variationTips": [
+        "Include different technologies and their environmental impacts."
+      ]
+    },
+    {
+      "questionIndex": 10,
+      "patternId": "ENV-REGION-ANAL-001",
+      "name": "Analyze Regional Pollution Status",
+      "intent": "Analyze the pollution status of different regions based on a meeting scene.",
+      "stemPattern": "다음은 ◯◯시의 환경 오염 실태에 대한 회의 장면이다. A~C 지역에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "환경 오염 실태",
+        "옳은 설명"
+      ],
+      "judgmentAxes": [
+        "Regional Pollution",
+        "Correctness"
+      ],
+      "itemFamilies": [
+        "Volatile Organic Compounds",
+        "Eutrophication",
+        "Pollution Control"
+      ],
+      "templates": [
+        "Select the correct descriptions of regional pollution status from the meeting scene."
+      ],
+      "variationTips": [
+        "Include different regions and types of pollution for analysis."
+      ]
+    },
+    {
+      "questionIndex": 17,
+      "patternId": "A1",
+      "name": "기업 인터뷰 분석",
+      "intent": "기업의 사회적 책임 및 기술 개발 성과 파악",
+      "stemPattern": "다음 대표이사의 인터뷰를 통해 알 수 있는 ○○기업에 대한 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "대표이사 인터뷰",
+        "기업 내용",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "사회적 책임",
+        "기술 개발",
+        "인증 획득"
+      ],
+      "itemFamilies": [
+        "기업 성과",
+        "사회적 책임",
+        "기술 혁신"
+      ],
+      "templates": [
+        "인터뷰 분석",
+        "기업 평가"
+      ],
+      "variationTips": [
+        "인터뷰 내용의 구체성",
+        "기업의 사회적 책임 강조"
+      ]
+    },
+    {
+      "questionIndex": 17,
+      "patternId": "A2",
+      "name": "사례 분석",
+      "intent": "기업 사례를 통해 옳은 내용을 파악",
+      "stemPattern": "다음 사례에 나타난 ○○기업에 대한 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "사례",
+        "기업 내용",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "사례 분석",
+        "기업 활동"
+      ],
+      "itemFamilies": [
+        "기업 사례",
+        "활동 분석"
+      ],
+      "templates": [
+        "사례 분석",
+        "기업 평가"
+      ],
+      "variationTips": [
+        "사례의 구체성",
+        "기업 활동의 다양성"
+      ]
+    },
+    {
+      "questionIndex": 17,
+      "patternId": "A3",
+      "name": "제품 분석 보고서",
+      "intent": "제품 분석을 통해 기업의 성과 파악",
+      "stemPattern": "다음은 ○○기업의 제품 분석 보고서이다. 이를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "제품 분석 보고서",
+        "기업 내용",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "제품 성과",
+        "기술 혁신"
+      ],
+      "itemFamilies": [
+        "제품 분석",
+        "기업 성과"
+      ],
+      "templates": [
+        "보고서 분석",
+        "기업 평가"
+      ],
+      "variationTips": [
+        "제품 분석의 깊이",
+        "기술 혁신의 정도"
+      ]
+    },
+    {
+      "questionIndex": 17,
+      "patternId": "B1",
+      "name": "사고 예방 활동 사례",
+      "intent": "사고 예방 활동의 적절성 평가",
+      "stemPattern": "다음은 ○○공장의 사고 예방 활동 사례이다. 이를 분석한 내용으로 적절하지 않은 것은?",
+      "indicators": [
+        "사고 예방 활동",
+        "분석 내용",
+        "적절하지 않은 것"
+      ],
+      "judgmentAxes": [
+        "안전 관리",
+        "사고 예방"
+      ],
+      "itemFamilies": [
+        "안전 활동",
+        "사고 예방"
+      ],
+      "templates": [
+        "사례 분석",
+        "안전 평가"
+      ],
+      "variationTips": [
+        "사고 예방 활동의 구체성",
+        "안전 관리의 철저함"
+      ]
+    },
+    {
+      "questionIndex": 17,
+      "patternId": "B2",
+      "name": "컨설팅 보고서 분석",
+      "intent": "컨설팅 제안 사항의 실천 방안 평가",
+      "stemPattern": "다음은 ○○기업 컨설팅 보고서의 일부이다. 컨설팅 제안 사항에 따른 실천 방안으로 옳지 않은 것은?",
+      "indicators": [
+        "컨설팅 보고서",
+        "제안 사항",
+        "옳지 않은 것"
+      ],
+      "judgmentAxes": [
+        "실천 방안",
+        "제안 사항"
+      ],
+      "itemFamilies": [
+        "컨설팅 분석",
+        "실천 방안"
+      ],
+      "templates": [
+        "보고서 분석",
+        "실천 평가"
+      ],
+      "variationTips": [
+        "제안 사항의 구체성",
+        "실천 방안의 현실성"
+      ]
+    },
+    {
+      "questionIndex": 17,
+      "patternId": "C1",
+      "name": "재해 사례 분석",
+      "intent": "재해 사례를 통해 보호구 착용 필요성 평가",
+      "stemPattern": "다음 재해 사례에 나타난 보호구의 착용이 필요한 작업으로 가장 적절한 것은?",
+      "indicators": [
+        "재해 사례",
+        "보호구 착용",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "안전 관리",
+        "보호구 필요성"
+      ],
+      "itemFamilies": [
+        "재해 분석",
+        "보호구 평가"
+      ],
+      "templates": [
+        "사례 분석",
+        "안전 평가"
+      ],
+      "variationTips": [
+        "재해 사례의 구체성",
+        "보호구의 중요성"
+      ]
+    },
+    {
+      "questionIndex": 17,
+      "patternId": "A4",
+      "name": "기술 적용 사례 분석",
+      "intent": "기술 적용 사례를 통해 기업의 성과 파악",
+      "stemPattern": "다음 ○○기업의 기술 적용 사례를 통해 파악할 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "기술 적용 사례",
+        "기업 내용",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "기술 혁신",
+        "성과 분석"
+      ],
+      "itemFamilies": [
+        "기술 사례",
+        "기업 성과"
+      ],
+      "templates": [
+        "사례 분석",
+        "기술 평가"
+      ],
+      "variationTips": [
+        "기술 적용의 구체성",
+        "성과의 명확성"
+      ]
+    },
+    {
+      "questionIndex": 17,
+      "patternId": "A5",
+      "name": "경영 혁신 사례 분석",
+      "intent": "경영 혁신 사례를 통해 기업의 성과 파악",
+      "stemPattern": "다음 ○○기업 경영 혁신 사례에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "경영 혁신 사례",
+        "기업 내용",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "경영 혁신",
+        "성과 분석"
+      ],
+      "itemFamilies": [
+        "혁신 사례",
+        "기업 성과"
+      ],
+      "templates": [
+        "사례 분석",
+        "혁신 평가"
+      ],
+      "variationTips": [
+        "혁신 사례의 구체성",
+        "성과의 명확성"
+      ]
+    },
+    {
+      "questionIndex": 17,
+      "patternId": "C2",
+      "name": "경영 전략 회의록 분석",
+      "intent": "경영 전략 회의록을 통해 적절한 설명 파악",
+      "stemPattern": "다음 ○○공장 경영 전략 회의록에 대한 설명으로 가장 적절한 것은?",
+      "indicators": [
+        "경영 전략 회의록",
+        "설명",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "경영 전략",
+        "적절성 평가"
+      ],
+      "itemFamilies": [
+        "전략 분석",
+        "경영 평가"
+      ],
+      "templates": [
+        "회의록 분석",
+        "전략 평가"
+      ],
+      "variationTips": [
+        "회의록의 구체성",
+        "전략의 현실성"
+      ]
+    }
+  ]
+}

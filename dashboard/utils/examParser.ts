@@ -18,6 +18,7 @@ export function inferTemplate(data: unknown): string | null {
   if ('chart_type' in d && 'axes' in d && 'datasets' in d) return 'TPL_QUANTITATIVE_CHART';
   if ('slogan' in d && 'bullets' in d) return 'TPL_PROMOTIONAL_CANVAS';
 
+  if (Object.keys(d).length > 0) return 'TPL_PLAIN_TEXT';
   return null;
 }
 
@@ -32,8 +33,13 @@ export function parseStimulus(
 ): ParsedStimulus | null {
   const resolvedTemplate = template ?? inferTemplate(data);
   if (!resolvedTemplate) {
-    console.warn('[examParser] 템플릿을 추론할 수 없습니다:', data);
-    return null;
+    if (data && typeof data === 'object') {
+      return { template: 'TPL_PLAIN_TEXT', data: JSON.stringify(data, null, 2) };
+    }
+    if (typeof data === 'string') {
+      return { template: 'TPL_PLAIN_TEXT', data };
+    }
+    return { template: 'TPL_PLAIN_TEXT', data: '' };
   }
 
   switch (resolvedTemplate) {
@@ -55,9 +61,21 @@ export function parseStimulus(
       return { template: 'TPL_QUANTITATIVE_CHART', data: data as any };
     case 'TPL_PROMOTIONAL_CANVAS':
       return { template: 'TPL_PROMOTIONAL_CANVAS', data: data as any };
+    case 'TPL_PLAIN_TEXT':
+      if (typeof data === 'string') return { template: 'TPL_PLAIN_TEXT', data };
+      if (data && typeof data === 'object' && 'content' in data) {
+        const content = (data as Record<string, unknown>).content;
+        if (typeof content === 'string') return { template: 'TPL_PLAIN_TEXT', data: content };
+      }
+      return { template: 'TPL_PLAIN_TEXT', data: JSON.stringify(data) };
     default:
-      console.warn(`[examParser] 알 수 없는 템플릿: ${resolvedTemplate}`);
-      return null;
+      if (data && typeof data === 'object') {
+        return { template: 'TPL_PLAIN_TEXT', data: JSON.stringify(data, null, 2) };
+      }
+      if (typeof data === 'string') {
+        return { template: 'TPL_PLAIN_TEXT', data };
+      }
+      return { template: 'TPL_PLAIN_TEXT', data: '' };
   }
 }
 

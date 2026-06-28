@@ -1,0 +1,835 @@
+{
+  "unitNumber": 5,
+  "subject": "kongil",
+  "totalQuestions": 47,
+  "entries": [
+    {
+      "questionIndex": 0,
+      "patternId": "FACTUAL_REPORT_ANALYSIS",
+      "name": "공장 견학 보고서 분석",
+      "intent": "공장 견학 보고서를 통해 얻을 수 있는 정보를 바탕으로 옳은 내용을 선택하도록 유도한다.",
+      "stemPattern": "다음은 공장 견학 보고서이다. 이를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "공장 견학 보고서",
+        "알 수 있는 내용",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "정보 해석",
+        "개념 일치"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_FACTUAL_REPORT_ANALYSIS"
+      ],
+      "variationTips": [
+        "보고서의 다른 부분을 강조",
+        "다른 산업 분야의 보고서 사용"
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "MANUFACTURING_PROCESS_ANALYSIS",
+      "name": "제조 과정 설명 분석",
+      "intent": "제조 과정 설명을 통해 옳은 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음은 컴퓨터 부품인 방열판 제조 과정을 나타낸 것이다. 이에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "제조 과정",
+        "옳은 설명"
+      ],
+      "judgmentAxes": [
+        "과정 이해",
+        "개념 일치"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_MANUFACTURING_PROCESS_ANALYSIS"
+      ],
+      "variationTips": [
+        "다른 부품의 제조 과정 사용",
+        "과정의 세부 단계 변경"
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "QUALITY_INSPECTION_APPLICATION",
+      "name": "품질 검사 방법 적용 사례",
+      "intent": "품질 검사 방법을 실제 사례에 적용하여 적절한 사례를 선택하도록 유도한다.",
+      "stemPattern": "다음 ◯◯반도체에서 도입한 품질 검사 방법을 적용해야 할 사례로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "품질 검사 방법",
+        "적용해야 할 사례"
+      ],
+      "judgmentAxes": [
+        "방법 적용",
+        "사례 적합성"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_QUALITY_INSPECTION_APPLICATION"
+      ],
+      "variationTips": [
+        "다른 검사 방법 사용",
+        "사례의 산업 분야 변경"
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "PROCESS_IMPROVEMENT_TECHNIQUE",
+      "name": "생산 공정 개선 기술 분석",
+      "intent": "생산 공정 개선 사례를 통해 가공 기술과 생산 방식을 파악하도록 유도한다.",
+      "stemPattern": "다음 ◯◯기업의 생산 공정 개선 사례를 통해 알 수 있는 가공 기술과 생산 방식으로 옳은 것은?",
+      "indicators": [
+        "생산 공정 개선",
+        "가공 기술",
+        "생산 방식"
+      ],
+      "judgmentAxes": [
+        "기술 이해",
+        "방식 적합성"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_PROCESS_IMPROVEMENT_TECHNIQUE"
+      ],
+      "variationTips": [
+        "다른 공정 개선 사례 사용",
+        "기술의 세부 사항 변경"
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "COMPANY_PROFILE_ANALYSIS",
+      "name": "기업 소개 자료 분석",
+      "intent": "기업 소개 자료를 통해 옳지 않은 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음 ◯◯기업 소개 자료에 나타난 설명으로 옳지 않은 것은?",
+      "indicators": [
+        "기업 소개 자료",
+        "옳지 않은 설명"
+      ],
+      "judgmentAxes": [
+        "정보 해석",
+        "개념 일치"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_COMPANY_PROFILE_ANALYSIS"
+      ],
+      "variationTips": [
+        "다른 기업의 소개 자료 사용",
+        "자료의 세부 내용 변경"
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "PRODUCT_STATUS_REPORT_ANALYSIS",
+      "name": "제품 현황 조사 보고서 분석",
+      "intent": "제품 현황 조사 보고서를 통해 옳은 분석을 선택하도록 유도한다.",
+      "stemPattern": "다음은 ◯◯공장의 제품 현황 조사 보고서이다. (가), (나)에 대한 분석으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "제품 현황 조사 보고서",
+        "옳은 분석"
+      ],
+      "judgmentAxes": [
+        "정보 해석",
+        "개념 일치"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_PRODUCT_STATUS_REPORT_ANALYSIS"
+      ],
+      "variationTips": [
+        "다른 제품의 현황 보고서 사용",
+        "보고서의 세부 내용 변경"
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "MACHINE_TOOL_IDENTIFICATION",
+      "name": "기계 공구 식별",
+      "intent": "기계 공구의 가공 방법을 통해 적절한 공구를 식별하도록 유도한다.",
+      "stemPattern": "다음은 드론 프레임 제작 프로젝트의 일부이다. (가)~(다)에 해당하는 기계 공구로 옳은 것은?",
+      "indicators": [
+        "기계 공구",
+        "가공 방법"
+      ],
+      "judgmentAxes": [
+        "공구 식별",
+        "방법 이해"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_MACHINE_TOOL_IDENTIFICATION"
+      ],
+      "variationTips": [
+        "다른 프로젝트의 공구 사용",
+        "가공 방법의 세부 사항 변경"
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "CASE_STUDY_ANALYSIS",
+      "name": "기업 사례 분석",
+      "intent": "기업 사례를 통해 옳은 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음 ◯◯기업의 사례에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "기업 사례",
+        "옳은 설명"
+      ],
+      "judgmentAxes": [
+        "사례 이해",
+        "개념 일치"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_STUDY_ANALYSIS"
+      ],
+      "variationTips": [
+        "다른 기업 사례 사용",
+        "사례의 세부 내용 변경"
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "PRODUCT_DESCRIPTION_ANALYSIS",
+      "name": "제품 설명 자료 분석",
+      "intent": "제품 설명 자료를 통해 옳은 내용을 선택하도록 유도한다.",
+      "stemPattern": "위 자료를 통해 파악할 수 있는 내용으로 옳은 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "제품 설명 자료",
+        "옳은 내용"
+      ],
+      "judgmentAxes": [
+        "정보 해석",
+        "개념 일치"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_PRODUCT_DESCRIPTION_ANALYSIS"
+      ],
+      "variationTips": [
+        "다른 제품 설명 자료 사용",
+        "설명 자료의 세부 내용 변경"
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "EXPORT_PLAN_ANALYSIS",
+      "name": "수출 계획 분석",
+      "intent": "수출 계획에 따른 인증과 생산 방식을 파악하도록 유도한다.",
+      "stemPattern": "위 자료를 통해 알 수 있는 수출 계획에 따른 인증과 생산 방식으로 옳은 것은?",
+      "indicators": [
+        "수출 계획",
+        "인증",
+        "생산 방식"
+      ],
+      "judgmentAxes": [
+        "계획 이해",
+        "방식 적합성"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_EXPORT_PLAN_ANALYSIS"
+      ],
+      "variationTips": [
+        "다른 수출 계획 사용",
+        "계획의 세부 내용 변경"
+      ]
+    },
+    {
+      "questionIndex": 0,
+      "patternId": "INDUSTRY_PROCESS_DESCRIPTION",
+      "name": "공업 생산 과정 설명",
+      "intent": "공업 간의 생산 과정과 생산품에 대한 설명을 통해 산업 분류에 대한 이해를 평가하려는 의도",
+      "stemPattern": "다음은 공업 간 생산 과정과 생산품을 나타낸 것이다. (가)～(다) 공업에 대한 설명으로 가장 적절한 것은?",
+      "indicators": [
+        "공업",
+        "생산 과정",
+        "산업 분류"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_INDUSTRY_PROCESS_DESCRIPTION"
+      ],
+      "variationTips": [
+        "다른 산업 분야를 추가하여 비교",
+        "생산품의 구체적인 예시 제공"
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "MANUFACTURING_MANAGEMENT_ACTIVITY",
+      "name": "제조 현장 관리 활동",
+      "intent": "제조 현장 관리 기사를 통해 기업의 구체적인 관리 활동을 파악하고 적절한 활동을 선택하도록 유도",
+      "stemPattern": "다음은 제조 현장 관리를 나타낸 기사이다. A 기업이 수행한 활동으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "제조 현장 관리",
+        "갠트 차트",
+        "RFID"
+      ],
+      "judgmentAxes": [
+        "procedure",
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_MANUFACTURING_MANAGEMENT_ACTIVITY"
+      ],
+      "variationTips": [
+        "다양한 관리 도구 추가",
+        "다른 기업 사례 비교"
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "PROFESSIONAL_ATTITUDE_ASSESSMENT",
+      "name": "직업의식 평가",
+      "intent": "기사에 나타난 인물의 직업의식을 분석하여 적절한 직업의식을 선택하도록 유도",
+      "stemPattern": "다음 기사에 나타난 A씨의 직업의식으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "직업의식",
+        "전문성",
+        "자부심"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_PROFESSIONAL_ATTITUDE_ASSESSMENT"
+      ],
+      "variationTips": [
+        "다른 직업군의 사례 추가",
+        "직업의식의 다양한 측면 강조"
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "PRODUCTION_ANALYSIS_REPORT_INTERPRETATION",
+      "name": "제품 생산 분석 보고서 해석",
+      "intent": "제품 생산 분석 보고서를 통해 파악할 수 있는 내용을 선택하도록 유도",
+      "stemPattern": "다음 제품 생산 분석 보고서를 통해 파악할 수 있는 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "생산 관리",
+        "품질 검사",
+        "작업 관리"
+      ],
+      "judgmentAxes": [
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_PRODUCTION_ANALYSIS_REPORT_INTERPRETATION"
+      ],
+      "variationTips": [
+        "다양한 생산 관리 기법 추가",
+        "보고서 형식 변형"
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "INDUSTRIAL_PARK_REPORT_INTERPRETATION",
+      "name": "산업단지 견학 보고서 해석",
+      "intent": "산업단지 견학 보고서를 통해 파악할 수 있는 내용을 선택하도록 유도",
+      "stemPattern": "다음은 ○○산업단지 견학 보고서의 일부이다. 이를 통해 파악할 수 있는 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "산업단지",
+        "생산 공정",
+        "자재 관리"
+      ],
+      "judgmentAxes": [
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_INDUSTRIAL_PARK_REPORT_INTERPRETATION"
+      ],
+      "variationTips": [
+        "다양한 기업 사례 추가",
+        "보고서 형식 변형"
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "INDUSTRY_CASE_STUDY_SELECTION",
+      "name": "연계 산업 사례 선택",
+      "intent": "연계 산업 우수 사례를 통해 기업의 설명을 선택하도록 유도",
+      "stemPattern": "다음은 ○○시 연계 산업 우수 사례이다. A∼C기업에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "연계 산업",
+        "지역 경제",
+        "산업 분류"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_INDUSTRY_CASE_STUDY_SELECTION"
+      ],
+      "variationTips": [
+        "다양한 산업 연계 사례 추가",
+        "지역 경제 효과 강조"
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "PRODUCTION_INFORMATION_SYSTEM_SELECTION",
+      "name": "생산 정보 시스템 선택",
+      "intent": "사례를 통해 적절한 생산 정보 시스템을 선택하도록 유도",
+      "stemPattern": "다음 사례와 관련된 생산 정보 시스템으로 가장 적절한 것은?",
+      "indicators": [
+        "생산 정보 시스템",
+        "고객 관리",
+        "맞춤형 서비스"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_PRODUCTION_INFORMATION_SYSTEM_SELECTION"
+      ],
+      "variationTips": [
+        "다양한 정보 시스템 기능 추가",
+        "고객 관리 사례 변형"
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "JOB_ANNOUNCEMENT_INTERPRETATION",
+      "name": "채용 공고문 해석",
+      "intent": "채용 공고문을 통해 알 수 있는 내용을 선택하도록 유도",
+      "stemPattern": "다음은 ○○기업의 채용 공고문이다. 공고문을 통해 알 수 있는 내용으로 가장 적절한 것은?",
+      "indicators": [
+        "채용 공고",
+        "전형 절차",
+        "교육 및 훈련"
+      ],
+      "judgmentAxes": [
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_JOB_ANNOUNCEMENT_INTERPRETATION"
+      ],
+      "variationTips": [
+        "다양한 채용 절차 추가",
+        "우대 사항 변형"
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "ACCIDENT_CASE_EXPLANATION_SELECTION",
+      "name": "재해 사례 설명 선택",
+      "intent": "재해 사례를 통해 적절한 설명을 선택하도록 유도",
+      "stemPattern": "다음 재해 사례에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "재해 사례",
+        "안전 관리",
+        "기계 안전"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_ACCIDENT_CASE_EXPLANATION_SELECTION"
+      ],
+      "variationTips": [
+        "다양한 안전 관리 조치 추가",
+        "재해 사례 변형"
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "PRODUCTION_ACTIVITY_INTERPRETATION",
+      "name": "제품 생산 활동 해석",
+      "intent": "제품 생산 활동을 통해 알 수 있는 내용을 선택하도록 유도",
+      "stemPattern": "다음 ○○기업의 제품 생산 활동을 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "생산 활동",
+        "혁신 활동",
+        "재고 관리"
+      ],
+      "judgmentAxes": [
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_PRODUCTION_ACTIVITY_INTERPRETATION"
+      ],
+      "variationTips": [
+        "다양한 생산 혁신 사례 추가",
+        "재고 관리 방식 변형"
+      ]
+    },
+    {
+      "questionIndex": 10,
+      "patternId": "ENVIRONMENTAL_REPORT_INTERPRETATION",
+      "name": "환경 조사 보고서 해석",
+      "intent": "환경 조사 보고서를 통해 파악할 수 있는 내용을 선택하도록 유도",
+      "stemPattern": "다음은 ○○발전소 지역 환경 조사 보고서이다. 이를 통해 파악할 수 있는 내용으로 가장 적절한 것은?",
+      "indicators": [
+        "환경 조사",
+        "오염원",
+        "유해 물질"
+      ],
+      "judgmentAxes": [
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_ENVIRONMENTAL_REPORT_INTERPRETATION"
+      ],
+      "variationTips": [
+        "다양한 오염원 사례 추가",
+        "유해 물질의 영향 강조"
+      ]
+    },
+    {
+      "questionIndex": 11,
+      "patternId": "INNOVATION_ACTIVITY_EXPLANATION_SELECTION",
+      "name": "부서별 혁신 활동 설명 선택",
+      "intent": "부서별 혁신 활동 사례를 통해 적절하지 않은 설명을 선택하도록 유도",
+      "stemPattern": "다음은 ○○기업의 부서별 혁신 활동 사례이다. ○○기업에 대한 설명으로 적절하지 않은 것은?",
+      "indicators": [
+        "혁신 활동",
+        "인적 자원 관리",
+        "품질 인증"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_INNOVATION_ACTIVITY_EXPLANATION_SELECTION"
+      ],
+      "variationTips": [
+        "다양한 혁신 활동 사례 추가",
+        "품질 인증 방식 변형"
+      ]
+    },
+    {
+      "questionIndex": 12,
+      "patternId": "INDUSTRIAL_PARK_DESCRIPTION_SELECTION",
+      "name": "산업단지 설명 선택",
+      "intent": "산업단지에 대한 설명을 통해 적절하지 않은 설명을 선택하도록 유도",
+      "stemPattern": "다음 ○○산업단지에 대한 설명으로 적절하지 않은 것은?",
+      "indicators": [
+        "산업단지",
+        "입지 조건",
+        "자율 주행"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_INDUSTRIAL_PARK_DESCRIPTION_SELECTION"
+      ],
+      "variationTips": [
+        "다양한 입지 조건 사례 추가",
+        "자율 주행 기술 강조"
+      ]
+    },
+    {
+      "questionIndex": 13,
+      "patternId": "NEW_MATERIAL_SELECTION",
+      "name": "신소재 선택",
+      "intent": "사례에 나타난 신소재의 특성을 분석하여 적절한 신소재를 선택하도록 유도",
+      "stemPattern": "다음 사례에 나타난 신소재로 가장 적절한 것은?",
+      "indicators": [
+        "신소재",
+        "압전 효과",
+        "제품 개발"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_NEW_MATERIAL_SELECTION"
+      ],
+      "variationTips": [
+        "다양한 신소재 특성 추가",
+        "제품 개발 사례 변형"
+      ]
+    },
+    {
+      "questionIndex": 14,
+      "patternId": "INTERNATIONAL_AGREEMENT_SELECTION",
+      "name": "국제 협약 선택",
+      "intent": "사례에 나타난 국제 협약과 관련된 내용을 분석하여 적절한 협약을 선택하도록 유도",
+      "stemPattern": "다음 사례 (가), (나)에 관련된 국제 협약으로 가장 적절한 것은?",
+      "indicators": [
+        "국제 협약",
+        "습지 보호",
+        "오존층 보호"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_INTERNATIONAL_AGREEMENT_SELECTION"
+      ],
+      "variationTips": [
+        "다양한 국제 협약 사례 추가",
+        "환경 보호 측면 강조"
+      ]
+    },
+    {
+      "questionIndex": 15,
+      "patternId": "ACCIDENT_CASE_EXPLANATION_SELECTION",
+      "name": "재해 사례 설명 선택",
+      "intent": "재해 사례를 통해 적절한 설명을 선택하도록 유도",
+      "stemPattern": "다음은 ○○회사의 재해 사례이다. 이에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "재해 사례",
+        "안전 관리",
+        "화재 예방"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_ACCIDENT_CASE_EXPLANATION_SELECTION"
+      ],
+      "variationTips": [
+        "다양한 안전 관리 조치 추가",
+        "재해 사례 변형"
+      ]
+    },
+    {
+      "questionIndex": 16,
+      "patternId": "PRODUCTION_CASE_EXPLANATION_SELECTION",
+      "name": "제품 생산 사례 설명 선택",
+      "intent": "제품 생산 사례를 통해 적절한 설명을 선택하도록 유도",
+      "stemPattern": "다음은 ○○기업의 제품 생산 사례이다. 이에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "생산성",
+        "재고 관리",
+        "고객 서비스"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_PRODUCTION_CASE_EXPLANATION_SELECTION"
+      ],
+      "variationTips": [
+        "다양한 생산성 향상 사례 추가",
+        "고객 서비스 방식 변형"
+      ]
+    },
+    {
+      "questionIndex": 17,
+      "patternId": "NEW_PRODUCT_DEVELOPMENT_INTERPRETATION",
+      "name": "신제품 개발 사례 해석",
+      "intent": "신제품 개발 사례를 통해 알 수 있는 내용을 선택하도록 유도",
+      "stemPattern": "다음은 ○○기업의 신제품 개발 사례이다. 이를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "신제품 개발",
+        "분말 야금",
+        "인증"
+      ],
+      "judgmentAxes": [
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_NEW_PRODUCT_DEVELOPMENT_INTERPRETATION"
+      ],
+      "variationTips": [
+        "다양한 개발 기술 추가",
+        "인증 절차 변형"
+      ]
+    },
+    {
+      "questionIndex": 18,
+      "patternId": "PRODUCT_DEVELOPMENT_EXPLANATION_SELECTION",
+      "name": "제품 개발 설명 선택",
+      "intent": "제품 개발에 관련된 내용을 통해 적절한 설명을 선택하도록 유도",
+      "stemPattern": "다음은 ○○기업의 제품 개발에 관련된 내용이다. 이에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "제품 개발",
+        "산업 표준",
+        "지적 재산권"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_PRODUCT_DEVELOPMENT_EXPLANATION_SELECTION"
+      ],
+      "variationTips": [
+        "다양한 산업 표준 사례 추가",
+        "지적 재산권 강조"
+      ]
+    },
+    {
+      "questionIndex": 19,
+      "patternId": "PRODUCTIVITY_IMPROVEMENT_EXPLANATION_SELECTION",
+      "name": "생산성 향상 설명 선택",
+      "intent": "생산성 향상 사례를 통해 적절한 설명을 선택하도록 유도",
+      "stemPattern": "다음은 ○○기업의 생산성 향상을 위한 사례이다. ○○기업에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "생산성 향상",
+        "재고 관리",
+        "생산 정보 시스템"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_PRODUCTIVITY_IMPROVEMENT_EXPLANATION_SELECTION"
+      ],
+      "variationTips": [
+        "다양한 생산성 향상 기법 추가",
+        "재고 관리 방식 변형"
+      ]
+    },
+    {
+      "questionIndex": 20,
+      "patternId": "QUALITY_MANAGEMENT_TOOL_SELECTION",
+      "name": "품질 관리 도구 선택",
+      "intent": "품질 관리 도구를 통해 적절한 도구를 선택하도록 유도",
+      "stemPattern": "위의 (가), (나)에 해당하는 품질 관리 도구로 옳은 것은?",
+      "indicators": [
+        "품질 관리",
+        "통계 기법",
+        "생산 공정"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_QUALITY_MANAGEMENT_TOOL_SELECTION"
+      ],
+      "variationTips": [
+        "다양한 품질 관리 도구 추가",
+        "생산 공정 사례 변형"
+      ]
+    },
+    {
+      "questionIndex": 21,
+      "patternId": "REPORT_INTERPRETATION_SELECTION",
+      "name": "보고서 해석 선택",
+      "intent": "보고서를 통해 알 수 있는 내용을 선택하도록 유도",
+      "stemPattern": "위 보고서를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "품질 관리",
+        "재고 관리",
+        "공정 관리"
+      ],
+      "judgmentAxes": [
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_REPORT_INTERPRETATION_SELECTION"
+      ],
+      "variationTips": [
+        "다양한 관리 기법 추가",
+        "보고서 형식 변형"
+      ]
+    },
+    {
+      "questionIndex": 22,
+      "patternId": "NEW_MATERIAL_SELECTION",
+      "name": "신소재 선택",
+      "intent": "인터뷰 내용을 통해 신소재의 특성을 분석하여 적절한 신소재를 선택하도록 유도",
+      "stemPattern": "다음 인터뷰 내용에 나타난 A케이블에 사용된 신소재로 가장 적절한 것은?",
+      "indicators": [
+        "신소재",
+        "케이블"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_NEW_MATERIAL_SELECTION"
+      ],
+      "variationTips": [
+        "다양한 신소재 특성 추가",
+        "케이블 사용 사례 변형"
+      ]
+    }
+  ]
+}

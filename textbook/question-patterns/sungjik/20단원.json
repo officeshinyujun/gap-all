@@ -1,0 +1,508 @@
+{
+  "unitNumber": 20,
+  "subject": "sungjik",
+  "totalQuestions": 20,
+  "entries": [
+    {
+      "questionIndex": 0,
+      "patternId": "SELECT_APPROPRIATE_ETHICAL_PRINCIPLE",
+      "name": "직업 윤리 원칙 선택",
+      "intent": "이메일 내용에서 직업 윤리 원칙을 식별하고 적절한 것을 선택하도록 유도",
+      "stemPattern": "다음 이메일 내용에 나타난 직업 윤리 원칙으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "이메일 내용",
+        "직업 윤리 원칙",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "이메일 내용을 다른 직업 상황으로 변경",
+        "윤리 원칙의 수를 조정"
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "IDENTIFY_FUTURE_SOCIAL_FEATURE",
+      "name": "미래 사회 특징 식별",
+      "intent": "미래 사회의 특징을 주제로 한 보고서에서 특정 특징을 식별하도록 유도",
+      "stemPattern": "다음은 미래 사회의 특징을 주제로 한 수행 평가 보고서의 일부이다. (가)에 해당하는 미래 사회의 특징으로 가장 적절한 것은?",
+      "indicators": [
+        "미래 사회",
+        "특징",
+        "(가)"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "미래 사회의 다른 특징을 추가",
+        "보고서의 내용을 다양화"
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "SELECT_IMPORTANT_ETHICAL_VIRTUE",
+      "name": "중요한 직업 윤리 덕목 선택",
+      "intent": "수업 장면에서 학생들이 중요하게 생각하는 직업 윤리 덕목을 선택하도록 유도",
+      "stemPattern": "다음 수업 장면에서 학생 A, B가 중요하게 생각하는 직업 윤리 덕목으로 가장 적절한 것은?",
+      "indicators": [
+        "수업 장면",
+        "직업 윤리 덕목",
+        "중요하게 생각하는"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "학생들의 대답을 다양화",
+        "윤리 덕목의 수를 조정"
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "IDENTIFY_SOCIAL_CHANGE_AREA",
+      "name": "사회 변화 영역 식별",
+      "intent": "미래 사회의 변화 영역을 발표 장면에서 식별하도록 유도",
+      "stemPattern": "다음은 미래 사회의 변화 영역에 대한 발표 장면이다. (가)에 해당하는 영역으로 가장 적절한 것은?",
+      "indicators": [
+        "미래 사회",
+        "변화 영역",
+        "(가)"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "발표 내용의 다양화",
+        "변화 영역의 수를 조정"
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "SELECT_WORKING_FORM_DESCRIPTION",
+      "name": "근무 형태 설명 선택",
+      "intent": "근무 일지에서 나타난 근무 형태에 대한 설명을 선택하도록 유도",
+      "stemPattern": "다음 근무 일지에 나타난 직업 생활의 근무 형태에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "근무 일지",
+        "근무 형태",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "근무 일지의 내용을 다양화",
+        "근무 형태의 수를 조정"
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "IDENTIFY_SCIENTIFIC_TECHNOLOGY",
+      "name": "과학 기술 식별",
+      "intent": "인터뷰에서 나타난 과학 기술을 식별하도록 유도",
+      "stemPattern": "다음 인터뷰에 나타난 과학 기술로 가장 적절한 것은?",
+      "indicators": [
+        "인터뷰",
+        "과학 기술",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "인터뷰 내용을 다양화",
+        "기술의 수를 조정"
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "SELECT_IMPORTANT_JOB_ETHIC",
+      "name": "중요한 직업 윤리 선택",
+      "intent": "자기소개서에서 학생이 직업 선택 시 중요하게 생각하는 직업 윤리를 선택하도록 유도",
+      "stemPattern": "다음 자기소개서에서 학생 A가 직업 선택 시 가장 중요하게 생각하는 직업 윤리로 가장 적절한 것은?",
+      "indicators": [
+        "자기소개서",
+        "직업 선택",
+        "중요하게 생각하는"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "자기소개서 내용을 다양화",
+        "윤리의 수를 조정"
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "IDENTIFY_PROMISING_FUTURE_JOB",
+      "name": "미래 유망 직업 식별",
+      "intent": "변화된 사회 모습을 통해 미래 사회의 유망 직업을 식별하도록 유도",
+      "stemPattern": "다음과 같이 변화된 사회 모습을 통해 알 수 있는 미래 사회의 유망 직업으로 가장 적절한 것은?",
+      "indicators": [
+        "변화된 사회 모습",
+        "미래 사회",
+        "유망 직업"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "사회 모습의 다양화",
+        "직업의 수를 조정"
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "SELECT_ETHICAL_FIELD_FOR_PROBLEM",
+      "name": "문제 해결을 위한 직업 윤리 분야 선택",
+      "intent": "사회 변화로 인한 문제를 해결하기 위해 고려해야 할 직업 윤리 분야를 선택하도록 유도",
+      "stemPattern": "다음은 사회 변화로 인해 발생하는 문제이다. (가), (나)의 문제를 해결하기 위해 고려되어야 하는 직업 윤리 분야로 가장 적절한 것은?",
+      "indicators": [
+        "사회 변화",
+        "문제 해결",
+        "직업 윤리 분야"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "문제의 다양화",
+        "윤리 분야의 수를 조정"
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "SELECT_APPROPRIATE_ETHICAL_EXPLANATION",
+      "name": "적절한 직업 윤리 설명 선택",
+      "intent": "수업 장면에서 학생들이 대답하는 직업 윤리에 대한 설명을 선택하도록 유도",
+      "stemPattern": "다음 수업 장면에서 학생 A~C가 대답하는 직업 윤리에 대한 설명으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "수업 장면",
+        "직업 윤리",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "학생들의 대답을 다양화",
+        "윤리 설명의 수를 조정"
+      ]
+    },
+    {
+      "questionIndex": 0,
+      "patternId": "CONTRACT_LAW_ANALYSIS",
+      "name": "근로 계약서 분석",
+      "intent": "근로 계약서의 내용을 근로기준법과 최저임금법에 비추어 적법성을 판단하도록 유도한다.",
+      "stemPattern": "다음은 상시 근로자 수가 50명인 ○○(주)와 A씨가 2021년도에 체결한 근로 계약서 일부이다. 이를 현행 근로기준법과 최저임금법에 근거하여 분석한 내용으로 옳은 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "근로 계약서",
+        "근로기준법",
+        "최저임금법"
+      ],
+      "judgmentAxes": [
+        "법적 적합성 판단",
+        "계약서 해석"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CONTRACT_LAW_ANALYSIS"
+      ],
+      "variationTips": [
+        "다른 법률 조항 추가",
+        "계약서 조건 변경"
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "DEVELOPMENTAL_TASK_SELECTION",
+      "name": "발달 과업 선택",
+      "intent": "생애 발달 단계에 따른 발달 과업을 적절히 선택하도록 유도한다.",
+      "stemPattern": "표는 생애 발달 단계에 따른 정서적 변화와 직업적 성공의 요건을 나타낸 것이다. (가), (나)에 해당하는 발달 과업으로 가장 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "생애 발달 단계",
+        "발달 과업"
+      ],
+      "judgmentAxes": [
+        "발달 과업 매칭",
+        "단계별 특성 이해"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_DEVELOPMENTAL_TASK_SELECTION"
+      ],
+      "variationTips": [
+        "발달 단계 추가",
+        "정서적 변화 강조"
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "BUSINESS_FORM_CHANGE_ANALYSIS",
+      "name": "기업 형태 변경 분석",
+      "intent": "기업 형태 변경 사례를 분석하여 적절한 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음 사례 (가), (나)의 기업 형태 변경에 대한 설명으로 가장 적절한 것은?",
+      "indicators": [
+        "기업 형태 변경",
+        "설명"
+      ],
+      "judgmentAxes": [
+        "기업 형태 이해",
+        "변경 절차 분석"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_BUSINESS_FORM_CHANGE_ANALYSIS"
+      ],
+      "variationTips": [
+        "기업 형태 추가",
+        "변경 이유 강조"
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "CAREER_CASE_ANALYSIS",
+      "name": "직업 사례 분석",
+      "intent": "직업 사례를 분석하여 적절한 내용을 선택하도록 유도한다.",
+      "stemPattern": "다음 직업 사례에 나타난 A씨에 대한 분석 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "직업 사례",
+        "분석 내용"
+      ],
+      "judgmentAxes": [
+        "사례 분석",
+        "직업 특성 이해"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CAREER_CASE_ANALYSIS"
+      ],
+      "variationTips": [
+        "사례 인물 변경",
+        "직업 환경 추가"
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "LABOR_COMMISSION_DECISION_ANALYSIS",
+      "name": "노동위원회 판정서 분석",
+      "intent": "노동위원회 판정서의 사례를 분석하여 적절한 내용을 선택하도록 유도한다.",
+      "stemPattern": "다음 ○○노동위원회 판정서의 (가)에 들어갈 수 있는 사례로 가장 적절한 것은?",
+      "indicators": [
+        "노동위원회 판정서",
+        "부당노동행위"
+      ],
+      "judgmentAxes": [
+        "법적 사례 매칭",
+        "판정서 해석"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_LABOR_COMMISSION_DECISION_ANALYSIS"
+      ],
+      "variationTips": [
+        "판정서 내용 변경",
+        "법 조항 추가"
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "BUSINESS_FORM_FEATURE_ANALYSIS",
+      "name": "기업 형태 특징 분석",
+      "intent": "기업 형태별 특징을 분석하여 적절한 내용을 선택하도록 유도한다.",
+      "stemPattern": "다음은기업형태별특징에대한수행평가보고서이다. (가)∼(다)에 해당하는 내용으로 옳은 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "기업 형태",
+        "수행 평가"
+      ],
+      "judgmentAxes": [
+        "특징 분석",
+        "형태 구분"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_BUSINESS_FORM_FEATURE_ANALYSIS"
+      ],
+      "variationTips": [
+        "기업 형태 추가",
+        "특징 세부화"
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "SERVICE_CASE_ANALYSIS",
+      "name": "서비스 사례 분석",
+      "intent": "기업의 서비스 사례를 분석하여 적절한 내용을 선택하도록 유도한다.",
+      "stemPattern": "다음은 기업A∼C의 서비스 사례이다. 이에 대한 분석 내용으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "서비스 사례",
+        "분석 내용"
+      ],
+      "judgmentAxes": [
+        "서비스 특성 이해",
+        "고객 참여 분석"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_SERVICE_CASE_ANALYSIS"
+      ],
+      "variationTips": [
+        "서비스 유형 추가",
+        "고객 반응 강조"
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "LABOR_RELATION_CASE_ANALYSIS",
+      "name": "노사 관계 사례 분석",
+      "intent": "노사 관계 사례를 분석하여 적절한 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음 노사 관계 사례에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "노사 관계",
+        "설명"
+      ],
+      "judgmentAxes": [
+        "관계 분석",
+        "노동법 이해"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_LABOR_RELATION_CASE_ANALYSIS"
+      ],
+      "variationTips": [
+        "사례 조건 변경",
+        "법적 배경 추가"
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "ENTREPRENEURSHIP_METHOD_ANALYSIS",
+      "name": "창업 방법 분석",
+      "intent": "창업 방법에 대한 설명을 분석하여 적절한 내용을 선택하도록 유도한다.",
+      "stemPattern": "위에 나타난 창업 방법에 대한 설명으로 가장 적절한 것은?",
+      "indicators": [
+        "창업 방법",
+        "설명"
+      ],
+      "judgmentAxes": [
+        "방법 분석",
+        "자본 구성 이해"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_ENTREPRENEURSHIP_METHOD_ANALYSIS"
+      ],
+      "variationTips": [
+        "창업 사례 추가",
+        "자본 구성 변경"
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "COMPANY_TYPE_QUIZ_ANALYSIS",
+      "name": "기업 유형 퀴즈 분석",
+      "intent": "기업 유형에 관한 퀴즈 대회의 결과를 분석하여 적절한 내용을 선택하도록 유도한다.",
+      "stemPattern": "다음 기업 유형에 관한 사내 퀴즈 대회의 결과를 분석한 내용으로 옳은 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "기업 유형",
+        "퀴즈 대회"
+      ],
+      "judgmentAxes": [
+        "유형 분석",
+        "점수 해석"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_COMPANY_TYPE_QUIZ_ANALYSIS"
+      ],
+      "variationTips": [
+        "퀴즈 내용 변경",
+        "유형 추가"
+      ]
+    }
+  ]
+}

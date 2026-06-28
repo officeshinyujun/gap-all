@@ -1,0 +1,526 @@
+{
+  "unitNumber": 13,
+  "subject": "sungjik",
+  "totalQuestions": 21,
+  "entries": [
+    {
+      "questionIndex": 0,
+      "patternId": "CASE_DIAGNOSTIC_FRAME",
+      "name": "채용 방법 설명 선택",
+      "intent": "채용 관련 기사에서 설명된 채용 방법을 이해하고 가장 적절한 설명을 선택하도록 유도",
+      "stemPattern": "다음 채용 관련 기사에 나타난 채용 방법에 대한 설명으로 가장 적절한 것은?",
+      "indicators": [
+        "채용 관련 기사",
+        "가장 적절한 설명"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "기사 내용을 바탕으로 다른 채용 방법을 설명하는 보기 추가",
+        "채용 방법의 장단점을 비교하는 질문 추가"
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "INTERVIEW_TYPE_DIAGNOSTIC",
+      "name": "면접 유형 설명 선택",
+      "intent": "면접 장면을 통해 면접 유형을 파악하고 가장 적절한 설명을 선택하도록 유도",
+      "stemPattern": "다음 면접 장면에 나타난 면접 유형에 대한 설명으로 가장 적절한 것은?",
+      "indicators": [
+        "면접 장면",
+        "가장 적절한 설명"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_INTERVIEW_TYPE_DIAGNOSTIC"
+      ],
+      "variationTips": [
+        "면접 장면을 구체적으로 묘사하여 다른 유형의 면접을 유추하도록 유도",
+        "면접 유형의 특징을 비교하는 질문 추가"
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "PROCEDURE_DIAGNOSTIC",
+      "name": "채용 절차 안내 사항 선택",
+      "intent": "채용 절차 안내 사항을 통해 알 수 있는 내용을 파악하고 적절한 것을 선택하도록 유도",
+      "stemPattern": "다음 (주)의 채용 절차 안내 사항을 통해 알 수 있는 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "채용 절차 안내",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_PROCEDURE_DIAGNOSTIC"
+      ],
+      "variationTips": [
+        "채용 절차의 각 단계에 대한 세부 설명 추가",
+        "NCS 기반 채용의 특징을 비교하는 질문 추가"
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "SELF_INTRO_DIAGNOSTIC",
+      "name": "자기소개서 내용 선택",
+      "intent": "자기소개서의 내용을 통해 알 수 있는 정보를 파악하고 적절한 것을 선택하도록 유도",
+      "stemPattern": "다음은 자기소개서의 일부이다. 이를 통해 알 수 있는 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "자기소개서",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_SELF_INTRO_DIAGNOSTIC"
+      ],
+      "variationTips": [
+        "자기소개서의 다른 항목을 추가하여 다양한 능력을 평가하도록 유도",
+        "NCS 기반 채용의 적용 여부를 비교하는 질문 추가"
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "COLUMN_ANALYSIS",
+      "name": "채용 방식 변화 분석",
+      "intent": "칼럼 내용을 통해 채용 방식의 변화를 이해하고 가장 적절한 변화를 선택하도록 유도",
+      "stemPattern": "다음 채용 환경 변화와 관련된 칼럼 내용을 통해 알 수 있는 채용 방식의 변화로 가장 적절한 것은?",
+      "indicators": [
+        "칼럼 내용",
+        "채용 방식의 변화"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_COLUMN_ANALYSIS"
+      ],
+      "variationTips": [
+        "칼럼의 다른 부분을 인용하여 다양한 채용 방식 변화를 비교하도록 유도",
+        "MZ 세대의 특성을 반영한 채용 방식의 장단점을 비교하는 질문 추가"
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "JOB_AD_DIAGNOSTIC",
+      "name": "채용 공고문 내용 선택",
+      "intent": "채용 공고문의 내용을 통해 알 수 있는 정보를 파악하고 적절한 것을 선택하도록 유도",
+      "stemPattern": "다음은 신규 직원 채용 공고문의 일부이다. 이를 통해 알 수 있는 내용으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "채용 공고문",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_JOB_AD_DIAGNOSTIC"
+      ],
+      "variationTips": [
+        "채용 공고문의 다른 항목을 추가하여 다양한 정보를 비교하도록 유도",
+        "NCS 기반 채용의 특징을 비교하는 질문 추가"
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "INTERVIEW_GUIDE_DIAGNOSTIC",
+      "name": "면접 유형 선택",
+      "intent": "면접 진행 안내문을 통해 면접 유형을 파악하고 가장 적절한 유형을 선택하도록 유도",
+      "stemPattern": "다음 면접 진행 안내문에 나타난 면접 유형으로 가장 적절한 것은?",
+      "indicators": [
+        "면접 진행 안내문",
+        "가장 적절한 유형"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_INTERVIEW_GUIDE_DIAGNOSTIC"
+      ],
+      "variationTips": [
+        "면접 진행의 다른 단계나 방법을 추가하여 다양한 유형을 비교하도록 유도",
+        "토론 면접의 특징을 비교하는 질문 추가"
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "HIRING_PLAN_DIAGNOSTIC",
+      "name": "채용 설계표 내용 선택",
+      "intent": "채용 설계표를 통해 알 수 있는 정보를 파악하고 적절한 것을 선택하도록 유도",
+      "stemPattern": "다음 채용 설계표를 통해 알 수 있는 내용으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "채용 설계표",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_HIRING_PLAN_DIAGNOSTIC"
+      ],
+      "variationTips": [
+        "채용 설계표의 다른 요소를 추가하여 다양한 정보를 비교하도록 유도",
+        "직무 분석 결과를 바탕으로 한 평가 도구의 특징을 비교하는 질문 추가"
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "JOB_AD_CONTENT_DIAGNOSTIC",
+      "name": "채용 공고문 내용 선택",
+      "intent": "채용 공고문을 통해 알 수 있는 정보를 파악하고 가장 적절한 것을 선택하도록 유도",
+      "stemPattern": "위 채용 공고문을 통해 알 수 있는 내용으로 가장 적절한 것은?",
+      "indicators": [
+        "채용 공고문",
+        "가장 적절한 것"
+      ],
+      "judgmentAxes": [
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_JOB_AD_CONTENT_DIAGNOSTIC"
+      ],
+      "variationTips": [
+        "채용 공고문의 다른 항목을 추가하여 다양한 정보를 비교하도록 유도",
+        "전형 단계별 세부 평가 방법의 특징을 비교하는 질문 추가"
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "COMPANY_DESCRIPTION_DIAGNOSTIC",
+      "name": "기업 설명 선택",
+      "intent": "채용 공고문에 나타난 기업에 대한 설명을 파악하고 적절한 것을 선택하도록 유도",
+      "stemPattern": "위 채용 공고문에 나타난 기업에 대한 설명으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "기업 설명",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_COMPANY_DESCRIPTION_DIAGNOSTIC"
+      ],
+      "variationTips": [
+        "기업의 다른 특징을 추가하여 다양한 설명을 비교하도록 유도",
+        "생산 방식과 산업 분류의 특징을 비교하는 질문 추가"
+      ]
+    },
+    {
+      "questionIndex": 10,
+      "patternId": "ETHICS_DIAGNOSTIC",
+      "name": "직업 윤리 항목 선택",
+      "intent": "사내 칭찬 게시판의 사례를 통해 A팀장의 직업 윤리 항목을 파악하고 적절한 것을 선택하도록 유도",
+      "stemPattern": "다음은 사내 칭찬 게시판에 게재된 사례이다. 이를 통해 알 수 있는 A팀장의 직업 윤리 항목으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "사내 칭찬 게시판",
+        "직업 윤리 항목"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_ETHICS_DIAGNOSTIC"
+      ],
+      "variationTips": [
+        "다른 직업 윤리 항목을 추가하여 다양한 사례를 비교하도록 유도",
+        "직업 윤리의 중요성을 강조하는 질문 추가"
+      ]
+    },
+    {
+      "questionIndex": 0,
+      "patternId": "CORPORATE_FEATURE_SELECTION",
+      "name": "기업 특징 선택형",
+      "intent": "기업 조사 보고서의 내용을 바탕으로 A, B 기업의 특징을 정확히 파악하여 보기에서 적절한 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음은 [기업 조사 보고서]의 일부이다. A, B기업의 특징에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "기업 조사 보고서",
+        "특징",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_DOCUMENT_FEATURE_SELECTION"
+      ],
+      "variationTips": [
+        "기업의 다른 측면을 추가하여 변형",
+        "보기의 수를 조정하여 난이도 조절"
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "LABOR_DISPUTE_DIARY_ANALYSIS",
+      "name": "노사 분규 일지 분석형",
+      "intent": "노사 분규 일지를 통해 노사 관계의 핵심 내용을 파악하고 가장 적절한 해석을 선택하도록 유도한다.",
+      "stemPattern": "다음 노사 분규 일지를 통해 알 수 있는 내용으로 가장 적절한 것은?",
+      "indicators": [
+        "노사 분규 일지",
+        "가장 적절한 것"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_DIARY_CONTENT_ANALYSIS"
+      ],
+      "variationTips": [
+        "일지의 기간을 변경하여 변형",
+        "분규의 원인을 다양화하여 난이도 조절"
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "ACCIDENT_CASE_ANALYSIS",
+      "name": "재해 사례 분석형",
+      "intent": "재해 사례를 분석하여 부적절한 분석 내용을 식별하도록 유도한다.",
+      "stemPattern": "위 재해 사례에 대한 분석 내용으로 적절하지 않은 것은?",
+      "indicators": [
+        "재해 사례",
+        "적절하지 않은 것"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_ANALYSIS"
+      ],
+      "variationTips": [
+        "사례의 세부사항을 변경하여 변형",
+        "분석 항목의 수를 조정하여 난이도 조절"
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "RIGHTS_VIOLATION_CASE_SELECTION",
+      "name": "권익 침해 사례 선택형",
+      "intent": "권익 침해 사례를 분석하여 적절한 분석 내용을 선택하도록 유도한다.",
+      "stemPattern": "다음 A씨의 권익 침해 사례에 대한 분석 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "권익 침해 사례",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_ANALYSIS"
+      ],
+      "variationTips": [
+        "사례의 배경을 변경하여 변형",
+        "보기의 수를 조정하여 난이도 조절"
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "JOB_DESCRIPTION_ANALYSIS",
+      "name": "직무 기술서 분석형",
+      "intent": "직무 기술서를 통해 채용될 사원의 경영 관리 활동을 파악하고 가장 적절한 활동을 선택하도록 유도한다.",
+      "stemPattern": "위 직무 기술서를 통해 채용될 사원이 수행할 경영 관리 활동으로 가장 적절한 것은?",
+      "indicators": [
+        "직무 기술서",
+        "가장 적절한 것"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_JOB_DESCRIPTION_ANALYSIS"
+      ],
+      "variationTips": [
+        "직무 기술서의 내용을 변경하여 변형",
+        "활동의 수를 조정하여 난이도 조절"
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "ACCIDENT_REPORT_ANALYSIS",
+      "name": "재해 보고서 분석형",
+      "intent": "재해 사례 보고서를 분석하여 적절한 분석 내용을 선택하도록 유도한다.",
+      "stemPattern": "위 재해 사례 보고서를 분석한 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "재해 사례 보고서",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_REPORT_ANALYSIS"
+      ],
+      "variationTips": [
+        "보고서의 세부사항을 변경하여 변형",
+        "보기의 수를 조정하여 난이도 조절"
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "COMPANY_DESCRIPTION_SELECTION",
+      "name": "회사 설명 선택형",
+      "intent": "글에 나타난 회사의 설명을 파악하고 가장 적절한 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음 글에 나타난 A회사에 대한 설명으로 가장 적절한 것은?",
+      "indicators": [
+        "글",
+        "A회사",
+        "가장 적절한 것"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_TEXT_DESCRIPTION_SELECTION"
+      ],
+      "variationTips": [
+        "회사의 배경을 변경하여 변형",
+        "설명의 수를 조정하여 난이도 조절"
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "EMPLOYMENT_RELATION_ANALYSIS",
+      "name": "근로 관계 분석형",
+      "intent": "근로자의 근로 관계와 사회 보험을 분석하여 가장 적절한 내용을 선택하도록 유도한다.",
+      "stemPattern": "다음 사례에 나타난 근로자 A씨의 근로 관계와 사회 보험을 분석한 내용으로 가장 적절한 것은?",
+      "indicators": [
+        "근로 관계",
+        "사회 보험",
+        "가장 적절한 것"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_ANALYSIS"
+      ],
+      "variationTips": [
+        "사례의 세부사항을 변경하여 변형",
+        "분석 항목의 수를 조정하여 난이도 조절"
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "INDUSTRIAL_ACCIDENT_DIALOGUE_SELECTION",
+      "name": "산업재해 대화 선택형",
+      "intent": "산업재해 인정에 관한 대화에서 적절한 사례를 선택하도록 유도한다.",
+      "stemPattern": "다음 산업재해 인정에 관한 대화에서 (가)에 해당하는 사례로 가장 적절한 것은?",
+      "indicators": [
+        "산업재해 인정",
+        "대화",
+        "가장 적절한 것"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_DIALOGUE_CASE_SELECTION"
+      ],
+      "variationTips": [
+        "대화의 내용을 변경하여 변형",
+        "사례의 수를 조정하여 난이도 조절"
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "MATERNITY_PROTECTION_ANALYSIS",
+      "name": "모성 보호 분석형",
+      "intent": "모성 보호와 일․가정 양립 사례를 분석하여 옳은 내용을 선택하도록 유도한다.",
+      "stemPattern": "다음 모성 보호와 일․가정 양립 사례를 분석한 내용으로 옳은것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "모성 보호",
+        "일․가정 양립",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_ANALYSIS"
+      ],
+      "variationTips": [
+        "사례의 배경을 변경하여 변형",
+        "보기의 수를 조정하여 난이도 조절"
+      ]
+    }
+  ]
+}

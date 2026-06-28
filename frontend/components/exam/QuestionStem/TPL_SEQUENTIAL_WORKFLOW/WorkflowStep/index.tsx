@@ -19,6 +19,7 @@ export const WorkflowStep: React.FC<WorkflowStepProps> = ({ step, className }) =
     <VStack gap={4} align="center" className={cs(s.step, className)}>
       <span className={s.idx}>{step.idx}</span>
       <span className={s.label}>{step.label}</span>
+      {step.desc && <span className={s.desc}>{step.desc}</span>}
     </VStack>
   );
 };

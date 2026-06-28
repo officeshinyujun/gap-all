@@ -1,0 +1,467 @@
+{
+  "unitNumber": 10,
+  "subject": "kongil",
+  "totalQuestions": 19,
+  "entries": [
+    {
+      "questionIndex": 1,
+      "patternId": "A1",
+      "name": "경영 분석 보고서 해석",
+      "intent": "경영 분석 보고서의 내용을 이해하고 옳은 설명을 선택한다.",
+      "stemPattern": "다음은 A 기업의 경영 분석 보고서이다. 이에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "경영 분석",
+        "보고서",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "정확성",
+        "이해도"
+      ],
+      "itemFamilies": [
+        "보기 선택형"
+      ],
+      "templates": [
+        "기업의 경영 분석 보고서를 제시하고, 이에 대한 옳은 설명을 고르는 문제"
+      ],
+      "variationTips": [
+        "기업의 종류나 보고서의 내용을 다양화하여 문제를 변형할 수 있다."
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "A2",
+      "name": "구매 관리 사례 해석",
+      "intent": "구매 관리 사례의 내용을 이해하고 옳은 설명을 선택한다.",
+      "stemPattern": "다음은 ◯◯기업의 구매 관리 사례이다. 이에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "구매 관리",
+        "사례",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "정확성",
+        "이해도"
+      ],
+      "itemFamilies": [
+        "보기 선택형"
+      ],
+      "templates": [
+        "기업의 구매 관리 사례를 제시하고, 이에 대한 옳은 설명을 고르는 문제"
+      ],
+      "variationTips": [
+        "기업의 종류나 사례의 내용을 다양화하여 문제를 변형할 수 있다."
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "A3",
+      "name": "재고 관리 회의 해석",
+      "intent": "재고 관리 회의 내용을 이해하고 옳은 설명을 선택한다.",
+      "stemPattern": "다음은 기업의 재고 관리에 대한 회의 장면이다. 이를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "재고 관리",
+        "회의",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "정확성",
+        "이해도"
+      ],
+      "itemFamilies": [
+        "보기 선택형"
+      ],
+      "templates": [
+        "기업의 재고 관리 회의 장면을 제시하고, 이에 대한 옳은 설명을 고르는 문제"
+      ],
+      "variationTips": [
+        "기업의 종류나 회의 내용을 다양화하여 문제를 변형할 수 있다."
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "A4",
+      "name": "클라우드 기반 물류 관리 시스템 해석",
+      "intent": "클라우드 기반 물류 관리 시스템의 내용을 이해하고 옳은 설명을 선택한다.",
+      "stemPattern": "다음 ◯◯기업 클라우드 기반 물류 관리 시스템에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "클라우드 기반",
+        "물류 관리",
+        "시스템",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "정확성",
+        "이해도"
+      ],
+      "itemFamilies": [
+        "보기 선택형"
+      ],
+      "templates": [
+        "기업의 클라우드 기반 물류 관리 시스템을 제시하고, 이에 대한 옳은 설명을 고르는 문제"
+      ],
+      "variationTips": [
+        "기업의 종류나 시스템의 내용을 다양화하여 문제를 변형할 수 있다."
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "A5",
+      "name": "생산 관리 활동 보고서 해석",
+      "intent": "생산 관리 활동 보고서의 내용을 이해하고 옳은 설명을 선택한다.",
+      "stemPattern": "다음은 ◯◯기업의 생산 관리 활동 보고서를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "생산 관리",
+        "활동 보고서",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "정확성",
+        "이해도"
+      ],
+      "itemFamilies": [
+        "보기 선택형"
+      ],
+      "templates": [
+        "기업의 생산 관리 활동 보고서를 제시하고, 이에 대한 옳은 설명을 고르는 문제"
+      ],
+      "variationTips": [
+        "기업의 종류나 보고서의 내용을 다양화하여 문제를 변형할 수 있다."
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "A6",
+      "name": "재고 관리 시스템 활용 보고서 해석",
+      "intent": "재고 관리 시스템 활용 보고서의 내용을 이해하고 옳은 설명을 선택한다.",
+      "stemPattern": "위 재고 관리 시스템 활용 보고서를 통해 알 수 있는 내용으로 옳은 것은?",
+      "indicators": [
+        "재고 관리 시스템",
+        "활용 보고서",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "정확성",
+        "이해도"
+      ],
+      "itemFamilies": [
+        "보기 선택형"
+      ],
+      "templates": [
+        "재고 관리 시스템 활용 보고서를 제시하고, 이에 대한 옳은 설명을 고르는 문제"
+      ],
+      "variationTips": [
+        "시스템의 종류나 보고서의 내용을 다양화하여 문제를 변형할 수 있다."
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "A7",
+      "name": "원자재 구매 관리 기법 해석",
+      "intent": "원자재 구매 관리 기법의 내용을 이해하고 적절한 설명을 선택한다.",
+      "stemPattern": "위 보고서에 나타난 원자재 구매 관리 기법으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "원자재 구매 관리",
+        "기법",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "적절성",
+        "이해도"
+      ],
+      "itemFamilies": [
+        "보기 선택형"
+      ],
+      "templates": [
+        "원자재 구매 관리 기법을 제시하고, 이에 대한 적절한 설명을 고르는 문제"
+      ],
+      "variationTips": [
+        "기법의 종류나 보고서의 내용을 다양화하여 문제를 변형할 수 있다."
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "A8",
+      "name": "물류 관리 사례 분석 해석",
+      "intent": "물류 관리 사례 분석 보고서의 내용을 이해하고 옳은 설명을 선택한다.",
+      "stemPattern": "다음은 물류 관리 사례 분석 보고서이다. 이를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "물류 관리",
+        "사례 분석",
+        "보고서",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "정확성",
+        "이해도"
+      ],
+      "itemFamilies": [
+        "보기 선택형"
+      ],
+      "templates": [
+        "물류 관리 사례 분석 보고서를 제시하고, 이에 대한 옳은 설명을 고르는 문제"
+      ],
+      "variationTips": [
+        "사례의 종류나 보고서의 내용을 다양화하여 문제를 변형할 수 있다."
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "A9",
+      "name": "자재 관리 이동 경로 해석",
+      "intent": "자재 관리에 관한 질문과 답지를 통해 이동 경로를 이해하고 옳은 도착점을 선택한다.",
+      "stemPattern": "다음은 자재 관리에 관한 질문과 학생이 작성한 답지이다. [조건]에 따라 출발점부터 이동할 경우 도착점으로 옳은 것은?",
+      "indicators": [
+        "자재 관리",
+        "이동 경로",
+        "도착점"
+      ],
+      "judgmentAxes": [
+        "정확성",
+        "이해도"
+      ],
+      "itemFamilies": [
+        "경로 선택형"
+      ],
+      "templates": [
+        "자재 관리 이동 경로를 제시하고, 이에 대한 옳은 도착점을 고르는 문제"
+      ],
+      "variationTips": [
+        "경로의 복잡성이나 조건을 다양화하여 문제를 변형할 수 있다."
+      ]
+    },
+    {
+      "questionIndex": 10,
+      "patternId": "A10",
+      "name": "자재 선정표 해석",
+      "intent": "자재 선정표의 내용을 이해하고 옳은 설명을 선택한다.",
+      "stemPattern": "다음은 자재 선정표의 일부이다. 이를 통해 알 수 있는 내용으로 옳은 것은?",
+      "indicators": [
+        "자재 선정표",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "정확성",
+        "이해도"
+      ],
+      "itemFamilies": [
+        "보기 선택형"
+      ],
+      "templates": [
+        "자재 선정표를 제시하고, 이에 대한 옳은 설명을 고르는 문제"
+      ],
+      "variationTips": [
+        "선정표의 항목이나 내용을 다양화하여 문제를 변형할 수 있다."
+      ]
+    },
+    {
+      "questionIndex": 0,
+      "patternId": "TECH_SELECTION",
+      "name": "Advanced Technology Selection",
+      "intent": "Identify the most appropriate advanced technology for given cases.",
+      "stemPattern": "다음 (가), (나) 사례에 해당하는 첨단 기술로 가장 적절한 것을 <보기>에서 고른 것은?",
+      "indicators": [
+        "첨단 기술",
+        "사례"
+      ],
+      "judgmentAxes": [
+        "Technology Appropriateness"
+      ],
+      "itemFamilies": [
+        "Technology Types"
+      ],
+      "templates": [
+        "Which advanced technology is most appropriate for the given cases?"
+      ],
+      "variationTips": [
+        "Include diverse technology fields."
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "MATERIAL_APPLICATION",
+      "name": "New Material Application",
+      "intent": "Determine the most appropriate application of a new material.",
+      "stemPattern": "다음에 나타난 신소재가 적용된 사례로 가장 적절한 것은?",
+      "indicators": [
+        "신소재",
+        "적용된 사례"
+      ],
+      "judgmentAxes": [
+        "Material Suitability"
+      ],
+      "itemFamilies": [
+        "Material Applications"
+      ],
+      "templates": [
+        "Which case best applies the new material mentioned?"
+      ],
+      "variationTips": [
+        "Use various new materials and applications."
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "REQUIREMENT_ANALYSIS",
+      "name": "Product Development Requirement Analysis",
+      "intent": "Select the correct analysis of a product development requirement document.",
+      "stemPattern": "다음 [제품 개발 요구서]에 대해 분석한 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "제품 개발 요구서",
+        "분석"
+      ],
+      "judgmentAxes": [
+        "Requirement Analysis Accuracy"
+      ],
+      "itemFamilies": [
+        "Requirement Analysis"
+      ],
+      "templates": [
+        "Choose the correct analysis of the product development requirement document."
+      ],
+      "variationTips": [
+        "Include different types of product requirements."
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "PLAN_ANALYSIS",
+      "name": "Automobile Development Plan Analysis",
+      "intent": "Select the correct analysis of an automobile development plan.",
+      "stemPattern": "다음은 자동차 개발 계획서의 일부이다. 이를 분석한 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "자동차 개발 계획서",
+        "분석"
+      ],
+      "judgmentAxes": [
+        "Plan Analysis Accuracy"
+      ],
+      "itemFamilies": [
+        "Plan Analysis"
+      ],
+      "templates": [
+        "Choose the correct analysis of the automobile development plan."
+      ],
+      "variationTips": [
+        "Include various aspects of automobile development."
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "INNOVATION_EXPLANATION",
+      "name": "Corporate Innovation Explanation",
+      "intent": "Select the correct explanation of a corporate innovation presentation.",
+      "stemPattern": "다음은 기업 혁신 사례 발표회의 안내문이다. 이에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "기업 혁신",
+        "발표회",
+        "설명"
+      ],
+      "judgmentAxes": [
+        "Explanation Accuracy"
+      ],
+      "itemFamilies": [
+        "Innovation Explanation"
+      ],
+      "templates": [
+        "Choose the correct explanation of the corporate innovation presentation."
+      ],
+      "variationTips": [
+        "Include different innovation methods and systems."
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "PLAN_ANALYSIS",
+      "name": "Product Development Plan Analysis",
+      "intent": "Select the correct analysis of a product development plan.",
+      "stemPattern": "다음은 제품 개발 계획서의 일부이다. 이를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "제품 개발 계획서",
+        "분석"
+      ],
+      "judgmentAxes": [
+        "Plan Analysis Accuracy"
+      ],
+      "itemFamilies": [
+        "Plan Analysis"
+      ],
+      "templates": [
+        "Choose the correct analysis of the product development plan."
+      ],
+      "variationTips": [
+        "Include various aspects of product development."
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "HR_MANAGEMENT",
+      "name": "HR Management Roadmap Analysis",
+      "intent": "Select the appropriate management support activities from a HR management roadmap.",
+      "stemPattern": "다음 인적 자원 관리 로드맵을 통해 알 수 있는 ○○기업의 경영 지원 활동으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "인적 자원 관리 로드맵",
+        "경영 지원 활동"
+      ],
+      "judgmentAxes": [
+        "Management Support Appropriateness"
+      ],
+      "itemFamilies": [
+        "HR Management Activities"
+      ],
+      "templates": [
+        "Choose the appropriate management support activities from the HR management roadmap."
+      ],
+      "variationTips": [
+        "Include different HR management strategies."
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "PRODUCT_DEVELOPMENT",
+      "name": "Product Development Analysis",
+      "intent": "Select the correct analysis of a company's product development.",
+      "stemPattern": "다음 ○○기업의 제품 개발을 통해 알 수 있는 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "제품 개발",
+        "분석"
+      ],
+      "judgmentAxes": [
+        "Development Analysis Accuracy"
+      ],
+      "itemFamilies": [
+        "Product Development Analysis"
+      ],
+      "templates": [
+        "Choose the correct analysis of the company's product development."
+      ],
+      "variationTips": [
+        "Include various product development scenarios."
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "CARBON_REDUCTION",
+      "name": "Carbon Reduction Effort Analysis",
+      "intent": "Select the correct analysis of a carbon reduction effort article.",
+      "stemPattern": "다음은 탄소 저감 노력에 대한 기사이다. 이를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "탄소 저감 노력",
+        "기사",
+        "분석"
+      ],
+      "judgmentAxes": [
+        "Effort Analysis Accuracy"
+      ],
+      "itemFamilies": [
+        "Carbon Reduction Efforts"
+      ],
+      "templates": [
+        "Choose the correct analysis of the carbon reduction effort article."
+      ],
+      "variationTips": [
+        "Include different carbon reduction strategies and technologies."
+      ]
+    }
+  ]
+}

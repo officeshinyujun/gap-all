@@ -61,6 +61,10 @@ export async function markNotificationRead(id: string): Promise<void> {
   await apiFetch(`/notifications/${id}/read`, { method: 'PATCH' });
 }
 
+export async function markAllNotificationsRead(): Promise<void> {
+  await apiFetch('/notifications/read-all', { method: 'PATCH' });
+}
+
 // DELETE /notifications/:id
 export async function deleteNotification(id: string): Promise<void> {
   await apiFetch(`/notifications/${id}`, { method: 'DELETE' });

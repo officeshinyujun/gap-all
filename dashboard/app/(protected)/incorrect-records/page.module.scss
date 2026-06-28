@@ -136,3 +136,91 @@
     transform: rotate(360deg);
   }
 }
+
+.errorBanner {
+  width: 100%;
+  padding: $spacing-10 $spacing-16;
+  background-color: rgba(218, 127, 127, 0.12);
+  border: 1px solid rgba(218, 127, 127, 0.3);
+  border-radius: $spacing-8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.dismissBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: $text-wrong;
+  font-size: 14px;
+  padding: 2px 6px;
+}
+
+.conceptSection {
+  width: 100%;
+}
+
+.conceptBarList {
+  width: 100%;
+}
+
+.conceptBarRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+}
+
+.conceptBarLabel {
+  min-width: 160px;
+  font-size: 12px;
+  font-weight: $regular;
+  color: $text-primary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.conceptBarRank {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: $bold;
+  color: $background-primary;
+  background-color: $text-primary;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.conceptBarTrack {
+  flex: 1;
+  height: 14px;
+  background-color: $background-third;
+  border-radius: 7px;
+  overflow: hidden;
+}
+
+.conceptBarFill {
+  height: 100%;
+  background-color: $brand-primary;
+  border-radius: 7px;
+  transition: width 0.3s ease;
+  min-width: 4px;
+}
+
+.conceptBarCount {
+  min-width: 36px;
+  font-size: 11px;
+  font-weight: $semi-bold;
+  color: $text-secondary;
+  text-align: right;
+}

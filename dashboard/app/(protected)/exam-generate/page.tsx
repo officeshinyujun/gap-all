@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useEffectEvent, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { VStack } from '@/components/general/VStack';
 import { HStack } from '@/components/general/HStack';
 import Typo from '@/components/general/Typo';
@@ -14,7 +14,7 @@ interface UnitConcepts {
   concepts: string[];
 }
 
-const API_BASE = 'http://localhost:3001';
+import { apiFetch } from '@/lib/api';
 
 const SUBJECTS = [
   { id: '', slug: 'success', title: '성공적인 직업생활' },
@@ -112,25 +112,16 @@ export default function DevExamGeneratePage() {
     setSelectedConcepts([]);
   };
 
-  const stopPolling = useEffectEvent(() => {
+  const stopPolling = useCallback(() => {
     if (pollingRef.current !== null) {
       window.clearInterval(pollingRef.current);
       pollingRef.current = null;
     }
-  });
+  }, []);
 
-  const loadExamResult = useEffectEvent(
+  const loadExamResult = useCallback(
     async (examId: string, subjectTitleFallback: string) => {
-      const examRes = await fetch(`${API_BASE}/exams/${examId}`, {
-        credentials: 'include',
-      });
-
-      if (!examRes.ok) {
-        const errBody = await examRes.json().catch(() => ({}));
-        throw new Error(errBody?.message ?? `시험 조회 실패 (${examRes.status})`);
-      }
-
-      const data = await examRes.json();
+      const data = await apiFetch<{ items: ApiExamItem[]; title?: string }>(`/exams/${examId}`);
       const items: ApiExamItem[] = data.items ?? [];
       const unitName = `${startUnit}~${endUnit}단원`;
 
@@ -138,20 +129,12 @@ export default function DevExamGeneratePage() {
       setQuestions(items.map((item) => toExamQuestion(item, unitName)));
       setCurrentIndex(0);
     },
+    [startUnit, endUnit],
   );
 
-  const pollJob = useEffectEvent(
+  const pollJob = useCallback(
     async (jobId: string, subjectTitleFallback: string) => {
-      const jobRes = await fetch(`${API_BASE}/exams/jobs/${jobId}`, {
-        credentials: 'include',
-      });
-
-      if (!jobRes.ok) {
-        const errBody = await jobRes.json().catch(() => ({}));
-        throw new Error(errBody?.message ?? `생성 상태 조회 실패 (${jobRes.status})`);
-      }
-
-      const job: GenerationJobState = await jobRes.json();
+      const job: GenerationJobState = await apiFetch(`/exams/jobs/${jobId}`);
       setJobState(job);
 
       if (job.status === 'completed' && job.examId) {
@@ -168,6 +151,7 @@ export default function DevExamGeneratePage() {
 
       return job;
     },
+    [stopPolling, loadExamResult],
   );
 
   useEffect(() => {
@@ -182,11 +166,9 @@ export default function DevExamGeneratePage() {
     resetConcepts();
 
     try {
-      const res = await fetch(
-        `${API_BASE}/exams/concepts?subjectSlug=${subjectSlug}&startUnitNum=${startUnit}&endUnitNum=${endUnit}`,
+      const data: UnitConcepts[] = await apiFetch(
+        `/exams/concepts?subjectSlug=${subjectSlug}&startUnitNum=${startUnit}&endUnitNum=${endUnit}`,
       );
-      if (!res.ok) throw new Error('개념 목록 조회 실패');
-      const data: UnitConcepts[] = await res.json();
       setConcepts(data);
     } catch (e: unknown) {
       setError(e instanceof Error ? e.message : '알 수 없는 오류가 발생했습니다.');
@@ -211,21 +193,19 @@ export default function DevExamGeneratePage() {
 
     try {
       // 1. subjectId 조회
-      const subjectsRes = await fetch(`${API_BASE}/subjects`, {
-        credentials: 'include',
-      });
-      if (!subjectsRes.ok) throw new Error('과목 목록 조회 실패');
-      const subjects: { id: string; slug: string; title: string }[] = await subjectsRes.json();
+      const subjects: { id: string; slug: string; title: string }[] = await apiFetch('/subjects');
       const subject = subjects.find((s) => s.slug === subjectSlug);
       if (!subject) throw new Error(`과목을 찾을 수 없습니다: ${subjectSlug}`);
 
       // 2. 생성 job 시작
-      const createRes = await fetch(`${API_BASE}/exams/jobs`, {
+      const data: {
+        jobId: string;
+        status: GenerationJobState['status'];
+        progress: number;
+        stage: string;
+        message: string;
+      } = await apiFetch('/exams/jobs', {
         method: 'POST',
-        credentials: 'include',
-        headers: {
-          'Content-Type': 'application/json',
-        },
         body: JSON.stringify({
           subjectId: subject.id,
           startUnitNum: startUnit,
@@ -236,19 +216,6 @@ export default function DevExamGeneratePage() {
           targetConcepts: selectedConcepts.length > 0 ? selectedConcepts : undefined,
         }),
       });
-
-      if (!createRes.ok) {
-        const errBody = await createRes.json().catch(() => ({}));
-        throw new Error(errBody?.message ?? `시험 생성 실패 (${createRes.status})`);
-      }
-
-      const data: {
-        jobId: string;
-        status: GenerationJobState['status'];
-        progress: number;
-        stage: string;
-        message: string;
-      } = await createRes.json();
 
       setJobState({
         id: data.jobId,
@@ -604,9 +571,14 @@ export default function DevExamGeneratePage() {
             <VStack gap={0} fullWidth fullHeight>
               <HStack gap={0} align="center" justify="between" fullWidth className={s.examTitle}>
                 <Typo.SM size={14} color="primary">{examTitle}</Typo.SM>
-                <Typo.TH size={12} color="secondary">
-                  총 {questions.length}문항
-                </Typo.TH>
+                <HStack gap={8} align="center">
+                  <Typo.TH size={12} color="secondary">
+                    총 {questions.length}문항
+                  </Typo.TH>
+                  <button className={s.regenerateBtn} onClick={handleGenerate}>
+                    재생성
+                  </button>
+                </HStack>
               </HStack>
               <VStack gap={16} fullWidth fullHeight className={s.questionArea}>
                 <QuestionRenderer

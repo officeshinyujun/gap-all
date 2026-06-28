@@ -2,6 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import * as bcrypt from 'bcrypt';
+import { getOpenAIApiKey } from '../lib/openai-keys';
 import { User } from '../entities/user.entity';
 import { Question } from '../entities/question.entity';
 import { ExamRecord } from '../entities/exam-record.entity';
@@ -189,7 +190,7 @@ export class AdminService {
       | null = null;
     let openaiError: string | null = null;
 
-    const apiKey = process.env.OPENAI_ADMIN_KEY ?? process.env.OPENAI_API_KEY;
+    const apiKey = process.env.OPENAI_ADMIN_KEY ?? getOpenAIApiKey();
     if (apiKey) {
       try {
         const startUnix = Math.floor(sevenDaysAgo.getTime() / 1000);
@@ -369,6 +370,7 @@ export class AdminService {
     subjectSlug?: string;
     unitNumber?: number;
     difficulty?: string;
+    search?: string;
     limit?: number;
     offset?: number;
   }) {
@@ -390,6 +392,12 @@ export class AdminService {
       qb.andWhere('q.difficulty = :difficulty', {
         difficulty: filters.difficulty,
       });
+    }
+    if (filters.search) {
+      qb.andWhere(
+        '(q.questionStem ILIKE :search OR q.targetConcept ILIKE :search OR q.explanation::text ILIKE :search)',
+        { search: `%${filters.search}%` },
+      );
     }
 
     qb.take(filters.limit ?? 50).skip(filters.offset ?? 0);

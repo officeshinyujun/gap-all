@@ -6,7 +6,7 @@ import type { CanvasContent, CanvasImageData } from '@/types/questionstem';
 import s from './index.module.scss';
 
 export interface SceneCanvasProps {
-  content: CanvasContent;
+  content?: CanvasContent | null;
   className?: string;
 }
 
@@ -20,13 +20,14 @@ export interface SceneCanvasProps {
  * - type: 'image' → data: { src: string; alt?: string }
  */
 export const SceneCanvas: React.FC<SceneCanvasProps> = ({ content, className }) => {
+  if (!content) return null;
   const renderContent = () => {
     switch (content.type) {
       case 'text':
-        return <p className={s.textContent}>{content.data as string}</p>;
+        return <p className={s.textContent}>{String(content.data ?? '')}</p>;
 
       case 'table': {
-        const tableData = content.data as string[][];
+        const tableData = Array.isArray(content.data) ? (content.data as string[][]) : [];
         return (
           <div className={s.tableWrapper}>
             <table className={s.table}>
@@ -51,6 +52,7 @@ export const SceneCanvas: React.FC<SceneCanvasProps> = ({ content, className }) 
 
       case 'image': {
         const imgData = content.data as CanvasImageData;
+        if (!imgData || typeof imgData !== 'object') return null;
         return (
           <img
             src={imgData.src}

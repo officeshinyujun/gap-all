@@ -7,7 +7,7 @@ import { VStack } from '@/components/general/VStack';
 import { HStack } from '@/components/general/HStack';
 import Typo from '@/components/general/Typo';
 import { SPACING } from '@/constants/spacing';
-import { API_BASE_URL } from '@/lib/auth';
+import { apiFetch } from '@/lib/api';
 import s from './page.module.scss';
 
 interface Stats {
@@ -17,6 +17,16 @@ interface Stats {
   incorrectCount: number;
   totalTokens: number;
   totalRequests: number;
+}
+
+interface QuizHistoryEntry {
+  timestamp: number;
+  mode: string;
+  subject: string;
+  unit: number;
+  correct: number;
+  total: number;
+  percent: number;
 }
 
 function StatCard({ label, value, unit }: { label: string; value: number | string; unit?: string }) {
@@ -33,16 +43,16 @@ export default function HomePage() {
   const router = useRouter();
   const [stats, setStats] = useState<Stats>({ userCount: 0, examCount: 0, cachePercent: 0, incorrectCount: 0, totalTokens: 0, totalRequests: 0 });
   const [loading, setLoading] = useState(true);
+  const [recentQuizzes, setRecentQuizzes] = useState<QuizHistoryEntry[]>([]);
 
   useEffect(() => {
-    const headers: Record<string, string> = { 'Content-Type': 'application/json' };
-
     Promise.allSettled([
-      fetch(`${API_BASE_URL}/admin/users`, { headers, credentials: 'include' }).then(r => r.json()),
-      fetch(`${API_BASE_URL}/exams`, { headers, credentials: 'include' }).then(r => r.json()),
-      fetch(`${API_BASE_URL}/study/cache-status`, { headers, credentials: 'include' }).then(r => r.json()),
-      fetch(`${API_BASE_URL}/admin/openai-usage`, { headers, credentials: 'include' }).then(r => r.json()),
-    ]).then(([usersRes, examsRes, cacheRes, usageRes]) => {
+      apiFetch<unknown[]>('/admin/users'),
+      apiFetch<unknown[]>('/exams'),
+      apiFetch<{ subjects: { units: Record<string, unknown>[] }[] }>('/study/cache-status'),
+      apiFetch<{ db: { totalTokens: number; nRequests: number }[] }>('/admin/openai-usage'),
+      apiFetch<{ total: number }>('/admin/incorrect-records/stats'),
+    ]).then(([usersRes, examsRes, cacheRes, usageRes, incorrectRes]) => {
       const userCount = usersRes.status === 'fulfilled' && Array.isArray(usersRes.value) ? usersRes.value.length : 0;
       const examCount = examsRes.status === 'fulfilled' && Array.isArray(examsRes.value) ? examsRes.value.length : 0;
 
@@ -70,40 +80,99 @@ export default function HomePage() {
         }
       }
 
-      setStats({ userCount, examCount, cachePercent, incorrectCount: 0, totalTokens, totalRequests });
+      const incorrectCount = incorrectRes.status === 'fulfilled' ? (incorrectRes.value?.total ?? 0) : 0;
+
+      setStats({ userCount, examCount, cachePercent, incorrectCount, totalTokens, totalRequests });
       setLoading(false);
     });
+
+    try {
+      const raw = localStorage.getItem('gap_quiz_history');
+      if (raw) setRecentQuizzes(JSON.parse(raw).slice(0, 5));
+    } catch {}
   }, []);
 
+  const actions = [
+    { label: '캐시 관리', path: '/quiz-cache', icon: '⚡' },
+    { label: '시험 생성', path: '/exam-generate', icon: '📝' },
+    { label: '퀴즈 테스트', path: '/study-quiz', icon: '📖' },
+    { label: '오답 현황', path: '/incorrect-records', icon: '❌' },
+    { label: '시험 목록', path: '/exam-list', icon: '📋' },
+  ];
+
+  const adminActions = [
+    { label: '유저 관리', path: '/admin/users' },
+    { label: '학습 진척도', path: '/admin/progress' },
+    { label: 'API 사용량', path: '/admin/usage' },
+    { label: '문항 DB', path: '/admin/questions' },
+  ];
+
   return (
-    <VStack gap={SPACING.s32} className={s.page}>
+    <VStack gap={SPACING.s24} className={s.page}>
       <VStack gap={SPACING.s8}>
         <Typo.BD size={24} color="primary">안녕하세요, {user?.name ?? ''}님</Typo.BD>
         <Typo.TH size={14} color="secondary">GAP Admin Dashboard</Typo.TH>
       </VStack>
 
-      <HStack gap={SPACING.s16} className={s.statsRow}>
-        <StatCard label="총 유저 수" value={loading ? '-' : `${stats.userCount}`} unit={loading ? '' : '명'} />
-        <StatCard label="총 시험 수" value={loading ? '-' : `${stats.examCount}`} unit={loading ? '' : '개'} />
-        <StatCard label="캐시 커버리지" value={loading ? '-' : `${stats.cachePercent}`} unit={loading ? '' : '%'} />
+      {/* 통계 */}
+      <div className={s.statsGrid}>
+        <StatCard label="총 유저" value={loading ? '-' : `${stats.userCount}`} unit="명" />
+        <StatCard label="총 시험" value={loading ? '-' : `${stats.examCount}`} unit="개" />
+        <StatCard label="캐시 커버리지" value={loading ? '-' : `${stats.cachePercent}`} unit="%" />
         <StatCard label="AI 토큰 (7일)" value={loading ? '-' : (stats.totalTokens ?? 0).toLocaleString()} />
-        <StatCard label="AI 요청 (7일)" value={loading ? '-' : `${stats.totalRequests ?? 0}`} unit={loading ? '' : '회'} />
-      </HStack>
+        <StatCard label="AI 요청 (7일)" value={loading ? '-' : `${stats.totalRequests ?? 0}`} unit="회" />
+        <StatCard label="오답 기록" value={loading ? '-' : `${stats.incorrectCount}`} unit="개" />
+      </div>
 
+      {/* 빠른 액션 */}
       <VStack gap={SPACING.s12}>
-        <Typo.MD size={14} color="secondary">빠른 액션</Typo.MD>
-        <HStack gap={SPACING.s12}>
-          <button className={s.quickAction} onClick={() => router.push('/quiz-cache')}>
-            <Typo.MD size={14} color="primary">캐시 관리</Typo.MD>
-          </button>
-          <button className={s.quickAction} onClick={() => router.push('/exam-generate')}>
-            <Typo.MD size={14} color="primary">시험 생성</Typo.MD>
-          </button>
-          <button className={s.quickAction} onClick={() => router.push('/study-quiz')}>
-            <Typo.MD size={14} color="primary">퀴즈 테스트</Typo.MD>
-          </button>
-        </HStack>
+        <Typo.MD size={14} color="primary" style={{ fontWeight: 600 }}>빠른 액션</Typo.MD>
+        <div className={s.actionGrid}>
+          {actions.map((a) => (
+            <button key={a.path} className={s.quickAction} onClick={() => router.push(a.path)}>
+              <span className={s.actionIcon}>{a.icon}</span>
+              <Typo.MD size={14} color="primary">{a.label}</Typo.MD>
+            </button>
+          ))}
+        </div>
       </VStack>
+
+      {/* Admin */}
+      <VStack gap={SPACING.s12}>
+        <Typo.MD size={14} color="primary" style={{ fontWeight: 600 }}>Admin</Typo.MD>
+        <div className={s.actionGrid}>
+          {adminActions.map((a) => (
+            <button key={a.path} className={s.quickAction} onClick={() => router.push(a.path)}>
+              <Typo.MD size={14} color="primary">{a.label}</Typo.MD>
+            </button>
+          ))}
+        </div>
+      </VStack>
+
+      {/* 최근 퀴즈 */}
+      {recentQuizzes.length > 0 && (
+        <VStack gap={SPACING.s8}>
+          <Typo.MD size={14} color="primary" style={{ fontWeight: 600 }}>최근 퀴즈 기록</Typo.MD>
+          <div className={s.quizHistoryWidget}>
+            {recentQuizzes.map((h, i) => {
+              const pctClass = h.percent >= 70 ? s.pctHigh : h.percent >= 40 ? s.pctMid : s.pctLow;
+              return (
+                <div key={`${h.timestamp}-${i}`} className={s.quizHistoryRow}>
+                  <span className={`${s.quizPct} ${pctClass}`}>{h.percent}%</span>
+                  <span className={s.quizMeta}>
+                    {h.mode === 'blank' ? '빈칸' : h.mode === 'concept' ? '개념' : '실전'}
+                    {' · '}{(h.subject === 'success' ? '성직' : '공일')}{h.unit}단원
+                    {' · '}{h.correct}/{h.total}
+                  </span>
+                  <span className={s.quizDate}>
+                    {new Date(h.timestamp).toLocaleDateString('ko-KR', { month: '2-digit', day: '2-digit' })}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+        </VStack>
+      )}
     </VStack>
   );
 }

@@ -1,0 +1,22 @@
+Create a NEW Korean CSAT question based on this reference. Output in JSON.
+
+Reference question:
+{input_stem} | {input_stimulus} | {input_viewItems} | {input_choices}
+
+The new question must:
+- Have exactly {viewCount} view items
+- Have 5 choices in Korean format (①, ②, ③, ④, ⑤)
+- Change all names, scenarios, and at least one concept
+- Be in Korean
+- Include correctAnswer (1-5)
+
+{
+  "stem": "new stem",
+  "stimulus": "new stimulus",
+  "viewItems": ["new items"],
+  "choices": ["① new", "② new", "③ new", "④ new", "⑤ new"],
+  "correctAnswer": 1,
+  "targetConcept": "{targetConcepts}",
+  "difficulty": "{difficulty}",
+  "explanation": "explanation"
+}

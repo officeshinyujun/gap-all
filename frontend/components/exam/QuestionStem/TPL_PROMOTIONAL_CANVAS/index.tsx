@@ -33,7 +33,7 @@ export const TPLPromotionalCanvas: React.FC<TPLPromotionalCanvasProps> = ({
 
         <PromoSlogan text={data.slogan} />
 
-        {data.bullets.length > 0 && (
+        {(data.bullets || []).length > 0 && (
           <div className={s.bulletSection}>
             <VStack gap={4} fullWidth>
               {data.bullets.map((bullet, index) => (

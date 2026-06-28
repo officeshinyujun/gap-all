@@ -1,0 +1,529 @@
+{
+  "unitNumber": 12,
+  "subject": "kongil",
+  "totalQuestions": 19,
+  "entries": [
+    {
+      "questionIndex": 1,
+      "patternId": "MCQ-Content-Analysis",
+      "name": "Content Analysis from Article",
+      "intent": "Evaluate understanding of content from a given article.",
+      "stemPattern": "다음 기사를 통해 알 수 있는 △△시에 대한 내용으로 적절한 것을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "기사",
+        "알 수 있는 내용",
+        "적절한 것을 고른 것"
+      ],
+      "judgmentAxes": [
+        "Content comprehension",
+        "Relevance"
+      ],
+      "itemFamilies": [
+        "True/False statements",
+        "Content inference"
+      ],
+      "templates": [
+        "Which of the following statements about △△시 is correct based on the article?"
+      ],
+      "variationTips": [
+        "Change the context or subject of the article.",
+        "Vary the number of statements."
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "MCQ-Dialogue-Analysis",
+      "name": "Content Analysis from Dialogue",
+      "intent": "Assess understanding of content from a given dialogue.",
+      "stemPattern": "다음 대화를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "대화",
+        "알 수 있는 내용",
+        "옳은 것만을 고른 것"
+      ],
+      "judgmentAxes": [
+        "Content comprehension",
+        "Accuracy"
+      ],
+      "itemFamilies": [
+        "True/False statements",
+        "Content inference"
+      ],
+      "templates": [
+        "Which of the following statements is correct based on the dialogue?"
+      ],
+      "variationTips": [
+        "Change the context or participants of the dialogue.",
+        "Vary the number of statements."
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "MCQ-Data-Analysis",
+      "name": "Content Analysis from Data",
+      "intent": "Evaluate understanding of content from given data.",
+      "stemPattern": "다음 컨설팅 사전 기초 조사 자료를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "자료",
+        "알 수 있는 내용",
+        "옳은 것만을 고른 것"
+      ],
+      "judgmentAxes": [
+        "Data interpretation",
+        "Accuracy"
+      ],
+      "itemFamilies": [
+        "True/False statements",
+        "Data inference"
+      ],
+      "templates": [
+        "Which of the following statements is correct based on the data?"
+      ],
+      "variationTips": [
+        "Change the type of data presented.",
+        "Vary the number of statements."
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "MCQ-Decision-Making",
+      "name": "Decision Making for HR Management",
+      "intent": "Determine the most appropriate HR management strategy.",
+      "stemPattern": "다음 A, B 회사가 도입할 인적 자원 관리 대책으로 가장 적절한 것을 고른 것은?",
+      "indicators": [
+        "인적 자원 관리",
+        "가장 적절한 것을 고른 것"
+      ],
+      "judgmentAxes": [
+        "Decision making",
+        "Relevance"
+      ],
+      "itemFamilies": [
+        "Strategy selection",
+        "HR management"
+      ],
+      "templates": [
+        "Which HR management strategy is most appropriate for companies A and B?"
+      ],
+      "variationTips": [
+        "Change the companies or context.",
+        "Vary the strategies presented."
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "MCQ-Content-Analysis",
+      "name": "Content Analysis from Meeting Summary",
+      "intent": "Evaluate understanding of content from a meeting summary.",
+      "stemPattern": "다음 회의 안건 요약 자료를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "회의 안건",
+        "알 수 있는 내용",
+        "옳은 것만을 고른 것"
+      ],
+      "judgmentAxes": [
+        "Content comprehension",
+        "Accuracy"
+      ],
+      "itemFamilies": [
+        "True/False statements",
+        "Content inference"
+      ],
+      "templates": [
+        "Which of the following statements is correct based on the meeting summary?"
+      ],
+      "variationTips": [
+        "Change the context or subject of the meeting.",
+        "Vary the number of statements."
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "MCQ-Content-Analysis",
+      "name": "Content Analysis from Job Analysis Data",
+      "intent": "Assess understanding of content from job analysis data.",
+      "stemPattern": "다음은 ◯◯회사 직무 분석 개선 자료의 일부이다. 이를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "직무 분석",
+        "알 수 있는 내용",
+        "옳은 것만을 고른 것"
+      ],
+      "judgmentAxes": [
+        "Content comprehension",
+        "Accuracy"
+      ],
+      "itemFamilies": [
+        "True/False statements",
+        "Content inference"
+      ],
+      "templates": [
+        "Which of the following statements is correct based on the job analysis data?"
+      ],
+      "variationTips": [
+        "Change the company or context.",
+        "Vary the number of statements."
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "MCQ-Content-Analysis",
+      "name": "Content Analysis from Field Visit Report",
+      "intent": "Evaluate understanding of content from a field visit report.",
+      "stemPattern": "다음은 현장 실습 산업체 방문 조사서의 일부이다. 이를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "방문 조사서",
+        "알 수 있는 내용",
+        "옳은 것만을 고른 것"
+      ],
+      "judgmentAxes": [
+        "Content comprehension",
+        "Accuracy"
+      ],
+      "itemFamilies": [
+        "True/False statements",
+        "Content inference"
+      ],
+      "templates": [
+        "Which of the following statements is correct based on the field visit report?"
+      ],
+      "variationTips": [
+        "Change the industry or context.",
+        "Vary the number of statements."
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "Open-Ended-Project-Analysis",
+      "name": "Project Analysis",
+      "intent": "Analyze and respond to questions about a project.",
+      "stemPattern": "다음은 융합 물류 창고 로봇 연구 프로젝트 내용이다. 물음에 답하시오.",
+      "indicators": [
+        "연구 프로젝트",
+        "물음에 답하시오"
+      ],
+      "judgmentAxes": [
+        "Project understanding",
+        "Analytical skills"
+      ],
+      "itemFamilies": [
+        "Open-ended questions",
+        "Project analysis"
+      ],
+      "templates": [
+        "Analyze the project and answer the questions."
+      ],
+      "variationTips": [
+        "Change the project details.",
+        "Vary the type of questions asked."
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "MCQ-Content-Analysis",
+      "name": "Content Analysis from Research Project",
+      "intent": "Evaluate understanding of content from a research project.",
+      "stemPattern": "위 연구 프로젝트를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "연구 프로젝트",
+        "알 수 있는 내용",
+        "옳은 것만을 고른 것"
+      ],
+      "judgmentAxes": [
+        "Content comprehension",
+        "Accuracy"
+      ],
+      "itemFamilies": [
+        "True/False statements",
+        "Content inference"
+      ],
+      "templates": [
+        "Which of the following statements is correct based on the research project?"
+      ],
+      "variationTips": [
+        "Change the project or context.",
+        "Vary the number of statements."
+      ]
+    },
+    {
+      "questionIndex": 10,
+      "patternId": "MCQ-Content-Analysis",
+      "name": "Content Analysis from Survey Results",
+      "intent": "Assess understanding of content from survey results.",
+      "stemPattern": "다음 업무 개선을 위한 설문 조사 결과를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "설문 조사 결과",
+        "알 수 있는 내용",
+        "옳은 것만을 고른 것"
+      ],
+      "judgmentAxes": [
+        "Content comprehension",
+        "Accuracy"
+      ],
+      "itemFamilies": [
+        "True/False statements",
+        "Content inference"
+      ],
+      "templates": [
+        "Which of the following statements is correct based on the survey results?"
+      ],
+      "variationTips": [
+        "Change the survey context.",
+        "Vary the number of statements."
+      ]
+    },
+    {
+      "questionIndex": 0,
+      "patternId": "12",
+      "name": "신소재 특성 적용 사례",
+      "intent": "Identify the most appropriate example of a new material's characteristic application.",
+      "stemPattern": "다음은 신소재의 특성 실험 과정을 나타낸 것이다. 이와 같은 신소재의 특성이 적용된 사례로 가장 적절한 것은?",
+      "indicators": [
+        "신소재",
+        "특성",
+        "적용 사례"
+      ],
+      "judgmentAxes": [
+        "Relevance",
+        "Application"
+      ],
+      "itemFamilies": [
+        "Material Science",
+        "Application Examples"
+      ],
+      "templates": [
+        "Identify application",
+        "Select example"
+      ],
+      "variationTips": [
+        "Vary material types",
+        "Change application context"
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "12",
+      "name": "스마트 센서 품질 관리",
+      "intent": "Select the correct statements about smart sensor quality management.",
+      "stemPattern": "다음은 스마트 센서의 품질 관리 현황이다. 이에 대한 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "스마트 센서",
+        "품질 관리",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "Accuracy",
+        "Quality Management"
+      ],
+      "itemFamilies": [
+        "Quality Control",
+        "Sensor Technology"
+      ],
+      "templates": [
+        "Select correct statements",
+        "Evaluate quality management"
+      ],
+      "variationTips": [
+        "Change sensor type",
+        "Alter management scenarios"
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "12",
+      "name": "화재 발생 사례 설명",
+      "intent": "Identify the correct explanation for a fire incident case.",
+      "stemPattern": "다음 화재 발생 사례에 대한 설명으로 옳은 것은?",
+      "indicators": [
+        "화재 발생",
+        "사례",
+        "옳은 설명"
+      ],
+      "judgmentAxes": [
+        "Correctness",
+        "Incident Analysis"
+      ],
+      "itemFamilies": [
+        "Safety",
+        "Incident Explanation"
+      ],
+      "templates": [
+        "Identify correct explanation",
+        "Analyze incident"
+      ],
+      "variationTips": [
+        "Vary incident details",
+        "Change explanation focus"
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "12",
+      "name": "기업 경영 사례 분석",
+      "intent": "Determine the most appropriate insight from a company's management case.",
+      "stemPattern": "다음 ○○기업의 경영 사례를 통해 알 수 있는 내용으로 가장 적절한 것은?",
+      "indicators": [
+        "기업 경영",
+        "사례",
+        "적절한 내용"
+      ],
+      "judgmentAxes": [
+        "Insightfulness",
+        "Management Analysis"
+      ],
+      "itemFamilies": [
+        "Business Management",
+        "Case Study"
+      ],
+      "templates": [
+        "Determine insight",
+        "Analyze management"
+      ],
+      "variationTips": [
+        "Change company type",
+        "Alter management scenario"
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "12",
+      "name": "경영 활동 회의 제안",
+      "intent": "Identify the most appropriate proposal made by employees in a business meeting.",
+      "stemPattern": "그림은 기업의 경영 활동에 대한 회의 장면이다. 사원A, B가 제안한 방식으로 가장 적절한 것은?",
+      "indicators": [
+        "경영 활동",
+        "회의",
+        "제안",
+        "적절한 방식"
+      ],
+      "judgmentAxes": [
+        "Appropriateness",
+        "Proposal Evaluation"
+      ],
+      "itemFamilies": [
+        "Business Strategy",
+        "Meeting Proposals"
+      ],
+      "templates": [
+        "Identify proposal",
+        "Evaluate meeting suggestions"
+      ],
+      "variationTips": [
+        "Vary meeting context",
+        "Change proposal details"
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "12",
+      "name": "공장 신설 계획 분석",
+      "intent": "Select the appropriate insights from a company's new factory establishment plan.",
+      "stemPattern": "다음 A기업의 공장 신설 계획을 통해 알 수 있는 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "공장 신설",
+        "계획",
+        "적절한 내용"
+      ],
+      "judgmentAxes": [
+        "Relevance",
+        "Strategic Planning"
+      ],
+      "itemFamilies": [
+        "Business Expansion",
+        "Factory Planning"
+      ],
+      "templates": [
+        "Select insights",
+        "Analyze establishment plan"
+      ],
+      "variationTips": [
+        "Change company type",
+        "Alter planning details"
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "12",
+      "name": "교육 안내 자료 분석",
+      "intent": "Select the appropriate insights from a construction education center's guide.",
+      "stemPattern": "다음 ○○건설 교육원의 교육 안내 자료를 통해 파악할 수 있는 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "교육 안내",
+        "자료",
+        "적절한 내용"
+      ],
+      "judgmentAxes": [
+        "Relevance",
+        "Educational Insight"
+      ],
+      "itemFamilies": [
+        "Education",
+        "Training Programs"
+      ],
+      "templates": [
+        "Select insights",
+        "Analyze educational material"
+      ],
+      "variationTips": [
+        "Vary educational context",
+        "Change guide details"
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "12",
+      "name": "산업 현장 개선 사례 분석",
+      "intent": "Identify the incorrect explanation for an industrial site improvement case.",
+      "stemPattern": "다음 산업 현장 개선 사례에 대한 설명으로 옳지 않은 것은?",
+      "indicators": [
+        "산업 현장",
+        "개선 사례",
+        "옳지 않은 설명"
+      ],
+      "judgmentAxes": [
+        "Incorrectness",
+        "Improvement Analysis"
+      ],
+      "itemFamilies": [
+        "Industrial Improvement",
+        "Case Analysis"
+      ],
+      "templates": [
+        "Identify incorrect explanation",
+        "Analyze improvement"
+      ],
+      "variationTips": [
+        "Change improvement details",
+        "Vary explanation focus"
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "12",
+      "name": "취업 준비 스터디 그룹 대화 분석",
+      "intent": "Determine the most appropriate insight about a company from a study group's SNS conversation.",
+      "stemPattern": "다음 취업 준비를 위한 스터디 그룹의 SNS 대화 내용으로부터 ○○기업에 대하여 알 수 있는 내용으로 가장 적절한 것은?",
+      "indicators": [
+        "취업 준비",
+        "스터디 그룹",
+        "SNS 대화",
+        "적절한 내용"
+      ],
+      "judgmentAxes": [
+        "Insightfulness",
+        "Company Analysis"
+      ],
+      "itemFamilies": [
+        "Job Preparation",
+        "Company Insights"
+      ],
+      "templates": [
+        "Determine insight",
+        "Analyze conversation"
+      ],
+      "variationTips": [
+        "Vary company details",
+        "Change conversation context"
+      ]
+    }
+  ]
+}

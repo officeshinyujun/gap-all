@@ -5,8 +5,11 @@ import * as dotenv from 'dotenv';
 
 dotenv.config({ path: path.resolve(__dirname, '..', '.env') });
 
-const apiKeyString = process.env.OPENAI_API_KEYS || process.env.OPENAI_API_KEY || '';
-const API_KEYS = apiKeyString.split(',').map(k => k.trim()).filter(k => k.length > 0);
+const API_KEYS = [
+  process.env.OPENAI_API_KEY,
+  process.env.OPENAI_API_KEY2,
+  process.env.OPENAI_API_KEY3,
+].filter((k): k is string => typeof k === 'string' && k.length > 0);
 
 if (API_KEYS.length === 0) {
   console.error('API keys are missing in .env');
@@ -22,7 +25,7 @@ function getNextClient(): OpenAI {
 }
 
 const PROMPT_PATH = path.resolve(__dirname, '..', '..', 'prompts', 'concept_highlight_v2.txt');
-const DATA_DIR = path.resolve(__dirname, '..', '..', 'textbook', 'success_cards_moi');
+const DATA_DIR = path.resolve(__dirname, '..', '..', 'textbook', 'kongil_cards_moi');
 const MODEL = 'gpt-4o';
 const CONCURRENCY = 2;
 

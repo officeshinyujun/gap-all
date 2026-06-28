@@ -1,0 +1,541 @@
+{
+  "unitNumber": 17,
+  "subject": "sungjik",
+  "totalQuestions": 21,
+  "entries": [
+    {
+      "questionIndex": 0,
+      "patternId": "LEGAL_DEFINITION_MATCHING",
+      "name": "법적 정의 매칭",
+      "intent": "직업 안정법의 특정 조항에 대한 정의를 이해하고, 해당 정의에 맞는 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음은 직업 안정법의 일부이다. (가)에 대한 설명으로 옳은것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "직업 안정법",
+        "(가)에 대한 설명",
+        "옳은것만을"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "legal interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 법 조항을 사용하여 변형",
+        "정의 대신 사례를 제시하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "INSURANCE_BENEFIT_ELIGIBILITY",
+      "name": "보험 급여 자격 판단",
+      "intent": "고용보험의 구직 급여 안내문을 통해 구직 급여 수급 자격 조건을 이해하고, 해당 조건에 맞는 내용을 선택하도록 유도한다.",
+      "stemPattern": "다음은 고용보험의 구직 급여 안내문이다. (가)~(라)에 해당하는 내용으로 옳은 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "고용보험",
+        "구직 급여",
+        "(가)~(라)에 해당하는 내용"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 보험 종류를 사용하여 변형",
+        "조건을 추가하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "INSURANCE_EXCLUSION_CRITERIA",
+      "name": "보험 적용 제외 기준 판단",
+      "intent": "고용보험 적용 제외 근로자에 대한 이해를 바탕으로, 해당 조건에 맞는 내용을 선택하도록 유도한다.",
+      "stemPattern": "다음은 고용보험에 관한 취업 담당 교사와 학생의 대화이다. (가)에 해당하는 내용으로 옳은 것은?",
+      "indicators": [
+        "고용보험",
+        "적용 제외 근로자",
+        "(가)에 해당하는 내용"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "procedure"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 대화 주제를 사용하여 변형",
+        "적용 제외 조건을 변경하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "INSURANCE_EXCLUSION_BUSINESS",
+      "name": "보험 적용 제외 사업 판단",
+      "intent": "고용보험 적용 제외 사업에 대한 이해를 바탕으로, 해당 사례에 맞는 내용을 선택하도록 유도한다.",
+      "stemPattern": "다음은 고용보험에 관한 수행 평가 보고서이다. (가)에 해당하는 사례로 옳은 것은?",
+      "indicators": [
+        "고용보험",
+        "적용 제외 사업",
+        "(가)에 해당하는 사례"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 사업 유형을 사용하여 변형",
+        "보고서 형식을 변경하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "EMPLOYMENT_CERTIFICATE_INTERPRETATION",
+      "name": "이직 확인서 해석",
+      "intent": "피보험자 이직 확인서의 정보를 해석하여, 이직 코드 및 사유에 대한 이해를 바탕으로 질문에 답하도록 유도한다.",
+      "stemPattern": "다음은 피보험자 이직 확인서의 일부이다. 물음에 답하시오.",
+      "indicators": [
+        "피보험자 이직 확인서",
+        "이직 코드",
+        "물음에 답하시오"
+      ],
+      "judgmentAxes": [
+        "document interpretation",
+        "calculation"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 문서 형식을 사용하여 변형",
+        "이직 사유를 변경하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "BENEFIT_RESTRICTION_CODE_SELECTION",
+      "name": "급여 지급 제한 코드 선택",
+      "intent": "구직 급여 지급이 제한되는 코드를 이해하고, 해당 코드에 맞는 내용을 선택하도록 유도한다.",
+      "stemPattern": "위에서 (가)에 들어갈 코드 중 구직 급여 지급이 제한되는 코드로 옳은 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "구직 급여",
+        "지급 제한 코드",
+        "(가)에 들어갈 코드"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "procedure"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 코드 유형을 사용하여 변형",
+        "제한 조건을 변경하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "JOB_POSTING_INTERPRETATION",
+      "name": "모집 공고 해석",
+      "intent": "모집 공고문을 통해 고용보험 관련 정보를 이해하고, 해당 정보에 맞는 내용을 선택하도록 유도한다.",
+      "stemPattern": "다음은 에너지솔루션의 모집 공고문이다. 이를 통해 알 수 있는 고용보험에 대한 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "모집 공고",
+        "고용보험",
+        "옳은 것만을"
+      ],
+      "judgmentAxes": [
+        "document interpretation",
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 회사 정보를 사용하여 변형",
+        "고용 조건을 변경하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "CONSTRUCTION_CASE_INTERPRETATION",
+      "name": "건축 사례 해석",
+      "intent": "건축 사례를 통해 고용보험 업무에 대한 이해를 바탕으로, 해당 설명에 맞는 내용을 선택하도록 유도한다.",
+      "stemPattern": "다음은 건축주 A의 빌라 건축 사례이다. 이를 통해 알 수 있는 고용보험 업무에 대한 설명으로 옳은 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "건축 사례",
+        "고용보험 업무",
+        "옳은 것만을"
+      ],
+      "judgmentAxes": [
+        "document interpretation",
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 건축 사례를 사용하여 변형",
+        "보험 업무 조건을 변경하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "AI_CONVERSATION_INTERPRETATION",
+      "name": "AI 대화 해석",
+      "intent": "생성형 인공지능과의 대화를 통해 특정 조건에 대한 이해를 바탕으로, 해당 조건에 맞지 않는 내용을 선택하도록 유도한다.",
+      "stemPattern": "다음 생성형 인공지능과의 대화에서 (가)에 해당하는 내용으로 옳지 않은 것은?",
+      "indicators": [
+        "생성형 인공지능",
+        "(가)에 해당하는 내용",
+        "옳지 않은 것은"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 대화 주제를 사용하여 변형",
+        "조건을 변경하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "UNEMPLOYMENT_BENEFIT_TYPE_EXPLANATION",
+      "name": "실업 급여 종류 설명",
+      "intent": "실업 급여의 종류에 대한 이해를 바탕으로, 해당 급여에 대한 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음은 실업 급여 종류에 대한 수업 장면이다. (가)에 포함되는 급여에 대한 설명으로 옳은 것은?",
+      "indicators": [
+        "실업 급여",
+        "(가)에 포함되는 급여",
+        "옳은 것은"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 급여 종류를 사용하여 변형",
+        "설명 조건을 변경하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 10,
+      "patternId": "LESSON_CONTENT_EVALUATION",
+      "name": "수업 내용 평가",
+      "intent": "수업 내용을 평가하여, 적절한 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음 수업 내용에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "수업 내용",
+        "적절한 것만을"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 수업 내용을 사용하여 변형",
+        "평가 기준을 변경하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 0,
+      "patternId": "SELECT_APPROPRIATE_LIFELONG_LEARNING_SYSTEM",
+      "name": "평생 학습 제도 선택",
+      "intent": "학생 A와 B의 대화 내용을 바탕으로 가장 적절한 평생 학습 제도를 선택하도록 유도",
+      "stemPattern": "위 대화에서 학생 A, B가 선택하려는 평생 학습 제도로 가장 적절한 것은?",
+      "indicators": [
+        "대화",
+        "선택하려는",
+        "평생 학습 제도"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CONCEPT_SELECTION"
+      ],
+      "variationTips": [
+        "대화 내용을 바꾸어 다른 학습 제도를 선택하게 할 수 있음",
+        "학생의 상황을 구체적으로 제시하여 선택을 유도할 수 있음"
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "SELECT_APPROPRIATE_CONTENT_FROM_BUSINESS_PLAN",
+      "name": "창업 계획서 내용 선택",
+      "intent": "창업 계획서의 기업 개요를 통해 적절한 내용을 선택하도록 유도",
+      "stemPattern": "다음 창업 계획서에 나타난 기업 개요를 통해 알 수 있는 내용으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "창업 계획서",
+        "기업 개요",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_DOCUMENT_INTERPRETATION"
+      ],
+      "variationTips": [
+        "기업 개요의 내용을 바꾸어 다른 선택지를 유도할 수 있음",
+        "보기 항목을 추가하여 선택의 폭을 넓힐 수 있음"
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "SELECT_APPROPRIATE_ACTIVITY_IN_DECISION_PROCESS",
+      "name": "진로 의사 결정 활동 선택",
+      "intent": "합리적인 진로 의사 결정 과정에 따른 활동 사례에서 적절한 활동을 선택하도록 유도",
+      "stemPattern": "다음은 합리적인 진로 의사 결정 과정에 따라 작성한 활동 사례이다. (가)에 해당하는 활동으로 가장 적절한 것은?",
+      "indicators": [
+        "진로 의사 결정",
+        "활동 사례",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_ACTIVITY_SELECTION"
+      ],
+      "variationTips": [
+        "활동 사례를 구체적으로 제시하여 선택을 유도할 수 있음",
+        "진로 의사 결정 과정을 다른 단계로 바꾸어 변형 가능"
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "SELECT_APPROPRIATE_DESCRIPTION_FOR_COMPANY_TYPE",
+      "name": "기업 형태 설명 선택",
+      "intent": "기업의 형태에 따른 특징을 구분하여 적절한 설명을 선택하도록 유도",
+      "stemPattern": "표는 기업의 형태에 따라 특징을 구분한 것이다. (가)∼(다)에 대한 설명으로 가장 적절한 것은? (단, 기업의 형태는 유한회사, 합명회사, 합자회사로만 구분한다.)",
+      "indicators": [
+        "기업의 형태",
+        "특징",
+        "적절한 설명"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_FEATURE_SELECTION"
+      ],
+      "variationTips": [
+        "기업 형태의 특징을 바꾸어 다른 설명을 유도할 수 있음",
+        "표의 내용을 추가하여 복잡성을 높일 수 있음"
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "SELECT_APPROPRIATE_ADVANCED_TECHNOLOGY",
+      "name": "첨단 기술 선택",
+      "intent": "사업 계획서에 나타난 첨단 기술을 선택하도록 유도",
+      "stemPattern": "위 사업 계획서에 나타난 첨단 기술로 가장 적절한 것은?",
+      "indicators": [
+        "사업 계획서",
+        "첨단 기술",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_TECHNOLOGY_SELECTION"
+      ],
+      "variationTips": [
+        "사업 계획서의 내용을 바꾸어 다른 기술을 선택하게 할 수 있음",
+        "첨단 기술의 정의를 구체적으로 제시하여 선택을 유도할 수 있음"
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "SELECT_APPROPRIATE_DESCRIPTION_FOR_LIFELONG_LEARNING_SYSTEM",
+      "name": "평생 학습 제도 설명 선택",
+      "intent": "평생 학습 제도에 대한 설명을 통해 적절한 내용을 선택하도록 유도",
+      "stemPattern": "다음 글에 나타난 평생 학습 제도 (가)에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "평생 학습 제도",
+        "설명",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_DOCUMENT_INTERPRETATION"
+      ],
+      "variationTips": [
+        "평생 학습 제도의 내용을 바꾸어 다른 설명을 유도할 수 있음",
+        "보기 항목을 추가하여 선택의 폭을 넓힐 수 있음"
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "SELECT_APPROPRIATE_CONTENT_FROM_RECRUITMENT_NOTICE",
+      "name": "모집 공고 내용 선택",
+      "intent": "기업의 모집 공고를 통해 적절한 내용을 선택하도록 유도",
+      "stemPattern": "다음 A기업의 [태스크포스팀 사내 모집 공고]를 통해 알 수 있는 내용으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "모집 공고",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_DOCUMENT_INTERPRETATION"
+      ],
+      "variationTips": [
+        "모집 공고의 내용을 바꾸어 다른 선택지를 유도할 수 있음",
+        "보기 항목을 추가하여 선택의 폭을 넓힐 수 있음"
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "SELECT_APPROPRIATE_DESCRIPTION_FOR_TRAINING_PROGRAM",
+      "name": "사내 교육 프로그램 설명 선택",
+      "intent": "맞춤형 사내 교육 프로그램에 참여하는 교육 대상자에 대한 설명을 통해 적절한 내용을 선택하도록 유도",
+      "stemPattern": "다음 맞춤형 사내 교육 프로그램 (가), (나)에 참여하는 교육 대상자에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은? (단, 생애 발달 단계별 발달 과업은 해비거스트 (Havighurst, R. J.) 이론에 근거한다.)",
+      "indicators": [
+        "사내 교육 프로그램",
+        "교육 대상자",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_PROGRAM_SELECTION"
+      ],
+      "variationTips": [
+        "교육 프로그램의 내용을 바꾸어 다른 설명을 유도할 수 있음",
+        "발달 과업의 내용을 구체적으로 제시하여 선택을 유도할 수 있음"
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "SELECT_APPROPRIATE_METHOD_FOR_SKILL_IMPROVEMENT",
+      "name": "직업기초능력 향상 방법 선택",
+      "intent": "직업기초능력을 향상시키기 위한 방법을 선택하도록 유도",
+      "stemPattern": "다음 글에 나타난 직업기초능력을 향상시키기 위한 방법으로 가장 적절한 것은?",
+      "indicators": [
+        "직업기초능력",
+        "향상",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_METHOD_SELECTION"
+      ],
+      "variationTips": [
+        "직업기초능력의 내용을 바꾸어 다른 방법을 선택하게 할 수 있음",
+        "향상 방법의 구체적인 사례를 제시하여 선택을 유도할 수 있음"
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "SELECT_APPROPRIATE_ETHICS_AND_ENTREPRENEURSHIP",
+      "name": "직업 윤리와 기업가정신 선택",
+      "intent": "사례에 나타난 직업 윤리와 기업가정신을 통해 적절한 내용을 선택하도록 유도",
+      "stemPattern": "다음 사례의 (가)에 나타난 직업 윤리와 (나)에 나타난 기업가정신으로 가장 적절한 것은?",
+      "indicators": [
+        "직업 윤리",
+        "기업가정신",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CONCEPT_SELECTION"
+      ],
+      "variationTips": [
+        "사례의 내용을 바꾸어 다른 윤리와 정신을 선택하게 할 수 있음",
+        "직업 윤리와 기업가정신의 정의를 구체적으로 제시하여 선택을 유도할 수 있음"
+      ]
+    }
+  ]
+}

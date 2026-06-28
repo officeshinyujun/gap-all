@@ -1,0 +1,468 @@
+{
+  "unitNumber": 15,
+  "subject": "kongil",
+  "totalQuestions": 18,
+  "entries": [
+    {
+      "questionIndex": 1,
+      "patternId": "MCQ-Selection",
+      "name": "Disaster Case Analysis",
+      "intent": "Evaluate understanding of disaster case details and correct interpretations.",
+      "stemPattern": "다음 재해 사례를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "재해 사례",
+        "옳은 것",
+        "보기"
+      ],
+      "judgmentAxes": [
+        "Correctness of interpretation",
+        "Understanding of disaster types"
+      ],
+      "itemFamilies": [
+        "Fire causes",
+        "Fire types",
+        "Safety organization types",
+        "Fire suppression methods"
+      ],
+      "templates": [
+        "Which of the following statements about the disaster case is correct?"
+      ],
+      "variationTips": [
+        "Change the disaster type or details in the views."
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "MCQ-Selection",
+      "name": "Safety Checklist Analysis",
+      "intent": "Assess knowledge of safety equipment and procedures from a checklist.",
+      "stemPattern": "다음은 ◯◯기업 현장 안전 점검 체크 리스트의 일부이다. 이를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "안전 점검 체크 리스트",
+        "옳은 것",
+        "보기"
+      ],
+      "judgmentAxes": [
+        "Correctness of safety equipment and procedures"
+      ],
+      "itemFamilies": [
+        "Protective equipment",
+        "Safety signs",
+        "Safety measures"
+      ],
+      "templates": [
+        "Which of the following statements about the safety checklist is correct?"
+      ],
+      "variationTips": [
+        "Alter the safety equipment or procedures in the views."
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "Matching",
+      "name": "Machine Safety Accident Types",
+      "intent": "Identify and match types of machine safety accidents.",
+      "stemPattern": "[사례 1]과 [사례 2]의 기계 안전사고의 종류로 바르게 짝지은 것은?",
+      "indicators": [
+        "기계 안전사고",
+        "종류",
+        "짝지은 것"
+      ],
+      "judgmentAxes": [
+        "Correct matching of accident types"
+      ],
+      "itemFamilies": [
+        "Machine accident types"
+      ],
+      "templates": [
+        "Match the types of machine safety accidents for [Case 1] and [Case 2]."
+      ],
+      "variationTips": [
+        "Change the cases or accident types."
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "MCQ-Selection",
+      "name": "Report Analysis on Safety Measures",
+      "intent": "Evaluate understanding of safety measures and accident causes from a report.",
+      "stemPattern": "위 보고서를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "보고서",
+        "옳은 것",
+        "보기"
+      ],
+      "judgmentAxes": [
+        "Correctness of safety measures and accident analysis"
+      ],
+      "itemFamilies": [
+        "Safety devices",
+        "Accident causes",
+        "Accident outcomes"
+      ],
+      "templates": [
+        "Which of the following statements about the report is correct?"
+      ],
+      "variationTips": [
+        "Modify the safety measures or accident causes in the views."
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "MCQ-Selection",
+      "name": "Fire Case Report Analysis",
+      "intent": "Assess understanding of fire case details and appropriate responses.",
+      "stemPattern": "다음 화재 사례 보고서를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "화재 사례 보고서",
+        "옳은 것",
+        "보기"
+      ],
+      "judgmentAxes": [
+        "Correctness of fire type and response"
+      ],
+      "itemFamilies": [
+        "Fire type colors",
+        "Suitable extinguishing agents",
+        "Fire causes",
+        "Safety training methods"
+      ],
+      "templates": [
+        "Which of the following statements about the fire case report is correct?"
+      ],
+      "variationTips": [
+        "Change the fire details or responses in the views."
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "MCQ-Selection",
+      "name": "Accident Cause and Prevention Analysis",
+      "intent": "Evaluate understanding of accident causes and prevention strategies from a report.",
+      "stemPattern": "위 보고서를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "보고서",
+        "옳은 것",
+        "보기"
+      ],
+      "judgmentAxes": [
+        "Correctness of accident cause analysis and prevention"
+      ],
+      "itemFamilies": [
+        "Accident theories",
+        "Safety measures",
+        "Occupational classifications"
+      ],
+      "templates": [
+        "Which of the following statements about the report is correct?"
+      ],
+      "variationTips": [
+        "Alter the accident causes or prevention strategies in the views."
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "MCQ-Selection",
+      "name": "Accident Prevention Step Identification",
+      "intent": "Identify the most appropriate activity for a given step in accident prevention.",
+      "stemPattern": "위 보고서의 사고 예방 5단계 중 (가)에 해당하는 활동으로 가장 적절한 것은?",
+      "indicators": [
+        "사고 예방 5단계",
+        "가장 적절한 활동"
+      ],
+      "judgmentAxes": [
+        "Appropriateness of prevention activity"
+      ],
+      "itemFamilies": [
+        "Accident prevention steps"
+      ],
+      "templates": [
+        "What is the most appropriate activity for step (가) in accident prevention?"
+      ],
+      "variationTips": [
+        "Change the step or activities to choose from."
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "MCQ-Selection",
+      "name": "Report Analysis on Safety Implementations",
+      "intent": "Assess understanding of safety implementations and their effectiveness from a report.",
+      "stemPattern": "위 보고서를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "보고서",
+        "옳은 것",
+        "보기"
+      ],
+      "judgmentAxes": [
+        "Correctness of safety implementations"
+      ],
+      "itemFamilies": [
+        "Automated systems",
+        "Safety devices",
+        "Safety signs"
+      ],
+      "templates": [
+        "Which of the following statements about the report is correct?"
+      ],
+      "variationTips": [
+        "Modify the safety implementations or their descriptions in the views."
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "Matching",
+      "name": "Tool and Result Matching",
+      "intent": "Match tools used in activities with the results achieved, focusing on reduction in accidents.",
+      "stemPattern": "위 보고서에서 활동 결과를 나타낸 도구와 활동 전보다 활동 후 가장 높은 비율로 재해가 감소한 분기를 바르게 짝지은 것은?",
+      "indicators": [
+        "활동 결과",
+        "도구",
+        "재해 감소",
+        "분기"
+      ],
+      "judgmentAxes": [
+        "Correct matching of tools and results"
+      ],
+      "itemFamilies": [
+        "Tools",
+        "Accident reduction results"
+      ],
+      "templates": [
+        "Match the tool with the result showing the highest reduction in accidents post-activity."
+      ],
+      "variationTips": [
+        "Change the tools or results to be matched."
+      ]
+    },
+    {
+      "questionIndex": 15,
+      "patternId": "INTL_AGREEMENT",
+      "name": "International Agreement Identification",
+      "intent": "Identify the most appropriate international agreement related to the given article.",
+      "stemPattern": "다음 기사와 관련된 국제 협약으로 가장 적절한 것은?",
+      "indicators": [
+        "국제 협약",
+        "관련된 기사"
+      ],
+      "judgmentAxes": [
+        "Relevance",
+        "Appropriateness"
+      ],
+      "itemFamilies": [
+        "Environmental agreements",
+        "Trade agreements",
+        "Human rights agreements"
+      ],
+      "templates": [
+        "The article discusses [topic]. Which international agreement is most relevant?"
+      ],
+      "variationTips": [
+        "Vary the topic of the article to cover different international issues."
+      ]
+    },
+    {
+      "questionIndex": 15,
+      "patternId": "INDUSTRIAL_EVOLUTION",
+      "name": "Industrial Evolution Analysis",
+      "intent": "Determine the most appropriate conclusion based on the production products and methods from different periods.",
+      "stemPattern": "다음은 (가)～(다) 시기 공업의 생산품 및 생산 방식을 나타낸 것이다. 이를 통해 알 수 있는 내용으로 가장 적절한 것은?",
+      "indicators": [
+        "생산품",
+        "생산 방식",
+        "시기"
+      ],
+      "judgmentAxes": [
+        "Historical accuracy",
+        "Technological progression"
+      ],
+      "itemFamilies": [
+        "Industrial revolution phases",
+        "Technological advancements"
+      ],
+      "templates": [
+        "Based on the production methods and products from period (가) to (다), what can be concluded?"
+      ],
+      "variationTips": [
+        "Change the periods or types of products to explore different industrial changes."
+      ]
+    },
+    {
+      "questionIndex": 15,
+      "patternId": "PRODUCT_DEVELOPMENT",
+      "name": "Product Development Suitability",
+      "intent": "Identify the most suitable product that meets the competition's entry criteria.",
+      "stemPattern": "다음은 신제품 개발 경진 대회 안내문이다. 이 대회의 출품 기준에 적합한 제품으로 가장 적절한 것은?",
+      "indicators": [
+        "신제품 개발",
+        "경진 대회",
+        "출품 기준"
+      ],
+      "judgmentAxes": [
+        "Compliance",
+        "Innovation"
+      ],
+      "itemFamilies": [
+        "Product specifications",
+        "Innovation criteria"
+      ],
+      "templates": [
+        "Which product best meets the competition's entry criteria?"
+      ],
+      "variationTips": [
+        "Alter the criteria to test different aspects of product suitability."
+      ]
+    },
+    {
+      "questionIndex": 15,
+      "patternId": "ECO_BUILDING",
+      "name": "Eco-friendly Building Description",
+      "intent": "Select the most appropriate description of an eco-friendly building case.",
+      "stemPattern": "다음 친환경 건물 건축 사례에 대한 설명으로 가장 적절한 것은?",
+      "indicators": [
+        "친환경 건물",
+        "건축 사례"
+      ],
+      "judgmentAxes": [
+        "Environmental impact",
+        "Sustainability"
+      ],
+      "itemFamilies": [
+        "Green building features",
+        "Sustainable architecture"
+      ],
+      "templates": [
+        "What is the most accurate description of this eco-friendly building case?"
+      ],
+      "variationTips": [
+        "Include different eco-friendly features to assess understanding."
+      ]
+    },
+    {
+      "questionIndex": 15,
+      "patternId": "JOB_POSTING_ANALYSIS",
+      "name": "Job Posting Content Analysis",
+      "intent": "Determine the correct information that can be inferred from the job posting.",
+      "stemPattern": "다음 채용 공고를 통해 알 수 있는 내용으로 옳은 것은?",
+      "indicators": [
+        "채용 공고",
+        "알 수 있는 내용"
+      ],
+      "judgmentAxes": [
+        "Inference",
+        "Accuracy"
+      ],
+      "itemFamilies": [
+        "Job requirements",
+        "Company information"
+      ],
+      "templates": [
+        "What can be correctly inferred from this job posting?"
+      ],
+      "variationTips": [
+        "Change the job details to test different inference skills."
+      ]
+    },
+    {
+      "questionIndex": 15,
+      "patternId": "VENTURE_PRODUCT_DEVELOPMENT",
+      "name": "Venture Product Development Analysis",
+      "intent": "Select the correct conclusions from the venture company's product development case.",
+      "stemPattern": "다음 벤처 기업 제품 개발 사례를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "벤처 기업",
+        "제품 개발 사례"
+      ],
+      "judgmentAxes": [
+        "Innovation",
+        "Market impact"
+      ],
+      "itemFamilies": [
+        "Startup strategies",
+        "Product innovation"
+      ],
+      "templates": [
+        "Choose the correct conclusions from the venture product development case."
+      ],
+      "variationTips": [
+        "Include different venture scenarios to test various aspects of product development."
+      ]
+    },
+    {
+      "questionIndex": 15,
+      "patternId": "FACTORY_ACCIDENT_REPORT",
+      "name": "Factory Accident Report Analysis",
+      "intent": "Identify the correct analysis from the factory accident report.",
+      "stemPattern": "다음은 ○○공장 재해 발생 실태 보고서의 일부이다. 이를 분석한 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "재해 발생",
+        "실태 보고서"
+      ],
+      "judgmentAxes": [
+        "Safety",
+        "Risk management"
+      ],
+      "itemFamilies": [
+        "Accident causes",
+        "Safety measures"
+      ],
+      "templates": [
+        "Select the correct analysis from the factory accident report."
+      ],
+      "variationTips": [
+        "Vary the types of accidents to explore different safety issues."
+      ]
+    },
+    {
+      "questionIndex": 15,
+      "patternId": "ENVIRONMENTAL_ARTICLE_ANALYSIS",
+      "name": "Environmental Article Analysis",
+      "intent": "Determine the appropriate conclusions from the environmental pollution article.",
+      "stemPattern": "다음 환경오염 관련 기사를 통해 알 수 있는 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "환경오염",
+        "관련 기사"
+      ],
+      "judgmentAxes": [
+        "Environmental impact",
+        "Policy implications"
+      ],
+      "itemFamilies": [
+        "Pollution sources",
+        "Environmental policies"
+      ],
+      "templates": [
+        "What are the appropriate conclusions from the environmental pollution article?"
+      ],
+      "variationTips": [
+        "Include different pollution scenarios to test understanding of environmental issues."
+      ]
+    },
+    {
+      "questionIndex": 15,
+      "patternId": "PRODUCTION_SYSTEM_DIALOGUE",
+      "name": "Production System Dialogue Analysis",
+      "intent": "Identify the appropriate conclusions from the dialogue about production information systems.",
+      "stemPattern": "다음은 A～C기업의 생산 정보 시스템 및 생산 시스템의 적용 사례에 대한 대화 장면이다. 이를 통해 알 수 있는 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "생산 정보 시스템",
+        "적용 사례",
+        "대화"
+      ],
+      "judgmentAxes": [
+        "System efficiency",
+        "Technological integration"
+      ],
+      "itemFamilies": [
+        "Information systems",
+        "Production management"
+      ],
+      "templates": [
+        "What are the appropriate conclusions from the dialogue about production systems?"
+      ],
+      "variationTips": [
+        "Change the systems or companies to explore different technological applications."
+      ]
+    }
+  ]
+}

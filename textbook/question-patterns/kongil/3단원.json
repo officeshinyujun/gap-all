@@ -1,0 +1,1058 @@
+{
+  "unitNumber": 3,
+  "subject": "kongil",
+  "totalQuestions": 64,
+  "entries": [
+    {
+      "questionIndex": 0,
+      "patternId": "REPORT_INCORRECT_DESCRIPTION",
+      "name": "보고서 설명 오류 판단",
+      "intent": "보고서에 나타난 기업에 대한 설명 중 옳지 않은 것을 찾도록 유도",
+      "stemPattern": "위의 보고서에 나타난 ◯◯기업에 대한 설명으로 옳지 않은 것은?",
+      "indicators": [
+        "보고서",
+        "옳지 않은 것"
+      ],
+      "judgmentAxes": [
+        "document interpretation",
+        "error identification"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 기업 사례를 추가하여 비교",
+        "보고서의 다른 부분을 인용"
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "REPORT_CORRECT_SELECTION",
+      "name": "보고서 내용 옳은 선택",
+      "intent": "기술 개발 현황 보고서를 통해 알 수 있는 내용을 선택하도록 유도",
+      "stemPattern": "다음은 기술 개발 현황 보고서의 일부이다. 이를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "기술 개발 현황 보고서",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "document interpretation",
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다양한 기술 개발 사례를 추가",
+        "보기 항목의 수를 조정"
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "REPORT_CORRECT_SELECTION",
+      "name": "보고서 내용 옳은 선택",
+      "intent": "기업 현황 분석 보고서를 통해 알 수 있는 내용을 선택하도록 유도",
+      "stemPattern": "위 보고서를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "보고서",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "document interpretation",
+        "data analysis"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "판매량 그래프를 추가",
+        "다른 기업의 데이터를 비교"
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "MEETING_MINUTES_CORRECT_SELECTION",
+      "name": "회의록 내용 옳은 선택",
+      "intent": "사업 추진 회의록을 통해 알 수 있는 내용을 선택하도록 유도",
+      "stemPattern": "다음은 ◯◯기업 사업 추진 회의록의 일부이다. 이를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "회의록",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "document interpretation",
+        "procedure understanding"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "회의록의 다른 주제를 추가",
+        "업체 선정 기준을 변경"
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "INTERVIEW_CORRECT_SELECTION",
+      "name": "인터뷰 내용 옳은 선택",
+      "intent": "인터뷰 장면을 통해 알 수 있는 내용을 선택하도록 유도",
+      "stemPattern": "다음 인터뷰 장면을 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "인터뷰",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "document interpretation",
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "인터뷰 대상자의 다른 발언 추가",
+        "인터뷰 주제를 변경"
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "STATISTICS_CORRECT_SELECTION",
+      "name": "통계표 내용 옳은 선택",
+      "intent": "지식 재산권 출원 통계표를 통해 알 수 있는 내용을 선택하도록 유도",
+      "stemPattern": "다음은 지식 재산권 출원 통계표의 일부이다. 이를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "통계표",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "data analysis",
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 업종의 통계 추가",
+        "출원 수 순위를 변경"
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "REPORT_CORRECT_SELECTION",
+      "name": "수행 평가 보고서 내용 옳은 선택",
+      "intent": "수행 평가 보고서를 통해 알 수 있는 내용을 선택하도록 유도",
+      "stemPattern": "다음 수행 평가 보고서를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "수행 평가 보고서",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "document interpretation",
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 평가 주제를 추가",
+        "보고서의 다른 부분을 인용"
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "REPORT_CORRECT_SELECTION",
+      "name": "기업 조사 보고서 내용 옳은 선택",
+      "intent": "기업 조사 보고서를 통해 알 수 있는 내용을 선택하도록 유도",
+      "stemPattern": "다음은 기업 조사 보고서이다. A~C 기업에 대한 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "기업 조사 보고서",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "document interpretation",
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 기업의 사례 추가",
+        "보고서의 다른 부분을 인용"
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "REPORT_CORRECT_SELECTION",
+      "name": "제품 생산 계획서 내용 옳은 선택",
+      "intent": "제품 생산 계획서를 통해 알 수 있는 내용을 선택하도록 유도",
+      "stemPattern": "위 제품 생산 계획서를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "제품 생산 계획서",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "document interpretation",
+        "procedure understanding"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "생산 계획의 다른 부분 추가",
+        "생산 공정 변경"
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "PRODUCTION_METHOD_SELECTION",
+      "name": "생산 방법 및 소요 시간 선택",
+      "intent": "계획서의 조건에 따라 적합한 가공 방법과 소요 시간을 선택하도록 유도",
+      "stemPattern": "다음 [조건]에 따라 위 계획서의 강철 원판 생산 시 1일 생산량에 적합한 가공 방법과 소요 시간으로 바르게 짝지은 것은?",
+      "indicators": [
+        "조건",
+        "가공 방법",
+        "소요 시간"
+      ],
+      "judgmentAxes": [
+        "calculation",
+        "procedure understanding"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 조건 추가",
+        "가공 방법의 수를 조정"
+      ]
+    },
+    {
+      "questionIndex": 0,
+      "patternId": "PERFORMANCE_REPORT_EVALUATION",
+      "name": "수행 평가 보고서 분석",
+      "intent": "수행 평가 보고서를 통해 제품 제조 공정과 관련된 내용을 파악하고, 이를 바탕으로 옳은 내용을 선택하도록 유도한다.",
+      "stemPattern": "다음은 제품 제조 공정에 대한 수행 평가 보고서이다. 이를 통해 알 수 있는 내용으로 옳은 것은?",
+      "indicators": [
+        "수행 평가 보고서",
+        "제품 제조 공정"
+      ],
+      "judgmentAxes": [
+        "내용 파악",
+        "정확성 판단"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 공정이나 산업을 예로 들어 변형",
+        "보고서의 세부 내용을 바꾸어 변형"
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "CASE_ANALYSIS_SELECTION",
+      "name": "신제품 개발 사례 분석",
+      "intent": "신제품 개발 사례를 통해 알 수 있는 내용을 파악하고, 보기에서 옳은 것만을 선택하도록 유도한다.",
+      "stemPattern": "다음은 ○○회사의 신제품 개발 사례이다. 이를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "신제품 개발 사례",
+        "보기에서 고른 것"
+      ],
+      "judgmentAxes": [
+        "사례 분석",
+        "정확성 판단"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 기업이나 제품 사례로 변형",
+        "사례의 세부 내용을 바꾸어 변형"
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "PERFORMANCE_REPORT_SELECTION",
+      "name": "수행 평가 보고서 공업 설명",
+      "intent": "수행 평가 보고서에 나타난 공업에 대한 설명을 파악하고, 보기에서 옳은 것만을 선택하도록 유도한다.",
+      "stemPattern": "다음 수행 평가 보고서에 나타난 (가), (나)공업에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "수행 평가 보고서",
+        "공업 설명"
+      ],
+      "judgmentAxes": [
+        "내용 파악",
+        "정확성 판단"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 공업이나 산업을 예로 들어 변형",
+        "보고서의 세부 내용을 바꾸어 변형"
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "CASE_ANALYSIS_SELECTION",
+      "name": "신제품 개발 사례 분석",
+      "intent": "신제품 개발 사례를 통해 알 수 있는 기업에 대한 내용을 파악하고, 보기에서 옳은 것만을 선택하도록 유도한다.",
+      "stemPattern": "다음 신제품 개발 사례를 통해 알 수 있는 A～C기업에 대한 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "신제품 개발 사례",
+        "보기에서 고른 것"
+      ],
+      "judgmentAxes": [
+        "사례 분석",
+        "정확성 판단"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 기업이나 제품 사례로 변형",
+        "사례의 세부 내용을 바꾸어 변형"
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "INDUSTRIAL_PRODUCTION_EXPLANATION",
+      "name": "공업 생산 설비 설명",
+      "intent": "주요 공업의 생산 설비와 생산품에 대한 설명을 파악하고, 가장 적절한 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음은 우리나라 주요 (가), (나) 공업의 생산 설비와 생산품 일부를 나타낸 것이다. 이에 대한 설명으로 가장 적절한 것은?",
+      "indicators": [
+        "생산 설비",
+        "생산품"
+      ],
+      "judgmentAxes": [
+        "내용 파악",
+        "적절성 판단"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 공업이나 설비를 예로 들어 변형",
+        "설비와 생산품의 세부 내용을 바꾸어 변형"
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "CASE_ANALYSIS_SELECTION",
+      "name": "직업의식 사례 분석",
+      "intent": "사례에 나타난 A씨의 직업의식을 파악하고, 보기에서 적절한 것을 선택하도록 유도한다.",
+      "stemPattern": "다음 사례에 나타난 A씨의 직업의식으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "직업의식",
+        "보기에서 고른 것"
+      ],
+      "judgmentAxes": [
+        "사례 분석",
+        "적절성 판단"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 직업이나 인물 사례로 변형",
+        "사례의 세부 내용을 바꾸어 변형"
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "SAFETY_INSPECTION_SELECTION",
+      "name": "안전 점검 결과 분석",
+      "intent": "안전 점검 결과를 통해 알 수 있는 내용을 파악하고, 보기에서 옳은 것만을 선택하도록 유도한다.",
+      "stemPattern": "다음은 ○○공사 현장의 안전 점검 결과이다. (가)～(라) 작업장의 점검 결과를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "안전 점검 결과",
+        "보기에서 고른 것"
+      ],
+      "judgmentAxes": [
+        "내용 파악",
+        "정확성 판단"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 작업장이나 점검 결과로 변형",
+        "점검 결과의 세부 내용을 바꾸어 변형"
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "INDUSTRIAL_FEATURES_SELECTION",
+      "name": "공업 특징 및 에너지 활용 설명",
+      "intent": "공업의 특징과 에너지 활용 사례를 파악하고, 보기에서 옳은 것만을 선택하도록 유도한다.",
+      "stemPattern": "다음은 우리나라 주요 공업의 특징과 에너지 활용 사례이다. (가), (나) 공업에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "공업 특징",
+        "에너지 활용"
+      ],
+      "judgmentAxes": [
+        "내용 파악",
+        "정확성 판단"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 공업이나 에너지 활용 사례로 변형",
+        "특징과 활용 사례의 세부 내용을 바꾸어 변형"
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "COMPANY_ANALYSIS_SELECTION",
+      "name": "기업 현황 분석",
+      "intent": "기업 현황 분석 보고서를 통해 알 수 있는 내용을 파악하고, 보기에서 옳은 것만을 선택하도록 유도한다.",
+      "stemPattern": "다음은 ○○기업 현황 분석 보고서의 일부이다. 이에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "기업 현황 분석",
+        "보기에서 고른 것"
+      ],
+      "judgmentAxes": [
+        "내용 파악",
+        "정확성 판단"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 기업이나 분석 내용을 예로 들어 변형",
+        "분석 보고서의 세부 내용을 바꾸어 변형"
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "MATERIAL_SELECTION",
+      "name": "신소재 활용 사례 분석",
+      "intent": "신제품 사례에서 활용된 신소재를 파악하고, 가장 적절한 신소재를 선택하도록 유도한다.",
+      "stemPattern": "다음 신제품 사례에서 활용된 신소재로 가장 적절한 것은?",
+      "indicators": [
+        "신제품 사례",
+        "신소재"
+      ],
+      "judgmentAxes": [
+        "내용 파악",
+        "적절성 판단"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 신제품이나 신소재 사례로 변형",
+        "사례의 세부 내용을 바꾸어 변형"
+      ]
+    },
+    {
+      "questionIndex": 10,
+      "patternId": "HR_ACTIVITY_SELECTION",
+      "name": "인적자원 활동 사례 분석",
+      "intent": "사례를 통해 기업의 인적자원 관련 활동을 파악하고, 보기에서 옳은 것만을 선택하도록 유도한다.",
+      "stemPattern": "다음 사례를 통해 알 수 있는 ○○기업의 인적자원 관련 활동에 대한 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "인적자원 활동",
+        "보기에서 고른 것"
+      ],
+      "judgmentAxes": [
+        "사례 분석",
+        "정확성 판단"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 기업이나 인적자원 활동 사례로 변형",
+        "사례의 세부 내용을 바꾸어 변형"
+      ]
+    },
+    {
+      "questionIndex": 11,
+      "patternId": "COMPANY_TOUR_REPORT_SELECTION",
+      "name": "기업 견학 보고서 분석",
+      "intent": "기업 견학 보고서를 통해 알 수 있는 내용을 파악하고, 보기에서 옳은 것만을 선택하도록 유도한다.",
+      "stemPattern": "다음은 ○○기업 견학 보고서의 일부이다. 이에 대한 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "기업 견학 보고서",
+        "보기에서 고른 것"
+      ],
+      "judgmentAxes": [
+        "내용 파악",
+        "정확성 판단"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 기업이나 견학 내용을 예로 들어 변형",
+        "보고서의 세부 내용을 바꾸어 변형"
+      ]
+    },
+    {
+      "questionIndex": 12,
+      "patternId": "PRODUCTION_INNOVATION_SELECTION",
+      "name": "생산 혁신 사례 분석",
+      "intent": "생산 혁신 사례를 통해 알 수 있는 내용을 파악하고, 보기에서 옳은 것만을 선택하도록 유도한다.",
+      "stemPattern": "다음 ○○기업의 생산 혁신 사례를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "생산 혁신 사례",
+        "보기에서 고른 것"
+      ],
+      "judgmentAxes": [
+        "사례 분석",
+        "정확성 판단"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 기업이나 혁신 사례로 변형",
+        "사례의 세부 내용을 바꾸어 변형"
+      ]
+    },
+    {
+      "questionIndex": 13,
+      "patternId": "BUSINESS_EXPANSION_ANALYSIS",
+      "name": "사업 확장 분석",
+      "intent": "사업 확장을 위한 분석 결과를 통해 알 수 있는 내용을 파악하고, 보기에서 옳은 것만을 선택하도록 유도한다.",
+      "stemPattern": "다음은 ○○기업의 의류 사업 확장을 위한 분석 결과이다. 이에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "사업 확장 분석",
+        "보기에서 고른 것"
+      ],
+      "judgmentAxes": [
+        "내용 파악",
+        "정확성 판단"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 사업이나 확장 분석 사례로 변형",
+        "분석 결과의 세부 내용을 바꾸어 변형"
+      ]
+    },
+    {
+      "questionIndex": 14,
+      "patternId": "MANAGEMENT_INNOVATION_SELECTION",
+      "name": "경영 혁신 사례 분석",
+      "intent": "경영 혁신 사례를 통해 알 수 있는 내용을 파악하고, 보기에서 옳지 않은 것을 선택하도록 유도한다.",
+      "stemPattern": "다음 ○○기업의 경영 혁신 사례에 대한 설명으로 옳지 않은 것은?",
+      "indicators": [
+        "경영 혁신 사례",
+        "보기에서 고른 것"
+      ],
+      "judgmentAxes": [
+        "사례 분석",
+        "부정적 판단"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 기업이나 혁신 사례로 변형",
+        "사례의 세부 내용을 바꾸어 변형"
+      ]
+    },
+    {
+      "questionIndex": 15,
+      "patternId": "CONSULTING_REPORT_SELECTION",
+      "name": "컨설팅 보고서 분석",
+      "intent": "컨설팅 보고서를 통해 알 수 있는 내용을 파악하고, 보기에서 적절한 것을 선택하도록 유도한다.",
+      "stemPattern": "다음은 ○○기업의 컨설팅 보고서이다. 이에 대한 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "컨설팅 보고서",
+        "보기에서 고른 것"
+      ],
+      "judgmentAxes": [
+        "내용 파악",
+        "적절성 판단"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 기업이나 컨설팅 내용을 예로 들어 변형",
+        "보고서의 세부 내용을 바꾸어 변형"
+      ]
+    },
+    {
+      "questionIndex": 16,
+      "patternId": "DISASTER_REPORT_SELECTION",
+      "name": "재해 발생 보고서 분석",
+      "intent": "재해 발생 보고서를 통해 알 수 있는 내용을 파악하고, 보기에서 적절한 것을 선택하도록 유도한다.",
+      "stemPattern": "다음은 재해 발생 보고서이다. 이에 대한 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "재해 발생 보고서",
+        "보기에서 고른 것"
+      ],
+      "judgmentAxes": [
+        "내용 파악",
+        "적절성 판단"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 재해나 보고서 내용을 예로 들어 변형",
+        "보고서의 세부 내용을 바꾸어 변형"
+      ]
+    },
+    {
+      "questionIndex": 17,
+      "patternId": "STRATEGY_MEETING_DIALOGUE_SELECTION",
+      "name": "경영 전략 회의 대화 분석",
+      "intent": "경영 전략 회의 대화를 통해 알 수 있는 내용을 파악하고, 보기에서 적절한 것을 선택하도록 유도한다.",
+      "stemPattern": "다음 경영 전략 회의 대화를 통해 알 수 있는 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "경영 전략 회의",
+        "보기에서 고른 것"
+      ],
+      "judgmentAxes": [
+        "내용 파악",
+        "적절성 판단"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 회의나 대화 내용을 예로 들어 변형",
+        "대화의 세부 내용을 바꾸어 변형"
+      ]
+    },
+    {
+      "questionIndex": 18,
+      "patternId": "INTERNATIONAL_AGREEMENT_SELECTION",
+      "name": "국제 협약 관련 기사 분석",
+      "intent": "기사 내용을 통해 관련된 국제 협약을 파악하고, 가장 적절한 협약을 선택하도록 유도한다.",
+      "stemPattern": "다음 기사와 관련된 국제 협약으로 가장 적절한 것은?",
+      "indicators": [
+        "국제 협약",
+        "기사"
+      ],
+      "judgmentAxes": [
+        "내용 파악",
+        "적절성 판단"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 기사나 협약 내용을 예로 들어 변형",
+        "기사의 세부 내용을 바꾸어 변형"
+      ]
+    },
+    {
+      "questionIndex": 19,
+      "patternId": "HAZARDOUS_ENVIRONMENT_ANALYSIS",
+      "name": "유해 환경 조사 사례 분석",
+      "intent": "유해 환경 조사 사례를 통해 알 수 있는 내용을 파악하고, 가장 적절한 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음은 A, B공단의 작업장 유해 환경 조사 사례의 일부이다. 이를 통해 알 수 있는 내용으로 가장 적절한 것은?",
+      "indicators": [
+        "유해 환경 조사",
+        "보기에서 고른 것"
+      ],
+      "judgmentAxes": [
+        "내용 파악",
+        "적절성 판단"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 조사나 유해 환경 사례로 변형",
+        "사례의 세부 내용을 바꾸어 변형"
+      ]
+    },
+    {
+      "questionIndex": 20,
+      "patternId": "MANAGEMENT_CASE_SELECTION",
+      "name": "경영 사례 분석",
+      "intent": "경영 사례를 통해 알 수 있는 내용을 파악하고, 보기에서 옳지 않은 것을 선택하도록 유도한다.",
+      "stemPattern": "다음 A, B기업 경영 사례에 대한 설명으로 옳지 않은 것은?",
+      "indicators": [
+        "경영 사례",
+        "보기에서 고른 것"
+      ],
+      "judgmentAxes": [
+        "사례 분석",
+        "부정적 판단"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 기업이나 경영 사례로 변형",
+        "사례의 세부 내용을 바꾸어 변형"
+      ]
+    },
+    {
+      "questionIndex": 21,
+      "patternId": "STARTUP_CASE_SELECTION",
+      "name": "창업 사례 분석",
+      "intent": "창업 사례를 통해 알 수 있는 내용을 파악하고, 보기에서 옳은 것만을 선택하도록 유도한다.",
+      "stemPattern": "다음 ○○기업 창업 사례에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "창업 사례",
+        "보기에서 고른 것"
+      ],
+      "judgmentAxes": [
+        "사례 분석",
+        "정확성 판단"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 창업 사례나 기업으로 변형",
+        "사례의 세부 내용을 바꾸어 변형"
+      ]
+    },
+    {
+      "questionIndex": 22,
+      "patternId": "NEW_PRODUCT_DEVELOPMENT_SELECTION",
+      "name": "신제품 개발 사례 분석",
+      "intent": "신제품 개발 사례를 통해 알 수 있는 내용을 파악하고, 보기에서 적절한 것을 선택하도록 유도한다.",
+      "stemPattern": "다음 신제품 개발 사례를 통해 알 수 있는 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "신제품 개발 사례",
+        "보기에서 고른 것"
+      ],
+      "judgmentAxes": [
+        "사례 분석",
+        "적절성 판단"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 신제품 개발 사례로 변형",
+        "사례의 세부 내용을 바꾸어 변형"
+      ]
+    },
+    {
+      "questionIndex": 23,
+      "patternId": "QUALITY_IMPROVEMENT_SELECTION",
+      "name": "품질 혁신 사례 분석",
+      "intent": "품질 혁신 사례를 통해 알 수 있는 내용을 파악하고, 보기에서 옳은 것만을 선택하도록 유도한다.",
+      "stemPattern": "위 사례를 통해 알 수 있는 ○○기업에 대한 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "품질 혁신 사례",
+        "보기에서 고른 것"
+      ],
+      "judgmentAxes": [
+        "사례 분석",
+        "정확성 판단"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 품질 혁신 사례로 변형",
+        "사례의 세부 내용을 바꾸어 변형"
+      ]
+    },
+    {
+      "questionIndex": 24,
+      "patternId": "QUALITY_CONTROL_SELECTION",
+      "name": "품질 관리 활동 분석",
+      "intent": "품질 관리 활동을 통해 알 수 있는 내용을 파악하고, 보기에서 옳지 않은 것을 선택하도록 유도한다.",
+      "stemPattern": "위 품질 관리 활동을 통해 알 수 있는 내용으로 옳지 않은 것은?",
+      "indicators": [
+        "품질 관리 활동",
+        "보기에서 고른 것"
+      ],
+      "judgmentAxes": [
+        "활동 분석",
+        "부정적 판단"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 품질 관리 활동으로 변형",
+        "활동의 세부 내용을 바꾸어 변형"
+      ]
+    },
+    {
+      "questionIndex": 25,
+      "patternId": "MATERIAL_MANAGEMENT_SELECTION",
+      "name": "자재 관리 사례 분석",
+      "intent": "자재 관리 사례를 통해 알 수 있는 내용을 파악하고, 보기에서 적절한 것을 선택하도록 유도한다.",
+      "stemPattern": "다음 ○○기업의 자재 관리 사례를 통해 알 수 있는 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "자재 관리 사례",
+        "보기에서 고른 것"
+      ],
+      "judgmentAxes": [
+        "사례 분석",
+        "적절성 판단"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 자재 관리 사례로 변형",
+        "사례의 세부 내용을 바꾸어 변형"
+      ]
+    },
+    {
+      "questionIndex": 26,
+      "patternId": "SMART_FACTORY_PROCESS_SELECTION",
+      "name": "스마트 팩토리 공정 사례 분석",
+      "intent": "스마트 팩토리 공정 사례를 통해 알 수 있는 내용을 파악하고, 보기에서 옳지 않은 것을 선택하도록 유도한다.",
+      "stemPattern": "다음 스마트 팩토리 공정 사례에 대한 설명으로 옳지 않은 것은?",
+      "indicators": [
+        "스마트 팩토리 공정 사례",
+        "보기에서 고른 것"
+      ],
+      "judgmentAxes": [
+        "사례 분석",
+        "부정적 판단"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 스마트 팩토리 사례로 변형",
+        "사례의 세부 내용을 바꾸어 변형"
+      ]
+    },
+    {
+      "questionIndex": 27,
+      "patternId": "PROFESSIONAL_ATTITUDE_SELECTION",
+      "name": "직업관 및 직업의식 사례 분석",
+      "intent": "사례에 나타난 A씨의 직업관과 직업의식을 파악하고, 가장 적절한 것을 선택하도록 유도한다.",
+      "stemPattern": "다음 사례에 나타난 A씨의 직업관과 직업의식으로 가장 적절한 것은?",
+      "indicators": [
+        "직업관",
+        "직업의식"
+      ],
+      "judgmentAxes": [
+        "사례 분석",
+        "적절성 판단"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 직업이나 인물 사례로 변형",
+        "사례의 세부 내용을 바꾸어 변형"
+      ]
+    },
+    {
+      "questionIndex": 28,
+      "patternId": "INTERNAL_GUIDELINE_SELECTION",
+      "name": "사내 직원 안내 자료 분석",
+      "intent": "사내 직원 안내 자료를 통해 알 수 있는 내용을 파악하고, 적절한 것을 선택하도록 유도한다.",
+      "stemPattern": "다음 사내 직원 안내 자료를 통해 알 수 있는 내용으로 적절한 것은?",
+      "indicators": [
+        "사내 직원 안내 자료",
+        "보기에서 고른 것"
+      ],
+      "judgmentAxes": [
+        "내용 파악",
+        "적절성 판단"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 안내 자료나 내용을 예로 들어 변형",
+        "자료의 세부 내용을 바꾸어 변형"
+      ]
+    },
+    {
+      "questionIndex": 29,
+      "patternId": "INDUSTRIAL_PROCESS_SELECTION",
+      "name": "공업 생산 과정 및 생산품 설명",
+      "intent": "공업 간 생산 과정과 생산품에 대한 설명을 파악하고, 보기에서 적절한 것을 선택하도록 유도한다.",
+      "stemPattern": "다음은 공업 간 생산 과정과 생산품을 나타낸 것이다. A～D공업에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "공업 생산 과정",
+        "생산품"
+      ],
+      "judgmentAxes": [
+        "내용 파악",
+        "적절성 판단"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 공업이나 생산 과정을 예로 들어 변형",
+        "과정과 생산품의 세부 내용을 바꾸어 변형"
+      ]
+    },
+    {
+      "questionIndex": 30,
+      "patternId": "INTERNATIONAL_AGREEMENT_SELECTION",
+      "name": "국제 협약 관련 기사 분석",
+      "intent": "기사 내용을 통해 관련된 국제 협약을 파악하고, 가장 적절한 협약을 선택하도록 유도한다.",
+      "stemPattern": "다음 기사와 관련된 국제 협약으로 가장 적절한 것은?",
+      "indicators": [
+        "국제 협약",
+        "기사"
+      ],
+      "judgmentAxes": [
+        "내용 파악",
+        "적절성 판단"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 기사나 협약 내용을 예로 들어 변형",
+        "기사의 세부 내용을 바꾸어 변형"
+      ]
+    },
+    {
+      "questionIndex": 31,
+      "patternId": "COMPANY_TOUR_REPORT_SELECTION",
+      "name": "기업 견학 보고서 분석",
+      "intent": "기업 견학 보고서를 통해 알 수 있는 내용을 파악하고, 가장 적절한 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음 ○○기업 견학 보고서를 통해 알 수 있는 내용으로 가장 적절한 것은?",
+      "indicators": [
+        "기업 견학 보고서",
+        "보기에서 고른 것"
+      ],
+      "judgmentAxes": [
+        "내용 파악",
+        "적절성 판단"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 기업이나 견학 내용을 예로 들어 변형",
+        "보고서의 세부 내용을 바꾸어 변형"
+      ]
+    }
+  ]
+}

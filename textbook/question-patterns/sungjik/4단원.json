@@ -1,0 +1,457 @@
+{
+  "unitNumber": 4,
+  "subject": "sungjik",
+  "totalQuestions": 18,
+  "entries": [
+    {
+      "questionIndex": 0,
+      "patternId": "CASE_DIAGNOSTIC_ECONOMIC_AGENTS",
+      "name": "경제 주체 사례 진단",
+      "intent": "경제 주체에 대한 사례를 통해 가계, 기업, 정부의 역할을 구분하고, 이에 대한 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음 사례에서 (가)~(다)에 해당하는 경제 주체에 대한 설명으로 옳은 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "다음 사례에서",
+        "(가)~(다)",
+        "경제 주체"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "role identification"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "경제 주체의 역할을 바꾸어 제시",
+        "사례의 경제 상황을 변경"
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "DIALOGUE_CORPORATE_FORM",
+      "name": "기업 형태 대화 분석",
+      "intent": "대화 내용을 통해 기업의 형태를 파악하고, 이에 대한 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음 대화는 창업 아이템 경진 대회 질의응답 장면이다. 이를 통해 알 수 있는 기업의 형태에 대한 설명으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "다음 대화는",
+        "기업의 형태",
+        "적절한 것만을"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "form identification"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_DIALOGUE_ANALYSIS"
+      ],
+      "variationTips": [
+        "대화의 주제를 변경",
+        "기업 형태의 특징을 추가"
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "DIALOGUE_SOCIAL_RESPONSIBILITY",
+      "name": "기업의 사회적 책임 대화 분석",
+      "intent": "대화 내용을 통해 기업의 사회적 책임을 파악하고, 캐럴의 피라미드 이론에 근거하여 적절한 책임을 선택하도록 유도한다.",
+      "stemPattern": "다음 대화에서 김 부장과 박 과장의 의견에 해당하는 기업의 사회적 책임으로 가장 적절한 것은?",
+      "indicators": [
+        "다음 대화에서",
+        "기업의 사회적 책임",
+        "캐럴의 피라미드 이론"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "responsibility identification"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_DIALOGUE_ANALYSIS"
+      ],
+      "variationTips": [
+        "대화의 인물과 의견을 변경",
+        "책임의 우선순위를 바꾸어 제시"
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "CASE_CORPORATE_ROLE",
+      "name": "기업 역할 사례 분석",
+      "intent": "기업의 사례를 통해 그 역할을 파악하고, 옳지 않은 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음 ◯◯기업의 사례를 통해 알 수 있는 기업의 역할로 옳지 않은 것은?",
+      "indicators": [
+        "다음 ◯◯기업의 사례",
+        "기업의 역할",
+        "옳지 않은 것"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "role identification"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "기업의 사례를 변경",
+        "역할의 설명을 추가"
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "CASE_CORPORATE_FORM",
+      "name": "기업 형태 사례 분석",
+      "intent": "기업의 사례를 통해 그 형태를 파악하고, 옳은 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음 사례에 나타난 ◯◯기업의 형태에 대한 설명으로 옳은 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "다음 사례에 나타난",
+        "기업의 형태",
+        "옳은 것만을"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "form identification"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "기업의 형태를 변경",
+        "사례의 내용을 추가"
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "REPORT_CORPORATE_FORM",
+      "name": "기업 형태 보고서 분석",
+      "intent": "수행 평가 보고서를 통해 기업의 형태를 파악하고, 적절한 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음 수행 평가 보고서에서 알 수 있는 기업 형태에 대한 설명으로 가장 적절한 것은?",
+      "indicators": [
+        "다음 수행 평가 보고서",
+        "기업 형태",
+        "가장 적절한 것"
+      ],
+      "judgmentAxes": [
+        "document interpretation",
+        "form identification"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_REPORT_ANALYSIS"
+      ],
+      "variationTips": [
+        "보고서의 주제를 변경",
+        "기업 형태의 특징을 추가"
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "DIALOGUE_CORPORATE_FORM_RECOMMENDATION",
+      "name": "기업 형태 추천 대화 분석",
+      "intent": "대화 내용을 통해 추천된 기업의 형태를 파악하고, 적절한 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음 대화 장면에서 컨설턴트가 추천하는 기업의 형태에 대한 설명으로 가장 적절한 것은?",
+      "indicators": [
+        "다음 대화 장면에서",
+        "기업의 형태",
+        "가장 적절한 것"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "form identification"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_DIALOGUE_ANALYSIS"
+      ],
+      "variationTips": [
+        "대화의 내용을 변경",
+        "추천된 형태의 특징을 추가"
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "MINUTES_PRODUCTION_METHOD_CHANGE",
+      "name": "생산 방식 변경 회의록 분석",
+      "intent": "회의록 내용을 통해 생산 방식 변경의 결과를 예측하고, 적절한 현상을 선택하도록 유도한다.",
+      "stemPattern": "다음은 제품 생산 방식 변경에 대한 회의록 일부이다. 변경 방안을 실행하였을 때 나타날 수 있는 현상으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "다음은",
+        "제품 생산 방식 변경",
+        "적절한 것만을"
+      ],
+      "judgmentAxes": [
+        "procedure",
+        "outcome prediction"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_MINUTES_ANALYSIS"
+      ],
+      "variationTips": [
+        "회의록의 내용을 변경",
+        "생산 방식의 특징을 추가"
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "REVIEW_CORPORATE_INTERVIEW",
+      "name": "기업 취업 후기 분석",
+      "intent": "취업 후기를 통해 면접 과정과 관련된 설명을 파악하고, 적절한 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음은[○○기업취업 후기]의 일부이다. 이에 대한설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "다음은",
+        "기업취업 후기",
+        "적절한 것만을"
+      ],
+      "judgmentAxes": [
+        "document interpretation",
+        "process understanding"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_REVIEW_ANALYSIS"
+      ],
+      "variationTips": [
+        "후기의 내용을 변경",
+        "면접 과정의 특징을 추가"
+      ]
+    },
+    {
+      "questionIndex": 0,
+      "patternId": "COMPETENCY_ASSESSMENT_MATCHING",
+      "name": "역량 평가서 매칭",
+      "intent": "A사원과 B팀장의 직업기초능력을 역량 평가서를 통해 파악하고 가장 적절한 능력을 선택하도록 유도",
+      "stemPattern": "다음 역량 평가서를 통해 알 수 있는 A사원과 B팀장이 갖춘 직업기초능력으로 가장 적절한 것은?",
+      "indicators": [
+        "역량 평가서",
+        "직업기초능력"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 직업기초능력 사례 추가",
+        "다양한 직무 상황 제시"
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "DOCUMENT_ANALYSIS_SELECTION",
+      "name": "문서 분석 선택",
+      "intent": "채용 계획서의 분석 내용을 보고 적절한 항목을 선택하도록 유도",
+      "stemPattern": "위 채용 계획서에 대한 분석 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "채용 계획서",
+        "분석 내용"
+      ],
+      "judgmentAxes": [
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다양한 문서 유형 추가",
+        "분석 항목의 복잡성 조절"
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "CONSULTING_CASE_SELECTION",
+      "name": "컨설팅 사례 선택",
+      "intent": "컨설팅 사례집을 통해 A, B기업의 상황을 분석하고 적절한 내용을 선택하도록 유도",
+      "stemPattern": "다음 컨설팅 사례집을 통해 알 수 있는 A, B기업에 대한 내용으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "컨설팅 사례집",
+        "기업"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다양한 기업 사례 추가",
+        "컨설팅 내용의 복잡성 조절"
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "ARTICLE_ANALYSIS_SELECTION",
+      "name": "기사 분석 선택",
+      "intent": "기사 내용을 통해 A대장간의 상황을 분석하고 적절한 내용을 선택하도록 유도",
+      "stemPattern": "다음 기사의 A대장간에 대해 분석한 내용으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "기사",
+        "A대장간"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다양한 기사 사례 추가",
+        "분석 항목의 복잡성 조절"
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "LIFE_STAGE_TASK_SELECTION",
+      "name": "생애 발달 단계 과업 선택",
+      "intent": "특강 내용을 통해 A, B씨의 생애 발달 단계와 발달 과업을 분석하고 적절한 설명을 선택하도록 유도",
+      "stemPattern": "위 특강을 통해 알 수 있는 A, B씨의 생애 발달 단계의 발달 과업에 대한 설명으로 가장 적절한 것은?",
+      "indicators": [
+        "생애 발달 단계",
+        "발달 과업"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다양한 생애 발달 사례 추가",
+        "발달 과업의 복잡성 조절"
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "LIFELONG_LEARNING_SYSTEM_MATCHING",
+      "name": "평생 학습 제도 매칭",
+      "intent": "수행 평가 보고서 내용을 통해 적절한 평생 학습 제도를 선택하도록 유도",
+      "stemPattern": "다음은 [수행 평가 보고서]의 일부이다. 이에 해당하는 평생 학습 제도로 가장 적절한 것은?",
+      "indicators": [
+        "수행 평가 보고서",
+        "평생 학습 제도"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다양한 학습 제도 사례 추가",
+        "보고서 내용의 복잡성 조절"
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "SERVICE_CASE_ANALYSIS_SELECTION",
+      "name": "서비스 사례 분석 선택",
+      "intent": "A, B기업의 서비스 사례를 분석하고 적절한 내용을 선택하도록 유도",
+      "stemPattern": "다음 A, B기업의 서비스 사례를 분석한 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "서비스 사례",
+        "고객 참여"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다양한 서비스 사례 추가",
+        "분석 항목의 복잡성 조절"
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "SERVICE_ACTIVITY_ANALYSIS_SELECTION",
+      "name": "서비스 활동 사례 분석 선택",
+      "intent": "A, B씨의 서비스 활동 사례를 분석하고 적절한 내용을 선택하도록 유도",
+      "stemPattern": "다음 A, B씨의 서비스 활동 사례에 대한 분석 내용으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "서비스 활동 사례",
+        "서비스업"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다양한 서비스 활동 사례 추가",
+        "분석 항목의 복잡성 조절"
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "CAREER_DECISION_ANALYSIS_SELECTION",
+      "name": "진로 의사 결정 분석 선택",
+      "intent": "A, B의 진로 의사 결정 유형과 직업 생활을 분석하고 적절한 내용을 선택하도록 유도",
+      "stemPattern": "위 A, B의 진로 의사 결정 유형과 직업 생활을 분석한 내용으로적절한 것은?",
+      "indicators": [
+        "진로 의사 결정 유형",
+        "직업 생활"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다양한 진로 사례 추가",
+        "의사 결정 유형의 복잡성 조절"
+      ]
+    }
+  ]
+}

@@ -5,7 +5,7 @@ import { VStack } from '@/components/general/VStack';
 import { HStack } from '@/components/general/HStack';
 import Typo from '@/components/general/Typo';
 import { SPACING } from '@/constants/spacing';
-import { API_BASE_URL } from '@/lib/auth';
+import { apiFetch } from '@/lib/api';
 import { ChevronDown } from 'lucide-react';
 import s from './page.module.scss';
 
@@ -32,22 +32,6 @@ interface SummationCard {
   type: string;
   content: CardContent;
   interaction: string;
-}
-
-async function apiFetch<T>(path: string, method = 'GET', body?: unknown): Promise<T> {
-  const res = await fetch(`${API_BASE_URL}${path}`, {
-    method,
-    credentials: 'include',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    ...(body ? { body: JSON.stringify(body) } : {}),
-  });
-  if (!res.ok) {
-    const err = await res.json().catch(() => ({ message: res.statusText }));
-    throw new Error(err.message ?? `오류: ${res.status}`);
-  }
-  return res.json();
 }
 
 function ListEditor({ items, onChange }: { items: string[]; onChange: (items: string[]) => void }) {
@@ -233,7 +217,7 @@ export default function SummationEditorPage() {
     setSaving(true);
     setMsg(null);
     try {
-      await apiFetch(`/study/${subject}/summation/${unitNumber}`, 'PUT', { cards });
+      await apiFetch(`/study/${subject}/summation/${unitNumber}`, { method: 'PUT', body: JSON.stringify({ cards }) });
       setMsg({ type: 'success', text: '저장 완료' });
     } catch (err: unknown) {
       setMsg({ type: 'error', text: err instanceof Error ? err.message : '저장 실패' });

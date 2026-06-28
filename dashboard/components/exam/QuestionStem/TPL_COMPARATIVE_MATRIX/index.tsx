@@ -27,7 +27,7 @@ export const TPLComparativeMatrix: React.FC<TPLComparativeMatrixProps> = ({
     <StemBox>
       <VStack gap={16} fullWidth>
         <StemLabel>{label}</StemLabel>
-        <MatrixTable headers={data.headers} rows={data.rows} />
+        <MatrixTable headers={data.headers ?? []} rows={data.rows ?? []} />
         {data.selection_chips.length > 0 && (
           <VStack gap={8} fullWidth>
             <div className={s.chipsLabel}>선택지</div>

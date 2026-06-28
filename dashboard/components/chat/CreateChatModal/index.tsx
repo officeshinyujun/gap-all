@@ -4,10 +4,9 @@ import { useState, useEffect } from 'react';
 import { VStack } from '@/components/general/VStack';
 import { HStack } from '@/components/general/HStack';
 import Typo from '@/components/general/Typo';
+import { apiFetch } from '@/lib/api';
 import { SPACING } from '@/constants/spacing';
 import s from './style.module.scss';
-
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3001';
 
 interface Subject {
   id: string;
@@ -32,16 +31,16 @@ export function CreateChatModal({ isOpen, onClose, onCreated }: CreateChatModalP
 
   useEffect(() => {
     if (!isOpen) return;
-    fetch(`${API_URL}/subjects`, {
-      credentials: 'include',
-    })
-      .then((r) => r.json())
-      .then((data) => {
+    (async () => {
+      try {
+        const data = await apiFetch<Subject[] | { subjects: Subject[] }>('/subjects');
         const list: Subject[] = Array.isArray(data) ? data : data.subjects ?? [];
         setSubjects(list);
         if (list.length > 0) setSubjectId(list[0].id);
-      })
-      .catch(() => setError('과목 목록을 불러오지 못했습니다.'));
+      } catch {
+        setError('과목 목록을 불러오지 못했습니다.');
+      }
+    })();
   }, [isOpen]);
 
   const handleCreate = async () => {
@@ -52,16 +51,10 @@ export function CreateChatModal({ isOpen, onClose, onCreated }: CreateChatModalP
     setLoading(true);
     setError('');
     try {
-      const res = await fetch(`${API_URL}/chat/sessions`, {
+      const data = await apiFetch<{ session: { id: string; title: string } }>('/chat/sessions', {
         method: 'POST',
-        credentials: 'include',
-        headers: {
-          'Content-Type': 'application/json',
-        },
         body: JSON.stringify({ subjectId, title: title.trim(), startUnit, endUnit }),
       });
-      if (!res.ok) throw new Error('세션 생성 실패');
-      const data = await res.json();
       onCreated(data.session);
       setTitle('');
       setStartUnit(1);

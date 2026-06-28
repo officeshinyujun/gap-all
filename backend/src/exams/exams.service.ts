@@ -79,16 +79,28 @@ export class ExamsService {
     if (!subject) throw new NotFoundException('과목을 찾을 수 없습니다.');
 
     // AI 문항 생성
-    const questions = await this.examGeneratorService.generate(
-      dto.subjectId,
-      subject.slug,
-      dto.startUnitNum,
-      dto.endUnitNum,
-      dto.difficulty,
-      dto.questionCount,
-      dto.customPrompt,
-      dto.targetConcepts,
-    );
+    const questions = dto.sourceType === 'reference'
+      ? await this.examGeneratorService.regenerate(
+          dto.subjectId,
+          subject.slug,
+          dto.startUnitNum,
+          dto.endUnitNum,
+          dto.difficulty,
+          dto.questionCount,
+          dto.targetConcepts,
+          undefined,
+          dto.customPrompt,
+        )
+      : await this.examGeneratorService.generate(
+          dto.subjectId,
+          subject.slug,
+          dto.startUnitNum,
+          dto.endUnitNum,
+          dto.difficulty,
+          dto.questionCount,
+          dto.customPrompt,
+          dto.targetConcepts,
+        );
 
     // ExamRecord 생성
     const title = `${subject.title} ${dto.startUnitNum}~${dto.endUnitNum}단원 (${dto.difficulty})`;
@@ -412,17 +424,29 @@ export class ExamsService {
     });
     if (!subject) throw new NotFoundException('과목을 찾을 수 없습니다.');
 
-    const questions = await this.examGeneratorService.generate(
-      dto.subjectId,
-      subject.slug,
-      dto.startUnitNum,
-      dto.endUnitNum,
-      dto.difficulty,
-      dto.questionCount,
-      dto.customPrompt,
-      dto.targetConcepts,
-      reportProgress,
-    );
+    const questions = dto.sourceType === 'reference'
+      ? await this.examGeneratorService.regenerate(
+          dto.subjectId,
+          subject.slug,
+          dto.startUnitNum,
+          dto.endUnitNum,
+          dto.difficulty,
+          dto.questionCount,
+          dto.targetConcepts,
+          reportProgress,
+          dto.customPrompt,
+        )
+      : await this.examGeneratorService.generate(
+          dto.subjectId,
+          subject.slug,
+          dto.startUnitNum,
+          dto.endUnitNum,
+          dto.difficulty,
+          dto.questionCount,
+          dto.customPrompt,
+          dto.targetConcepts,
+          reportProgress,
+        );
 
     const title = `${subject.title} ${dto.startUnitNum}~${dto.endUnitNum}단원 (${dto.difficulty})`;
     const exam = this.examRepo.create({

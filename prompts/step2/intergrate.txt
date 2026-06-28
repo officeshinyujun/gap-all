@@ -79,7 +79,7 @@
     "point_value": 2
   },
   "render_ready": {
-    "question_stem": "완성된 발문 텍스트 (빈칸 없이 실제 문장)",
+    "question_stem": "완성된 발문 텍스트. 발문이 길 경우 (가), (나) 등 빈칸 위치는 \\n으로 줄내림하여 가독성 확보. 예: '다음 표의 (가)\\n(나)에 해당하는 내용으로 옳은 것은?'",
     "stimulus_data": { },
     "combo_block": {
       "title": "<보기>",

@@ -1,0 +1,719 @@
+{
+  "unitNumber": 20,
+  "subject": "kongil",
+  "totalQuestions": 29,
+  "entries": [
+    {
+      "questionIndex": 1,
+      "patternId": "A1",
+      "name": "진로 포트폴리오 분석",
+      "intent": "진로 포트폴리오의 특정 항목에 대한 적절한 내용을 선택",
+      "stemPattern": "다음은 진로 포트폴리오의 일부이다. (가)에 해당하는 내용으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "진로 포트폴리오",
+        "(가)에 해당하는 내용"
+      ],
+      "judgmentAxes": [
+        "적절성",
+        "관련성"
+      ],
+      "itemFamilies": [
+        "보기 선택형"
+      ],
+      "templates": [
+        "진로 포트폴리오의 특정 항목에 대한 적절한 내용을 선택"
+      ],
+      "variationTips": [
+        "다양한 진로 포트폴리오 항목을 제시하여 변형 가능"
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "A2",
+      "name": "설문 결과 분석",
+      "intent": "설문 결과를 바탕으로 인물에 대한 설명을 선택",
+      "stemPattern": "다음은 A 씨가 작성한 설문 결과의 일부이다. A씨에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "설문 결과",
+        "A씨에 대한 설명"
+      ],
+      "judgmentAxes": [
+        "정확성",
+        "타당성"
+      ],
+      "itemFamilies": [
+        "보기 선택형"
+      ],
+      "templates": [
+        "설문 결과를 바탕으로 인물에 대한 설명을 선택"
+      ],
+      "variationTips": [
+        "다양한 설문 결과를 제시하여 변형 가능"
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "A3",
+      "name": "교사와 학생 대화 분석",
+      "intent": "대화를 통해 알 수 있는 내용을 선택",
+      "stemPattern": "다음은 진로에 대한 교사와 학생 간의 대화이다. 이를 통해 알 수 있는 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "교사와 학생 간의 대화",
+        "진로 의사 결정 유형"
+      ],
+      "judgmentAxes": [
+        "적절성",
+        "관련성"
+      ],
+      "itemFamilies": [
+        "보기 선택형"
+      ],
+      "templates": [
+        "대화를 통해 알 수 있는 내용을 선택"
+      ],
+      "variationTips": [
+        "다양한 대화 상황을 제시하여 변형 가능"
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "A4",
+      "name": "직업인 인터뷰 분석",
+      "intent": "인터뷰 내용을 바탕으로 인물에 대한 설명을 선택",
+      "stemPattern": "다음은 직업인 온라인 인터뷰이다. 직업인 A 씨에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "직업인 인터뷰",
+        "A 씨에 대한 설명"
+      ],
+      "judgmentAxes": [
+        "정확성",
+        "타당성"
+      ],
+      "itemFamilies": [
+        "보기 선택형"
+      ],
+      "templates": [
+        "인터뷰 내용을 바탕으로 인물에 대한 설명을 선택"
+      ],
+      "variationTips": [
+        "다양한 인터뷰 내용을 제시하여 변형 가능"
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "A5",
+      "name": "직업 기초 능력 분석",
+      "intent": "직업 기초 능력의 하위 능력을 선택",
+      "stemPattern": "다음은 직업 기초 능력 가이드북의 일부이다. 직업 기초 능력 중 (가)의 하위 능력으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "직업 기초 능력",
+        "(가)의 하위 능력"
+      ],
+      "judgmentAxes": [
+        "적절성",
+        "관련성"
+      ],
+      "itemFamilies": [
+        "보기 선택형"
+      ],
+      "templates": [
+        "직업 기초 능력의 하위 능력을 선택"
+      ],
+      "variationTips": [
+        "다양한 직업 기초 능력을 제시하여 변형 가능"
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "B1",
+      "name": "기업 소개서 분석",
+      "intent": "기업 소개서 자료를 바탕으로 질문에 답변",
+      "stemPattern": "다음은 ◯◯고등학교 취업반 기업 소개서 자료의 일부이다. 물음에 답하시오.",
+      "indicators": [
+        "기업 소개서",
+        "취업반"
+      ],
+      "judgmentAxes": [
+        "이해도",
+        "분석력"
+      ],
+      "itemFamilies": [
+        "서술형"
+      ],
+      "templates": [
+        "기업 소개서 자료를 바탕으로 질문에 답변"
+      ],
+      "variationTips": [
+        "다양한 기업 소개서를 제시하여 변형 가능"
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "B2",
+      "name": "면접 전형 분석",
+      "intent": "면접 전형에서 평가하는 능력과 방식을 선택",
+      "stemPattern": "위 △△기업 전형 절차 중 2차 면접 전형에서 평가하는 직업 기초 능력과 면접 방식으로 가장 적절한 것은?",
+      "indicators": [
+        "면접 전형",
+        "직업 기초 능력",
+        "면접 방식"
+      ],
+      "judgmentAxes": [
+        "적절성",
+        "관련성"
+      ],
+      "itemFamilies": [
+        "보기 선택형"
+      ],
+      "templates": [
+        "면접 전형에서 평가하는 능력과 방식을 선택"
+      ],
+      "variationTips": [
+        "다양한 면접 전형 상황을 제시하여 변형 가능"
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "A6",
+      "name": "채용 공고 분석",
+      "intent": "채용 공고를 통해 알 수 있는 내용을 선택",
+      "stemPattern": "위 △△기업 채용 공고를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "채용 공고",
+        "알 수 있는 내용"
+      ],
+      "judgmentAxes": [
+        "정확성",
+        "타당성"
+      ],
+      "itemFamilies": [
+        "보기 선택형"
+      ],
+      "templates": [
+        "채용 공고를 통해 알 수 있는 내용을 선택"
+      ],
+      "variationTips": [
+        "다양한 채용 공고를 제시하여 변형 가능"
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "A7",
+      "name": "학급 게시판 분석",
+      "intent": "학급 게시판을 통해 알 수 있는 내용을 선택",
+      "stemPattern": "다음 학급 게시판을 통해 알 수 있는 내용으로 옳지 않은 것은?",
+      "indicators": [
+        "학급 게시판",
+        "알 수 있는 내용"
+      ],
+      "judgmentAxes": [
+        "정확성",
+        "타당성"
+      ],
+      "itemFamilies": [
+        "보기 선택형"
+      ],
+      "templates": [
+        "학급 게시판을 통해 알 수 있는 내용을 선택"
+      ],
+      "variationTips": [
+        "다양한 학급 게시판 내용을 제시하여 변형 가능"
+      ]
+    },
+    {
+      "questionIndex": 10,
+      "patternId": "A8",
+      "name": "진로 상담 일지 분석",
+      "intent": "진로 상담 일지를 통해 알 수 있는 내용을 선택",
+      "stemPattern": "다음 A 학생 진로 상담 일지를 통해 알 수 있는 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "진로 상담 일지",
+        "알 수 있는 내용"
+      ],
+      "judgmentAxes": [
+        "적절성",
+        "관련성"
+      ],
+      "itemFamilies": [
+        "보기 선택형"
+      ],
+      "templates": [
+        "진로 상담 일지를 통해 알 수 있는 내용을 선택"
+      ],
+      "variationTips": [
+        "다양한 진로 상담 일지를 제시하여 변형 가능"
+      ]
+    },
+    {
+      "questionIndex": 20,
+      "patternId": "A9",
+      "name": "신제품 출시 회의록 분석",
+      "intent": "회의록을 통해 알 수 있는 내용을 선택",
+      "stemPattern": "다음은 ○○기업의 신제품 출시 점검 회의록의 일부이다. 이를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "신제품 출시 회의록",
+        "알 수 있는 내용"
+      ],
+      "judgmentAxes": [
+        "정확성",
+        "타당성"
+      ],
+      "itemFamilies": [
+        "보기 선택형"
+      ],
+      "templates": [
+        "회의록을 통해 알 수 있는 내용을 선택"
+      ],
+      "variationTips": [
+        "다양한 회의록 내용을 제시하여 변형 가능"
+      ]
+    },
+    {
+      "questionIndex": 20,
+      "patternId": "A10",
+      "name": "환경오염 조사 결과 분석",
+      "intent": "환경오염 조사 결과에 대한 설명을 선택",
+      "stemPattern": "다음은 ○○지역 환경오염 조사 결과의 일부이다. 이에 대한 설명으로 옳은 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "환경오염 조사 결과",
+        "설명"
+      ],
+      "judgmentAxes": [
+        "정확성",
+        "타당성"
+      ],
+      "itemFamilies": [
+        "보기 선택형"
+      ],
+      "templates": [
+        "환경오염 조사 결과에 대한 설명을 선택"
+      ],
+      "variationTips": [
+        "다양한 환경오염 조사 결과를 제시하여 변형 가능"
+      ]
+    },
+    {
+      "questionIndex": 20,
+      "patternId": "A11",
+      "name": "직업병 발병 조사서 분석",
+      "intent": "직업병 발병 조사서를 통해 알 수 있는 내용을 선택",
+      "stemPattern": "다음은 직업병 발병 조사서이다. 이를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "직업병 발병 조사서",
+        "알 수 있는 내용"
+      ],
+      "judgmentAxes": [
+        "정확성",
+        "타당성"
+      ],
+      "itemFamilies": [
+        "보기 선택형"
+      ],
+      "templates": [
+        "직업병 발병 조사서를 통해 알 수 있는 내용을 선택"
+      ],
+      "variationTips": [
+        "다양한 직업병 발병 조사서를 제시하여 변형 가능"
+      ]
+    },
+    {
+      "questionIndex": 20,
+      "patternId": "B3",
+      "name": "작업 절차 분석",
+      "intent": "작업 절차를 바탕으로 시간 계산",
+      "stemPattern": "위 작업 절차 (나)를 다음 [조건]에 따라 수행하였을 경우 첫 번째 완제품이 생산될 때까지 걸리는 시간으로 옳은 것은?",
+      "indicators": [
+        "작업 절차",
+        "시간 계산"
+      ],
+      "judgmentAxes": [
+        "정확성",
+        "계산 능력"
+      ],
+      "itemFamilies": [
+        "계산형"
+      ],
+      "templates": [
+        "작업 절차를 바탕으로 시간 계산"
+      ],
+      "variationTips": [
+        "다양한 작업 절차를 제시하여 변형 가능"
+      ]
+    },
+    {
+      "questionIndex": 16,
+      "patternId": "A12",
+      "name": "작업 환경 유해 요인 분석",
+      "intent": "유해 요인에 해당하는 직업병 사례를 선택",
+      "stemPattern": "다음 기사에 나타난 작업 환경 유해 요인과 같은 분류에 해당하는 유해 요인으로 인해 발생한 직업병 사례로 가장 적절한 것은?",
+      "indicators": [
+        "작업 환경 유해 요인",
+        "직업병 사례"
+      ],
+      "judgmentAxes": [
+        "적절성",
+        "관련성"
+      ],
+      "itemFamilies": [
+        "보기 선택형"
+      ],
+      "templates": [
+        "유해 요인에 해당하는 직업병 사례를 선택"
+      ],
+      "variationTips": [
+        "다양한 유해 요인과 직업병 사례를 제시하여 변형 가능"
+      ]
+    },
+    {
+      "questionIndex": 17,
+      "patternId": "A1",
+      "name": "Product Description Analysis",
+      "intent": "Identify correct information from a product description.",
+      "stemPattern": "다음 제품 설명서를 통해 알 수 있는 제품에 대한 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "제품 설명서",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "Accuracy",
+        "Comprehension"
+      ],
+      "itemFamilies": [
+        "Product Details",
+        "Specifications"
+      ],
+      "templates": [
+        "Which of the following statements about the product is correct according to the description?"
+      ],
+      "variationTips": [
+        "Use different product types or features."
+      ]
+    },
+    {
+      "questionIndex": 18,
+      "patternId": "B1",
+      "name": "International Agreement Identification",
+      "intent": "Identify the most appropriate international agreement related to a company activity.",
+      "stemPattern": "다음 사내 게시판에 나타난 활동과 관련된 국제 협약으로 가장 적절한 것은?",
+      "indicators": [
+        "사내 게시판",
+        "국제 협약"
+      ],
+      "judgmentAxes": [
+        "Relevance",
+        "Appropriateness"
+      ],
+      "itemFamilies": [
+        "Company Activities",
+        "International Agreements"
+      ],
+      "templates": [
+        "Which international agreement is most appropriate for the activity mentioned in the company bulletin?"
+      ],
+      "variationTips": [
+        "Include different types of activities and agreements."
+      ]
+    },
+    {
+      "questionIndex": 19,
+      "patternId": "C1",
+      "name": "Inventory Management Analysis",
+      "intent": "Determine correct inventory management information based on production plans and conditions.",
+      "stemPattern": "위 생산 계획을 다음 [조건]에 따라 수행할 경우 8월 1주 차 재고 관리에 대한 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "생산 계획",
+        "재고 관리",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "Accuracy",
+        "Application"
+      ],
+      "itemFamilies": [
+        "Production Plans",
+        "Inventory Management"
+      ],
+      "templates": [
+        "Select the correct inventory management information for the first week of August based on the given conditions."
+      ],
+      "variationTips": [
+        "Change the time period or conditions."
+      ]
+    },
+    {
+      "questionIndex": 20,
+      "patternId": "C2",
+      "name": "Production Time Calculation",
+      "intent": "Calculate the minimum time required for the production of the first item.",
+      "stemPattern": "위 생산 계획을 다음 [조건]에 따라 수행할 경우 8월 1일 첫 번째 의자가 생산될 때까지 걸리는 최소 시간으로 옳은 것은?",
+      "indicators": [
+        "생산 계획",
+        "최소 시간"
+      ],
+      "judgmentAxes": [
+        "Calculation",
+        "Efficiency"
+      ],
+      "itemFamilies": [
+        "Production Scheduling",
+        "Time Management"
+      ],
+      "templates": [
+        "What is the minimum time required to produce the first chair on August 1st under the given conditions?"
+      ],
+      "variationTips": [
+        "Use different products or production conditions."
+      ]
+    },
+    {
+      "questionIndex": 20,
+      "patternId": "D1",
+      "name": "Industrial Accident Report Analysis",
+      "intent": "Identify appropriate conclusions from an industrial accident report.",
+      "stemPattern": "다음 산업 재해 발생 보고서를 분석한 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "산업 재해",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "Analysis",
+        "Safety"
+      ],
+      "itemFamilies": [
+        "Accident Reports",
+        "Safety Measures"
+      ],
+      "templates": [
+        "Select the appropriate conclusions from the industrial accident report analysis."
+      ],
+      "variationTips": [
+        "Include different types of accidents or safety measures."
+      ]
+    },
+    {
+      "questionIndex": 20,
+      "patternId": "C3",
+      "name": "Inventory Management Case Analysis",
+      "intent": "Identify correct information from an inventory management case.",
+      "stemPattern": "위 재고 관리 사례를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "재고 관리 사례",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "Accuracy",
+        "Comprehension"
+      ],
+      "itemFamilies": [
+        "Inventory Cases",
+        "Management Strategies"
+      ],
+      "templates": [
+        "Which information is correct according to the inventory management case?"
+      ],
+      "variationTips": [
+        "Use different inventory scenarios or strategies."
+      ]
+    },
+    {
+      "questionIndex": 20,
+      "patternId": "E1",
+      "name": "Company Report Analysis",
+      "intent": "Identify incorrect information about a company from a report.",
+      "stemPattern": "위 보고서를 통해 알 수 있는 ○○기업에 대한 내용으로 옳지 않은 것은?",
+      "indicators": [
+        "기업 보고서",
+        "옳지 않은 것"
+      ],
+      "judgmentAxes": [
+        "Accuracy",
+        "Critical Thinking"
+      ],
+      "itemFamilies": [
+        "Company Reports",
+        "Business Analysis"
+      ],
+      "templates": [
+        "Which statement about the company is incorrect according to the report?"
+      ],
+      "variationTips": [
+        "Include different companies or report types."
+      ]
+    },
+    {
+      "questionIndex": 20,
+      "patternId": "F1",
+      "name": "Quality Management Innovation Analysis",
+      "intent": "Identify incorrect explanations about quality management innovation activities.",
+      "stemPattern": "위 품질 관리 혁신 활동에 대한 설명으로 옳지 않은 것은?",
+      "indicators": [
+        "품질 관리 혁신",
+        "옳지 않은 것"
+      ],
+      "judgmentAxes": [
+        "Accuracy",
+        "Innovation"
+      ],
+      "itemFamilies": [
+        "Quality Management",
+        "Innovation Activities"
+      ],
+      "templates": [
+        "Which explanation about the quality management innovation activities is incorrect?"
+      ],
+      "variationTips": [
+        "Use different innovation activities or management strategies."
+      ]
+    },
+    {
+      "questionIndex": 16,
+      "patternId": "D2",
+      "name": "Disaster Case Improvement Analysis",
+      "intent": "Identify correct information from a disaster case improvement report.",
+      "stemPattern": "위 재해 사례 개선 활동 보고서를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "재해 사례 개선",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "Accuracy",
+        "Improvement"
+      ],
+      "itemFamilies": [
+        "Disaster Cases",
+        "Improvement Strategies"
+      ],
+      "templates": [
+        "Which information is correct according to the disaster case improvement report?"
+      ],
+      "variationTips": [
+        "Include different disaster cases or improvement strategies."
+      ]
+    },
+    {
+      "questionIndex": 17,
+      "patternId": "G1",
+      "name": "Accident Prevention Activity Identification",
+      "intent": "Identify the most appropriate activity for a specific step in accident prevention.",
+      "stemPattern": "위 보고서의 사고 예방 5단계 중 (가)에 해당하는 활동으로 가장 적절한 것은?",
+      "indicators": [
+        "사고 예방",
+        "적절한 활동"
+      ],
+      "judgmentAxes": [
+        "Relevance",
+        "Prevention"
+      ],
+      "itemFamilies": [
+        "Accident Prevention",
+        "Safety Activities"
+      ],
+      "templates": [
+        "Which activity is most appropriate for step (가) in the accident prevention process?"
+      ],
+      "variationTips": [
+        "Use different steps or prevention activities."
+      ]
+    },
+    {
+      "questionIndex": 18,
+      "patternId": "H1",
+      "name": "New Material Identification",
+      "intent": "Identify the most appropriate new material described in a development case.",
+      "stemPattern": "다음 개발 사례에서 설명하고 있는 신소재로 가장 적절한 것은?",
+      "indicators": [
+        "개발 사례",
+        "신소재"
+      ],
+      "judgmentAxes": [
+        "Relevance",
+        "Innovation"
+      ],
+      "itemFamilies": [
+        "Material Development",
+        "Innovation"
+      ],
+      "templates": [
+        "Which new material is most appropriate according to the development case?"
+      ],
+      "variationTips": [
+        "Include different materials or development scenarios."
+      ]
+    },
+    {
+      "questionIndex": 19,
+      "patternId": "I1",
+      "name": "Environmental Pollution Report Analysis",
+      "intent": "Identify correct explanations about environmental pollution from a report.",
+      "stemPattern": "다음은 환경오염 조사 보고서를 나타낸 것이다. (가)～(다)에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "환경오염",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "Accuracy",
+        "Environmental Awareness"
+      ],
+      "itemFamilies": [
+        "Pollution Reports",
+        "Environmental Analysis"
+      ],
+      "templates": [
+        "Which explanation about (가)～(다) is correct according to the environmental pollution report?"
+      ],
+      "variationTips": [
+        "Use different pollution types or report sections."
+      ]
+    },
+    {
+      "questionIndex": 20,
+      "patternId": "J1",
+      "name": "Cosmetic Container Development Procedure",
+      "intent": "Identify appropriate activities in the cosmetic container development procedure.",
+      "stemPattern": "다음은 화장품 용기 개발 절차의 일부이다. (가)～(라)에서 실천하는 활동으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "개발 절차",
+        "적절한 활동"
+      ],
+      "judgmentAxes": [
+        "Relevance",
+        "Development"
+      ],
+      "itemFamilies": [
+        "Product Development",
+        "Procedure Analysis"
+      ],
+      "templates": [
+        "Which activity is appropriate for steps (가)～(라) in the cosmetic container development procedure?"
+      ],
+      "variationTips": [
+        "Include different development steps or activities."
+      ]
+    },
+    {
+      "questionIndex": 20,
+      "patternId": "K1",
+      "name": "Work Procedure Value Calculation",
+      "intent": "Calculate the correct values for specific variables in a work procedure under given conditions.",
+      "stemPattern": "위 작업 절차를 다음 [작업 조건]에 따라 수행할 경우 (가), (나)의 값으로 옳은 것은? (단, 주어진 [작업 조건] 외의 것은 고려하지 않는다.)",
+      "indicators": [
+        "작업 절차",
+        "값 계산"
+      ],
+      "judgmentAxes": [
+        "Calculation",
+        "Precision"
+      ],
+      "itemFamilies": [
+        "Work Procedures",
+        "Value Calculation"
+      ],
+      "templates": [
+        "What are the correct values for (가) and (나) under the given work conditions?"
+      ],
+      "variationTips": [
+        "Use different variables or work conditions."
+      ]
+    }
+  ]
+}

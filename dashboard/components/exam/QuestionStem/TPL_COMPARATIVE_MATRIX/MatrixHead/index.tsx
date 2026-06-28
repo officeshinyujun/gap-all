@@ -5,7 +5,7 @@ import { MatrixCell } from '../MatrixCell';
 import type { MatrixHeader } from '@/types/questionstem';
 
 export interface MatrixHeadProps {
-  headers: MatrixHeader[];
+  headers?: MatrixHeader[];
   className?: string;
 }
 
@@ -15,10 +15,11 @@ export interface MatrixHeadProps {
  * headers 배열을 받아 각 열의 제목을 렌더링합니다.
  */
 export const MatrixHead: React.FC<MatrixHeadProps> = ({ headers, className }) => {
+  const safeHeaders = headers ?? [];
   return (
     <thead className={cs(s.head, className)}>
       <tr>
-        {headers.map((header) => (
+        {safeHeaders.map((header) => (
           <th key={header.id} className={s.th}>
             {header.label}
           </th>

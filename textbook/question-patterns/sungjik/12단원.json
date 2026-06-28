@@ -1,0 +1,551 @@
+{
+  "unitNumber": 12,
+  "subject": "sungjik",
+  "totalQuestions": 21,
+  "entries": [
+    {
+      "questionIndex": 0,
+      "patternId": "SEQUENCE_MATCHING_DECISION_PROCESS",
+      "name": "진로 의사 결정 과정 배열",
+      "intent": "진로 의사 결정 과정의 각 단계를 이해하고, 주어진 사례를 통해 각 단계에 맞는 활동을 순서대로 배열하도록 요구한다.",
+      "stemPattern": "다음 진로 의사 결정 과정의 (가)~(라)에 해당하는 활동 사례를 <보기>에서 골라 의사 결정의 순서대로 바르게 배열한 것은?",
+      "indicators": [
+        "진로 의사 결정 과정",
+        "활동 사례",
+        "순서대로 배열"
+      ],
+      "judgmentAxes": [
+        "sequence matching",
+        "conceptual understanding"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "단계의 수를 늘리거나 줄여 변형",
+        "활동 사례의 난이도를 조절"
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "PROCEDURE_COMPLETION_EMPLOYMENT_PLAN",
+      "name": "취업 계획 수립 절차 완성",
+      "intent": "취업 계획 수립 절차를 이해하고, 주어진 상담 내용을 바탕으로 다음에 올 절차를 선택하도록 요구한다.",
+      "stemPattern": "다음은 취업 계획 수립 관련 상담 내용이다. 이에 나타난 내용에 이어서 (가)에 들어갈 취업 계획의 절차로 가장 적절한 것은?",
+      "indicators": [
+        "취업 계획 수립",
+        "절차",
+        "가장 적절한"
+      ],
+      "judgmentAxes": [
+        "procedure completion",
+        "conceptual understanding"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_PROCEDURE_COMPLETION"
+      ],
+      "variationTips": [
+        "절차의 순서를 바꾸거나 추가",
+        "상담 내용의 복잡성을 조절"
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "DECISION_TYPE_IDENTIFICATION",
+      "name": "의사 결정 유형 식별",
+      "intent": "설문 조사 답변을 통해 개인의 의사 결정 유형을 하렌의 이론에 근거하여 식별하도록 요구한다.",
+      "stemPattern": "다음 설문 조사 답변을 통해 알 수 있는 A씨의 의사 결정 유형에 대한 설명으로 가장 적절한 것은?",
+      "indicators": [
+        "의사 결정 유형",
+        "하렌의 이론",
+        "가장 적절한"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "theoretical application"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_DECISION_TYPE_IDENTIFICATION"
+      ],
+      "variationTips": [
+        "의사 결정 유형의 수를 늘리거나 줄임",
+        "설문 조사 답변의 복잡성을 조절"
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "CONTENT_COMPLETION_EMPLOYMENT_MEANING",
+      "name": "취업의 의미 완성",
+      "intent": "취업의 의미를 경제 주체별로 이해하고, 수업 장면에서 개인 측면의 의미를 완성하도록 요구한다.",
+      "stemPattern": "다음은 취업의 의미에 대한 수업 장면이다. (가)에 들어갈 내용으로 적절한 것은?",
+      "indicators": [
+        "취업의 의미",
+        "개인 측면",
+        "적절한"
+      ],
+      "judgmentAxes": [
+        "content completion",
+        "conceptual understanding"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CONTENT_COMPLETION"
+      ],
+      "variationTips": [
+        "경제 주체의 수를 늘리거나 줄임",
+        "수업 장면의 복잡성을 조절"
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "EXPLANATION_SELECTION_EMPLOYMENT_PLAN",
+      "name": "취업 계획 수립 절차 설명 선택",
+      "intent": "취업 계획 수립 절차에 대한 이해를 바탕으로 학생들의 활동 내용을 설명하는 적절한 설명을 선택하도록 요구한다.",
+      "stemPattern": "다음은 [취업 계획 수립 절차]에 따른 학생 A, B의 활동 내용이다. 이에 대한 설명으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "취업 계획 수립 절차",
+        "활동 내용",
+        "적절한 설명"
+      ],
+      "judgmentAxes": [
+        "explanation selection",
+        "conceptual understanding"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_EXPLANATION_SELECTION"
+      ],
+      "variationTips": [
+        "활동 내용의 복잡성을 조절",
+        "절차의 단계를 추가하거나 제거"
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "CONTENT_SELECTION_CORPORATE_IDENTITY",
+      "name": "기업 인재상 관련 내용 선택",
+      "intent": "기업의 인재상에 대한 이해를 바탕으로 신문 기사에서 알 수 있는 적절한 내용을 선택하도록 요구한다.",
+      "stemPattern": "다음은 기업의 인재상 관련 신문 기사이다. 이를 통해 알 수 있는 내용으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "기업 인재상",
+        "적절한 내용",
+        "신문 기사"
+      ],
+      "judgmentAxes": [
+        "content selection",
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CONTENT_SELECTION"
+      ],
+      "variationTips": [
+        "기업 인재상의 수를 늘리거나 줄임",
+        "기사 내용의 복잡성을 조절"
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "CONTENT_COMPLETION_EMPLOYMENT_DIARY",
+      "name": "취업 계획 수립 일기 내용 완성",
+      "intent": "취업 계획 수립 과정에서 일기 내용을 바탕으로 다음에 올 내용을 완성하도록 요구한다.",
+      "stemPattern": "다음은 취업 계획 수립 관련 일기 내용이다. (가)에 들어갈 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "취업 계획 수립",
+        "일기 내용",
+        "적절한"
+      ],
+      "judgmentAxes": [
+        "content completion",
+        "conceptual understanding"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CONTENT_COMPLETION"
+      ],
+      "variationTips": [
+        "일기 내용의 복잡성을 조절",
+        "일기의 날짜를 추가하거나 제거"
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "DECISION_TYPE_IDENTIFICATION",
+      "name": "의사 결정 유형 식별",
+      "intent": "자기소개서 작성 내용을 통해 개인의 의사 결정 유형을 하렌의 이론에 근거하여 식별하도록 요구한다.",
+      "stemPattern": "[질문 1]의 [작성 내용]에 나타난 의사 결정 유형에 대한 설명으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "의사 결정 유형",
+        "하렌의 이론",
+        "적절한 설명"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "theoretical application"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_DECISION_TYPE_IDENTIFICATION"
+      ],
+      "variationTips": [
+        "의사 결정 유형의 수를 늘리거나 줄임",
+        "작성 내용의 복잡성을 조절"
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "LIFE_TASK_EXPLANATION_SELECTION",
+      "name": "생애 발달 과업 설명 선택",
+      "intent": "생애 발달 과업 이론에 근거하여 작성 내용에서 나타난 시기의 과업을 설명하도록 요구한다.",
+      "stemPattern": "[질문 2]의 [작성 내용]에 나타난 시기의 생애 발달 과업에 대한 설명으로 가장 적절한 것은?",
+      "indicators": [
+        "생애 발달 과업",
+        "해비거스트 이론",
+        "가장 적절한"
+      ],
+      "judgmentAxes": [
+        "explanation selection",
+        "theoretical application"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_LIFE_TASK_EXPLANATION_SELECTION"
+      ],
+      "variationTips": [
+        "과업의 수를 늘리거나 줄임",
+        "작성 내용의 복잡성을 조절"
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "EXPLANATION_SELECTION_DECISION_PROCESS",
+      "name": "진로 의사 결정 과정 설명 선택",
+      "intent": "진로 의사 결정 과정에서 설정한 기준과 우선순위를 이해하고, 이에 대한 설명을 선택하도록 요구한다.",
+      "stemPattern": "다음은 A 학생의 진로 의사 결정 과정 일부이다. 이에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "진로 의사 결정 과정",
+        "설명",
+        "적절한"
+      ],
+      "judgmentAxes": [
+        "explanation selection",
+        "conceptual understanding"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_EXPLANATION_SELECTION"
+      ],
+      "variationTips": [
+        "의사 결정 기준의 수를 늘리거나 줄임",
+        "우선순위 결정의 복잡성을 조절"
+      ]
+    },
+    {
+      "questionIndex": 10,
+      "patternId": "EXPLANATION_SELECTION_BASIC_SKILLS",
+      "name": "직업기초능력 설명 선택",
+      "intent": "직업기초능력 체크리스트의 각 항목에 대한 설명을 이해하고, 적절한 설명을 선택하도록 요구한다.",
+      "stemPattern": "다음은 직업기초능력 체크리스트의 일부이다. (가)～(다)에 대한 설명으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "직업기초능력",
+        "설명",
+        "적절한"
+      ],
+      "judgmentAxes": [
+        "explanation selection",
+        "conceptual understanding"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_EXPLANATION_SELECTION"
+      ],
+      "variationTips": [
+        "체크리스트 항목의 수를 늘리거나 줄임",
+        "설명의 복잡성을 조절"
+      ]
+    },
+    {
+      "questionIndex": 0,
+      "patternId": "CASE_ACTIVITY_SELECTION",
+      "name": "사례 기반 활동 선택",
+      "intent": "사례를 통해 A씨가 보험 혜택을 받기 위한 적절한 활동을 선택하도록 유도",
+      "stemPattern": "다음 사례에서 A씨가 보험 혜택을 받기 위한 활동으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "사례",
+        "보험 혜택",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "activity selection",
+        "benefit eligibility"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 보험 혜택 사례 추가",
+        "활동 선택지 변경"
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "INTERVIEW_GUIDE_SELECTION",
+      "name": "면접 안내서 기반 설명 선택",
+      "intent": "면접 안내서에 나타난 면접 형태 및 주제에 대한 설명을 선택하도록 유도",
+      "stemPattern": "다음 ○○기업 채용 면접 안내서에 나타난 면접 형태 및 주제에 대한 설명으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "면접 안내서",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "interview type",
+        "topic explanation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_DOCUMENT_INTERPRETATION"
+      ],
+      "variationTips": [
+        "면접 주제 변경",
+        "평가 기준 추가"
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "COMPANY_FORM_CHANGE",
+      "name": "회사 형태 변경 설명 선택",
+      "intent": "회의록에 나타난 회사 형태 변경 전후 설명을 선택하도록 유도",
+      "stemPattern": "다음 회의록에 나타난 변경 전․후 ○○기업의 회사 형태에 대한 설명으로 가장 적절한 것은?",
+      "indicators": [
+        "회의록",
+        "회사 형태",
+        "변경 전․후"
+      ],
+      "judgmentAxes": [
+        "company form",
+        "change explanation"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_DOCUMENT_INTERPRETATION"
+      ],
+      "variationTips": [
+        "회사 형태 변경 사례 추가",
+        "설명 선택지 변경"
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "JOB_SEARCH_SITE_SELECTION",
+      "name": "구직 활동 지원 사이트 선택",
+      "intent": "구직 활동 단계별 실행 내용을 지원 받을 수 있는 공공 사이트를 선택하도록 유도",
+      "stemPattern": "다음에 나타난 구직 활동 단계별 세부 실행 내용을 모두 지원 받을 수 있는 공공 사이트로 가장 적절한 것은?",
+      "indicators": [
+        "구직 활동",
+        "공공 사이트",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "site selection",
+        "support availability"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_RESOURCE_MATCHING"
+      ],
+      "variationTips": [
+        "구직 활동 단계 변경",
+        "사이트 선택지 변경"
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "JOB_DESCRIPTION_ANALYSIS",
+      "name": "직무 기술서 분석 내용 선택",
+      "intent": "직무 기술서에 대한 분석 내용을 선택하도록 유도",
+      "stemPattern": "위 직무 기술서에 대한 분석 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "직무 기술서",
+        "분석 내용",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "job description",
+        "analysis accuracy"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_DOCUMENT_INTERPRETATION"
+      ],
+      "variationTips": [
+        "직무 기술서 내용 변경",
+        "분석 선택지 변경"
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "ETHICS_AND_RESPONSIBILITY_SELECTION",
+      "name": "직업 윤리와 사회적 책임 선택",
+      "intent": "기사에 나타난 직업 윤리와 기업의 사회적 책임을 선택하도록 유도",
+      "stemPattern": "다음 기사에 나타난 직업 윤리와 기업의 사회적 책임으로 가장 적절한 것은? (단, 캐럴(Carroll, A. B.)의 기업의 사회적 책임 피라미드 이론(1991)에 근거한다.)",
+      "indicators": [
+        "기사",
+        "직업 윤리",
+        "사회적 책임"
+      ],
+      "judgmentAxes": [
+        "ethical behavior",
+        "corporate responsibility"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_THEORY_APPLICATION"
+      ],
+      "variationTips": [
+        "기사 내용 변경",
+        "책임 선택지 변경"
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "EMPLOYMENT_RELATION_ANALYSIS",
+      "name": "근로 관계 분석 내용 선택",
+      "intent": "사례를 통해 A씨의 근로 관계를 분석한 내용을 선택하도록 유도",
+      "stemPattern": "다음 사례에서 A씨의 근로 관계를 분석한 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "사례",
+        "근로 관계",
+        "분석 내용"
+      ],
+      "judgmentAxes": [
+        "employment relationship",
+        "analysis accuracy"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "근로 관계 사례 변경",
+        "분석 선택지 변경"
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "MANAGEMENT_ACTIVITY_SELECTION",
+      "name": "기업 경영 활동 선택",
+      "intent": "회의록에 나타난 해결 방안에 해당하는 기업 경영 활동을 선택하도록 유도",
+      "stemPattern": "다음 이사회 회의록에 나타난 해결 방안에 해당하는 기업 경영 활동으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "회의록",
+        "해결 방안",
+        "경영 활동"
+      ],
+      "judgmentAxes": [
+        "management activity",
+        "solution matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_DOCUMENT_INTERPRETATION"
+      ],
+      "variationTips": [
+        "해결 방안 내용 변경",
+        "경영 활동 선택지 변경"
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "COMPANY_ANALYSIS_SELECTION",
+      "name": "기업 분석 내용 선택",
+      "intent": "A, B기업에 대한 분석 내용을 선택하도록 유도",
+      "stemPattern": "다음 A, B기업에 대한 분석 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "기업 분석",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "production method",
+        "industry classification"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_COMPARATIVE_ANALYSIS"
+      ],
+      "variationTips": [
+        "기업 분석 내용 변경",
+        "분석 선택지 변경"
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "RECRUITMENT_PROCESS_SELECTION",
+      "name": "채용 과정 설명 선택",
+      "intent": "서류 전형 결과 및 면접 안내에 나타난 채용 과정을 선택하도록 유도",
+      "stemPattern": "다음 [서류 전형 결과 및 면접 안내]에 나타난 ○○기업의 채용과정에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른것은?",
+      "indicators": [
+        "서류 전형",
+        "면접 안내",
+        "채용 과정"
+      ],
+      "judgmentAxes": [
+        "recruitment process",
+        "explanation accuracy"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_DOCUMENT_INTERPRETATION"
+      ],
+      "variationTips": [
+        "채용 과정 단계 변경",
+        "설명 선택지 변경"
+      ]
+    }
+  ]
+}

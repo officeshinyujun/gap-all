@@ -5,7 +5,7 @@ import { VStack } from '@/components/general/VStack';
 import { HStack } from '@/components/general/HStack';
 import Typo from '@/components/general/Typo';
 import { SPACING } from '@/constants/spacing';
-import { API_BASE_URL } from '@/lib/auth';
+import { apiFetch } from '@/lib/api';
 import s from './page.module.scss';
 
 type CacheUnit = {
@@ -28,19 +28,6 @@ type RegenStatus = {
   total: number;
   errors: string[];
 };
-
-async function apiFetch<T>(path: string, options?: RequestInit): Promise<T> {
-  const res = await fetch(`${API_BASE_URL}${path}`, {
-    ...options,
-    credentials: 'include',
-    headers: {
-      'Content-Type': 'application/json',
-      ...(options?.headers ?? {}),
-    },
-  });
-  if (!res.ok) throw new Error(`API error: ${res.status}`);
-  return res.json();
-}
 
 function CacheCell({ value }: { value: number | null }) {
   if (value === null) return <span className={s.cellEmpty}>❌</span>;
@@ -180,8 +167,11 @@ export default function QuizCachePage() {
 
   return (
     <VStack gap={SPACING.s20} className={s.page}>
-      <HStack gap={SPACING.s12} align="center" fullWidth>
+      <HStack gap={SPACING.s12} align="center" justify="between" fullWidth>
         <Typo.BD size={20} color="primary">퀴즈 캐시 관리</Typo.BD>
+        <a href="/rag-embedding" className={s.embeddingLink}>
+          RAG 임베딩 관리 →
+        </a>
       </HStack>
 
       <HStack gap={SPACING.s8} align="center">

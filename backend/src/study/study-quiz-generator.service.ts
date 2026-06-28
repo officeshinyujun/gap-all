@@ -9,6 +9,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import OpenAI from 'openai';
 import { TextbookService } from '../textbook/textbook.service';
+import { getOpenAIApiKey } from '../lib/openai-keys';
 import { AiUsageLog, AiUsageSource } from '../entities/ai-usage-log.entity';
 import type { BlankQuestion, ConceptPair } from '../textbook/textbook.service';
 
@@ -32,7 +33,7 @@ export class StudyQuizGeneratorService {
     private readonly textbookService: TextbookService,
   ) {
     this.openai = new OpenAI({
-      apiKey: process.env.OPENAI_API_KEY,
+      apiKey: getOpenAIApiKey(),
     });
   }
 

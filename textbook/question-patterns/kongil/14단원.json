@@ -1,0 +1,486 @@
+{
+  "unitNumber": 14,
+  "subject": "kongil",
+  "totalQuestions": 19,
+  "entries": [
+    {
+      "questionIndex": 1,
+      "patternId": "A1",
+      "name": "Safety Management Case Analysis",
+      "intent": "Identify correct information from a safety management case analysis report.",
+      "stemPattern": "다음은 안전 관리 사례 비교 분석 보고서의 일부이다. 이를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "안전 관리",
+        "사례 비교 분석",
+        "보고서"
+      ],
+      "judgmentAxes": [
+        "Correctness",
+        "Relevance"
+      ],
+      "itemFamilies": [
+        "Multiple Choice"
+      ],
+      "templates": [
+        "Identify correct statements from a given report."
+      ],
+      "variationTips": [
+        "Vary the type of report or analysis presented."
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "B1",
+      "name": "Bird's Accident Theory - Equipment Factors",
+      "intent": "Select the most appropriate measure related to equipment factors in Bird's accident theory.",
+      "stemPattern": "다음 재해 사례에서 버드(Bird)의 재해 이론 중 기본 원인의 설비적 요인에 해당하는 대책으로 가장 적절한 것은?",
+      "indicators": [
+        "재해 사례",
+        "버드의 재해 이론",
+        "설비적 요인"
+      ],
+      "judgmentAxes": [
+        "Appropriateness",
+        "Relevance"
+      ],
+      "itemFamilies": [
+        "Multiple Choice"
+      ],
+      "templates": [
+        "Choose the best measure for equipment-related causes in an accident theory."
+      ],
+      "variationTips": [
+        "Use different accident theories or factors."
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "A2",
+      "name": "Accident Report Analysis",
+      "intent": "Determine appropriate information from an accident occurrence report.",
+      "stemPattern": "다음 재해 발생 보고서를 통해 알 수 있는 내용으로 적절한 것은?",
+      "indicators": [
+        "재해 발생 보고서",
+        "적절한 내용"
+      ],
+      "judgmentAxes": [
+        "Correctness",
+        "Relevance"
+      ],
+      "itemFamilies": [
+        "Multiple Choice"
+      ],
+      "templates": [
+        "Identify appropriate information from a given accident report."
+      ],
+      "variationTips": [
+        "Change the type of report or the focus of analysis."
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "B2",
+      "name": "Bird's Accident Theory Analysis",
+      "intent": "Select the correct content corresponding to a specific part of Bird's accident theory.",
+      "stemPattern": "다음 재해 사례를 버드(Bird)의 재해 이론에 따라 분석할 때 (가)에 해당하는 내용으로 옳은 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "재해 사례",
+        "버드의 재해 이론",
+        "(가)에 해당하는 내용"
+      ],
+      "judgmentAxes": [
+        "Correctness",
+        "Relevance"
+      ],
+      "itemFamilies": [
+        "Multiple Choice"
+      ],
+      "templates": [
+        "Select correct content for a specific part of an accident theory analysis."
+      ],
+      "variationTips": [
+        "Use different parts or aspects of the theory."
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "C1",
+      "name": "Safety and Health Management System",
+      "intent": "Identify the correct activity for a specific stage in a safety and health management system case.",
+      "stemPattern": "다음은 ◯◯건설의 안전 보건 경영 시스템 구축 사례이다. (가) 단계의 활동으로 옳은 것은?",
+      "indicators": [
+        "안전 보건 경영 시스템",
+        "(가) 단계"
+      ],
+      "judgmentAxes": [
+        "Correctness",
+        "Relevance"
+      ],
+      "itemFamilies": [
+        "Multiple Choice"
+      ],
+      "templates": [
+        "Identify correct activities for a specific stage in a management system."
+      ],
+      "variationTips": [
+        "Change the stage or type of management system."
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "A3",
+      "name": "Accident Case Analysis Explanation",
+      "intent": "Select correct explanations from an accident case analysis report.",
+      "stemPattern": "다음 사고 사례 분석 보고서에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "사고 사례 분석 보고서",
+        "설명"
+      ],
+      "judgmentAxes": [
+        "Correctness",
+        "Relevance"
+      ],
+      "itemFamilies": [
+        "Multiple Choice"
+      ],
+      "templates": [
+        "Choose correct explanations from a given analysis report."
+      ],
+      "variationTips": [
+        "Use different types of analysis or reports."
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "A4",
+      "name": "Industry Accident Status Analysis",
+      "intent": "Identify correct information from industry-specific accident status data.",
+      "stemPattern": "다음은 산업별 산업 재해 현황이다. 이를 통해 알 수 있는 내용으로 옳은 것은?",
+      "indicators": [
+        "산업별 재해 현황",
+        "옳은 내용"
+      ],
+      "judgmentAxes": [
+        "Correctness",
+        "Relevance"
+      ],
+      "itemFamilies": [
+        "Multiple Choice"
+      ],
+      "templates": [
+        "Identify correct information from industry accident data."
+      ],
+      "variationTips": [
+        "Change the industry or type of data presented."
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "A5",
+      "name": "Workplace Accident Analysis",
+      "intent": "Determine correct analysis from a workplace accident report.",
+      "stemPattern": "다음은 ◯◯기업의 작업장 사고 분석 보고서의 일부이다. 이를 분석한 내용으로 옳은 것은?",
+      "indicators": [
+        "작업장 사고 분석 보고서",
+        "옳은 내용"
+      ],
+      "judgmentAxes": [
+        "Correctness",
+        "Relevance"
+      ],
+      "itemFamilies": [
+        "Multiple Choice"
+      ],
+      "templates": [
+        "Identify correct analysis from a workplace accident report."
+      ],
+      "variationTips": [
+        "Use different workplace scenarios or analysis methods."
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "A6",
+      "name": "National Industrial Accident Status Analysis",
+      "intent": "Select correct information from a national industrial accident status analysis.",
+      "stemPattern": "다음은 우리나라의 산업 재해 현황에 대한 분석이다. 이를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "산업 재해 현황",
+        "우리나라",
+        "옳은 내용"
+      ],
+      "judgmentAxes": [
+        "Correctness",
+        "Relevance"
+      ],
+      "itemFamilies": [
+        "Multiple Choice"
+      ],
+      "templates": [
+        "Choose correct information from a national accident status analysis."
+      ],
+      "variationTips": [
+        "Change the focus or scope of the analysis."
+      ]
+    },
+    {
+      "questionIndex": 10,
+      "patternId": "A7",
+      "name": "Construction Site Safety Checklist Explanation",
+      "intent": "Identify correct explanations from a construction site safety checklist.",
+      "stemPattern": "다음 해빙기 건설 공사 현장 안전 점검표에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "건설 공사 현장",
+        "안전 점검표",
+        "설명"
+      ],
+      "judgmentAxes": [
+        "Correctness",
+        "Relevance"
+      ],
+      "itemFamilies": [
+        "Multiple Choice"
+      ],
+      "templates": [
+        "Select correct explanations from a safety checklist."
+      ],
+      "variationTips": [
+        "Use different types of checklists or construction phases."
+      ]
+    },
+    {
+      "questionIndex": 14,
+      "patternId": "A1",
+      "name": "사업장 안전 조치 결과 분석",
+      "intent": "Analyze safety measures results for various workplaces.",
+      "stemPattern": "다음은 ○○시가 조사한 사업장별 안전 조치 결과의 일부이다. 이를 통해 알 수 있는 (가)～(마) 사업장의 조치 결과에 대한 설명으로 가장 적절한 것은?",
+      "indicators": [
+        "안전 조치",
+        "사업장",
+        "조사 결과"
+      ],
+      "judgmentAxes": [
+        "적절성",
+        "안전성"
+      ],
+      "itemFamilies": [
+        "설명 선택"
+      ],
+      "templates": [
+        "(가)～(마) 사업장의 조치 결과에 대한 설명으로 가장 적절한 것은?"
+      ],
+      "variationTips": [
+        "다양한 사업장 사례 추가",
+        "안전 조치의 세부 항목 변화"
+      ]
+    },
+    {
+      "questionIndex": 14,
+      "patternId": "B1",
+      "name": "경영 활동 사례 분석",
+      "intent": "Identify correct statements about a company from management activity cases.",
+      "stemPattern": "다음 경영 활동 사례에서 알 수 있는 ○○기업에 대한 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "경영 활동",
+        "사례",
+        "기업"
+      ],
+      "judgmentAxes": [
+        "정확성",
+        "사실성"
+      ],
+      "itemFamilies": [
+        "보기 선택"
+      ],
+      "templates": [
+        "○○기업에 대한 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?"
+      ],
+      "variationTips": [
+        "다양한 기업 사례 추가",
+        "경영 활동의 세부 항목 변화"
+      ]
+    },
+    {
+      "questionIndex": 14,
+      "patternId": "B2",
+      "name": "기업 사례 비교 분석",
+      "intent": "Select correct statements about companies A and B from given cases.",
+      "stemPattern": "다음 사례에 나타난 A, B기업에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "기업 사례",
+        "A, B기업",
+        "설명"
+      ],
+      "judgmentAxes": [
+        "정확성",
+        "비교"
+      ],
+      "itemFamilies": [
+        "보기 선택"
+      ],
+      "templates": [
+        "A, B기업에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?"
+      ],
+      "variationTips": [
+        "다양한 기업 사례 추가",
+        "비교 항목 변화"
+      ]
+    },
+    {
+      "questionIndex": 14,
+      "patternId": "C1",
+      "name": "생산 자동화 구축 사례 분석",
+      "intent": "Determine the most appropriate analysis of automation implementation cases.",
+      "stemPattern": "다음 A, B기업의 생산 자동화 구축 사례를 분석한 내용으로 가장 적절한 것은?",
+      "indicators": [
+        "생산 자동화",
+        "구축 사례",
+        "분석"
+      ],
+      "judgmentAxes": [
+        "적절성",
+        "효율성"
+      ],
+      "itemFamilies": [
+        "설명 선택"
+      ],
+      "templates": [
+        "생산 자동화 구축 사례를 분석한 내용으로 가장 적절한 것은?"
+      ],
+      "variationTips": [
+        "다양한 자동화 사례 추가",
+        "분석 항목 변화"
+      ]
+    },
+    {
+      "questionIndex": 14,
+      "patternId": "D1",
+      "name": "품질 관리 현황 분석",
+      "intent": "Select correct statements from quality management status analysis.",
+      "stemPattern": "다음 품질 관리 현황을 분석한 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "품질 관리",
+        "현황",
+        "분석"
+      ],
+      "judgmentAxes": [
+        "정확성",
+        "품질"
+      ],
+      "itemFamilies": [
+        "보기 선택"
+      ],
+      "templates": [
+        "품질 관리 현황을 분석한 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?"
+      ],
+      "variationTips": [
+        "다양한 품질 관리 사례 추가",
+        "분석 항목 변화"
+      ]
+    },
+    {
+      "questionIndex": 14,
+      "patternId": "E1",
+      "name": "인적 자원 관리 설문 분석",
+      "intent": "Identify appropriate statements about human resource management from survey results.",
+      "stemPattern": "다음 직원 설문 조사 결과를 통해 알 수 있는 인적 자원 관리에 대한 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "인적 자원 관리",
+        "설문 조사",
+        "결과"
+      ],
+      "judgmentAxes": [
+        "적절성",
+        "관리"
+      ],
+      "itemFamilies": [
+        "보기 선택"
+      ],
+      "templates": [
+        "인적 자원 관리에 대한 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?"
+      ],
+      "variationTips": [
+        "다양한 설문 조사 사례 추가",
+        "분석 항목 변화"
+      ]
+    },
+    {
+      "questionIndex": 14,
+      "patternId": "F1",
+      "name": "재해 사례 분석",
+      "intent": "Identify incorrect statements from disaster case analysis.",
+      "stemPattern": "다음 재해 사례를 통해 알 수 있는 내용으로 옳지 않은 것은?",
+      "indicators": [
+        "재해 사례",
+        "분석",
+        "옳지 않은 것"
+      ],
+      "judgmentAxes": [
+        "정확성",
+        "안전"
+      ],
+      "itemFamilies": [
+        "보기 선택"
+      ],
+      "templates": [
+        "재해 사례를 통해 알 수 있는 내용으로 옳지 않은 것은?"
+      ],
+      "variationTips": [
+        "다양한 재해 사례 추가",
+        "분석 항목 변화"
+      ]
+    },
+    {
+      "questionIndex": 14,
+      "patternId": "F2",
+      "name": "산업 재해 사례 설명",
+      "intent": "Select correct statements about industrial disaster cases.",
+      "stemPattern": "다음 산업 재해 사례에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "산업 재해",
+        "사례",
+        "설명"
+      ],
+      "judgmentAxes": [
+        "정확성",
+        "안전"
+      ],
+      "itemFamilies": [
+        "보기 선택"
+      ],
+      "templates": [
+        "산업 재해 사례에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?"
+      ],
+      "variationTips": [
+        "다양한 산업 재해 사례 추가",
+        "설명 항목 변화"
+      ]
+    },
+    {
+      "questionIndex": 14,
+      "patternId": "G1",
+      "name": "기업 채용 공고 분석",
+      "intent": "Identify appropriate statements from a company's job announcement.",
+      "stemPattern": "다음 기업 채용 공고문을 통해 알 수 있는 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "채용 공고",
+        "기업",
+        "분석"
+      ],
+      "judgmentAxes": [
+        "적절성",
+        "채용"
+      ],
+      "itemFamilies": [
+        "보기 선택"
+      ],
+      "templates": [
+        "기업 채용 공고문을 통해 알 수 있는 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?"
+      ],
+      "variationTips": [
+        "다양한 채용 공고 사례 추가",
+        "분석 항목 변화"
+      ]
+    }
+  ]
+}

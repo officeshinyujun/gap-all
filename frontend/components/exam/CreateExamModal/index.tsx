@@ -64,6 +64,7 @@ export function CreateExamModal({ isOpen, onClose, subjectName, onCreated, defau
                     difficulty: DIFFICULTY_MAP[difficulty],
                     questionCount,
                     customPrompt: prompt || undefined,
+                    sourceType: 'reference',
                 }),
             });
 

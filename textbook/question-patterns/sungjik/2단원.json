@@ -1,0 +1,541 @@
+{
+  "unitNumber": 2,
+  "subject": "sungjik",
+  "totalQuestions": 21,
+  "entries": [
+    {
+      "questionIndex": 0,
+      "patternId": "PROGRAM_SELECTION_BY_DEVELOPMENT_TASK",
+      "name": "발달 과업에 따른 프로그램 선택",
+      "intent": "생애 발달 단계의 발달 과업을 이해하고, 해당 과업을 지원하는 프로그램을 선택하도록 유도한다.",
+      "stemPattern": "다음 글에서 알 수 있는 생애 발달 단계의 발달 과업을 돕는 프로그램으로 가장 적절한 것은?",
+      "indicators": [
+        "생애 발달 단계",
+        "발달 과업",
+        "프로그램"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "program selection"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다양한 발달 이론을 적용하여 변형",
+        "프로그램의 구체적 예시 추가"
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "FEATURE_SELECTION_BY_DIALOGUE",
+      "name": "대화에서 발달 과업 및 특징 선택",
+      "intent": "대화 내용을 통해 생애 발달 단계별 특징과 발달 과업을 파악하고, 적절한 설명을 선택하도록 한다.",
+      "stemPattern": "다음 대화에서 알 수 있는 생애 발달 단계별 특징 및 발달 과업에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "생애 발달 단계",
+        "발달 과업",
+        "특징"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "feature identification"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_DIALOGUE_ANALYSIS"
+      ],
+      "variationTips": [
+        "대화의 맥락을 다양화",
+        "발달 과업의 구체적 사례 추가"
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "JOB_LIFE_FEATURE_SELECTION_BY_ARTICLE",
+      "name": "기사에서 직업 생활 특징 선택",
+      "intent": "기사를 통해 생애 발달 시기의 직업 생활에 대한 특징을 파악하고, 적절한 설명을 선택하도록 한다.",
+      "stemPattern": "다음 기사를 통해 알 수 있는 생애 발달 시기의 직업 생활에 대한 설명으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "생애 발달 시기",
+        "직업 생활",
+        "재무 관리"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "feature identification"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_ARTICLE_ANALYSIS"
+      ],
+      "variationTips": [
+        "기사의 주제를 다양화",
+        "직업 생활의 구체적 사례 추가"
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "DEVELOPMENT_STAGE_FEATURE_SELECTION_BY_DIARY",
+      "name": "일기에서 발달 시기 특징 선택",
+      "intent": "일기 내용을 통해 생애 발달 시기의 특징을 파악하고, 적절한 설명을 선택하도록 한다.",
+      "stemPattern": "다음 일기의 글쓴이가 속한 생애 발달 시기에 대한 설명으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "생애 발달 시기",
+        "신체적 성장",
+        "정서적 독립"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "feature identification"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_DIARY_ANALYSIS"
+      ],
+      "variationTips": [
+        "일기의 주제를 다양화",
+        "발달 시기의 구체적 사례 추가"
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "CONTENT_SELECTION_BY_REPORT",
+      "name": "보고서에서 내용 선택",
+      "intent": "보고서 내용을 통해 생애 발달 단계의 발달 과업을 이해하고, 적절한 내용을 선택하도록 한다.",
+      "stemPattern": "다음 [생애 발달과 진로 탐색 보고서]에서 (가)에 해당하는 내용으로 옳은 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "생애 발달 단계",
+        "진로 탐색",
+        "발달 과업"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "content identification"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_REPORT_ANALYSIS"
+      ],
+      "variationTips": [
+        "보고서의 주제를 다양화",
+        "발달 과업의 구체적 사례 추가"
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "FEATURE_SELECTION_BY_LECTURE",
+      "name": "강의에서 발달 시기 특징 선택",
+      "intent": "강의 내용을 통해 생애 발달 시기의 특징을 파악하고, 적절한 설명을 선택하도록 한다.",
+      "stemPattern": "위 강의를 통해 알 수 있는 생애 발달 시기에 대한 설명으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "생애 발달 시기",
+        "자아 개념",
+        "성장"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "feature identification"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_LECTURE_ANALYSIS"
+      ],
+      "variationTips": [
+        "강의의 주제를 다양화",
+        "발달 시기의 구체적 사례 추가"
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "CAREER_DEVELOPMENT_FEATURE_SELECTION_BY_LECTURE",
+      "name": "강의에서 진로 발달 특징 선택",
+      "intent": "강의 내용을 통해 생애 발달 시기의 진로 발달 특징을 파악하고, 적절한 설명을 선택하도록 한다.",
+      "stemPattern": "위 강의에서 알 수 있는 생애 발달 시기의 진로 발달 특징으로 가장 적절한 것은?",
+      "indicators": [
+        "생애 발달 시기",
+        "진로 발달",
+        "노화"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "feature identification"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_LECTURE_ANALYSIS"
+      ],
+      "variationTips": [
+        "강의의 주제를 다양화",
+        "진로 발달의 구체적 사례 추가"
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "JOB_LIFE_FEATURE_SELECTION_BY_ANNOUNCEMENT",
+      "name": "안내문에서 직업 생활 특징 선택",
+      "intent": "안내문을 통해 생애 발달 시기의 직업 생활에 대한 특징을 파악하고, 적절한 설명을 선택하도록 한다.",
+      "stemPattern": "다음 [생애 경력 설계 서비스 참여자 모집 안내]를 통해 알 수 있는 생애 발달 시기의 직업 생활에 대한 설명으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "생애 발달 시기",
+        "직업 생활",
+        "경력 설계"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "feature identification"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_ANNOUNCEMENT_ANALYSIS"
+      ],
+      "variationTips": [
+        "안내문의 주제를 다양화",
+        "직업 생활의 구체적 사례 추가"
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "SUPPORT_PLAN_SELECTION_BY_ARTICLE",
+      "name": "기사에서 발달 과업 지원 방안 선택",
+      "intent": "기사를 통해 생애 발달 단계의 발달 과업을 이해하고, 적절한 지원 방안을 선택하도록 한다.",
+      "stemPattern": "다음 기사에서 생애 발달 단계 (가)의 바람직한 발달 과업 수행을 위한 지원 방안으로 가장 적절한 것은?",
+      "indicators": [
+        "생애 발달 단계",
+        "발달 과업",
+        "안전사고 예방"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "support plan selection"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_ARTICLE_ANALYSIS"
+      ],
+      "variationTips": [
+        "기사의 주제를 다양화",
+        "지원 방안의 구체적 사례 추가"
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "IDENTITY_TYPE_SELECTION_BY_DIALOGUE",
+      "name": "대화에서 자아 정체감 유형 선택",
+      "intent": "대화 내용을 통해 학생들의 자아 정체감 유형을 파악하고, 적절한 유형을 선택하도록 한다.",
+      "stemPattern": "다음 대화 장면에서 유추할 수 있는 학생 A, B의 자아 정체감 유형으로 가장 적절한 것은?",
+      "indicators": [
+        "자아 정체감",
+        "마샤의 이론",
+        "진로 탐색"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "identity type selection"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_DIALOGUE_ANALYSIS"
+      ],
+      "variationTips": [
+        "대화의 맥락을 다양화",
+        "자아 정체감 유형의 구체적 사례 추가"
+      ]
+    },
+    {
+      "questionIndex": 10,
+      "patternId": "VALUE_SELECTION_BY_TEXT",
+      "name": "글에서 직업 가치관 선택",
+      "intent": "글 내용을 통해 A씨의 직업 가치관을 파악하고, 적절한 설명을 선택하도록 한다.",
+      "stemPattern": "다음 글에 나타난 A씨의 직업 가치관에 대한 설명으로 가장 적절한 것은?",
+      "indicators": [
+        "직업 가치관"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "value identification"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_TEXT_ANALYSIS"
+      ],
+      "variationTips": [
+        "글의 주제를 다양화",
+        "직업 가치관의 구체적 사례 추가"
+      ]
+    },
+    {
+      "questionIndex": 0,
+      "patternId": "CASE_DIAGNOSTIC_ETHICS",
+      "name": "사례를 통한 직업 윤리 원칙 판단",
+      "intent": "주어진 사례를 통해 직업 윤리의 원칙을 판단하도록 유도",
+      "stemPattern": "다음 ○○물산 사례를 통해 알 수 있는 직업 윤리의 원칙으로 가장 적절한 것은?",
+      "indicators": [
+        "사례",
+        "직업 윤리",
+        "원칙"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다양한 윤리 경영 사례 추가",
+        "다른 윤리 원칙과의 비교"
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "CASE_DIAGNOSTIC_WORK_STYLE",
+      "name": "사례를 통한 근무 방식 판단",
+      "intent": "주어진 사례를 통해 A, B씨의 근무 방식을 판단하도록 유도",
+      "stemPattern": "다음 사례를 통해 알 수 있는 A, B씨의 근무 방식에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "사례",
+        "근무 방식",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다양한 근무 방식 사례 추가",
+        "근무 방식의 장단점 비교"
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "DIALOGUE_ANALYSIS_JOB_VALUE",
+      "name": "대화를 통한 직업 가치 분석",
+      "intent": "대화 내용을 통해 학생들의 직업 가치를 분석하도록 유도",
+      "stemPattern": "다음 대화에서 학생 A, B의 답변에 대한 분석 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "대화",
+        "직업 가치",
+        "분석"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_DIALOGUE_ANALYSIS"
+      ],
+      "variationTips": [
+        "다양한 직업 가치 사례 추가",
+        "학생들의 가치관 비교"
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "HISTORICAL_JOB_CHANGE_FACTORS",
+      "name": "연대별 직업 변화 요인 판단",
+      "intent": "연대별 직업 변화 요인을 판단하도록 유도",
+      "stemPattern": "다음은 연대별 선호 직업 및 직업의 변화 요인을 나타낸 것이다. 직업의 변화 요인 (가)∼(다)로 가장 적절한 것을 <보기>에서 고른 것은?",
+      "indicators": [
+        "연대별",
+        "직업 변화 요인",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_HISTORICAL_ANALYSIS"
+      ],
+      "variationTips": [
+        "다양한 시대적 변화 요인 추가",
+        "직업 변화의 원인 비교"
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "INSERT_LIFELONG_LEARNING_SYSTEM",
+      "name": "안내문을 통한 평생 학습 제도 판단",
+      "intent": "안내문을 통해 평생 학습 제도를 판단하도록 유도",
+      "stemPattern": "다음 안내문에서 (가)에 들어갈 평생 학습 제도로 옳은 것은?",
+      "indicators": [
+        "안내문",
+        "평생 학습 제도",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_INSERTION_TASK"
+      ],
+      "variationTips": [
+        "다양한 학습 제도 사례 추가",
+        "제도의 장단점 비교"
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "FUTURE_JOB_TECHNOLOGY",
+      "name": "기술 활용 미래 직업 판단",
+      "intent": "기술 활용 사례를 통해 미래 유망 직업을 판단하도록 유도",
+      "stemPattern": "다음 사례에 나타난 기술을 활용한 미래 사회의 유망 직업으로 가장 적절한 것은?",
+      "indicators": [
+        "사례",
+        "기술",
+        "미래 직업"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다양한 기술 사례 추가",
+        "기술의 사회적 영향 비교"
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "CAREER_DECISION_ANALYSIS",
+      "name": "직업 가치관과 진로 의사 결정 분석",
+      "intent": "A씨의 직업 가치관과 진로 의사 결정 유형을 분석하도록 유도",
+      "stemPattern": "다음 글에 나타난 A씨의 직업 가치관과 진로 의사 결정 유형을 분석한 내용으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "직업 가치관",
+        "진로 의사 결정",
+        "분석"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_TEXT_ANALYSIS"
+      ],
+      "variationTips": [
+        "다양한 의사 결정 유형 사례 추가",
+        "가치관의 변화 비교"
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "LIFELONG_LEARNING_SYSTEM_COMPARISON",
+      "name": "평생 학습 제도 비교 분석",
+      "intent": "평생 학습 제도의 차이점과 공통점을 분석하도록 유도",
+      "stemPattern": "다음 [수행평가 활동지]의 (가), (나)에 해당하는 평생 학습 제도에 대한 설명으로 가장 적절한 것은?",
+      "indicators": [
+        "수행평가 활동지",
+        "평생 학습 제도",
+        "설명"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_COMPARISON_TASK"
+      ],
+      "variationTips": [
+        "다양한 학습 제도 비교",
+        "법률적 차이점 강조"
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "NCS_CAREER_DEVELOPMENT_ANALYSIS",
+      "name": "NCS 경력 개발 로드맵 분석",
+      "intent": "NCS 경력 개발 로드맵을 통해 알 수 있는 내용을 분석하도록 유도",
+      "stemPattern": "다음은 국가직무능력표준(NCS) 경력 개발 로드맵의 일부이다. 이를 통해 알 수 있는 내용으로 옳은 것은?",
+      "indicators": [
+        "NCS",
+        "경력 개발",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_DOCUMENT_ANALYSIS"
+      ],
+      "variationTips": [
+        "다양한 경력 개발 사례 추가",
+        "로드맵의 단계별 분석"
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "CAREER_PLAN_ANALYSIS",
+      "name": "진로 계획서 분석",
+      "intent": "학생A의 진로 계획서를 통해 알 수 있는 내용을 분석하도록 유도",
+      "stemPattern": "다음은 학생A의 [진로 계획서] 일부이다. 이를 통해 알 수 있는내용으로 옳은 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "진로 계획서",
+        "NCS 분류 체계",
+        "직업능력개발훈련기준"
+      ],
+      "judgmentAxes": [
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_DOCUMENT_ANALYSIS"
+      ],
+      "variationTips": [
+        "다양한 진로 계획서 사례 추가",
+        "계획서의 목표와 전략 비교"
+      ]
+    }
+  ]
+}

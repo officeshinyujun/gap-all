@@ -104,10 +104,12 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
           <TPLCaseDiagnosticFrame
             data={{
               ...parsed.data,
-              check_items: parsed.data.check_items.map((item) => ({
-                ...item,
-                is_checked: false,
-              })),
+              check_items: Array.isArray(parsed.data.check_items)
+                ? parsed.data.check_items.map((item) => ({
+                    ...item,
+                    is_checked: false,
+                  }))
+                : [],
             }}
             label={question_stem}
           />

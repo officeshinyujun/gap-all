@@ -14,6 +14,7 @@ const DIFFICULTY_FILE_MAP: Record<Difficulty, string> = {
 @Injectable()
 export class PromptsService {
   private readonly promptsBasePath: string;
+  private readonly fileCache = new Map<string, string>();
 
   constructor() {
     // gap/backend/ 기준으로 ../../prompts = gap/prompts/
@@ -151,19 +152,27 @@ export class PromptsService {
   }
 
   private readFile(filePath: string): string {
+    const cached = this.fileCache.get(filePath);
+    if (cached !== undefined) return cached;
     if (!fs.existsSync(filePath)) {
       throw new InternalServerErrorException(
         `프롬프트 파일을 찾을 수 없습니다: ${filePath}`,
       );
     }
-    return fs.readFileSync(filePath, 'utf-8');
+    const content = fs.readFileSync(filePath, 'utf-8');
+    this.fileCache.set(filePath, content);
+    return content;
   }
 
   private tryReadFile(filePath: string): string {
+    const cached = this.fileCache.get(filePath);
+    if (cached !== undefined) return cached;
     if (!fs.existsSync(filePath)) {
       return '';
     }
-    return fs.readFileSync(filePath, 'utf-8');
+    const content = fs.readFileSync(filePath, 'utf-8');
+    this.fileCache.set(filePath, content);
+    return content;
   }
 
   private getSubjectProfile(slug: string): string {

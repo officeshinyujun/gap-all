@@ -18,11 +18,21 @@ export interface MatrixRowProps {
  * 첫 번째 셀은 행 헤더(th 역할)로 강조 표시됩니다.
  */
 export const MatrixRow: React.FC<MatrixRowProps> = ({ row, index, className }) => {
+  const cells = Array.isArray(row.cells)
+    ? row.cells
+    : row.cells
+      ? Object.values(row.cells)
+      : typeof row === 'object'
+        ? Object.values(row)
+        : [];
+
+  const rowId = row.id ?? `row-${index}`;
+
   return (
     <tr className={cs(s.row, index % 2 === 0 ? s.even : s.odd, className)}>
-      {row.cells.map((cell, cellIndex) => (
+      {cells.map((cell, cellIndex) => (
         <MatrixCell
-          key={`${row.id}-${cellIndex}`}
+          key={`${rowId}-${cellIndex}`}
           highlight={cellIndex === 0}
           align={cellIndex === 0 ? 'left' : 'center'}
         >

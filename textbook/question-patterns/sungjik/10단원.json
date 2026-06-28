@@ -1,0 +1,542 @@
+{
+  "unitNumber": 10,
+  "subject": "sungjik",
+  "totalQuestions": 21,
+  "entries": [
+    {
+      "questionIndex": 0,
+      "patternId": "NCS_JOB_EXPLORATION_STEP_SELECTION",
+      "name": "NCS 직무 수행 능력 탐색 단계 선택",
+      "intent": "NCS를 통한 직무 수행 능력 탐색 단계를 이해하고, 각 단계의 설명을 정확히 판단하도록 유도한다.",
+      "stemPattern": "다음은 국가직무능력표준(NCS)을 통한 전공별 직무 수행 능력을 탐색하는 단계를 나타낸 것이다. 이에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "국가직무능력표준(NCS)",
+        "단계",
+        "설명으로 옳은 것"
+      ],
+      "judgmentAxes": [
+        "단계 이해",
+        "설명 판단"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "단계 순서 변경",
+        "단계 설명 추가"
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "EMPLOYMENT_PROGRAM_IDENTIFICATION",
+      "name": "취업 프로그램 식별",
+      "intent": "제공된 정보를 바탕으로 적절한 취업 프로그램을 식별하도록 유도한다.",
+      "stemPattern": "다음 내용을 통해 알 수 있는 취업 프로그램으로 옳은 것은?",
+      "indicators": [
+        "취업 프로그램",
+        "알 수 있는"
+      ],
+      "judgmentAxes": [
+        "정보 해석",
+        "프로그램 매칭"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "프로그램 목적 변경",
+        "참여 인원 조정"
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "NCS_UNIT_SEARCH_EXPLANATION",
+      "name": "NCS 능력 단위 검색 설명",
+      "intent": "NCS 능력 단위 검색 결과를 이해하고, 각 설명의 정확성을 판단하도록 유도한다.",
+      "stemPattern": "다음은 국가직무능력표준(NCS)의 능력 단위를 검색한 화면 일부이다. 이에 대한 설명으로 옳은 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "능력 단위",
+        "검색",
+        "설명으로 옳은 것"
+      ],
+      "judgmentAxes": [
+        "검색 결과 해석",
+        "설명 판단"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "검색 결과 항목 변경",
+        "설명 추가"
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "NCS_UNIT_SEARCH_EXPLANATION",
+      "name": "NCS 능력 단위 검색 설명",
+      "intent": "NCS 능력 단위 검색 결과를 이해하고, 각 설명의 정확성을 판단하도록 유도한다.",
+      "stemPattern": "다음은 국가직무능력표준(NCS)의 능력단위를 검색한 화면 일부이다. 이에 대한 설명으로 옳은 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "능력 단위",
+        "검색",
+        "설명으로 옳은 것"
+      ],
+      "judgmentAxes": [
+        "검색 결과 해석",
+        "설명 판단"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "검색 결과 항목 변경",
+        "설명 추가"
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "NCS_UNIT_SEARCH_EXPLANATION",
+      "name": "NCS 능력 단위 검색 설명",
+      "intent": "NCS 능력 단위 검색 결과를 이해하고, 각 설명의 정확성을 판단하도록 유도한다.",
+      "stemPattern": "다음은 국가직무능력표준(NCS)의 매장 판매에 대한 능력단위를 검색한 화면 일부이다. 이에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "능력 단위",
+        "검색",
+        "설명으로 옳은 것"
+      ],
+      "judgmentAxes": [
+        "검색 결과 해석",
+        "설명 판단"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "검색 결과 항목 변경",
+        "설명 추가"
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "JOB_ANALYSIS_DOCUMENT_IDENTIFICATION",
+      "name": "직무 분석 문서 식별",
+      "intent": "직무 분석과 관련된 문서의 내용을 이해하고, 적절한 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음은 취업 지원과 관련한 학생과 선생님의 SNS 대화 내용이다. (가)에 들어갈 내용에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "취업 지원",
+        "SNS 대화",
+        "설명으로 적절한 것"
+      ],
+      "judgmentAxes": [
+        "문서 내용 이해",
+        "설명 판단"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "대화 내용 변경",
+        "설명 추가"
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "JOB_SKILL_IMPROVEMENT_METHOD_IDENTIFICATION",
+      "name": "직무 능력 향상 방법 식별",
+      "intent": "직무 능력 향상 방법에 대한 설명을 이해하고, 적절한 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음은 직무 능력 향상 방법에 관한 Q&A 게시판 내용이다. (가)에 대한 설명으로 옳은 것은?",
+      "indicators": [
+        "직무 능력 향상",
+        "Q&A 게시판",
+        "설명으로 옳은 것"
+      ],
+      "judgmentAxes": [
+        "방법 이해",
+        "설명 판단"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "Q&A 내용 변경",
+        "설명 추가"
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "JOB_POSTING_CONTENT_IDENTIFICATION",
+      "name": "채용 공고문 내용 식별",
+      "intent": "채용 공고문을 통해 알 수 있는 내용을 이해하고, 적절한 설명을 선택하도록 유도한다.",
+      "stemPattern": "위 채용 공고문을 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "채용 공고문",
+        "알 수 있는 내용"
+      ],
+      "judgmentAxes": [
+        "공고문 해석",
+        "설명 판단"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "공고문 내용 변경",
+        "설명 추가"
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "INTERVIEW_TYPE_IDENTIFICATION",
+      "name": "면접 유형 식별",
+      "intent": "채용 공고문에 나타난 면접 유형을 이해하고, 적절한 설명을 선택하도록 유도한다.",
+      "stemPattern": "위 채용 공고문에 나타난 면접 유형에 대한 설명으로 가장 적절한 것은?",
+      "indicators": [
+        "채용 공고문",
+        "면접 유형",
+        "설명으로 적절한 것"
+      ],
+      "judgmentAxes": [
+        "면접 유형 이해",
+        "설명 판단"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "면접 유형 변경",
+        "설명 추가"
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "NCS_JOB_EXPLORATION_SCREEN_EXPLANATION",
+      "name": "NCS 직무 능력 탐색 화면 설명",
+      "intent": "NCS를 통한 직무 능력 탐색 화면을 이해하고, 각 설명의 정확성을 판단하도록 유도한다.",
+      "stemPattern": "다음은 국가직무능력표준(NCS)을 통해 전공별 직무 능력을 탐색한 화면이다. 이에 대한 설명으로 옳은 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "NCS",
+        "직무 능력 탐색",
+        "설명으로 옳은 것"
+      ],
+      "judgmentAxes": [
+        "화면 해석",
+        "설명 판단"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "화면 내용 변경",
+        "설명 추가"
+      ]
+    },
+    {
+      "questionIndex": 10,
+      "patternId": "DECISION_MAKING_TYPE_IDENTIFICATION",
+      "name": "의사 결정 유형 식별",
+      "intent": "직업 선택 과정 사례를 통해 의사 결정 유형을 이해하고, 적절한 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음 직업 선택 과정 사례에서 알 수 있는 의사 결정 유형에 대한 설명으로 가장 적절한 것은?",
+      "indicators": [
+        "직업 선택 과정",
+        "의사 결정 유형",
+        "설명으로 적절한 것"
+      ],
+      "judgmentAxes": [
+        "사례 해석",
+        "설명 판단"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "사례 내용 변경",
+        "설명 추가"
+      ]
+    },
+    {
+      "questionIndex": 0,
+      "patternId": "CASE_DIAGNOSTIC_ENTREPRENEURSHIP",
+      "name": "사례 진단을 통한 기업가 정신 및 창업 요소 판단",
+      "intent": "사례를 통해 A씨의 기업가 정신과 B씨의 창업 요소를 파악하여 가장 적절한 것을 선택하도록 유도",
+      "stemPattern": "다음 사례에 나타난 A씨의 기업가 정신과 B씨의 창업 요소로 가장 적절한 것은?",
+      "indicators": [
+        "다음 사례에 나타난",
+        "기업가 정신",
+        "창업 요소"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "scenario analysis"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "사례의 인물과 상황을 변경",
+        "기업가 정신의 정의를 다양화"
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "CONTRACT_ANALYSIS_CORRECT_SELECTION",
+      "name": "근로 계약 사례 분석을 통한 옳은 내용 선택",
+      "intent": "근로 계약 사례를 분석하여 옳은 내용을 선택하도록 유도",
+      "stemPattern": "다음 수행 평가 보고서의 근로 계약 사례에 대한 분석 내용으로 옳은 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "근로 계약 사례",
+        "옳은 것만을"
+      ],
+      "judgmentAxes": [
+        "document interpretation",
+        "legal compliance"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CONTRACT_ANALYSIS"
+      ],
+      "variationTips": [
+        "근로 계약 조건을 다양화",
+        "보기 항목을 변경"
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "CONTRACT_COMPARISON_CORRECT_SELECTION",
+      "name": "근로 계약 비교를 통한 옳은 내용 선택",
+      "intent": "근로 계약 내용을 비교하여 옳은 내용을 선택하도록 유도",
+      "stemPattern": "표는 A, B씨의 근로계약 내용의 일부를 비교한 것이다. 이를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "근로계약 내용 비교",
+        "옳은 것만을"
+      ],
+      "judgmentAxes": [
+        "comparison",
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CONTRACT_COMPARISON"
+      ],
+      "variationTips": [
+        "계약 조건을 변경",
+        "보기 항목을 다양화"
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "CAREER_DECISION_ANALYSIS",
+      "name": "진로 의사 결정 사례 분석",
+      "intent": "사례를 통해 학생 A, B의 진로 의사 결정을 분석하여 적절한 설명을 선택하도록 유도",
+      "stemPattern": "위 사례를 통해 알 수 있는 학생A, B의 진로 의사 결정에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "진로 의사 결정",
+        "적절한 것만을"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "scenario analysis"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CAREER_DECISION_ANALYSIS"
+      ],
+      "variationTips": [
+        "사례의 인물과 상황을 변경",
+        "의사 결정 유형을 다양화"
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "LABOR_RIGHTS_RESPONSE_SELECTION",
+      "name": "노동권익센터 민원 답변 선택",
+      "intent": "노동권익센터 민원마당의 빈칸에 들어갈 적절한 답변을 선택하도록 유도",
+      "stemPattern": "다음 노동권익센터 민원마당의 (가)에 들어갈 수 있는 답변으로 옳은 것은?",
+      "indicators": [
+        "노동권익센터",
+        "답변으로 옳은 것"
+      ],
+      "judgmentAxes": [
+        "document interpretation",
+        "legal compliance"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_LABOR_RIGHTS_RESPONSE"
+      ],
+      "variationTips": [
+        "민원 사례를 변경",
+        "답변 선택지를 다양화"
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "NCS_COMPONENT_EXPLANATION_SELECTION",
+      "name": "NCS 구성 요소 및 연결 체계 설명 선택",
+      "intent": "NCS 구성 요소 및 학습모듈 연결 체계에 대한 설명을 선택하도록 유도",
+      "stemPattern": "다음은 ‘NCS의 구성 요소’ 및 ‘NCS와 NCS 학습모듈의 연결 체계’ 일부이다. 이에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "NCS 구성 요소",
+        "설명으로 적절한 것"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_NCS_COMPONENT_EXPLANATION"
+      ],
+      "variationTips": [
+        "구성 요소를 변경",
+        "설명 선택지를 다양화"
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "LABOR_RELATION_ANALYSIS_INCORRECT_SELECTION",
+      "name": "노동 관계 사례 분석을 통한 옳지 않은 내용 선택",
+      "intent": "노동 관계 사례를 분석하여 옳지 않은 내용을 선택하도록 유도",
+      "stemPattern": "다음 (가), (나)기업의 노동 관계 사례를 분석한 내용으로 옳지 않은 것은?",
+      "indicators": [
+        "노동 관계 사례",
+        "옳지 않은 것"
+      ],
+      "judgmentAxes": [
+        "document interpretation",
+        "legal compliance"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_LABOR_RELATION_ANALYSIS"
+      ],
+      "variationTips": [
+        "사례의 기업과 조건을 변경",
+        "보기 항목을 다양화"
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "JOB_LIFE_ANALYSIS_CORRECT_SELECTION",
+      "name": "직업 생활 분석을 통한 적절한 내용 선택",
+      "intent": "A씨의 직업 생활을 분석하여 적절한 내용을 선택하도록 유도",
+      "stemPattern": "다음 A씨의 직업 생활을 분석한 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "직업 생활",
+        "적절한 것만을"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "scenario analysis"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_JOB_LIFE_ANALYSIS"
+      ],
+      "variationTips": [
+        "직업 생활의 상황을 변경",
+        "보기 항목을 다양화"
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "LIFE_STAGE_BOOK_RECOMMENDATION_EXPLANATION",
+      "name": "생애 발달 단계별 추천 도서 설명 선택",
+      "intent": "생애 발달 단계별 추천 도서 안내에 대한 설명을 선택하도록 유도",
+      "stemPattern": "다음은 ○○도서관의 [생애 발달 단계별 추천 도서 안내]이다. 이에 대한 설명으로 가장 적절한 것은?",
+      "indicators": [
+        "생애 발달 단계별",
+        "설명으로 가장 적절한 것"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_LIFE_STAGE_BOOK_RECOMMENDATION"
+      ],
+      "variationTips": [
+        "추천 도서 목록을 변경",
+        "설명 선택지를 다양화"
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "CONSULTING_REPORT_ANALYSIS_CORRECT_SELECTION",
+      "name": "컨설팅 보고서 분석을 통한 적절한 내용 선택",
+      "intent": "컨설팅 보고서를 분석하여 적절한 내용을 선택하도록 유도",
+      "stemPattern": "다음 컨설팅 보고서를 분석한 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "컨설팅 보고서",
+        "적절한 것만을"
+      ],
+      "judgmentAxes": [
+        "document interpretation",
+        "business strategy"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CONSULTING_REPORT_ANALYSIS"
+      ],
+      "variationTips": [
+        "보고서의 상황을 변경",
+        "보기 항목을 다양화"
+      ]
+    }
+  ]
+}

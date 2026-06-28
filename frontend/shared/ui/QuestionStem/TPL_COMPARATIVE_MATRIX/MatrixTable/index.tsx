@@ -6,8 +6,8 @@ import { MatrixRow } from '../MatrixRow';
 import type { MatrixHeader, MatrixRowData } from '@/types/questionstem';
 
 export interface MatrixTableProps {
-  headers: MatrixHeader[];
-  rows: MatrixRowData[];
+  headers?: MatrixHeader[];
+  rows?: MatrixRowData[];
   className?: string;
 }
 
@@ -21,13 +21,16 @@ export const MatrixTable: React.FC<MatrixTableProps> = ({
   rows,
   className,
 }) => {
+  const safeHeaders = headers ?? [];
+  const safeRows = rows ?? [];
+  if (safeHeaders.length === 0 || safeRows.length === 0) return null;
   return (
     <div className={s.tableWrapper}>
       <table className={cs(s.table, className)}>
-        <MatrixHead headers={headers} />
+        <MatrixHead headers={safeHeaders} />
         <tbody>
-          {rows.map((row, index) => (
-            <MatrixRow key={row.id} row={row} index={index} />
+          {safeRows.map((row, index) => (
+            <MatrixRow key={row.id ?? `row-${index}`} row={row} index={index} />
           ))}
         </tbody>
       </table>

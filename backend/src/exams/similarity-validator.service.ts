@@ -1,6 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common';
 import * as fs from 'fs';
 import * as path from 'path';
+import { getOpenAIApiKey } from '../lib/openai-keys';
 
 interface QuestionEmbedding {
   id: string;
@@ -105,7 +106,7 @@ export class SimilarityValidatorService {
 
     // Compute embedding for the generated question (once)
     const { OpenAI } = await import('openai');
-    const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+    const openai = new OpenAI({ apiKey: getOpenAIApiKey() });
     const resp = await openai.embeddings.create({
       model: 'text-embedding-3-small',
       input: generatedText,

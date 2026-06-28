@@ -123,6 +123,7 @@ export class AdminController {
     @Query('subjectSlug') subjectSlug?: string,
     @Query('unitNumber') unitNumber?: string,
     @Query('difficulty') difficulty?: string,
+    @Query('search') search?: string,
     @Query('limit') limit?: string,
     @Query('offset') offset?: string,
   ) {
@@ -131,6 +132,7 @@ export class AdminController {
       subjectSlug,
       unitNumber: unitNumber ? Number(unitNumber) : undefined,
       difficulty,
+      search,
       limit: limit ? Number(limit) : undefined,
       offset: offset ? Number(offset) : undefined,
     });

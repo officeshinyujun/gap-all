@@ -5,10 +5,9 @@ import { VStack } from '@/components/general/VStack';
 import { HStack } from '@/components/general/HStack';
 import Typo from '@/components/general/Typo';
 import { SPACING } from '@/constants/spacing';
-import { API_BASE_URL } from '@/lib/auth';
+import { apiFetch } from '@/lib/api';
 import s from './page.module.scss';
 
-const API_BASE = API_BASE_URL;
 const PAGE_SIZE = 50;
 
 interface Question {
@@ -48,12 +47,9 @@ export default function AdminQuestionsPage() {
   const [difficulty, setDifficulty] = useState('');
 
   const fetchStats = useCallback(async () => {
-    const res = await fetch(`${API_BASE}/admin/questions/stats`, {
-      credentials: 'include',
-    });
-    if (res.ok) {
-      setStats(await res.json());
-    }
+    try {
+      setStats(await apiFetch<Stats>('/admin/questions/stats'));
+    } catch {}
   }, []);
 
   const fetchQuestions = useCallback(async (newOffset = 0) => {
@@ -65,15 +61,12 @@ export default function AdminQuestionsPage() {
     params.set('limit', String(PAGE_SIZE));
     params.set('offset', String(newOffset));
 
-    const res = await fetch(`${API_BASE}/admin/questions?${params}`, {
-      credentials: 'include',
-    });
-    if (res.ok) {
-      const data = await res.json();
-      setQuestions(data.items ?? data);
+    try {
+      const data = await apiFetch<{ items: Question[]; total: number }>(`/admin/questions?${params}`);
+      setQuestions(data.items ?? []);
       setTotal(data.total ?? 0);
       setOffset(newOffset);
-    }
+    } catch {}
     setLoading(false);
   }, [subjectSlug, unitNumber, difficulty]);
 
@@ -88,14 +81,11 @@ export default function AdminQuestionsPage() {
 
   const handleDelete = async (id: string) => {
     if (!confirm('정말 삭제하시겠습니까?')) return;
-    const res = await fetch(`${API_BASE}/admin/questions/${id}`, {
-      method: 'DELETE',
-      credentials: 'include',
-    });
-    if (res.ok) {
+    try {
+      await apiFetch(`/admin/questions/${id}`, { method: 'DELETE' });
       fetchQuestions(offset);
       fetchStats();
-    }
+    } catch {}
   };
 
   const handlePrev = () => {

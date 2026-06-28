@@ -1,0 +1,533 @@
+{
+  "unitNumber": 6,
+  "subject": "sungjik",
+  "totalQuestions": 21,
+  "entries": [
+    {
+      "questionIndex": 0,
+      "patternId": "FILL_IN_THE_BLANK_WITH_CONCEPT",
+      "name": "개념 채우기 문제",
+      "intent": "생산재와 소비재의 개념을 이해하고, 호프만 비율을 통해 산업 발전 단계를 파악하여 적절한 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음 내용의 (가)와 (나)에 들어갈 재화에 대한 설명으로 가장 적절한 것은?",
+      "indicators": [
+        "(가)",
+        "(나)",
+        "생산재",
+        "소비재"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "concept understanding"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 산업 비율을 제시하여 변형",
+        "다른 개념 쌍을 사용하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "SELECT_APPROPRIATE_EXPLANATION_FROM_OPTIONS",
+      "name": "보기에서 적절한 설명 선택 문제",
+      "intent": "클라크의 산업 분류에 대한 이해를 바탕으로 제2차 산업의 특징을 파악하고, 보기에서 적절한 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음은 클라크(Clark, C. G.)의 산업 분류에 대한 대화 장면이다. (가)에 들어갈 산업에 대한 설명으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "클라크",
+        "산업 분류",
+        "(가)"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "concept understanding"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 산업 분류 체계를 사용하여 변형",
+        "산업의 다른 특징을 제시하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "SELECT_APPROPRIATE_EXPLANATION_FROM_OPTIONS",
+      "name": "보기에서 적절한 설명 선택 문제",
+      "intent": "방직 산업의 역사와 발전 단계를 이해하고, 제조업 발달 단계에 대한 설명을 보기에서 선택하도록 유도한다.",
+      "stemPattern": "다음 기사를 통해 알 수 있는 △△방직의 제조업 발달 단계에 대한 설명으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "제조업 발달 단계",
+        "방직 산업"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "historical understanding"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 산업 사례를 제시하여 변형",
+        "발달 단계의 다른 특징을 제시하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "SELECT_APPROPRIATE_EXPLANATION_FROM_OPTIONS",
+      "name": "보기에서 적절한 설명 선택 문제",
+      "intent": "전자 상거래 유형에 대한 이해를 바탕으로, 특정 사례에 맞는 전자 상거래 유형을 보기에서 선택하도록 유도한다.",
+      "stemPattern": "다음 보고서에 나타난 전자 상거래 유형에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "전자 상거래 유형",
+        "B2B",
+        "B2C",
+        "B2G"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "scenario analysis"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 전자 상거래 사례를 제시하여 변형",
+        "유형의 다른 특징을 제시하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "SELECT_APPROPRIATE_EXPLANATION_FROM_OPTIONS",
+      "name": "보기에서 적절한 설명 선택 문제",
+      "intent": "작업 공정에 따른 제품 생산 방식을 이해하고, 특정 기업의 사례에 맞는 설명을 보기에서 선택하도록 유도한다.",
+      "stemPattern": "다음 사례에 나타난 작업 공정에 따른 기업의 제품 생산 방식에 대한 설명으로 옳은 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "작업 공정",
+        "제품 생산 방식"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "process understanding"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 기업 사례를 제시하여 변형",
+        "생산 방식의 다른 특징을 제시하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "SELECT_APPROPRIATE_EXPLANATION_FROM_OPTIONS",
+      "name": "보기에서 적절한 설명 선택 문제",
+      "intent": "시장 수요에 따른 제품 생산 방식을 이해하고, 특정 기업의 사례에 맞는 설명을 보기에서 선택하도록 유도한다.",
+      "stemPattern": "다음은 기업에 대한 기업 조사 보고서의 일부이다. 이를 통해 알 수 있는 기업의 시장 수요에 따른 제품 생산 방식에 대한 설명으로 가장 적절한 것은?",
+      "indicators": [
+        "시장 수요",
+        "제품 생산 방식"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "market analysis"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 기업 사례를 제시하여 변형",
+        "생산 방식의 다른 특징을 제시하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "SELECT_APPROPRIATE_EXPLANATION_FROM_OPTIONS",
+      "name": "보기에서 적절한 설명 선택 문제",
+      "intent": "제조업의 발달 단계를 이해하고, A, B 기업의 사례에 맞는 설명을 보기에서 선택하도록 유도한다.",
+      "stemPattern": "다음 사례를 통해 알 수 있는 A, B 기업이 속하는 제조업의 발달 단계에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "제조업 발달 단계",
+        "A 기업",
+        "B 기업"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "historical understanding"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 기업 사례를 제시하여 변형",
+        "발달 단계의 다른 특징을 제시하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "SELECT_APPROPRIATE_EXPLANATION_FROM_OPTIONS",
+      "name": "보기에서 적절한 설명 선택 문제",
+      "intent": "제품 생산 체제 구축 단계에 대한 이해를 바탕으로, 특정 단계에 맞는 설명을 보기에서 선택하도록 유도한다.",
+      "stemPattern": "다음은 제품 생산 체제 구축 단계에 대한 대화 장면이다. (가)를 포함하는 단계에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "제품 생산 체제",
+        "(가)"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "process understanding"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 단계 사례를 제시하여 변형",
+        "단계의 다른 특징을 제시하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "SELECT_APPROPRIATE_EXPLANATION_FROM_OPTIONS",
+      "name": "보기에서 적절한 설명 선택 문제",
+      "intent": "공장 입지 선정 시 고려해야 할 요인을 이해하고, 특정 기업의 사례에 맞는 요인을 보기에서 선택하도록 유도한다.",
+      "stemPattern": "다음은 ◯◯기업의 입지 선정안 일부이다. ◯◯기업이 신축 공장 입지를 선정할 때 고려한 입지 요인에 해당하는 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "입지 선정",
+        "공장 입지"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "location analysis"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 입지 사례를 제시하여 변형",
+        "입지 요인의 다른 특징을 제시하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "SELECT_APPROPRIATE_EXPLANATION_FROM_OPTIONS",
+      "name": "보기에서 적절한 설명 선택 문제",
+      "intent": "생산 관리 활동에 대한 이해를 바탕으로, 특정 기업의 사례에 맞는 설명을 보기에서 선택하도록 유도한다.",
+      "stemPattern": "다음은 ◯◯기업 대표의 기업 설명회 장면이다. 이에 나타난 기업의 생산 관리 활동에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "생산 관리",
+        "JIT"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "process understanding"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 생산 관리 사례를 제시하여 변형",
+        "관리 활동의 다른 특징을 제시하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 10,
+      "patternId": "SELECT_INAPPROPRIATE_ACTION_FROM_OPTIONS",
+      "name": "보기에서 적절하지 않은 행동 선택 문제",
+      "intent": "생애 발달 시기에 따른 진로 선택의 적절한 행동을 이해하고, 보기에서 적절하지 않은 행동을 선택하도록 유도한다.",
+      "stemPattern": "다음 일기의 글쓴이가 속한 생애 발달 시기에 진로 선택을 위해 해야 할 일로 적절하지 않은 것은?",
+      "indicators": [
+        "생애 발달 시기",
+        "진로 선택"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "developmental understanding"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 생애 발달 시기를 제시하여 변형",
+        "진로 선택의 다른 행동을 제시하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 0,
+      "patternId": "WORK_LOG_ANALYSIS",
+      "name": "근무일지 분석",
+      "intent": "근무일지에서 근로기준법에 맞는 내용을 추출하여 적절한 것을 선택하도록 유도",
+      "stemPattern": "다음 A, B씨의 근무일지에서 알 수 있는 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "근무일지",
+        "근로기준법"
+      ],
+      "judgmentAxes": [
+        "document interpretation",
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_DOCUMENT_ANALYSIS"
+      ],
+      "variationTips": [
+        "다른 법적 기준을 추가하여 변형",
+        "근무일지의 세부 항목을 변경"
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "LIFE_DEVELOPMENT_TASKS",
+      "name": "생애 발달 과업 분석",
+      "intent": "생애 발달 시기에 따른 과업과 경력 개발 경로를 이해하고 적절한 내용을 선택하도록 유도",
+      "stemPattern": "다음은 A씨가 작성한 생애 발달 시기에 따른 과업과 경력 개발 경로를 나타낸 것이다. (가), (나)에 들어갈 내용으로 가장 적절한 것은?",
+      "indicators": [
+        "생애 발달",
+        "경력 개발"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CONCEPT_COMPLETION"
+      ],
+      "variationTips": [
+        "다른 생애 발달 단계 추가",
+        "경력 개발 경로의 세부 내용 변경"
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "ENTREPRENEURSHIP_METHODS",
+      "name": "창업 방법 사례 분석",
+      "intent": "창업 사례를 통해 창업 방법에 대한 이해를 돕고 적절한 설명을 선택하도록 유도",
+      "stemPattern": "다음 사례를 통해 알 수 있는 창업 방법 (가), (나)에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "창업 방법",
+        "사례"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 창업 사례 추가",
+        "창업 방법의 세부 설명 변경"
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "JOB_POSTING_ANALYSIS",
+      "name": "채용 공고 분석",
+      "intent": "채용 공고문을 통해 면접 과정 및 채용 조건을 이해하고 적절한 내용을 선택하도록 유도",
+      "stemPattern": "위 채용 공고문을 통해 알 수 있는 내용으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "채용 공고",
+        "면접 과정"
+      ],
+      "judgmentAxes": [
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_DOCUMENT_ANALYSIS"
+      ],
+      "variationTips": [
+        "다른 기업의 채용 공고 추가",
+        "채용 조건의 세부 내용 변경"
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "JOB_LIFE_IMPORTANCE",
+      "name": "직업 생활 중요성 분석",
+      "intent": "직업 생활의 중요성에 대한 학생들의 답변을 분석하여 적절한 내용을 선택하도록 유도",
+      "stemPattern": "다음은 직업 생활의 중요성에 대한 수업 장면이다. 학생 A, B의 답변에 대한 분석 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "직업 생활",
+        "가치 실현"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CONCEPT_ANALYSIS"
+      ],
+      "variationTips": [
+        "다른 학생의 답변 추가",
+        "직업 생활의 다른 측면 강조"
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "ENTREPRENEURSHIP_PLAN_ANALYSIS",
+      "name": "창업 계획서 분석",
+      "intent": "창업 계획서의 내용을 분석하여 적절한 설명을 선택하도록 유도",
+      "stemPattern": "다음은 창업 계획서 작성에 관한 수행 평가 보고서이다. 이에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "창업 계획",
+        "자금 조달",
+        "사회적 책임"
+      ],
+      "judgmentAxes": [
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_DOCUMENT_ANALYSIS"
+      ],
+      "variationTips": [
+        "다른 창업 계획서 추가",
+        "계획서의 세부 항목 변경"
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "LABOR_RELATION_CASE",
+      "name": "근로 관계 사례 분석",
+      "intent": "근로 관계 사례를 통해 법적 기준에 맞는 설명을 선택하도록 유도",
+      "stemPattern": "다음 글에 나타난 근로 관계 사례에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "근로 관계",
+        "사례"
+      ],
+      "judgmentAxes": [
+        "document interpretation",
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 근로 관계 사례 추가",
+        "법적 기준의 세부 내용 변경"
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "ADVANCED_TECHNOLOGY_DISCOVERY",
+      "name": "첨단 기술 발견",
+      "intent": "글을 통해 첨단 기술의 종류를 이해하고 적절한 기술을 선택하도록 유도",
+      "stemPattern": "다음 글을 통해 알 수 있는 첨단 기술로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "첨단 기술",
+        "질병 진단"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CONCEPT_DISCOVERY"
+      ],
+      "variationTips": [
+        "다른 기술 사례 추가",
+        "기술의 응용 분야 변경"
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "LABOR_DISPUTE_PROCEDURE",
+      "name": "노동쟁의 조정 절차 분석",
+      "intent": "노동쟁의 조정 절차에 대한 이해를 돕고 적절한 설명을 선택하도록 유도",
+      "stemPattern": "다음은 노동쟁의의 조정 절차에 관한 수업 장면이다. ㉮∼㉱에 대한 설명으로 옳은 것만을 <보기>에서 고른 것은? (단, ｢노동조합 및 노동 관계조정법｣에 따르고, 제시된 절차 외의 것은 고려하지 않는다.)",
+      "indicators": [
+        "노동쟁의",
+        "조정 절차"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_PROCEDURE_ANALYSIS"
+      ],
+      "variationTips": [
+        "다른 조정 절차 추가",
+        "법적 기준의 세부 내용 변경"
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "DEPARTMENT_WORK_ANALYSIS",
+      "name": "부서 업무 추진 분석",
+      "intent": "부서의 업무 추진 내용을 분석하여 적절한 설명을 선택하도록 유도",
+      "stemPattern": "다음은 ○○기업 A～C부서의 업무 추진 내용이다. 이에 대한 분석으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "업무 추진",
+        "직업기초능력",
+        "경영 활동"
+      ],
+      "judgmentAxes": [
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_DOCUMENT_ANALYSIS"
+      ],
+      "variationTips": [
+        "다른 부서의 업무 내용 추가",
+        "업무 추진의 세부 항목 변경"
+      ]
+    }
+  ]
+}

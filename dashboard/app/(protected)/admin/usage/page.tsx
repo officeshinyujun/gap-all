@@ -10,7 +10,7 @@ import { SPACING } from '@/constants/spacing';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, Legend } from 'recharts';
 import s from './page.module.scss';
 
-const API_BASE = process.env.NEXT_PUBLIC_API_BASE ?? 'http://localhost:3001';
+import { apiFetch } from '@/lib/api';
 
 // ── 타입 ──────────────────────────────────────────────────────
 
@@ -76,11 +76,7 @@ export default function AdminUsagePage() {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch(`${API_BASE}/admin/openai-usage`, {
-        credentials: 'include',
-      });
-      if (!res.ok) throw new Error('사용량 조회 실패');
-      setUsage(await res.json());
+      setUsage(await apiFetch<UsageResponse>('/admin/openai-usage'));
     } catch (e) {
       setError(e instanceof Error ? e.message : '알 수 없는 오류');
     } finally {

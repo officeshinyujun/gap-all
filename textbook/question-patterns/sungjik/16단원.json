@@ -1,0 +1,553 @@
+{
+  "unitNumber": 16,
+  "subject": "sungjik",
+  "totalQuestions": 21,
+  "entries": [
+    {
+      "questionIndex": 0,
+      "patternId": "CASE_ANALYSIS_SELECTION",
+      "name": "근로 계약 사례 분석 선택형",
+      "intent": "근로 계약 사례를 분석하여 법적 기준에 맞는지 판단하고, 옳은 내용을 선택하도록 유도한다.",
+      "stemPattern": "다음은 근로 계약 사례이다. 이를 분석한 내용으로 옳은 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "근로 계약 사례",
+        "분석한 내용",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "법적 기준 준수 여부",
+        "근로기준법 적용"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다양한 근로 계약 조건 추가",
+        "법적 기준 변경"
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "CASE_MATCHING",
+      "name": "미성년자 근로 보호 사례 매칭",
+      "intent": "미성년자 근로 보호와 관련된 법적 기준을 이해하고, 사례와 매칭하도록 유도한다.",
+      "stemPattern": "다음은 미성년자의 근로 보호와 관련된 뉴스 장면이다. 밑줄 친 ㉠에 해당하는 사례로 적절한 것은?",
+      "indicators": [
+        "미성년자 근로 보호",
+        "밑줄 친 ㉠",
+        "사례"
+      ],
+      "judgmentAxes": [
+        "법적 보호 기준",
+        "사례 매칭"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다양한 사례 추가",
+        "법적 조항 변경"
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "DOCUMENT_CONTENT_MATCHING",
+      "name": "실습 서류 내용 매칭",
+      "intent": "특성화고 실습과 관련된 서류에 포함될 수 있는 내용을 이해하고, 적절한 내용을 선택하도록 유도한다.",
+      "stemPattern": "다음은 특성화고에 다니는 학생과 취업 담당 교사의 SNS 대화 내용이다. (가)에 들어갈 서류에 기술될 수 있는 내용으로 적절한 것은?",
+      "indicators": [
+        "특성화고 실습",
+        "서류",
+        "(가)에 들어갈"
+      ],
+      "judgmentAxes": [
+        "서류 내용 적합성",
+        "실습 조건"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_DOCUMENT_CONTENT_FRAME"
+      ],
+      "variationTips": [
+        "다양한 실습 조건 추가",
+        "서류 형식 변경"
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "CASE_ANALYSIS_SELECTION",
+      "name": "해고 관련 사례 분석 선택형",
+      "intent": "해고 관련 사례를 분석하여 법적 기준에 맞는지 판단하고, 옳은 내용을 선택하도록 유도한다.",
+      "stemPattern": "다음은 해고 관련 사례이다. 이에 대한 설명으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "해고 관련 사례",
+        "설명",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "법적 기준 준수 여부",
+        "근로관계법 적용"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다양한 해고 조건 추가",
+        "법적 기준 변경"
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "CASE_ANALYSIS_SELECTION",
+      "name": "근로자 차별 사례 분석 선택형",
+      "intent": "근로자 차별 사례를 분석하여 법적 기준에 맞는지 판단하고, 옳은 내용을 선택하도록 유도한다.",
+      "stemPattern": "다음은 근로자의 차별에 관한 기사이다. 이에 대한 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "근로자 차별",
+        "기사",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "법적 기준 준수 여부",
+        "차별 금지법 적용"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다양한 차별 사례 추가",
+        "법적 기준 변경"
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "PROHIBITED_CONTRACT_CONTENT",
+      "name": "근로 계약 금지 사항 발표",
+      "intent": "근로 계약 시 금지되는 내용을 이해하고, 발표된 사례 중 금지 사항을 식별하도록 유도한다.",
+      "stemPattern": "다음 수업 장면에서 학생 1, 학생 2가 발표한 근로 계약 시 금지 사항으로 옳은 것은?",
+      "indicators": [
+        "근로 계약 금지 사항",
+        "발표",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "금지 사항 식별",
+        "계약 조건 적합성"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_PROHIBITED_CONTENT_FRAME"
+      ],
+      "variationTips": [
+        "다양한 금지 사례 추가",
+        "계약 조건 변경"
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "CASE_MATCHING",
+      "name": "근로자 차별 시정 방법 매칭",
+      "intent": "근로자 차별과 시정 방법을 이해하고, 사례와 매칭하도록 유도한다.",
+      "stemPattern": "다음은 근로자의 차별과 시정 방법에 대한 전문가의 교육 장면이다. ㉠에 해당하는 내용으로 가장 적절한 것은?",
+      "indicators": [
+        "근로자 차별",
+        "시정 방법",
+        "㉠에 해당하는"
+      ],
+      "judgmentAxes": [
+        "시정 방법 적합성",
+        "차별 금지법 적용"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다양한 시정 방법 추가",
+        "법적 기준 변경"
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "CASE_ANALYSIS_SELECTION",
+      "name": "근로자 차별 시정 제도 분석 선택형",
+      "intent": "근로자 차별 시정 제도를 분석하여 법적 기준에 맞는지 판단하고, 옳은 내용을 선택하도록 유도한다.",
+      "stemPattern": "다음은 근로자의 차별 사례이다. A씨가 취할 수 있는 시정 제도에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "근로자 차별 사례",
+        "시정 제도",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "법적 기준 준수 여부",
+        "시정 제도 적용"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다양한 시정 제도 추가",
+        "법적 기준 변경"
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "LEGAL_DEFINITION_MATCHING",
+      "name": "법률 정의 매칭",
+      "intent": "법률 정의를 이해하고, 해당하는 내용을 매칭하도록 유도한다.",
+      "stemPattern": "다음은 남녀고용평등과 일 · 가정 양립 지원에 관한 법률의 일부이다. (가)에 해당하는 내용으로 가장 적절한 것은?",
+      "indicators": [
+        "법률 정의",
+        "(가)에 해당하는",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "정의 적합성",
+        "법률 적용"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_LEGAL_DEFINITION_FRAME"
+      ],
+      "variationTips": [
+        "다양한 법률 정의 추가",
+        "법적 기준 변경"
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "CASE_ANALYSIS_SELECTION",
+      "name": "근로자 권익 침해 사례 분석 선택형",
+      "intent": "근로자 권익 침해 사례를 분석하여 법적 기준에 맞는지 판단하고, 적절하지 않은 내용을 선택하도록 유도한다.",
+      "stemPattern": "다음은 근로자 권익 침해 사례를 조사한 수행 평가 보고서 일부이다. A, B씨에 대한 설명으로 적절하지 않은 것은?",
+      "indicators": [
+        "근로자 권익 침해 사례",
+        "설명",
+        "적절하지 않은 것"
+      ],
+      "judgmentAxes": [
+        "법적 기준 준수 여부",
+        "권익 침해 식별"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다양한 침해 사례 추가",
+        "법적 기준 변경"
+      ]
+    },
+    {
+      "questionIndex": 10,
+      "patternId": "LIFELONG_LEARNING_SYSTEM_MATCHING",
+      "name": "평생 학습 제도 매칭",
+      "intent": "평생 학습 제도를 이해하고, 성공 사례와 매칭하도록 유도한다.",
+      "stemPattern": "다음 A씨의 성공 사례를 통해 알 수 있는 평생 학습 제도로 옳은 것은?",
+      "indicators": [
+        "평생 학습 제도",
+        "성공 사례",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "제도 적합성",
+        "성공 사례 매칭"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_LIFELONG_LEARNING_FRAME"
+      ],
+      "variationTips": [
+        "다양한 학습 제도 추가",
+        "성공 사례 변경"
+      ]
+    },
+    {
+      "questionIndex": 0,
+      "patternId": "DIALOGUE_CAREER_DECISION",
+      "name": "대화 기반 진로 의사 결정 분석",
+      "intent": "학생 A와 B의 대화를 통해 그들의 진로 의사 결정 과정을 분석하고, 적절한 설명을 선택하도록 유도한다.",
+      "stemPattern": "위 대화를 통해 알 수 있는 학생 A, B의 진로 의사 결정에 대한 설명으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "대화",
+        "진로 의사 결정",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "decision analysis"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_DIALOGUE_DECISION_ANALYSIS"
+      ],
+      "variationTips": [
+        "대화 내용을 바꾸어 다른 의사 결정 과정을 분석하도록 한다.",
+        "보기 항목을 다양화하여 선택지를 늘린다."
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "ROADMAP_COMPLETION",
+      "name": "취업 계획 로드맵 완성",
+      "intent": "A학생의 취업 계획 로드맵에서 빈칸에 들어갈 적절한 내용을 선택하도록 유도한다.",
+      "stemPattern": "다음은 A학생이 작성한 취업 계획 로드맵을 나타낸 것이다. (가)에 들어갈 내용으로 가장 적절한 것은?",
+      "indicators": [
+        "취업 계획",
+        "로드맵",
+        "(가)에 들어갈 내용"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "completion"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_ROADMAP_COMPLETION"
+      ],
+      "variationTips": [
+        "로드맵의 다른 부분을 빈칸으로 만들어 변형한다.",
+        "다양한 취업 계획 시나리오를 제시한다."
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "DECISION_TYPE_EXPLANATION",
+      "name": "의사 결정 유형 설명",
+      "intent": "학생 A와 B의 대화를 통해 그들의 의사 결정 유형을 분석하고, 적절한 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음 대화에서 학생A, B의 의사 결정 유형에 대한 설명으로 가장 적절한 것은?",
+      "indicators": [
+        "대화",
+        "의사 결정 유형",
+        "적절한 설명"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "decision analysis"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_DECISION_TYPE_ANALYSIS"
+      ],
+      "variationTips": [
+        "대화 내용을 바꾸어 다른 의사 결정 유형을 분석하도록 한다.",
+        "보기 항목을 다양화하여 선택지를 늘린다."
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "CONTRACT_CONTENT_EXPLANATION",
+      "name": "근로 계약 내용 설명",
+      "intent": "근로 계약서의 내용을 분석하여 A, B씨의 근로 계약에 대한 적절한 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음 근로 계약서에 나타난 A, B씨의 근로 계약 내용에 대한 설명으로 옳은 것은?",
+      "indicators": [
+        "근로 계약서",
+        "근로 계약",
+        "옳은 설명"
+      ],
+      "judgmentAxes": [
+        "document interpretation",
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CONTRACT_ANALYSIS"
+      ],
+      "variationTips": [
+        "계약서의 다른 조항을 강조하여 변형한다.",
+        "다양한 계약 시나리오를 제시한다."
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "BUSINESS_PLAN_ANALYSIS",
+      "name": "사업 계획서 분석",
+      "intent": "사업 계획서를 통해 A씨의 창업 관련 내용을 분석하고, 적절한 설명을 선택하도록 유도한다.",
+      "stemPattern": "위 사업 계획서를 통해 알 수 있는 A씨의 창업 관련 내용으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "사업 계획서",
+        "창업",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_BUSINESS_PLAN_ANALYSIS"
+      ],
+      "variationTips": [
+        "사업 계획서의 다른 부분을 강조하여 변형한다.",
+        "보기 항목을 다양화하여 선택지를 늘린다."
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "VALUE_SYSTEM_EXPLANATION",
+      "name": "직업 가치관 설명",
+      "intent": "수행 평가 보고서의 시기별 직업 가치관을 분석하고, 적절한 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음 수행 평가 보고서의 (가)～(다) 시기에 나타난 직업 가치관에 대한 설명으로 가장 적절한 것은?",
+      "indicators": [
+        "수행 평가 보고서",
+        "직업 가치관",
+        "적절한 설명"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "historical analysis"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_VALUE_SYSTEM_ANALYSIS"
+      ],
+      "variationTips": [
+        "시기별 내용을 바꾸어 다른 가치관을 분석하도록 한다.",
+        "보기 항목을 다양화하여 선택지를 늘린다."
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "ETHICS_AND_ENTREPRENEURSHIP",
+      "name": "직업 윤리와 기업가 정신 분석",
+      "intent": "사례를 통해 직업 윤리와 A씨의 기업가 정신을 분석하고, 적절한 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음 사례에 나타난 직업 윤리와 A씨의 기업가 정신으로 가장 적절한 것은?",
+      "indicators": [
+        "사례",
+        "직업 윤리",
+        "기업가 정신",
+        "적절한 설명"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "ethical analysis"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_ETHICS_ENTREPRENEURSHIP_ANALYSIS"
+      ],
+      "variationTips": [
+        "사례 내용을 바꾸어 다른 윤리적 상황을 분석하도록 한다.",
+        "보기 항목을 다양화하여 선택지를 늘린다."
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "CAREER_EXPLORATION_ANALYSIS",
+      "name": "진로 탐색 활동지 분석",
+      "intent": "진로 탐색 활동지를 통해 알 수 있는 내용을 분석하고, 적절한 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음 [진로 탐색 활동지]를 통해 알 수 있는 내용으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "진로 탐색 활동지",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CAREER_EXPLORATION_ANALYSIS"
+      ],
+      "variationTips": [
+        "활동지의 다른 부분을 강조하여 변형한다.",
+        "보기 항목을 다양화하여 선택지를 늘린다."
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "ORGANIZATION_CHANGE_EXPLANATION",
+      "name": "조직 변경 설명",
+      "intent": "회사의 조직 변경에 대한 질의응답을 통해 현재와 변경할 조직의 종류에 대한 설명을 분석하고, 적절한 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음은 ○○회사의 조직 변경에 대한 질의응답이다. 현재 회사의 종류 (가)와 변경할 방안으로 제시된 회사의 종류 (나)에 대한 설명으로 옳은 것은?",
+      "indicators": [
+        "조직 변경",
+        "질의응답",
+        "옳은 설명"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "organizational analysis"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_ORGANIZATION_CHANGE_ANALYSIS"
+      ],
+      "variationTips": [
+        "조직 변경 시나리오를 바꾸어 다른 분석을 하도록 한다.",
+        "보기 항목을 다양화하여 선택지를 늘린다."
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "LIFELONG_LEARNING_EXPLANATION",
+      "name": "평생학습제도 설명",
+      "intent": "평생학습제도에 대한 설명을 분석하고, 적절한 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음 (가)～(다)의 평생학습제도 활용에 대한 설명으로 옳은것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "평생학습제도",
+        "활용",
+        "옳은 설명"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "educational policy analysis"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_LIFELONG_LEARNING_ANALYSIS"
+      ],
+      "variationTips": [
+        "제도 설명을 바꾸어 다른 분석을 하도록 한다.",
+        "보기 항목을 다양화하여 선택지를 늘린다."
+      ]
+    }
+  ]
+}

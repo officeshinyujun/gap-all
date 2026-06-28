@@ -12,6 +12,7 @@ import { HeaderActions } from '@shared/ui/HeaderActions';
 import { SPACING } from '@shared/constants/spacing';
 import { getSubjectName } from '@shared/utils/subject';
 import { fetchExams, type ExamListItem } from '@/lib/examApi';
+import { markAllNotificationsRead } from '@/lib/notificationApi';
 import { useJobProgress } from '@features/exam-generation/model/JobProgressProvider';
 import s from './page.module.scss';
 
@@ -104,6 +105,7 @@ export default function ExamPage({ params }: { params: Promise<{ subject: string
 
   useEffect(() => {
     loadExams();
+    markAllNotificationsRead().catch(() => {});
   }, [subject]);
 
   const handlePdfExport = async () => {

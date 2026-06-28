@@ -5,7 +5,7 @@ import { VStack } from '@/components/general/VStack';
 import { HStack } from '@/components/general/HStack';
 import Typo from '@/components/general/Typo';
 import { SPACING } from '@/constants/spacing';
-import { API_BASE_URL } from '@/lib/auth';
+import { apiFetch } from '@/lib/api';
 import s from './page.module.scss';
 
 const SUBJECTS = [
@@ -16,21 +16,6 @@ const SUBJECTS = [
 interface EmbeddingStatus {
   unitNumber: number;
   chunkCount: number;
-}
-
-async function apiFetch<T>(path: string, method = 'GET'): Promise<T> {
-  const res = await fetch(`${API_BASE_URL}${path}`, {
-    method,
-    credentials: 'include',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
-  if (!res.ok) {
-    const err = await res.json().catch(() => ({ message: res.statusText }));
-    throw new Error(err.message ?? `오류: ${res.status}`);
-  }
-  return res.json();
 }
 
 export default function RagEmbeddingPage() {
@@ -44,7 +29,7 @@ export default function RagEmbeddingPage() {
     setLoadingStatus(true);
     try {
       const data = await apiFetch<EmbeddingStatus[]>(`/study/${subject}/embedding-status`);
-      setStatus(data);
+      setStatus(data ?? []);
     } catch (err: unknown) {
       setMsg(err instanceof Error ? err.message : '상태 조회 실패');
     } finally {
@@ -62,7 +47,7 @@ export default function RagEmbeddingPage() {
     try {
       const res = await apiFetch<{ message: string; chunks: number }>(
         `/study/${subject}/${unitNumber}/embed`,
-        'POST',
+        { method: 'POST' },
       );
       setMsg(`✅ ${res.message} (${res.chunks}개 청크)`);
       await loadStatus();
@@ -79,7 +64,7 @@ export default function RagEmbeddingPage() {
     try {
       const res = await apiFetch<{ message: string; results: { unitNumber: number; chunks: number }[] }>(
         `/study/${subject}/embed-units`,
-        'POST',
+        { method: 'POST' },
       );
       const total = res.results.reduce((sum, r) => sum + r.chunks, 0);
       setMsg(`✅ ${res.message} (총 ${total}개 청크, ${res.results.length}개 단원)`);

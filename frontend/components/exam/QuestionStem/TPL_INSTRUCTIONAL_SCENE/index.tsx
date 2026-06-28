@@ -46,10 +46,10 @@ export const TPLInstructionalScene: React.FC<TPLInstructionalSceneProps> = ({
           {/* 수업 내용 */}
           <div className={s.windowBody}>
             <VStack gap={16} fullWidth>
-              <InstructorBubble id={data.instructor.id} text={data.instructor.text} />
+              <InstructorBubble id={data.instructor?.id} text={data.instructor?.text} />
               <SceneCanvas content={data.canvas_content} />
               <VStack gap={10} fullWidth>
-                {data.students.map((student, index) => (
+                {(data.students ?? []).map((student, index) => (
                   <StudentBubble
                     key={student.id}
                     id={student.id}

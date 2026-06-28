@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { VStack } from '@/components/general/VStack';
 import { HStack } from '@/components/general/HStack';
 import Typo from '@/components/general/Typo';
@@ -9,7 +9,7 @@ import { BlankQuiz } from '@/components/study/BlankQuiz';
 import { ConceptQuiz } from '@/components/study/ConceptQuiz';
 import { QuestionRenderer } from '@/components/exam/QuestionStem/QuestionRenderer';
 import { fetchBlankQuestions, fetchConceptPairs, clearStudyQuizCache } from '@/lib/studyQuizApi';
-import { API_BASE_URL } from '@/lib/auth';
+import { apiFetch } from '@/lib/api';
 import type { BlankQuestion, ConceptPair, QuizCount } from '@/types/studyQuiz';
 import type { ExamQuestion } from '@/types/examQuestion';
 import s from './page.module.scss';
@@ -31,6 +31,32 @@ const COUNTS: { value: QuizCount; label: string }[] = [
 
 type QuizMode = 'blank' | 'concept' | 'exam';
 type PageState = 'idle' | 'loading' | 'error' | 'quiz' | 'result';
+
+const HISTORY_KEY = 'gap_quiz_history';
+const MAX_HISTORY = 20;
+
+interface QuizHistoryEntry {
+  timestamp: number;
+  mode: QuizMode;
+  subject: string;
+  unit: number;
+  count: number;
+  correct: number;
+  total: number;
+  percent: number;
+}
+
+function loadHistory(): QuizHistoryEntry[] {
+  try {
+    const raw = localStorage.getItem(HISTORY_KEY);
+    return raw ? (JSON.parse(raw) as QuizHistoryEntry[]) : [];
+  } catch { return []; }
+}
+
+function saveHistory(entry: QuizHistoryEntry) {
+  const history = [entry, ...loadHistory()].slice(0, MAX_HISTORY);
+  try { localStorage.setItem(HISTORY_KEY, JSON.stringify(history)); } catch {}
+}
 
 interface ExamItem {
   id: string;
@@ -112,17 +138,11 @@ export default function StudyQuizPage() {
         setPollMsg('과목 정보를 불러오는 중...');
         setPollProgress(0);
 
-        const subjectRes = await fetch(`${API_BASE_URL}/subjects/${subject}`, {
-          credentials: 'include',
-        });
-        if (!subjectRes.ok) throw new Error('과목 정보 조회 실패');
-        const subjectInfo = await subjectRes.json();
+        const subjectInfo = await apiFetch<{ id: string }>(`/subjects/${subject}`);
 
         setPollMsg('시험을 생성하는 중...');
-        const jobRes = await fetch(`${API_BASE_URL}/exams/jobs`, {
+        const { jobId } = await apiFetch<{ jobId: string }>('/exams/jobs', {
           method: 'POST',
-          credentials: 'include',
-          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             subjectId: subjectInfo.id,
             startUnitNum: unit,
@@ -131,27 +151,19 @@ export default function StudyQuizPage() {
             questionCount: count,
           }),
         });
-        if (!jobRes.ok) throw new Error('시험 생성 실패');
-        const { jobId } = await jobRes.json();
 
         // 폴링
         const poll = async (): Promise<void> => {
-          const pollRes = await fetch(`${API_BASE_URL}/exams/jobs/${jobId}`, {
-            credentials: 'include',
-          });
-          const job = await pollRes.json();
+          const job = await apiFetch<{ progress: number; message: string; status: string; examId?: string }>(`/exams/jobs/${jobId}`);
           setPollProgress(job.progress ?? 0);
           setPollMsg(job.message || '생성 중...');
 
           if (job.status === 'completed' && job.examId) {
-            const examRes = await fetch(`${API_BASE_URL}/exams/${job.examId}`, {
-              credentials: 'include',
-            });
-            const examData = await examRes.json();
-            const items: ExamItem[] = (examData.items ?? []).map((item: Record<string, unknown>) => ({
+            const examData = await apiFetch<{ items: Record<string, unknown>[] }>(`/exams/${job.examId}`);
+            const items = (examData.items ?? []).map((item) => ({
               ...item,
               question: normalizeQuestion(item.question as Record<string, unknown>),
-            }));
+            })) as ExamItem[];
             setExamItems(items);
             setExamId(job.examId);
             setTotal(items.length);
@@ -174,16 +186,11 @@ export default function StudyQuizPage() {
   async function handleExamSubmit() {
     if (!examId) return;
     try {
-      await fetch(`${API_BASE_URL}/exams/${examId}/submit`, {
+      await apiFetch(`/exams/${examId}/submit`, {
         method: 'POST',
-        credentials: 'include',
-        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ answers: examAnswers }),
       });
-      const resultRes = await fetch(`${API_BASE_URL}/exams/${examId}/result`, {
-        credentials: 'include',
-      });
-      const result = await resultRes.json();
+      const result = await apiFetch<{ correctCount: number; totalCount: number }>(`/exams/${examId}/result`);
       setCorrectCount(result.correctCount ?? 0);
       setTotal(result.totalCount ?? total);
       setPageState('result');
@@ -210,6 +217,16 @@ export default function StudyQuizPage() {
   const scorePercent = total > 0 ? Math.round((correctCount / total) * 100) : 0;
   const subjectLabel = SUBJECTS.find((s) => s.value === subject)?.label ?? subject;
   const modeLabel = mode === 'blank' ? 'Level 2: 빈칸 문제' : mode === 'concept' ? 'Level 3: 양방향 개념' : 'Level 4: 실전 문제';
+
+  const [history, setHistory] = useState<QuizHistoryEntry[]>([]);
+  useEffect(() => { setHistory(loadHistory()); }, []);
+
+  useEffect(() => {
+    if (pageState === 'result') {
+      saveHistory({ timestamp: Date.now(), mode, subject, unit, count, correct: correctCount, total, percent: scorePercent });
+      setHistory(loadHistory());
+    }
+  }, [pageState]);
 
   const currentExamItem = examItems[examIndex];
   const currentAnswer = currentExamItem ? examAnswers[currentExamItem.orderIndex] : undefined;
@@ -273,6 +290,30 @@ export default function StudyQuizPage() {
             <button className={`${s.cacheButton} ${s.cacheAll}`} onClick={() => handleClearCache()}><Typo.MD size={12} color="wrong">전체 삭제</Typo.MD></button>
             {cacheMsg && <Typo.MD size={12} color="secondary">{cacheMsg}</Typo.MD>}
           </HStack>
+
+          {/* 기록 */}
+          {history.length > 0 && (
+            <VStack gap={SPACING.s6} className={s.historySection}>
+              <Typo.MD size={12} color="secondary" style={{ fontWeight: 600 }}>최근 퀴즈 기록 (최대 20개)</Typo.MD>
+              <div className={s.historyList}>
+                {history.map((h, i) => (
+                  <div key={`${h.timestamp}-${i}`} className={s.historyRow}>
+                    <span className={`${s.historyPercent} ${h.percent >= 70 ? s.historyHigh : h.percent >= 40 ? s.historyMid : s.historyLow}`}>
+                      {h.percent}%
+                    </span>
+                    <span className={s.historyMeta}>
+                      {h.mode === 'blank' ? '빈칸' : h.mode === 'concept' ? '개념' : '실전'}
+                      {' · '}{h.subject === 'success' ? '성직' : '공일'}{h.unit}단원
+                      {' · '}{h.correct}/{h.total}
+                    </span>
+                    <span className={s.historyDate}>
+                      {new Date(h.timestamp).toLocaleDateString('ko-KR', { month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' })}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </VStack>
+          )}
         </VStack>
       </div>
 

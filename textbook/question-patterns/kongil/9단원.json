@@ -1,0 +1,499 @@
+{
+  "unitNumber": 9,
+  "subject": "kongil",
+  "totalQuestions": 19,
+  "entries": [
+    {
+      "questionIndex": 1,
+      "patternId": "MCQ-EXPLAIN-REPORT",
+      "name": "Explanation of New Product Report",
+      "intent": "Identify correct explanations from a report.",
+      "stemPattern": "다음은 신제품 제작 보고서의 일부이다. 이에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "신제품 제작 보고서",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "Accuracy",
+        "Relevance"
+      ],
+      "itemFamilies": [
+        "Report Analysis",
+        "Explanation Selection"
+      ],
+      "templates": [
+        "Which explanations are correct based on the report?"
+      ],
+      "variationTips": [
+        "Vary the type of report or product."
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "MCQ-APPLICATION-TECHNOLOGY",
+      "name": "Application of Industrial Robots and Smart Technology",
+      "intent": "Determine the most appropriate application of technology.",
+      "stemPattern": "다음 사례에 나타난 A 기업이 적용한 산업용 로봇의 활용과 스마트 기술로 가장 적절한 것은?",
+      "indicators": [
+        "산업용 로봇",
+        "스마트 기술",
+        "적절한"
+      ],
+      "judgmentAxes": [
+        "Appropriateness",
+        "Innovation"
+      ],
+      "itemFamilies": [
+        "Technology Application",
+        "Case Study Analysis"
+      ],
+      "templates": [
+        "What is the most appropriate application of the technology?"
+      ],
+      "variationTips": [
+        "Change the type of technology or industry."
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "MCQ-REPORT-ANALYSIS",
+      "name": "Incorrect Content from Online Survey Report",
+      "intent": "Identify incorrect information from a report.",
+      "stemPattern": "다음 산업체 온라인 조사 보고서를 통해 알 수 있는 내용으로 옳지 않은 것은?",
+      "indicators": [
+        "온라인 조사 보고서",
+        "옳지 않은"
+      ],
+      "judgmentAxes": [
+        "Accuracy",
+        "Validity"
+      ],
+      "itemFamilies": [
+        "Report Analysis",
+        "Error Identification"
+      ],
+      "templates": [
+        "Which information is incorrect based on the report?"
+      ],
+      "variationTips": [
+        "Use different types of reports or survey data."
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "MCQ-SCHEDULE-EXPLANATION",
+      "name": "Explanation of Career Training Schedule",
+      "intent": "Select correct explanations based on a schedule.",
+      "stemPattern": "다음은 실무 맞춤형 경력직 연수 일정표이다. 이에 대한 설명으로 옳은 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "경력직 연수 일정표",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "Accuracy",
+        "Clarity"
+      ],
+      "itemFamilies": [
+        "Schedule Analysis",
+        "Explanation Selection"
+      ],
+      "templates": [
+        "Which explanations are correct based on the schedule?"
+      ],
+      "variationTips": [
+        "Alter the type of schedule or training program."
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "MCQ-INTERVIEW-INSIGHT",
+      "name": "Insights from Innovation Case Interviews",
+      "intent": "Identify correct insights from interview content.",
+      "stemPattern": "다음은 기업별 혁신 사례에 대한 인터뷰 내용이다. 이를 통해 알 수 있는 기업별 활동으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "혁신 사례 인터뷰",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "Insightfulness",
+        "Relevance"
+      ],
+      "itemFamilies": [
+        "Interview Analysis",
+        "Insight Selection"
+      ],
+      "templates": [
+        "Which insights are correct based on the interview?"
+      ],
+      "variationTips": [
+        "Change the type of innovation or interview format."
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "MCQ-EXPLAIN-FACTORY-AUTOMATION",
+      "name": "Explanation of Factory Automation Case",
+      "intent": "Select correct explanations based on a case study.",
+      "stemPattern": "다음은 공장 자동화 사례이다. 이에 대한 설명으로 옳은 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "공장 자동화 사례",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "Accuracy",
+        "Relevance"
+      ],
+      "itemFamilies": [
+        "Case Study Analysis",
+        "Explanation Selection"
+      ],
+      "templates": [
+        "Which explanations are correct based on the case study?"
+      ],
+      "variationTips": [
+        "Use different automation technologies or industries."
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "MCQ-REPORT-INSIGHT",
+      "name": "Insights from Report",
+      "intent": "Identify correct insights from a report.",
+      "stemPattern": "위 보고서를 통해 파악할 수 있는 내용으로 옳은 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "보고서",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "Insightfulness",
+        "Relevance"
+      ],
+      "itemFamilies": [
+        "Report Analysis",
+        "Insight Selection"
+      ],
+      "templates": [
+        "Which insights are correct based on the report?"
+      ],
+      "variationTips": [
+        "Change the type of report or data presented."
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "MCQ-CLASSIFICATION-TECHNOLOGY",
+      "name": "Classification of Industrial Robots by Standard and Function",
+      "intent": "Determine correct classifications based on report data.",
+      "stemPattern": "위 보고서를 통해 파악할 수 있는 2023년에 취득한 표준의 국가와 기능별 분류에 따른 산업용 로봇의 종류로 옳은 것은?",
+      "indicators": [
+        "표준의 국가",
+        "기능별 분류",
+        "산업용 로봇"
+      ],
+      "judgmentAxes": [
+        "Classification",
+        "Accuracy"
+      ],
+      "itemFamilies": [
+        "Data Classification",
+        "Technology Analysis"
+      ],
+      "templates": [
+        "What are the correct classifications based on the report?"
+      ],
+      "variationTips": [
+        "Use different standards or classification criteria."
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "MCQ-ARTICLE-EXPLANATION",
+      "name": "Explanation of Company from Article",
+      "intent": "Select correct explanations based on an article.",
+      "stemPattern": "다음 기사를 통해 알 수 있는 A 기업에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "기사",
+        "A 기업",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "Accuracy",
+        "Relevance"
+      ],
+      "itemFamilies": [
+        "Article Analysis",
+        "Explanation Selection"
+      ],
+      "templates": [
+        "Which explanations are correct based on the article?"
+      ],
+      "variationTips": [
+        "Change the type of article or company featured."
+      ]
+    },
+    {
+      "questionIndex": 10,
+      "patternId": "MCQ-EXPLAIN-PRODUCTION-AUTOMATION",
+      "name": "Explanation of Production Management and Automation",
+      "intent": "Identify correct explanations from a case study.",
+      "stemPattern": "다음은 A 기업의 생산 관리 및 자동화 사례이다. 이를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "생산 관리",
+        "자동화 사례",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "Accuracy",
+        "Relevance"
+      ],
+      "itemFamilies": [
+        "Case Study Analysis",
+        "Explanation Selection"
+      ],
+      "templates": [
+        "Which explanations are correct based on the case study?"
+      ],
+      "variationTips": [
+        "Use different production methods or automation technologies."
+      ]
+    },
+    {
+      "questionIndex": 0,
+      "patternId": "9-1",
+      "name": "임원 회의 대화 분석",
+      "intent": "대화 내용을 통해 적절한 내용을 선택",
+      "stemPattern": "다음 ○○그룹 임원 회의 대화를 통해 알 수 있는 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "임원 회의",
+        "대화",
+        "적절한 내용"
+      ],
+      "judgmentAxes": [
+        "재원 마련",
+        "유동 자본",
+        "사회 간접 자본",
+        "기술 집약적 공업",
+        "기후 영향"
+      ],
+      "itemFamilies": [
+        "재무",
+        "생산품",
+        "공업",
+        "기후"
+      ],
+      "templates": [
+        "대화 내용을 분석하여 적절한 선택지를 고른다."
+      ],
+      "variationTips": [
+        "대화 주제를 다양화하여 다른 산업이나 부서로 변경"
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "9-2",
+      "name": "가정 학습 보고서 분석",
+      "intent": "공업에 대한 설명 중 가장 적절한 것을 선택",
+      "stemPattern": "다음은 가정 학습 보고서의 일부이다. (가)～(다) 공업에 대한 설명으로 가장 적절한 것은?",
+      "indicators": [
+        "가정 학습 보고서",
+        "공업 설명",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "공업 종류",
+        "설명 적절성"
+      ],
+      "itemFamilies": [
+        "공업",
+        "설명"
+      ],
+      "templates": [
+        "보고서 내용을 분석하여 가장 적절한 설명을 선택한다."
+      ],
+      "variationTips": [
+        "공업의 종류나 설명을 다양화하여 다른 산업으로 변경"
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "9-3",
+      "name": "진로 포트폴리오 분석",
+      "intent": "포트폴리오 내용을 통해 옳은 내용을 선택",
+      "stemPattern": "다음 진로 포트폴리오를 통해 알 수 있는 내용으로 옳은 것은?",
+      "indicators": [
+        "진로 포트폴리오",
+        "옳은 내용"
+      ],
+      "judgmentAxes": [
+        "진로 선택",
+        "포트폴리오 내용"
+      ],
+      "itemFamilies": [
+        "진로",
+        "포트폴리오"
+      ],
+      "templates": [
+        "포트폴리오 내용을 분석하여 옳은 선택지를 고른다."
+      ],
+      "variationTips": [
+        "포트폴리오의 직업군이나 내용을 다양화"
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "9-4",
+      "name": "품질 관리 활동 사례 분석",
+      "intent": "품질 관리 활동 사례를 통해 옳은 내용을 선택",
+      "stemPattern": "다음은 ○○기업의 품질 관리 활동 사례이다. 이에 대한 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "품질 관리 활동",
+        "사례",
+        "옳은 내용"
+      ],
+      "judgmentAxes": [
+        "품질 관리",
+        "활동 사례"
+      ],
+      "itemFamilies": [
+        "품질 관리",
+        "사례"
+      ],
+      "templates": [
+        "사례 내용을 분석하여 옳은 선택지를 고른다."
+      ],
+      "variationTips": [
+        "품질 관리 활동의 종류나 사례를 다양화"
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "9-5",
+      "name": "신소재 사례 분석",
+      "intent": "사례에 나타난 신소재를 선택",
+      "stemPattern": "다음 사례에 나타난 신소재로 가장 적절한 것은?",
+      "indicators": [
+        "신소재",
+        "사례",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "신소재 선택",
+        "사례 분석"
+      ],
+      "itemFamilies": [
+        "신소재",
+        "사례"
+      ],
+      "templates": [
+        "사례 내용을 분석하여 적절한 신소재를 선택한다."
+      ],
+      "variationTips": [
+        "신소재의 종류나 사례를 다양화"
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "9-6",
+      "name": "기계 안전 재해 사례 분석",
+      "intent": "재해 사례를 통해 옳지 않은 내용을 선택",
+      "stemPattern": "다음 기계 안전 재해 사례를 통해 알 수 있는 내용으로 옳지 않은 것은?",
+      "indicators": [
+        "기계 안전",
+        "재해 사례",
+        "옳지 않은 내용"
+      ],
+      "judgmentAxes": [
+        "안전 재해",
+        "사례 분석"
+      ],
+      "itemFamilies": [
+        "기계 안전",
+        "재해"
+      ],
+      "templates": [
+        "재해 사례를 분석하여 옳지 않은 선택지를 고른다."
+      ],
+      "variationTips": [
+        "재해 사례의 종류나 내용을 다양화"
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "9-7",
+      "name": "환경 오염 사례 분석",
+      "intent": "환경 오염 사례를 통해 옳은 내용을 선택",
+      "stemPattern": "다음 환경 오염 사례 (가), (나)를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "환경 오염",
+        "사례",
+        "옳은 내용"
+      ],
+      "judgmentAxes": [
+        "환경 오염",
+        "사례 분석"
+      ],
+      "itemFamilies": [
+        "환경 오염",
+        "사례"
+      ],
+      "templates": [
+        "사례 내용을 분석하여 옳은 선택지를 고른다."
+      ],
+      "variationTips": [
+        "환경 오염의 종류나 사례를 다양화"
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "9-8",
+      "name": "현장 체험 보고서 분석",
+      "intent": "현장 체험 보고서를 통해 적절한 내용을 선택",
+      "stemPattern": "다음 ○○기업 현장 체험 보고서에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "현장 체험",
+        "보고서",
+        "적절한 내용"
+      ],
+      "judgmentAxes": [
+        "현장 체험",
+        "보고서 분석"
+      ],
+      "itemFamilies": [
+        "현장 체험",
+        "보고서"
+      ],
+      "templates": [
+        "보고서 내용을 분석하여 적절한 선택지를 고른다."
+      ],
+      "variationTips": [
+        "현장 체험의 종류나 내용을 다양화"
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "9-9",
+      "name": "소방 안전 교육 자료 분석",
+      "intent": "소방 안전 교육 자료를 통해 적절한 내용을 선택",
+      "stemPattern": "다음은 소방 안전 교육 자료의 일부이다. 이를 통해 알 수 있는 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "소방 안전",
+        "교육 자료",
+        "적절한 내용"
+      ],
+      "judgmentAxes": [
+        "소방 안전",
+        "교육 자료 분석"
+      ],
+      "itemFamilies": [
+        "소방 안전",
+        "교육 자료"
+      ],
+      "templates": [
+        "교육 자료 내용을 분석하여 적절한 선택지를 고른다."
+      ],
+      "variationTips": [
+        "소방 안전의 종류나 교육 자료를 다양화"
+      ]
+    }
+  ]
+}

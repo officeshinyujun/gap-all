@@ -1,0 +1,485 @@
+{
+  "unitNumber": 1,
+  "subject": "kongil",
+  "totalQuestions": 19,
+  "entries": [
+    {
+      "questionIndex": 0,
+      "patternId": "FACTUAL_INTERPRETATION_SELECTION",
+      "name": "사실 해석 선택형",
+      "intent": "보고서에 제시된 정보를 바탕으로 A, B 공장에 대한 설명을 정확히 해석하고, 보기에서 옳은 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음은 ◯◯식품의 공장 입지 선정 보고서이다. 이를 통해 알 수 있는 A, B공장에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "입지 선정 보고서",
+        "A 공장",
+        "B 공장"
+      ],
+      "judgmentAxes": [
+        "정보 해석",
+        "설명 선택"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "보고서의 다른 부분을 강조하여 변형",
+        "공장 외 다른 산업 사례로 변형"
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "PROCESS_STAGE_SELECTION",
+      "name": "과정 단계 선택형",
+      "intent": "우유 유통 경로의 각 단계에 대한 설명을 정확히 이해하고, 보기에서 옳은 설명을 선택하도록 유도한다.",
+      "stemPattern": "그림은 우유의 유통 경로이다. 단계별 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "우유의 유통 경로",
+        "단계별 설명"
+      ],
+      "judgmentAxes": [
+        "과정 이해",
+        "설명 선택"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_PROCESS_STAGE_DIAGNOSTIC"
+      ],
+      "variationTips": [
+        "다른 제품의 유통 경로로 변형",
+        "단계의 순서를 바꾸어 변형"
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "GRAPH_INTERPRETATION_SELECTION",
+      "name": "그래프 해석 선택형",
+      "intent": "그래프에 나타난 A, B 국가의 산업 비율을 해석하고, 옳지 않은 설명을 선택하도록 유도한다.",
+      "stemPattern": "그래프는 A, B 국가 주요 산업 비율을 나타낸 것이다. 이를 통해 알 수 있는 설명으로 옳지 않은 것은?",
+      "indicators": [
+        "그래프",
+        "산업 비율",
+        "옳지 않은 것"
+      ],
+      "judgmentAxes": [
+        "그래프 해석",
+        "설명 선택"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_GRAPH_DIAGNOSTIC"
+      ],
+      "variationTips": [
+        "다른 국가의 산업 비율로 변형",
+        "그래프의 데이터 값을 변경하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "FACTUAL_INTERPRETATION_SELECTION",
+      "name": "사실 해석 선택형",
+      "intent": "취업 페어 안내문에 제시된 정보를 바탕으로 A~C사에 대한 설명을 정확히 해석하고, 옳지 않은 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음은 유망 기업 취업 페어 안내문이다. A~C사에 대한 설명으로 옳지 않은 것은?",
+      "indicators": [
+        "취업 페어 안내문",
+        "A~C사",
+        "옳지 않은 것"
+      ],
+      "judgmentAxes": [
+        "정보 해석",
+        "설명 선택"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 기업의 정보를 사용하여 변형",
+        "기업의 주요 사업 내용을 변경하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "HISTORICAL_FEATURE_SELECTION",
+      "name": "역사적 특징 선택형",
+      "intent": "산업 혁명 시기의 특징을 이해하고, 보기에서 옳은 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음은 시대별 산업 혁명에 대한 수업 장면이다. (가)~(라) 시기에 해당하는 특징으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "산업 혁명",
+        "시대별 특징"
+      ],
+      "judgmentAxes": [
+        "역사적 이해",
+        "설명 선택"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_HISTORICAL_FEATURE_DIAGNOSTIC"
+      ],
+      "variationTips": [
+        "다른 역사적 사건으로 변형",
+        "시기의 순서를 바꾸어 변형"
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "FACTUAL_INTERPRETATION_SELECTION",
+      "name": "사실 해석 선택형",
+      "intent": "한국표준산업분류에 관한 보고서의 정보를 바탕으로 (가), (나)에 대한 설명을 정확히 해석하고, 옳은 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음은 한국표준산업분류에 관한 수행 평가 보고서이다. (가), (나)에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "한국표준산업분류",
+        "(가), (나)"
+      ],
+      "judgmentAxes": [
+        "정보 해석",
+        "설명 선택"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 산업 분류로 변형",
+        "분류 코드와 설명을 변경하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "HISTORICAL_FEATURE_SELECTION",
+      "name": "역사적 특징 선택형",
+      "intent": "산업 사회의 변천 과정을 이해하고, (가)~(다)의 특징을 바탕으로 옳은 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음은 산업 사회의 변천 과정을 나타낸 것이다. (가)~(다)의 특징으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "산업 사회 변천",
+        "(가)~(다)"
+      ],
+      "judgmentAxes": [
+        "역사적 이해",
+        "설명 선택"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_HISTORICAL_FEATURE_DIAGNOSTIC"
+      ],
+      "variationTips": [
+        "다른 사회 변천 과정으로 변형",
+        "특징의 순서를 바꾸어 변형"
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "FACTUAL_INTERPRETATION_SELECTION",
+      "name": "사실 해석 선택형",
+      "intent": "근대 산업 사회 관련 도서 내용을 바탕으로 ㉮~㉱에 대한 설명을 정확히 해석하고, 옳은 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음은 근대 산업 사회 관련 도서 내용 중 일부이다. ㉮~㉱에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "근대 산업 사회",
+        "㉮~㉱"
+      ],
+      "judgmentAxes": [
+        "정보 해석",
+        "설명 선택"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 도서 내용으로 변형",
+        "설명의 순서를 바꾸어 변형"
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "FACTUAL_INTERPRETATION_SELECTION",
+      "name": "사실 해석 선택형",
+      "intent": "소개 자료를 바탕으로 ◯◯기업의 공업 입지 유형을 판단하도록 유도한다.",
+      "stemPattern": "위 소개 자료를 통해 알 수 있는 ◯◯기업이 해당하는 공업의 입지 유형으로 가장 적절한 것은?",
+      "indicators": [
+        "소개 자료",
+        "공업 입지 유형"
+      ],
+      "judgmentAxes": [
+        "정보 해석",
+        "입지 유형 판단"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 기업의 사례로 변형",
+        "입지 유형의 조건을 변경하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "FACTUAL_INTERPRETATION_SELECTION",
+      "name": "사실 해석 선택형",
+      "intent": "소개 자료를 바탕으로 ◯◯기업에 대한 설명을 정확히 해석하고, 옳은 설명을 선택하도록 유도한다.",
+      "stemPattern": "위 소개 자료 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "소개 자료",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "정보 해석",
+        "설명 선택"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 기업의 정보를 사용하여 변형",
+        "설명의 순서를 바꾸어 변형"
+      ]
+    },
+    {
+      "questionIndex": 0,
+      "patternId": "CASE_DIAGNOSTIC_FRAME",
+      "name": "사례 진단형 직업관/직업의식 판단",
+      "intent": "주어진 사례를 통해 A씨의 직업관과 직업의식을 파악하고, 가장 적절한 것을 선택하도록 유도한다.",
+      "stemPattern": "다음 사례에 나타난 A씨의 직업관과 직업의식으로 가장 적절한 것은?",
+      "indicators": [
+        "다음 사례에 나타난",
+        "직업관",
+        "직업의식"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "사례의 직업적 맥락을 다양화",
+        "직업관과 직업의식의 정의를 명확히"
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "SNS_INTERVIEW_DIAGNOSTIC_FRAME",
+      "name": "SNS 인터뷰 진단형 직업관/직업의식 판단",
+      "intent": "SNS 인터뷰 내용을 통해 A씨의 직업관과 직업의식을 파악하고, 가장 적절한 것을 선택하도록 유도한다.",
+      "stemPattern": "다음 SNS 인터뷰에 나타난 A씨의 직업관과 직업의식으로 가장 적절한 것은?",
+      "indicators": [
+        "다음 SNS 인터뷰에 나타난",
+        "직업관",
+        "직업의식"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_SNS_INTERVIEW_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "인터뷰 형식을 다양화",
+        "직업관과 직업의식의 정의를 명확히"
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "BLOG_DIAGNOSTIC_FRAME",
+      "name": "블로그 진단형 직업관/직업의식 판단",
+      "intent": "블로그 내용을 통해 작성자의 직업관과 직업의식을 파악하고, 가장 적절한 것을 선택하도록 유도한다.",
+      "stemPattern": "다음 블로그에 나타난 작성자 A의 직업관과 직업의식으로 가장 적절한 것은?",
+      "indicators": [
+        "다음 블로그에 나타난",
+        "직업관",
+        "직업의식"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_BLOG_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "블로그 형식을 다양화",
+        "직업관과 직업의식의 정의를 명확히"
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "CASE_DIAGNOSTIC_SELECTION",
+      "name": "사례 진단형 직업의식 선택",
+      "intent": "주어진 사례를 통해 A씨의 직업의식을 파악하고, 적절한 것만을 선택하도록 유도한다.",
+      "stemPattern": "다음 사례에 나타난 A씨의 직업의식으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "다음 사례에 나타난",
+        "직업의식",
+        "적절한 것만을 <보기>에서 고른 것은"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_SELECTION"
+      ],
+      "variationTips": [
+        "사례의 직업적 맥락을 다양화",
+        "보기 항목을 다양화"
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "CASE_DIAGNOSTIC_FRAME",
+      "name": "사례 진단형 직업의식/직업관 판단",
+      "intent": "주어진 사례를 통해 A씨의 직업의식과 직업관을 파악하고, 가장 적절한 것을 선택하도록 유도한다.",
+      "stemPattern": "다음 사례에 나타난 A씨의 직업의식과 직업관으로 가장 적절한 것은?",
+      "indicators": [
+        "다음 사례에 나타난",
+        "직업의식",
+        "직업관"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "사례의 직업적 맥락을 다양화",
+        "직업의식과 직업관의 정의를 명확히"
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "CASE_DIAGNOSTIC_SELECTION",
+      "name": "사례 진단형 직업의식 선택",
+      "intent": "주어진 사례를 통해 A씨의 직업의식을 파악하고, 적절한 것만을 선택하도록 유도한다.",
+      "stemPattern": "다음 사례에 나타난 A 씨의 직업의식으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "다음 사례에 나타난",
+        "직업의식",
+        "적절한 것만을 <보기>에서 고른 것은"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_SELECTION"
+      ],
+      "variationTips": [
+        "사례의 직업적 맥락을 다양화",
+        "보기 항목을 다양화"
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "CASE_DIAGNOSTIC_FRAME",
+      "name": "사례 진단형 직업의식/직업관 판단",
+      "intent": "주어진 사례를 통해 A씨의 직업의식과 직업관을 파악하고, 가장 적절한 것을 선택하도록 유도한다.",
+      "stemPattern": "다음 사례에 나타난 A씨의 직업의식과 직업관으로 가장 적절한 것은?",
+      "indicators": [
+        "다음 사례에 나타난",
+        "직업의식",
+        "직업관"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "사례의 직업적 맥락을 다양화",
+        "직업의식과 직업관의 정의를 명확히"
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "CASE_DIAGNOSTIC_FRAME",
+      "name": "사례 진단형 직업의식/직업관 판단",
+      "intent": "주어진 사례를 통해 A씨의 직업의식과 직업관을 파악하고, 가장 적절한 것을 선택하도록 유도한다.",
+      "stemPattern": "다음 사례에 나타난 A씨의 직업의식과 직업관으로 가장 적절한 것은?",
+      "indicators": [
+        "다음 사례에 나타난",
+        "직업의식",
+        "직업관"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "사례의 직업적 맥락을 다양화",
+        "직업의식과 직업관의 정의를 명확히"
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "CASE_DIAGNOSTIC_FRAME",
+      "name": "사례 진단형 직업의식/직업관 판단",
+      "intent": "주어진 사례를 통해 A씨의 직업의식과 직업관을 파악하고, 가장 적절한 것을 선택하도록 유도한다.",
+      "stemPattern": "다음 사례에 나타난 A씨의 직업의식과 직업관으로 가장 적절한 것은?",
+      "indicators": [
+        "다음 사례에 나타난",
+        "직업의식",
+        "직업관"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "사례의 직업적 맥락을 다양화",
+        "직업의식과 직업관의 정의를 명확히"
+      ]
+    }
+  ]
+}

@@ -31,7 +31,7 @@ export const TPLDigitalForumInterface: React.FC<TPLDigitalForumInterfaceProps> =
         <div className={s.forumWrapper}>
           <ForumHeader forumName={data.forum_name} />
           <ForumPost post={data.main_post} />
-          {data.comments.length > 0 && (
+          {(data.comments || []).length > 0 && (
             <div className={s.commentsSection}>
               <div className={s.commentsHeader}>
                 <span className={s.commentsCount}>
@@ -39,7 +39,7 @@ export const TPLDigitalForumInterface: React.FC<TPLDigitalForumInterfaceProps> =
                 </span>
               </div>
               <VStack gap={0} fullWidth>
-                {data.comments.map((comment, index) => (
+                {(data.comments || []).map((comment, index) => (
                   <ForumComment
                     key={index}
                     comment={comment}

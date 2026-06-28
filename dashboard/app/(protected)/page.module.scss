@@ -3,20 +3,23 @@
   padding: $spacing-32;
 }
 
-.statsRow {
-  flex-wrap: wrap;
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: $spacing-16;
 }
 
 .statCard {
-  flex: 1;
   padding: $spacing-24;
   background: $background-primary;
   border: 1px solid $border-primary;
   border-radius: $spacing-16;
-  min-width: 150px;
 }
 
 .quickAction {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   padding: $spacing-12 $spacing-20;
   background: $background-secondary;
   border: 1px solid $border-primary;
@@ -27,4 +30,57 @@
   &:hover {
     background: $background-third;
   }
+}
+
+.actionGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-10;
+}
+
+.actionIcon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.quizHistoryWidget {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+  max-width: 480px;
+}
+
+.quizHistoryRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  background: $background-primary;
+  border: 1px solid $border-primary;
+  border-radius: 6px;
+}
+
+.quizPct {
+  min-width: 40px;
+  font-size: 13px;
+  font-weight: $bold;
+  font-family: 'Courier New', monospace;
+}
+
+.pctHigh { color: #89DA7F; }
+.pctMid { color: $brand-primary; }
+.pctLow { color: $text-wrong; }
+
+.quizMeta {
+  flex: 1;
+  font-size: 11px;
+  color: $text-secondary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+}
+
+.quizDate {
+  font-size: 10px;
+  color: $text-secondary;
+  font-family: 'Courier New', monospace;
 }

@@ -1,0 +1,551 @@
+{
+  "unitNumber": 15,
+  "subject": "sungjik",
+  "totalQuestions": 21,
+  "entries": [
+    {
+      "questionIndex": 0,
+      "patternId": "LEGAL_CONCEPT_MATCHING",
+      "name": "근로관계법 개념 매칭",
+      "intent": "근로관계법의 개별 계약법과 단결권 관련 법률을 이해하고, 주어진 설명과 일치하는 법률적 내용을 선택하도록 유도한다.",
+      "stemPattern": "다음은 근로관계법에 대한 내용이다. (가), (나)에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "근로관계법",
+        "개별 계약법",
+        "단결권"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "legal interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 법률 조항을 추가하여 변형",
+        "설명 항목의 수를 조정하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "PROCESS_EXPLANATION",
+      "name": "노사관계 업무 처리 과정 설명",
+      "intent": "노사관계 업무 처리 과정의 일자별 사건을 이해하고, 이에 대한 설명을 정확히 선택하도록 유도한다.",
+      "stemPattern": "다음은 기업의 일자별 노사관계 업무 처리 과정을 나타낸 것이다. 이에 대한 설명으로 옳은 것은?",
+      "indicators": [
+        "노사관계",
+        "노동조합",
+        "쟁의 행위"
+      ],
+      "judgmentAxes": [
+        "process understanding",
+        "event sequence"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_PROCESS_EXPLANATION"
+      ],
+      "variationTips": [
+        "일자별 사건의 순서를 변경하여 변형",
+        "추가적인 사건을 삽입하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "LEGAL_TIME_CALCULATION",
+      "name": "근로기준법 시간 계산",
+      "intent": "근로기준법의 근로시간 조항을 이해하고, 주어진 시간 조건에 맞지 않는 것을 선택하도록 유도한다.",
+      "stemPattern": "다음은 근로기준법 조항 내용의 일부이다. (가)에 해당하는 시간으로 옳지 않은 것은?",
+      "indicators": [
+        "근로기준법",
+        "근로시간",
+        "휴게시간"
+      ],
+      "judgmentAxes": [
+        "time calculation",
+        "legal compliance"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_LEGAL_TIME_CALCULATION"
+      ],
+      "variationTips": [
+        "근로시간 조건을 변경하여 변형",
+        "추가적인 시간 조건을 삽입하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "CASE_ANALYSIS",
+      "name": "근로관계법 사례 분석",
+      "intent": "근로관계법 관련 사례를 분석하고, 주어진 설명 중 옳은 것을 선택하도록 유도한다.",
+      "stemPattern": "다음은 근로관계법 관련 사례이다. 이를 분석한 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "근로관계법",
+        "근로계약",
+        "유급 휴가"
+      ],
+      "judgmentAxes": [
+        "case analysis",
+        "legal interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_ANALYSIS"
+      ],
+      "variationTips": [
+        "사례의 조건을 변경하여 변형",
+        "설명 항목의 수를 조정하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "REPORT_ANALYSIS",
+      "name": "근로 계약 사례 조사 보고서 분석",
+      "intent": "근로 계약 사례 조사 보고서를 분석하고, 주어진 설명 중 옳은 것을 선택하도록 유도한다.",
+      "stemPattern": "다음 근로 계약 사례 조사 보고서에 대한 분석 내용으로 옳은 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "근로계약",
+        "근로시간",
+        "유급 휴가"
+      ],
+      "judgmentAxes": [
+        "report analysis",
+        "legal compliance"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_REPORT_ANALYSIS"
+      ],
+      "variationTips": [
+        "보고서의 조건을 변경하여 변형",
+        "설명 항목의 수를 조정하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "CONTRACT_EXPLANATION",
+      "name": "근로계약 설명",
+      "intent": "근로계약의 조건을 이해하고, 주어진 설명 중 옳은 것을 선택하도록 유도한다.",
+      "stemPattern": "위 사례의 A씨와 B씨의 근로계약에 대한 설명으로 옳은 것은?",
+      "indicators": [
+        "근로계약",
+        "근로기준법",
+        "아르바이트"
+      ],
+      "judgmentAxes": [
+        "contract understanding",
+        "legal interpretation"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CONTRACT_EXPLANATION"
+      ],
+      "variationTips": [
+        "계약 조건을 변경하여 변형",
+        "추가적인 계약 조건을 삽입하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "APPROPRIATE_SELECTION",
+      "name": "적절한 답변 선택",
+      "intent": "주어진 사례에서 적절한 답변을 선택하도록 유도한다.",
+      "stemPattern": "위 사례에서 (가)에 들어갈 답변으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "근로기준법",
+        "유급 휴일",
+        "해고"
+      ],
+      "judgmentAxes": [
+        "appropriate selection",
+        "legal compliance"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_APPROPRIATE_SELECTION"
+      ],
+      "variationTips": [
+        "보기 항목을 변경하여 변형",
+        "추가적인 조건을 삽입하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "CASE_EXPLANATION",
+      "name": "근로기준법 사례 설명",
+      "intent": "근로기준법 관련 사례를 이해하고, 주어진 설명 중 옳은 것을 선택하도록 유도한다.",
+      "stemPattern": "다음은 근로기준법 관련 사례이다. A씨와 B씨에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은? (단, 근로기준법상 미성년자는 고려하지 않는다.)",
+      "indicators": [
+        "근로기준법",
+        "야간 근로",
+        "단시간 근로"
+      ],
+      "judgmentAxes": [
+        "case explanation",
+        "legal interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_EXPLANATION"
+      ],
+      "variationTips": [
+        "사례의 조건을 변경하여 변형",
+        "설명 항목의 수를 조정하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "LEGAL_EXPLANATION",
+      "name": "근로기준법 조항 설명",
+      "intent": "근로기준법 조항을 이해하고, 주어진 설명 중 옳은 것을 선택하도록 유도한다.",
+      "stemPattern": "다음은 근로기준법 조항의 일부이다. 이에 대한 설명으로 옳은 것은? (단, 상시 근로자가 5인 이상인 사업장일 경우에 한한다.)",
+      "indicators": [
+        "근로기준법",
+        "해고",
+        "통상 임금"
+      ],
+      "judgmentAxes": [
+        "legal explanation",
+        "compliance understanding"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_LEGAL_EXPLANATION"
+      ],
+      "variationTips": [
+        "조항의 조건을 변경하여 변형",
+        "추가적인 조항을 삽입하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "LAW_EXPLANATION",
+      "name": "근로관계법 설명",
+      "intent": "근로관계법의 목적을 이해하고, 주어진 설명 중 가장 적절한 것을 선택하도록 유도한다.",
+      "stemPattern": "다음 수업 장면에서 (가)에 들어갈 근로관계법에 대한 설명으로 가장 적절한 것은?",
+      "indicators": [
+        "근로관계법",
+        "직업 교육훈련",
+        "고용 평등"
+      ],
+      "judgmentAxes": [
+        "law explanation",
+        "purpose understanding"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_LAW_EXPLANATION"
+      ],
+      "variationTips": [
+        "법의 목적을 변경하여 변형",
+        "추가적인 목적을 삽입하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 10,
+      "patternId": "ENTREPRENEURSHIP_ELEMENT_SELECTION",
+      "name": "창업 요소 선택",
+      "intent": "창업의 요소를 이해하고, 주어진 설명 중 옳은 것을 선택하도록 유도한다.",
+      "stemPattern": "위 자료에 나타난 창업의 요소로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "창업 요소"
+      ],
+      "judgmentAxes": [
+        "element selection",
+        "entrepreneurship understanding"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_ENTREPRENEURSHIP_ELEMENT_SELECTION"
+      ],
+      "variationTips": [
+        "창업 요소를 변경하여 변형",
+        "설명 항목의 수를 조정하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 0,
+      "patternId": "INDUSTRY_TOUR_REPORT_ANALYSIS",
+      "name": "산업 현장 견학 보고서 분석",
+      "intent": "산업 현장 견학 보고서를 통해 얻을 수 있는 정보를 정확히 파악하고, 보기에서 옳은 내용을 선택하도록 유도한다.",
+      "stemPattern": "다음 [○○산업 현장 견학 보고서]를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "산업 현장 견학",
+        "보고서",
+        "알 수 있는 내용"
+      ],
+      "judgmentAxes": [
+        "정보 해석",
+        "내용 선택"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_REPORT_ANALYSIS"
+      ],
+      "variationTips": [
+        "보고서의 다른 부분을 제시하여 변형",
+        "다른 산업 분야의 보고서로 변형"
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "BUSINESS_TYPE_FEATURE_SELECTION",
+      "name": "업태 특징 선택",
+      "intent": "주어진 사례에서 특정 업태에 해당하는 업종의 특징을 파악하고, 보기에서 적절한 특징을 선택하도록 유도한다.",
+      "stemPattern": "위 사례에서 (가)에 들어갈 업태에 해당하는 업종의 특징으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "업태",
+        "업종의 특징",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "특징 매칭",
+        "개념 이해"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_FEATURE_SELECTION"
+      ],
+      "variationTips": [
+        "다른 업종의 특징을 제시하여 변형",
+        "보기 항목을 변경하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "SOCIAL_INSURANCE_ANALYSIS",
+      "name": "사회 보험 분석",
+      "intent": "사례를 통해 사회 보험의 적용 여부와 관련된 내용을 분석하고, 적절한 내용을 선택하도록 유도한다.",
+      "stemPattern": "다음 사례에서 A, B씨에게 적용될 사회 보험에 대해 분석한 내용으로 적절한 것은?",
+      "indicators": [
+        "사회 보험",
+        "적용",
+        "분석"
+      ],
+      "judgmentAxes": [
+        "보험 적용 판단",
+        "내용 분석"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_INSURANCE_ANALYSIS"
+      ],
+      "variationTips": [
+        "다른 사회 보험 사례를 제시하여 변형",
+        "보험 조건을 변경하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "ACCIDENT_CASE_ANALYSIS",
+      "name": "재해 사례 분석",
+      "intent": "재해 사례를 분석하여 옳지 않은 내용을 파악하고 선택하도록 유도한다.",
+      "stemPattern": "다음 재해 사례에 대한 분석 내용으로 옳지 않은 것은?",
+      "indicators": [
+        "재해 사례",
+        "분석",
+        "옳지 않은 것"
+      ],
+      "judgmentAxes": [
+        "사례 분석",
+        "내용 판단"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_ANALYSIS"
+      ],
+      "variationTips": [
+        "다른 재해 사례를 제시하여 변형",
+        "분석 내용을 변경하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "DEVELOPMENT_TASK_AND_ENTREPRENEURSHIP",
+      "name": "발달 과업과 기업가 정신 분석",
+      "intent": "인터뷰를 통해 발달 과업과 기업가 정신에 대한 설명을 파악하고, 적절한 내용을 선택하도록 유도한다.",
+      "stemPattern": "다음 인터뷰를 통해 알 수 있는 A 씨의 발달 과업과 기업가 정신에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "발달 과업",
+        "기업가 정신",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "개념 이해",
+        "설명 선택"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_INTERVIEW_ANALYSIS"
+      ],
+      "variationTips": [
+        "다른 인터뷰 내용을 제시하여 변형",
+        "발달 과업의 이론을 변경하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "LABOR_RELATION_ANALYSIS",
+      "name": "근로 관계 분석",
+      "intent": "상담 이메일을 통해 근로 관계를 분석하고, 적절한 내용을 선택하도록 유도한다.",
+      "stemPattern": "다음 상담 이메일에 나타난 근로 관계를 분석한 내용으로 적절한 것은? (단, ｢근로기준법｣에 따르며 단체협약은 고려하지 않는다.)",
+      "indicators": [
+        "근로 관계",
+        "분석",
+        "근로기준법"
+      ],
+      "judgmentAxes": [
+        "법적 해석",
+        "관계 분석"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_EMAIL_ANALYSIS"
+      ],
+      "variationTips": [
+        "다른 근로 관계 사례를 제시하여 변형",
+        "법적 조건을 변경하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "JOB_ADVERTISEMENT_ANALYSIS",
+      "name": "채용 공고 분석",
+      "intent": "신입사원 채용 공고를 분석하여 적절한 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음은 [○○(주) 신입사원 채용 공고]의 일부이다. 이에 대한 설명으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "채용 공고",
+        "설명",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "정보 해석",
+        "설명 선택"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_ADVERTISEMENT_ANALYSIS"
+      ],
+      "variationTips": [
+        "다른 채용 공고를 제시하여 변형",
+        "공고 내용을 변경하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "ETHICS_AND_ENTREPRENEURSHIP_ANALYSIS",
+      "name": "직업 윤리와 기업가 정신 분석",
+      "intent": "사례를 통해 직업 윤리와 기업가 정신을 파악하고, 가장 적절한 내용을 선택하도록 유도한다.",
+      "stemPattern": "다음 사례에 나타난 직업 윤리와 기업가 정신으로 가장 적절한 것은?",
+      "indicators": [
+        "직업 윤리",
+        "기업가 정신",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "윤리 판단",
+        "정신 분석"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_ANALYSIS"
+      ],
+      "variationTips": [
+        "다른 윤리 사례를 제시하여 변형",
+        "기업가 정신의 요소를 변경하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "SOCIAL_INSURANCE_ARTICLE_APPLICATION",
+      "name": "사회보험 기사 적용",
+      "intent": "사회보험 관련 기사를 분석하고, 이를 기업 사례에 적용하여 옳은 내용을 선택하도록 유도한다.",
+      "stemPattern": "다음의사회보험관련기사를분석한후, 이를[(주)△△기업사례]에 적용한 내용으로 옳은 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "사회보험",
+        "기사",
+        "적용"
+      ],
+      "judgmentAxes": [
+        "기사 해석",
+        "사례 적용"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_ARTICLE_APPLICATION"
+      ],
+      "variationTips": [
+        "다른 사회보험 기사를 제시하여 변형",
+        "기업 사례를 변경하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "LABOR_DISPUTE_ANALYSIS",
+      "name": "노사 분규 분석",
+      "intent": "노사 분규 사례를 분석하여 옳은 내용을 선택하도록 유도한다.",
+      "stemPattern": "다음 [노사 분규 사례 조사]의 2023년 노사 분규에 대한 분석내용으로 옳은 것은?",
+      "indicators": [
+        "노사 분규",
+        "분석",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "분규 분석",
+        "내용 판단"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_DISPUTE_ANALYSIS"
+      ],
+      "variationTips": [
+        "다른 노사 분규 사례를 제시하여 변형",
+        "분석 내용을 변경하여 변형"
+      ]
+    }
+  ]
+}

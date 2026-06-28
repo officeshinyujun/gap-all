@@ -5,7 +5,7 @@ import { VStack } from '@/components/general/VStack';
 import { HStack } from '@/components/general/HStack';
 import Typo from '@/components/general/Typo';
 import { SPACING } from '@/constants/spacing';
-import { API_BASE_URL } from '@/lib/auth';
+import { apiFetch } from '@/lib/api';
 import { ChevronDown } from 'lucide-react';
 import s from './page.module.scss';
 
@@ -38,19 +38,6 @@ interface StructuredConcept {
   learningObjectives: string[];
   sections: Section[];
   closingSummary: string[];
-}
-
-async function apiFetch<T>(path: string): Promise<T> {
-  const res = await fetch(`${API_BASE_URL}${path}`, {
-    method: 'GET',
-    credentials: 'include',
-    headers: { 'Content-Type': 'application/json' },
-  });
-  if (!res.ok) {
-    const err = await res.json().catch(() => ({ message: res.statusText }));
-    throw new Error(err.message ?? `오류: ${res.status}`);
-  }
-  return res.json();
 }
 
 function SectionBlock({ section }: { section: Section }) {

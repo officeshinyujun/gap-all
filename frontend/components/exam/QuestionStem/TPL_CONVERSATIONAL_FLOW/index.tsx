@@ -23,9 +23,11 @@ export const TPLConversationalFlow: React.FC<TPLConversationalFlowProps> = ({
 }) => {
   const participantMap = useMemo(() => {
     const map = new Map<string, { name: string; role: string }>();
-    data.participants.forEach((p) => map.set(p.id, { name: p.name, role: p.role }));
+    (data.participants || []).forEach((p) => map.set(p.id, { name: p.name, role: p.role }));
     return map;
   }, [data.participants]);
+
+  const messages = data.messages || [];
 
   return (
     <StemBox>
@@ -35,7 +37,7 @@ export const TPLConversationalFlow: React.FC<TPLConversationalFlowProps> = ({
         {/* 대화 내용 */}
         <div className={s.dialogBox}>
           <VStack gap={0} fullWidth>
-            {data.messages.map((msg, index) => {
+            {messages.map((msg, index) => {
               const participant = participantMap.get(msg.p_id);
               return (
                 <ConvLine

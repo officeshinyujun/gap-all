@@ -1,0 +1,556 @@
+{
+  "unitNumber": 3,
+  "subject": "sungjik",
+  "totalQuestions": 22,
+  "entries": [
+    {
+      "questionIndex": 0,
+      "patternId": "DIALOGUE_ELEMENT_SELECTION",
+      "name": "대화 요소 선택",
+      "intent": "대화에서 제시된 직업적 성공 요소를 바탕으로 적절한 항목을 선택하도록 유도",
+      "stemPattern": "다음 대화에서 (가), (나)에 들어갈 직업적 성공에 필요한 요소로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "다음 대화에서",
+        "(가), (나)에 들어갈",
+        "적절한 것만을"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "element selection"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_DIALOGUE_ELEMENT_SELECTION"
+      ],
+      "variationTips": [
+        "대화의 맥락을 바꾸어 변형",
+        "선택지를 추가하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "TEXT_SUPPORT_MEASURE_SELECTION",
+      "name": "글에서 지원 방안 선택",
+      "intent": "글에서 제시된 생애 발달 단계에 맞는 직업적 성공을 위한 지원 방안을 선택하도록 유도",
+      "stemPattern": "다음 글에서 알 수 있는 생애 발달 단계의 직업적 성공을 위한 지원 방안으로 가장 적절한 것은?",
+      "indicators": [
+        "다음 글에서 알 수 있는",
+        "지원 방안으로 가장 적절한 것은"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "support measure selection"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_TEXT_SUPPORT_MEASURE_SELECTION"
+      ],
+      "variationTips": [
+        "발달 단계의 설명을 바꾸어 변형",
+        "지원 방안의 선택지를 추가하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "LECTURE_ELEMENT_SELECTION",
+      "name": "특강 요소 선택",
+      "intent": "특강에서 제시된 성공한 직업인의 특성을 바탕으로 적절한 항목을 선택하도록 유도",
+      "stemPattern": "다음 창업자 특강에서 알 수 있는 성공한 직업인의 특성으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "다음 창업자 특강에서",
+        "적절한 것만을"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "element selection"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_LECTURE_ELEMENT_SELECTION"
+      ],
+      "variationTips": [
+        "특강의 내용을 바꾸어 변형",
+        "선택지를 추가하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "REPORT_PREPARATION_SELECTION",
+      "name": "보고서 준비 선택",
+      "intent": "보고서에서 제시된 생애 발달 단계에 맞는 직업적 성공을 위한 준비를 선택하도록 유도",
+      "stemPattern": "위 수행 평가 보고서에서 알 수 있는 생애 발달 단계 (가)의 직업적 성공을 위한 준비로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "위 수행 평가 보고서에서 알 수 있는",
+        "준비로 적절한 것만을"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "preparation selection"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_REPORT_PREPARATION_SELECTION"
+      ],
+      "variationTips": [
+        "발달 단계의 설명을 바꾸어 변형",
+        "준비 항목의 선택지를 추가하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "REPORT_PERSONAL_TRAIT_EXPLANATION",
+      "name": "보고서 개인 특성 설명",
+      "intent": "보고서에서 제시된 개인 특성에 대한 설명을 선택하도록 유도",
+      "stemPattern": "위 수행 평가 보고서에서 성공적인 직업 생활을 위한 개인 특성 ㉠~㉢에 대한 설명으로 가장 적절한 것은?",
+      "indicators": [
+        "위 수행 평가 보고서에서",
+        "개인 특성 ㉠~㉢에 대한 설명으로"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "trait explanation"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_REPORT_PERSONAL_TRAIT_EXPLANATION"
+      ],
+      "variationTips": [
+        "특성의 설명을 바꾸어 변형",
+        "선택지를 추가하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "ARTICLE_SUCCESS_REQUIREMENT_SELECTION",
+      "name": "기사 성공 요건 선택",
+      "intent": "기사에서 제시된 주인공의 직업적 성공 요건을 선택하도록 유도",
+      "stemPattern": "다음 기사에 나타난 주인공의 직업적 성공 요건으로 가장 적절한 것은?",
+      "indicators": [
+        "다음 기사에 나타난",
+        "성공 요건으로 가장 적절한 것은"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "requirement selection"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_ARTICLE_SUCCESS_REQUIREMENT_SELECTION"
+      ],
+      "variationTips": [
+        "기사의 내용을 바꾸어 변형",
+        "요건의 선택지를 추가하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "JOHARI_WINDOW_TRAIT_SELECTION",
+      "name": "조하리의 창 특성 선택",
+      "intent": "조하리의 창 진단 결과에서 개인 특성에 대한 설명을 선택하도록 유도",
+      "stemPattern": "다음 [조하리의 창(Johari’s Window) 진단 결과지]에 나타난 A 씨의 개인 특성에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "조하리의 창(Johari’s Window) 진단 결과지",
+        "적절한 것만을"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "trait selection"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_JOHARI_WINDOW_TRAIT_SELECTION"
+      ],
+      "variationTips": [
+        "진단 결과의 내용을 바꾸어 변형",
+        "선택지를 추가하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "INTERVIEW_TRAIT_SELECTION",
+      "name": "인터뷰 특성 선택",
+      "intent": "인터뷰에서 제시된 성공한 직업인의 특성을 선택하도록 유도",
+      "stemPattern": "다음 인터뷰에 나타난 성공한 직업인의 특성으로 가장 적절한 것은?",
+      "indicators": [
+        "다음 인터뷰에 나타난",
+        "특성으로 가장 적절한 것은"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "trait selection"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_INTERVIEW_TRAIT_SELECTION"
+      ],
+      "variationTips": [
+        "인터뷰의 내용을 바꾸어 변형",
+        "특성의 선택지를 추가하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "CLASS_SCENE_DECISION_SELECTION",
+      "name": "수업 장면 결정 선택",
+      "intent": "수업 장면에서 제시된 진로 결정 요인을 바탕으로 옳은 답을 선택하도록 유도",
+      "stemPattern": "다음은 직업적 성공을 위한 진로 결정에 대한 수업 장면이다. 교사의 질문에 옳게 답한 학생만을 고른 것은?",
+      "indicators": [
+        "직업적 성공을 위한 진로 결정",
+        "옳게 답한 학생만을"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "decision selection"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CLASS_SCENE_DECISION_SELECTION"
+      ],
+      "variationTips": [
+        "수업 장면의 내용을 바꾸어 변형",
+        "선택지를 추가하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "SELF_UNDERSTANDING_TRAIT_SELECTION",
+      "name": "자기 이해 검사 특성 선택",
+      "intent": "자기 이해 검사 결과에서 개인 특성에 대한 설명을 선택하도록 유도",
+      "stemPattern": "다음 자기 이해 검사 결과표를 통해 알 수 있는 개인 특성 (가)에 대한 설명으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "자기 이해 검사 결과표",
+        "개인 특성 (가)에 대한 설명으로"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "trait selection"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_SELF_UNDERSTANDING_TRAIT_SELECTION"
+      ],
+      "variationTips": [
+        "검사 결과의 내용을 바꾸어 변형",
+        "선택지를 추가하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 10,
+      "patternId": "CASE_WORK_METHOD_SELECTION",
+      "name": "사례 업무 방식 선택",
+      "intent": "사례에서 제시된 A, B씨의 업무 방식을 바탕으로 적절한 설명을 선택하도록 유도",
+      "stemPattern": "다음 사례에서 알 수 있는 A, B씨의 업무 방식에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "다음 사례에서 알 수 있는",
+        "업무 방식에 대한 설명으로"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "work method selection"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_WORK_METHOD_SELECTION"
+      ],
+      "variationTips": [
+        "사례의 내용을 바꾸어 변형",
+        "선택지를 추가하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 0,
+      "patternId": "TERM_COMPLETION",
+      "name": "용어 완성형 문제",
+      "intent": "직업 사회의 변화와 관련된 개념을 이해하고, 주어진 문맥에 맞는 적절한 용어를 선택하도록 유도한다.",
+      "stemPattern": "다음은 직업 사회의 변화를 다룬 내용이다. (가)에 들어갈 용어로 가장 적절한 것은?",
+      "indicators": [
+        "직업 사회",
+        "변화",
+        "(가)에 들어갈 용어"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_TERM_COMPLETION"
+      ],
+      "variationTips": [
+        "문맥을 바꾸어 다른 용어를 찾도록 유도",
+        "다양한 직업 사회 변화 사례를 제시"
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "VALUE_EXPLANATION",
+      "name": "직업 가치관 설명형 문제",
+      "intent": "진로 상담 기록부를 통해 A학생의 직업 가치관을 파악하고, 이를 설명하는 능력을 평가한다.",
+      "stemPattern": "다음 진로 상담 기록부를 통해 알 수 있는 A학생이 추구하는 직업 가치관에 대한 설명으로 가장 적절한 것은?",
+      "indicators": [
+        "진로 상담 기록부",
+        "직업 가치관",
+        "설명"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_VALUE_EXPLANATION"
+      ],
+      "variationTips": [
+        "다양한 직업 가치관 사례를 제시",
+        "상담 기록부의 내용을 변형"
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "SYSTEM_COMPLETION",
+      "name": "제도 완성형 문제",
+      "intent": "평생 학습 제도에 대한 이해를 바탕으로, 주어진 문맥에 맞는 제도를 선택하도록 유도한다.",
+      "stemPattern": "다음 기사에서 (가)에 들어갈 평생 학습 제도로 옳은 것은?",
+      "indicators": [
+        "평생 학습 제도",
+        "(가)에 들어갈"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_SYSTEM_COMPLETION"
+      ],
+      "variationTips": [
+        "다양한 학습 제도 사례를 제시",
+        "문맥을 바꾸어 다른 제도를 찾도록 유도"
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "DEVELOPMENT_TASK_MATCHING",
+      "name": "발달 과업 매칭형 문제",
+      "intent": "생애 발달 단계와 관련된 발달 과업을 이해하고, 인터뷰 내용을 통해 적절한 발달 과업을 선택하도록 유도한다.",
+      "stemPattern": "다음 인터뷰를 통해 알 수 있는 A씨의 현재 생애 발달 단계의 발달 과업으로 가장 적절한 것은? (단, 생애 발달 단계별 발달 과업은 해비거스트(Havighurst, R. J.) 이론에 근거한다.)",
+      "indicators": [
+        "생애 발달 단계",
+        "발달 과업",
+        "해비거스트 이론"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_DEVELOPMENT_TASK_MATCHING"
+      ],
+      "variationTips": [
+        "다양한 발달 단계 사례를 제시",
+        "인터뷰 내용을 변형"
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "ORGANIZATION_EXPLANATION",
+      "name": "단체 설명형 문제",
+      "intent": "노사 관계 사례를 통해 (가), (나)단체에 대한 이해를 바탕으로 적절한 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음 노사 관계 사례집의 (가), (나)단체에 대한 설명으로 옳은 것은?",
+      "indicators": [
+        "노사 관계",
+        "(가), (나)단체",
+        "설명"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_ORGANIZATION_EXPLANATION"
+      ],
+      "variationTips": [
+        "다양한 노사 관계 사례를 제시",
+        "단체의 역할을 변형"
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "RESULT_ANALYSIS",
+      "name": "결과 분석형 문제",
+      "intent": "NCS 직업기초능력평가 결과를 분석하여, 2022년 대비 2023년의 변화를 이해하고 적절한 분석 내용을 선택하도록 유도한다.",
+      "stemPattern": "그래프는 [NCS 직업기초능력평가 결과]를 나타낸 것이다. 2022년 대비 2023년의 결과를 분석한 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "NCS",
+        "직업기초능력",
+        "결과 분석"
+      ],
+      "judgmentAxes": [
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_RESULT_ANALYSIS"
+      ],
+      "variationTips": [
+        "다양한 평가 결과를 제시",
+        "분석 기준을 변형"
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "ACTIVITY_ANALYSIS",
+      "name": "경영 활동 분석형 문제",
+      "intent": "기업 경영 활동을 분석하여, A, B씨의 활동에 대한 적절한 분석 내용을 선택하도록 유도한다.",
+      "stemPattern": "다음 글에 나타난 A, B씨의 기업 경영 활동을 분석한 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "기업 경영 활동",
+        "분석"
+      ],
+      "judgmentAxes": [
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_ACTIVITY_ANALYSIS"
+      ],
+      "variationTips": [
+        "다양한 경영 활동 사례를 제시",
+        "분석 기준을 변형"
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "DECISION_TYPE_EXPLANATION",
+      "name": "의사 결정 유형 설명형 문제",
+      "intent": "의사 결정 유형을 이해하고, A, B씨의 의사 결정 과정을 분석하여 적절한 설명을 선택하도록 유도한다.",
+      "stemPattern": "위 사례를 통해 알 수 있는 A, B씨의 의사 결정 유형에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은? (단, 의사 결정 유형은 하렌(Harren, V. A.)의 합리적, 직관적, 의존적 유형으로만 구분한다.)",
+      "indicators": [
+        "의사 결정 유형",
+        "하렌 이론",
+        "설명"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_DECISION_TYPE_EXPLANATION"
+      ],
+      "variationTips": [
+        "다양한 의사 결정 사례를 제시",
+        "유형 설명을 변형"
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "ENTREPRENEURSHIP_EXPLANATION",
+      "name": "창업 관련 설명형 문제",
+      "intent": "창업과 관련된 내용을 이해하고, A, B씨의 창업 활동에 대한 적절한 설명을 선택하도록 유도한다.",
+      "stemPattern": "위 사례에 나타난 A, B씨의 창업 관련 내용으로 가장 적절한 것은?",
+      "indicators": [
+        "창업",
+        "가맹 계약",
+        "설명"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_ENTREPRENEURSHIP_EXPLANATION"
+      ],
+      "variationTips": [
+        "다양한 창업 사례를 제시",
+        "창업 방식 설명을 변형"
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "OCCUPATIONAL_ANALYSIS",
+      "name": "직업 생활 분석형 문제",
+      "intent": "허생전의 요약 내용을 통해 직업 생활을 분석하고, 적절한 분석 내용을 선택하도록 유도한다.",
+      "stemPattern": "다음은 학생이 허생전을 요약한 내용 중 일부이다. 이에 나타난 직업 생활을 분석한 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은? (단, 제시된 자료 외의 것은 고려하지 않는다.)",
+      "indicators": [
+        "허생전",
+        "직업 생활",
+        "분석"
+      ],
+      "judgmentAxes": [
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_OCCUPATIONAL_ANALYSIS"
+      ],
+      "variationTips": [
+        "다양한 직업 생활 사례를 제시",
+        "분석 기준을 변형"
+      ]
+    },
+    {
+      "questionIndex": 10,
+      "patternId": "DEVELOPMENT_AND_ETHICS_EXPLANATION",
+      "name": "발달 단계 및 직업 윤리 설명형 문제",
+      "intent": "생애 발달 단계와 직업 윤리 원칙을 이해하고, A, B의 사례를 통해 적절한 설명을 선택하도록 유도한다.",
+      "stemPattern": "위 A, B의 생애 발달 단계와 직업 윤리 원칙에 대한 설명으로적절한 것만을 <보기>에서 있는 대로 고른 것은? (단, 생애 발달단계별 발달 과업은 해비거스트(Havighurst, R. J.) 이론에 근거한다.)",
+      "indicators": [
+        "생애 발달 단계",
+        "직업 윤리 원칙",
+        "해비거스트 이론"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_DEVELOPMENT_AND_ETHICS_EXPLANATION"
+      ],
+      "variationTips": [
+        "다양한 발달 단계 및 윤리 사례를 제시",
+        "설명 기준을 변형"
+      ]
+    }
+  ]
+}

@@ -5,7 +5,7 @@ import { VStack } from '@/components/general/VStack';
 import { HStack } from '@/components/general/HStack';
 import Typo from '@/components/general/Typo';
 import { SPACING } from '@/constants/spacing';
-import { API_BASE_URL } from '@/lib/auth';
+import { apiFetch } from '@/lib/api';
 import s from './page.module.scss';
 
 interface IncorrectRecord {
@@ -30,37 +30,30 @@ interface Stats {
   topConcepts: { targetConcept: string; count: number }[];
 }
 
-async function apiFetch<T>(path: string, options?: RequestInit): Promise<T> {
-  const res = await fetch(`${API_BASE_URL}${path}`, {
-    ...options,
-    credentials: 'include',
-    headers: {
-      'Content-Type': 'application/json',
-      ...(options?.headers ?? {}),
-    },
-  });
-  if (!res.ok) throw new Error(`API error: ${res.status}`);
-  return res.json();
-}
-
 export default function IncorrectRecordsPage() {
   const [records, setRecords] = useState<IncorrectRecord[]>([]);
   const [stats, setStats] = useState<Stats | null>(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [subjectFilter, setSubjectFilter] = useState('');
   const [graduatedFilter, setGraduatedFilter] = useState('');
   const [offset, setOffset] = useState(0);
   const limit = 50;
 
+  const clearError = useCallback(() => setError(null), []);
+
   const loadStats = useCallback(async () => {
     try {
       const data = await apiFetch<Stats>('/admin/incorrect-records/stats');
       setStats(data);
-    } catch {}
+    } catch (e) {
+      setError(e instanceof Error ? e.message : '통계 로딩 실패');
+    }
   }, []);
 
   const loadRecords = useCallback(async () => {
     setLoading(true);
+    setError(null);
     try {
       const params = new URLSearchParams();
       if (subjectFilter) params.set('subjectSlug', subjectFilter);
@@ -71,7 +64,8 @@ export default function IncorrectRecordsPage() {
         `/admin/incorrect-records?${params.toString()}`
       );
       setRecords(data);
-    } catch {
+    } catch (e) {
+      setError(e instanceof Error ? e.message : '오답 기록 로딩 실패');
     } finally {
       setLoading(false);
     }
@@ -96,7 +90,10 @@ export default function IncorrectRecordsPage() {
       await apiFetch(`/admin/incorrect-records/${id}`, { method: 'DELETE' });
       setRecords((prev) => prev.filter((r) => r.id !== id));
       loadStats();
-    } catch {}
+      setError(null);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : '삭제 실패');
+    }
   };
 
   const handleBulkDelete = async (type: 'all' | 'subject') => {
@@ -114,32 +111,68 @@ export default function IncorrectRecordsPage() {
       });
       loadRecords();
       loadStats();
-    } catch {}
+      setError(null);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : '일괄 삭제 실패');
+    }
   };
 
   return (
     <VStack gap={SPACING.s24} className={s.page}>
       <Typo.BD size={20}>오답 현황</Typo.BD>
 
+      {error && (
+        <div className={s.errorBanner}>
+          <Typo.SM size={12} color="wrong">{error}</Typo.SM>
+          <button className={s.dismissBtn} onClick={() => setError(null)}>✕</button>
+        </div>
+      )}
+
       {stats && (
-        <HStack gap={SPACING.s12} fullWidth>
-          <VStack gap={SPACING.s4} className={s.statCard}>
-            <Typo.MD size={12}>총 오답</Typo.MD>
-            <Typo.BD size={24}>{stats.total}</Typo.BD>
-          </VStack>
-          <VStack gap={SPACING.s4} className={s.statCard}>
-            <Typo.MD size={12}>졸업 완료</Typo.MD>
-            <Typo.BD size={24}>{stats.graduated}</Typo.BD>
-          </VStack>
-          <VStack gap={SPACING.s4} className={s.statCard}>
-            <Typo.MD size={12}>활성</Typo.MD>
-            <Typo.BD size={24}>{stats.active}</Typo.BD>
-          </VStack>
-          <VStack gap={SPACING.s4} className={s.statCard}>
-            <Typo.MD size={12}>과목별</Typo.MD>
-            <Typo.BD size={24}>{stats.bySubject.length}</Typo.BD>
-          </VStack>
-        </HStack>
+        <VStack gap={SPACING.s12} fullWidth>
+          <HStack gap={SPACING.s12} fullWidth>
+            <VStack gap={SPACING.s4} className={s.statCard}>
+              <Typo.MD size={12}>총 오답</Typo.MD>
+              <Typo.BD size={24}>{stats.total}</Typo.BD>
+            </VStack>
+            <VStack gap={SPACING.s4} className={s.statCard}>
+              <Typo.MD size={12}>졸업 완료</Typo.MD>
+              <Typo.BD size={24}>{stats.graduated}</Typo.BD>
+            </VStack>
+            <VStack gap={SPACING.s4} className={s.statCard}>
+              <Typo.MD size={12}>활성</Typo.MD>
+              <Typo.BD size={24}>{stats.active}</Typo.BD>
+            </VStack>
+            <VStack gap={SPACING.s4} className={s.statCard}>
+              <Typo.MD size={12}>과목별</Typo.MD>
+              <Typo.BD size={24}>{stats.bySubject.length}</Typo.BD>
+            </VStack>
+          </HStack>
+
+          {stats.topConcepts.length > 0 && (
+            <VStack gap={SPACING.s6} className={s.conceptSection}>
+              <Typo.MD size={14} color="primary" style={{ fontWeight: 600 }}>최다 오답 개념 TOP 10</Typo.MD>
+              <div className={s.conceptBarList}>
+                {stats.topConcepts.slice(0, 10).map((c, i) => {
+                  const maxCount = stats.topConcepts[0].count;
+                  const pct = maxCount > 0 ? (c.count / maxCount) * 100 : 0;
+                  return (
+                    <div key={c.targetConcept + i} className={s.conceptBarRow}>
+                      <span className={s.conceptBarLabel}>
+                        <span className={s.conceptBarRank}>{i + 1}</span>
+                        {c.targetConcept}
+                      </span>
+                      <div className={s.conceptBarTrack}>
+                        <div className={s.conceptBarFill} style={{ width: `${pct}%` }} />
+                      </div>
+                      <span className={s.conceptBarCount}>{c.count}회</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </VStack>
+          )}
+        </VStack>
       )}
 
       <HStack gap={SPACING.s8} align="center" className={s.filterBar} fullWidth>

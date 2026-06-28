@@ -5,9 +5,9 @@ import { VStack } from '@shared/ui/VStack';
 import s from './index.module.scss';
 
 export interface StudentBubbleProps {
-  text: string;
-  id: string;
-  colorIndex: number;
+  text?: string | null;
+  id?: string | null;
+  colorIndex?: number;
   className?: string;
 }
 
@@ -25,13 +25,13 @@ export const StudentBubble: React.FC<StudentBubbleProps> = ({
     <HStack gap={10} align="start" justify="end" className={cs(s.wrapper, className)}>
       <div className={s.bubble}>
         <span className={s.tail} />
-        <p className={s.text}>{text}</p>
+        <p className={s.text}>{text ?? ''}</p>
       </div>
       <VStack gap={4} align="center" className={s.avatarCol}>
         <div className={s.avatar}>
-          <span className={s.avatarInitial}>{id.charAt(0)}</span>
+          <span className={s.avatarInitial}>{id?.charAt(0) ?? '?'}</span>
         </div>
-        <span className={s.label}>{id}</span>
+        <span className={s.label}>{id ?? ''}</span>
       </VStack>
     </HStack>
   );

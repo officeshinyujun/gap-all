@@ -7,6 +7,7 @@ import { ChatMessage, ChatSender } from '../entities/chat-message.entity';
 import { AiUsageLog, AiUsageSource } from '../entities/ai-usage-log.entity';
 import { TextbookEmbeddingService } from '../textbook/textbook-embedding.service';
 import { TextbookService } from '../textbook/textbook.service';
+import { getOpenAIApiKey } from '../lib/openai-keys';
 
 const HISTORY_LIMIT = 10;
 
@@ -24,7 +25,7 @@ export class ChatAiService {
     private readonly aiUsageLogRepo: Repository<AiUsageLog>,
   ) {
     this.openai = new OpenAI({
-      apiKey: this.configService.get<string>('OPENAI_API_KEY'),
+      apiKey: getOpenAIApiKey(),
     });
     this.model = this.configService.get<string>('OPENAI_MODEL') ?? 'gpt-4o';
   }

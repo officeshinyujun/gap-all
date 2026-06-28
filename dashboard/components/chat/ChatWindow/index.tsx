@@ -5,12 +5,11 @@ import { VStack } from '@/components/general/VStack';
 import { HStack } from '@/components/general/HStack';
 import Typo from '@/components/general/Typo';
 import { SPACING } from '@/constants/spacing';
+import { apiFetch } from '@/lib/api';
 import { ArrowUp } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import s from './style.module.scss';
-
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3001';
 
 interface Message {
   id: string;
@@ -34,14 +33,14 @@ export function ChatWindow({ sessionId, sessionTitle }: ChatWindowProps) {
   // 세션 메시지 로드
   useEffect(() => {
     setFetching(true);
-    fetch(`${API_URL}/chat/sessions/${sessionId}`, {
-      credentials: 'include',
-    })
-      .then((r) => r.json())
-      .then((data) => {
+    (async () => {
+      try {
+        const data = await apiFetch<{ messages: Message[] }>(`/chat/sessions/${sessionId}`);
         setMessages(data.messages ?? []);
-      })
-      .finally(() => setFetching(false));
+      } catch {} finally {
+        setFetching(false);
+      }
+    })();
   }, [sessionId]);
 
   // 새 메시지 오면 스크롤 하단으로
@@ -66,16 +65,10 @@ export function ChatWindow({ sessionId, sessionTitle }: ChatWindowProps) {
     setMessages((prev) => [...prev, tempUserMsg]);
 
     try {
-      const res = await fetch(`${API_URL}/chat/sessions/${sessionId}/messages`, {
-        method: 'POST',
-        credentials: 'include',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ message: text }),
-      });
-      if (!res.ok) throw new Error('메시지 전송 실패');
-      const data = await res.json();
+      const data = await apiFetch<{ userMessage: Message; aiMessage: Message }>(
+        `/chat/sessions/${sessionId}/messages`,
+        { method: 'POST', body: JSON.stringify({ message: text }) },
+      );
       // 임시 메시지 제거 후 실제 메시지 추가
       setMessages((prev) => [
         ...prev.filter((m) => m.id !== tempUserMsg.id),

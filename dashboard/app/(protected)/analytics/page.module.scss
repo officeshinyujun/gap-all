@@ -1,0 +1,143 @@
+@import '@/styles/variables.scss';
+
+.page {
+  width: 100%;
+  padding: $spacing-32;
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-16;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  padding: $spacing-20;
+  background: $background-primary;
+  border: 1px solid $border-primary;
+  border-radius: $spacing-12;
+}
+
+.statRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 0;
+}
+
+.statLabel {
+  font-size: 12px;
+  color: $text-secondary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+}
+
+.statValue {
+  font-size: 14px;
+  font-weight: $semi-bold;
+  color: $text-primary;
+  font-family: 'Courier New', monospace;
+}
+
+.conceptList {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.conceptRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.conceptRank {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: $bold;
+  color: $background-primary;
+  background: $text-primary;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.conceptName {
+  min-width: 120px;
+  font-size: 12px;
+  color: $text-primary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.conceptTrack {
+  flex: 1;
+  height: 12px;
+  background: $background-third;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.conceptFill {
+  height: 100%;
+  background: $brand-primary;
+  border-radius: 6px;
+  transition: width 0.3s;
+  min-width: 4px;
+}
+
+.conceptCount {
+  min-width: 32px;
+  font-size: 11px;
+  font-weight: $semi-bold;
+  color: $text-secondary;
+  text-align: right;
+  font-family: 'Courier New', monospace;
+}
+
+.historyList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.historyRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: $background-secondary;
+}
+
+.historyPct {
+  min-width: 40px;
+  font-size: 13px;
+  font-weight: $bold;
+  font-family: 'Courier New', monospace;
+}
+
+.pctHigh { color: #89DA7F; }
+.pctMid { color: $brand-primary; }
+.pctLow { color: $text-wrong; }
+
+.historyMeta {
+  flex: 1;
+  font-size: 11px;
+  color: $text-secondary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+}
+
+.historyDate {
+  font-size: 9px;
+  color: $text-secondary;
+  font-family: 'Courier New', monospace;
+}

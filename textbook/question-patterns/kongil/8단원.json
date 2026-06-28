@@ -1,0 +1,497 @@
+{
+  "unitNumber": 8,
+  "subject": "kongil",
+  "totalQuestions": 19,
+  "entries": [
+    {
+      "questionIndex": 1,
+      "patternId": "MCQ-Selection",
+      "name": "Selection of Correct Information from Advertisement",
+      "intent": "Evaluate understanding of information presented in an advertisement.",
+      "stemPattern": "다음은 교육 이벤트 관련 광고 문자 내용이다. 이를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "교육 이벤트",
+        "광고 문자",
+        "알 수 있는 내용",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "Correctness",
+        "Relevance"
+      ],
+      "itemFamilies": [
+        "True/False",
+        "Inference"
+      ],
+      "templates": [
+        "Which of the following statements is correct based on the advertisement?"
+      ],
+      "variationTips": [
+        "Use different types of advertisements or events."
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "MCQ-Selection",
+      "name": "Selection of Correct Explanation from Data",
+      "intent": "Assess ability to interpret data related to TQM and Six Sigma.",
+      "stemPattern": "다음 자료에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은? (단, A는 TQM, B는 6시그마이다.)",
+      "indicators": [
+        "자료",
+        "설명",
+        "옳은 것",
+        "TQM",
+        "6시그마"
+      ],
+      "judgmentAxes": [
+        "Correctness",
+        "Data Interpretation"
+      ],
+      "itemFamilies": [
+        "True/False",
+        "Data Analysis"
+      ],
+      "templates": [
+        "Which explanation is correct based on the given data?"
+      ],
+      "variationTips": [
+        "Include different management methodologies."
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "MCQ-Exception",
+      "name": "Identification of Incorrect Information from Journal",
+      "intent": "Identify incorrect information about a company from a journal excerpt.",
+      "stemPattern": "다음은 월간 기술 저널 내용의 일부이다. 이를 통해 알 수 있는 ◯◯기업에 대한 설명으로 옳지 않은 것은?",
+      "indicators": [
+        "기술 저널",
+        "기업",
+        "설명",
+        "옳지 않은 것"
+      ],
+      "judgmentAxes": [
+        "Incorrectness",
+        "Comprehension"
+      ],
+      "itemFamilies": [
+        "Exception",
+        "Inference"
+      ],
+      "templates": [
+        "Which statement about the company is incorrect based on the journal?"
+      ],
+      "variationTips": [
+        "Use different types of companies or industries."
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "MCQ-Selection",
+      "name": "Selection of Appropriate System Proposal",
+      "intent": "Determine the most appropriate system proposal based on a presentation.",
+      "stemPattern": "위 발표를 통해 A 씨가 ◯◯회사에 구축 필요성을 제안한 시스템으로 가장 적절한 것은?",
+      "indicators": [
+        "발표",
+        "구축 필요성",
+        "제안한 시스템",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "Appropriateness",
+        "Relevance"
+      ],
+      "itemFamilies": [
+        "Proposal",
+        "System Selection"
+      ],
+      "templates": [
+        "Which system proposal is most appropriate based on the presentation?"
+      ],
+      "variationTips": [
+        "Include different types of systems or companies."
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "MCQ-Selection",
+      "name": "Selection of Correct Explanation from Presentation",
+      "intent": "Evaluate understanding of information presented in a presentation.",
+      "stemPattern": "위 발표 내용을 통해 알 수 있는 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "발표 내용",
+        "설명",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "Correctness",
+        "Comprehension"
+      ],
+      "itemFamilies": [
+        "True/False",
+        "Inference"
+      ],
+      "templates": [
+        "Which explanation is correct based on the presentation?"
+      ],
+      "variationTips": [
+        "Use different presentation topics or contexts."
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "MCQ-Selection",
+      "name": "Selection of Appropriate Information from Strategy Document",
+      "intent": "Assess understanding of digital strategy in the textile and fashion industry.",
+      "stemPattern": "다음은 섬유· 패션 산업의 디지털 전략 자료이다. 이를 통해 알 수 있는 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "디지털 전략",
+        "섬유· 패션 산업",
+        "알 수 있는 내용",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "Appropriateness",
+        "Relevance"
+      ],
+      "itemFamilies": [
+        "True/False",
+        "Strategy Analysis"
+      ],
+      "templates": [
+        "Which information is appropriate based on the strategy document?"
+      ],
+      "variationTips": [
+        "Include different industries or strategic focuses."
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "MCQ-Selection",
+      "name": "Selection of Appropriate System and Management Method",
+      "intent": "Identify the most appropriate production information system and quality management method.",
+      "stemPattern": "다음은 기술 저널의 일부이다. ◯◯기업이 적용한 생산 정보 시스템과 품질 관리 방식으로 가장 적절한 것은?",
+      "indicators": [
+        "기술 저널",
+        "생산 정보 시스템",
+        "품질 관리 방식",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "Appropriateness",
+        "Relevance"
+      ],
+      "itemFamilies": [
+        "System Selection",
+        "Management Method"
+      ],
+      "templates": [
+        "Which system and management method are most appropriate for the company?"
+      ],
+      "variationTips": [
+        "Use different systems or management methods."
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "MCQ-Selection",
+      "name": "Identification of Students with Correct Responses",
+      "intent": "Determine which students responded correctly to all tasks.",
+      "stemPattern": "다음 자료에 나타난 과제에 대해 모두 정답으로 응답한 학생은?",
+      "indicators": [
+        "자료",
+        "과제",
+        "정답",
+        "학생"
+      ],
+      "judgmentAxes": [
+        "Correctness",
+        "Comprehension"
+      ],
+      "itemFamilies": [
+        "Student Performance",
+        "Task Analysis"
+      ],
+      "templates": [
+        "Which student answered all tasks correctly based on the data?"
+      ],
+      "variationTips": [
+        "Include different types of tasks or student data."
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "MCQ-Selection",
+      "name": "Selection of Correct Information from Automation Case",
+      "intent": "Evaluate understanding of information presented in a factory automation case.",
+      "stemPattern": "다음은 공장 자동화 사례이다. ◯◯기업에 대한 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "공장 자동화",
+        "사례",
+        "기업",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "Correctness",
+        "Relevance"
+      ],
+      "itemFamilies": [
+        "True/False",
+        "Case Analysis"
+      ],
+      "templates": [
+        "Which statement about the company is correct based on the automation case?"
+      ],
+      "variationTips": [
+        "Use different automation cases or companies."
+      ]
+    },
+    {
+      "questionIndex": 10,
+      "patternId": "MCQ-Selection",
+      "name": "Selection of Correct Unlock Pattern from Game",
+      "intent": "Identify the correct unlock pattern based on a game used in class.",
+      "stemPattern": "다음 자료는 수업 시간에 사용된 게임의 일부이다. 이를 통해 알 수 있는 잠금 해제 패턴으로 옳은 것은?",
+      "indicators": [
+        "수업 시간",
+        "게임",
+        "잠금 해제 패턴",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "Correctness",
+        "Pattern Recognition"
+      ],
+      "itemFamilies": [
+        "Pattern Identification",
+        "Game Analysis"
+      ],
+      "templates": [
+        "Which unlock pattern is correct based on the game?"
+      ],
+      "variationTips": [
+        "Include different types of games or patterns."
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "A1",
+      "name": "Production Innovation Activities",
+      "intent": "Evaluate understanding of production innovation activities.",
+      "stemPattern": "다음은 ○○기업의 생산 혁신 활동 사례이다. 이에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "생산 혁신",
+        "유연 생산 시스템",
+        "3정 5S 캠페인",
+        "무선 식별 시스템"
+      ],
+      "judgmentAxes": [
+        "Correctness of production innovation activities"
+      ],
+      "itemFamilies": [
+        "Activity identification",
+        "Correctness judgment"
+      ],
+      "templates": [
+        "Identify correct production innovation activities from the given options."
+      ],
+      "variationTips": [
+        "Include different types of production innovation activities."
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "A2",
+      "name": "Product Consulting Results",
+      "intent": "Assess understanding of product consulting outcomes.",
+      "stemPattern": "다음은 ○○기업의 제품 컨설팅 결과이다. 이에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "제품 컨설팅",
+        "결과 분석"
+      ],
+      "judgmentAxes": [
+        "Correctness of consulting results"
+      ],
+      "itemFamilies": [
+        "Result interpretation",
+        "Correctness judgment"
+      ],
+      "templates": [
+        "Select the correct explanations of the consulting results from the given options."
+      ],
+      "variationTips": [
+        "Vary the types of consulting results presented."
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "A3",
+      "name": "Industrial Accident Case",
+      "intent": "Evaluate understanding of industrial accident cases.",
+      "stemPattern": "다음 수업 장면에 나타난 산업 재해 사례에 대한 설명으로 옳은 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "산업 재해",
+        "사례 분석"
+      ],
+      "judgmentAxes": [
+        "Correctness of industrial accident analysis"
+      ],
+      "itemFamilies": [
+        "Case analysis",
+        "Correctness judgment"
+      ],
+      "templates": [
+        "Identify the correct explanations of the industrial accident case from the given options."
+      ],
+      "variationTips": [
+        "Include different types of industrial accident scenarios."
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "A4",
+      "name": "Carbon Emission Analysis",
+      "intent": "Assess understanding of carbon emission analysis in manufacturing.",
+      "stemPattern": "다음은 ○○기업의 제품 제조 과정 및 탄소 배출 현황을 나타낸 것이다. 이를 분석한 내용으로 옳은 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "탄소 배출",
+        "제조 과정",
+        "분석"
+      ],
+      "judgmentAxes": [
+        "Correctness of carbon emission analysis"
+      ],
+      "itemFamilies": [
+        "Emission analysis",
+        "Correctness judgment"
+      ],
+      "templates": [
+        "Select the correct analysis of carbon emissions from the given options."
+      ],
+      "variationTips": [
+        "Vary the manufacturing processes and emission data presented."
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "A5",
+      "name": "Company Case Analysis",
+      "intent": "Evaluate understanding of company case studies.",
+      "stemPattern": "다음 사례를 통해 알 수 있는 ○○기업에 대한 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "경영 조직",
+        "환경 경영",
+        "생산 혁신"
+      ],
+      "judgmentAxes": [
+        "Correctness of company case analysis"
+      ],
+      "itemFamilies": [
+        "Case study analysis",
+        "Correctness judgment"
+      ],
+      "templates": [
+        "Identify the correct information about the company from the given case study."
+      ],
+      "variationTips": [
+        "Include different organizational and management scenarios."
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "A6",
+      "name": "Production Information System",
+      "intent": "Assess knowledge of production information systems.",
+      "stemPattern": "다음 기업용 솔루션 홍보 자료에 나타난 생산 정보 시스템으로 가장 적절한 것은?",
+      "indicators": [
+        "생산 정보 시스템",
+        "솔루션 홍보"
+      ],
+      "judgmentAxes": [
+        "Appropriateness of information system selection"
+      ],
+      "itemFamilies": [
+        "System identification",
+        "Appropriateness judgment"
+      ],
+      "templates": [
+        "Select the most appropriate production information system from the given options."
+      ],
+      "variationTips": [
+        "Include different types of production information systems."
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "A7",
+      "name": "Fire Safety Education Analysis",
+      "intent": "Evaluate understanding of fire safety education cases.",
+      "stemPattern": "다음 소방 안전 교육 사례에 대한 분석 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "소방 안전 교육",
+        "사례 분석"
+      ],
+      "judgmentAxes": [
+        "Correctness of safety education analysis"
+      ],
+      "itemFamilies": [
+        "Education case analysis",
+        "Correctness judgment"
+      ],
+      "templates": [
+        "Identify the correct analysis of the fire safety education case from the given options."
+      ],
+      "variationTips": [
+        "Include different fire safety education scenarios."
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "A8",
+      "name": "Idea Competition Poster Analysis",
+      "intent": "Assess understanding of idea competition details.",
+      "stemPattern": "다음 ○○기업 아이디어 경진 대회 포스터를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "아이디어 경진 대회",
+        "포스터 분석"
+      ],
+      "judgmentAxes": [
+        "Correctness of competition details analysis"
+      ],
+      "itemFamilies": [
+        "Poster analysis",
+        "Correctness judgment"
+      ],
+      "templates": [
+        "Identify the correct information about the idea competition from the given poster."
+      ],
+      "variationTips": [
+        "Include different types of competition details."
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "A9",
+      "name": "Environmental Conservation Practices",
+      "intent": "Evaluate knowledge of international environmental agreements.",
+      "stemPattern": "다음 기사에 나타난 환경 보전 실천 사례와 관련된 국제 협약으로 가장 적절한 것은?",
+      "indicators": [
+        "환경 보전",
+        "국제 협약"
+      ],
+      "judgmentAxes": [
+        "Appropriateness of international agreement selection"
+      ],
+      "itemFamilies": [
+        "Agreement identification",
+        "Appropriateness judgment"
+      ],
+      "templates": [
+        "Select the most appropriate international agreement related to the environmental conservation practices from the given options."
+      ],
+      "variationTips": [
+        "Include different environmental practices and related agreements."
+      ]
+    }
+  ]
+}

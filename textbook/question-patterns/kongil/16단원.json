@@ -1,0 +1,480 @@
+{
+  "unitNumber": 16,
+  "subject": "kongil",
+  "totalQuestions": 19,
+  "entries": [
+    {
+      "questionIndex": 1,
+      "patternId": "MCQ-Selection",
+      "name": "Identification of Hazardous Materials",
+      "intent": "To identify the correct types of hazardous materials based on given categories and storage methods.",
+      "stemPattern": "다음은 위험 물질에 따른 종류와 보관 방법을 나타낸 것이다. (가), (나)에 해당하는 위험 물질의 종류로 옳은 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "위험 물질",
+        "종류",
+        "보관 방법"
+      ],
+      "judgmentAxes": [
+        "Correct identification",
+        "Understanding of categories"
+      ],
+      "itemFamilies": [
+        "Hazardous materials",
+        "Storage methods"
+      ],
+      "templates": [
+        "Identify the correct types of hazardous materials from the options."
+      ],
+      "variationTips": [
+        "Vary the types of hazardous materials and storage methods."
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "MCQ-Selection",
+      "name": "Fire Incident Explanation",
+      "intent": "To select the correct explanation for fire incidents described.",
+      "stemPattern": "다음 (가), (나) 화재 발생 사례에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "화재 발생 사례",
+        "설명"
+      ],
+      "judgmentAxes": [
+        "Correct explanation",
+        "Understanding of fire incidents"
+      ],
+      "itemFamilies": [
+        "Fire incidents",
+        "Explanations"
+      ],
+      "templates": [
+        "Select the correct explanation for the fire incidents from the options."
+      ],
+      "variationTips": [
+        "Include different types of fire incidents and explanations."
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "MCQ-Selection",
+      "name": "Worker Compliance Poster",
+      "intent": "To identify correct information from a worker compliance poster.",
+      "stemPattern": "다음 근로자 준수 사항 포스터를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "근로자 준수 사항",
+        "포스터"
+      ],
+      "judgmentAxes": [
+        "Correct information",
+        "Understanding of compliance"
+      ],
+      "itemFamilies": [
+        "Compliance posters",
+        "Worker guidelines"
+      ],
+      "templates": [
+        "Identify the correct information from the worker compliance poster."
+      ],
+      "variationTips": [
+        "Use different compliance guidelines and poster formats."
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "MCQ-Selection",
+      "name": "Electrical Equipment Presentation",
+      "intent": "To determine correct information from a presentation on electrical equipment.",
+      "stemPattern": "다음 전기 설비에 대한 A씨의 발표 내용을 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "전기 설비",
+        "발표 내용"
+      ],
+      "judgmentAxes": [
+        "Correct information",
+        "Understanding of electrical equipment"
+      ],
+      "itemFamilies": [
+        "Electrical equipment",
+        "Presentations"
+      ],
+      "templates": [
+        "Determine the correct information from the presentation on electrical equipment."
+      ],
+      "variationTips": [
+        "Include various types of electrical equipment and presentation styles."
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "MCQ-Selection",
+      "name": "Environmental Pollution Cases",
+      "intent": "To identify correct information from an online board discussing environmental pollution cases.",
+      "stemPattern": "다음은 환경 오염 사례를 조사한 온라인 게시판이다. 이를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "환경 오염 사례",
+        "온라인 게시판"
+      ],
+      "judgmentAxes": [
+        "Correct information",
+        "Understanding of pollution cases"
+      ],
+      "itemFamilies": [
+        "Pollution cases",
+        "Online discussions"
+      ],
+      "templates": [
+        "Identify the correct information from the online board on pollution cases."
+      ],
+      "variationTips": [
+        "Use different pollution cases and online board formats."
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "MCQ-Selection",
+      "name": "Safety Patrol Checklist",
+      "intent": "To determine correct information from a safety patrol checklist.",
+      "stemPattern": "다음 안전 순찰 점검표를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "안전 순찰 점검표"
+      ],
+      "judgmentAxes": [
+        "Correct information",
+        "Understanding of safety checks"
+      ],
+      "itemFamilies": [
+        "Safety checklists",
+        "Patrol procedures"
+      ],
+      "templates": [
+        "Determine the correct information from the safety patrol checklist."
+      ],
+      "variationTips": [
+        "Include different safety checks and checklist formats."
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "MCQ-Selection",
+      "name": "Protective Gear Requirement",
+      "intent": "To select the tasks that require all specified protective gear.",
+      "stemPattern": "다음 (가)~(라)의 보호구를 모두 착용해야 하는 작업만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "보호구",
+        "작업"
+      ],
+      "judgmentAxes": [
+        "Correct task identification",
+        "Understanding of protective gear requirements"
+      ],
+      "itemFamilies": [
+        "Protective gear",
+        "Work tasks"
+      ],
+      "templates": [
+        "Select the tasks that require all specified protective gear from the options."
+      ],
+      "variationTips": [
+        "Vary the types of protective gear and tasks."
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "MCQ-Selection",
+      "name": "Disaster Notification Information",
+      "intent": "To identify appropriate information from a disaster notification document.",
+      "stemPattern": "다음은 재해 발생 알림 자료의 일부이다. 이를 통해 알 수 있는 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "재해 발생 알림 자료"
+      ],
+      "judgmentAxes": [
+        "Appropriate information",
+        "Understanding of disaster notifications"
+      ],
+      "itemFamilies": [
+        "Disaster notifications",
+        "Information documents"
+      ],
+      "templates": [
+        "Identify the appropriate information from the disaster notification document."
+      ],
+      "variationTips": [
+        "Include different types of disasters and notification formats."
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "Open-Ended",
+      "name": "Plastic Processing Hazard Report",
+      "intent": "To answer questions based on a report on hazards and prevention in plastic processing.",
+      "stemPattern": "다음은 플라스틱 가공 제품 제조업 공정별 작업 유해 요인 및 예방 대책 보고서이다. 물음에 답하시오.",
+      "indicators": [
+        "플라스틱 가공",
+        "유해 요인",
+        "예방 대책"
+      ],
+      "judgmentAxes": [
+        "Understanding of hazards",
+        "Knowledge of prevention measures"
+      ],
+      "itemFamilies": [
+        "Hazard reports",
+        "Prevention strategies"
+      ],
+      "templates": [
+        "Answer questions based on the report on plastic processing hazards."
+      ],
+      "variationTips": [
+        "Include different processing stages and hazard types."
+      ]
+    },
+    {
+      "questionIndex": 10,
+      "patternId": "MCQ-Selection",
+      "name": "Report Information Verification",
+      "intent": "To verify correct information from a report on plastic processing hazards.",
+      "stemPattern": "위 보고서를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "보고서",
+        "플라스틱 가공",
+        "유해 요인"
+      ],
+      "judgmentAxes": [
+        "Correct information",
+        "Understanding of report content"
+      ],
+      "itemFamilies": [
+        "Hazard reports",
+        "Information verification"
+      ],
+      "templates": [
+        "Verify the correct information from the report on plastic processing hazards."
+      ],
+      "variationTips": [
+        "Use different report formats and hazard details."
+      ]
+    },
+    {
+      "questionIndex": 0,
+      "patternId": "16-1",
+      "name": "Consulting Report Analysis",
+      "intent": "Evaluate the correctness of statements based on a consulting report.",
+      "stemPattern": "다음은 ○○기업 컨설팅 보고서이다. 이를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "컨설팅 보고서",
+        "알 수 있는 내용",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "Correctness",
+        "Relevance"
+      ],
+      "itemFamilies": [
+        "True/False Evaluation"
+      ],
+      "templates": [
+        "Identify correct statements from a consulting report."
+      ],
+      "variationTips": [
+        "Use different types of reports or industries."
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "16-2",
+      "name": "Dialogue Analysis",
+      "intent": "Determine the correctness of statements based on a dialogue.",
+      "stemPattern": "다음 대화를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "대화",
+        "알 수 있는 내용",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "Correctness",
+        "Inference"
+      ],
+      "itemFamilies": [
+        "True/False Evaluation"
+      ],
+      "templates": [
+        "Identify correct statements from a dialogue."
+      ],
+      "variationTips": [
+        "Include dialogues from different contexts or topics."
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "16-3",
+      "name": "Transport Development Analysis",
+      "intent": "Evaluate the correctness of statements about transport development.",
+      "stemPattern": "다음은 산업의 발전에 따른 운송 수단을 나타낸 것이다. (가)～(다)에 대한 설명으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "산업 발전",
+        "운송 수단",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "Correctness",
+        "Historical Accuracy"
+      ],
+      "itemFamilies": [
+        "True/False Evaluation"
+      ],
+      "templates": [
+        "Identify correct statements about transport development."
+      ],
+      "variationTips": [
+        "Use different historical periods or transport modes."
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "16-4",
+      "name": "Consulting Report Explanation",
+      "intent": "Determine the correctness of explanations based on a consulting report.",
+      "stemPattern": "다음은 기업 컨설팅 보고서의 일부이다. 이에 대한 설명으로 옳은 것은?",
+      "indicators": [
+        "컨설팅 보고서",
+        "설명",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "Correctness",
+        "Explanation"
+      ],
+      "itemFamilies": [
+        "True/False Evaluation"
+      ],
+      "templates": [
+        "Identify correct explanations from a consulting report."
+      ],
+      "variationTips": [
+        "Include different types of consulting reports."
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "16-5",
+      "name": "Company Activity Analysis",
+      "intent": "Evaluate the correctness of statements about company activities.",
+      "stemPattern": "다음 사례에 나타난 ○○기업의 활동에 대한 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "기업 활동",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "Correctness",
+        "Business Activity"
+      ],
+      "itemFamilies": [
+        "True/False Evaluation"
+      ],
+      "templates": [
+        "Identify correct statements about company activities."
+      ],
+      "variationTips": [
+        "Use different company activities or industries."
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "16-6",
+      "name": "Pollution Phenomenon Analysis",
+      "intent": "Determine the correctness of statements about pollution phenomena.",
+      "stemPattern": "다음 대기 오염 발생 현상을 통해 알 수 있는 (가)∼(다)에 대한 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "대기 오염",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "Correctness",
+        "Environmental Science"
+      ],
+      "itemFamilies": [
+        "True/False Evaluation"
+      ],
+      "templates": [
+        "Identify correct statements about pollution phenomena."
+      ],
+      "variationTips": [
+        "Include different types of pollution or environmental contexts."
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "16-7",
+      "name": "Innovation Task Analysis",
+      "intent": "Evaluate the correctness of statements about innovation tasks.",
+      "stemPattern": "다음 혁신 과제를 통해 알 수 있는 ○○기업의 경영 혁신 활동에 대한 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "혁신 과제",
+        "경영 혁신",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "Correctness",
+        "Innovation"
+      ],
+      "itemFamilies": [
+        "True/False Evaluation"
+      ],
+      "templates": [
+        "Identify correct statements about innovation tasks."
+      ],
+      "variationTips": [
+        "Use different innovation tasks or business contexts."
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "16-8",
+      "name": "Industry Explanation Analysis",
+      "intent": "Determine the correctness of explanations about industries.",
+      "stemPattern": "다음 (가)～(다) 공업에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "공업",
+        "설명",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "Correctness",
+        "Industrial Knowledge"
+      ],
+      "itemFamilies": [
+        "True/False Evaluation"
+      ],
+      "templates": [
+        "Identify correct explanations about industries."
+      ],
+      "variationTips": [
+        "Include different industries or industrial processes."
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "16-9",
+      "name": "Management Case Analysis",
+      "intent": "Evaluate the correctness of statements about management cases.",
+      "stemPattern": "다음 ○○기업 경영 사례를 통해 알 수 있는 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "경영 사례",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "Correctness",
+        "Management"
+      ],
+      "itemFamilies": [
+        "True/False Evaluation"
+      ],
+      "templates": [
+        "Identify correct statements about management cases."
+      ],
+      "variationTips": [
+        "Use different management cases or business scenarios."
+      ]
+    }
+  ]
+}

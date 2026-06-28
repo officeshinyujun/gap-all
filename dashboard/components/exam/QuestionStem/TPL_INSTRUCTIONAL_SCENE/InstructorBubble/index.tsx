@@ -5,8 +5,8 @@ import { VStack } from '@/components/general/VStack';
 import s from './index.module.scss';
 
 export interface InstructorBubbleProps {
-  text: string;
-  id: string;
+  text?: string | null;
+  id?: string | null;
   className?: string;
 }
 
@@ -24,13 +24,13 @@ export const InstructorBubble: React.FC<InstructorBubbleProps> = ({
     <HStack gap={10} align="start" className={cs(s.wrapper, className)}>
       <VStack gap={4} align="center" className={s.avatarCol}>
         <div className={s.avatar}>
-          <span className={s.avatarInitial}>{id.charAt(0)}</span>
+          <span className={s.avatarInitial}>{id?.charAt(0) ?? '?'}</span>
         </div>
-        <span className={s.label}>{id}</span>
+        <span className={s.label}>{id ?? ''}</span>
       </VStack>
       <div className={s.bubble}>
         <span className={s.tail} />
-        <p className={s.text}>{text}</p>
+        <p className={s.text}>{text ?? ''}</p>
       </div>
     </HStack>
   );

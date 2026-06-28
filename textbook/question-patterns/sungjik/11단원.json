@@ -1,0 +1,557 @@
+{
+  "unitNumber": 11,
+  "subject": "sungjik",
+  "totalQuestions": 21,
+  "entries": [
+    {
+      "questionIndex": 0,
+      "patternId": "CASE_DIAGNOSTIC_SELECTION",
+      "name": "사례 진단 선택형",
+      "intent": "주어진 수행 평가 보고서의 특정 부분에 대한 설명을 보고 적절한 설명을 선택하도록 유도",
+      "stemPattern": "다음은 평생 학습 제도에 대한 수행 평가 보고서이다. (가), (나)에 해당하는 설명으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "다음은",
+        "(가), (나)에 해당하는 설명",
+        "<보기>에서 고른 것은"
+      ],
+      "judgmentAxes": [
+        "설명 적절성 판단",
+        "개념 매칭"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다양한 제도나 사례를 추가하여 변형",
+        "설명 부분을 다른 문장으로 교체"
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "STAGE_DIAGNOSTIC_SELECTION",
+      "name": "단계 진단 선택형",
+      "intent": "경력 개발 계획의 특정 단계에 대한 설명을 보고 적절한 설명을 선택하도록 유도",
+      "stemPattern": "다음은 경력 개발 계획 단계에 대한 메신저 내용의 일부이다. (가) 단계에 해당하는 내용으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "다음은",
+        "(가) 단계에 해당하는 내용",
+        "<보기>에서 고른 것은"
+      ],
+      "judgmentAxes": [
+        "단계 적절성 판단",
+        "개념 매칭"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_STAGE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "단계 순서를 변경하여 변형",
+        "다른 경력 개발 계획을 추가"
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "SCENARIO_DIAGNOSTIC_SELECTION",
+      "name": "시나리오 진단 선택형",
+      "intent": "수업 장면에서 특정 내용에 대한 설명을 보고 적절한 설명을 선택하도록 유도",
+      "stemPattern": "다음 수업 장면에서 (가)에 해당하는 내용으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "다음 수업 장면에서",
+        "(가)에 해당하는 내용",
+        "<보기>에서 고른 것은"
+      ],
+      "judgmentAxes": [
+        "내용 적절성 판단",
+        "개념 매칭"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_SCENARIO_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "수업 장면을 다른 상황으로 변경",
+        "다양한 설명을 추가하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "EXPLANATION_SELECTION",
+      "name": "설명 선택형",
+      "intent": "Q&A 게시판의 글을 통해 평생 학습 제도에 대한 설명을 보고 가장 적절한 설명을 선택하도록 유도",
+      "stemPattern": "다음 Q&A 게시판의 글을 통해 알 수 있는 평생 학습 제도에 대한 설명으로 가장 적절한 것은?",
+      "indicators": [
+        "다음 Q&A 게시판의 글을 통해",
+        "설명으로 가장 적절한 것은"
+      ],
+      "judgmentAxes": [
+        "설명 적절성 판단",
+        "개념 매칭"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_EXPLANATION_SELECTION"
+      ],
+      "variationTips": [
+        "Q&A 내용을 다른 주제로 변경",
+        "설명 부분을 다양하게 변형"
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "AD_INSERTION_SELECTION",
+      "name": "광고 삽입 선택형",
+      "intent": "광고에서 특정 제도에 대한 설명을 보고 가장 적절한 제도를 선택하도록 유도",
+      "stemPattern": "다음 광고에서 (가)에 들어갈 평생 학습 제도로 가장 적절한 것은?",
+      "indicators": [
+        "다음 광고에서",
+        "(가)에 들어갈",
+        "제도로 가장 적절한 것은"
+      ],
+      "judgmentAxes": [
+        "제도 적절성 판단",
+        "개념 매칭"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_AD_INSERTION_SELECTION"
+      ],
+      "variationTips": [
+        "광고 내용을 다른 제도로 변경",
+        "제도 설명을 다양하게 변형"
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "INTERVIEW_EXPLANATION_SELECTION",
+      "name": "인터뷰 설명 선택형",
+      "intent": "인터뷰 내용을 통해 평생 학습 제도에 대한 설명을 보고 가장 적절한 설명을 선택하도록 유도",
+      "stemPattern": "다음 인터뷰에 나타난 평생 학습 제도에 대한 설명으로 가장 적절한 것은?",
+      "indicators": [
+        "다음 인터뷰에 나타난",
+        "설명으로 가장 적절한 것은"
+      ],
+      "judgmentAxes": [
+        "설명 적절성 판단",
+        "개념 매칭"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_INTERVIEW_EXPLANATION_SELECTION"
+      ],
+      "variationTips": [
+        "인터뷰 내용을 다른 주제로 변경",
+        "설명 부분을 다양하게 변형"
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "DIALOGUE_DIAGNOSTIC_SELECTION",
+      "name": "대화 진단 선택형",
+      "intent": "대화 내용을 통해 평생 학습 제도와 경력 개발 계획 단계에 대한 설명을 보고 가장 적절한 설명을 선택하도록 유도",
+      "stemPattern": "다음 대화 내용을 통해 알 수 있는 선배가 참여한 평생 학습 제도와 경력 개발 계획 단계로 가장 적절한 것은?",
+      "indicators": [
+        "다음 대화 내용을 통해",
+        "가장 적절한 것은"
+      ],
+      "judgmentAxes": [
+        "제도 및 단계 적절성 판단",
+        "개념 매칭"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_DIALOGUE_DIAGNOSTIC_SELECTION"
+      ],
+      "variationTips": [
+        "대화 내용을 다른 상황으로 변경",
+        "다양한 설명을 추가하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "COMMENT_SELECTION",
+      "name": "댓글 선택형",
+      "intent": "온라인 수업 장면에서 경력 개발 단계에 대한 설명을 보고 옳게 작성한 댓글을 선택하도록 유도",
+      "stemPattern": "다음은 경력 개발 단계에 대한 온라인 수업 장면이다. 댓글을 옳게 작성한 학생만을 고른 것은?",
+      "indicators": [
+        "다음은",
+        "댓글을 옳게 작성한 학생만을 고른 것은"
+      ],
+      "judgmentAxes": [
+        "댓글 적절성 판단",
+        "단계 매칭"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_COMMENT_SELECTION"
+      ],
+      "variationTips": [
+        "수업 장면을 다른 주제로 변경",
+        "댓글 내용을 다양하게 변형"
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "BLOG_TOPIC_SELECTION",
+      "name": "블로그 주제 선택형",
+      "intent": "블로그 내용을 통해 주제를 파악하고 가장 적절한 주제를 선택하도록 유도",
+      "stemPattern": "다음 블로그에 나타난 주제로 가장 적절한 것은?",
+      "indicators": [
+        "다음 블로그에 나타난",
+        "주제로 가장 적절한 것은"
+      ],
+      "judgmentAxes": [
+        "주제 적절성 판단",
+        "개념 매칭"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_BLOG_TOPIC_SELECTION"
+      ],
+      "variationTips": [
+        "블로그 내용을 다른 주제로 변경",
+        "주제 설명을 다양하게 변형"
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "LEGAL_EXPLANATION_SELECTION",
+      "name": "법률 설명 선택형",
+      "intent": "법률 내용을 통해 평생 학습 제도에 대한 설명을 보고 옳은 설명을 선택하도록 유도",
+      "stemPattern": "다음 법률에 나타난 평생 학습 제도에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "다음 법률에 나타난",
+        "설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은"
+      ],
+      "judgmentAxes": [
+        "설명 적절성 판단",
+        "법률 해석"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_LEGAL_EXPLANATION_SELECTION"
+      ],
+      "variationTips": [
+        "법률 내용을 다른 조항으로 변경",
+        "설명 부분을 다양하게 변형"
+      ]
+    },
+    {
+      "questionIndex": 10,
+      "patternId": "NEWS_EXPLANATION_SELECTION",
+      "name": "뉴스 설명 선택형",
+      "intent": "뉴스 내용을 통해 미래 산업 사회의 모습에 대한 설명을 보고 가장 적절한 설명을 선택하도록 유도",
+      "stemPattern": "다음 뉴스 내용을 통해 알 수 있는 미래 산업 사회의 모습에 대한 설명으로 가장 적절한 것은?",
+      "indicators": [
+        "다음 뉴스 내용을 통해",
+        "설명으로 가장 적절한 것은"
+      ],
+      "judgmentAxes": [
+        "설명 적절성 판단",
+        "미래 사회 해석"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_NEWS_EXPLANATION_SELECTION"
+      ],
+      "variationTips": [
+        "뉴스 내용을 다른 주제로 변경",
+        "설명 부분을 다양하게 변형"
+      ]
+    },
+    {
+      "questionIndex": 0,
+      "patternId": "MULTIPLE_CHOICE_CORRECT_SELECTION",
+      "name": "공동기업 형태 분류",
+      "intent": "공동기업의 형태를 분류하고 각 형태에 대한 설명을 이해하여 옳은 설명을 선택하도록 유도",
+      "stemPattern": "표는공동기업의형태를분류한것이다. (가)～(다)에대한설명으로 옳은 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "표",
+        "공동기업",
+        "형태",
+        "설명",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "classification"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CONCEPT_CLASSIFICATION"
+      ],
+      "variationTips": [
+        "다른 기업 형태 추가",
+        "설명 문항 수 조정"
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "TECHNOLOGY_APPLICATION_ANALYSIS",
+      "name": "기술 활용 사례 분석",
+      "intent": "사례를 통해 기술의 활용 방식을 이해하고 적절한 설명을 선택하도록 유도",
+      "stemPattern": "다음 사례에서 A씨가 이용한 기술에 대한 설명으로 가장 적절한 것은?",
+      "indicators": [
+        "사례",
+        "기술",
+        "설명",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "application understanding"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_TECHNOLOGY_APPLICATION"
+      ],
+      "variationTips": [
+        "기술 사례 변경",
+        "기술적 세부사항 추가"
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "OCCUPATION_CHOICE_ANALYSIS",
+      "name": "직업 선택 이유 분석",
+      "intent": "학생들의 직업 선택 이유를 분석하여 적절한 설명을 선택하도록 유도",
+      "stemPattern": "다음은 희망 직업 조사서의 일부이다. 이에 나타난 학생 A～C의 직업 선택 이유를 분석한 내용으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "희망 직업",
+        "조사서",
+        "직업 선택 이유",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "reason analysis"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_OCCUPATION_REASON_ANALYSIS"
+      ],
+      "variationTips": [
+        "학생 수 조정",
+        "직업 선택 이유 다양화"
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "ENTREPRENEURSHIP_CASE_ANALYSIS",
+      "name": "창업 사례 분석",
+      "intent": "창업 사례를 통해 창업에 대한 이해를 돕고 적절한 설명을 선택하도록 유도",
+      "stemPattern": "위 사례 1,2에 나타난 창업에 대한 설명으로 가장 적절한 것은?",
+      "indicators": [
+        "사례",
+        "창업",
+        "설명",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "case analysis"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_ENTREPRENEURSHIP_CASE"
+      ],
+      "variationTips": [
+        "창업 사례 변경",
+        "창업 방식 추가"
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "ACCIDENT_CASE_ANALYSIS",
+      "name": "재해 사례 분석",
+      "intent": "재해 사례를 분석하여 사회보험과 관련된 적절한 설명을 선택하도록 유도",
+      "stemPattern": "다음은 재해 사례 보고서의 일부이다. A 씨에 대해 분석한 내용으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "재해 사례",
+        "보고서",
+        "분석",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "case analysis"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_ACCIDENT_CASE_ANALYSIS"
+      ],
+      "variationTips": [
+        "재해 사례 변경",
+        "사회보험 조건 추가"
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "INTERVIEW_ANALYSIS",
+      "name": "직업 생활 인터뷰 분석",
+      "intent": "인터뷰 내용을 통해 직업 생활의 가치관을 분석하고 적절한 설명을 선택하도록 유도",
+      "stemPattern": "다음 인터뷰에 나타난 A 씨의 직업 생활을 분석한 내용으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "인터뷰",
+        "직업 생활",
+        "분석",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "value analysis"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_INTERVIEW_ANALYSIS"
+      ],
+      "variationTips": [
+        "인터뷰 내용 변경",
+        "직업 가치관 추가"
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "EMPLOYMENT_ANALYSIS",
+      "name": "취업 성공 분석",
+      "intent": "취업 성공을 위한 분석 내용을 이해하고 적절한 설명을 선택하도록 유도",
+      "stemPattern": "다음 고교 졸업생 A씨가 작성한 [취업 성공을 위한 나의 분석]에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "취업 성공",
+        "분석",
+        "설명",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "analysis understanding"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_EMPLOYMENT_ANALYSIS"
+      ],
+      "variationTips": [
+        "분석 내용 변경",
+        "취업 성공 요인 추가"
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "COMPANY_ANALYSIS",
+      "name": "기업 분석",
+      "intent": "기업의 사업 내용과 특징을 분석하여 적절한 설명을 선택하도록 유도",
+      "stemPattern": "다음 A, B기업에 대한 분석 내용으로 가장 적절한 것은?",
+      "indicators": [
+        "기업",
+        "분석",
+        "내용",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "business analysis"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_COMPANY_ANALYSIS"
+      ],
+      "variationTips": [
+        "기업 정보 변경",
+        "사업 특징 추가"
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "WORK_DIARY_ANALYSIS",
+      "name": "업무 수첩 분석",
+      "intent": "업무 수첩 내용을 통해 근로기준법과 관련된 적절한 설명을 선택하도록 유도",
+      "stemPattern": "다음은 ○○(주)에 근무하는 A씨의 2024년 업무 수첩 일부이다. 이를 통해 알 수 있는 내용으로 가장 적절한 것은?",
+      "indicators": [
+        "업무 수첩",
+        "근로기준법",
+        "내용",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "document interpretation",
+        "law application"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_WORK_DIARY_ANALYSIS"
+      ],
+      "variationTips": [
+        "업무 수첩 내용 변경",
+        "근로기준법 조항 추가"
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "INDUSTRIAL_ACCIDENT_ANALYSIS",
+      "name": "산업 재해 사례 분석",
+      "intent": "산업 재해 사례를 분석하여 산재보험과 관련된 적절한 설명을 선택하도록 유도",
+      "stemPattern": "다음 A의 산업 재해 사례를 분석한 내용으로 옳은 것은? (단, ｢산업재해보상보험법｣의 고령자와 저소득 근로자는 고려하지 않는다.)",
+      "indicators": [
+        "산업 재해",
+        "사례",
+        "분석",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "insurance application"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_INDUSTRIAL_ACCIDENT_ANALYSIS"
+      ],
+      "variationTips": [
+        "재해 사례 변경",
+        "보험 조건 추가"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,544 @@
+{
+  "unitNumber": 7,
+  "subject": "sungjik",
+  "totalQuestions": 21,
+  "entries": [
+    {
+      "questionIndex": 0,
+      "patternId": "FILL_IN_THE_BLANK_EXPLANATION_SELECTION",
+      "name": "빈칸 설명 선택형",
+      "intent": "수업 장면에서 특정 개념에 대한 설명을 선택하도록 유도",
+      "stemPattern": "다음 수업 장면에서 (가)에 들어갈 내용에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "다음 수업 장면",
+        "(가)에 들어갈 내용",
+        "설명으로 적절한 것"
+      ],
+      "judgmentAxes": [
+        "개념 매칭",
+        "설명 선택"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 개념을 빈칸에 넣어 설명 선택",
+        "보기 항목을 다양하게 구성"
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "FILL_IN_THE_BLANK_RESPONSE_SELECTION",
+      "name": "빈칸 응답 선택형",
+      "intent": "대화 장면에서 적절한 응답을 선택하도록 유도",
+      "stemPattern": "다음 대화 장면에서 (가)에 들어갈 답변으로 가장 적절한 것은?",
+      "indicators": [
+        "다음 대화 장면",
+        "(가)에 들어갈 답변",
+        "가장 적절한 것"
+      ],
+      "judgmentAxes": [
+        "응답 선택",
+        "대화 이해"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_DIALOGUE_RESPONSE_SELECTION"
+      ],
+      "variationTips": [
+        "대화 주제를 변경하여 응답 선택",
+        "보기 항목을 다양하게 구성"
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "CASE_SERVICE_TYPE_EXPLANATION_SELECTION",
+      "name": "사례 서비스 유형 설명 선택형",
+      "intent": "사례를 통해 서비스 유형을 공급 주체에 따라 분류하고 설명을 선택하도록 유도",
+      "stemPattern": "다음 사례에 나타난 ◯◯기업의 서비스 유형에 대한 설명으로 적절한 것만을 <보기>에서 고른 것은? (단, 서비스 유형은 공급 주체에 따라 분류한다.)",
+      "indicators": [
+        "다음 사례",
+        "서비스 유형",
+        "공급 주체"
+      ],
+      "judgmentAxes": [
+        "서비스 유형 분류",
+        "설명 선택"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_SERVICE_TYPE_SELECTION"
+      ],
+      "variationTips": [
+        "수요 주체에 따라 분류하도록 변형",
+        "다른 기업 사례를 사용"
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "CASE_SERVICE_TYPE_EXPLANATION_SELECTION",
+      "name": "사례 서비스 유형 설명 선택형",
+      "intent": "기사 내용을 통해 서비스 유형을 수요 주체에 따라 분류하고 설명을 선택하도록 유도",
+      "stemPattern": "다음 기사에 나타난 △△기업의 서비스 유형에 대한 설명으로 가장 적절한 것은? (단, 서비스 유형은 수요 주체에 따라 분류한다.)",
+      "indicators": [
+        "다음 기사",
+        "서비스 유형",
+        "수요 주체"
+      ],
+      "judgmentAxes": [
+        "서비스 유형 분류",
+        "설명 선택"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_SERVICE_TYPE_SELECTION"
+      ],
+      "variationTips": [
+        "공급 주체에 따라 분류하도록 변형",
+        "다른 기사 내용을 사용"
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "CASE_SERVICE_DESIGN_ELEMENT_SELECTION",
+      "name": "사례 서비스 설계 요소 선택형",
+      "intent": "사례를 통해 서비스 설계 요소를 이해하고 적절한 설명을 선택하도록 유도",
+      "stemPattern": "다음 사례에 나타난 서비스 설계 요소에 대한 내용으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "다음 사례",
+        "서비스 설계 요소",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "설계 요소 이해",
+        "설명 선택"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_SERVICE_DESIGN_SELECTION"
+      ],
+      "variationTips": [
+        "다른 설계 요소를 사례에 포함",
+        "보기 항목을 다양하게 구성"
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "CASE_SERVICE_PRODUCTION_METHOD_SELECTION",
+      "name": "사례 서비스 생산 방식 선택형",
+      "intent": "사례를 통해 서비스 특성에 따른 생산 방식을 이해하고 적절한 설명을 선택하도록 유도",
+      "stemPattern": "다음 사례에 나타난 ◯◯기업의 서비스 특성에 따른 서비스 생산 방식에 대한 내용으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "다음 사례",
+        "서비스 특성",
+        "생산 방식"
+      ],
+      "judgmentAxes": [
+        "생산 방식 이해",
+        "설명 선택"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_SERVICE_PRODUCTION_SELECTION"
+      ],
+      "variationTips": [
+        "다른 서비스 특성을 사례에 포함",
+        "보기 항목을 다양하게 구성"
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "CASE_LOGISTICS_SERVICE_ANALYSIS_SELECTION",
+      "name": "사례 물류 서비스 분석 선택형",
+      "intent": "물류 기업의 정보를 분석하여 적절한 설명을 선택하도록 유도",
+      "stemPattern": "다음 ◯◯물류의 서비스 사례를 분석한 내용으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "다음 ◯◯물류",
+        "서비스 사례",
+        "분석한 내용"
+      ],
+      "judgmentAxes": [
+        "서비스 분석",
+        "설명 선택"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_LOGISTICS_ANALYSIS_SELECTION"
+      ],
+      "variationTips": [
+        "다른 물류 기업 사례를 사용",
+        "보기 항목을 다양하게 구성"
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "FILL_IN_THE_BLANK_EXPLANATION_SELECTION",
+      "name": "빈칸 설명 선택형",
+      "intent": "사례에서 서비스 생산 방식을 이해하고 빈칸에 들어갈 설명을 선택하도록 유도",
+      "stemPattern": "다음 사례에서 (가)에 들어갈 내용에 대한 설명으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "다음 사례",
+        "(가)에 들어갈 내용",
+        "설명으로 적절한 것"
+      ],
+      "judgmentAxes": [
+        "생산 방식 이해",
+        "설명 선택"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 생산 방식을 빈칸에 넣어 설명 선택",
+        "보기 항목을 다양하게 구성"
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "SEQUENCE_DIAGRAM_EXPLANATION_SELECTION",
+      "name": "순서도 설명 선택형",
+      "intent": "서비스 생산 체제 순서도를 이해하고 빈칸에 들어갈 설명을 선택하도록 유도",
+      "stemPattern": "다음은 서비스 생산 체제 순서도를 나타낸 것이다. (가)에 들어갈 내용에 대한 설명으로 가장 적절한 것은?",
+      "indicators": [
+        "서비스 생산 체제",
+        "순서도",
+        "(가)에 들어갈 내용"
+      ],
+      "judgmentAxes": [
+        "순서도 이해",
+        "설명 선택"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_SEQUENCE_DIAGRAM_SELECTION"
+      ],
+      "variationTips": [
+        "다른 순서도를 사용하여 설명 선택",
+        "보기 항목을 다양하게 구성"
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "DOCUMENT_INTERPRETATION_EXPLANATION_SELECTION",
+      "name": "문서 해석 설명 선택형",
+      "intent": "안내문을 해석하여 서비스 프로세스 매트릭스에 따라 적절한 설명을 선택하도록 유도",
+      "stemPattern": "다음 안내문에 나타난 서비스에 대한 내용으로 옳은 것만을 <보기>에서 고른 것은? (단, 슈메너(Roger W. Schmenner)의 서비스 프로세스 매트릭스 분류에 의한다.)",
+      "indicators": [
+        "다음 안내문",
+        "서비스 프로세스 매트릭스",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "문서 해석",
+        "설명 선택"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_DOCUMENT_INTERPRETATION_SELECTION"
+      ],
+      "variationTips": [
+        "다른 문서를 사용하여 해석",
+        "보기 항목을 다양하게 구성"
+      ]
+    },
+    {
+      "questionIndex": 10,
+      "patternId": "CASE_MANAGEMENT_ACTIVITY_SELECTION",
+      "name": "사례 경영 활동 선택형",
+      "intent": "기사 내용을 통해 기업의 경영 활동 종류를 이해하고 적절한 설명을 선택하도록 유도",
+      "stemPattern": "다음 기사에 나타난 △△기업의 경영 활동 종류로 가장 적절한 것은?",
+      "indicators": [
+        "다음 기사",
+        "경영 활동 종류",
+        "가장 적절한 것"
+      ],
+      "judgmentAxes": [
+        "경영 활동 이해",
+        "설명 선택"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_MANAGEMENT_ACTIVITY_SELECTION"
+      ],
+      "variationTips": [
+        "다른 기업의 경영 활동을 사례로 사용",
+        "보기 항목을 다양하게 구성"
+      ]
+    },
+    {
+      "questionIndex": 0,
+      "patternId": "CASE_DIAGNOSTIC_INCORRECT",
+      "name": "사례 진단 및 부적절한 내용 찾기",
+      "intent": "주어진 산업 재해 사례를 통해 잘못된 정보를 식별하도록 유도",
+      "stemPattern": "다음 산업 재해 [사례 1], [사례 2]를 통해 알 수 있는 내용으로 옳지 않은 것은?",
+      "indicators": [
+        "사례",
+        "옳지 않은 것"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "error identification"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "사례 수를 늘리거나 줄이기",
+        "옳지 않은 것 대신 옳은 것 찾기"
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "TEXT_EXPLANATION_CORRECT",
+      "name": "글 설명 및 적절한 제도 찾기",
+      "intent": "주어진 글에서 설명하는 평생 학습 제도를 정확히 식별하도록 유도",
+      "stemPattern": "다음 글에서 설명하고 있는 평생 학습 제도로 옳은 것은?",
+      "indicators": [
+        "설명하고 있는",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "text interpretation"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_TEXT_EXPLANATION"
+      ],
+      "variationTips": [
+        "제도 설명을 구체화하기",
+        "제도 이름을 바꾸기"
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "REPORT_ANALYSIS_CORRECT",
+      "name": "보고서 분석 및 적절한 내용 찾기",
+      "intent": "수행 평가 보고서의 기업 분석 내용을 통해 적절한 정보를 선택하도록 유도",
+      "stemPattern": "다음 수행 평가 보고서의 A～C기업에 대한 분석 내용으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "분석 내용",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "report analysis"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_REPORT_ANALYSIS"
+      ],
+      "variationTips": [
+        "기업 수를 늘리거나 줄이기",
+        "보기 항목을 변경하기"
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "CONSULTATION_CASE_CORRECT",
+      "name": "상담 사례 및 적절한 제안 찾기",
+      "intent": "근로권익센터의 상담 사례를 통해 적절한 사회 보험 및 근로 관계 제안을 식별하도록 유도",
+      "stemPattern": "다음은 근로권익센터의 상담 사례이다. 상담사가 A씨에게 제안할 수 있는 사회 보험 및 근로 관계에 대한 내용으로 가장 적절한 것은?",
+      "indicators": [
+        "상담 사례",
+        "가장 적절한 것"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "consultation analysis"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CONSULTATION_CASE"
+      ],
+      "variationTips": [
+        "상담 사례를 구체화하기",
+        "제안 내용을 변경하기"
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "DECISION_TYPE_EXPLANATION_CORRECT",
+      "name": "의사 결정 유형 설명 및 적절한 설명 찾기",
+      "intent": "대화에 나타난 의사 결정 유형을 하렌의 이론에 근거하여 적절히 설명하도록 유도",
+      "stemPattern": "다음 대화에 나타난 의사 결정 유형 A, B에 대한 설명으로 가장 적절한 것은?",
+      "indicators": [
+        "의사 결정 유형",
+        "가장 적절한 것"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "theory application"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_DECISION_TYPE_EXPLANATION"
+      ],
+      "variationTips": [
+        "의사 결정 유형을 추가하거나 변경하기",
+        "설명 방식을 바꾸기"
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "DIALOGUE_RELATION_CORRECT",
+      "name": "대화 내용 및 적절한 설명 찾기",
+      "intent": "노사 관계 관련 대화에서 적절한 설명을 선택하도록 유도",
+      "stemPattern": "다음 노사 관계 관련 대화에서 (가)∼(다)에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "노사 관계",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "dialogue analysis"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_DIALOGUE_RELATION"
+      ],
+      "variationTips": [
+        "대화 내용을 구체화하기",
+        "보기 항목을 변경하기"
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "REPORT_CONTENT_CORRECT",
+      "name": "보고서 내용 및 적절한 설명 찾기",
+      "intent": "기업 탐방 보고서의 내용을 통해 적절한 정보를 선택하도록 유도",
+      "stemPattern": "다음은 [기업 탐방 보고서]의 일부이다. 이에 대한 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "기업 탐방",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "report content analysis"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_REPORT_CONTENT"
+      ],
+      "variationTips": [
+        "보고서 내용을 구체화하기",
+        "보기 항목을 변경하기"
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "SCENE_CASE_CORRECT",
+      "name": "수업 장면 및 적절한 사례 찾기",
+      "intent": "수업 장면에서 근로자 권익 침해 사례를 식별하도록 유도",
+      "stemPattern": "다음 수업 장면에서 (가)에 해당하는 근로자 권익 침해 사례로 가장 적절한 것은?",
+      "indicators": [
+        "수업 장면",
+        "가장 적절한 것"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "case identification"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_SCENE_CASE"
+      ],
+      "variationTips": [
+        "수업 장면을 구체화하기",
+        "사례 내용을 변경하기"
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "LEARNING_ACTIVITY_CORRECT",
+      "name": "학습 활동 및 적절한 도착지 찾기",
+      "intent": "사례에 나타난 평생 학습 제도를 활용하여 학습 활동의 최종 도착지를 식별하도록 유도",
+      "stemPattern": "다음 [사례]에 나타난 평생 학습 제도를 활용하여 [학습 활동]을 수행할 경우 게임판의 최종 도착지로 옳은 것은?",
+      "indicators": [
+        "사례",
+        "학습 활동",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "activity outcome"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_LEARNING_ACTIVITY"
+      ],
+      "variationTips": [
+        "학습 활동을 구체화하기",
+        "도착지 내용을 변경하기"
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "STARTUP_ANALYSIS_CORRECT",
+      "name": "창업 분석 및 적절한 설명 찾기",
+      "intent": "사례에 나타난 기업의 창업을 분석하여 적절한 설명을 선택하도록 유도",
+      "stemPattern": "위 사례에 나타난 A, B기업의 창업을 분석한 내용으로 적절한것은?",
+      "indicators": [
+        "창업",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "startup analysis"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_STARTUP_ANALYSIS"
+      ],
+      "variationTips": [
+        "창업 사례를 구체화하기",
+        "분석 내용을 변경하기"
+      ]
+    }
+  ]
+}

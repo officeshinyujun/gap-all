@@ -1,0 +1,533 @@
+{
+  "unitNumber": 18,
+  "subject": "sungjik",
+  "totalQuestions": 21,
+  "entries": [
+    {
+      "questionIndex": 0,
+      "patternId": "COMMON_CAUSE_IDENTIFICATION",
+      "name": "안전사고 간접적 원인 식별",
+      "intent": "안전사고 사례에서 공통적으로 나타난 간접적 원인을 식별하고, 동일한 원인을 보기에서 선택하도록 유도",
+      "stemPattern": "다음은 안전사고의 사례이다. (가)와 (나)에 공통적으로 나타난 안전사고의 간접적 원인과 동일한 원인에 해당하는 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "안전사고",
+        "간접적 원인",
+        "공통적으로 나타난"
+      ],
+      "judgmentAxes": [
+        "원인 식별",
+        "사례 분석"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다양한 사례를 추가하여 간접적 원인 식별을 복잡하게 만들기",
+        "보기 항목을 늘려 선택의 난이도 조절"
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "WORKPLACE_SAFETY_ANALYSIS",
+      "name": "작업장 안전사고 분석",
+      "intent": "작업장 안전사고 사례를 분석하여 적절한 내용을 보기에서 선택하도록 유도",
+      "stemPattern": "다음은 작업장 안전사고의 사례를 나타낸 것이다. 이를 분석한 내용으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "작업장 안전사고",
+        "분석한 내용",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "사례 분석",
+        "적절성 판단"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "사례의 복잡성을 높여 분석 난이도 조절",
+        "보기 항목을 다양화하여 선택의 폭을 넓히기"
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "HEINRICH_PRINCIPLE_IDENTIFICATION",
+      "name": "하인리히 재해 예방 원칙 식별",
+      "intent": "하인리히 재해 예방 원칙 중 하나에 해당하는 사례를 제시하고, 해당 원칙을 보기에서 선택하도록 유도",
+      "stemPattern": "다음은 하인리히 재해 예방 4원칙 중 하나에 해당하는 사례이다. 이에 나타난 원칙에 해당하는 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "하인리히 재해 예방 원칙",
+        "해당하는 것"
+      ],
+      "judgmentAxes": [
+        "원칙 식별",
+        "사례 매칭"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다양한 원칙을 포함한 사례를 제시하여 선택의 난이도 조절",
+        "보기 항목을 늘려 혼란을 유도"
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "HEINRICH_PREVENTION_STEP_MATCHING",
+      "name": "하인리히 사고 예방 대책 단계 매칭",
+      "intent": "하인리히 사고 예방 대책 5단계 중 단계별 실행 사례를 제시하고, 적절한 사례를 보기에서 선택하도록 유도",
+      "stemPattern": "다음은 산업 재해 예방 전문가의 교육 장면이다. 하인리히 사고 예방 대책 5단계에서 단계별 실행 사례로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "하인리히 사고 예방 대책",
+        "단계별 실행 사례"
+      ],
+      "judgmentAxes": [
+        "단계 매칭",
+        "사례 적절성 판단"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "단계별 사례를 복잡하게 하여 매칭 난이도 조절",
+        "보기 항목을 다양화하여 선택의 폭을 넓히기"
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "SAFETY_CONSULTING_CONTENT_MATCHING",
+      "name": "안전 컨설팅 보고서 내용 매칭",
+      "intent": "안전 컨설팅 보고서의 일부 내용을 제시하고, 적절한 내용을 보기에서 선택하도록 유도",
+      "stemPattern": "다음은 안전 컨설팅 보고서의 일부이다. (가)~(라)에 들어갈 내용으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "안전 컨설팅 보고서",
+        "적절한 내용"
+      ],
+      "judgmentAxes": [
+        "내용 매칭",
+        "적절성 판단"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "보고서의 복잡성을 높여 매칭 난이도 조절",
+        "보기 항목을 늘려 혼란을 유도"
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "INDUSTRIAL_ACCIDENT_CASE_MATCHING",
+      "name": "산업 재해 사례 매칭",
+      "intent": "산업 재해 관련 인터뷰에서 사례를 제시하고, 적절한 사례를 보기에서 선택하도록 유도",
+      "stemPattern": "다음 전문가의 산업 재해 관련 인터뷰에서 (가)에 들어갈 사례로 옳은 것은?",
+      "indicators": [
+        "산업 재해",
+        "적절한 사례"
+      ],
+      "judgmentAxes": [
+        "사례 매칭",
+        "적절성 판단"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "사례의 복잡성을 높여 매칭 난이도 조절",
+        "보기 항목을 다양화하여 선택의 폭을 넓히기"
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "INDUSTRIAL_ACCIDENT_APPLICATION_ANALYSIS",
+      "name": "산업 재해 신청서 분석",
+      "intent": "산업 재해 신청서를 분석하여 적절한 내용을 보기에서 선택하도록 유도",
+      "stemPattern": "다음 A씨의 산업 재해 신청서를 분석한 내용으로 옳은 것은?",
+      "indicators": [
+        "산업 재해 신청서",
+        "분석한 내용"
+      ],
+      "judgmentAxes": [
+        "신청서 분석",
+        "적절성 판단"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "신청서의 복잡성을 높여 분석 난이도 조절",
+        "보기 항목을 늘려 혼란을 유도"
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "INDUSTRIAL_ACCIDENT_COMPENSATION_EXPLANATION",
+      "name": "산재 보상 서비스 설명",
+      "intent": "산재 보상 컨설팅 보고서의 내용을 바탕으로 보상 서비스에 대한 설명을 보기에서 선택하도록 유도",
+      "stemPattern": "다음 산재 보상 컨설팅 보고서에 나타난 산업 재해 보상 서비스에 대한 설명으로 옳은 것은?",
+      "indicators": [
+        "산재 보상 컨설팅 보고서",
+        "보상 서비스 설명"
+      ],
+      "judgmentAxes": [
+        "설명 매칭",
+        "적절성 판단"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "보고서의 복잡성을 높여 설명 난이도 조절",
+        "보기 항목을 다양화하여 선택의 폭을 넓히기"
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "INDUSTRIAL_ACCIDENT_REPORT_ANALYSIS",
+      "name": "산업 재해 보고서 분석",
+      "intent": "산업 재해 보고서를 분석하여 적절한 내용을 보기에서 선택하도록 유도",
+      "stemPattern": "위 산업 재해 보고서를 분석한 내용으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "산업 재해 보고서",
+        "분석한 내용"
+      ],
+      "judgmentAxes": [
+        "보고서 분석",
+        "적절성 판단"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "보고서의 복잡성을 높여 분석 난이도 조절",
+        "보기 항목을 늘려 혼란을 유도"
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "INDUSTRIAL_ACCIDENT_COMPENSATION_SERVICE_EXPLANATION",
+      "name": "산업 재해 보상 서비스 설명",
+      "intent": "산업 재해 보고서에서 제공받을 보상 서비스에 대한 설명을 보기에서 선택하도록 유도",
+      "stemPattern": "위 산업 재해 보고서에서 A씨가 제공받을 산업 재해 보상 서비스에 대한 설명으로 옳은 것은?",
+      "indicators": [
+        "산업 재해 보상 서비스",
+        "설명"
+      ],
+      "judgmentAxes": [
+        "서비스 설명 매칭",
+        "적절성 판단"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "보고서의 복잡성을 높여 설명 난이도 조절",
+        "보기 항목을 다양화하여 선택의 폭을 넓히기"
+      ]
+    },
+    {
+      "questionIndex": 10,
+      "patternId": "BUSINESS_MANAGEMENT_CASE_EXPLANATION",
+      "name": "기업 경영 사례 설명",
+      "intent": "기업 경영 사례를 제시하고, A, B 기업에 대한 설명을 보기에서 선택하도록 유도",
+      "stemPattern": "다음 기업 경영 사례에 나타난 A, B 기업에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "기업 경영 사례",
+        "설명"
+      ],
+      "judgmentAxes": [
+        "사례 설명 매칭",
+        "적절성 판단"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "사례의 복잡성을 높여 설명 난이도 조절",
+        "보기 항목을 다양화하여 선택의 폭을 넓히기"
+      ]
+    },
+    {
+      "questionIndex": 0,
+      "patternId": "SERVICE_IMPROVEMENT_CAUSE_IDENTIFICATION",
+      "name": "서비스 개선 원인 식별",
+      "intent": "서비스 개선 사례를 통해 서비스의 특징 중 개선 원인을 식별하도록 유도한다.",
+      "stemPattern": "다음은 ○○㈜의 서비스 개선 사례이다. 서비스의 특징 중 개선 원인으로 가장 적절한 것은?",
+      "indicators": [
+        "서비스 개선",
+        "특징",
+        "개선 원인"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "서비스 개선 사례를 다른 산업으로 변경",
+        "개선 원인을 다른 요소로 변경"
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "LABOR_COOPERATION_SYSTEM_EXPLANATION",
+      "name": "노사 협력 제도 설명 선택",
+      "intent": "노사 협력 제도에 대한 사례를 통해 제도의 설명을 올바르게 선택하도록 유도한다.",
+      "stemPattern": "다음 사례를 통해 알 수 있는 노사 협력 제도에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "노사 협력",
+        "설명",
+        "보기"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "노사 협력 제도를 다른 법률로 변경",
+        "보기 항목을 추가하거나 변경"
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "ADVANCED_TECHNOLOGY_IDENTIFICATION",
+      "name": "첨단 기술 식별",
+      "intent": "사례에 나타난 첨단 기술을 식별하도록 유도한다.",
+      "stemPattern": "다음 사례에 나타난 첨단 기술로 가장 적절한 것은?",
+      "indicators": [
+        "첨단 기술",
+        "사례"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "첨단 기술 사례를 다른 기술로 변경",
+        "기술의 응용 분야를 변경"
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "ADVANCED_TECHNOLOGY_IDENTIFICATION",
+      "name": "첨단 기술 식별",
+      "intent": "사례에 나타난 첨단 기술을 식별하도록 유도한다.",
+      "stemPattern": "다음 사례에 나타난 첨단 기술로 가장 적절한 것은?",
+      "indicators": [
+        "첨단 기술",
+        "사물인터넷",
+        "사례"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "첨단 기술 사례를 다른 기술로 변경",
+        "기술의 응용 분야를 변경"
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "PROFESSIONAL_ETHICS_AND_FUTURE_JOB_IDENTIFICATION",
+      "name": "직업 윤리 및 미래 유망 직업 식별",
+      "intent": "사례를 통해 요구되는 직업 윤리와 미래 유망 직업을 식별하도록 유도한다.",
+      "stemPattern": "다음 글에서 요구되는 직업 윤리와 미래 유망 직업으로 가장 적절한 것은?",
+      "indicators": [
+        "직업 윤리",
+        "미래 유망 직업"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "사례를 다른 직업 윤리 상황으로 변경",
+        "미래 유망 직업을 다른 분야로 변경"
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "COMPANY_STRUCTURE_CHANGE_ANALYSIS",
+      "name": "회사 형태 변경 분석",
+      "intent": "회사 형태의 변경 전후를 비교하여 알 수 있는 내용을 분석하도록 유도한다.",
+      "stemPattern": "다음은 ○○기업의 [변경 전]과 [변경 후]의 회사 형태를 설명한 것이다. 이를 통해 알 수 있는 내용으로 옳은 것은?",
+      "indicators": [
+        "회사 형태",
+        "변경 전",
+        "변경 후"
+      ],
+      "judgmentAxes": [
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "회사 형태 변경 사례를 다른 기업으로 변경",
+        "변경 내용을 추가하거나 변경"
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "LIFE_STAGE_AND_CAREER_DECISION_ANALYSIS",
+      "name": "생애 발달 단계 및 진로 의사 결정 분석",
+      "intent": "사례를 통해 생애 발달 단계와 진로 의사 결정 과정을 분석하도록 유도한다.",
+      "stemPattern": "다음 사례를 통해 알 수 있는 A씨의 생애 발달 단계와 진로 의사 결정 과정에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "생애 발달 단계",
+        "진로 의사 결정",
+        "보기"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "생애 발달 단계 사례를 다른 인물로 변경",
+        "진로 의사 결정 과정을 다른 상황으로 변경"
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "INDUSTRIAL_ACCIDENT_ANALYSIS",
+      "name": "산업 재해 사례 분석",
+      "intent": "산업 재해 사례를 통해 관련 인물에 대한 설명을 분석하도록 유도한다.",
+      "stemPattern": "다음 산업 재해 사례에 나타난 A～C씨에 대한 설명으로 가장 적절한 것은?",
+      "indicators": [
+        "산업 재해",
+        "설명"
+      ],
+      "judgmentAxes": [
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "산업 재해 사례를 다른 업종으로 변경",
+        "관련 인물의 역할을 변경"
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "CAREER_DECISION_PROCESS_ACTIVITY_IDENTIFICATION",
+      "name": "진로 의사 결정 과정 활동 식별",
+      "intent": "진로 의사 결정 과정 중 특정 활동 사례를 식별하도록 유도한다.",
+      "stemPattern": "다음 진로 의사 결정 과정 중 (가), (나)에 해당하는 활동 사례로 가장 적절한 것을 <보기>에서 고른 것은?",
+      "indicators": [
+        "진로 의사 결정",
+        "활동 사례",
+        "보기"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "진로 의사 결정 과정을 다른 단계로 변경",
+        "활동 사례를 추가하거나 변경"
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "EMPLOYMENT_CONTRACT_ANALYSIS",
+      "name": "근로계약 사례 분석",
+      "intent": "근로계약 사례를 통해 단시간근로자와 통상근로자의 차이를 분석하도록 유도한다.",
+      "stemPattern": "다음 A, B의 근로계약 사례를 분석한 내용으로 옳은 것은?(단, A는 단시간근로자, B는 통상근로자에 해당한다.)",
+      "indicators": [
+        "근로계약",
+        "단시간근로자",
+        "통상근로자"
+      ],
+      "judgmentAxes": [
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "근로계약 사례를 다른 업종으로 변경",
+        "근로 조건을 추가하거나 변경"
+      ]
+    }
+  ]
+}

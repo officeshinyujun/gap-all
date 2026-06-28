@@ -43,6 +43,9 @@
   font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
   line-height: 1.6;
   word-break: keep-all;
+  white-space: pre-wrap;
+  display: block;
+  width: 100%;
 }
 
 // 지문 영역
@@ -150,6 +153,26 @@
   p {
     margin: 0 0 $spacing-4;
     &:last-child { margin: 0; }
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: $spacing-8 0;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  th, td {
+    border: 1px solid $border-primary;
+    padding: $spacing-8 $spacing-10;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  th {
+    background-color: $background-third;
+    font-weight: $semi-bold;
   }
 }
 

@@ -11,7 +11,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import type { ExamQuestion } from '@/types/examQuestion';
 import s from './page.module.scss';
 
-const API_BASE = 'http://localhost:3001';
+import { apiFetch } from '@/lib/api';
 
 const DIFF_LABEL: Record<string, string> = {
   LOW: '하', MIDDLE: '중', HIGH: '상', INTERGRATE: '통합',
@@ -70,11 +70,7 @@ export default function AdminQuestionDetailPage() {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch(`${API_BASE}/exams/${examId}`, {
-        credentials: 'include',
-      });
-      if (!res.ok) throw new Error(`시험 조회 실패 (${res.status})`);
-      const data = await res.json();
+      const data = await apiFetch<{ items: ApiExamItem[]; title?: string; difficulty?: string }>(`/exams/${examId}`);
       const items: ApiExamItem[] = data.items ?? [];
       setExamTitle(data.title ?? '');
       setExamDifficulty(data.difficulty ?? '');

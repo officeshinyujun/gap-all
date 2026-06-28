@@ -6,7 +6,7 @@ import { VStack } from '@/components/general/VStack';
 import { HStack } from '@/components/general/HStack';
 import Typo from '@/components/general/Typo';
 import { useAuth } from '@/contexts/AuthContext';
-import { API_BASE_URL } from '@/lib/auth';
+import { apiFetch } from '@/lib/api';
 import s from './page.module.scss';
 
 interface AdminUser {
@@ -32,11 +32,7 @@ export default function AdminUsersPage() {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch(`${API_BASE_URL}/admin/users`, {
-        credentials: 'include',
-      });
-      if (!res.ok) throw new Error('유저 목록 조회 실패');
-      setUsers(await res.json());
+      setUsers(await apiFetch<AdminUser[]>('/admin/users'));
     } catch (e) {
       setError(e instanceof Error ? e.message : '알 수 없는 오류');
     } finally {
@@ -55,13 +51,10 @@ export default function AdminUsersPage() {
     const newRole = currentRole === 'admin' ? 'user' : 'admin';
     if (!window.confirm(`역할을 ${newRole}로 변경하시겠습니까?`)) return;
     try {
-      const res = await fetch(`${API_BASE_URL}/admin/users/${userId}/role`, {
+      await apiFetch(`/admin/users/${userId}/role`, {
         method: 'PATCH',
-        credentials: 'include',
-        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ role: newRole }),
       });
-      if (!res.ok) throw new Error('역할 변경 실패');
       setUsers((prev) => prev.map((u) => u.id === userId ? { ...u, role: newRole } : u));
     } catch (e) {
       setError(e instanceof Error ? e.message : '역할 변경 실패');
@@ -72,13 +65,10 @@ export default function AdminUsersPage() {
     const newPw = prompt('새 비밀번호를 입력하세요 (8자 이상):');
     if (!newPw || newPw.length < 8) { alert('8자 이상 입력해주세요.'); return; }
     try {
-      const res = await fetch(`${API_BASE_URL}/admin/users/${userId}/password`, {
+      await apiFetch(`/admin/users/${userId}/password`, {
         method: 'PATCH',
-        credentials: 'include',
-        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ newPassword: newPw }),
       });
-      if (!res.ok) throw new Error('비밀번호 초기화 실패');
       alert('비밀번호가 초기화되었습니다.');
     } catch (e) {
       alert(e instanceof Error ? e.message : '초기화 실패');
@@ -89,11 +79,9 @@ export default function AdminUsersPage() {
     if (!confirm) return;
     setProcessing(true);
     try {
-      const res = await fetch(`${API_BASE_URL}/admin/users/${confirm.user.id}`, {
+      await apiFetch(`/admin/users/${confirm.user.id}`, {
         method: 'DELETE',
-        credentials: 'include',
       });
-      if (!res.ok) throw new Error('삭제 실패');
       setUsers((prev) => prev.filter((u) => u.id !== confirm.user.id));
     } catch (e) {
       setError(e instanceof Error ? e.message : '처리 실패');

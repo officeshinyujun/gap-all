@@ -1,0 +1,744 @@
+{
+  "unitNumber": 19,
+  "subject": "kongil",
+  "totalQuestions": 30,
+  "entries": [
+    {
+      "questionIndex": 1,
+      "patternId": "MCQ-Selection",
+      "name": "직업관 판단",
+      "intent": "Identify the appropriate occupational view of person A from the given options.",
+      "stemPattern": "다음 사례에 나타난 A 씨의 직업관으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "직업관",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "Occupational view"
+      ],
+      "itemFamilies": [
+        "Occupational views"
+      ],
+      "templates": [
+        "Identify the occupational view of a person based on a given scenario."
+      ],
+      "variationTips": [
+        "Vary the scenarios to include different occupational views."
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "MCQ-Selection",
+      "name": "진로 탐색 노트 분석",
+      "intent": "Determine the correct statements about career exploration notes from the given options.",
+      "stemPattern": "다음을 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "진로 탐색",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "Career exploration insights"
+      ],
+      "itemFamilies": [
+        "Career exploration notes"
+      ],
+      "templates": [
+        "Analyze career exploration notes to determine correct insights."
+      ],
+      "variationTips": [
+        "Include different career exploration scenarios."
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "MCQ-Selection",
+      "name": "기업 정보 판단",
+      "intent": "Identify the correct information about a company from the given options based on an internal bulletin.",
+      "stemPattern": "다음 사내 게시판을 통해 알 수 있는 ◯◯기업에 대한 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "기업 정보",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "Company information"
+      ],
+      "itemFamilies": [
+        "Company bulletins"
+      ],
+      "templates": [
+        "Determine correct company information from internal communications."
+      ],
+      "variationTips": [
+        "Use different types of internal communications."
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "MCQ-Selection",
+      "name": "직업의식 판단",
+      "intent": "Identify the appropriate occupational consciousness of person A from the given options.",
+      "stemPattern": "다음 사례에 나타난 A 씨의 직업의식으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "직업의식",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "Occupational consciousness"
+      ],
+      "itemFamilies": [
+        "Occupational consciousness"
+      ],
+      "templates": [
+        "Identify the occupational consciousness of a person based on a given scenario."
+      ],
+      "variationTips": [
+        "Vary the scenarios to include different occupational consciousness."
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "MCQ-Selection",
+      "name": "기업 인증 정보 판단",
+      "intent": "Determine the correct certification information about a company from the given options.",
+      "stemPattern": "위의 홈페이지를 통해 알 수 있는 ◯◯기업이 획득한 인증에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "기업 인증",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "Certification information"
+      ],
+      "itemFamilies": [
+        "Company certifications"
+      ],
+      "templates": [
+        "Identify correct certification details from company information."
+      ],
+      "variationTips": [
+        "Include different types of certifications."
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "MCQ-Selection",
+      "name": "기업 정보 판단",
+      "intent": "Identify incorrect information about a company from the given options.",
+      "stemPattern": "위의 홈페이지를 통해 알 수 있는 ◯◯기업에 대한 내용으로 옳지 않은 것은?",
+      "indicators": [
+        "기업 정보",
+        "옳지 않은 것"
+      ],
+      "judgmentAxes": [
+        "Company information"
+      ],
+      "itemFamilies": [
+        "Company details"
+      ],
+      "templates": [
+        "Determine incorrect company information from provided details."
+      ],
+      "variationTips": [
+        "Use different types of company information."
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "MCQ-Selection",
+      "name": "대화 내용 분석",
+      "intent": "Determine the correct statements about career choices from a conversation between teachers and students.",
+      "stemPattern": "다음 교사와 학생들의 대화 장면을 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "대화 내용",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "Career choice insights"
+      ],
+      "itemFamilies": [
+        "Conversations"
+      ],
+      "templates": [
+        "Analyze conversations to determine correct career choice insights."
+      ],
+      "variationTips": [
+        "Include different conversation scenarios."
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "MCQ-Selection",
+      "name": "사례 분석",
+      "intent": "Determine the correct statements about person A from the given options based on a scenario.",
+      "stemPattern": "다음 사례를 통해 알 수 있는 A 씨에 대한 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "사례 분석",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "Personal insights"
+      ],
+      "itemFamilies": [
+        "Scenarios"
+      ],
+      "templates": [
+        "Analyze scenarios to determine correct personal insights."
+      ],
+      "variationTips": [
+        "Use different personal scenarios."
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "MCQ-Selection",
+      "name": "기업 정보 판단",
+      "intent": "Identify the correct information about a company from the given options based on a job fair scene.",
+      "stemPattern": "다음 채용 박람회 장면을 통해 알 수 있는 ◯◯기업에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "기업 정보",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "Company information"
+      ],
+      "itemFamilies": [
+        "Job fairs"
+      ],
+      "templates": [
+        "Determine correct company information from job fair scenes."
+      ],
+      "variationTips": [
+        "Include different job fair scenarios."
+      ]
+    },
+    {
+      "questionIndex": 19,
+      "patternId": "MCQ-Selection",
+      "name": "입사 지원서 분석",
+      "intent": "Determine the correct statements about Hong○○ from the given options based on a job application.",
+      "stemPattern": "다음은 입사 지원서의 일부이다. 지원서에 나타난 홍○○에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "입사 지원서",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "Applicant insights"
+      ],
+      "itemFamilies": [
+        "Job applications"
+      ],
+      "templates": [
+        "Analyze job applications to determine correct applicant insights."
+      ],
+      "variationTips": [
+        "Include different job application scenarios."
+      ]
+    },
+    {
+      "questionIndex": 19,
+      "patternId": "MCQ-Selection",
+      "name": "직업 교육 공고문 분석",
+      "intent": "Determine the correct statements from the given options based on a vocational education announcement.",
+      "stemPattern": "다음은 직업 교육 공고문의 일부이다. 이를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "직업 교육",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "Educational insights"
+      ],
+      "itemFamilies": [
+        "Educational announcements"
+      ],
+      "templates": [
+        "Analyze educational announcements to determine correct insights."
+      ],
+      "variationTips": [
+        "Include different educational announcement scenarios."
+      ]
+    },
+    {
+      "questionIndex": 19,
+      "patternId": "MCQ-Selection",
+      "name": "컨설팅 보고서 분석",
+      "intent": "Determine the correct statements from the given options based on a consulting report on production and sales.",
+      "stemPattern": "다음 생산 및 판매에 대한 컨설팅 보고서에 대한 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "컨설팅 보고서",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "Consulting insights"
+      ],
+      "itemFamilies": [
+        "Consulting reports"
+      ],
+      "templates": [
+        "Analyze consulting reports to determine correct insights."
+      ],
+      "variationTips": [
+        "Include different consulting report scenarios."
+      ]
+    },
+    {
+      "questionIndex": 19,
+      "patternId": "MCQ-Selection",
+      "name": "생산 관리 사례 분석",
+      "intent": "Determine the correct statements from the given options based on a production management case.",
+      "stemPattern": "위 ○○기업의 생산 관리 사례를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "생산 관리",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "Production management insights"
+      ],
+      "itemFamilies": [
+        "Production management cases"
+      ],
+      "templates": [
+        "Analyze production management cases to determine correct insights."
+      ],
+      "variationTips": [
+        "Include different production management scenarios."
+      ]
+    },
+    {
+      "questionIndex": 10,
+      "patternId": "MCQ-Selection",
+      "name": "직업관 및 직업의식 판단",
+      "intent": "Identify the most appropriate occupational view and consciousness of person A from an interview.",
+      "stemPattern": "다음 인터뷰를 통해 유추할 수 있는 A씨의 직업관과 직업의식으로 가장 적절한 것은?",
+      "indicators": [
+        "직업관",
+        "직업의식",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "Occupational view",
+        "Occupational consciousness"
+      ],
+      "itemFamilies": [
+        "Interviews"
+      ],
+      "templates": [
+        "Determine the occupational view and consciousness from interview insights."
+      ],
+      "variationTips": [
+        "Include different interview scenarios."
+      ]
+    },
+    {
+      "questionIndex": 11,
+      "patternId": "MCQ-Selection",
+      "name": "기업 정보 판단",
+      "intent": "Identify incorrect information about companies A and B from the given options based on a news article.",
+      "stemPattern": "다음 기사를 통해 알 수 있는 A, B기업에 대한 내용으로 옳지 않은 것은?",
+      "indicators": [
+        "기업 정보",
+        "옳지 않은 것"
+      ],
+      "judgmentAxes": [
+        "Company information"
+      ],
+      "itemFamilies": [
+        "News articles"
+      ],
+      "templates": [
+        "Determine incorrect company information from news articles."
+      ],
+      "variationTips": [
+        "Include different news article scenarios."
+      ]
+    },
+    {
+      "questionIndex": 12,
+      "patternId": "A1",
+      "name": "기업 견학 보고서 분석",
+      "intent": "기업에 대한 이해",
+      "stemPattern": "다음 견학 보고서를 통해 파악할 수 있는 ○○기업에 대한 내용으로 가장 적절한 것은?",
+      "indicators": [
+        "견학 보고서",
+        "○○기업"
+      ],
+      "judgmentAxes": [
+        "적절성"
+      ],
+      "itemFamilies": [
+        "기업 정보",
+        "경영 전략"
+      ],
+      "templates": [
+        "기업의 비전",
+        "경영 방침"
+      ],
+      "variationTips": [
+        "기업명 변경",
+        "보고서 내용 수정"
+      ]
+    },
+    {
+      "questionIndex": 13,
+      "patternId": "B2",
+      "name": "오염 물질 처리 활동 사례",
+      "intent": "환경 문제 해결 방안 이해",
+      "stemPattern": "다음은 ○○쓰레기 처리장의 오염 물질 배출 실태를 나타낸 것이다. 발생된 오염 물질을 처리하기 위한 활동 사례로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "오염 물질",
+        "처리 활동"
+      ],
+      "judgmentAxes": [
+        "적절성"
+      ],
+      "itemFamilies": [
+        "환경 보호",
+        "오염 방지"
+      ],
+      "templates": [
+        "처리 기술",
+        "환경 정책"
+      ],
+      "variationTips": [
+        "오염 물질 종류 변경",
+        "처리장 위치 변경"
+      ]
+    },
+    {
+      "questionIndex": 14,
+      "patternId": "C3",
+      "name": "제품 및 제조 과정 설명",
+      "intent": "제품과 제조 과정 이해",
+      "stemPattern": "다음 보고 장면에 나타난 ○○기업의 제품과 제조 과정에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "제품",
+        "제조 과정"
+      ],
+      "judgmentAxes": [
+        "정확성"
+      ],
+      "itemFamilies": [
+        "제품 특징",
+        "제조 기술"
+      ],
+      "templates": [
+        "제품 사양",
+        "제조 공정"
+      ],
+      "variationTips": [
+        "제품 종류 변경",
+        "제조 과정 수정"
+      ]
+    },
+    {
+      "questionIndex": 15,
+      "patternId": "D4",
+      "name": "생산 관리 내용 분석",
+      "intent": "생산 관리 이해",
+      "stemPattern": "다음 보고서를 통해 알 수 있는 ○○공장의 생산 관리에 대한 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "생산 관리",
+        "○○공장"
+      ],
+      "judgmentAxes": [
+        "정확성"
+      ],
+      "itemFamilies": [
+        "생산 계획",
+        "품질 관리"
+      ],
+      "templates": [
+        "생산 일정",
+        "관리 절차"
+      ],
+      "variationTips": [
+        "공장명 변경",
+        "보고서 내용 수정"
+      ]
+    },
+    {
+      "questionIndex": 19,
+      "patternId": "E5",
+      "name": "화재 발생 사례 분석",
+      "intent": "안전 사고 분석",
+      "stemPattern": "다음 화재 발생 사례를 분석한 내용으로 옳지 않은 것은?",
+      "indicators": [
+        "화재 발생",
+        "사례 분석"
+      ],
+      "judgmentAxes": [
+        "부정확성"
+      ],
+      "itemFamilies": [
+        "안전 관리",
+        "사고 원인"
+      ],
+      "templates": [
+        "사고 경위",
+        "예방 대책"
+      ],
+      "variationTips": [
+        "사례 변경",
+        "분석 내용 수정"
+      ]
+    },
+    {
+      "questionIndex": 19,
+      "patternId": "F6",
+      "name": "재고 관리 사례 분석",
+      "intent": "재고 관리 이해",
+      "stemPattern": "위 재고 관리 사례를 통해 알 수 있는 내용으로 옳지 않은 것은?",
+      "indicators": [
+        "재고 관리",
+        "사례 분석"
+      ],
+      "judgmentAxes": [
+        "부정확성"
+      ],
+      "itemFamilies": [
+        "재고 시스템",
+        "관리 절차"
+      ],
+      "templates": [
+        "재고 수준",
+        "관리 방법"
+      ],
+      "variationTips": [
+        "사례 변경",
+        "분석 내용 수정"
+      ]
+    },
+    {
+      "questionIndex": 19,
+      "patternId": "G7",
+      "name": "재고 및 품질 관리 분석",
+      "intent": "재고 및 품질 관리 이해",
+      "stemPattern": "위 보고서의 ‘재고 및 품질 관리’에 대한 분석 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "재고 관리",
+        "품질 관리"
+      ],
+      "judgmentAxes": [
+        "적절성"
+      ],
+      "itemFamilies": [
+        "품질 기준",
+        "관리 절차"
+      ],
+      "templates": [
+        "품질 검사",
+        "재고 평가"
+      ],
+      "variationTips": [
+        "보고서 내용 변경",
+        "관리 항목 수정"
+      ]
+    },
+    {
+      "questionIndex": 19,
+      "patternId": "H8",
+      "name": "보고서 내용 분석",
+      "intent": "보고서 내용 이해",
+      "stemPattern": "위 보고서를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "보고서",
+        "내용 분석"
+      ],
+      "judgmentAxes": [
+        "정확성"
+      ],
+      "itemFamilies": [
+        "보고서 주제",
+        "분석 결과"
+      ],
+      "templates": [
+        "결론 도출",
+        "분석 방법"
+      ],
+      "variationTips": [
+        "보고서 주제 변경",
+        "분석 내용 수정"
+      ]
+    },
+    {
+      "questionIndex": 10,
+      "patternId": "I9",
+      "name": "생산 혁신 활동 분석",
+      "intent": "생산 혁신 이해",
+      "stemPattern": "다음 ○○기업의 생산 혁신 활동을 통해 알 수 있는 내용으로 옳지 않은 것은?",
+      "indicators": [
+        "생산 혁신",
+        "활동 분석"
+      ],
+      "judgmentAxes": [
+        "부정확성"
+      ],
+      "itemFamilies": [
+        "혁신 전략",
+        "생산 기술"
+      ],
+      "templates": [
+        "혁신 사례",
+        "기술 적용"
+      ],
+      "variationTips": [
+        "기업명 변경",
+        "활동 내용 수정"
+      ]
+    },
+    {
+      "questionIndex": 11,
+      "patternId": "J10",
+      "name": "국제 협약 선택",
+      "intent": "국제 협약 이해",
+      "stemPattern": "다음 수업 장면에서 (가)에 들어갈 국제 협약으로 가장 적절한 것은?",
+      "indicators": [
+        "국제 협약",
+        "수업 장면"
+      ],
+      "judgmentAxes": [
+        "적절성"
+      ],
+      "itemFamilies": [
+        "협약 내용",
+        "국제 관계"
+      ],
+      "templates": [
+        "협약 목적",
+        "적용 사례"
+      ],
+      "variationTips": [
+        "협약명 변경",
+        "수업 내용 수정"
+      ]
+    },
+    {
+      "questionIndex": 12,
+      "patternId": "K11",
+      "name": "제품 구매 계획 분석",
+      "intent": "구매 계획 이해",
+      "stemPattern": "다음 ○○산업의 제품 구매 계획을 통해 알 수 있는 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "제품 구매",
+        "계획 분석"
+      ],
+      "judgmentAxes": [
+        "적절성"
+      ],
+      "itemFamilies": [
+        "구매 전략",
+        "시장 분석"
+      ],
+      "templates": [
+        "구매 조건",
+        "시장 조사"
+      ],
+      "variationTips": [
+        "산업명 변경",
+        "계획 내용 수정"
+      ]
+    },
+    {
+      "questionIndex": 13,
+      "patternId": "L12",
+      "name": "한국산업표준 대화 분석",
+      "intent": "산업 표준 이해",
+      "stemPattern": "다음은 한국산업표준(KS)에 관한 대화 장면이다. (가), (나)에 들어갈 학생의 답변으로 옳은 것은?",
+      "indicators": [
+        "한국산업표준",
+        "대화 장면"
+      ],
+      "judgmentAxes": [
+        "정확성"
+      ],
+      "itemFamilies": [
+        "표준 내용",
+        "적용 사례"
+      ],
+      "templates": [
+        "표준 정의",
+        "적용 방법"
+      ],
+      "variationTips": [
+        "표준명 변경",
+        "대화 내용 수정"
+      ]
+    },
+    {
+      "questionIndex": 14,
+      "patternId": "M13",
+      "name": "진로 활동 실천 분석",
+      "intent": "진로 활동 이해",
+      "stemPattern": "다음은 진로 활동 실천 보고서이다. (가)에 해당하는 활동으로 가장 적절한 것은?",
+      "indicators": [
+        "진로 활동",
+        "실천 보고서"
+      ],
+      "judgmentAxes": [
+        "적절성"
+      ],
+      "itemFamilies": [
+        "활동 계획",
+        "실천 사례"
+      ],
+      "templates": [
+        "활동 목표",
+        "실천 방법"
+      ],
+      "variationTips": [
+        "활동명 변경",
+        "보고서 내용 수정"
+      ]
+    },
+    {
+      "questionIndex": 15,
+      "patternId": "N14",
+      "name": "공장 이전 계획 분석",
+      "intent": "공장 이전 이해",
+      "stemPattern": "다음은 ○○모빌리티(주)의 공장 이전 계획을 나타낸 것이다. 이에 대한 내용으로 옳은 것은?",
+      "indicators": [
+        "공장 이전",
+        "계획 분석"
+      ],
+      "judgmentAxes": [
+        "정확성"
+      ],
+      "itemFamilies": [
+        "이전 전략",
+        "위치 선정"
+      ],
+      "templates": [
+        "이전 이유",
+        "위치 장점"
+      ],
+      "variationTips": [
+        "기업명 변경",
+        "계획 내용 수정"
+      ]
+    },
+    {
+      "questionIndex": 19,
+      "patternId": "O15",
+      "name": "제품 생산 계획 분석",
+      "intent": "생산 계획 이해",
+      "stemPattern": "위 제품 생산 계획 자료의 분석 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "생산 계획",
+        "분석 내용"
+      ],
+      "judgmentAxes": [
+        "적절성"
+      ],
+      "itemFamilies": [
+        "생산 전략",
+        "품질 관리"
+      ],
+      "templates": [
+        "생산 목표",
+        "관리 절차"
+      ],
+      "variationTips": [
+        "계획 내용 변경",
+        "분석 항목 수정"
+      ]
+    }
+  ]
+}

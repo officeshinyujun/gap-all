@@ -6,7 +6,7 @@ import { VStack } from '@/components/general/VStack';
 import { HStack } from '@/components/general/HStack';
 import Typo from '@/components/general/Typo';
 import { useAuth } from '@/contexts/AuthContext';
-import { API_BASE_URL } from '@/lib/auth';
+import { apiFetch } from '@/lib/api';
 import s from './page.module.scss';
 
 interface UserProgressSummary {
@@ -52,11 +52,7 @@ export default function AdminProgressPage() {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch(`${API_BASE_URL}/admin/progress`, {
-        credentials: 'include',
-      });
-      if (!res.ok) throw new Error('진척도 목록 조회 실패');
-      setUsers(await res.json());
+      setUsers(await apiFetch<UserProgressSummary[]>('/admin/progress'));
     } catch (e) {
       setError(e instanceof Error ? e.message : '알 수 없는 오류');
     } finally {
@@ -75,11 +71,7 @@ export default function AdminProgressPage() {
     setSelectedUserId(userId);
     setDetailLoading(true);
     try {
-      const res = await fetch(`${API_BASE_URL}/admin/progress/${userId}`, {
-        credentials: 'include',
-      });
-      if (!res.ok) throw new Error('상세 조회 실패');
-      const data = await res.json();
+      const data = await apiFetch<{ progress: ProgressDetail[] }>(`/admin/progress/${userId}`);
       setDetails(data.progress ?? []);
     } catch (e) {
       setError(e instanceof Error ? e.message : '상세 조회 실패');
@@ -92,11 +84,9 @@ export default function AdminProgressPage() {
     if (!confirmReset) return;
     setResetting(true);
     try {
-      const res = await fetch(`${API_BASE_URL}/admin/progress/${confirmReset.id}`, {
+      await apiFetch(`/admin/progress/${confirmReset.id}`, {
         method: 'DELETE',
-        credentials: 'include',
       });
-      if (!res.ok) throw new Error('초기화 실패');
       setUsers((prev) => prev.map((u) =>
         u.id === confirmReset.id ? { ...u, totalProgress: 0, completedProgress: 0 } : u
       ));

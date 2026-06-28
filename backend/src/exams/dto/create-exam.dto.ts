@@ -10,6 +10,8 @@ import {
 } from 'class-validator';
 import { Difficulty } from '../../entities/exam-record.entity';
 
+export type ExamSourceType = 'ai' | 'reference';
+
 export class CreateExamDto {
   @IsUUID()
   subjectId: string;
@@ -38,4 +40,8 @@ export class CreateExamDto {
   @IsString({ each: true })
   @IsOptional()
   targetConcepts?: string[];
+
+  @IsString()
+  @IsOptional()
+  sourceType?: ExamSourceType;
 }

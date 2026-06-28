@@ -1,0 +1,495 @@
+{
+  "unitNumber": 4,
+  "subject": "kongil",
+  "totalQuestions": 19,
+  "entries": [
+    {
+      "questionIndex": 0,
+      "patternId": "TECH_CERTIFICATION_MATCH",
+      "name": "첨단 기술과 인증 매칭",
+      "intent": "첨단 기술과 관련된 인증을 매칭하여 빈칸에 적절한 인증을 선택하도록 유도",
+      "stemPattern": "다음 뉴스에 나타난 첨단 기술 (가)와 빈칸 (나)에 들어갈 인증으로 가장 적절한 것은?",
+      "indicators": [
+        "다음 뉴스에 나타난",
+        "첨단 기술",
+        "빈칸",
+        "인증"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "기술과 인증의 종류를 다양화",
+        "인증의 필요성을 강조하는 문구 추가"
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "PROMOTIONAL_MATERIAL_INTERPRETATION",
+      "name": "홍보물 해석 및 설명 선택",
+      "intent": "홍보물의 내용을 해석하여 옳은 설명을 선택하도록 유도",
+      "stemPattern": "다음은 ◯◯키즈카페의 홍보물이다. ◯◯키즈카페에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "홍보물",
+        "설명으로 옳은 것",
+        "<보기>에서 고른 것"
+      ],
+      "judgmentAxes": [
+        "document interpretation",
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_PROMOTIONAL_MATERIAL_INTERPRETATION"
+      ],
+      "variationTips": [
+        "홍보물의 내용을 구체화",
+        "보기 항목의 난이도 조절"
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "TECH_REPORT_INTERPRETATION",
+      "name": "신기술 보고서 해석 및 설명 선택",
+      "intent": "신기술 보고서의 내용을 해석하여 옳은 설명을 선택하도록 유도",
+      "stemPattern": "다음은 ◯◯자동차 신기술 동향 보고서의 일부이다. 이를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "신기술 동향 보고서",
+        "알 수 있는 내용",
+        "<보기>에서 고른 것"
+      ],
+      "judgmentAxes": [
+        "document interpretation",
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_TECH_REPORT_INTERPRETATION"
+      ],
+      "variationTips": [
+        "보고서의 기술적 내용을 다양화",
+        "보기 항목의 난이도 조절"
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "MATERIAL_SELECTION",
+      "name": "신소재 선택",
+      "intent": "기사 내용을 바탕으로 신소재를 선택하도록 유도",
+      "stemPattern": "다음 기사에 나타난 신소재로 가장 적절한 것은?",
+      "indicators": [
+        "기사에 나타난",
+        "신소재",
+        "가장 적절한 것"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_MATERIAL_SELECTION"
+      ],
+      "variationTips": [
+        "기사의 소재를 다양화",
+        "신소재의 특성을 강조"
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "AI_PROGRAM_INTERPRETATION",
+      "name": "AI 프로그램 활용 내용 해석",
+      "intent": "AI 프로그램을 활용한 질문과 답변 내용을 해석하여 옳은 설명을 선택하도록 유도",
+      "stemPattern": "다음은 생성형 AI 프로그램을 활용한 질문과 답변 내용이다. 이를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "생성형 AI 프로그램",
+        "질문과 답변 내용",
+        "<보기>에서 고른 것"
+      ],
+      "judgmentAxes": [
+        "document interpretation",
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_AI_PROGRAM_INTERPRETATION"
+      ],
+      "variationTips": [
+        "AI 프로그램의 활용 사례를 다양화",
+        "보기 항목의 난이도 조절"
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "INDUSTRY_EXPLANATION_SELECTION",
+      "name": "공업 설명 선택",
+      "intent": "공업에 대한 설명을 해석하여 옳은 설명을 선택하도록 유도",
+      "stemPattern": "위 A 공업에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "공업에 대한 설명",
+        "<보기>에서 고른 것"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_INDUSTRY_EXPLANATION_SELECTION"
+      ],
+      "variationTips": [
+        "공업의 종류를 다양화",
+        "보기 항목의 난이도 조절"
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "TABLE_INTERPRETATION",
+      "name": "표 해석 및 설명 선택",
+      "intent": "표의 내용을 해석하여 옳은 설명을 선택하도록 유도",
+      "stemPattern": "위 표에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "표에 대한 설명",
+        "<보기>에서 고른 것"
+      ],
+      "judgmentAxes": [
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_TABLE_INTERPRETATION"
+      ],
+      "variationTips": [
+        "표의 내용을 다양화",
+        "보기 항목의 난이도 조절"
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "SEARCH_ENGINE_SCENE_INTERPRETATION",
+      "name": "검색 엔진 장면 해석",
+      "intent": "검색 엔진 장면을 해석하여 옳은 설명을 선택하도록 유도",
+      "stemPattern": "다음은 검색 엔진의 한 장면이다. 이를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "검색 엔진의 한 장면",
+        "알 수 있는 내용",
+        "<보기>에서 고른 것"
+      ],
+      "judgmentAxes": [
+        "document interpretation",
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_SEARCH_ENGINE_SCENE_INTERPRETATION"
+      ],
+      "variationTips": [
+        "검색 엔진의 내용을 다양화",
+        "보기 항목의 난이도 조절"
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "ENERGY_CONVERSION_TABLE_INTERPRETATION",
+      "name": "에너지원 변환 방식 표 해석",
+      "intent": "에너지원 변환 방식에 대한 표를 해석하여 옳은 설명을 선택하도록 유도",
+      "stemPattern": "표는 에너지원의 변환 방식에 대해 설명한 것이다. (가)~(라)에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "에너지원의 변환 방식",
+        "설명으로 옳은 것",
+        "<보기>에서 고른 것"
+      ],
+      "judgmentAxes": [
+        "document interpretation",
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_ENERGY_CONVERSION_TABLE_INTERPRETATION"
+      ],
+      "variationTips": [
+        "에너지원의 종류를 다양화",
+        "보기 항목의 난이도 조절"
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "EVALUATION_MATERIAL_INTERPRETATION",
+      "name": "확인 평가 자료 해석",
+      "intent": "확인 평가 자료를 해석하여 옳은 설명을 선택하도록 유도",
+      "stemPattern": "다음 확인 평가 자료에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "확인 평가 자료",
+        "설명으로 옳은 것",
+        "<보기>에서 고른 것"
+      ],
+      "judgmentAxes": [
+        "document interpretation",
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_EVALUATION_MATERIAL_INTERPRETATION"
+      ],
+      "variationTips": [
+        "평가 자료의 내용을 다양화",
+        "보기 항목의 난이도 조절"
+      ]
+    },
+    {
+      "questionIndex": 0,
+      "patternId": "REPORT_ANALYSIS_CORRECT_SELECTION",
+      "name": "보고서 분석을 통한 옳은 내용 선택",
+      "intent": "경영 활동 분석 보고서를 통해 옳은 내용을 선택하도록 유도",
+      "stemPattern": "다음은 경영 활동 분석 보고서이다. 이를 통해 알 수 있는 내용으로 옳은 것은?",
+      "indicators": [
+        "경영 활동",
+        "분석 보고서",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "document interpretation",
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "보고서의 다른 부분을 제시하여 변형",
+        "다른 경영 활동 개념을 포함하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "MEETING_MINUTES_CORRECT_SELECTION",
+      "name": "회의록 분석을 통한 옳은 내용 선택",
+      "intent": "사업 추진 회의록을 통해 옳은 내용을 선택하도록 유도",
+      "stemPattern": "다음 사업 추진 회의록을 통해 알 수 있는 ○○기업에 대한 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "사업 추진",
+        "회의록",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "document interpretation",
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "회의록의 다른 부분을 제시하여 변형",
+        "다른 사업 추진 개념을 포함하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "PRIORITY_EVALUATION_CORRECT_SELECTION",
+      "name": "우선순위 평가표 분석을 통한 옳은 내용 선택",
+      "intent": "생산 혁신 추진 과제 우선순위 평가표를 통해 옳은 내용을 선택하도록 유도",
+      "stemPattern": "다음은 생산 혁신을 위한 추진 과제 우선순위 평가표이다. 이를 분석한 내용으로 옳은 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "생산 혁신",
+        "우선순위 평가표",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "document interpretation",
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "평가표의 다른 부분을 제시하여 변형",
+        "다른 생산 혁신 개념을 포함하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "CASE_ANALYSIS_INCORRECT_SELECTION",
+      "name": "사례 분석을 통한 옳지 않은 내용 선택",
+      "intent": "생산 혁신 사례를 통해 옳지 않은 내용을 선택하도록 유도",
+      "stemPattern": "다음은 ○○기업 생산 혁신 사례이다. 이를 분석한 내용으로 옳지 않은 것은?",
+      "indicators": [
+        "생산 혁신",
+        "사례",
+        "옳지 않은 것"
+      ],
+      "judgmentAxes": [
+        "document interpretation",
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "사례의 다른 부분을 제시하여 변형",
+        "다른 생산 혁신 개념을 포함하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "ENVIRONMENT_REPORT_CORRECT_SELECTION",
+      "name": "환경 실태 조사 보고서 분석을 통한 적절한 내용 선택",
+      "intent": "환경 실태 조사 결과 보고서를 통해 적절한 내용을 선택하도록 유도",
+      "stemPattern": "다음은 ○○하천 인근의 환경 실태 조사 결과 보고서의 일부이다. A～C지점에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "환경 실태",
+        "조사 결과 보고서",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "document interpretation",
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "보고서의 다른 부분을 제시하여 변형",
+        "다른 환경 실태 개념을 포함하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "FIELD_TRIP_REPORT_CORRECT_SELECTION",
+      "name": "현장 체험 학습 보고서 분석을 통한 적절한 내용 선택",
+      "intent": "현장 체험 학습 보고서를 통해 적절한 내용을 선택하도록 유도",
+      "stemPattern": "다음 현장 체험 학습 보고서를 통해 알 수 있는 ○○기업의 생산 관리 활동으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "현장 체험 학습",
+        "보고서",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "document interpretation",
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "보고서의 다른 부분을 제시하여 변형",
+        "다른 생산 관리 개념을 포함하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "GROWTH_BUSINESS_REPORT_CORRECT_SELECTION",
+      "name": "신성장 사업 보고서 분석을 통한 옳은 내용 선택",
+      "intent": "신성장 사업 보고서를 통해 옳은 내용을 선택하도록 유도",
+      "stemPattern": "다음 ○○기업의 신성장 사업 보고서에 대한 분석 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "신성장 사업",
+        "보고서",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "document interpretation",
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "보고서의 다른 부분을 제시하여 변형",
+        "다른 신성장 사업 개념을 포함하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "PRODUCT_ANALYSIS_CORRECT_SELECTION",
+      "name": "제품 분석을 통한 옳은 내용 선택",
+      "intent": "제품 분석을 통해 옳은 내용을 선택하도록 유도",
+      "stemPattern": "다음 ○○ 기업 제품 분석을 통해 알 수 있는 내용으로 옳은 것은?",
+      "indicators": [
+        "제품 분석",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "document interpretation",
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "분석의 다른 부분을 제시하여 변형",
+        "다른 제품 분석 개념을 포함하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "PRODUCT_LAUNCH_PLAN_CORRECT_SELECTION",
+      "name": "제품 출시 계획서 분석을 통한 적절한 내용 선택",
+      "intent": "제품 출시 계획서를 통해 적절한 내용을 선택하도록 유도",
+      "stemPattern": "다음 ○○기업 제품 출시 계획서에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "제품 출시 계획서",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "document interpretation",
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "계획서의 다른 부분을 제시하여 변형",
+        "다른 제품 출시 개념을 포함하여 변형"
+      ]
+    }
+  ]
+}

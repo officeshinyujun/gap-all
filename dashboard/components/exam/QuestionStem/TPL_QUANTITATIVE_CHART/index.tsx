@@ -16,6 +16,9 @@ export const TPLQuantitativeChart: React.FC<TPLQuantitativeChartProps> = ({
   data,
   label,
 }) => {
+  const datasets = data.datasets ?? [];
+  const axes = data.axes ?? [];
+  if (datasets.length === 0 || axes.length === 0) return null;
   return (
     <StemBox>
       <VStack gap={16} fullWidth>
@@ -25,16 +28,16 @@ export const TPLQuantitativeChart: React.FC<TPLQuantitativeChartProps> = ({
             <thead>
               <tr>
                 <th className={s.th}>구분</th>
-                {data.datasets.map((ds) => (
+                {datasets.map((ds) => (
                   <th key={ds.label} className={s.th}>{ds.label}</th>
                 ))}
               </tr>
             </thead>
             <tbody>
-              {data.axes.map((axis, axisIdx) => (
+              {axes.map((axis, axisIdx) => (
                 <tr key={axis.key}>
                   <td className={s.tdLabel}>{axis.label}</td>
-                  {data.datasets.map((ds) => (
+                  {datasets.map((ds) => (
                     <td key={ds.label} className={s.td}>
                       {ds.values[axisIdx] ?? '-'}
                     </td>

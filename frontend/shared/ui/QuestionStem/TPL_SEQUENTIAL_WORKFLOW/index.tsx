@@ -29,18 +29,19 @@ export const TPLSequentialWorkflow: React.FC<TPLSequentialWorkflowProps> = ({
   const renderSteps = () => {
     const elements: React.ReactNode[] = [];
 
-    data.steps.forEach((step, index) => {
+    const steps = data.steps || [];
+    steps.forEach((step, index) => {
       // 스텝 렌더링
       elements.push(
         step.is_missing ? (
-          <WorkflowMissingStep key={`step-${step.idx}`} step={step} />
+          <WorkflowMissingStep key={`step-${step.idx ?? index}`} step={step} />
         ) : (
-          <WorkflowStep key={`step-${step.idx}`} step={step} />
+          <WorkflowStep key={`step-${step.idx ?? index}`} step={step} />
         ),
       );
 
       // 마지막 스텝이 아니면 화살표 추가
-      if (index < data.steps.length - 1) {
+      if (index < (data.steps || []).length - 1) {
         elements.push(
           <WorkflowArrow
             key={`arrow-${index}`}

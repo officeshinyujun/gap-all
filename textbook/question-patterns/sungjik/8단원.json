@@ -1,0 +1,521 @@
+{
+  "unitNumber": 8,
+  "subject": "sungjik",
+  "totalQuestions": 21,
+  "entries": [
+    {
+      "questionIndex": 0,
+      "patternId": "SNS_CONVERSATION_SKILL_ASSESSMENT",
+      "name": "SNS 대화 내용에서 직업 기초 능력 하위 영역 판단",
+      "intent": "학생 A의 대화 내용을 통해 필요한 직업 기초 능력의 하위 영역을 판단하도록 유도",
+      "stemPattern": "다음 SNS 대화 내용에서 학생 A에게 필요한 직업 기초 능력의 하위 영역으로 옳은 것은?",
+      "indicators": [
+        "SNS 대화",
+        "학생 A",
+        "필요한 직업 기초 능력"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다양한 대화 상황을 제시하여 직업 기초 능력 판단을 요구"
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "CHECKLIST_IMPROVEMENT_METHOD",
+      "name": "체크리스트 기반 직업 기초 능력 향상 방법 판단",
+      "intent": "A씨의 체크리스트 내용을 바탕으로 직업 기초 능력 향상 방법을 판단하도록 유도",
+      "stemPattern": "다음은 A씨가 작성한 [나의 직업 기초 능력 체크리스트] 일부이다. A씨에게 필요한 직업 기초 능력의 향상 방법으로 가장 적절한 것은?",
+      "indicators": [
+        "체크리스트",
+        "향상 방법",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다양한 체크리스트 항목을 제시하여 향상 방법 판단을 요구"
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "SUBDOMAIN_DESCRIPTION_SELECTION",
+      "name": "직업 기초 능력 하위 영역 설명 선택",
+      "intent": "직업 기초 능력의 하위 영역 설명을 보고 옳은 설명을 선택하도록 유도",
+      "stemPattern": "다음은 직업 기초 능력의 하위 영역에 대한 내용이다. (가)~(다)에 대한 설명으로 옳은 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "하위 영역",
+        "설명",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다양한 하위 영역 설명을 제시하여 옳은 설명 선택을 요구"
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "CLASS_SCENE_SUBDOMAIN_EXPLANATION",
+      "name": "수업 장면에서 직업 기초 능력 하위 영역 설명 판단",
+      "intent": "수업 장면을 통해 직업 기초 능력 하위 영역에 대한 설명을 판단하도록 유도",
+      "stemPattern": "다음은 직업 기초 능력과 하위 영역에 대한 수업 장면이다. (가)에 대한 설명으로 옳은 것은?",
+      "indicators": [
+        "수업 장면",
+        "하위 영역",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다양한 수업 장면을 제시하여 하위 영역 설명 판단을 요구"
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "NCS_SELF_INTRODUCTION_SKILL_ASSESSMENT",
+      "name": "NCS 자기 소개서 문항에서 직업 기초 능력 판단",
+      "intent": "NCS 자기 소개서 문항을 통해 기업이 파악하고자 하는 직업 기초 능력을 판단하도록 유도",
+      "stemPattern": "다음은 기업의 NCS 자기 소개서 문항 일부이다. 이 문항에서 기업이 파악하고자 하는 직업 기초 능력으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "NCS 자기 소개서",
+        "직업 기초 능력",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다양한 자기 소개서 문항을 제시하여 직업 기초 능력 판단을 요구"
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "WORK_CONVERSATION_SKILL_ASSESSMENT",
+      "name": "업무 관련 대화에서 직업 기초 능력 판단",
+      "intent": "업무 관련 대화 내용을 통해 A씨가 갖추고 있는 직업 기초 능력을 판단하도록 유도",
+      "stemPattern": "다음은 기업의 업무 관련 대화 장면이다. A씨가 갖추고 있는 직업 기초 능력으로 가장 적절한 것은?",
+      "indicators": [
+        "업무 관련 대화",
+        "직업 기초 능력",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다양한 대화 상황을 제시하여 직업 기초 능력 판단을 요구"
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "CASE_STUDY_SKILL_IMPROVEMENT",
+      "name": "사례에서 직업 기초 능력 하위 영역 판단",
+      "intent": "사례를 통해 A, B씨가 향상해야 할 직업 기초 능력의 하위 영역을 판단하도록 유도",
+      "stemPattern": "다음 사례에서 A, B씨가 향상해야 할 직업 기초 능력의 하위 영역으로 옳은 것은?",
+      "indicators": [
+        "사례",
+        "향상해야 할",
+        "직업 기초 능력"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다양한 사례를 제시하여 하위 영역 판단을 요구"
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "CLASS_SCENE_SKILL_EXPLANATION",
+      "name": "수업 장면에서 직업 기초 능력 설명 판단",
+      "intent": "수업 장면을 통해 성공적인 직업 생활에 필요한 직업 기초 능력에 대한 설명을 판단하도록 유도",
+      "stemPattern": "다음은 성공적인 직업 생활에 필요한 직업 기초 능력과 관련된 수업 장면이다. 이에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "수업 장면",
+        "직업 기초 능력",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다양한 수업 장면을 제시하여 설명 판단을 요구"
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "JOB_AD_COMPANY_TYPE_EXPLANATION",
+      "name": "채용 공고문에서 기업 형태 설명 판단",
+      "intent": "채용 공고문을 통해 기업 형태에 대한 설명을 판단하도록 유도",
+      "stemPattern": "위 채용 공고문에 나타난 기업 형태에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "채용 공고문",
+        "기업 형태",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다양한 기업 형태 설명을 제시하여 판단을 요구"
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "JOB_AD_PREFERENCE_SKILL_ASSESSMENT",
+      "name": "채용 공고문 우대 사항에서 직업 기초 능력 판단",
+      "intent": "채용 공고문 우대 사항을 통해 직업 기초 능력을 판단하도록 유도",
+      "stemPattern": "위 채용 공고문의 우대 사항에 나타난 직업 기초 능력으로 옳은 것은?",
+      "indicators": [
+        "채용 공고문",
+        "우대 사항",
+        "직업 기초 능력"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다양한 우대 사항을 제시하여 직업 기초 능력 판단을 요구"
+      ]
+    },
+    {
+      "questionIndex": 10,
+      "patternId": "SAFETY_INCIDENT_DIAGRAM_INTERPRETATION",
+      "name": "안전 사고 사례 도식화 해석",
+      "intent": "안전 사고와 관련한 사례를 도식화하여 나타낸 내용을 해석하도록 유도",
+      "stemPattern": "다음은 안전 사고와 관련한 사례를 도식화하여 나타낸 것이다. 이를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "안전 사고",
+        "도식화",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다양한 도식화 사례를 제시하여 해석을 요구"
+      ]
+    },
+    {
+      "questionIndex": 0,
+      "patternId": "CASE_DIAGNOSTIC_SELECTION",
+      "name": "사례 진단 선택형",
+      "intent": "자기소개서 사례를 통해 학생들의 직업기초능력을 평가하고, 적절한 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음은 자기소개서 사례 모음집의 일부이다. 이를 통해 알 수 있는 학생A, B의 직업기초능력에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "자기소개서",
+        "직업기초능력"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 직업기초능력 사례 추가",
+        "학생 C 추가"
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "CASE_DIAGNOSTIC_SELECTION",
+      "name": "생산 활동 사례 진단 선택형",
+      "intent": "A, B기업의 생산 활동 사례를 통해 기업의 생산 방식과 특성을 평가하고, 적절한 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음 A, B기업의 생산 활동 사례를 통해 알 수 있는 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "생산 활동",
+        "A기업",
+        "B기업"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 기업 사례 추가",
+        "생산 방식 변화"
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "CASE_DIAGNOSTIC_IMPROVEMENT",
+      "name": "직업기초능력 향상 활동 선택형",
+      "intent": "사원 A의 사례를 통해 부족한 직업기초능력을 파악하고, 이를 향상시키기 위한 활동을 선택하도록 유도한다.",
+      "stemPattern": "다음 사례에서 사원 A의 부족한 직업기초능력을 향상시키기 위한 활동으로 가장 적절한 것은?",
+      "indicators": [
+        "직업기초능력",
+        "향상"
+      ],
+      "judgmentAxes": [
+        "procedure",
+        "improvement"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 직업기초능력 추가",
+        "다른 사원 사례"
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "SURVEY_RESULT_SELECTION",
+      "name": "설문 조사 결과 선택형",
+      "intent": "설문 조사 결과를 통해 MZ세대의 기업 선택 시 고려 요소를 평가하고, 적절한 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음 설문 조사 결과를 통해 알 수 있는 MZ세대의 기업 선택 시 고려 요소에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "설문 조사",
+        "MZ세대",
+        "기업 선택 요소"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_SURVEY_RESULT_FRAME"
+      ],
+      "variationTips": [
+        "다른 세대 추가",
+        "다른 고려 요소"
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "SERVICE_PRODUCTION_SELECTION",
+      "name": "서비스 생산 방식 선택형",
+      "intent": "서비스 생산 방식을 나타내는 설명을 평가하고, 적절한 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음은 [서비스 생산 방식]을 나타낸 것이다. (가), (나)에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "서비스 생산 방식",
+        "슈메너"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_SERVICE_PRODUCTION_FRAME"
+      ],
+      "variationTips": [
+        "다른 이론 추가",
+        "다른 서비스 사례"
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "JOB_ANNOUNCEMENT_SELECTION",
+      "name": "채용 공고문 선택형",
+      "intent": "NCS 기반 채용 공고문을 분석하고, 적절한 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음은 ○○(주) NCS 기반 채용 공고문의 일부이다. 이에 대한 설명으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "채용 공고",
+        "NCS"
+      ],
+      "judgmentAxes": [
+        "document interpretation",
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_JOB_ANNOUNCEMENT_FRAME"
+      ],
+      "variationTips": [
+        "다른 기업 공고문 추가",
+        "다른 평가 기준"
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "ENTREPRENEURSHIP_ANALYSIS",
+      "name": "창업 성공 사례 분석형",
+      "intent": "창업 성공 사례를 통해 A, B씨에 대한 설명을 평가하고, 적절하지 않은 설명을 선택하도록 유도한다.",
+      "stemPattern": "위 창업 성공 사례를 통해 알 수 있는 A, B씨에 대한 설명으로 적절하지 않은 것은?",
+      "indicators": [
+        "창업 성공 사례"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "interpretation"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_ENTREPRENEURSHIP_FRAME"
+      ],
+      "variationTips": [
+        "다른 창업 사례 추가",
+        "다른 성공 요인"
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "LEGAL_DOCUMENT_INTERPRETATION",
+      "name": "법적 문서 해석형",
+      "intent": "친권자 동의서를 통해 근로기준법에 따른 내용을 평가하고, 옳은 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음 친권자 동의서를 통해 알 수 있는 내용으로 옳은 것은? (단, ｢근로기준법｣에 따르며 단체협약은 고려하지 않는다.)",
+      "indicators": [
+        "친권자 동의서",
+        "근로기준법"
+      ],
+      "judgmentAxes": [
+        "document interpretation",
+        "legal compliance"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_LEGAL_DOCUMENT_FRAME"
+      ],
+      "variationTips": [
+        "다른 법적 문서 추가",
+        "다른 법률 적용"
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "VALUE_ANALYSIS_SELECTION",
+      "name": "직업 가치관 분석형",
+      "intent": "A, B씨의 직업 가치관을 분석하고, 가장 적절한 설명을 선택하도록 유도한다.",
+      "stemPattern": "위 A, B씨의 직업 가치관을 분석한 내용으로 가장 적절한 것은?",
+      "indicators": [
+        "직업 가치관"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "interpretation"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_VALUE_ANALYSIS_FRAME"
+      ],
+      "variationTips": [
+        "다른 가치관 추가",
+        "다른 인물 사례"
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "COMPANY_ANALYSIS_SELECTION",
+      "name": "기업 분석 선택형",
+      "intent": "A, B기업의 사례를 통해 기업에 대한 분석 내용을 평가하고, 적절한 설명을 선택하도록 유도한다.",
+      "stemPattern": "위 사례를 통해 알 수 있는 A, B기업에 대한 분석 내용으로적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "기업 분석",
+        "녹색 성장"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_COMPANY_ANALYSIS_FRAME"
+      ],
+      "variationTips": [
+        "다른 기업 사례 추가",
+        "다른 산업 분류"
+      ]
+    }
+  ]
+}

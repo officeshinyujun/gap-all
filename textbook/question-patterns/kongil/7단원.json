@@ -1,0 +1,449 @@
+{
+  "unitNumber": 7,
+  "subject": "kongil",
+  "totalQuestions": 19,
+  "entries": [
+    {
+      "questionIndex": 1,
+      "patternId": "MATCHING_STAGE_CONTENT",
+      "name": "Matching Stage and Content",
+      "intent": "Identify the correct pairing of a stage and its content in a report.",
+      "stemPattern": "위 보고서의 (가)에 해당하는 단계와 (나)의 내용으로 바르게 짝지은 것은?",
+      "indicators": [
+        "(가)",
+        "(나)",
+        "바르게 짝지은"
+      ],
+      "judgmentAxes": [
+        "Stage Identification",
+        "Content Matching"
+      ],
+      "itemFamilies": [
+        "Stage-Content Pairing"
+      ],
+      "templates": [
+        "Identify the correct stage and content pairing from the report."
+      ],
+      "variationTips": [
+        "Use different stages and content descriptions."
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "SELECT_CORRECT_CONTENT",
+      "name": "Select Correct Content from Report",
+      "intent": "Determine which statements are correct based on the report.",
+      "stemPattern": "위 보고서를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "알 수 있는 내용",
+        "옳은 것만"
+      ],
+      "judgmentAxes": [
+        "Content Verification"
+      ],
+      "itemFamilies": [
+        "Correct Content Selection"
+      ],
+      "templates": [
+        "Select the correct statements based on the report."
+      ],
+      "variationTips": [
+        "Include different report details and statements."
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "EXPLANATION_SELECTION",
+      "name": "Explanation Selection from Report",
+      "intent": "Select the correct explanations based on the product analysis report.",
+      "stemPattern": "다음은 제품 분석 보고서의 일부이다. 이에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "제품 분석 보고서",
+        "옳은 것만"
+      ],
+      "judgmentAxes": [
+        "Explanation Accuracy"
+      ],
+      "itemFamilies": [
+        "Explanation Selection"
+      ],
+      "templates": [
+        "Select the correct explanations based on the product analysis report."
+      ],
+      "variationTips": [
+        "Use different report excerpts and explanations."
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "MINIMUM_TIME_CALCULATION",
+      "name": "Minimum Time Calculation for Production",
+      "intent": "Calculate the minimum time required to produce a camping chair based on given conditions.",
+      "stemPattern": "위 제품 생산 계획을 다음 [조건]에 따라 수행할 경우 한 개의 캠핑 의자를 생산하는 데 걸리는 최소 시간으로 옳은 것은?",
+      "indicators": [
+        "최소 시간",
+        "캠핑 의자"
+      ],
+      "judgmentAxes": [
+        "Time Calculation"
+      ],
+      "itemFamilies": [
+        "Time Calculation for Production"
+      ],
+      "templates": [
+        "Calculate the minimum production time based on conditions."
+      ],
+      "variationTips": [
+        "Change the product and conditions for time calculation."
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "CONSULTING_REPORT_ANALYSIS",
+      "name": "Consulting Report Analysis",
+      "intent": "Identify the correct information from a consulting report.",
+      "stemPattern": "다음 컨설팅 보고서를 통해 알 수 있는 내용으로 옳은 것은?",
+      "indicators": [
+        "컨설팅 보고서",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "Information Accuracy"
+      ],
+      "itemFamilies": [
+        "Consulting Report Analysis"
+      ],
+      "templates": [
+        "Identify correct information from the consulting report."
+      ],
+      "variationTips": [
+        "Include different consulting scenarios and information."
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "CONDITION_BASED_SELECTION",
+      "name": "Condition-Based Selection",
+      "intent": "Select the correct statements based on the execution of a production plan under given conditions.",
+      "stemPattern": "위 제품 생산 계획을 다음 [조건]에 따라 수행하였을 경우의 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "조건에 따라",
+        "옳은 것만"
+      ],
+      "judgmentAxes": [
+        "Condition-Based Verification"
+      ],
+      "itemFamilies": [
+        "Condition-Based Selection"
+      ],
+      "templates": [
+        "Select correct statements based on production plan execution under conditions."
+      ],
+      "variationTips": [
+        "Use different conditions and production details."
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "CHART_SELECTION",
+      "name": "Chart Selection for Report",
+      "intent": "Identify the correct chart corresponding to parts (가) and (나) in the report.",
+      "stemPattern": "위 보고서의 (가), (나)에 해당하는 도표로 옳은 것은?",
+      "indicators": [
+        "(가)",
+        "(나)",
+        "도표"
+      ],
+      "judgmentAxes": [
+        "Chart Identification"
+      ],
+      "itemFamilies": [
+        "Chart Selection"
+      ],
+      "templates": [
+        "Identify the correct chart for parts (가) and (나) in the report."
+      ],
+      "variationTips": [
+        "Include different charts and report sections."
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "REPORT_CONTENT_SELECTION",
+      "name": "Report Content Selection",
+      "intent": "Select the correct information from the report regarding production and management solutions.",
+      "stemPattern": "위 보고서를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "알 수 있는 내용",
+        "옳은 것만"
+      ],
+      "judgmentAxes": [
+        "Content Verification"
+      ],
+      "itemFamilies": [
+        "Report Content Selection"
+      ],
+      "templates": [
+        "Select correct information from the report regarding solutions."
+      ],
+      "variationTips": [
+        "Include different solutions and report details."
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "MEETING_CONTENT_ANALYSIS",
+      "name": "Meeting Content Analysis",
+      "intent": "Identify the correct information from a meeting scene about a company's construction status.",
+      "stemPattern": "다음은 ◯◯기업의 교량 건설 현황에 대한 회의 장면이다. 이를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "회의 장면",
+        "옳은 것만"
+      ],
+      "judgmentAxes": [
+        "Meeting Content Verification"
+      ],
+      "itemFamilies": [
+        "Meeting Content Analysis"
+      ],
+      "templates": [
+        "Identify correct information from a meeting about construction status."
+      ],
+      "variationTips": [
+        "Use different meeting scenarios and construction details."
+      ]
+    },
+    {
+      "questionIndex": 10,
+      "patternId": "COMPANY_PRACTICE_SELECTION",
+      "name": "Company Practice Selection",
+      "intent": "Select the correct practices used by a company based on a given scene.",
+      "stemPattern": "다음 장면을 통해 알 수 있는 ◯◯기업에 대한 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "장면을 통해",
+        "옳은 것만"
+      ],
+      "judgmentAxes": [
+        "Practice Verification"
+      ],
+      "itemFamilies": [
+        "Company Practice Selection"
+      ],
+      "templates": [
+        "Select correct practices used by the company based on the scene."
+      ],
+      "variationTips": [
+        "Include different company practices and scenes."
+      ]
+    },
+    {
+      "questionIndex": 0,
+      "patternId": "7-1",
+      "name": "Production and Sales Strategy Analysis",
+      "intent": "Evaluate the correctness of statements regarding production and sales strategies.",
+      "stemPattern": "다음은 ○○제품 생산 및 판매 전략에 대한 업무 보고 장면이다. 이에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "생산",
+        "판매 전략",
+        "업무 보고"
+      ],
+      "judgmentAxes": [
+        "Correctness of strategy elements"
+      ],
+      "itemFamilies": [
+        "Strategy evaluation"
+      ],
+      "templates": [
+        "Select the correct statements from the given options."
+      ],
+      "variationTips": [
+        "Include different production methods and certifications."
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "7-2",
+      "name": "Smartphone Production Process Analysis",
+      "intent": "Identify the most appropriate explanation of a smartphone production process.",
+      "stemPattern": "다음은 ○○공장의 스마트폰 생산 과정의 일부를 나타낸 것이다. 이에 대한 설명으로 가장 적절한 것은?",
+      "indicators": [
+        "스마트폰",
+        "생산 과정"
+      ],
+      "judgmentAxes": [
+        "Appropriateness of process explanation"
+      ],
+      "itemFamilies": [
+        "Process analysis"
+      ],
+      "templates": [
+        "Choose the most appropriate explanation for the process."
+      ],
+      "variationTips": [
+        "Vary the production stages and technologies involved."
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "7-3",
+      "name": "Production to Consumption Process Analysis",
+      "intent": "Identify incorrect explanations in the production to consumption process.",
+      "stemPattern": "다음은 제품의 생산에서 소비까지의 과정을 나타낸 것이다. (가)～(라)에 대한 설명으로 옳지 않은 것은?",
+      "indicators": [
+        "생산",
+        "소비",
+        "과정"
+      ],
+      "judgmentAxes": [
+        "Correctness of process explanations"
+      ],
+      "itemFamilies": [
+        "Process evaluation"
+      ],
+      "templates": [
+        "Identify the incorrect explanations in the process."
+      ],
+      "variationTips": [
+        "Include different stages and potential errors."
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "7-4",
+      "name": "Human Resource Management Case Analysis",
+      "intent": "Select the correct explanations regarding a company's HR management case.",
+      "stemPattern": "다음은 ○○기업의 인사 관리 사례이다. 이에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "인사 관리",
+        "사례"
+      ],
+      "judgmentAxes": [
+        "Correctness of HR management explanations"
+      ],
+      "itemFamilies": [
+        "HR management evaluation"
+      ],
+      "templates": [
+        "Select the correct explanations from the given options."
+      ],
+      "variationTips": [
+        "Include different HR practices and policies."
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "7-5",
+      "name": "Clothing Care Device Analysis",
+      "intent": "Identify the correct information about a clothing care device.",
+      "stemPattern": "다음 의류 관리기에 대한 자료를 통해 파악할 수 있는 내용으로 옳은 것은?",
+      "indicators": [
+        "의류 관리기",
+        "자료"
+      ],
+      "judgmentAxes": [
+        "Correctness of device information"
+      ],
+      "itemFamilies": [
+        "Device analysis"
+      ],
+      "templates": [
+        "Identify the correct information about the device."
+      ],
+      "variationTips": [
+        "Include different features and specifications."
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "7-6",
+      "name": "Hazardous Environment Investigation Analysis",
+      "intent": "Determine the correct information about different workplace environments.",
+      "stemPattern": "다음 작업장별 유해 환경 조사 사례를 통해 알 수 있는 A～C 작업장에 대한 내용으로 옳은 것은?",
+      "indicators": [
+        "유해 환경",
+        "조사 사례"
+      ],
+      "judgmentAxes": [
+        "Correctness of environmental information"
+      ],
+      "itemFamilies": [
+        "Environmental analysis"
+      ],
+      "templates": [
+        "Determine the correct information about the environments."
+      ],
+      "variationTips": [
+        "Include different hazards and safety measures."
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "7-7",
+      "name": "Production Plan Analysis",
+      "intent": "Select the correct information from a company's production plan.",
+      "stemPattern": "다음 ○○기업 제품 생산 계획을 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "생산 계획",
+        "기업"
+      ],
+      "judgmentAxes": [
+        "Correctness of production plan information"
+      ],
+      "itemFamilies": [
+        "Plan evaluation"
+      ],
+      "templates": [
+        "Select the correct information from the given options."
+      ],
+      "variationTips": [
+        "Include different production goals and strategies."
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "7-8",
+      "name": "Team Leader's Work Log Analysis",
+      "intent": "Identify the correct information from a team leader's work log.",
+      "stemPattern": "다음 A생산팀장의 업무 일지를 통해 알 수 있는 내용으로 옳은 것은?",
+      "indicators": [
+        "업무 일지",
+        "생산팀장"
+      ],
+      "judgmentAxes": [
+        "Correctness of work log information"
+      ],
+      "itemFamilies": [
+        "Log analysis"
+      ],
+      "templates": [
+        "Identify the correct information from the work log."
+      ],
+      "variationTips": [
+        "Include different tasks and outcomes."
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "7-9",
+      "name": "New Employee Orientation Analysis",
+      "intent": "Determine the most appropriate explanation of a new employee orientation guide.",
+      "stemPattern": "다음 ○○기업 신입 사원 오리엔테이션 안내문에 대한 설명으로 가장 적절한 것은?",
+      "indicators": [
+        "신입 사원",
+        "오리엔테이션"
+      ],
+      "judgmentAxes": [
+        "Appropriateness of orientation explanation"
+      ],
+      "itemFamilies": [
+        "Orientation evaluation"
+      ],
+      "templates": [
+        "Determine the most appropriate explanation for the orientation guide."
+      ],
+      "variationTips": [
+        "Include different orientation topics and formats."
+      ]
+    }
+  ]
+}

@@ -9,7 +9,7 @@ import { getTemplateLabel } from '@/utils/examParser';
 import type { ExamQuestion } from '@/types/examQuestion';
 import s from './page.module.scss';
 
-const API_BASE = 'http://localhost:3001';
+import { apiFetch } from '@/lib/api';
 
 const DIFF_LABEL: Record<string, string> = {
   LOW: '하',
@@ -95,11 +95,7 @@ export default function DevExamListPage() {
     setLoadingList(true);
     setListError(null);
     try {
-      const res = await fetch(`${API_BASE}/exams`, {
-        credentials: 'include',
-      });
-      if (!res.ok) throw new Error(`시험 목록 조회 실패 (${res.status})`);
-      const data: ApiExamSummary[] = await res.json();
+      const data: ApiExamSummary[] = await apiFetch('/exams');
       setExams(data);
     } catch (e: unknown) {
       setListError(e instanceof Error ? e.message : '알 수 없는 오류');
@@ -115,11 +111,7 @@ export default function DevExamListPage() {
     setCurrentIndex(0);
     setSelectedExamId(examId);
     try {
-      const res = await fetch(`${API_BASE}/exams/${examId}`, {
-        credentials: 'include',
-      });
-      if (!res.ok) throw new Error(`시험 상세 조회 실패 (${res.status})`);
-      const data = await res.json();
+      const data = await apiFetch<{ items: ApiExamItem[]; title?: string }>(`/exams/${examId}`);
       const items: ApiExamItem[] = data.items ?? [];
       setExamTitle(data.title ?? '');
       setQuestions(items.map(toExamQuestion));
@@ -137,11 +129,9 @@ export default function DevExamListPage() {
   const handleDelete = async (examId: string) => {
     if (!confirm('정말 삭제하시겠습니까?')) return;
     try {
-      const res = await fetch(`${API_BASE}/admin/exams/${examId}`, {
+      await apiFetch(`/admin/exams/${examId}`, {
         method: 'DELETE',
-        credentials: 'include',
       });
-      if (!res.ok) throw new Error(`삭제 실패 (${res.status})`);
       if (selectedExamId === examId) {
         setSelectedExamId(null);
         setQuestions(null);
@@ -163,9 +153,8 @@ export default function DevExamListPage() {
     try {
       await Promise.all(
         Array.from(selectedIds).map((id) =>
-          fetch(`${API_BASE}/admin/exams/${id}`, {
+          apiFetch(`/admin/exams/${id}`, {
             method: 'DELETE',
-            credentials: 'include',
           })
         )
       );
@@ -326,7 +315,21 @@ export default function DevExamListPage() {
                   <Typo.SM size={14} color="primary">{examTitle}</Typo.SM>
                   <Typo.TH size={12} color="secondary">총 {questions.length}문항</Typo.TH>
                 </VStack>
-                <HStack gap={8} align="center">
+                <HStack gap={12} align="center">
+                  {/* 템플릿 분포 */}
+                  <HStack gap={4} align="center" style={{ flexWrap: 'wrap', maxWidth: 300 }}>
+                    {Object.entries(
+                      questions.reduce<Record<string, number>>((acc, q) => {
+                        const tpl = q.metadata.recommended_template ?? 'unknown';
+                        acc[tpl] = (acc[tpl] ?? 0) + 1;
+                        return acc;
+                      }, {})
+                    ).map(([tpl, count]) => (
+                      <span key={tpl} className={s.tplBadge}>
+                        {tpl.replace('TPL_', '').slice(0, 12)} {count}
+                      </span>
+                    ))}
+                  </HStack>
                   <button
                     className={s.questionNavBtn}
                     onClick={() => goTo(currentIndex - 1)}

@@ -19,6 +19,8 @@ import {
 import { parseStimulus, getTemplateLabel, inferTemplate } from '@shared/utils/examParser';
 import type { ExamQuestion, ParsedStimulus } from '@shared/types/examQuestion';
 import { getExplanationText, getOptionNumber, normalizeOptions } from '@shared/types/examQuestion';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import s from './index.module.scss';
 
 export interface QuestionRendererProps {
@@ -107,10 +109,12 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
           <TPLCaseDiagnosticFrame
             data={{
               ...parsed.data,
-              check_items: parsed.data.check_items.map((item) => ({
-                ...item,
-                is_checked: false,
-              })),
+              check_items: Array.isArray(parsed.data.check_items)
+                ? parsed.data.check_items.map((item) => ({
+                    ...item,
+                    is_checked: false,
+                  }))
+                : [],
             }}
           />
         );
@@ -127,9 +131,9 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
       case 'TPL_PLAIN_TEXT':
         return (
           <div className={s.stimulusPlainText}>
-            {parsed.data.split('\n').filter(Boolean).map((line, i) => (
-              <p key={i}>{line}</p>
-            ))}
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+              {parsed.data}
+            </ReactMarkdown>
           </div>
         );
       default:

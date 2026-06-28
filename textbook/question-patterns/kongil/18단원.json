@@ -1,0 +1,495 @@
+{
+  "unitNumber": 18,
+  "subject": "kongil",
+  "totalQuestions": 19,
+  "entries": [
+    {
+      "questionIndex": 1,
+      "patternId": "P1",
+      "name": "국제협약 이행 활동 사례",
+      "intent": "Identify an activity that aligns with international agreement implementation.",
+      "stemPattern": "다음 기사에 나타난 국제협약 이행에 동참하기 위한 활동 사례로 가장 적절한 것은?",
+      "indicators": [
+        "국제협약",
+        "이행",
+        "활동 사례"
+      ],
+      "judgmentAxes": [
+        "Relevance to international agreements",
+        "Implementation activities"
+      ],
+      "itemFamilies": [
+        "Environmental actions",
+        "Trade agreements",
+        "Human rights initiatives"
+      ],
+      "templates": [
+        "Which activity best supports the implementation of the international agreement mentioned in the article?"
+      ],
+      "variationTips": [
+        "Include different types of international agreements and corresponding activities."
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "P2",
+      "name": "사고 사례 분석",
+      "intent": "Select the correct statements based on accident cases of companies A and B.",
+      "stemPattern": "다음 A, B기업의 사고 사례를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "사고 사례",
+        "옳은 것",
+        "보기"
+      ],
+      "judgmentAxes": [
+        "Accident cause analysis",
+        "Corrective measures"
+      ],
+      "itemFamilies": [
+        "Industrial accidents",
+        "Safety protocols",
+        "Chemical management"
+      ],
+      "templates": [
+        "Choose the correct statements about the accidents at companies A and B from the options provided."
+      ],
+      "variationTips": [
+        "Include different types of accidents and corrective actions."
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "P3",
+      "name": "현장 견학 보고서 분석",
+      "intent": "Identify the correct statements from a field trip report.",
+      "stemPattern": "다음 현장 견학 보고서에 나타난 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "현장 견학",
+        "보고서",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "Field trip observations",
+        "Industry practices"
+      ],
+      "itemFamilies": [
+        "Renewable energy",
+        "Industrial classification",
+        "Environmental impact"
+      ],
+      "templates": [
+        "Select the correct statements from the field trip report provided."
+      ],
+      "variationTips": [
+        "Include various industries and their practices observed during field trips."
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "P4",
+      "name": "직업병 발병 사례 분석",
+      "intent": "Determine the correct statements based on occupational disease cases.",
+      "stemPattern": "다음 직업병 발병 사례 (가), (나)를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "직업병",
+        "발병 사례",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "Disease diagnosis",
+        "Preventive measures"
+      ],
+      "itemFamilies": [
+        "Occupational health",
+        "Disease prevention",
+        "Workplace safety"
+      ],
+      "templates": [
+        "Identify the correct statements regarding the occupational disease cases (a) and (b)."
+      ],
+      "variationTips": [
+        "Include different occupational diseases and their preventive measures."
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "P5",
+      "name": "작업장 순회 점검 일지 분석",
+      "intent": "Select the correct statements from a workplace inspection log.",
+      "stemPattern": "다음 작업장 순회 점검 일지에 관한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "작업장",
+        "점검 일지",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "Inspection findings",
+        "Safety equipment"
+      ],
+      "itemFamilies": [
+        "Workplace safety",
+        "Inspection protocols",
+        "Protective gear"
+      ],
+      "templates": [
+        "Choose the correct statements from the workplace inspection log provided."
+      ],
+      "variationTips": [
+        "Include different types of inspections and safety measures."
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "P6",
+      "name": "환경 보전 실천 사례 분석",
+      "intent": "Identify the correct statements about a company's environmental conservation practices.",
+      "stemPattern": "다음 환경 보전 실천 사례를 통해 알 수 있는 ◯◯기업에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "환경 보전",
+        "실천 사례",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "Environmental practices",
+        "Sustainability initiatives"
+      ],
+      "itemFamilies": [
+        "Carbon trading",
+        "Renewable energy",
+        "ICT infrastructure"
+      ],
+      "templates": [
+        "Select the correct statements about the company's environmental conservation practices from the options provided."
+      ],
+      "variationTips": [
+        "Include various environmental initiatives and their impacts."
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "P7",
+      "name": "국제협약 관련 사례 분석",
+      "intent": "Identify the most appropriate international agreement related to the given cases.",
+      "stemPattern": "다음 사례 (가), (나)에 관련된 국제협약으로 가장 적절한 것은?",
+      "indicators": [
+        "국제협약",
+        "관련 사례",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "International agreement relevance",
+        "Case analysis"
+      ],
+      "itemFamilies": [
+        "Environmental agreements",
+        "Trade agreements",
+        "Human rights"
+      ],
+      "templates": [
+        "Which international agreement is most relevant to the cases (a) and (b) provided?"
+      ],
+      "variationTips": [
+        "Include different international agreements and their applicable cases."
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "P8",
+      "name": "작업 환경 개선 설명 분석",
+      "intent": "Determine the most appropriate explanation for the workplace environment improvement content.",
+      "stemPattern": "위 사례에 나타난 작업 환경 개선 내용에 관한 설명으로 가장 적절한 것은?",
+      "indicators": [
+        "작업 환경 개선",
+        "설명",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "Improvement measures",
+        "Workplace safety"
+      ],
+      "itemFamilies": [
+        "Environmental improvements",
+        "Safety protocols",
+        "Health measures"
+      ],
+      "templates": [
+        "What is the most appropriate explanation for the workplace environment improvement content in the case provided?"
+      ],
+      "variationTips": [
+        "Include various workplace improvements and their explanations."
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "P9",
+      "name": "기업 인증 설명 분석",
+      "intent": "Select the correct statements about the certification acquired by the company.",
+      "stemPattern": "위 사례에 나타난 ◯◯기업이 취득한 인증에 대한 설명으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "기업 인증",
+        "설명",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "Certification details",
+        "Compliance with agreements"
+      ],
+      "itemFamilies": [
+        "Legal certifications",
+        "Environmental standards",
+        "Sustainability certifications"
+      ],
+      "templates": [
+        "Choose the correct statements about the certification acquired by the company from the options provided."
+      ],
+      "variationTips": [
+        "Include different types of certifications and their implications."
+      ]
+    },
+    {
+      "questionIndex": 10,
+      "patternId": "P10",
+      "name": "작업장 환경 개선 보고서 분석",
+      "intent": "Identify the correct statements from a workplace environment improvement report.",
+      "stemPattern": "다음은 작업장 환경 개선 보고서의 일부이다. 이를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "작업장 환경 개선",
+        "보고서",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "Improvement outcomes",
+        "Compliance with standards"
+      ],
+      "itemFamilies": [
+        "Environmental standards",
+        "Safety improvements",
+        "Industrial classifications"
+      ],
+      "templates": [
+        "Select the correct statements from the workplace environment improvement report provided."
+      ],
+      "variationTips": [
+        "Include various improvement measures and their outcomes."
+      ]
+    },
+    {
+      "questionIndex": 18,
+      "patternId": "P1",
+      "name": "Accident Prevention Activity Identification",
+      "intent": "Identify the most appropriate accident prevention activity.",
+      "stemPattern": "다음은 ○○공장의 사고 예방 활동 사례이다. (가)에 해당하는 활동으로 가장 적절한 것은?",
+      "indicators": [
+        "사고 예방",
+        "활동 사례",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "Safety Management",
+        "Accident Prevention"
+      ],
+      "itemFamilies": [
+        "Activity Identification"
+      ],
+      "templates": [
+        "Identify the activity that fits the given scenario."
+      ],
+      "variationTips": [
+        "Use different scenarios or steps in the process."
+      ]
+    },
+    {
+      "questionIndex": 18,
+      "patternId": "P2",
+      "name": "Fire Case Report Analysis",
+      "intent": "Identify the incorrect statement based on the fire case report.",
+      "stemPattern": "다음 화재 사례 보고서를 통해 알 수 있는 내용으로 옳지 않은 것은?",
+      "indicators": [
+        "화재 사례",
+        "옳지 않은 것"
+      ],
+      "judgmentAxes": [
+        "Fire Safety",
+        "Report Analysis"
+      ],
+      "itemFamilies": [
+        "Error Identification"
+      ],
+      "templates": [
+        "Identify the incorrect statement from the report."
+      ],
+      "variationTips": [
+        "Use different types of reports or incidents."
+      ]
+    },
+    {
+      "questionIndex": 18,
+      "patternId": "P3",
+      "name": "Inventory Management Analysis",
+      "intent": "Select the correct statements based on the inventory management analysis.",
+      "stemPattern": "다음은 ○○회사의 재고 관리 현황을 분석한 것이다. 이를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "재고 관리",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "Inventory Management",
+        "Data Analysis"
+      ],
+      "itemFamilies": [
+        "Correct Statement Selection"
+      ],
+      "templates": [
+        "Select the correct statements from the analysis."
+      ],
+      "variationTips": [
+        "Use different types of management scenarios."
+      ]
+    },
+    {
+      "questionIndex": 18,
+      "patternId": "P4",
+      "name": "Career Pathway Analysis",
+      "intent": "Select the appropriate statements based on the career roadmap.",
+      "stemPattern": "다음은 [A학생의 진로 선택 로드맵]을 나타낸 것이다. 이를 통해 알 수 있는 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "진로 선택",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "Career Planning",
+        "Roadmap Analysis"
+      ],
+      "itemFamilies": [
+        "Appropriate Statement Selection"
+      ],
+      "templates": [
+        "Select the appropriate statements from the roadmap."
+      ],
+      "variationTips": [
+        "Use different career scenarios or pathways."
+      ]
+    },
+    {
+      "questionIndex": 18,
+      "patternId": "P5",
+      "name": "Workplace Environment Checklist Analysis",
+      "intent": "Select the correct statements based on the workplace environment checklist.",
+      "stemPattern": "다음 작업장 환경 체크리스트 점검 결과에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "작업장 환경",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "Workplace Safety",
+        "Checklist Analysis"
+      ],
+      "itemFamilies": [
+        "Correct Statement Selection"
+      ],
+      "templates": [
+        "Select the correct statements from the checklist results."
+      ],
+      "variationTips": [
+        "Use different workplace scenarios or checklist items."
+      ]
+    },
+    {
+      "questionIndex": 18,
+      "patternId": "P6",
+      "name": "Product Promotion Analysis",
+      "intent": "Identify the correct statements about the product based on the promotion material.",
+      "stemPattern": "다음은 국내 ○○기업의 전자 제품 홍보 자료이다. 이를 통해 알 수 있는 제품에 관한 설명으로 옳은 것은?",
+      "indicators": [
+        "제품 홍보",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "Product Knowledge",
+        "Promotion Analysis"
+      ],
+      "itemFamilies": [
+        "Correct Statement Identification"
+      ],
+      "templates": [
+        "Identify the correct statements about the product."
+      ],
+      "variationTips": [
+        "Use different product types or promotional materials."
+      ]
+    },
+    {
+      "questionIndex": 18,
+      "patternId": "P7",
+      "name": "Standardization Content Analysis",
+      "intent": "Identify the correct statements about standardization based on the promotion material.",
+      "stemPattern": "다음 ○○자동문 홍보 자료를 통해 알 수 있는 표준화에 대한 내용으로 옳은 것은?",
+      "indicators": [
+        "표준화",
+        "홍보 자료",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "Standardization",
+        "Content Analysis"
+      ],
+      "itemFamilies": [
+        "Correct Statement Identification"
+      ],
+      "templates": [
+        "Identify the correct statements about standardization."
+      ],
+      "variationTips": [
+        "Use different standardization scenarios or materials."
+      ]
+    },
+    {
+      "questionIndex": 18,
+      "patternId": "P8",
+      "name": "Event Poster Content Analysis",
+      "intent": "Select the correct statements based on the event poster.",
+      "stemPattern": "다음은 ‘섬유의 날’ 행사 포스터의 일부이다. 이를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "행사 포스터",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "Event Analysis",
+        "Poster Content"
+      ],
+      "itemFamilies": [
+        "Correct Statement Selection"
+      ],
+      "templates": [
+        "Select the correct statements from the poster content."
+      ],
+      "variationTips": [
+        "Use different event types or poster designs."
+      ]
+    },
+    {
+      "questionIndex": 18,
+      "patternId": "P9",
+      "name": "Environmental Impact Report Analysis",
+      "intent": "Identify the incorrect statements based on the environmental impact report.",
+      "stemPattern": "다음은 ○○지역 환경 영향 평가 보고서의 일부이다. 이를 통해 알 수 있는 내용으로 옳지 않은 것은?",
+      "indicators": [
+        "환경 영향 평가",
+        "옳지 않은 것"
+      ],
+      "judgmentAxes": [
+        "Environmental Impact",
+        "Report Analysis"
+      ],
+      "itemFamilies": [
+        "Error Identification"
+      ],
+      "templates": [
+        "Identify the incorrect statements from the report."
+      ],
+      "variationTips": [
+        "Use different environmental scenarios or report sections."
+      ]
+    }
+  ]
+}

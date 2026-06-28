@@ -167,6 +167,22 @@
   }
 }
 
+.regenerateBtn {
+  padding: $spacing-6 $spacing-12;
+  font-size: 12px;
+  font-weight: $medium;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  color: $brand-primary;
+  background: none;
+  border: 1px solid $brand-primary;
+  cursor: pointer;
+  transition: background 0.1s;
+
+  &:hover {
+    background-color: rgba($brand-primary, 0.08);
+  }
+}
+
 .errorBox {
   padding: $spacing-10 $spacing-12;
   background-color: $background-secondary;

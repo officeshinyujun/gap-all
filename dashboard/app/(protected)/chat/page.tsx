@@ -7,10 +7,9 @@ import Typo from '@/components/general/Typo';
 import { SPACING } from '@/constants/spacing';
 import { CreateChatModal } from '@/components/chat/CreateChatModal';
 import { ChatWindow } from '@/components/chat/ChatWindow';
+import { apiFetch } from '@/lib/api';
 import { Plus, MessageSquare, Trash2 } from 'lucide-react';
 import s from './page.module.scss';
-
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3001';
 
 interface ChatSession {
   id: string;
@@ -28,14 +27,12 @@ export default function ChatPage() {
   const [loading, setLoading] = useState(true);
 
   const fetchSessions = async () => {
-    const res = await fetch(`${API_URL}/chat/sessions`, {
-      credentials: 'include',
-    });
-    if (res.ok) {
-      const data = await res.json();
+    try {
+      const data = await apiFetch<ChatSession[] | { sessions: ChatSession[] }>('/chat/sessions');
       setSessions(Array.isArray(data) ? data : data.sessions ?? []);
+    } catch {} finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   useEffect(() => {
@@ -49,10 +46,7 @@ export default function ChatPage() {
 
   const handleDelete = async (e: React.MouseEvent, sessionId: string) => {
     e.stopPropagation();
-    await fetch(`${API_URL}/chat/sessions/${sessionId}`, {
-      method: 'DELETE',
-      credentials: 'include',
-    });
+    await apiFetch(`/chat/sessions/${sessionId}`, { method: 'DELETE' });
     setSessions((prev) => prev.filter((s) => s.id !== sessionId));
     if (selectedId === sessionId) setSelectedId(null);
   };

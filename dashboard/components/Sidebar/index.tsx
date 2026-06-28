@@ -5,7 +5,7 @@ import { HStack } from '../general/HStack';
 import Typo from '../general/Typo';
 import { SPACING } from '../../constants/spacing';
 import s from './style.module.scss';
-import { LayoutDashboard, FlaskConical, Users, BarChart2, Zap, LogOut, MessageSquare, BookMarked, Database, RefreshCw, Eye, Activity, FileEdit, BookOpen } from 'lucide-react';
+import { LayoutDashboard, FlaskConical, Users, BarChart2, Zap, LogOut, MessageSquare, BookMarked, Database, RefreshCw, Eye, Activity, FileEdit, BookOpen, Search } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useAuth } from '@/contexts/AuthContext';
@@ -15,6 +15,7 @@ const MENU_SECTIONS = [
     title: '대시보드',
     items: [
       { icon: LayoutDashboard, label: '홈', href: '/' },
+      { icon: BarChart2, label: '학습 분석', href: '/analytics' },
     ],
   },
   {
@@ -29,6 +30,7 @@ const MENU_SECTIONS = [
     items: [
       { icon: FlaskConical, label: '시험 생성', href: '/exam-generate' },
       { icon: BarChart2, label: '시험 목록', href: '/exam-list' },
+      { icon: Search, label: '문제 검색', href: '/question-search' },
       { icon: Eye, label: '문제 뷰어', href: '/questionstem' },
     ],
   },

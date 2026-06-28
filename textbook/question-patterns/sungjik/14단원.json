@@ -1,0 +1,532 @@
+{
+  "unitNumber": 14,
+  "subject": "sungjik",
+  "totalQuestions": 21,
+  "entries": [
+    {
+      "questionIndex": 0,
+      "patternId": "ACTIVITY_SELECTION_FROM_CONSULTING",
+      "name": "컨설팅 기반 활동 선택",
+      "intent": "컨설팅 내용을 바탕으로 적절한 활동을 선택하도록 유도",
+      "stemPattern": "다음 창업 관련 컨설팅 내용에 따라 A씨가 수행할 활동으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "창업 관련 컨설팅",
+        "A씨가 수행할 활동"
+      ],
+      "judgmentAxes": [
+        "activity selection",
+        "consulting interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "컨설팅 내용을 변경하여 다른 활동을 제시",
+        "A씨의 상황을 다르게 설정"
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "QNA_CONTENT_SELECTION",
+      "name": "Q&A 게시판 내용 선택",
+      "intent": "Q&A 게시판의 질문에 적절한 답변을 선택하도록 유도",
+      "stemPattern": "다음은 창업과 관련한 Q&A 게시판 내용이다. (가)에 들어갈 수 있는 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "Q&A 게시판",
+        "(가)에 들어갈 수 있는 내용"
+      ],
+      "judgmentAxes": [
+        "content matching",
+        "contextual understanding"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "질문 내용을 변경하여 다른 답변을 요구",
+        "다른 창업 상황을 설정"
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "ELEMENT_SELECTION_FROM_CASE",
+      "name": "사례 기반 요소 선택",
+      "intent": "창업 사례에서 나타난 요소를 선택하도록 유도",
+      "stemPattern": "다음 창업 사례에 나타난 창업의 요소로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "창업 사례",
+        "창업의 요소"
+      ],
+      "judgmentAxes": [
+        "element identification",
+        "case analysis"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "사례 내용을 변경하여 다른 요소를 강조",
+        "다른 창업 유형을 제시"
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "PROCEDURE_ACTIVITY_SELECTION",
+      "name": "절차 단계 활동 선택",
+      "intent": "창업 절차의 특정 단계에서 수행할 활동을 선택하도록 유도",
+      "stemPattern": "다음은 점포 창업 절차의 일부이다. (가) 단계에서 수행하는 활동으로 가장 적절한 것은?",
+      "indicators": [
+        "점포 창업 절차",
+        "(가) 단계"
+      ],
+      "judgmentAxes": [
+        "procedure understanding",
+        "activity selection"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "절차 단계를 변경하여 다른 활동을 요구",
+        "다른 창업 절차를 제시"
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "METHOD_DESCRIPTION_SELECTION",
+      "name": "창업 방법 설명 선택",
+      "intent": "창업 적성 검사 결과에 따른 창업 방법 설명을 선택하도록 유도",
+      "stemPattern": "다음은 창업 적성 검사 결과이다. (가)에 해당하는 창업 방법에 대한 설명으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "창업 적성 검사 결과",
+        "(가)에 해당하는 창업 방법"
+      ],
+      "judgmentAxes": [
+        "method understanding",
+        "description matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "적성 검사 문항을 변경하여 다른 방법을 요구",
+        "다른 창업 방법을 제시"
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "SURVEY_RESULT_INTERPRETATION",
+      "name": "설문 조사 결과 해석",
+      "intent": "설문 조사 결과를 통해 알 수 있는 내용을 해석하도록 유도",
+      "stemPattern": "다음은 인사 담당자가 중요하게 생각하는 기업가 정신에 대한 설문 조사 결과이다. 이를 통해 알 수 있는 내용으로 가장 적절한 것은?",
+      "indicators": [
+        "설문 조사 결과",
+        "기업가 정신"
+      ],
+      "judgmentAxes": [
+        "result interpretation",
+        "conceptual understanding"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "설문 조사 항목을 변경하여 다른 해석을 요구",
+        "다른 기업가 정신 요소를 제시"
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "ENTREPRENEURIAL_SPIRIT_SELECTION",
+      "name": "기업가 정신 선택",
+      "intent": "인터뷰 내용을 바탕으로 창업자의 기업가 정신을 선택하도록 유도",
+      "stemPattern": "다음 인터뷰에 나타난 창업자의 기업가 정신으로 가장 적절한 것은?",
+      "indicators": [
+        "인터뷰",
+        "창업자의 기업가 정신"
+      ],
+      "judgmentAxes": [
+        "spirit identification",
+        "interview analysis"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "인터뷰 내용을 변경하여 다른 정신을 강조",
+        "다른 창업자 사례를 제시"
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "EVALUATION_TABLE_INTERPRETATION",
+      "name": "평가표 해석",
+      "intent": "창업 자금 지원 기업 선정 평가표를 통해 알 수 있는 내용을 해석하도록 유도",
+      "stemPattern": "다음 창업 자금 지원 기업 선정 평가표를 통해 알 수 있는 내용으로 가장 적절한 것은?",
+      "indicators": [
+        "평가표",
+        "창업 자금 지원"
+      ],
+      "judgmentAxes": [
+        "table interpretation",
+        "evaluation understanding"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "평가 항목을 변경하여 다른 해석을 요구",
+        "다른 기업 평가표를 제시"
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "METHOD_DESCRIPTION_SELECTION_FROM_DECISION",
+      "name": "결정된 창업 방법 설명 선택",
+      "intent": "A씨의 창업 방법 결정에 대한 설명을 선택하도록 유도",
+      "stemPattern": "위 제시문의 A씨가 결정한 창업의 방법에 대한 설명으로 적절한 것만을 <보기>에서 고른 것은?",
+      "indicators": [
+        "A씨가 결정한 창업의 방법",
+        "설명"
+      ],
+      "judgmentAxes": [
+        "method understanding",
+        "decision analysis"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "결정 내용을 변경하여 다른 설명을 요구",
+        "다른 창업 방법을 제시"
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "COMPANY_DESCRIPTION_SELECTION",
+      "name": "기업 설명 선택",
+      "intent": "제시문에 나타난 기업에 대한 설명을 선택하도록 유도",
+      "stemPattern": "위 제시문의 (가), (나) 기업에 대한 설명으로 가장 적절한 것은?",
+      "indicators": [
+        "기업에 대한 설명",
+        "(가), (나) 기업"
+      ],
+      "judgmentAxes": [
+        "description matching",
+        "company analysis"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "기업 정보를 변경하여 다른 설명을 요구",
+        "다른 기업 사례를 제시"
+      ]
+    },
+    {
+      "questionIndex": 10,
+      "patternId": "COMPANY_DESCRIPTION_SELECTION_FROM_DATA",
+      "name": "자료 기반 기업 설명 선택",
+      "intent": "자료를 통해 알 수 있는 기업에 대한 설명을 선택하도록 유도",
+      "stemPattern": "위 자료를 통해 알 수 있는 ○○기업의 A, B씨에 대한 설명으로 옳은 것은?",
+      "indicators": [
+        "자료를 통해 알 수 있는",
+        "기업의 A, B씨에 대한 설명"
+      ],
+      "judgmentAxes": [
+        "description matching",
+        "data interpretation"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "자료 내용을 변경하여 다른 설명을 요구",
+        "다른 기업 사례를 제시"
+      ]
+    },
+    {
+      "questionIndex": 0,
+      "patternId": "CORPORATE_ACTIVITY_MATCHING",
+      "name": "기업 경영 활동 매칭",
+      "intent": "신입 직원의 채용 계획서를 통해 해당 직원의 업무가 속하는 기업의 경영 활동을 판단하도록 유도한다.",
+      "stemPattern": "다음은 신입 직원 [채용 계획서]의 일부이다. 채용될 직원의 담당 업무가 속하는 기업의 경영 활동으로 가장 적절한 것은?",
+      "indicators": [
+        "채용 계획서",
+        "기업의 경영 활동"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CORPORATE_ACTIVITY_MATCH"
+      ],
+      "variationTips": [
+        "다양한 직무와 경영 활동의 매칭을 요구하는 사례 추가",
+        "채용 계획서의 세부 내용을 변형"
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "DECISION_TYPE_AND_ENTREPRENEURSHIP",
+      "name": "의사 결정 유형 및 창업 설명",
+      "intent": "A학생의 사례를 통해 의사 결정 유형과 창업 관련 내용을 설명하도록 유도한다.",
+      "stemPattern": "위 사례에 나타난 A학생의 의사 결정 유형 및 창업 관련 내용에 대한 설명으로 가장 적절한 것은?",
+      "indicators": [
+        "사례",
+        "의사 결정 유형",
+        "창업"
+      ],
+      "judgmentAxes": [
+        "concept matching",
+        "procedure"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_DECISION_TYPE_ENTREPRENEURSHIP"
+      ],
+      "variationTips": [
+        "다양한 의사 결정 유형을 포함한 사례 추가",
+        "창업 과정의 세부 단계 변형"
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "INDUSTRIAL_ACCIDENT_COMPENSATION_SELECTION",
+      "name": "산업 재해 보상 서비스 선택",
+      "intent": "재해 사례를 통해 산업 재해 보상 서비스 중 옳은 것을 선택하도록 유도한다.",
+      "stemPattern": "위 재해 사례에서 재해자가 받을 수 있는 산업 재해 보상 서비스로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "재해 사례",
+        "산업 재해 보상 서비스",
+        "<보기>"
+      ],
+      "judgmentAxes": [
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_INDUSTRIAL_ACCIDENT_COMPENSATION"
+      ],
+      "variationTips": [
+        "다양한 보상 서비스 항목 추가",
+        "재해 사례의 세부 상황 변형"
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "LIFELONG_LEARNING_SYSTEM_SELECTION",
+      "name": "평생 학습 제도 설명 선택",
+      "intent": "학위증에 나타난 법률을 통해 운영되는 평생 학습 제도에 대한 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음 학위증에 나타난 법률에 의해 운영되는 평생 학습 제도에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "학위증",
+        "법률",
+        "평생 학습 제도",
+        "<보기>"
+      ],
+      "judgmentAxes": [
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_LIFELONG_LEARNING_SYSTEM"
+      ],
+      "variationTips": [
+        "다양한 학습 제도와 법률의 매칭 사례 추가",
+        "학위증의 세부 내용 변형"
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "SOCIAL_INSURANCE_APPLICATION",
+      "name": "사회 보험 적용 설명",
+      "intent": "A, B씨의 사례를 통해 적용될 수 있는 사회 보험에 대한 내용을 판단하도록 유도한다.",
+      "stemPattern": "다음 사례의 A, B씨에게 적용될 수 있는 사회 보험에 대한 내용으로 가장 적절한 것은?",
+      "indicators": [
+        "사례",
+        "사회 보험",
+        "적용"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_SOCIAL_INSURANCE_APPLICATION"
+      ],
+      "variationTips": [
+        "다양한 사회 보험 적용 사례 추가",
+        "사례의 세부 상황 변형"
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "INDUSTRIAL_ACCIDENT_COMPENSATION_EXCLUSION",
+      "name": "산업 재해 보상 서비스 제외",
+      "intent": "재해 사례를 통해 제공될 수 없는 산업 재해 보상 서비스를 판단하도록 유도한다.",
+      "stemPattern": "위 재해 사례에서 제공될 수 있는 산업 재해 보상 서비스로 적절하지 않은 것은? (단, 장해등급의 변경은 고려하지 않는다.)",
+      "indicators": [
+        "재해 사례",
+        "산업 재해 보상 서비스",
+        "적절하지 않은"
+      ],
+      "judgmentAxes": [
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_INDUSTRIAL_ACCIDENT_COMPENSATION_EXCLUSION"
+      ],
+      "variationTips": [
+        "다양한 보상 서비스 항목 추가",
+        "재해 사례의 세부 상황 변형"
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "ADVANCED_TECHNOLOGY_SELECTION",
+      "name": "첨단 기술 선택",
+      "intent": "뉴스에 나타난 첨단 기술 중 적절한 것을 선택하도록 유도한다.",
+      "stemPattern": "다음 뉴스에 나타난 첨단 기술로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "뉴스",
+        "첨단 기술",
+        "<보기>"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_ADVANCED_TECHNOLOGY_SELECTION"
+      ],
+      "variationTips": [
+        "다양한 첨단 기술 사례 추가",
+        "뉴스의 세부 내용 변형"
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "LABOR_RELATION_EXPLANATION",
+      "name": "노사 관계 설명",
+      "intent": "협력적인 노사 관계 사례를 통해 설명을 판단하도록 유도한다.",
+      "stemPattern": "다음은 협력적인 노사 관계 사례이다. (가)～(다)에 대한 설명으로 옳은 것은?",
+      "indicators": [
+        "노사 관계",
+        "협력",
+        "설명"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_LABOR_RELATION_EXPLANATION"
+      ],
+      "variationTips": [
+        "다양한 노사 관계 사례 추가",
+        "사례의 세부 상황 변형"
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "ACCIDENT_REPORT_INTERPRETATION",
+      "name": "재해 사례 보고서 해석",
+      "intent": "재해 사례 보고서를 통해 알 수 있는 내용을 판단하도록 유도한다.",
+      "stemPattern": "다음은 재해 사례 보고서의 일부이다. 이를 통해 알 수 있는 내용으로 옳은 것은?",
+      "indicators": [
+        "재해 사례 보고서",
+        "알 수 있는 내용"
+      ],
+      "judgmentAxes": [
+        "document interpretation"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_ACCIDENT_REPORT_INTERPRETATION"
+      ],
+      "variationTips": [
+        "다양한 재해 사례 보고서 추가",
+        "보고서의 세부 내용 변형"
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "FUTURE_JOB_PROSPECT_SELECTION",
+      "name": "미래 유망 직업 선택",
+      "intent": "글을 통해 미래 사회의 유망 직업을 판단하도록 유도한다.",
+      "stemPattern": "다음 글을 통해 알 수 있는 미래 사회의 유망 직업으로 가장적절한 것은?",
+      "indicators": [
+        "미래 사회",
+        "유망 직업",
+        "글"
+      ],
+      "judgmentAxes": [
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_FUTURE_JOB_PROSPECT_SELECTION"
+      ],
+      "variationTips": [
+        "다양한 미래 직업 사례 추가",
+        "글의 세부 내용 변형"
+      ]
+    }
+  ]
+}

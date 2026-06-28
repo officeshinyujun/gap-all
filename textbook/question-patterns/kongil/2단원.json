@@ -1,0 +1,502 @@
+{
+  "unitNumber": 2,
+  "subject": "kongil",
+  "totalQuestions": 19,
+  "entries": [
+    {
+      "questionIndex": 0,
+      "patternId": "INDUSTRY_PROCESS_MATCHING",
+      "name": "산업 공정 매칭 문제",
+      "intent": "주어진 생산 과정의 각 단계가 어떤 산업에 해당하는지를 판단하고, 관련 설명을 선택하도록 유도한다.",
+      "stemPattern": "다음은 제품 생산 과정을 나타낸 것이다. (가)~(라)의 관련 공업에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "제품 생산 과정",
+        "(가)~(라)",
+        "관련 공업"
+      ],
+      "judgmentAxes": [
+        "산업 분류",
+        "내구재 판단",
+        "부가 가치 판단",
+        "경공업 판단"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 산업 공정 예시를 사용하여 변형",
+        "산업 분류 기준을 변경하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "REGULATION_IMPACT_ANALYSIS",
+      "name": "규제 영향 분석 문제",
+      "intent": "글로벌 규제 기사를 통해 규제의 영향을 분석하고, 옳은 내용을 선택하도록 유도한다.",
+      "stemPattern": "다음은 섬유 산업의 글로벌 규제에 대한 기사이다. 이를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "글로벌 규제",
+        "섬유 산업",
+        "알 수 있는 내용"
+      ],
+      "judgmentAxes": [
+        "규제 내용 이해",
+        "물질 제한 판단",
+        "재활용 의무화 이해"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 산업의 규제 사례를 사용하여 변형",
+        "규제 내용을 구체적으로 변경하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "DISTRIBUTION_PATH_ANALYSIS",
+      "name": "유통 경로 분석 문제",
+      "intent": "수산물 유통 경로를 통해 관련 정보를 분석하고, 적절한 내용을 선택하도록 유도한다.",
+      "stemPattern": "다음은 수산물의 유통 경로를 나타낸 것이다. 이를 통해 알 수 있는 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "유통 경로",
+        "수산물",
+        "알 수 있는 내용"
+      ],
+      "judgmentAxes": [
+        "유통 경로 이해",
+        "HACCP 인증 판단",
+        "콜드 체인 적용 여부"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 제품의 유통 경로를 사용하여 변형",
+        "유통 경로의 단계 수를 변경하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "COMPANY_VISIT_REPORT_ANALYSIS",
+      "name": "기업 견학 보고서 분석 문제",
+      "intent": "기업 견학 보고서를 통해 기업의 특성과 생산 방식을 분석하고, 옳은 내용을 선택하도록 유도한다.",
+      "stemPattern": "다음 기업 견학 보고서를 통해 알 수 있는 내용으로 옳은 것은?",
+      "indicators": [
+        "기업 견학 보고서",
+        "알 수 있는 내용"
+      ],
+      "judgmentAxes": [
+        "OEM 방식 이해",
+        "입지 유형 판단",
+        "생산 방식 이해"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 기업의 견학 보고서를 사용하여 변형",
+        "보고서의 세부 내용을 변경하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "MARKET_REPORT_ANALYSIS",
+      "name": "시장 전망 보고서 분석 문제",
+      "intent": "식품 시장 전망 보고서를 분석하여 시장 동향과 관련된 옳은 내용을 선택하도록 유도한다.",
+      "stemPattern": "다음은 식품 시장 전망 보고서이다. 이를 분석한 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "시장 전망 보고서",
+        "분석한 내용"
+      ],
+      "judgmentAxes": [
+        "시장 동향 이해",
+        "기술 수요 예측",
+        "HMR 시장 성장 판단"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 시장의 전망 보고서를 사용하여 변형",
+        "보고서의 이슈 항목을 변경하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "PRODUCT_DEVELOPMENT_CASE_ANALYSIS",
+      "name": "제품 개발 사례 분석 문제",
+      "intent": "제품 개발 사례를 통해 개발된 기술과 제품의 특성을 분석하고, 옳은 내용을 선택하도록 유도한다.",
+      "stemPattern": "다음 제품 개발 사례를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "제품 개발 사례",
+        "알 수 있는 내용"
+      ],
+      "judgmentAxes": [
+        "핵심 기술 이해",
+        "부가 가치 창출 판단",
+        "환경 규제 충족 여부"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 제품 개발 사례를 사용하여 변형",
+        "개발된 기술의 세부 내용을 변경하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "PRODUCT_INTRODUCTION_ANALYSIS",
+      "name": "제품 소개 자료 분석 문제",
+      "intent": "섬유 제품 소개 자료를 통해 제품의 특성과 기술을 분석하고, 옳은 내용을 선택하도록 유도한다.",
+      "stemPattern": "다음은 ◯◯기업의 섬유 제품 소개 자료이다. 이를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "제품 소개 자료",
+        "알 수 있는 내용"
+      ],
+      "judgmentAxes": [
+        "융합 기술 이해",
+        "나노 공학 적용 여부",
+        "VR 기술 활용 여부"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 기업의 제품 소개 자료를 사용하여 변형",
+        "소개된 기술의 세부 내용을 변경하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "BUSINESS_SELECTION_ANALYSIS",
+      "name": "기업 선정 분석 문제",
+      "intent": "신발 브랜드 육성 사업 참여 기업 선정을 분석하여 평가 기준과 결과를 판단하고, 옳은 내용을 선택하도록 유도한다.",
+      "stemPattern": "다음 신발 브랜드 육성 사업 참여 기업 선정을 분석한 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "기업 선정",
+        "분석한 내용"
+      ],
+      "judgmentAxes": [
+        "평가 기준 이해",
+        "OEM 방식 지원 여부",
+        "산업 재산권 이해"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 사업의 기업 선정 사례를 사용하여 변형",
+        "평가 기준의 세부 내용을 변경하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "EXPORT_PERFORMANCE_ANALYSIS",
+      "name": "수출 실적 분석 문제",
+      "intent": "주요 소비재 수출 실적을 분석하여 수출 동향과 관련된 옳은 내용을 선택하도록 유도한다.",
+      "stemPattern": "다음은 주요 소비재 수출 실적이다. 이를 통해 알 수 있는 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "수출 실적",
+        "알 수 있는 내용"
+      ],
+      "judgmentAxes": [
+        "수출 동향 이해",
+        "경공업 판단",
+        "기술 집약적 공업 판단"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 제품군의 수출 실적을 사용하여 변형",
+        "수출 실적의 세부 항목을 변경하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 9,
+      "patternId": "PRODUCTION_METHOD_ANALYSIS",
+      "name": "제품 생산 방식 분석 문제",
+      "intent": "두 기업의 제품 생산 방식을 비교하여 각 방식의 특성을 분석하고, 옳은 내용을 선택하도록 유도한다.",
+      "stemPattern": "다음 (가), (나) 기업의 제품 생산 방식을 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "제품 생산 방식",
+        "알 수 있는 내용"
+      ],
+      "judgmentAxes": [
+        "제판 공정 필요 여부",
+        "규모의 경제 효과 판단",
+        "수주 산업 여부"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_DIAGNOSTIC_FRAME"
+      ],
+      "variationTips": [
+        "다른 기업의 생산 방식을 사용하여 변형",
+        "생산 방식의 세부 특성을 변경하여 변형"
+      ]
+    },
+    {
+      "questionIndex": 0,
+      "patternId": "POSTER_CONTENT_ANALYSIS",
+      "name": "포스터 내용 분석",
+      "intent": "포스터의 내용을 바탕으로 적절한 정보를 선택하도록 유도",
+      "stemPattern": "다음은 신사업 아이디어 공모전 포스터의 일부이다. 이를 통해 알 수 있는 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "포스터",
+        "알 수 있는 내용",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "content interpretation",
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CONTENT_INTERPRETATION"
+      ],
+      "variationTips": [
+        "포스터의 다른 부분을 제시",
+        "보기 항목을 변경"
+      ]
+    },
+    {
+      "questionIndex": 1,
+      "patternId": "RESULT_ANALYSIS",
+      "name": "결과 분석",
+      "intent": "신제품 개발 결과를 바탕으로 옳은 내용을 선택하도록 유도",
+      "stemPattern": "다음은 ○○기업의 신제품 개발에 따른 주요 업무의 실행 결과이다. 이에 나타난 내용으로 옳은 것은?",
+      "indicators": [
+        "신제품 개발",
+        "실행 결과",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "result interpretation",
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_RESULT_INTERPRETATION"
+      ],
+      "variationTips": [
+        "다른 결과를 제시",
+        "보기 항목을 변경"
+      ]
+    },
+    {
+      "questionIndex": 2,
+      "patternId": "PROCESS_SEQUENCE",
+      "name": "공정 순서 배열",
+      "intent": "제조 과정의 단계별 활동을 올바른 순서로 배열하도록 유도",
+      "stemPattern": "다음은 ○○기업의 전동 킥보드 제조 과정이다. 단계별 활동을 <보기>에서 골라 제조 과정 순서대로 바르게 배열한 것은?",
+      "indicators": [
+        "제조 과정",
+        "단계별 활동",
+        "순서대로 배열"
+      ],
+      "judgmentAxes": [
+        "process sequencing",
+        "procedure understanding"
+      ],
+      "itemFamilies": [
+        "single_selection"
+      ],
+      "templates": [
+        "TPL_PROCESS_SEQUENCING"
+      ],
+      "variationTips": [
+        "다른 제조 과정을 제시",
+        "보기 항목을 변경"
+      ]
+    },
+    {
+      "questionIndex": 3,
+      "patternId": "CASE_ANALYSIS",
+      "name": "사례 분석",
+      "intent": "공정 설계 과정을 적용한 사례를 분석하여 옳은 내용을 선택하도록 유도",
+      "stemPattern": "다음은 ○○기업이 공정 설계 과정을 적용한 사례이다. 이를 분석한 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "공정 설계",
+        "사례",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "case analysis",
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_CASE_ANALYSIS"
+      ],
+      "variationTips": [
+        "다른 사례를 제시",
+        "보기 항목을 변경"
+      ]
+    },
+    {
+      "questionIndex": 4,
+      "patternId": "AUTOMATION_PROCESS_ANALYSIS",
+      "name": "자동화 공정 분석",
+      "intent": "자동화 설비 공정을 분석하여 옳은 내용을 선택하도록 유도",
+      "stemPattern": "다음은 ○○기업의 청소기 제작 자동화 설비 공정을 나타낸 것이다. 이를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "자동화 설비",
+        "공정",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "process analysis",
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_PROCESS_ANALYSIS"
+      ],
+      "variationTips": [
+        "다른 자동화 공정을 제시",
+        "보기 항목을 변경"
+      ]
+    },
+    {
+      "questionIndex": 5,
+      "patternId": "TECHNOLOGY_APPLICATION_ANALYSIS",
+      "name": "신기술 적용 분석",
+      "intent": "신기술 적용 사례를 분석하여 적절한 설명을 선택하도록 유도",
+      "stemPattern": "다음은 우리나라 주요 공업의 신기술 적용 사례이다. 이를 통해 알 수 있는 (가), (나) 공업에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "신기술 적용",
+        "공업",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "technology application analysis",
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_TECHNOLOGY_APPLICATION_ANALYSIS"
+      ],
+      "variationTips": [
+        "다른 신기술 사례를 제시",
+        "보기 항목을 변경"
+      ]
+    },
+    {
+      "questionIndex": 6,
+      "patternId": "MANAGEMENT_CONTENT_ANALYSIS",
+      "name": "경영 관리 내용 분석",
+      "intent": "경영 관리 자료를 분석하여 적절한 내용을 선택하도록 유도",
+      "stemPattern": "다음 자료를 통해 파악할 수 있는 경영 관리에 대한 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "경영 관리",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "management content analysis",
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_MANAGEMENT_CONTENT_ANALYSIS"
+      ],
+      "variationTips": [
+        "다른 경영 관리 자료를 제시",
+        "보기 항목을 변경"
+      ]
+    },
+    {
+      "questionIndex": 7,
+      "patternId": "SITE_SELECTION_ANALYSIS",
+      "name": "공장입지 선정 분석",
+      "intent": "공장입지 선정 계획서를 분석하여 옳은 내용을 선택하도록 유도",
+      "stemPattern": "다음 ○○기업 공장입지 선정 계획서를 통해 알 수 있는 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "공장입지 선정",
+        "옳은 것"
+      ],
+      "judgmentAxes": [
+        "site selection analysis",
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_SITE_SELECTION_ANALYSIS"
+      ],
+      "variationTips": [
+        "다른 입지 선정 계획서를 제시",
+        "보기 항목을 변경"
+      ]
+    },
+    {
+      "questionIndex": 8,
+      "patternId": "INNOVATION_STRATEGY_ANALYSIS",
+      "name": "경영 혁신 전략 분석",
+      "intent": "경영 혁신 전략을 분석하여 적절한 내용을 선택하도록 유도",
+      "stemPattern": "다음 ○○기업의 경영 혁신 전략을 통해 알 수 있는 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "indicators": [
+        "경영 혁신",
+        "적절한 것"
+      ],
+      "judgmentAxes": [
+        "innovation strategy analysis",
+        "concept matching"
+      ],
+      "itemFamilies": [
+        "combination_judgment"
+      ],
+      "templates": [
+        "TPL_INNOVATION_STRATEGY_ANALYSIS"
+      ],
+      "variationTips": [
+        "다른 혁신 전략을 제시",
+        "보기 항목을 변경"
+      ]
+    }
+  ]
+}

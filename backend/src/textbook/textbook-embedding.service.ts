@@ -3,6 +3,7 @@ import { InjectDataSource } from '@nestjs/typeorm';
 import { DataSource } from 'typeorm';
 import OpenAI from 'openai';
 import { TextbookService } from './textbook.service';
+import { getOpenAIApiKey } from '../lib/openai-keys';
 
 const CHUNK_SIZE = 1500; // 청크당 최대 글자 수
 const CHUNK_OVERLAP = 300; // 청크 간 겹침 글자 수
@@ -21,7 +22,7 @@ export class TextbookEmbeddingService {
     private readonly textbookService: TextbookService,
   ) {
     this.openai = new OpenAI({
-      apiKey: process.env.OPENAI_API_KEY,
+      apiKey: getOpenAIApiKey(),
     });
   }
 

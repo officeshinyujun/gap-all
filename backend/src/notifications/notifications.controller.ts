@@ -38,6 +38,11 @@ export class NotificationsController {
     return this.notificationsService.markAsRead(user.id, id);
   }
 
+  @Patch('read-all')
+  async markAllAsRead(@CurrentUser() user: CurrentUserPayload) {
+    return this.notificationsService.markAllAsRead(user.id);
+  }
+
   @Delete(':id')
   async delete(
     @CurrentUser() user: CurrentUserPayload,

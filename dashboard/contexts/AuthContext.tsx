@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
-import { API_BASE_URL } from '@/lib/auth';
+import { apiFetch } from '@/lib/api';
 
 interface User {
   id: string;
@@ -30,59 +30,37 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const router = useRouter();
 
   useEffect(() => {
-    fetch(`${API_BASE_URL}/users/me`, {
-      credentials: 'include',
-    })
-      .then((res) => (res.ok ? res.json() : null))
-      .then((data) => {
-        if (data) setUser(data);
-      })
-      .catch(() => {})
-      .finally(() => setIsLoading(false));
+    (async () => {
+      try {
+        const data = await apiFetch<User>('/users/me');
+        setUser(data);
+      } catch {} finally {
+        setIsLoading(false);
+      }
+    })();
   }, []);
 
   const login = useCallback(async (email: string, password: string) => {
-    const res = await fetch(`${API_BASE_URL}/auth/login`, {
+    const data = await apiFetch<{ user: User }>('/auth/login', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      credentials: 'include',
       body: JSON.stringify({ email, password }),
     });
-
-    if (!res.ok) {
-      const err = await res.json();
-      throw new Error(err.message ?? '로그인에 실패했습니다.');
-    }
-
-    const data = await res.json();
     setUser(data.user);
     router.replace('/');
   }, [router]);
 
   const register = useCallback(async (email: string, name: string, password: string) => {
-    const res = await fetch(`${API_BASE_URL}/auth/register`, {
+    const data = await apiFetch<{ user: User }>('/auth/register', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      credentials: 'include',
       body: JSON.stringify({ email, name, password }),
     });
-
-    if (!res.ok) {
-      const err = await res.json();
-      throw new Error(err.message ?? '회원가입에 실패했습니다.');
-    }
-
-    const data = await res.json();
     setUser(data.user);
     router.replace('/');
   }, [router]);
 
   const logout = useCallback(async () => {
     try {
-      await fetch(`${API_BASE_URL}/auth/logout`, {
-        method: 'POST',
-        credentials: 'include',
-      });
+      await apiFetch('/auth/logout', { method: 'POST' });
     } catch {}
     setUser(null);
     router.replace('/landing');
