@@ -113,6 +113,59 @@
 
 .questionWrap { width: 100%; }
 
+.flagArea {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: $spacing-8;
+}
+
+.flagButton {
+  padding: $spacing-6 $spacing-12;
+  background: $background-primary;
+  border: 1px solid $border-primary;
+  border-radius: 999px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: $text-secondary;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+
+  &:hover:not(:disabled) {
+    border-color: $text-wrong;
+    color: $text-wrong;
+    background: $background-secondary;
+    transform: translateY(-1px);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.flaggedBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: $spacing-6 $spacing-12;
+  background: $background-secondary;
+  border: 1px solid $border-primary;
+  border-radius: 999px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: $text-secondary;
+}
+
 .resultArea {
   display: flex;
   align-items: center;

@@ -12,6 +12,7 @@ import { fetchBlankQuestions, fetchConceptPairs, clearStudyQuizCache } from '@/l
 import { apiFetch } from '@/lib/api';
 import type { BlankQuestion, ConceptPair, QuizCount } from '@/types/studyQuiz';
 import type { ExamQuestion } from '@/types/examQuestion';
+import { toExamQuestionFromApiQuestion } from '@/utils/examQuestionAdapter';
 import s from './page.module.scss';
 
 const SUBJECTS = [
@@ -66,21 +67,7 @@ interface ExamItem {
 
 function normalizeQuestion(raw: Record<string, unknown>): ExamQuestion {
   if (raw.render_ready) return raw as unknown as ExamQuestion;
-  return {
-    metadata: {
-      unit_name: '',
-      target_concept: (raw.targetConcept as string) ?? '',
-      item_type: (raw.itemType as string) ?? '',
-      difficulty: (raw.difficulty as string) ?? '',
-      recommended_template: (raw.recommendedTemplate as string) ?? '',
-    },
-    render_ready: {
-      question_stem: (raw.questionStem as string) ?? '',
-      stimulus_data: raw.stimulusData ?? {},
-      options_list: (raw.optionsList as string[]) ?? [],
-      explanation: raw.explanation as string | undefined,
-    },
-  } as ExamQuestion;
+  return toExamQuestionFromApiQuestion(raw);
 }
 
 export default function StudyQuizPage() {

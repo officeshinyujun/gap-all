@@ -1,23 +1,30 @@
 let currentIndex = 0;
-const MAX_KEYS = 10;
+let allKeys: string[] | null = null;
 
-const allKeys: string[] = [];
-for (let i = 1; i <= MAX_KEYS; i++) {
-  const key = i === 1
-    ? process.env.OPENAI_API_KEY
-    : process.env[`OPENAI_API_KEY${i}`];
-  if (key && key.length > 0) allKeys.push(key);
+function loadKeys(): string[] {
+  if (allKeys === null) {
+    const keys: string[] = [];
+    for (let i = 1; i <= 10; i++) {
+      const key = i === 1
+        ? process.env.OPENAI_API_KEY
+        : process.env[`OPENAI_API_KEY${i}`];
+      if (key && key.length > 0) keys.push(key);
+    }
+    allKeys = keys;
+  }
+  return allKeys;
 }
 
 export function getOpenAIApiKey(): string {
-  if (allKeys.length === 0) {
+  const keys = loadKeys();
+  if (keys.length === 0) {
     throw new Error('OPENAI_API_KEY가 설정되지 않았습니다.');
   }
-  const key = allKeys[currentIndex % allKeys.length];
+  const key = keys[currentIndex % keys.length];
   currentIndex++;
   return key;
 }
 
 export function getOpenAIApiKeyCount(): number {
-  return allKeys.length;
+  return loadKeys().length;
 }

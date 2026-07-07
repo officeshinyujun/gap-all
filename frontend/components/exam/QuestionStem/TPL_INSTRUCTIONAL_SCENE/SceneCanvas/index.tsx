@@ -21,13 +21,16 @@ export interface SceneCanvasProps {
  */
 export const SceneCanvas: React.FC<SceneCanvasProps> = ({ content, className }) => {
   if (!content) return null;
+  const VALID_TYPES = ['text', 'table', 'image', 'mind_map', 'key_map'];
+  const safeType = VALID_TYPES.includes(content.type) ? content.type : 'text';
+  const data = content.data;
   const renderContent = () => {
-    switch (content.type) {
+    switch (safeType) {
       case 'text':
-        return <p className={s.textContent}>{String(content.data ?? '')}</p>;
+        return <p className={s.textContent}>{typeof data === 'string' ? data : JSON.stringify(data)}</p>;
 
       case 'table': {
-        const tableData = Array.isArray(content.data) ? (content.data as string[][]) : [];
+        const tableData = Array.isArray(data) ? (data as string[][]) : [];
         return (
           <div className={s.tableWrapper}>
             <table className={s.table}>
@@ -51,7 +54,7 @@ export const SceneCanvas: React.FC<SceneCanvasProps> = ({ content, className }) 
       }
 
       case 'image': {
-        const imgData = content.data as CanvasImageData;
+        const imgData = data as any;
         if (!imgData || typeof imgData !== 'object') return null;
         return (
           <img
@@ -63,7 +66,7 @@ export const SceneCanvas: React.FC<SceneCanvasProps> = ({ content, className }) 
       }
 
       case 'mind_map': {
-        const raw = content.data as string;
+        const raw = typeof data === 'string' ? data : '';
         const colonIdx = raw.indexOf(':');
         const center = colonIdx !== -1 ? raw.slice(0, colonIdx).trim() : raw;
         const branches =
@@ -71,14 +74,14 @@ export const SceneCanvas: React.FC<SceneCanvasProps> = ({ content, className }) 
             ? raw
                 .slice(colonIdx + 1)
                 .split(',')
-                .map((item) => item.replace(/^\[|\]$/g, '').trim())
+                .map((item: string) => item.replace(/^\[|\]$/g, '').trim())
                 .filter(Boolean)
             : [];
         return (
           <VStack gap={12} align="center" className={s.mindMap}>
             <span className={s.mindMapCenter}>{center}</span>
             <HStack gap={8} align="center" justify="center" wrap="wrap" className={s.mindMapBranches}>
-              {branches.map((branch, idx) => (
+              {branches.map((branch: string, idx: number) => (
                 <span key={idx} className={s.mindMapBranch}>{branch}</span>
               ))}
             </HStack>
@@ -87,7 +90,7 @@ export const SceneCanvas: React.FC<SceneCanvasProps> = ({ content, className }) 
       }
 
       case 'key_map': {
-        const items = (content.data as string).split('<->').map((s) => s.trim());
+        const items = (typeof data === 'string' ? data : '').split('<->').map((s: string) => s.trim());
         return (
           <HStack gap={8} align="center" justify="center" wrap="wrap" className={s.keyMap}>
             {items.map((item, idx) => (

@@ -250,7 +250,7 @@ export function PdfStimulusRenderer({ template, data }: Props) {
     case 'TPL_PROMOTIONAL_CANVAS':
       return renderPromotionalCanvas(data as TPL_PROMOTIONAL_CANVAS);
     default:
-      if (typeof data === 'string') {
+      if (typeof data === 'string' && data.trim()) {
         return (
           <View style={styles.stimulusBox}>
             <Text style={styles.stimulusText}>{data}</Text>
@@ -258,6 +258,8 @@ export function PdfStimulusRenderer({ template, data }: Props) {
         );
       }
       if (typeof data === 'object' && data !== null) {
+        // PLAIN_TEXT fallback: { data: '' } 인 경우 빈칸 출력 방지
+        if ('data' in data && data.data === '') return null;
         return (
           <View style={styles.stimulusBox}>
             <Text style={styles.stimulusText}>{JSON.stringify(data, null, 2)}</Text>

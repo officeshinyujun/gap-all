@@ -47,6 +47,15 @@ export const TPLCaseDiagnosticFrame: React.FC<TPLCaseDiagnosticFrameProps> = ({
               <p className={s.narrativeText}>{narrative}</p>
             </div>
           )}
+
+          {/* 체크리스트 항목 */}
+          {Array.isArray(data.check_items) && data.check_items.length > 0 && (
+            <div className={s.checkItemsSection}>
+              {data.check_items.map((item, i) => (
+                <CaseCheckItem key={item.id || `ci-${i}`} item={item} />
+              ))}
+            </div>
+          )}
         </div>
       </VStack>
     </StemBox>

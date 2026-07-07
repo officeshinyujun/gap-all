@@ -45,7 +45,7 @@ export const SelectionChip: React.FC<SelectionChipProps> = ({
       tabIndex={onClick ? 0 : undefined}
       onKeyDown={onClick ? (e) => e.key === 'Enter' && onClick() : undefined}
     >
-      {CIRCLED_NUMBERS[number - 1]}
+      {CIRCLED_NUMBERS[number - 1] ?? '?'}
     </span>
   );
 };

@@ -74,6 +74,16 @@
   width: 100%;
 }
 
+.plainTextStimulus {
+  white-space: pre-wrap;
+  font-size: 13px;
+  font-weight: $regular;
+  color: $text-primary;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+  line-height: 1.8;
+  word-break: keep-all;
+}
+
 // 보기 블록
 .comboBlock {
   width: 100%;

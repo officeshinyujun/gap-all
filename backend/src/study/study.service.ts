@@ -22,6 +22,7 @@ import {
   CacheType,
 } from './study-quiz-generator.service';
 import { ExamsService } from '../exams/exams.service';
+import { StimulusNormalizer } from '../exams/stimulus-normalizer';
 import { IsOptional, IsString, IsArray, IsIn, IsNumber } from 'class-validator';
 import { Type } from 'class-transformer';
 import type { BlankQuestion, ConceptPair } from '../textbook/textbook.service';
@@ -74,6 +75,7 @@ export interface RegenerationProgress {
 @Injectable()
 export class StudyService {
   private readonly logger = new Logger(StudyService.name);
+  private readonly normalizer = new StimulusNormalizer();
 
   private readonly SUBJECT_FOLDER_MAP: Record<string, string> = {
     success: 'sungjik',
@@ -1031,7 +1033,7 @@ export class StudyService {
               },
               render_ready: {
                 question_stem: this.stripQuestionNumber(realQ.render_ready?.question_stem || realQ.stem || ''),
-                stimulus_data: this.normalizeRealStimulus(realQ.render_ready?.stimulus_data) ?? (realQ.stimulus ? { content: realQ.stimulus } : null),
+                stimulus_data: this.normalizeRealStimulus(realQ.render_ready?.stimulus_data, realQ.metadata?.recommended_template) ?? (realQ.stimulus ? { content: realQ.stimulus } : null),
                 options_list: realQ.render_ready?.options_list || realQ.options || [],
                 explanation: realQ.render_ready?.explanation || '',
               },
@@ -1109,8 +1111,9 @@ export class StudyService {
     return stem.replace(/^\d+\.\s*/, '');
   }
 
-  private normalizeRealStimulus(stimulus: any): any {
+  private normalizeRealStimulus(stimulus: any, template?: string): any {
     if (!stimulus || typeof stimulus !== 'object') return stimulus;
+    // participant_id → p_id 변환 (기존 호환성)
     if ('participants' in stimulus && 'messages' in stimulus) {
       const messages = (stimulus.messages as any[]).map((msg) => {
         if ('participant_id' in msg && !('p_id' in msg)) {
@@ -1118,7 +1121,11 @@ export class StudyService {
         }
         return msg;
       });
-      return { ...stimulus, messages };
+      stimulus = { ...stimulus, messages };
+    }
+    // StimulusNormalizer로 추가 보정 (canvas_content.type, instructor.id 등)
+    if (template) {
+      return this.normalizer.normalizeStimulusData(stimulus, template);
     }
     return stimulus;
   }

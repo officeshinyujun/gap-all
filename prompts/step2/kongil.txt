@@ -78,6 +78,27 @@ Blueprint에 `theory_constraint`가 존재하면:
 - 자료 형식: 보고서, 표, 공정도, 분류표, 시스템 화면 등 구조화된 데이터 선호.
 - 선호 TPL: TPL_COMPARATIVE_MATRIX, TPL_FORMAL_DOCUMENT, TPL_SEQUENTIAL_WORKFLOW, TPL_QUANTITATIVE_CHART
 
+# [TPL 강제 규칙 — PLAIN_TEXT 금지]
+절대 TPL_PLAIN_TEXT를 사용하지 마라.
+모든 문항은 반드시 아래 9개 구조화된 템플릿 중 하나를 사용해야 한다:
+TPL_COMPARATIVE_MATRIX, TPL_FORMAL_DOCUMENT, TPL_CONVERSATIONAL_FLOW,
+TPL_CASE_DIAGNOSTIC_FRAME, TPL_SEQUENTIAL_WORKFLOW, TPL_INSTRUCTIONAL_SCENE,
+TPL_DIGITAL_FORUM_INTERFACE, TPL_QUANTITATIVE_CHART, TPL_PROMOTIONAL_CANVAS.
+
+자료 형식에 따라 가장 자연스러운 TPL을 선택하라:
+- 표 → TPL_COMPARATIVE_MATRIX
+- 대화문 → TPL_CONVERSATIONAL_FLOW
+- 문서/법령/공고 → TPL_FORMAL_DOCUMENT
+- 사례/이야기 → TPL_CASE_DIAGNOSTIC_FRAME
+- 절차/단계 → TPL_SEQUENTIAL_WORKFLOW
+- 수업장면 → TPL_INSTRUCTIONAL_SCENE
+- Q&A/게시판 → TPL_DIGITAL_FORUM_INTERFACE
+- 차트/수치 → TPL_QUANTITATIVE_CHART
+- 광고/홍보 → TPL_PROMOTIONAL_CANVAS
+
+stimulus_data는 반드시 해당 TPL의 구조에 맞는 JSON 객체여야 하며,
+PLAIN_TEXT처럼 단순 문자열을 반환하는 것은 금지한다.
+
 # [UI Schema Manual: Strict QuestionStem Specification]
 모든 데이터는 아래 정의된 TypeScript 인터페이스 규격을 엄격히 준수하여 `render_ready.stimulus_data` 필드에 주입되어야 한다.
 
@@ -202,12 +223,41 @@ Blueprint에 `theory_constraint`가 존재하면:
 11. **JSON ONLY:** 부연 설명 없이 유효한 JSON 배열 코드 블록만 출력하라.
 12. **Zero Placeholder (플레이스홀더 금지):** stimulus_data, options_list, question_stem의 모든 필드에는 반드시 구체적이고 완성된 실제 콘텐츠만 들어가야 한다.
 13. **Family Coherence (비조합형 정합성):** `single_selection`, `direct_statement`, `blank_workflow`는 각각의 구조 규칙을 반드시 지켜라. 비조합형은 단순히 '조합형이 아닌 아무 문제'가 아니다.
+14. **[필수] TPL_DIGITAL_FORUM_INTERFACE (가) 배치 규칙:** `question_stem`이 `(가)`를 참조하는 경우, 반드시 `comments[0].text`에 `(가)`를 포함한 답변을 배치하라. `main_post.content`에는 질문 내용만 넣고 `(가)`를 넣지 마라. `comments` 배열이 비어있으면 절대 안 된다. 예시: `"comments": [{"author": "전문가", "text": "(가) 퇴직금은 근로자퇴직급여 보장법에 따라..."}]`
+15. **[필수] 라벨 일치 규칙:** stimulus_data에 등장하는 인물/대상 라벨(A, B, C 등)과 options_list·explanation에서 사용하는 라벨이 완전히 일치해야 한다. stimulus_data에 없는 라벨(C, D 등)이 정답이나 선택지에 등장하면 시스템 오류로 간주한다. TPL_CONVERSATIONAL_FLOW의 경우 participants의 id 목록 외의 라벨을 사용 금지.
+16. **[필수] 줄내림 규칙:** `main_post.content`, `narrative`, `description` 등 장문 텍스트 필드는 `\\n`을 사용하여 가독성 있는 줄내림을 적용하라. 특히 번호 목록(1. 2. 3.)이나 문단이 바뀌는 지점에 반드시 `\\n`을 삽입하라.
+17. **[필수] TPL 선택 규칙 — 실제 수능 비율 준수:**
+    - TPL_CASE_DIAGNOSTIC_FRAME(사례/이야기): 약 25%로 가장 빈번하게 사용
+    - TPL_COMPARATIVE_MATRIX(표/비교): 약 20%로 적극 사용
+    - TPL_FORMAL_DOCUMENT(문서/보고서): 약 15%
+    - TPL_SEQUENTIAL_WORKFLOW(순서도/공정): 약 10%
+    - TPL_CONVERSATIONAL_FLOW(대화문): 약 8%
+    - TPL_INSTRUCTIONAL_SCENE(수업장면): 3% 이하로 제한
+    - TPL_DIGITAL_FORUM_INTERFACE(게시판): 약 3%
+    - TPL_QUANTITATIVE_CHART(차트): 적절히
+    - TPL_PROMOTIONAL_CANVAS(광고문): 특별한 경우에만
+18. **[필수] PLAIN_TEXT 사용 제한:** TPL_PLAIN_TEXT는 50자 미만의 짧은 인용문에만 사용하라. stimulus가 50자 이상이면 아래 기준으로 적절한 TPL을 선택하라:
+    - 날짜/일정 패턴(1월 2일 등) → TPL_SEQUENTIAL_WORKFLOW
+    - 질의/문의/민원 패턴 → TPL_DIGITAL_FORUM_INTERFACE
+    - 인물 사례(A씨, B씨) → TPL_CASE_DIAGNOSTIC_FRAME
+    - 수업/강의/학습 패턴 → TPL_INSTRUCTIONAL_SCENE
+    - 표/구분자(|) 패턴 → TPL_COMPARATIVE_MATRIX
+    - 보고서/계약서/규정 패턴 → TPL_FORMAL_DOCUMENT
 
 # [세트 문항 렌더링 규칙]
 - set_group_id가 동일한 문항들은 동일한 stimulus_data를 공유한다.
 - 세트 내 첫 문항(set_position: 1)이 자료를 완전히 제시하고, 둘째 문항(set_position: 2)은 "위 [자료명]"으로 참조한다.
 - 둘째 문항의 stimulus_data는 첫 문항과 동일한 데이터를 그대로 복사하여 포함한다 (프론트엔드 독립 렌더링을 위해).
 - 세트 문항 간 정답 번호가 겹치지 않도록 최종 점검하라.
+
+# [Schema Self-Check — 필수]
+각 문항을 생성하기 전에, 아래 4가지를 반드시 자체 점검하라:
+1. **TPL 일치성**: metadata.recommended_template이 stimulus_data의 실제 구조와 일치하는가? (예: TPL_FORMAL_DOCUMENT이면 paragraphs 배열이 있어야 함)
+2. **필드명 정확성**: stimulus_data의 모든 필드가 해당 TPL 스키마에 정의된 필드명과 정확히 일치하는가? 오타나 누락이 없는가?
+3. **타입 정확성**: 각 필드의 타입이 스키마와 일치하는가? (예: steps는 배열이어야 하고 string이 아니어야 함)
+4. **배열 필수 필드**: options_list는 5개, paragraphs/steps/participants/messages/comments 등 배열은 빈 배열이 아닌가?
+5. **라벨 일치**: stimulus_data에 등장하는 인물/대상 라벨과 선지의 라벨이 완전히 일치하는가?
+위 조건 중 하나라도 위반되면 stimulus_data를 즉시 수정한 후 출력하라. 위반 문항을 그대로 출력하면 시스템 오류로 간주한다.
 
 # [Input Data]
 - Blueprint Array: {{Step 1 결과 배열 주입}}

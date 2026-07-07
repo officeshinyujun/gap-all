@@ -1,82 +1,82 @@
 [
   {
     "id": 1,
-    "concept": "국가직무능력표준(NCS)",
-    "definition": "산업 현장에서 요구되는 역량을 국가 차원에서 체계화한 지표이다.",
+    "concept": "전공별 직무 수행 능력 탐색",
+    "definition": "전공별로 요구되는 직무 수행 능력을 탐색하고 향상 방법을 설명하는 것을 목표로 한다.",
     "hidden_field": "definition",
-    "correct_value": "산업 현장에서 요구되는 역량을 국가 차원에서 체계화한 지표이다.",
-    "explanation": "NCS는 직무 탐색의 표준화된 도구로, 직무 수행에 필요한 역량을 체계적으로 분류하여 제공한다."
+    "correct_value": "전공별로 요구되는 직무 수행 능력을 탐색하고 향상 방법을 설명하는 것을 목표로 한다.",
+    "explanation": "전공별 직무 수행 능력을 탐색하고 향상시키는 방법을 설명한다."
   },
   {
     "id": 2,
-    "concept": "직무 기술서",
-    "definition": "특정 직무의 목적, 업무 내용, 방법, 필요한 자격 등을 체계적으로 정리한 문서이다.",
+    "concept": "국가직무능력표준(NCS)",
+    "definition": "산업 현장에서 직무를 수행하기 위해 요구되는 지식, 기술, 태도 등을 체계화한 것이다.",
     "hidden_field": "definition",
-    "correct_value": "특정 직무의 목적, 업무 내용, 방법, 필요한 자격 등을 체계적으로 정리한 문서이다.",
-    "explanation": "직무 기술서는 구직자가 해당 직무의 요구 사항을 파악하고 대비할 수 있도록 돕는 문서이다."
+    "correct_value": "산업 현장에서 직무를 수행하기 위해 요구되는 지식, 기술, 태도 등을 체계화한 것이다.",
+    "explanation": "NCS는 직무 수행에 필요한 능력을 체계적으로 탐색할 수 있도록 돕는다."
   },
   {
     "id": 3,
-    "concept": "능력단위",
-    "definition": "직무 분석의 최소 단위로, 교육과 평가의 핵심 기준이다.",
+    "concept": "직무 기술서",
+    "definition": "특정 직무의 목적, 업무 내용, 방법, 필요한 자격 등을 체계적으로 정리한 문서로, 채용 공고문에 첨부되어 있다.",
     "hidden_field": "definition",
-    "correct_value": "직무 분석의 최소 단위로, 교육과 평가의 핵심 기준이다.",
-    "explanation": "능력단위는 NCS 체계에서 직무 수행에 필요한 구체적 역량을 정의하고 평가하는 기준이 된다."
+    "correct_value": "특정 직무의 목적, 업무 내용, 방법, 필요한 자격 등을 체계적으로 정리한 문서로, 채용 공고문에 첨부되어 있다.",
+    "explanation": "직무 기술서는 직무에 필요한 역량을 이해하는 데 도움을 준다."
   },
   {
     "id": 4,
-    "concept": "능력단위 수준 체계",
-    "definition": "직무 숙련도에 따라 1단계부터 8단계까지 구분된 체계적 위계이다.",
+    "concept": "NCS 수준 체계",
+    "definition": "NCS 수준 체계는 산업 현장 직무 수준을 8단계로 체계화한 것이다.",
     "hidden_field": "definition",
-    "correct_value": "직무 숙련도에 따라 1단계부터 8단계까지 구분된 체계적 위계이다.",
-    "explanation": "이 체계는 산업 현장에서 직무 수행의 복잡성과 책임 범위를 단계적으로 구분하여 제시한다."
+    "correct_value": "NCS 수준 체계는 산업 현장 직무 수준을 8단계로 체계화한 것이다.",
+    "explanation": "NCS 수준 체계는 직무 수행 능력의 발전 경로를 제시한다."
   },
   {
     "id": 5,
-    "concept": "국민내일배움카드",
-    "definition": "경제적 지원을 통해 직무 역량 강화를 돕는 제도이다.",
+    "concept": "CAP@",
+    "definition": "만 34세 이하 대상, 역량 발견 및 구직 기술 강화.",
     "hidden_field": "definition",
-    "correct_value": "경제적 지원을 통해 직무 역량 강화를 돕는 제도이다.",
-    "explanation": "이 제도는 개인이 직무 역량을 향상시키기 위해 필요한 교육비를 지원받을 수 있도록 한다."
+    "correct_value": "만 34세 이하 대상, 역량 발견 및 구직 기술 강화.",
+    "explanation": "CAP@는 구직 역량을 강화하는 프로그램이다."
   },
   {
     "id": 6,
-    "concept": "KSA",
-    "definition": "직무 수행에 필요한 지식(Knowledge), 기술(Skill), 태도(Attitude)를 의미한다.",
+    "concept": "국민내일배움카드",
+    "definition": "5년간 최대 500만 원 훈련비 지원.",
     "hidden_field": "definition",
-    "correct_value": "직무 수행에 필요한 지식(Knowledge), 기술(Skill), 태도(Attitude)를 의미한다.",
-    "explanation": "KSA는 직무 수행에 필요한 다양한 역량을 포괄하는 개념으로, 직무 분석 및 역량 개발의 기초가 된다."
+    "correct_value": "5년간 최대 500만 원 훈련비 지원.",
+    "explanation": "국민내일배움카드는 훈련비를 지원하는 프로그램이다."
   },
   {
     "id": 7,
     "concept": "K-MOOC",
-    "definition": "시공간의 제약을 극복하고 전문 지식을 확장할 수 있는 이러닝 플랫폼이다.",
+    "definition": "한국형 온라인 공개강좌 서비스.",
     "hidden_field": "definition",
-    "correct_value": "시공간의 제약을 극복하고 전문 지식을 확장할 수 있는 이러닝 플랫폼이다.",
-    "explanation": "K-MOOC는 직무 역량 강화를 위한 자기 주도적 학습을 지원하는 온라인 교육 플랫폼이다."
+    "correct_value": "한국형 온라인 공개강좌 서비스.",
+    "explanation": "K-MOOC는 온라인 강좌를 제공하는 서비스이다."
   },
   {
     "id": 8,
-    "concept": "CAP@",
-    "definition": "고용24를 통해 제공되는 취업 역량 강화 프로그램이다.",
+    "concept": "KOCW",
+    "definition": "국내외 대학 및 기관의 강의 동영상 및 자료 무료 제공.",
     "hidden_field": "definition",
-    "correct_value": "고용24를 통해 제공되는 취업 역량 강화 프로그램이다.",
-    "explanation": "CAP@는 구직자가 취업에 필요한 역량을 개발할 수 있도록 돕는 프로그램이다."
+    "correct_value": "국내외 대학 및 기관의 강의 동영상 및 자료 무료 제공.",
+    "explanation": "KOCW는 강의 자료를 무료로 제공하는 플랫폼이다."
   },
   {
     "id": 9,
-    "concept": "특성화고",
-    "definition": "NCS 실무 과목과 학습모듈을 중심으로 구성된 교육과정을 제공하는 고등학교이다.",
+    "concept": "직무 수행 능력",
+    "definition": "직무를 수행하기 위해 필요한 지식, 기술, 태도를 포함한다.",
     "hidden_field": "definition",
-    "correct_value": "NCS 실무 과목과 학습모듈을 중심으로 구성된 교육과정을 제공하는 고등학교이다.",
-    "explanation": "특성화고는 학생들이 직무에 필요한 실무 역량을 학교 교육과정에서 습득할 수 있도록 한다."
+    "correct_value": "직무를 수행하기 위해 필요한 지식, 기술, 태도를 포함한다.",
+    "explanation": "직무 수행 능력은 직무를 효과적으로 수행하기 위한 필수 요소이다."
   },
   {
     "id": 10,
-    "concept": "현장 실습 제도",
-    "definition": "이론적 지식을 실무적 경력으로 전환하는 교육 과정이다.",
+    "concept": "구직 역량",
+    "definition": "구직 활동에 필요한 기술과 지식을 포함하는 능력이다.",
     "hidden_field": "definition",
-    "correct_value": "이론적 지식을 실무적 경력으로 전환하는 교육 과정이다.",
-    "explanation": "현장 실습 제도는 학생들이 실제 산업 현장에서 직무 경험을 쌓을 수 있도록 지원한다."
+    "correct_value": "구직 활동에 필요한 기술과 지식을 포함하는 능력이다.",
+    "explanation": "구직 역량은 성공적인 취업을 위한 중요한 요소이다."
   }
 ]

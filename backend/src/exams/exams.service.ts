@@ -2,6 +2,7 @@ import {
   Injectable,
   NotFoundException,
   ForbiddenException,
+  Logger,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -12,7 +13,9 @@ import {
   IncorrectRecord,
   IncorrectSource,
 } from '../entities/incorrect-record.entity';
+import { FlaggedQuestion } from '../entities/flagged-question.entity';
 import { ExamGeneratorService } from './exam-generator.service';
+import { StimulusNormalizer } from './stimulus-normalizer';
 import { TextbookService } from '../textbook/textbook.service';
 import { CreateExamDto } from './dto/create-exam.dto';
 import { ExamGenerationJobsService } from './exam-generation-jobs.service';
@@ -22,6 +25,9 @@ import type { ExamGenerationProgressReporter } from './exam-generator.service';
 
 @Injectable()
 export class ExamsService {
+  private readonly logger = new Logger(ExamsService.name);
+  private readonly normalizer = new StimulusNormalizer();
+
   constructor(
     @InjectRepository(ExamRecord)
     private readonly examRepo: Repository<ExamRecord>,
@@ -31,6 +37,8 @@ export class ExamsService {
     private readonly subjectRepo: Repository<Subject>,
     @InjectRepository(IncorrectRecord)
     private readonly incorrectRecordRepo: Repository<IncorrectRecord>,
+    @InjectRepository(FlaggedQuestion)
+    private readonly flaggedQuestionRepo: Repository<FlaggedQuestion>,
     private readonly examGeneratorService: ExamGeneratorService,
     private readonly textbookService: TextbookService,
     private readonly examGenerationJobsService: ExamGenerationJobsService,
@@ -203,9 +211,15 @@ export class ExamsService {
         targetConcept: item.question.targetConcept,
         itemType: item.question.itemType,
         difficulty: item.question.difficulty,
-        recommendedTemplate: item.question.recommendedTemplate,
         questionStem: item.question.questionStem,
-        stimulusData: item.question.stimulusData,
+        ...(() => {
+          const { stimulusData, effectiveTemplate } = this.normalizer.normalizeStimulusWithTemplate(
+            item.question.stimulusData,
+            item.question.recommendedTemplate,
+            item.question.comboBlock,
+          );
+          return { stimulusData, recommendedTemplate: effectiveTemplate };
+        })(),
         optionsList: item.question.optionsList,
         comboBlock: item.question.comboBlock,
         setGroupId: item.question.setGroupId,
@@ -361,9 +375,15 @@ export class ExamsService {
       question: {
         id: item.question.id,
         targetConcept: item.question.targetConcept,
-        recommendedTemplate: item.question.recommendedTemplate,
         questionStem: item.question.questionStem,
-        stimulusData: item.question.stimulusData,
+        ...(() => {
+          const { stimulusData, effectiveTemplate } = this.normalizer.normalizeStimulusWithTemplate(
+            item.question.stimulusData,
+            item.question.recommendedTemplate,
+            item.question.comboBlock,
+          );
+          return { stimulusData, recommendedTemplate: effectiveTemplate };
+        })(),
         optionsList: item.question.optionsList,
         comboBlock: item.question.comboBlock,
         correctAnswer: item.question.correctAnswer,
@@ -471,5 +491,49 @@ export class ExamsService {
     await this.examItemRepo.save(items);
 
     return this.findOne(userId, exam.id);
+  }
+
+  async flagItem(userId: string, examId: string, itemId: string, reason?: string) {
+    try {
+      const examItem = await this.examItemRepo.findOne({
+        where: { id: itemId, examId },
+        relations: ['exam', 'question'],
+      });
+      if (!examItem) throw new NotFoundException('문항을 찾을 수 없습니다.');
+      if (examItem.exam.userId !== userId) throw new ForbiddenException('권한이 없습니다.');
+
+      // 문항 스냅샷 저장 (차후 발전에 사용)
+      await this.flaggedQuestionRepo.save(
+        this.flaggedQuestionRepo.create({
+          questionId: examItem.questionId,
+          userId,
+          reason: reason ?? '',
+          questionSnapshot: {
+            targetConcept: examItem.question.targetConcept,
+            recommendedTemplate: examItem.question.recommendedTemplate,
+            questionStem: examItem.question.questionStem,
+            stimulusData: examItem.question.stimulusData,
+            optionsList: examItem.question.optionsList,
+            comboBlock: examItem.question.comboBlock,
+            explanation: examItem.question.explanation,
+            correctAnswer: examItem.question.correctAnswer,
+            difficulty: examItem.question.difficulty,
+          },
+        }),
+      );
+
+      // 시험에서 문항 제거
+      await this.examItemRepo.delete({ id: itemId, examId });
+
+      this.logger.log(`문항 플래그: userId=${userId} examId=${examId} itemId=${itemId} reason=${reason}`);
+
+      return { message: '문항이 플래그되었습니다.' };
+    } catch (error) {
+      this.logger.error(
+        `문항 플래그 실패: userId=${userId} examId=${examId} itemId=${itemId}`,
+        error instanceof Error ? error.stack : String(error),
+      );
+      throw error;
+    }
   }
 }

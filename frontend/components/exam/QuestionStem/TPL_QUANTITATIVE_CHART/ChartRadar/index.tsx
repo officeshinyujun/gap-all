@@ -24,6 +24,7 @@ export const ChartRadar: React.FC<ChartRadarProps> = ({
   datasets,
   height = 280,
 }) => {
+  if (!axes || !datasets) return null;
   const data = buildChartData(axes, datasets);
 
   return (

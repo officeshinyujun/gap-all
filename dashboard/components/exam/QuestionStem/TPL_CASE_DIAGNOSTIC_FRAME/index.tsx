@@ -16,6 +16,8 @@ export const TPLCaseDiagnosticFrame: React.FC<TPLCaseDiagnosticFrameProps> = ({
   data,
   label,
 }) => {
+  const profile = data.case_profile ?? { name: '', context: '' };
+
   return (
     <StemBox>
       <VStack gap={16} fullWidth>
@@ -27,11 +29,11 @@ export const TPLCaseDiagnosticFrame: React.FC<TPLCaseDiagnosticFrameProps> = ({
           <div className={s.profileHeader}>
             <HStack gap={10} align="center">
               <div className={s.avatar}>
-                <span className={s.avatarInitial}>{data.case_profile.name.charAt(0)}</span>
+                <span className={s.avatarInitial}>{(profile.name || '?').charAt(0)}</span>
               </div>
               <VStack gap={2}>
-                <span className={s.profileName}>{data.case_profile.name}</span>
-                <span className={s.profileContext}>{data.case_profile.context}</span>
+                <span className={s.profileName}>{profile.name}</span>
+                <span className={s.profileContext}>{profile.context}</span>
               </VStack>
             </HStack>
           </div>

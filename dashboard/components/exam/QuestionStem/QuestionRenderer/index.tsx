@@ -5,6 +5,8 @@ import { VStack } from '@/components/general/VStack';
 import { HStack } from '@/components/general/HStack';
 import Typo from '@/components/general/Typo';
 import { SelectionChip } from '../_shared/SelectionChip';
+import { StemBox } from '../_shared/StemBox';
+import { StemLabel } from '../_shared/StemLabel';
 import {
   TPLComparativeMatrix,
   TPLFormalDocument,
@@ -63,22 +65,26 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
     switch (parsed.template) {
       case 'TPL_COMPARATIVE_MATRIX': {
         const raw = parsed.data;
-        const rowIds = raw.rows.map((r) => String(r.id));
+        if (!raw) return null;
+        const rows = raw.rows ?? [];
+        const headers = raw.headers ?? [];
+        const selectionChips = raw.selection_chips ?? [];
+        const rowIds = rows.map((r) => String(r.id));
         // selection_chips가 rows[].id와 매칭되면 행 레이블 역할 → 표 안에 표시
         // 매칭되지 않으면 정답 힌트 → 마스킹
-        const chipsAreRowLabels = raw.selection_chips.every((chip) =>
+        const chipsAreRowLabels = selectionChips.every((chip) =>
           rowIds.includes(chip)
         );
 
         if (chipsAreRowLabels) {
           // 각 행의 cells[0]을 chip 레이블로 교체하여 표시
-          const labeledRows = raw.rows.map((row) => ({
+          const labeledRows = rows.map((row) => ({
             ...row,
-            cells: [String(row.id), ...row.cells],
+            cells: [String(row.id), ...(row.cells ?? [])],
           }));
           const labeledHeaders = [
             { id: '_label', label: '구분' },
-            ...raw.headers,
+            ...headers,
           ];
           return (
             <TPLComparativeMatrix
@@ -124,6 +130,15 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
         return <TPLQuantitativeChart data={parsed.data} label={question_stem} />;
       case 'TPL_PROMOTIONAL_CANVAS':
         return <TPLPromotionalCanvas data={parsed.data} label={question_stem} />;
+      case 'TPL_PLAIN_TEXT':
+        return (
+          <StemBox>
+            <VStack gap={16} fullWidth>
+              <StemLabel>{question_stem}</StemLabel>
+              <div className={s.plainTextStimulus}>{parsed.data}</div>
+            </VStack>
+          </StemBox>
+        );
       default:
         return null;
     }
@@ -152,7 +167,7 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
       </div>
 
       {/* 보기 블록 */}
-      {question.combo_block && question.combo_block.items.length > 0 && (
+      {question.combo_block && question.combo_block.items?.length > 0 && (
         <VStack gap={4} fullWidth className={s.comboBlock}>
           <div className={s.comboBlockTitle}>{question.combo_block.title}</div>
           {question.combo_block.items.map((item) => (

@@ -5,12 +5,15 @@
   bottom: $spacing-24;
   right: $spacing-24;
   z-index: 9999;
-  transform: translateX(120%);
   transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.visible {
+.toastVisible {
   transform: translateX(0);
+}
+
+.toastHidden {
+  transform: translateX(calc(100% + 32px));
 }
 
 .body {
@@ -64,16 +67,56 @@
   margin-top: $spacing-4;
 }
 
-.close {
+.toggle {
   background: none;
   border: none;
   color: $text-secondary;
   font-size: 14px;
+  font-weight: $bold;
   cursor: pointer;
   padding: $spacing-4;
   flex-shrink: 0;
+  font-family: 'Courier New', monospace;
 }
 
-.close:hover {
+.toggle:hover {
   color: $text-primary;
+}
+
+/* 우측 책갈피 탭 */
+.tab {
+  position: fixed;
+  right: 0;
+  bottom: $spacing-24;
+  z-index: 9998;
+  width: 24px;
+  height: 48px;
+  background: $background-fourth;
+  border: none;
+  border-radius: 6px 0 0 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $text-primary;
+  font-size: 14px;
+  font-weight: $bold;
+  font-family: 'Courier New', monospace;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  transition: opacity 0.2s;
+  padding: 0;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.tabVisible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.tabHidden {
+  opacity: 0;
+  pointer-events: none;
 }

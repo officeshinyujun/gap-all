@@ -34,9 +34,9 @@ export const TPLSequentialWorkflow: React.FC<TPLSequentialWorkflowProps> = ({
       // 스텝 렌더링
       elements.push(
         step.is_missing ? (
-          <WorkflowMissingStep key={`step-${step.idx ?? index}`} step={step} />
+          <WorkflowMissingStep key={`step-${index}`} step={step} />
         ) : (
-          <WorkflowStep key={`step-${step.idx ?? index}`} step={step} />
+          <WorkflowStep key={`step-${index}`} step={step} />
         ),
       );
 

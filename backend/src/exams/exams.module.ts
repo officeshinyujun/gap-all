@@ -11,6 +11,7 @@ import { Subject } from '../entities/subject.entity';
 import { Unit } from '../entities/unit.entity';
 import { AiUsageLog } from '../entities/ai-usage-log.entity';
 import { IncorrectRecord } from '../entities/incorrect-record.entity';
+import { FlaggedQuestion } from '../entities/flagged-question.entity';
 import { ExamGenerationJobsService } from './exam-generation-jobs.service';
 import { SimilarityValidatorService } from './similarity-validator.service';
 import { TextbookModule } from '../textbook/textbook.module';
@@ -27,6 +28,7 @@ import { NotificationsModule } from '../notifications/notifications.module';
       Unit,
       AiUsageLog,
       IncorrectRecord,
+      FlaggedQuestion,
     ]),
     TextbookModule,
     PromptsModule,

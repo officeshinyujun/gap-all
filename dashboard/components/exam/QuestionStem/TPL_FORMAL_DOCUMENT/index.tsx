@@ -15,6 +15,10 @@ export const TPLFormalDocument: React.FC<TPLFormalDocumentProps> = ({
   data,
   label,
 }) => {
+  const headerInfo = data.header_info ?? { title: '', date: '', author: '' };
+  const paragraphs = data.paragraphs ?? [];
+  const footnotes = data.footnotes ?? [];
+
   return (
     <StemBox>
       <VStack gap={16} fullWidth>
@@ -26,23 +30,23 @@ export const TPLFormalDocument: React.FC<TPLFormalDocumentProps> = ({
           {/* 헤더 영역 */}
           <div className={s.docHeader}>
             <span className={s.docType}>{data.doc_type}</span>
-            <h2 className={s.docTitle}>{data.header_info.title}</h2>
+            <h2 className={s.docTitle}>{headerInfo.title}</h2>
             <div className={s.docMeta}>
               <span className={s.metaItem}>
                 <span className={s.metaKey}>날짜</span>
-                <span className={s.metaValue}>{data.header_info.date}</span>
+                <span className={s.metaValue}>{headerInfo.date}</span>
               </span>
               <span className={s.metaDivider}>|</span>
               <span className={s.metaItem}>
                 <span className={s.metaKey}>작성자</span>
-                <span className={s.metaValue}>{data.header_info.author}</span>
+                <span className={s.metaValue}>{headerInfo.author}</span>
               </span>
             </div>
           </div>
 
           {/* 단락 영역 */}
           <div className={s.docBody}>
-            {data.paragraphs.map((paragraph, index) => (
+            {paragraphs.map((paragraph, index) => (
               <div key={index} className={s.paragraph}>
                 {paragraph.sub_title && (
                   <p className={s.subTitle}>{paragraph.sub_title}</p>
@@ -53,11 +57,11 @@ export const TPLFormalDocument: React.FC<TPLFormalDocumentProps> = ({
           </div>
 
           {/* 각주 영역 */}
-          {data.footnotes.length > 0 && (
+          {footnotes.length > 0 && (
             <div className={s.footnoteSection}>
               <div className={s.footnoteDivider} />
               <VStack gap={4} fullWidth>
-                {data.footnotes.map((footnote, index) => (
+                {footnotes.map((footnote, index) => (
                   <DocFootnote key={index} text={footnote} index={index + 1} />
                 ))}
               </VStack>

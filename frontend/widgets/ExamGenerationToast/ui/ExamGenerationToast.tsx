@@ -6,44 +6,55 @@ import s from './ExamGenerationToast.module.scss';
 
 export function ExamGenerationToast() {
   const { jobStatus } = useJobProgress();
-  const [visible, setVisible] = useState(false);
-  const [dismissed, setDismissed] = useState(false);
+  const [collapsed, setCollapsed] = useState(false);
+  const [hasShown, setHasShown] = useState(false);
 
   useEffect(() => {
-    if (jobStatus && !dismissed) {
-      setVisible(true);
+    if (jobStatus) {
+      setHasShown(true);
     }
-  }, [jobStatus, dismissed]);
+  }, [jobStatus]);
 
   useEffect(() => {
     if (jobStatus?.status === 'completed' || jobStatus?.status === 'failed') {
-      const timer = setTimeout(() => setVisible(false), 10000);
+      const timer = setTimeout(() => setHasShown(false), 10000);
       return () => clearTimeout(timer);
     }
   }, [jobStatus?.status]);
 
-  if (!visible || !jobStatus || dismissed) return null;
+  if (!hasShown || !jobStatus) return null;
 
   const isDone = jobStatus.status === 'completed' || jobStatus.status === 'failed';
 
   return (
-    <div className={`${s.toast} ${visible ? s.visible : ''}`}>
-      <div className={s.body}>
-        {isDone ? (
-          <span className={s.icon}>✅</span>
-        ) : (
-          <span className={s.spinner} />
-        )}
-        <div className={s.text}>
-          <div className={s.title}>{jobStatus.message}</div>
-          {!isDone && (
-            <div className={s.progress}>{jobStatus.progress}%</div>
+    <>
+      {/* 토글 탭 (항상 보임) */}
+      <button
+        className={`${s.tab} ${collapsed ? s.tabVisible : s.tabHidden}`}
+        onClick={() => setCollapsed(!collapsed)}
+      >
+        {collapsed ? '<' : '>'}
+      </button>
+
+      {/* 토스트 본문 */}
+      <div className={`${s.toast} ${collapsed ? s.toastHidden : s.toastVisible}`}>
+        <div className={s.body}>
+          {isDone ? (
+            <span className={s.icon}>✅</span>
+          ) : (
+            <span className={s.spinner} />
           )}
+          <div className={s.text}>
+            <div className={s.title}>{jobStatus.message}</div>
+            {!isDone && (
+              <div className={s.progress}>{jobStatus.progress}%</div>
+            )}
+          </div>
+          <button className={s.toggle} onClick={() => setCollapsed(true)}>
+            &gt;
+          </button>
         </div>
-        <button className={s.close} onClick={() => { setVisible(false); setDismissed(true); }}>
-          ✕
-        </button>
       </div>
-    </div>
+    </>
   );
 }

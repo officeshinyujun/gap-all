@@ -122,6 +122,7 @@ export interface ExamQuestion {
   };
   /** exam3.json: render_ready 밖 최상위에 위치 */
   explanation?: ExamExplanation;
+  correct_answer?: number;
   /** 조합형 문항의 ㄱ~ㄹ 보기 블록 */
   combo_block?: ComboBlock | null;
 }

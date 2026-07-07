@@ -1,82 +1,82 @@
 [
   {
     "id": 1,
-    "concept": "위험 물질",
-    "definition": "외부 자극이나 타 물질과의 접촉 시 폭발, 발화, 인화, 부식을 유발하는 물질",
+    "concept": "화학 물질의 위험 특성",
+    "definition": "화학 물질의 위험 특성을 이해한다.",
     "hidden_field": "definition",
-    "correct_value": "외부 자극이나 타 물질과의 접촉 시 폭발, 발화, 인화, 부식을 유발하는 물질",
-    "explanation": "화학적 물성에 따라 위험성을 분류하고, 인체 및 물리적 영향을 분석하는 데 사용됨"
+    "correct_value": "화학 물질의 위험 특성을 이해한다.",
+    "explanation": "화학 물질의 위험성을 파악하는 것을 의미한다."
   },
   {
     "id": 2,
-    "concept": "폭발성 물질",
-    "definition": "자체 산소를 보유하거나 산소 없이도 분해 폭발이 가능한 물질",
+    "concept": "화공 안전사고",
+    "definition": "화공 안전사고의 유형과 예방 대책을 학습한다.",
     "hidden_field": "definition",
-    "correct_value": "자체 산소를 보유하거나 산소 없이도 분해 폭발이 가능한 물질",
-    "explanation": "작은 에너지로도 쉽게 불이 붙거나 성분이 분해되면서 폭발을 일으킬 수 있음"
+    "correct_value": "화공 안전사고의 유형과 예방 대책을 학습한다.",
+    "explanation": "화공 분야에서의 안전사고를 이해하고 예방하는 방법을 배운다."
   },
   {
     "id": 3,
-    "concept": "소화",
-    "definition": "연소의 4요소를 차단하는 과정으로, 제거소화, 질식소화, 냉각소화, 억제소화의 메커니즘을 가짐",
+    "concept": "건설 현장의 안전사고",
+    "definition": "건설 현장의 안전사고 형태와 원인을 파악한다.",
     "hidden_field": "definition",
-    "correct_value": "연소의 4요소를 차단하는 과정으로, 제거소화, 질식소화, 냉각소화, 억제소화의 메커니즘을 가짐",
-    "explanation": "화재 등급별 특성과 억제 메커니즘을 설명하며, 가연물별 화재 분류에 따라 적절한 소화 방법을 제시함"
+    "correct_value": "건설 현장의 안전사고 형태와 원인을 파악한다.",
+    "explanation": "건설 현장에서 발생할 수 있는 사고를 이해하는 것을 의미한다."
   },
   {
     "id": 4,
-    "concept": "연소의 4요소",
-    "definition": "가연물, 산소, 점화원, 연쇄 반응",
+    "concept": "폭발성 물질",
+    "definition": "산소나 산화제가 없어도 열, 마찰, 충격 등으로 인해 폭발, 강렬한 반응의 위험성이 있는 물질.",
     "hidden_field": "definition",
-    "correct_value": "가연물, 산소, 점화원, 연쇄 반응",
-    "explanation": "소화 메커니즘의 기본 원리로 작용하며, 각 요소의 차단을 통해 화재를 억제함"
+    "correct_value": "산소나 산화제가 없어도 열, 마찰, 충격 등으로 인해 폭발, 강렬한 반응의 위험성이 있는 물질.",
+    "explanation": "폭발의 위험이 있는 물질의 특성을 설명한다."
   },
   {
     "id": 5,
-    "concept": "건설 5대 재해",
-    "definition": "무너짐, 떨어짐, 날아옴/맞음, 감전 등의 사고 형태",
+    "concept": "발화성 물질",
+    "definition": "낮은 온도에서도 스스로 발화하는 물질 혹은 물과 닿으면 연소하여 가연성 가스를 발생하는 물질.",
     "hidden_field": "definition",
-    "correct_value": "무너짐, 떨어짐, 날아옴/맞음, 감전 등의 사고 형태",
-    "explanation": "건설 현장의 구조적 위험 요소와 사고 형태를 분석하여 안전 대책을 마련하는 데 기여함"
+    "correct_value": "낮은 온도에서도 스스로 발화하는 물질 혹은 물과 닿으면 연소하여 가연성 가스를 발생하는 물질.",
+    "explanation": "발화의 위험이 있는 물질의 특성을 설명한다."
   },
   {
     "id": 6,
-    "concept": "페일 세이프 원칙",
-    "definition": "사고 발생 시 피해를 최소화하기 위한 안전 설계 원칙",
+    "concept": "산화성 물질",
+    "definition": "산소를 방출하거나 공급하여 다른 물질이 불에 더 타도록 돕는 성질을 가진 물질.",
     "hidden_field": "definition",
-    "correct_value": "사고 발생 시 피해를 최소화하기 위한 안전 설계 원칙",
-    "explanation": "화학 및 건설 산업의 안전 대책 수립 시 중요한 설계 원칙으로 작용함"
+    "correct_value": "산소를 방출하거나 공급하여 다른 물질이 불에 더 타도록 돕는 성질을 가진 물질.",
+    "explanation": "산화의 역할을 하는 물질의 특성을 설명한다."
   },
   {
     "id": 7,
-    "concept": "물질 안전 보건 자료(MSDS)",
-    "definition": "위험 물질의 안전한 취급 및 관리를 위한 정보 제공 문서",
+    "concept": "부식성 물질",
+    "definition": "금속 등을 쉽게 부식시키고 인체에 접촉하면 심한 상해를 입히는 물질.",
     "hidden_field": "definition",
-    "correct_value": "위험 물질의 안전한 취급 및 관리를 위한 정보 제공 문서",
-    "explanation": "화학 물질의 안전한 사용과 사고 예방을 위한 필수 자료로 활용됨"
+    "correct_value": "금속 등을 쉽게 부식시키고 인체에 접촉하면 심한 상해를 입히는 물질.",
+    "explanation": "부식의 위험이 있는 물질의 특성을 설명한다."
   },
   {
     "id": 8,
-    "concept": "인화성 물질",
-    "definition": "인화점 65도 이하의 가연성 액체",
+    "concept": "독성 물질",
+    "definition": "체내에 흡수되었을 때 유해한 영향을 일으키는 물질.",
     "hidden_field": "definition",
-    "correct_value": "인화점 65도 이하의 가연성 액체",
-    "explanation": "화재 발생 가능성이 높은 물질로, 적절한 소화 방법을 통해 화재를 예방함"
+    "correct_value": "체내에 흡수되었을 때 유해한 영향을 일으키는 물질.",
+    "explanation": "독성의 위험이 있는 물질의 특성을 설명한다."
   },
   {
     "id": 9,
-    "concept": "부식성 물질",
-    "definition": "금속 부식 및 인체 화상을 유발하는 물질",
+    "concept": "자극성 물질",
+    "definition": "피부, 호흡기 등과 노출로 체내 면역 반응의 이상을 일으키는 물질.",
     "hidden_field": "definition",
-    "correct_value": "금속 부식 및 인체 화상을 유발하는 물질",
-    "explanation": "화학적 특성에 따라 적절한 안전 대책을 마련하는 데 기여함"
+    "correct_value": "피부, 호흡기 등과 노출로 체내 면역 반응의 이상을 일으키는 물질.",
+    "explanation": "자극의 위험이 있는 물질의 특성을 설명한다."
   },
   {
     "id": 10,
-    "concept": "독성 물질",
-    "definition": "체내 흡입/흡수 시 치명적 유해 영향을 미치는 물질",
+    "concept": "중독 물질",
+    "definition": "유독 물질에 의한 중독의 원인과 그로 인한 질환을 설명하고, 각 물질의 특성과 예방 대책을 제시한다.",
     "hidden_field": "definition",
-    "correct_value": "체내 흡입/흡수 시 치명적 유해 영향을 미치는 물질",
-    "explanation": "인체에 미치는 영향을 분석하여 적절한 보호구 착용 및 안전 대책 수립에 기여함"
+    "correct_value": "유독 물질에 의한 중독의 원인과 그로 인한 질환을 설명하고, 각 물질의 특성과 예방 대책을 제시한다.",
+    "explanation": "중독의 원인과 예방 방법을 이해하는 것을 의미한다."
   }
 ]

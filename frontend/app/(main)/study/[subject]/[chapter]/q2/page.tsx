@@ -3,7 +3,7 @@
 import { use, useEffect, useState, useRef } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Typo from '@shared/ui/Typo';
-import { fetchConceptPairs, updateStudyProgress, postIncorrectRecords } from '@/lib/studyQuizApi';
+import { fetchConceptPairs, updateStudyProgress } from '@/lib/studyQuizApi';
 import { fetchUnitId } from '@/lib/studyApi';
 import type { ConceptPair, QuizCount } from '@/types/studyQuiz';
 import s from './page.module.scss';
@@ -34,7 +34,6 @@ export default function StudyQ2Page({
   const [inputValue, setInputValue] = useState('');
   const [answerState, setAnswerState] = useState<AnswerState>('idle');
   const [correctCount, setCorrectCount] = useState(0);
-  const [incorrectIndices, setIncorrectIndices] = useState<number[]>([]);
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
   function loadPairs() {
@@ -43,7 +42,6 @@ export default function StudyQ2Page({
     setInputValue('');
     setAnswerState('idle');
     setCorrectCount(0);
-    setIncorrectIndices([]);
     fetchConceptPairs(subject, unitNumber, count)
       .then((items) => {
         setPairs(items);
@@ -82,8 +80,6 @@ export default function StudyQ2Page({
   function handleJudge(isCorrect: boolean) {
     if (isCorrect) {
       setCorrectCount((c) => c + 1);
-    } else {
-      setIncorrectIndices((prev) => [...prev, currentIndex]);
     }
     handleNext();
   }
@@ -96,17 +92,6 @@ export default function StudyQ2Page({
           if (unitId) return updateStudyProgress(unitId, 'INTERACTIVE_QUIZ', 100);
         })
         .catch(() => {});
-      const wrongPairs = incorrectIndices.map((idx) => pairs[idx]);
-      if (wrongPairs.length > 0) {
-        postIncorrectRecords(
-          wrongPairs.map((p) => ({
-            subjectSlug: subject,
-            unitNumber,
-            targetConcept: p.concept,
-            source: 'INTERACTIVE_QUIZ' as const,
-          }))
-        ).catch(() => {});
-      }
     } else {
       setCurrentIndex((i) => i + 1);
       setInputValue('');

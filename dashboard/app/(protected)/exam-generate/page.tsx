@@ -6,7 +6,8 @@ import { HStack } from '@/components/general/HStack';
 import Typo from '@/components/general/Typo';
 import { QuestionRenderer } from '@/components/exam/QuestionStem/QuestionRenderer';
 import { getTemplateLabel } from '@/utils/examParser';
-import type { ExamQuestion } from '@/types/examQuestion';
+import type { ComboBlock, ExamQuestion } from '@/types/examQuestion';
+import { toExamQuestionFromApiItem } from '@/utils/examQuestionAdapter';
 import s from './page.module.scss';
 
 interface UnitConcepts {
@@ -42,6 +43,7 @@ interface ApiExamItem {
     optionsList: string[];
     explanation: unknown;
     correctAnswer?: number;
+    comboBlock?: ComboBlock | null;
   };
 }
 
@@ -63,26 +65,6 @@ interface GenerationJobState {
   error?: string;
   examId?: string;
   logs: GenerationJobLog[];
-}
-
-// 백엔드 응답 → ExamQuestion 변환
-function toExamQuestion(item: ApiExamItem, unitName: string): ExamQuestion {
-  const q = item.question;
-  return {
-    metadata: {
-      unit_name: unitName,
-      target_concept: q.targetConcept,
-      item_type: q.itemType,
-      difficulty: q.difficulty,
-      recommended_template: q.recommendedTemplate,
-    },
-    render_ready: {
-      question_stem: q.questionStem,
-      stimulus_data: q.stimulusData,
-      options_list: q.optionsList,
-    },
-    explanation: q.explanation as any,
-  };
 }
 
 export default function DevExamGeneratePage() {
@@ -126,7 +108,7 @@ export default function DevExamGeneratePage() {
       const unitName = `${startUnit}~${endUnit}단원`;
 
       setExamTitle(data.title ?? `${subjectTitleFallback} ${unitName}`);
-      setQuestions(items.map((item) => toExamQuestion(item, unitName)));
+      setQuestions(items.map((item) => toExamQuestionFromApiItem(item, { unitName })));
       setCurrentIndex(0);
     },
     [startUnit, endUnit],

@@ -24,7 +24,7 @@ export const CaseProfileCard: React.FC<CaseProfileCardProps> = ({
       <HStack gap={12} align="center" fullWidth>
         <div className={s.avatar}>
           <span className={s.avatarInitial}>
-            {profile.name.charAt(0)}
+            {(profile.name ?? '?').charAt(0)}
           </span>
         </div>
         <VStack gap={4}>

@@ -39,7 +39,7 @@ export const TPLQuantitativeChart: React.FC<TPLQuantitativeChartProps> = ({
                   <td className={s.tdLabel}>{axis.label}</td>
                   {datasets.map((ds, dsIdx) => (
                     <td key={ds.label ?? dsIdx} className={s.td}>
-                      {ds.values[axisIdx] ?? '-'}
+                      {(ds.values ?? [])[axisIdx] ?? '-'}
                     </td>
                   ))}
                 </tr>

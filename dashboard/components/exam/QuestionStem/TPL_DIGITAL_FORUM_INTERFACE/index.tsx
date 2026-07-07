@@ -24,6 +24,8 @@ export const TPLDigitalForumInterface: React.FC<TPLDigitalForumInterfaceProps> =
   data,
   label,
 }) => {
+  const comments = data.comments ?? [];
+
   return (
     <StemBox>
       <VStack gap={16} fullWidth>
@@ -31,15 +33,15 @@ export const TPLDigitalForumInterface: React.FC<TPLDigitalForumInterfaceProps> =
         <div className={s.forumWrapper}>
           <ForumHeader forumName={data.forum_name} />
           <ForumPost post={data.main_post} />
-          {data.comments.length > 0 && (
+          {comments.length > 0 && (
             <div className={s.commentsSection}>
               <div className={s.commentsHeader}>
                 <span className={s.commentsCount}>
-                  댓글 {data.comments.length}개
+                  댓글 {comments.length}개
                 </span>
               </div>
               <VStack gap={0} fullWidth>
-                {data.comments.map((comment, index) => (
+                {comments.map((comment, index) => (
                   <ForumComment
                     key={index}
                     comment={comment}

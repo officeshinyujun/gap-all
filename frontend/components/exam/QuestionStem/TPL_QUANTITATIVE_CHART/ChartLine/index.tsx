@@ -24,6 +24,7 @@ export const ChartLine: React.FC<ChartLineProps> = ({
   datasets,
   height = 280,
 }) => {
+  if (!axes || !datasets) return null;
   const data = buildChartData(axes, datasets);
 
   return (

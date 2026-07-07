@@ -26,6 +26,8 @@ export const TPLPromotionalCanvas: React.FC<TPLPromotionalCanvasProps> = ({
   data,
   label,
 }) => {
+  const bullets = data.bullets ?? [];
+
   return (
     <StemBox variant="bordered">
       <VStack gap={16} fullWidth>
@@ -33,10 +35,10 @@ export const TPLPromotionalCanvas: React.FC<TPLPromotionalCanvasProps> = ({
 
         <PromoSlogan text={data.slogan} />
 
-        {data.bullets.length > 0 && (
+        {bullets.length > 0 && (
           <div className={s.bulletSection}>
             <VStack gap={4} fullWidth>
-              {data.bullets.map((bullet, index) => (
+              {bullets.map((bullet, index) => (
                 <PromoBullet key={index} text={bullet} index={index} />
               ))}
             </VStack>

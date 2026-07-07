@@ -4,7 +4,7 @@ import { use, useEffect, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Typo from '@shared/ui/Typo';
 import { SPACING } from '@shared/constants/spacing';
-import { fetchBlankQuestions, updateStudyProgress, postIncorrectRecords } from '@/lib/studyQuizApi';
+import { fetchBlankQuestions, updateStudyProgress } from '@/lib/studyQuizApi';
 import { fetchUnitId } from '@/lib/studyApi';
 import type { BlankQuestion, QuizCount } from '@/types/studyQuiz';
 import { QuestionCard } from '@/components/study/BlankQuiz/QuestionCard';
@@ -36,14 +36,12 @@ export default function StudyQ1Page({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [correctCount, setCorrectCount] = useState(0);
-  const [incorrectItems, setIncorrectItems] = useState<number[]>([]);
 
   function loadQuestions() {
     setPageState('loading');
     setCurrentIndex(0);
     setSelectedOption(null);
     setCorrectCount(0);
-    setIncorrectItems([]);
     fetchBlankQuestions(subject, unitNumber, count)
       .then((items) => {
         setQuestions(items);
@@ -76,8 +74,6 @@ export default function StudyQ1Page({
     setSelectedOption(option);
     if (option === current?.correct_answer) {
       setCorrectCount((c) => c + 1);
-    } else {
-      setIncorrectItems((prev) => [...prev, currentIndex]);
     }
   }
 
@@ -88,17 +84,6 @@ export default function StudyQ1Page({
         const unitId = await fetchUnitId(subject, unitNumber);
         if (unitId) await updateStudyProgress(unitId, 'BLANK_FILL', 100);
       } catch { /* 무시 */ }
-      const wrongQuestions = incorrectItems.map((idx) => questions[idx]);
-      if (wrongQuestions.length > 0) {
-        postIncorrectRecords(
-          wrongQuestions.map((q) => ({
-            subjectSlug: subject,
-            unitNumber,
-            targetConcept: q.correct_answer,
-            source: 'BLANK_FILL' as const,
-          }))
-        ).catch(() => {});
-      }
     } else {
       setCurrentIndex((i) => i + 1);
       setSelectedOption(null);

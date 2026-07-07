@@ -145,6 +145,26 @@
 12. **JSON ONLY:** 부연 설명 없이 유효한 JSON 배열 코드 블록만 출력하라.
 13. **Zero Placeholder (플레이스홀더 금지):** stimulus_data, options_list, question_stem의 모든 필드에는 반드시 구체적이고 완성된 실제 콘텐츠만 들어가야 한다. "사례를 채워야 한다", "적절한 예시 삽입", "해당 내용 작성", "관련 설명" 등 메타 지시문이나 미완성 가이드 텍스트를 절대 남기지 마라. 모든 필드는 학생이 바로 읽고 풀 수 있는 완성된 문장이어야 한다. 위반 시 시스템 오류로 간주한다.
 14. **Family Coherence (비조합형 정합성):** `single_selection`, `direct_statement`, `blank_workflow`는 각각의 구조 규칙을 반드시 지켜라. 비조합형은 단순히 '조합형이 아닌 아무 문제'가 아니다.
+15. **[필수] TPL_DIGITAL_FORUM_INTERFACE (가) 배치 규칙:** `question_stem`이 `(가)`를 참조하는 경우, 반드시 `comments[0].text`에 `(가)`를 포함한 답변을 배치하라. `main_post.content`에는 질문 내용만 넣고 `(가)`를 넣지 마라. `comments` 배열이 비어있으면 절대 안 된다.
+16. **[필수] 라벨 일치 규칙:** stimulus_data에 등장하는 인물/대상 라벨(A, B, C 등)과 options_list·explanation에서 사용하는 라벨이 완전히 일치해야 한다. stimulus_data에 없는 라벨(C, D 등)이 정답이나 선택지에 등장하면 시스템 오류로 간주한다. TPL_CONVERSATIONAL_FLOW의 경우 participants의 id 목록 외의 라벨을 사용 금지.
+17. **[필수] 줄내림 규칙:** `main_post.content`, `narrative`, `description` 등 장문 텍스트 필드는 `\\n`을 사용하여 가독성 있는 줄내림을 적용하라. 특히 번호 목록(1. 2. 3.)이나 문단이 바뀌는 지점에 반드시 `\\n`을 삽입하라.
+18. **[필수] TPL 선택 규칙 — 실제 수능 비율 준수:**
+    - TPL_CASE_DIAGNOSTIC_FRAME(사례/이야기): 약 25%로 가장 빈번하게 사용
+    - TPL_COMPARATIVE_MATRIX(표/비교): 약 20%로 적극 사용
+    - TPL_FORMAL_DOCUMENT(문서/보고서): 약 15%
+    - TPL_SEQUENTIAL_WORKFLOW(순서도/공정): 약 10%
+    - TPL_CONVERSATIONAL_FLOW(대화문): 약 8%
+    - TPL_INSTRUCTIONAL_SCENE(수업장면): 3% 이하로 제한
+    - TPL_DIGITAL_FORUM_INTERFACE(게시판): 약 3%
+    - TPL_QUANTITATIVE_CHART(차트): 적절히
+    - TPL_PROMOTIONAL_CANVAS(광고문): 특별한 경우에만
+19. **[필수] PLAIN_TEXT 사용 제한:** TPL_PLAIN_TEXT는 50자 미만의 짧은 인용문에만 사용하라. stimulus가 50자 이상이면 아래 기준으로 적절한 TPL을 선택하라:
+    - 날짜/일정 패턴(1월 2일 등) → TPL_SEQUENTIAL_WORKFLOW
+    - 질의/문의/민원 패턴 → TPL_DIGITAL_FORUM_INTERFACE
+    - 인물 사례(A씨, B씨) → TPL_CASE_DIAGNOSTIC_FRAME
+    - 수업/강의/학습 패턴 → TPL_INSTRUCTIONAL_SCENE
+    - 표/구분자(|) 패턴 → TPL_COMPARATIVE_MATRIX
+    - 보고서/계약서/규정 패턴 → TPL_FORMAL_DOCUMENT
 
 # [세트 문항 렌더링 규칙]
 - set_group_id가 동일한 문항들은 동일한 stimulus_data를 공유한다.
@@ -194,6 +214,15 @@ Blueprint에 `theory_constraint`가 존재하면:
 1. question_stem 말미에 "(단, ...)" 형태로 단서를 삽입한다.
 2. 이론 참조 단서는 발문의 마지막 문장 뒤, 물음표 앞에 위치한다.
 3. 예시: "다음 인터뷰를 통해 알 수 있는 A씨의 현재 생애 발달 단계의 발달 과업으로 가장 적절한 것은? (단, 생애 발달 단계별 발달 과업은 해비거스트(Havighurst, R. J.) 이론에 근거한다.)"
+
+# [Schema Self-Check — 필수]
+각 문항을 생성하기 전에, 아래 4가지를 반드시 자체 점검하라:
+1. **TPL 일치성**: metadata.recommended_template이 stimulus_data의 실제 구조와 일치하는가?
+2. **필드명 정확성**: stimulus_data의 모든 필드가 해당 TPL 스키마에 정의된 필드명과 정확히 일치하는가? 오타나 누락이 없는가?
+3. **타입 정확성**: 각 필드의 타입이 스키마와 일치하는가?
+4. **배열 필수 필드**: options_list는 5개, 배열 필드는 빈 배열이 아닌가?
+5. **라벨 일치**: stimulus_data에 등장하는 인물/대상 라벨과 선지의 라벨이 완전히 일치하는가?
+위 조건 중 하나라도 위반되면 stimulus_data를 즉시 수정한 후 출력하라.
 
 # [Input Data]
 - Blueprint Array: {{Step 1 결과 배열 주입}}

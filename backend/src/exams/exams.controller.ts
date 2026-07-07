@@ -115,4 +115,15 @@ export class ExamsController {
   ) {
     return this.examsService.getResult(user.id, examId);
   }
+
+  @Post(':examId/items/:itemId/flag')
+  @HttpCode(HttpStatus.OK)
+  async flagItem(
+    @CurrentUser() user: CurrentUserPayload,
+    @Param('examId') examId: string,
+    @Param('itemId') itemId: string,
+    @Body() body: { reason?: string },
+  ) {
+    return this.examsService.flagItem(user.id, examId, itemId, body?.reason);
+  }
 }

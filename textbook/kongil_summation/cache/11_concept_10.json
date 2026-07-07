@@ -1,82 +1,82 @@
 [
   {
     "id": 1,
-    "concept": "5M",
-    "definition": "제조 현장에서 인력, 설비, 재료, 방법, 측정을 포함하는 생산 요소.",
+    "concept": "제조 현장 관리",
+    "definition": "제조 현장 관리란 공장의 설비, 인력, 물자, 작업 방법 등을 효과적으로 통제하여 공장이 능률적으로 운영되도록 하는 활동이다.",
     "hidden_field": "definition",
-    "correct_value": "제조 현장에서 인력, 설비, 재료, 방법, 측정을 포함하는 생산 요소.",
-    "explanation": "5M은 제조 현장 관리의 기초 요소로, 생산의 효율성을 높이기 위해 중점적으로 관리해야 하는 대상이다."
+    "correct_value": "제조 현장 관리란 공장의 설비, 인력, 물자, 작업 방법 등을 효과적으로 통제하여 공장이 능률적으로 운영되도록 하는 활동이다.",
+    "explanation": "제조 현장 관리는 공장 운영의 효율성을 높이는 활동이다."
   },
   {
     "id": 2,
-    "concept": "QCD",
-    "definition": "제조 현장에서 품질, 원가, 납기를 의미하는 생산의 3대 목표.",
+    "concept": "작업 관리",
+    "definition": "작업 관리는 제조 현장을 효율적으로 설계하고 관리하여 작업자가 설비 등의 작업을 원활하게 수행하도록 하는 활동이다.",
     "hidden_field": "definition",
-    "correct_value": "제조 현장에서 품질, 원가, 납기를 의미하는 생산의 3대 목표.",
-    "explanation": "QCD는 제조 현장의 운영 목표로, 각 요소를 최적화하여 경쟁력을 확보하는 데 필수적이다."
+    "correct_value": "작업 관리는 제조 현장을 효율적으로 설계하고 관리하여 작업자가 설비 등의 작업을 원활하게 수행하도록 하는 활동이다.",
+    "explanation": "작업 관리는 작업자의 효율적인 작업 수행을 지원하는 활동이다."
   },
   {
     "id": 3,
-    "concept": "과학적 관리법",
-    "definition": "테일러의 과업 설정 및 시간·동작 연구 기반의 능률 향상 기법.",
+    "concept": "공정 관리",
+    "definition": "공정 관리는 원자재로부터 최종 생산품을 능률적으로 생산할 수 있도록 공정 및 절차 계획을 세우고 작업을 분배하여 진행하는 활동이다.",
     "hidden_field": "definition",
-    "correct_value": "테일러의 과업 설정 및 시간·동작 연구 기반의 능률 향상 기법.",
-    "explanation": "과학적 관리법은 작업 효율성을 극대화하기 위한 정량적 방법론으로, 현대의 표준 작업 설정에 영향을 미쳤다."
+    "correct_value": "공정 관리는 원자재로부터 최종 생산품을 능률적으로 생산할 수 있도록 공정 및 절차 계획을 세우고 작업을 분배하여 진행하는 활동이다.",
+    "explanation": "공정 관리는 생산 흐름을 관리하는 활동이다."
   },
   {
     "id": 4,
-    "concept": "TQM",
-    "definition": "전 구성원의 참여로 고객 만족을 극대화하는 경영 전략.",
+    "concept": "설비 관리",
+    "definition": "설비 관리란 기업이 사용하는 생산 설비에 대한 계획, 유지, 개선을 통해 설비의 기능을 최대한 발휘하도록 하는 활동이다.",
     "hidden_field": "definition",
-    "correct_value": "전 구성원의 참여로 고객 만족을 극대화하는 경영 전략.",
-    "explanation": "TQM은 품질 관리를 경영 전략으로 확장하여, 고객 만족을 목표로 하는 총체적 경영 체계로 발전시켰다."
+    "correct_value": "설비 관리란 기업이 사용하는 생산 설비에 대한 계획, 유지, 개선을 통해 설비의 기능을 최대한 발휘하도록 하는 활동이다.",
+    "explanation": "설비 관리는 생산 설비의 효율성을 극대화하는 활동이다."
   },
   {
     "id": 5,
-    "concept": "공정 관리",
-    "definition": "절차, 공수, 일정 계획을 세우고 작업 배정, 여력 관리, 진도 관리를 수행하는 기능.",
+    "concept": "품질 관리",
+    "definition": "품질 관리(QC)는 소비자가 만족하는 질 좋은 제품을 경제적으로 생산하고 품질 유지 및 개선을 위해 사내 각 부문이 협력하는 활동이다.",
     "hidden_field": "definition",
-    "correct_value": "절차, 공수, 일정 계획을 세우고 작업 배정, 여력 관리, 진도 관리를 수행하는 기능.",
-    "explanation": "공정 관리는 원자재가 완제품이 되는 과정을 통제하여 생산의 흐름을 최적화한다."
+    "correct_value": "품질 관리(QC)는 소비자가 만족하는 질 좋은 제품을 경제적으로 생산하고 품질 유지 및 개선을 위해 사내 각 부문이 협력하는 활동이다.",
+    "explanation": "품질 관리는 제품의 질을 유지하고 개선하기 위한 협력 활동이다."
   },
   {
     "id": 6,
-    "concept": "설비 관리",
-    "definition": "설비의 생애 주기 전 단계를 관리하여 기능을 극대화하는 활동.",
+    "concept": "5M",
+    "definition": "5M(Man, Machine, Material, Method, Measurement)을 중점적으로 관리한다.",
     "hidden_field": "definition",
-    "correct_value": "설비의 생애 주기 전 단계를 관리하여 기능을 극대화하는 활동.",
-    "explanation": "설비 관리는 예방 보전과 예지 보전을 통해 설비의 수명을 연장하고 안전사고를 예방한다."
+    "correct_value": "5M(Man, Machine, Material, Method, Measurement)을 중점적으로 관리한다.",
+    "explanation": "5M은 제조 현장에서 관리해야 할 주요 요소들이다."
   },
   {
     "id": 7,
-    "concept": "QC",
-    "definition": "초기 단계의 생산 현장 단순 품질 검사 중심의 관리.",
+    "concept": "시간 연구",
+    "definition": "작업자의 기본 동작에 필요한 시간을 측정하여 표준 시간 설정.",
     "hidden_field": "definition",
-    "correct_value": "초기 단계의 생산 현장 단순 품질 검사 중심의 관리.",
-    "explanation": "QC는 품질 관리의 기초 단계로, 생산 현장에서의 품질 검사에 중점을 두었다."
+    "correct_value": "작업자의 기본 동작에 필요한 시간을 측정하여 표준 시간 설정.",
+    "explanation": "시간 연구는 작업 효율성을 높이기 위한 시간 측정 활동이다."
   },
   {
     "id": 8,
-    "concept": "SQC",
-    "definition": "통계적 기법을 도입하여 샘플링과 관리도를 통한 과학적 품질 관리.",
+    "concept": "동작 연구",
+    "definition": "효과적인 작업 동작 순서와 방법 분석.",
     "hidden_field": "definition",
-    "correct_value": "통계적 기법을 도입하여 샘플링과 관리도를 통한 과학적 품질 관리.",
-    "explanation": "SQC는 품질 관리를 과학화하여, 통계적 분석을 통해 품질 수준을 향상시켰다."
+    "correct_value": "효과적인 작업 동작 순서와 방법 분석.",
+    "explanation": "동작 연구는 작업의 효율성을 높이기 위한 분석 활동이다."
   },
   {
     "id": 9,
-    "concept": "TQC",
-    "definition": "전사적 관리로 제조와 비제조 부문의 유기적 협력을 강조하는 품질 관리.",
+    "concept": "방법 연구",
+    "definition": "최선의 작업 방법을 찾아 작업 표준으로 설정.",
     "hidden_field": "definition",
-    "correct_value": "전사적 관리로 제조와 비제조 부문의 유기적 협력을 강조하는 품질 관리.",
-    "explanation": "TQC는 품질 관리의 범위를 확장하여, 조직 전체의 협력을 통해 품질을 관리한다."
+    "correct_value": "최선의 작업 방법을 찾아 작업 표준으로 설정.",
+    "explanation": "방법 연구는 최적의 작업 방식을 찾는 활동이다."
   },
   {
     "id": 10,
-    "concept": "데밍 사이클",
-    "definition": "Plan-Do-Check-Action의 순환 과정을 통해 지속적인 개선을 추구하는 품질 관리 방법.",
+    "concept": "품질 검사",
+    "definition": "표본 검사, 전수 검사, 로트별 샘플링 검사, 간접 검사, 관능 검사.",
     "hidden_field": "definition",
-    "correct_value": "Plan-Do-Check-Action의 순환 과정을 통해 지속적인 개선을 추구하는 품질 관리 방법.",
-    "explanation": "데밍 사이클은 품질 관리에서 지속적인 개선을 위한 체계적 접근을 제공한다."
+    "correct_value": "표본 검사, 전수 검사, 로트별 샘플링 검사, 간접 검사, 관능 검사.",
+    "explanation": "품질 검사는 제품의 품질을 확인하는 다양한 방법이다."
   }
 ]

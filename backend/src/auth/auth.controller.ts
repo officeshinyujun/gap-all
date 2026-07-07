@@ -10,6 +10,7 @@ import {
   UnauthorizedException,
   UseGuards,
   UseInterceptors,
+  Query,
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { Throttle } from '@nestjs/throttler';
@@ -116,8 +117,13 @@ export class AuthController {
   }
 
   @Get('google')
-  @UseGuards(AuthGuard('google'))
-  googleLogin() {}
+  async googleLogin(@Req() req: Request, @Res() res: Response, @Query('return_to') returnTo?: string) {
+    const GoogleStrategy = require('passport-google-oauth20').Strategy;
+    const passport = require('passport');
+    const options: any = { scope: ['email', 'profile'], session: false };
+    if (returnTo) options.state = returnTo;
+    passport.authenticate('google', options)(req, res);
+  }
 
   @Get('google/callback')
   @UseGuards(AuthGuard('google'))
@@ -131,7 +137,9 @@ export class AuthController {
     const result = await this.authService.googleLogin(profile);
     res.cookie('gap_refresh_token', result.refreshToken, COOKIE_OPTIONS);
     res.cookie('gap_access_token', result.accessToken, ACCESS_COOKIE_OPTIONS);
-    const frontendUrl = process.env.FRONTEND_URL ?? 'http://localhost:3000';
-    res.redirect(`${frontendUrl}/auth/google/callback`);
+    const returnTo = typeof req.query.state === 'string' && req.query.state.startsWith('http')
+      ? req.query.state
+      : (process.env.FRONTEND_URL ?? 'http://localhost:3000');
+    res.redirect(`${returnTo}/auth/google/callback`);
   }
 }

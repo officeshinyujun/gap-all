@@ -172,6 +172,18 @@ export async function submitExam(
   });
 }
 
+// 문항 플래그 (문제 삭제 + 데이터 저장)
+export async function flagExamItem(
+  examId: string,
+  itemId: string,
+  reason?: string,
+): Promise<{ message: string }> {
+  return apiFetch<{ message: string }>(`/exams/${examId}/items/${itemId}/flag`, {
+    method: 'POST',
+    body: JSON.stringify({ reason }),
+  });
+}
+
 // 결과 조회
 export async function fetchExamResult(examId: string): Promise<ExamResult> {
   const data = await apiFetch<any>(`/exams/${examId}/result`);

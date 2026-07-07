@@ -72,6 +72,7 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
     switch (parsed.template) {
       case 'TPL_COMPARATIVE_MATRIX': {
         const raw = parsed.data;
+        if (!raw) return null;
         if (!raw.rows || !raw.headers) return null;
         const rowIds = raw.rows.map((r) => String(r.id));
         const chipsAreRowLabels = raw.selection_chips?.every((chip) =>
@@ -81,7 +82,7 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
         if (chipsAreRowLabels) {
           const labeledRows = raw.rows.map((row) => ({
             ...row,
-            cells: [String(row.id), ...row.cells],
+            cells: [String(row.id), ...(row.cells ?? [])],
           }));
           const labeledHeaders = [
             { id: '_label', label: '구분' },
@@ -129,6 +130,9 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
       case 'TPL_PROMOTIONAL_CANVAS':
         return <TPLPromotionalCanvas data={parsed.data} />;
       case 'TPL_PLAIN_TEXT':
+        if (!parsed.data || (typeof parsed.data === 'string' && !parsed.data.trim())) {
+          return null;
+        }
         return (
           <div className={s.stimulusPlainText}>
             <ReactMarkdown remarkPlugins={[remarkGfm]}>
@@ -153,7 +157,7 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
         {renderStimulus(parsed)}
       </div>
 
-      {question.combo_block && question.combo_block.items.length > 0 && (
+      {question.combo_block && question.combo_block.items?.length > 0 && (
         <VStack gap={4} fullWidth className={s.comboBlock}>
           <div className={s.comboBlockTitle}>{question.combo_block.title}</div>
           {question.combo_block.items.map((item) => (

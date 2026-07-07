@@ -25,22 +25,23 @@ export const TPLSequentialWorkflow: React.FC<TPLSequentialWorkflowProps> = ({
   label,
 }) => {
   const isHorizontal = data.orientation === 'horizontal';
+  const steps = data.steps ?? [];
 
   const renderSteps = () => {
     const elements: React.ReactNode[] = [];
 
-    data.steps.forEach((step, index) => {
+    steps.forEach((step, index) => {
       // 스텝 렌더링
       elements.push(
         step.is_missing ? (
-          <WorkflowMissingStep key={`step-${step.idx ?? index}`} step={step} />
+          <WorkflowMissingStep key={`step-${index}`} step={step} />
         ) : (
-          <WorkflowStep key={`step-${step.idx ?? index}`} step={step} />
+          <WorkflowStep key={`step-${index}`} step={step} />
         ),
       );
 
       // 마지막 스텝이 아니면 화살표 추가
-      if (index < data.steps.length - 1) {
+      if (index < steps.length - 1) {
         elements.push(
           <WorkflowArrow
             key={`arrow-${index}`}

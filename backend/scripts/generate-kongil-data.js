@@ -91,9 +91,11 @@ function convertSummationToV2() {
 function extractReadableText(stimulusData, template) {
   if (!stimulusData || typeof stimulusData !== 'object') return '';
   if (template === 'TPL_COMPARATIVE_MATRIX' && Array.isArray(stimulusData.rows)) {
-    const headers = (stimulusData.headers ?? []).map(h => h.label).join(' | ');
+    const headers = (stimulusData.headers ?? []).map(h => h.label);
+    const headerLine = headers.join(' | ');
+    const sepLine = headers.map(() => '---').join(' | ');
     const rows = stimulusData.rows.map(r => (r.cells ?? []).join(' | ')).join('\n');
-    return (headers ? headers + '\n' : '') + rows;
+    return headerLine + '\n' + sepLine + '\n' + rows;
   }
   if (template === 'TPL_FORMAL_DOCUMENT' && Array.isArray(stimulusData.paragraphs)) {
     return stimulusData.paragraphs.map(p => p.content ?? '').join('\n');

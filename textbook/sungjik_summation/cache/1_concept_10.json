@@ -5,7 +5,7 @@
     "definition": "어떠한 목적을 달성하기 위한 육체적, 정신적 활동을 의미한다.",
     "hidden_field": "definition",
     "correct_value": "어떠한 목적을 달성하기 위한 육체적, 정신적 활동을 의미한다.",
-    "explanation": "일은 목적 달성을 위한 활동을 의미한다."
+    "explanation": "일은 목표 달성을 위한 다양한 활동을 포함한다."
   },
   {
     "id": 2,
@@ -13,70 +13,70 @@
     "definition": "생계유지를 위해 적성과 능력에 따라 지속적으로 종사하여 보수를 얻는 일을 의미한다.",
     "hidden_field": "definition",
     "correct_value": "생계유지를 위해 적성과 능력에 따라 지속적으로 종사하여 보수를 얻는 일을 의미한다.",
-    "explanation": "직업은 생계유지를 위한 지속적 활동을 의미한다."
+    "explanation": "직업은 경제적 보상을 위한 지속적인 활동이다."
   },
   {
     "id": 3,
     "concept": "직업 가치",
-    "definition": "직업 선택 시 중요하게 생각하는 가치로, 외재적 가치와 내재적 가치로 나뉜다.",
+    "definition": "직업 선택 시 중요하게 생각하는 가치를 의미한다.",
     "hidden_field": "definition",
-    "correct_value": "직업 선택 시 중요하게 생각하는 가치로, 외재적 가치와 내재적 가치로 나뉜다.",
-    "explanation": "직업 가치는 직업 선택 시 중요한 기준이다."
+    "correct_value": "직업 선택 시 중요하게 생각하는 가치를 의미한다.",
+    "explanation": "직업 가치는 선택 과정에서 고려되는 중요한 요소이다."
   },
   {
     "id": 4,
     "concept": "직업 가치관",
-    "definition": "직업 선택에 영향을 미치는 믿음과 신념으로, 직업 생활의 만족도에 영향을 미친다.",
+    "definition": "직업 선택에 영향을 미치는 믿음과 신념을 의미한다.",
     "hidden_field": "definition",
-    "correct_value": "직업 선택에 영향을 미치는 믿음과 신념으로, 직업 생활의 만족도에 영향을 미친다.",
-    "explanation": "직업 가치관은 직업 선택에 영향을 미친다."
+    "correct_value": "직업 선택에 영향을 미치는 믿음과 신념을 의미한다.",
+    "explanation": "직업 가치관은 직업 생활의 만족도에 영향을 준다."
   },
   {
     "id": 5,
-    "concept": "생계유지",
-    "definition": "직업의 대가로 얻는 수입을 통해 의식주를 해결함.",
+    "concept": "직업 생활",
+    "definition": "개인의 일과 관련된 경험에 영향을 미치는 사회적 환경을 의미한다.",
     "hidden_field": "definition",
-    "correct_value": "직업의 대가로 얻는 수입을 통해 의식주를 해결함.",
-    "explanation": "생계유지는 직업을 통해 의식주를 해결하는 것이다."
+    "correct_value": "개인의 일과 관련된 경험에 영향을 미치는 사회적 환경을 의미한다.",
+    "explanation": "직업 생활은 개인과 사회적 차원에서 중요성을 가진다."
   },
   {
     "id": 6,
-    "concept": "가치 실현",
-    "definition": "부, 명예, 권력 등 자신이 원하는 가치를 실현하는 수단으로 작용함.",
+    "concept": "계속성",
+    "definition": "매일, 매주, 매월 등 주기적, 계속적으로 행하는 것을 의미한다.",
     "hidden_field": "definition",
-    "correct_value": "부, 명예, 권력 등 자신이 원하는 가치를 실현하는 수단으로 작용함.",
-    "explanation": "가치 실현은 직업을 통해 원하는 가치를 이루는 것이다."
+    "correct_value": "매일, 매주, 매월 등 주기적, 계속적으로 행하는 것을 의미한다.",
+    "explanation": "계속성은 직업의 필수 요건 중 하나이다."
   },
   {
     "id": 7,
-    "concept": "자아실현",
-    "definition": "소질과 역량을 발휘하여 인정받음으로써 자아실현이 가능함.",
+    "concept": "경제성",
+    "definition": "경제적인 거래 관계가 성립하는 활동을 수행해야 함을 의미한다.",
     "hidden_field": "definition",
-    "correct_value": "소질과 역량을 발휘하여 인정받음으로써 자아실현이 가능함.",
-    "explanation": "자아실현은 직업을 통해 소질과 역량을 발휘하는 것이다."
+    "correct_value": "경제적인 거래 관계가 성립하는 활동을 수행해야 함을 의미한다.",
+    "explanation": "경제성은 직업의 중요한 특성이다."
   },
   {
     "id": 8,
-    "concept": "소속감 형성",
-    "definition": "조직에 대한 소속감을 통해 심리적 안정감과 건강한 사회생활을 영위함.",
+    "concept": "사회성",
+    "definition": "사회 공동체적인 맥락에서 의미 있는 활동 즉, 사회적인 기여를 전제 조건으로 함을 의미한다.",
     "hidden_field": "definition",
-    "correct_value": "조직에 대한 소속감을 통해 심리적 안정감과 건강한 사회생활을 영위함.",
-    "explanation": "소속감 형성은 조직에 대한 소속감을 통해 이루어진다."
+    "correct_value": "사회 공동체적인 맥락에서 의미 있는 활동 즉, 사회적인 기여를 전제 조건으로 함을 의미한다.",
+    "explanation": "사회성은 직업의 본질적인 요소이다."
   },
   {
     "id": 9,
-    "concept": "직업 생활",
-    "definition": "개인의 일과 관련된 경험에 영향을 미치는 사회적 환경으로, 개인적 차원과 사회적 차원에서 중요성을 가진다.",
+    "concept": "윤리성",
+    "definition": "비윤리적인 영리 행위나 반사회적인 활동을 통한 경제적인 이윤 추구는 직업으로 인정되지 않음을 의미한다.",
     "hidden_field": "definition",
-    "correct_value": "개인의 일과 관련된 경험에 영향을 미치는 사회적 환경으로, 개인적 차원과 사회적 차원에서 중요성을 가진다.",
-    "explanation": "직업 생활은 개인과 사회적 차원에서 중요하다."
+    "correct_value": "비윤리적인 영리 행위나 반사회적인 활동을 통한 경제적인 이윤 추구는 직업으로 인정되지 않음을 의미한다.",
+    "explanation": "윤리성은 직업의 정의에 필수적이다."
   },
   {
     "id": 10,
-    "concept": "직업 생활의 다양성",
+    "concept": "다양성",
     "definition": "직업 생활은 내용, 성격, 장소 및 방식에 따라 다양성을 가진다.",
     "hidden_field": "definition",
     "correct_value": "직업 생활은 내용, 성격, 장소 및 방식에 따라 다양성을 가진다.",
-    "explanation": "직업 생활의 다양성은 직업 선택의 폭을 넓힌다."
+    "explanation": "다양성은 직업 선택의 폭을 넓힌다."
   }
 ]

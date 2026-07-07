@@ -13,14 +13,16 @@ export const buildChartData = (
   axes: ChartAxis[],
   datasets: ChartDataset[],
 ): Record<string, string | number>[] => {
-  return axes.map((axis, axisIdx) => {
+  const safeAxes = axes ?? [];
+  const safeDatasets = datasets ?? [];
+  return safeAxes.map((axis, axisIdx) => {
     const entry: Record<string, string | number> = {
       key: axis.key,
       label: axis.label,
       max: axis.max,
     };
-    datasets.forEach((ds) => {
-      entry[ds.label] = ds.values[axisIdx] ?? 0;
+    safeDatasets.forEach((ds) => {
+      entry[ds.label] = (ds.values || [])[axisIdx] ?? 0;
     });
     return entry;
   });

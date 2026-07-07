@@ -6,7 +6,8 @@ import { HStack } from '@/components/general/HStack';
 import Typo from '@/components/general/Typo';
 import { QuestionRenderer } from '@/components/exam/QuestionStem/QuestionRenderer';
 import { getTemplateLabel } from '@/utils/examParser';
-import type { ExamQuestion } from '@/types/examQuestion';
+import type { ComboBlock, ExamQuestion } from '@/types/examQuestion';
+import { toExamQuestionFromApiItem } from '@/utils/examQuestionAdapter';
 import s from './page.module.scss';
 
 import { apiFetch } from '@/lib/api';
@@ -48,25 +49,7 @@ interface ApiExamItem {
     optionsList: string[];
     explanation: unknown;
     correctAnswer?: number;
-  };
-}
-
-function toExamQuestion(item: ApiExamItem): ExamQuestion {
-  const q = item.question;
-  return {
-    metadata: {
-      unit_name: '',
-      target_concept: q.targetConcept,
-      item_type: q.itemType,
-      difficulty: q.difficulty,
-      recommended_template: q.recommendedTemplate,
-    },
-    render_ready: {
-      question_stem: q.questionStem,
-      stimulus_data: q.stimulusData,
-      options_list: q.optionsList,
-    },
-    explanation: q.explanation as any,
+    comboBlock?: ComboBlock | null;
   };
 }
 
@@ -114,7 +97,7 @@ export default function DevExamListPage() {
       const data = await apiFetch<{ items: ApiExamItem[]; title?: string }>(`/exams/${examId}`);
       const items: ApiExamItem[] = data.items ?? [];
       setExamTitle(data.title ?? '');
-      setQuestions(items.map(toExamQuestion));
+      setQuestions(items.map((item) => toExamQuestionFromApiItem(item)));
     } catch (e: unknown) {
       setDetailError(e instanceof Error ? e.message : '알 수 없는 오류');
     } finally {

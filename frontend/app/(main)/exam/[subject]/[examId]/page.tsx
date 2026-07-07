@@ -12,6 +12,7 @@ import {
   submitExam,
   saveExamAnswers,
   fetchExamResult,
+  flagExamItem,
   type ExamData,
   type ExamResult,
 } from '@/lib/examApi';
@@ -46,6 +47,8 @@ export default function ExamDetailPage({
   const [hintOpen, setHintOpen] = useState(false);
   const [hintData, setHintData] = useState<FrequencyConcept | null>(null);
   const [hintLoading, setHintLoading] = useState(false);
+  const [flaggedItems, setFlaggedItems] = useState<Set<number>>(new Set());
+  const [flagging, setFlagging] = useState(false);
 
   const loadExam = useCallback(async () => {
     setPageState('loading');
@@ -170,6 +173,25 @@ export default function ExamDetailPage({
     });
   }
 
+  async function handleFlag() {
+    if (!current || !examData || flagging) return;
+    const itemId = examData.items.find((i) => i.orderIndex === current.orderIndex)?.id;
+    if (!itemId || flaggedItems.has(current.orderIndex)) return;
+    if (!window.confirm('이 문제가 이상한가요? 신고하면 검토할 수 있도록 저장하고, 시험에서는 제외할게요.')) return;
+    setFlagging(true);
+    try {
+      await flagExamItem(examId, itemId);
+      setFlaggedItems((prev) => new Set(prev).add(current.orderIndex));
+      // 다음 문항으로 이동 (또는 총 개수 감소)
+      if (currentIndex >= (examData.items.length - 1)) {
+        setCurrentIndex(Math.max(0, currentIndex - 1));
+      }
+    } catch {
+      alert('신고를 처리하지 못했어요. 잠시 후 다시 시도해 주세요.');
+    }
+    setFlagging(false);
+  }
+
   const hasRetried = current ? retriedQuestions.has(current.orderIndex) : false;
   const isWrongAfterRetry = current && hasRetried && currentAnswer !== undefined;
 
@@ -239,6 +261,20 @@ export default function ExamDetailPage({
               />
             </div>
 
+            <div className={s.flagArea}>
+              {flaggedItems.has(current.orderIndex) ? (
+                <span className={s.flaggedBadge}>✓ 신고 완료</span>
+              ) : (
+                <button
+                  className={s.flagButton}
+                  onClick={handleFlag}
+                  disabled={flagging}
+                >
+                  {flagging ? '처리 중...' : '이 문제 신고'}
+                </button>
+              )}
+            </div>
+
             {currentAnswer !== undefined && !hasRetried && isUnlearned && (
               <button className={s.retryHintButton} onClick={handleRetry}>
                 개념 확인 후 재시도 →
@@ -288,7 +324,15 @@ export default function ExamDetailPage({
 
       <div className={s.footer}>
         {pageState === 'ready' && current && (
-          <>
+          <HStack gap={12} justify="center" align="center" fullWidth>
+            {currentIndex > 0 && (
+              <button
+                className={s.footerButton}
+                onClick={() => setCurrentIndex((i) => i - 1)}
+              >
+                ← 이전 문제
+              </button>
+            )}
             {isLast ? (
               <button
                 className={`${s.footerButton} ${s.footerButtonPrimary}`}
@@ -306,7 +350,7 @@ export default function ExamDetailPage({
                 다음 문제 →
               </button>
             )}
-          </>
+          </HStack>
         )}
 
         {pageState === 'result' && (

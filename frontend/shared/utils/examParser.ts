@@ -70,11 +70,16 @@ export function parseStimulus(
       return { template: 'TPL_PROMOTIONAL_CANVAS', data: data as any };
     case 'TPL_PLAIN_TEXT': {
       if (typeof data === 'string') return { template: 'TPL_PLAIN_TEXT', data };
-      if (data && typeof data === 'object' && 'content' in data) {
-        const content = (data as Record<string, unknown>).content;
-        if (typeof content === 'string') return { template: 'TPL_PLAIN_TEXT', data: content };
+      if (data && typeof data === 'object') {
+        if ('data' in data && typeof (data as any).data === 'string') {
+          return { template: 'TPL_PLAIN_TEXT', data: (data as any).data };
+        }
+        if ('content' in data && typeof (data as any).content === 'string') {
+          return { template: 'TPL_PLAIN_TEXT', data: (data as any).content };
+        }
+        return { template: 'TPL_PLAIN_TEXT', data: JSON.stringify(data, null, 2) };
       }
-      return null;
+      return { template: 'TPL_PLAIN_TEXT', data: '' };
     }
     default:
       // 알 수 없는 template도 무조건 PLAIN_TEXT로 fallback

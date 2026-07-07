@@ -12,6 +12,7 @@ import { PromptsService } from '../prompts/prompts.service';
 import { PatternMatcherService } from './pattern-matcher.service';
 import { SimilarityValidatorService } from './similarity-validator.service';
 import { StimulusNormalizer } from './stimulus-normalizer';
+import { getTplSchema } from './tpl-schemas';
 import { Question } from '../entities/question.entity';
 import { Subject } from '../entities/subject.entity';
 import { Unit } from '../entities/unit.entity';
@@ -20,7 +21,7 @@ import { AiUsageLog, AiUsageSource } from '../entities/ai-usage-log.entity';
 import { getOpenAIApiKey } from '../lib/openai-keys';
 
 // OpenAI 호출 타임아웃 (ms) — 환경변수로 오버라이드 가능
-const OPENAI_TIMEOUT_MS = Number(process.env.OPENAI_TIMEOUT_MS) || 120_000;
+const OPENAI_TIMEOUT_MS = Number(process.env.OPENAI_TIMEOUT_MS) || 180_000;
 
 // 단원 텍스트 최대 길이 (문자 수) — 이 이상은 잘라서 전송
 const MAX_UNIT_TEXT_LENGTH = Number(process.env.MAX_UNIT_TEXT_LENGTH) || 12_000;
@@ -324,40 +325,11 @@ export class ExamGeneratorService {
       }
       if (semValid.length > count) semValid = semValid.slice(0, count);
 
-      // 3e. 유사도 검증 + 파이프라인 내 중복 체크 (병렬 실행)
-      const ctCache = new Map<any, string>();
-      const validateResults = await Promise.all(
-        semValid.map(async (item) => {
-          let ct = ctCache.get(item);
-          if (ct === undefined) {
-            ct = item.comboBlock
-              ? `${item.comboBlock.title}: ${item.comboBlock.items.map((i) => i.text).join(' ')}`
-              : '';
-            ctCache.set(item, ct);
-          }
-          const result = await this.similarityValidator.validate(
-            item.questionStem, item.stimulusData, item.optionsList, ct,
-          );
-          return { item, passed: result.passed };
-        }),
-      );
-      for (const { item, passed } of validateResults) {
-        if (!passed) continue;
-        const conceptKey = `${item.targetConcept}::${item.itemType}`;
-        if (seenConceptKeys.has(conceptKey)) {
-          this.logger.warn(`개념 중복 필터링: targetConcept=${item.targetConcept}, itemType=${item.itemType}`);
-          continue;
-        }
-        if (this.isDuplicateInPipeline(item, allValid)) {
-          this.logger.warn(`유사도 중복 필터링: targetConcept=${item.targetConcept}, stem=${item.questionStem.slice(0, 50)}...`);
-          continue;
-        }
-        seenConceptKeys.add(conceptKey);
-        allValid.push(item);
-      }
+      // 3e. 유사도 검증 + 파이프라인 내 중복 체크 (병렬 실행 + 공용 함수)
+      const addedCount = await this.filterAndDeduplicate(semValid, allValid, seenConceptKeys);
 
       this.logger.log(
-        `--- ${unitNum}단원 완료: ${semValid.length}개 → 유사도 통과 ${allValid.length - allValid.filter(i => !semValid.includes(i)).length}개 ---`,
+        `--- ${unitNum}단원 완료: ${semValid.length}개 → 유사도 통과 ${addedCount}개 ---`,
       );
     }
 
@@ -386,36 +358,9 @@ export class ExamGeneratorService {
       const fallbackNorm = this.stimulusNormalizer.normalizeItems(fallbackRaw);
       const fallbackVal = this.validateItems(fallbackNorm);
       const fallbackSem = await this.runSemanticValidation(fallbackVal);
-      const fbCtCache = new Map<any, string>();
-      const fbResults = await Promise.all(
-        fallbackSem.map(async (item) => {
-          let ct = fbCtCache.get(item);
-          if (ct === undefined) {
-            ct = item.comboBlock
-              ? `${item.comboBlock.title}: ${item.comboBlock.items.map((i) => i.text).join(' ')}`
-              : '';
-            fbCtCache.set(item, ct);
-          }
-          const r = await this.similarityValidator.validate(
-            item.questionStem, item.stimulusData, item.optionsList, ct,
-          );
-          return { item, passed: r.passed };
-        }),
-      );
-      for (const { item, passed } of fbResults) {
-        if (!passed) continue;
-        const conceptKey = `${item.targetConcept}::${item.itemType}`;
-        if (seenConceptKeys.has(conceptKey)) {
-          this.logger.warn(`부족분 채움 개념 중복: targetConcept=${item.targetConcept}`);
-          continue;
-        }
-        if (this.isDuplicateInPipeline(item, finalItems)) {
-          this.logger.warn(`부족분 채움 유사도 중복: targetConcept=${item.targetConcept}`);
-          continue;
-        }
-        seenConceptKeys.add(conceptKey);
-        finalItems.push(item);
-        if (finalItems.length >= questionCount) break;
+      const fbAdded = await this.filterAndDeduplicate(fallbackSem, finalItems, seenConceptKeys);
+      if (finalItems.length >= questionCount) {
+        finalItems = finalItems.slice(0, questionCount);
       }
     }
 
@@ -587,7 +532,8 @@ export class ExamGeneratorService {
       this.logger.warn(
         `Step 1 실패 (${retryCount + 1}/3): ${isTimeout ? '[TIMEOUT] ' : ''}${message}`,
       );
-      if (retryCount < 3) {
+      const maxRetries = isTimeout ? 1 : 3;
+      if (retryCount < maxRetries) {
         await this.reportProgress(reportProgress, {
           stage: 'step1_retry',
           progress: 38,
@@ -645,9 +591,9 @@ export class ExamGeneratorService {
     );
 
     const results: any[] = [];
+    const usageLogs: any[] = [];
 
     if (otherBlueprints.length > 0) {
-      const step2Prompt = this.promptsService.getStep2Prompt(subjectSlug);
       const truncatedUnitsForStep2 = units.map((u) => ({
         unit_name: u.unit_name,
         text_payload:
@@ -655,56 +601,98 @@ export class ExamGeneratorService {
             ? u.text_payload.slice(0, MAX_UNIT_TEXT_LENGTH) + '\n...(truncated)'
             : u.text_payload,
       }));
-      const userContent = [
-        step2Prompt,
-        '',
-        `# [Input Data]`,
-        `- Blueprint Array: ${JSON.stringify(otherBlueprints)}`,
-        `- units: ${JSON.stringify(truncatedUnitsForStep2)}`,
-        '',
-        `# [수량 엄수 - 최우선]`,
-        `Blueprint 배열의 원소 수는 ${otherBlueprints.length}개다. 출력 JSON 배열도 반드시 ${otherBlueprints.length}개여야 한다.`,
-      ].join('\n');
 
-      this.logger.log(
-        `Step 2 요청: prompt=${step2Prompt.length}자, blueprint=${JSON.stringify(otherBlueprints).length}자, units=${JSON.stringify(truncatedUnitsForStep2).length}자`,
-      );
+      const step2Prompt = this.promptsService.getStep2Prompt(subjectSlug);
+      const unitsJson = JSON.stringify(truncatedUnitsForStep2);
 
-      const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), OPENAI_TIMEOUT_MS);
+      for (const bp of otherBlueprints) {
+        const tpl = bp.metadata?.recommended_template ?? '';
+        const tplSchema = getTplSchema(tpl);
+        const userContent = [
+          step2Prompt,
+          '',
+          `# [단일 문항 생성 지시]`,
+          `아래 1개의 Blueprint만을 바탕으로 정확히 1개의 문항을 생성하라. 수량 엄수: 반드시 1개만 출력.`,
+          ``,
+          `# [Blueprint]`,
+          `${JSON.stringify(bp)}`,
+          `- units: ${unitsJson}`,
+        ].join('\n');
 
-      const response = await this.openai.chat.completions.create(
-        {
-          model: process.env.OPENAI_STEP2_MODEL ?? 'gpt-4o',
-          messages: [
-            { role: 'system', content: this.promptsService.getPersona() },
-            { role: 'user', content: userContent },
-          ],
-          temperature: 0.7,
-        },
-        { signal: controller.signal },
-      );
+        let item: any | null = null;
+        const maxRetries = 3;
+        for (let attempt = 0; attempt < maxRetries; attempt++) {
+          const controller = new AbortController();
+          const timer = setTimeout(() => controller.abort(), OPENAI_TIMEOUT_MS);
 
-      clearTimeout(timer);
+          const response = await this.openai.chat.completions.create(
+            {
+              model: process.env.OPENAI_STEP2_MODEL ?? 'gpt-4o',
+              messages: [
+                { role: 'system', content: this.promptsService.getPersona() },
+                { role: 'user', content: userContent },
+              ],
+              temperature: 0.7,
+              ...(tplSchema
+                ? {
+                    response_format: {
+                      type: 'json_schema' as const,
+                      json_schema: { name: tplSchema.name, schema: tplSchema.schema, strict: true },
+                    },
+                  }
+                : {}),
+            },
+            { signal: controller.signal },
+          );
 
-      if (response.usage) {
-        await this.aiUsageLogRepo.save(
-          this.aiUsageLogRepo.create({
-            source: AiUsageSource.EXAM_STEP2,
-            model: process.env.OPENAI_STEP2_MODEL ?? 'gpt-4o',
-            promptTokens: response.usage.prompt_tokens ?? 0,
-            completionTokens: response.usage.completion_tokens ?? 0,
-            totalTokens: response.usage.total_tokens ?? 0,
-          }),
-        );
+          clearTimeout(timer);
+
+          if (response.usage) {
+            usageLogs.push(this.aiUsageLogRepo.create({
+              source: AiUsageSource.EXAM_STEP2,
+              model: process.env.OPENAI_STEP2_MODEL ?? 'gpt-4o',
+              promptTokens: response.usage.prompt_tokens ?? 0,
+              completionTokens: response.usage.completion_tokens ?? 0,
+              totalTokens: response.usage.total_tokens ?? 0,
+            }));
+          }
+
+          const content = response.choices[0]?.message?.content ?? '';
+          const parsed = this.extractJson(content);
+          const singleItem = Array.isArray(parsed) ? parsed[0] : parsed;
+          if (singleItem && singleItem.render_ready) {
+            item = singleItem;
+            break;
+          }
+          this.logger.warn(
+            `Step 2 재시도 (${attempt + 1}/${maxRetries}): ${tpl} — 유효하지 않은 응답`,
+          );
+        }
+
+        if (item) {
+          results.push(item);
+        } else {
+          this.logger.warn(
+            `Step 2 최종 실패 (3/3): ${tpl} — fallback Blueprint 데이터로 대체`,
+          );
+          // fallback: Blueprint의 render_ready가 있으면 사용, 없으면 최소 구조 생성
+          results.push(bp.render_ready ? {
+            metadata: bp.metadata,
+            render_ready: bp.render_ready,
+            correct_answer: 1,
+            explanation: { judgment: '', distractors: { '2': '', '3': '', '4': '', '5': '' } },
+          } : {
+            metadata: bp.metadata,
+            render_ready: {
+              question_stem: bp.metadata?.target_concept ? `${bp.metadata.target_concept}에 대한 설명으로 옳은 것은?` : '',
+              stimulus_data: {},
+              options_list: ['① 선택지 1', '② 선택지 2', '③ 선택지 3', '④ 선택지 4', '⑤ 선택지 5'],
+            },
+            correct_answer: 1,
+            explanation: { judgment: '', distractors: { '2': '', '3': '', '4': '', '5': '' } },
+          });
+        }
       }
-
-      const content = response.choices[0]?.message?.content ?? '';
-      const parsed = this.extractJson(content);
-      const arr = Array.isArray(parsed)
-        ? parsed
-        : (parsed.items ?? parsed.questions ?? []);
-      results.push(...arr);
     }
 
     if (promoBlueprints.length > 0) {
@@ -758,6 +746,11 @@ export class ExamGeneratorService {
       }
     }
 
+    // Step 2 토큰 사용량 배치 저장
+    if (usageLogs.length > 0) {
+      await this.aiUsageLogRepo.save(usageLogs);
+    }
+
     await this.reportProgress(reportProgress, {
       stage: 'step2',
       progress: 70,
@@ -766,8 +759,8 @@ export class ExamGeneratorService {
     });
 
     if (results.length === 0) {
-      if (retryCount < 3) {
-        this.logger.warn(`Step 2 결과 비어있음, 재시도 (${retryCount + 1}/3)`);
+      if (retryCount < 2) {
+        this.logger.warn(`Step 2 결과 비어있음, 재시도 (${retryCount + 1}/2)`);
         return this.runStep2(
           blueprint,
           units,
@@ -832,6 +825,18 @@ export class ExamGeneratorService {
         if (!logicCheck.valid) {
           this.logger.warn(`논리 정합성 검증 실패: ${logicCheck.reason}, 스킵`);
           continue;
+        }
+
+        // TPL 스키마 검증 (비 blocking — 로그만 남기고 통과)
+        const tplErrors = this.stimulusNormalizer.validateTplSchema(
+          rr.stimulus_data ?? {},
+          meta.recommended_template ?? '',
+          item,
+        );
+        if (tplErrors.length > 0) {
+          this.logger.warn(
+            `TPL 스키마 오류 (${meta.recommended_template}): ${tplErrors.join('; ')}`,
+          );
         }
 
         const difficultyMap: Record<string, Difficulty> = {
@@ -1236,8 +1241,48 @@ Output JSON only.`;
   }
 
   // ============================================================
-  // 파이프라인 내 중복 체크
+  // 파이프라인 내 중복 체크 + 유사도 검증 (공용)
   // ============================================================
+  private async filterAndDeduplicate(
+    items: GeneratedQuestion[],
+    targetArray: GeneratedQuestion[],
+    seenKeys: Set<string>,
+  ): Promise<number> {
+    const ctCache = new Map<any, string>();
+    const results = await Promise.all(
+      items.map(async (item) => {
+        let ct = ctCache.get(item);
+        if (ct === undefined) {
+          ct = item.comboBlock
+            ? `${item.comboBlock.title}: ${item.comboBlock.items.map((i) => i.text).join(' ')}`
+            : '';
+          ctCache.set(item, ct);
+        }
+        const result = await this.similarityValidator.validate(
+          item.questionStem, item.stimulusData, item.optionsList, ct,
+        );
+        return { item, passed: result.passed };
+      }),
+    );
+    let added = 0;
+    for (const { item, passed } of results) {
+      if (!passed) continue;
+      const conceptKey = `${item.targetConcept}::${item.itemType}`;
+      if (seenKeys.has(conceptKey)) {
+        this.logger.warn(`개념 중복 필터링: targetConcept=${item.targetConcept}`);
+        continue;
+      }
+      if (this.isDuplicateInPipeline(item, targetArray)) {
+        this.logger.warn(`유사도 중복 필터링: targetConcept=${item.targetConcept}, stem=${item.questionStem.slice(0, 50)}...`);
+        continue;
+      }
+      seenKeys.add(conceptKey);
+      targetArray.push(item);
+      added++;
+    }
+    return added;
+  }
+
   private isDuplicateInPipeline(
     item: GeneratedQuestion,
     existingItems: GeneratedQuestion[],
@@ -1333,15 +1378,34 @@ Output JSON only.`;
       }
 
       // 새 문항 저장
+      const safeTemplate = this.stimulusNormalizer.resolveTemplate(item.recommendedTemplate);
+      // 저장 전 stimulus_data 정규화: 빈 구조 채움 + viewItems 오염 제거
+      const safeStimulus = this.stimulusNormalizer.normalizeStimulusData(
+        item.stimulusData ?? {},
+        safeTemplate,
+      );
+      // 저장 전 TPL 재탐지: data 구조에 더 적합한 TPL이 있으면 변환
+      let finalTemplate = safeTemplate;
+      let finalStimulus = safeStimulus;
+      const detectedTpl = this.stimulusNormalizer.detectTpl(safeStimulus);
+      if (detectedTpl && detectedTpl !== safeTemplate) {
+        this.logger.log(`저장 전 TPL 재탐지: ${safeTemplate} → ${detectedTpl}`);
+        const { stimulusData } = this.stimulusNormalizer.normalizeStimulusWithTemplate(
+          item.stimulusData ?? {},
+          detectedTpl,
+        );
+        finalTemplate = detectedTpl;
+        finalStimulus = stimulusData;
+      }
       const question = this.questionRepo.create({
         subjectId,
         unitId: unit.id,
         targetConcept: item.targetConcept,
         itemType: item.itemType,
         difficulty: item.difficulty,
-        recommendedTemplate: item.recommendedTemplate,
+        recommendedTemplate: finalTemplate,
         questionStem: item.questionStem,
-        stimulusData: item.stimulusData,
+        stimulusData: finalStimulus,
         optionsList: item.optionsList,
         comboBlock: item.comboBlock,
         explanation: item.explanation,
@@ -1393,7 +1457,7 @@ Output JSON only.`;
     const response = await this.openai.chat.completions.create({
       model: 'gpt-4o-mini',
       messages: [
-        { role: 'system', content: 'You verify Korean CSAT questions. Focus on these CRITICAL issues only:\n\nFAIL (reject the item):\n1. stimulus is empty ({} or "")\n2. stem topic and viewItems topic are COMPLETELY DIFFERENT — e.g., stem is about bank loans but viewItems are about labor law\n3. Person names in viewItems (A, B, C, D) do NOT match person names in the stimulus — e.g., stimulus talks about C,D but viewItems reference A,B\n4. correctAnswer is out of 1-5 range\n5. The STEM topic is from a COMPLETELY DIFFERENT SUBJECT than the reference — e.g., reference concepts are about labor law (근로기준법, 임금) but generated stem is about environmental law (환경보호법)\n\nPASS everything else, even if there are minor issues.\nReturn JSON array: [{itemIndex, passed: true/false, reason: "..."}]' },
+        { role: 'system', content: 'You verify Korean CSAT questions. Focus on these CRITICAL issues only:\n\nFAIL (reject the item):\n1. stimulus is empty ({} or "")\n2. stem topic and viewItems topic are COMPLETELY DIFFERENT — e.g., stem is about bank loans but viewItems are about labor law\n3. Person names in viewItems (A, B, C, D) do NOT match person names in the stimulus — e.g., stimulus talks about C,D but viewItems reference A,B\n4. correctAnswer is out of 1-5 range\n5. The STEM topic is from a COMPLETELY DIFFERENT SUBJECT than the reference — e.g., reference concepts are about labor law (근로기준법, 임금) but generated stem is about environmental law (환경보호법)\n6. stimulus contains "viewItems:" text or combo block items (ㄱ. ㄴ. patterns separated by |) in a document field — the stimulus should have actual content, not viewItems/combo_block text\n\nPASS everything else, even if there are minor issues.\nReturn JSON array: [{itemIndex, passed: true/false, reason: "..."}]' },
         { role: 'user', content: 'Verify:\n\n' + promptLines },
       ],
       response_format: { type: 'json_object' },
@@ -1472,6 +1536,9 @@ Output JSON only.`;
 
     await this.reportProgress(reportProgress, { stage: 'regenerating', progress: 20, message: questionCount + '개 문항 재생성 중...' });
 
+    // 문항 유형 분포 퀀텀 프롬프트 조각
+    const itemFamilyQuota = subjectSlug ? buildItemFamilyQuotaPrompt(subjectSlug, questionCount) : '';
+
     const CHUNK_SIZE = 15;
     const result: any[] = [];
     let remaining = [...references];
@@ -1488,7 +1555,7 @@ Output JSON only.`;
       }
 
       const chunkResult: any[] = [];
-      const batchPrompt = this.buildBatchRegenPrompt(chunk, difficulty, '', customPrompt);
+      const batchPrompt = this.buildBatchRegenPrompt(chunk, difficulty, itemFamilyQuota, customPrompt);
       await this.regenerateBatch(batchPrompt, chunk, chunkResult, difficulty, startUnitNum, reportProgress);
 
       if (chunkResult.length < chunk.length) {
@@ -1514,7 +1581,7 @@ Output JSON only.`;
       difficulty: item.metadata?.difficulty || difficulty,
       recommendedTemplate: item.metadata?.recommended_template || 'TPL_EXAM_REFERENCE',
       questionStem: item.render_ready?.question_stem || '',
-      stimulusData: item.render_ready?.stimulus_data || {},
+      stimulusData: item.render_ready?.stimulus_data ?? {},
       optionsList: item.render_ready?.options_list || [],
       comboBlock: item.render_ready?.combo_block || null,
       explanation: item.explanation || {},
@@ -1624,9 +1691,10 @@ Output JSON only.`;
 
         let stemText = (gen.stem || ref.stem || '').replace(/^\[\d+~\d+\]\s*/, '').replace(/^\d+\.\s*/, '').replace(/\s*\[3점\]/g, '');
 
-        if (i === 0) {
-          stemText = stemText.replace(/^위\s*(사례|자료|표|보고서|강의)/, '다음 $1');
-        }
+        // "위 사례/자료/표" 등 dangling 참조 → "다음"으로 변환 (연계형 문항 분리 시 필요)
+        stemText = stemText.replace(/^위\s*(사례|자료|표|보고서|강의|글)/, '다음 $1');
+        // "위 OO 사례에서 (가)에..." 패턴도 처리
+        stemText = stemText.replace(/^위\s+(.+?)(에서|을|를)/, '다음 $1$2');
 
         // Use LLM's templateType + stimulusData if provided, otherwise fall back to plain text
         const genTemplateType = gen.templateType || gen.template_type || '';
@@ -1641,6 +1709,52 @@ Output JSON only.`;
           finalTemplate = genTemplateType;
         } else if (stimulusText) {
           // Keep as plain text (PLAIN_TEXT will be assigned later)
+        }
+
+        // viewItems 내용이 stimulus로 잘못 들어간 경우 제거
+        if (typeof finalStimulusData === 'string') {
+          const clean = finalStimulusData.replace(/^viewItems:\s*/i, '');
+          if (/^[ㄱ-ㅎ][\.\s]/.test(clean) && clean.includes('|')) {
+            this.logger.warn(`[REGEN] viewItems 내용이 stimulus로 잘못 들어감, 제거: targetConcept=${gen.targetConcept || ref.targetConcepts?.join(',')}`);
+            finalStimulusData = '';
+          }
+        }
+
+        // === 개념-선택지 정합성 검증: 생성된 선택지가 target_concept 도메인과 맞는지 확인 ===
+        const targetDomain = gen.targetConcept || (ref.targetConcepts || []).join(' ');
+        const optText = rawChoices.join(' ');
+        const stemDomain = (stemText + ' ' + (typeof finalStimulusData === 'string' ? finalStimulusData : '')).toLowerCase();
+        const hasLabor = /노동|근로|임금|고용|퇴직|연장|야간|휴게|휴가|산재/.test(stemDomain);
+        const hasEdu = /학습|교육|학교|수업|교사|학생/.test(stemDomain);
+        const optHasLabor = /노동|근로|임금|고용|퇴직|연장|야간|휴게|휴가|산재/.test(optText);
+        const optHasEdu = /학습|교육|학교|수업|교사|학생/.test(optText);
+        if (hasEdu && !hasLabor && optHasLabor && !optHasEdu) {
+          this.logger.warn(`[REGEN] 선택지-개념 도메인 불일치: stem=교육, options=노동법 — targetConcept=${targetDomain}`);
+        }
+
+        // === 이름 일관성 동기화: stimulus의 X씨와 viewItems/선택지의 X씨 불일치 해소 ===
+        // 문자열 + 객체 타입 모두 지원 (narrative, data, content 등)
+        let stimText = '';
+        if (typeof finalStimulusData === 'string') {
+          stimText = finalStimulusData;
+        } else if (finalStimulusData && typeof finalStimulusData === 'object') {
+          stimText = finalStimulusData.narrative || finalStimulusData.data
+            || finalStimulusData.content || finalStimulusData.description
+            || finalStimulusData.body || finalStimulusData.text
+            || '';
+        }
+        if (stimText && comboBlock && comboBlock.items.length > 0) {
+          const stimNames = [...stimText.matchAll(/([A-Z])씨/g)].map((m) => m[1]);
+          const viewText = comboBlock.items.map((i: any) => i.text).join(' ');
+          const viewNames = [...viewText.matchAll(/([A-Z])씨/g)].map((m) => m[1]);
+          if (stimNames.length > 0 && viewNames.length > 0 && stimNames[0] !== viewNames[0]) {
+            const nameMap = new Map<string, string>();
+            viewNames.forEach((vn, i) => { if (stimNames[i]) nameMap.set(vn, stimNames[i]); });
+            const replaceName = (s: string) => s.replace(/([A-Z])\s*씨/g, (_, letter) => nameMap.get(letter) ? nameMap.get(letter) + '씨' : letter + '씨');
+            comboBlock.items = comboBlock.items.map((item: any) => ({ ...item, text: replaceName(item.text) }));
+            rawChoices = rawChoices.map((opt: string) => replaceName(opt));
+            this.logger.log(`[REGEN] 이름 동기화: ${[...nameMap.entries()].map(([k, v]) => `${k}씨→${v}씨`).join(', ')}`);
+          }
         }
 
         result.push({
@@ -1683,11 +1797,14 @@ Output JSON only.`;
     prompt += 'Keep same structure (same number of view items, 5 choices).\n';
     prompt += 'Replace at least one concept with a related confusable concept.\n';
     prompt += 'CONCEPT REPLACEMENT RULE: The replacement concept MUST be from the SAME domain as the reference concepts listed below. For example, if the reference concepts are about "근로기준법, 임금, 근로계약", replace with a DIFFERENT labor law concept (like "근로시간, 연장근로, 해고"), NOT a concept from a different domain (like "환경보호법, 소비자보호법"). Verify that the replacement is in the same sub-topic.\n';
+    prompt += 'CONCEPT-SOURCE ALIGNMENT: The generated stimulus content MUST match the replaced concept domain. If the concept is about labor law, the stimulus must describe a labor/employment scenario. If the concept is about consumer protection, the stimulus must describe a consumer transaction scenario. Never mix domains between stimulus and answer options.\n';
+    prompt += 'NAMING CONSISTENCY: Use the SAME character names throughout the entire question. If stimulus uses "A씨, B씨", then viewItems and choices must also use "A씨, B씨" — NOT different letters. The first mentioned character is always A씨, second is B씨, etc. Never mix letter assignments between stimulus and viewItems.\n';
     prompt += 'Every question MUST have: stem (with \\n line breaks), stimulus (plain text), viewItems, choices (5 with ①②③④⑤), correctAnswer (1-5).\n';
     prompt += 'Choices must have ①~⑤ prefix. Do NOT use (가)(나)(다) placeholders.\n';
     prompt += 'Do NOT include original exam number prefixes like [6~7].\n';
     prompt += 'Determine correctAnswer by evaluating each view item (ㄱㄴㄷㄹ) as TRUE/FALSE.\n';
     prompt += '\n';
+    prompt += 'DIFFICULTY VARIETY: Include a mix of difficulty levels. If ' + difficulty + ' is INTERGRATE, at least 40% should require multi-concept reasoning. Vary the question patterns.\n';
     prompt += 'IMPORTANT: Determine the format of the content and output the appropriate structure:\n';
     prompt += '- If the stimulus is a DIALOGUE (speaker labels like "A:" "교사:" etc): set templateType="TPL_CONVERSATIONAL_FLOW" and stimulusData={participants: [{id, name, role}], messages: [{p_id, text}]}\n';
     prompt += '- If the stimulus is a TABLE (headers + rows): set templateType="TPL_COMPARATIVE_MATRIX" and stimulusData={headers: [{id, label}], rows: [{id, cells}]}\n';
@@ -1695,12 +1812,16 @@ Output JSON only.`;
     prompt += '- If the stimulus is a CASE/STORY (narrative about a person): set templateType="TPL_CASE_DIAGNOSTIC_FRAME" and stimulusData={case_profile: {name, context}, narrative: string}\n';
     prompt += '- If the stimulus is a LECTURE/CLASS: set templateType="TPL_INSTRUCTIONAL_SCENE" and stimulusData={instructor: {id, text}, canvas_content: {type, data}, students: []}\n';
     prompt += '- If the stimulus is a Q&A FORUM: set templateType="TPL_DIGITAL_FORUM_INTERFACE" and stimulusData={forum_name, main_post: {author, title, content}, comments: [{author, text}]}\n';
-    prompt += '- If the stimulus is INTERVIEW/NEWS: set templateType="TPL_NEWS_ARTICLE" and stimulusData={headline, body, source: {newspaper, date}}\n';
+    prompt += '- If the stimulus is TIMELINE/EVENTS (dates with descriptions): set templateType="TPL_PLAIN_TEXT" and put the text as "date: description\\n" format in the stimulus field\n';
     prompt += '- If none of the above, set templateType="TPL_PLAIN_TEXT" and put the text in the "stimulus" field (as string, no stimulusData needed)\n';
     prompt += 'When using PLAIN_TEXT, always fill the "stimulus" field with the full text. Never leave it empty.\n';
     prompt += '\n';
     prompt += 'Output format per question:\n';
     prompt += '{stem, stimulus, viewItems, choices, correctAnswer, templateType, stimulusData (if not PLAIN_TEXT)}\n';
+
+    if (patterns) {
+      prompt += '\n' + patterns + '\n';
+    }
 
     if (customPrompt) {
       prompt += '\nUser request: ' + customPrompt + '\n';
@@ -1726,6 +1847,9 @@ Output JSON only.`;
   private async convertBatchToTpl(items: any[]): Promise<void> {
     if (items.length === 0) return;
 
+    // 전환 전 stimulus 원본 보존 (AI가 빈 객체를 반환할 경우 복원용)
+    const preConvertStimuli = items.map((item) => item.render_ready?.stimulus_data);
+
     const indices: number[] = [];
     const inputs: string[] = [];
     for (let i = 0; i < items.length; i++) {
@@ -1741,7 +1865,7 @@ Output JSON only.`;
       const response = await this.openai.chat.completions.create({
         model: process.env.OPENAI_STEP1_MODEL || 'gpt-4o',
         messages: [
-          { role: 'system', content: 'Convert Korean CSAT stimuli to TPL-structured JSON. Return array of {itemIndex, templateType, stimulusData, confidence(1-5)}.\n\nValid templateType values (use ONLY these):\n- TPL_CONVERSATIONAL_FLOW: dialogue/interview with participants and messages\n- TPL_CASE_DIAGNOSTIC_FRAME: case narrative with profile and check_items\n- TPL_FORMAL_DOCUMENT: document with doc_type, header_info, paragraphs\n- TPL_COMPARATIVE_MATRIX: table with headers and rows\n- TPL_SEQUENTIAL_WORKFLOW: steps with orientation\n- TPL_DIGITAL_FORUM_INTERFACE: forum with main_post and comments\n- TPL_INSTRUCTIONAL_SCENE: lecture with instructor and canvas\n- TPL_PROMOTIONAL_CANVAS: ad with slogan and bullets\n- TPL_NEWS_ARTICLE: news with headline, body, source\n- TPL_LEGAL_RULING: legal document with parties and ruling\n- TPL_NCS_SCREEN: NCS competency screen\n- TPL_DECISION_MATRIX: decision table with criteria and alternatives\n- TPL_RADAR_CHART: radar chart with axes and datasets\n- TPL_DIAGNOSTIC_TEST: self-diagnosis checklist\n- TPL_TIMELINE: chronology with events\n- TPL_GAME_FORMAT: quiz/game with rounds\n- TPL_QUANTITATIVE_CHART: chart with chart_type, axes, datasets\n- TPL_PLAIN_TEXT: plain text (keep original string)\n\nConvert when confidence >= 2. Be proactive: if the stimulus has dialogue markers (":", speaker labels), use CONVERSATIONAL_FLOW. If it has tables or structured data, use COMPARATIVE_MATRIX. If it describes a case/scenario, use CASE_DIAGNOSTIC_FRAME. If it looks like a document, use FORMAL_DOCUMENT. Only use PLAIN_TEXT when there is truly no recognizable structure.' },
+          { role: 'system', content: 'Convert Korean CSAT stimuli to TPL-structured JSON. Return array of {itemIndex, templateType, stimulusData, confidence(1-5)}.\n\nValid templateType values (use ONLY these — NO PLAIN_TEXT):\n- TPL_CONVERSATIONAL_FLOW: dialogue/interview with participants and messages\n- TPL_CASE_DIAGNOSTIC_FRAME: case narrative with profile and check_items\n- TPL_FORMAL_DOCUMENT: document with doc_type, header_info, paragraphs\n- TPL_COMPARATIVE_MATRIX: table with headers and rows\n- TPL_SEQUENTIAL_WORKFLOW: steps with orientation\n- TPL_DIGITAL_FORUM_INTERFACE: forum with main_post and comments\n- TPL_INSTRUCTIONAL_SCENE: lecture with instructor and canvas\n- TPL_PROMOTIONAL_CANVAS: ad with slogan and bullets\n- TPL_QUANTITATIVE_CHART: chart with chart_type, axes, datasets\n\nNEVER use TPL_PLAIN_TEXT. Every stimulus can be mapped to one of the 9 templates above. Be proactive: if the stimulus has dialogue markers (":", speaker labels), use CONVERSATIONAL_FLOW. If it has tables or structured data, use COMPARATIVE_MATRIX. If it describes a case/scenario, use CASE_DIAGNOSTIC_FRAME. If it looks like a document, use FORMAL_DOCUMENT. Even plain narratives can be CASE_DIAGNOSTIC_FRAME.' },
           { role: 'user', content: 'Convert:\n\n' + inputs.join('\n\n') },
         ],
         response_format: { type: 'json_object' },
@@ -1764,6 +1888,11 @@ Output JSON only.`;
 
         if (confidence < 2 || (typeof conv.stimulusData === 'object' && !Array.isArray(conv.stimulusData) && Object.keys(conv.stimulusData).length === 0)) {
           item.metadata.recommended_template = 'TPL_PLAIN_TEXT';
+          // 원본 문자열 stimulus 복원 (AI가 빈 객체 반환 시)
+          const orig = preConvertStimuli[idx];
+          if (typeof orig === 'string' && orig.trim()) {
+            item.render_ready.stimulus_data = orig;
+          }
           continue;
         }
 
@@ -1777,7 +1906,7 @@ Output JSON only.`;
         }
       }
 
-      // Post-process: detect patterns in PLAIN_TEXT stimuli and convert to appropriate TPL
+      // Post-process: StimulusNormalizer.inferTplFromText()로 PLAIN_TEXT → 구조화 TPL 변환
       for (const item of items) {
         if (item.metadata?.recommended_template !== 'TPL_PLAIN_TEXT') continue;
         const stim = typeof item.render_ready?.stimulus_data === 'string'
@@ -1785,120 +1914,11 @@ Output JSON only.`;
           : '';
         if (!stim) continue;
 
-        const lines = stim.split('\n').filter(l => l.trim());
-
-        // 1. Detect pipe tables "| header | header |" + "|---|" + data
-        const pipeLines = lines.filter(l => l.trim().startsWith('|') && l.trim().endsWith('|'));
-        if (pipeLines.length >= 2 && pipeLines.some(l => /^\|[\s-]+\|/.test(l.trim()))) {
-          const dataLines = pipeLines.filter(l => !/^\|[\s-]+\|/.test(l.trim()));
-          if (dataLines.length >= 1) {
-            const parseRow = (line: string): string[] =>
-              line.trim().split('|').filter((_, i, a) => i > 0 && i < a.length - 1).map(c => c.trim());
-            const headers = parseRow(dataLines[0]).map((h, i) => ({ id: 'col' + i, label: h }));
-            const rows = dataLines.slice(1).map((line, i) => ({ id: 'row' + i, cells: parseRow(line) }));
-            if (headers.length >= 2 && rows.length >= 1) {
-              item.render_ready.stimulus_data = { headers, rows };
-              item.metadata.recommended_template = 'TPL_COMPARATIVE_MATRIX';
-              this.logger.log('[TPL] pipe table detected');
-              continue;
-            }
-          }
-        }
-
-        // 2. Detect dialogues: multiple lines with "X: text" pattern
-        const speakerLines = lines.filter(l => /^[A-Za-z가-힣\s]+:\s/.test(l.trim()));
-        if (speakerLines.length >= 3) {
-          const speakers = new Set(speakerLines.map(l => l.trim().split(':')[0].trim()));
-          if (speakers.size >= 2) {
-            const participantsArr = Array.from(speakers).map((s, i) => ({ id: 'p' + i, name: s, role: 'speaker' }));
-            const messagesArr = lines
-              .filter(l => /^[A-Za-z가-힣\s]+:\s/.test(l.trim()))
-              .map(l => {
-                const idx = l.indexOf(':');
-                return { p_id: 'p' + Array.from(speakers).indexOf(l.substring(0, idx).trim()), text: l.substring(idx + 1).trim() };
-              });
-            if (messagesArr.length >= 2) {
-              item.render_ready.stimulus_data = { participants: participantsArr, messages: messagesArr };
-              item.metadata.recommended_template = 'TPL_CONVERSATIONAL_FLOW';
-              this.logger.log('[TPL] dialogue detected');
-              continue;
-            }
-          }
-        }
-
-        // 3. Detect formal documents: 법령/규정 with 조항 structure
-        const hasLawMarkers = lines.some(l => /제\d+조|제\d+장|\[.*법\]|\[.*규정\]/.test(l.trim()));
-        const hasDocMarkers = lines.some(l => /\[.*보고서\]|\[.*안내\]|\[.*기준\]|보고서|조사/.test(l.trim()));
-        const paragraphCount = lines.filter(l => l.length > 20).length;
-        if ((hasLawMarkers || hasDocMarkers) && paragraphCount >= 1) {
-          // Extract title from first bracket or first content line
-          const bracketTitle = stim.match(/\[([^\]]+)\]/);
-          const title = bracketTitle ? bracketTitle[1] : (hasLawMarkers ? '법령 조항' : '문서');
-          // Split into paragraphs by content
-          const paraTexts = stim.split(/\n+/).filter(l => l.trim().length > 0);
-          item.render_ready.stimulus_data = {
-            doc_type: hasLawMarkers ? '법령' : '문서',
-            header_info: { title, date: '', author: '' },
-            paragraphs: paraTexts.map(content => ({ content: content.trim() })),
-            footnotes: [],
-          };
-          item.metadata.recommended_template = 'TPL_FORMAL_DOCUMENT';
-          this.logger.log('[TPL] formal document detected');
-          continue;
-        }
-
-        // 4. Detect timeline: date/step patterns like "N월 M일: event" or "N단계: ..."
-        const dateEventLines = lines.filter(l => /^\d{1,2}월\s*\d{1,2}일\s*:|^\d{1,2}단계\s*:|^Step\s*\d/i.test(l.trim()));
-        if (dateEventLines.length >= 2) {
-          const eventsArr = dateEventLines.map((l, i) => {
-            const idx = l.indexOf(':');
-            return { date: l.substring(0, idx).trim(), label: l.substring(0, idx).trim(), description: l.substring(idx + 1).trim(), is_key_event: false };
-          });
-          if (eventsArr.length >= 2) {
-            item.render_ready.stimulus_data = { title: '', events: eventsArr };
-            item.metadata.recommended_template = 'TPL_TIMELINE';
-            this.logger.log('[TPL] timeline detected');
-            continue;
-          }
-        }
-
-        // 5. Detect Q&A forum: 질문/답변 patterns
-        const qaCount = lines.filter(l => /^(질문|문의|Q|A|답변)\s*[:.]/.test(l.trim())).length;
-        if (qaCount >= 2) {
-          const mainPost = { title: '', author: '', content: lines.find(l => /^질문|^Q\s*[:.]/i.test(l.trim()))?.replace(/^질문\s*[:.]/i, '').trim() || '' };
-          const commentsArr = lines.filter(l => /^답변|^A\s*[:.]/i.test(l.trim())).map(l => ({ text: l.replace(/^답변\s*[:.]/i, '').trim(), author: '' }));
-          item.render_ready.stimulus_data = { forum_name: 'Q&A', main_post: mainPost, comments: commentsArr };
-          item.metadata.recommended_template = 'TPL_DIGITAL_FORUM_INTERFACE';
-          this.logger.log('[TPL] Q&A forum detected');
-          continue;
-        }
-
-        // 6. Detect instructional scene: 교사/강사/선생님 patterns with 수업 context
-        const teacherLines = lines.filter(l => /^(교사|강사|선생님|전문가)\s*[:.]/.test(l.trim()));
-        if (teacherLines.length >= 1 && lines.some(l => /학생|수업|학습|교육/.test(l))) {
-          const instructor = { id: 'instructor_1', text: teacherLines[0].replace(/^[^:]*[:.]\s*/, '').trim() };
-          const studentsArr = lines.filter(l => /^학생\s+[A-Za-z가-힣]\s*[:.]/.test(l.trim())).map((l, i) => ({ id: 'student' + i, text: l.replace(/^[^:]*[:.]\s*/, '').trim() }));
-          item.render_ready.stimulus_data = { instructor, canvas_content: { type: 'text', data: lines.filter(l => !/^[^:]*[:.]/.test(l.trim())).join('\n') }, students: studentsArr };
-          item.metadata.recommended_template = 'TPL_INSTRUCTIONAL_SCENE';
-          this.logger.log('[TPL] instructional scene detected');
-          continue;
-        }
-
-        // 7. Detect workflow: sequential numbered steps describing a process
-        const stepLines = lines.filter(l => /^\d+\.\s/.test(l.trim()) && l.trim().length > 15);
-        if (stepLines.length >= 3) {
-          const stepsArr = stepLines.map((l, i) => ({
-            idx: i + 1,
-            label: l.replace(/^\d+\.\s*/, '').split(/[.:]/)[0].trim(),
-            desc: l.replace(/^\d+\.\s*/, '').trim(),
-            is_missing: false,
-          }));
-          if (stepsArr.length >= 2) {
-            item.render_ready.stimulus_data = { orientation: 'vertical', steps: stepsArr };
-            item.metadata.recommended_template = 'TPL_SEQUENTIAL_WORKFLOW';
-            this.logger.log('[TPL] workflow detected');
-            continue;
-          }
+        const inferred = this.stimulusNormalizer.inferTplFromText(stim);
+        if (inferred) {
+          item.render_ready.stimulus_data = inferred.data;
+          item.metadata.recommended_template = inferred.template;
+          this.logger.log(`[TPL] inferTplFromText: ${inferred.template}`);
         }
       }
     } catch {}

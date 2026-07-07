@@ -8,7 +8,8 @@ import { SPACING } from '@/constants/spacing';
 import { QuestionRenderer } from '@/components/exam/QuestionStem/QuestionRenderer';
 import { getTemplateLabel } from '@/utils/examParser';
 import { apiFetch } from '@/lib/api';
-import type { ExamQuestion } from '@/types/examQuestion';
+import type { ComboBlock, ExamQuestion } from '@/types/examQuestion';
+import { toExamQuestionFromApiQuestion } from '@/utils/examQuestionAdapter';
 import s from './page.module.scss';
 
 interface RawQuestion {
@@ -22,28 +23,10 @@ interface RawQuestion {
   optionsList: string[];
   explanation: unknown;
   correctAnswer?: number;
+  comboBlock?: ComboBlock | null;
   subject?: { slug: string; title: string };
   unit?: { unitNumber: number; title: string };
   createdAt: string;
-}
-
-function toExamQuestion(raw: RawQuestion): ExamQuestion {
-  return {
-    metadata: {
-      unit_name: raw.unit?.title ?? '',
-      target_concept: raw.targetConcept,
-      item_type: raw.itemType,
-      difficulty: raw.difficulty,
-      recommended_template: raw.recommendedTemplate,
-    },
-    render_ready: {
-      question_stem: raw.questionStem,
-      stimulus_data: raw.stimulusData ?? {},
-      options_list: raw.optionsList ?? [],
-      explanation: raw.explanation as string | undefined,
-    },
-    correct_answer: raw.correctAnswer,
-  } as ExamQuestion;
 }
 
 const DIFFICULTIES = [
@@ -164,7 +147,7 @@ export default function QuestionSearchPage() {
               </HStack>
               <div className={s.selectedQuestion}>
                 <QuestionRenderer
-                  question={toExamQuestion(selected)}
+                  question={toExamQuestionFromApiQuestion(selected)}
                   questionNumber={1}
                 />
               </div>
