@@ -5,6 +5,7 @@ import {
   IsOptional,
   IsString,
   IsArray,
+  IsBoolean,
   Min,
   Max,
 } from 'class-validator';
@@ -44,4 +45,8 @@ export class CreateExamDto {
   @IsString()
   @IsOptional()
   sourceType?: ExamSourceType;
+
+  @IsBoolean()
+  @IsOptional()
+  excludePrevious?: boolean;
 }

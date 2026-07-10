@@ -1,9 +1,8 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { InjectDataSource } from '@nestjs/typeorm';
 import { DataSource } from 'typeorm';
-import OpenAI from 'openai';
 import { TextbookService } from './textbook.service';
-import { getOpenAIApiKey } from '../lib/openai-keys';
+import { getOpenAIClient } from '../lib/openai-keys';
 
 const CHUNK_SIZE = 1500; // 청크당 최대 글자 수
 const CHUNK_OVERLAP = 300; // 청크 간 겹침 글자 수
@@ -14,17 +13,12 @@ const TOP_K = 8; // RAG 검색 시 반환할 청크 수
 @Injectable()
 export class TextbookEmbeddingService {
   private readonly logger = new Logger(TextbookEmbeddingService.name);
-  private readonly openai: OpenAI;
 
   constructor(
     @InjectDataSource()
     private readonly dataSource: DataSource,
     private readonly textbookService: TextbookService,
-  ) {
-    this.openai = new OpenAI({
-      apiKey: getOpenAIApiKey(),
-    });
-  }
+  ) {}
 
   // ============================================================
   // 텍스트를 청크로 분할
@@ -66,7 +60,7 @@ export class TextbookEmbeddingService {
     );
 
     // 배치 임베딩 (OpenAI는 최대 2048개 입력 지원)
-    const embeddings = await this.openai.embeddings.create({
+    const embeddings = await getOpenAIClient().embeddings.create({
       model: EMBEDDING_MODEL,
       input: chunks,
     });
@@ -122,7 +116,7 @@ export class TextbookEmbeddingService {
     topK = TOP_K,
   ): Promise<string[]> {
     // 질문 임베딩
-    const queryEmbedding = await this.openai.embeddings.create({
+    const queryEmbedding = await getOpenAIClient().embeddings.create({
       model: EMBEDDING_MODEL,
       input: [query],
     });

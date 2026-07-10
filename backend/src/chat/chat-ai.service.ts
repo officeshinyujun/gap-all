@@ -2,18 +2,17 @@ import { Injectable, Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import OpenAI from 'openai';
+import type OpenAI from 'openai';
 import { ChatMessage, ChatSender } from '../entities/chat-message.entity';
 import { AiUsageLog, AiUsageSource } from '../entities/ai-usage-log.entity';
 import { TextbookEmbeddingService } from '../textbook/textbook-embedding.service';
 import { TextbookService } from '../textbook/textbook.service';
-import { getOpenAIApiKey } from '../lib/openai-keys';
+import { getOpenAIClient } from '../lib/openai-keys';
 
 const HISTORY_LIMIT = 10;
 
 @Injectable()
 export class ChatAiService {
-  private readonly openai: OpenAI;
   private readonly model: string;
   private readonly logger = new Logger(ChatAiService.name);
 
@@ -24,9 +23,6 @@ export class ChatAiService {
     @InjectRepository(AiUsageLog)
     private readonly aiUsageLogRepo: Repository<AiUsageLog>,
   ) {
-    this.openai = new OpenAI({
-      apiKey: getOpenAIApiKey(),
-    });
     this.model = this.configService.get<string>('OPENAI_MODEL') ?? 'gpt-4o';
   }
 
@@ -191,7 +187,7 @@ export class ChatAiService {
       `Chat AI 호출: subject=${subjectSlug}, historyCount=${recentHistory.length}`,
     );
 
-    const response = await this.openai.chat.completions.create({
+    const response = await getOpenAIClient().chat.completions.create({
       model: this.model,
       messages,
     });
@@ -229,7 +225,7 @@ export class ChatAiService {
   }> {
     const base64 = imageBuffer.toString('base64');
 
-    const response = await this.openai.chat.completions.create({
+    const response = await getOpenAIClient().chat.completions.create({
       model: 'gpt-4o',
       messages: [
         {
@@ -327,7 +323,7 @@ ${extracted.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
 ### 핵심 교훈
 (이 문제 유형에서 반드시 알아야 할 포인트)`;
 
-    const response = await this.openai.chat.completions.create({
+    const response = await getOpenAIClient().chat.completions.create({
       model: this.model,
       messages: [{ role: 'user', content: prompt }],
     });

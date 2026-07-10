@@ -2,8 +2,7 @@ import { Injectable, Logger } from '@nestjs/common';
 import { execSync } from 'child_process';
 import * as fs from 'fs';
 import * as path from 'path';
-import OpenAI from 'openai';
-import { getOpenAIApiKey } from '../lib/openai-keys';
+import { getOpenAIClient } from '../lib/openai-keys';
 
 export interface ParsedQuestionSource {
   type: 'suteck' | 'moi';
@@ -33,16 +32,9 @@ export interface ParsedQuestion {
 @Injectable()
 export class QuestionParserService {
   private readonly logger = new Logger(QuestionParserService.name);
-  private readonly openai: OpenAI;
   private readonly PARSED_DIR = path.join(
     __dirname, '..', '..', '..', 'textbook', 'parsed',
   );
-
-  constructor() {
-    this.openai = new OpenAI({
-      apiKey: getOpenAIApiKey(),
-    });
-  }
 
   async parseSuteckPdf(
     filePath: string,
@@ -54,7 +46,7 @@ export class QuestionParserService {
     const rawText = this.extractText(filePath);
 
     // Single LLM call — send full text, get all questions
-    const response = await this.openai.chat.completions.create({
+    const response = await getOpenAIClient().chat.completions.create({
       model: process.env.OPENAI_STEP1_MODEL || 'gpt-4o',
       messages: [
         { role: 'system', content: 'Extract all Korean CSAT exam questions from PDF text. Return JSON array of {questionNumber, stem, stimulus, viewItems, choices, hasStimulus, targetConcepts}. Ignore markers, annotations, and answer keys.' },
@@ -109,7 +101,7 @@ export class QuestionParserService {
     this.logger.log('Parsing moi PDF: ' + filePath);
     const rawText = this.extractText(filePath);
 
-    const response = await this.openai.chat.completions.create({
+    const response = await getOpenAIClient().chat.completions.create({
       model: process.env.OPENAI_STEP1_MODEL || 'gpt-4o',
       messages: [
         { role: 'system', content: 'Extract all Korean CSAT exam questions from this PDF text. Return JSON array. Each question: {questionNumber, stem, stimulus, viewItems, choices, hasStimulus, targetConcepts}. Ignore markers and annotations.' },

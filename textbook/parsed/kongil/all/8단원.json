@@ -408,35 +408,6 @@
       "type": "moi",
       "subject": "kongil",
       "subjectKor": "공업 일반",
-      "year": 2023,
-      "examType": "수능",
-      "filename": "kongil_2023_수능_02 공업 일반_문제.pdf"
-    },
-    "questionNumber": 20,
-    "stem": "20. 위 보고서를 통해 알 수 있는 ○○기업에 대한 내용으로 옳지\n않은 것은? [3점]",
-    "stimulus": "",
-    "viewItems": [],
-    "choices": [
-      "① 제품의 품질 검사 방법은 표본 검사에 해당한다.",
-      "② 제품 창고에 보유하고 있는 재고는 안전 재고에 해당한다.",
-      "③ 물류 관리에 구축한 시스템은 자동 창고 시스템에 해당한다.",
-      "④ 생산 공정에 도입한 기계는 컴퓨터를 이용한 수치 제어 공작 기계에 해당한다.",
-      "⑤ 물류 창고에 적재하는 제품에는 전자 태그를 무선 주파수(Radio Frequency)로 인식하는 기술을 적용하고 있다."
-    ],
-    "correctAnswer": null,
-    "difficulty": "INTERGRATE",
-    "targetConcepts": [
-      "물류 관리",
-      "공장 자동화"
-    ],
-    "hasStimulus": true,
-    "unitNumber": 8
-  },
-  {
-    "source": {
-      "type": "moi",
-      "subject": "kongil",
-      "subjectKor": "공업 일반",
       "year": 2024,
       "examType": "6월_모의평가",
       "filename": "kongil_2024_6월_모의평가_03 공업 일반_문제지.pdf"

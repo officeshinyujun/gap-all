@@ -31,6 +31,7 @@ import { Notification } from './entities/notification.entity';
 import { NotificationSetting } from './entities/notification-setting.entity';
 import { PushSubscription } from './entities/push-subscription.entity';
 import { ConceptBookmark } from './entities/concept-bookmark.entity';
+import { FlaggedQuestion } from './entities/flagged-question.entity';
 
 @Module({
   imports: [
@@ -66,6 +67,7 @@ import { ConceptBookmark } from './entities/concept-bookmark.entity';
           NotificationSetting,
           PushSubscription,
           ConceptBookmark,
+          FlaggedQuestion,
         ],
         synchronize: config.get<string>('NODE_ENV') !== 'production',
         logging: config.get<string>('NODE_ENV') === 'development',

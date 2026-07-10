@@ -604,35 +604,6 @@
       "type": "moi",
       "subject": "kongil",
       "subjectKor": "공업 일반",
-      "year": 2021,
-      "examType": "수능",
-      "filename": "kongil_2021_수능_03 직탐(공업 일반).pdf"
-    },
-    "questionNumber": 17,
-    "stem": "17. 다음 환경 보전 실천 사례와 관련된 국제 협약으로 가장 적절한 것은?",
-    "stimulus": "영화 '○○○' 촬영지로 유명한 △△지역에 위치한 물영아리오름 정상에는 함지박 형태의 산정화구호(山頂火口湖)가 있다. 이곳은 환경부 지정 멸종 위기종 2급인 물장군과 물여귀 등 다양한 습지 동·식물이 서식하고 있다. 이에 시에서는 물영아리 정상 주변을 습지 보호 지역으로 지정하고 탐방객을 제한하는 등 환경 보전을 위해 노력하고 있다.\n*산정화구호(山頂火口湖): 산 정상에 물이 있는 분화구",
-    "viewItems": [],
-    "choices": [
-      "① 바젤 협약",
-      "② 교토의정서",
-      "③ 람사르 협약",
-      "④ 몬트리올 의정서",
-      "⑤ 사막화 방지 협약"
-    ],
-    "correctAnswer": null,
-    "difficulty": "HIGH",
-    "targetConcepts": [
-      "환경 보전",
-      "국제 환경 협약"
-    ],
-    "hasStimulus": true,
-    "unitNumber": 11
-  },
-  {
-    "source": {
-      "type": "moi",
-      "subject": "kongil",
-      "subjectKor": "공업 일반",
       "year": 2022,
       "examType": "6월_모의평가",
       "filename": "kongil_2022_6월_모의평가_03 4교시_직업탐구영역_공업 일반_문제.pdf"

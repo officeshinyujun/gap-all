@@ -262,38 +262,6 @@
   },
   {
     "source": {
-      "type": "suteck",
-      "subject": "sungjik",
-      "subjectKor": "성공적인 직업생활",
-      "unitNumber": 13,
-      "filename": "성직_13단원_문제.pdf"
-    },
-    "questionNumber": 10,
-    "stem": "위 채용 공고문에 나타난 기업에 대한 설명으로 적절한 것만을\n<보기>에서 고른 것은?",
-    "stimulus": "",
-    "viewItems": [
-      "ㄱ. 생산과 소비가 동시에 이루어진다.",
-      "ㄴ. 원재료를 투입하여 새로운 제품을 생산한다.",
-      "ㄷ. 제품 생산 시 프로젝트 생산 방식을 주로 사용한다.",
-      "ㄹ. 클라크(Clark, C. G.)의 분류 방법에 따라 제2차 산업으로 분류된다."
-    ],
-    "choices": [
-      "① ㄱ, ㄴ",
-      "② ㄱ, ㄷ",
-      "③ ㄴ, ㄷ",
-      "④ ㄴ, ㄹ",
-      "⑤ ㄷ, ㄹ"
-    ],
-    "correctAnswer": null,
-    "difficulty": "MIDDLE",
-    "targetConcepts": [
-      "기업의 분류",
-      "제조업"
-    ],
-    "hasStimulus": false
-  },
-  {
-    "source": {
       "type": "moi",
       "subject": "sungjik",
       "subjectKor": "성공적인 직업생활",

@@ -1,7 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { randomUUID } from 'crypto';
 import { CreateExamDto } from './dto/create-exam.dto';
-import { ExamGenerationProgressUpdate } from './exam-generator.service';
+import { ExamGenerationProgressUpdate } from './exam-generation.utils';
 
 export type ExamGenerationJobStatus =
   | 'pending'

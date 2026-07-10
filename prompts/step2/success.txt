@@ -101,71 +101,74 @@ stimulus_data는 반드시 해당 TPL의 구조에 맞는 JSON 객체여야 하�
 PLAIN_TEXT처럼 단순 문자열을 반환하는 것은 금지한다.
 
 # [UI Schema Manual: Strict QuestionStem Specification]
-모든 데이터는 아래 정의된 TypeScript 인터페이스 규격을 엄격히 준수하여 `render_ready.stimulus_data` 필드에 주입되어야 한다.
+모든 데이터는 아래 정의된 JSON 구조를 정확히 준수하여 `render_ready.stimulus_data` 필드에 주입되어야 한다.
 
-1. TPL_COMPARATIVE_MATRIX
+1. TPL_COMPARATIVE_MATRIX — 표/비교표
 {
-  "headers": "Array<{ id: string, label: string }>",
-  "rows": "Array<{ id: string | number, cells: string[] }>",
-  "selection_chips": "Array<string>"
+  "headers": [{ "id": "c1", "label": "구분" }, { "id": "c2", "label": "A사" }],
+  "rows": [{ "id": "r1", "cells": ["매출액", "100억 원"] }, { "id": "r2", "cells": ["영업이익", "20억 원"] }],
+  "selection_chips": []
 }
 
-2. TPL_FORMAL_DOCUMENT
+2. TPL_FORMAL_DOCUMENT — 문서/법령/공고/보고서
 {
-  "doc_type": "string",
-  "header_info": "{ title: string, date: string, author: string }",
-  "paragraphs": "Array<{ sub_title: string, content: string }>",
-  "footnotes": "Array<string>"
+  "doc_type": "보고서",
+  "header_info": { "title": "근로 계약 체결 현황", "date": "2024. 3.", "author": "○○기업 인사팀" },
+  "paragraphs": [{ "sub_title": "", "content": "당사는 2024년 3월 기준 신규 근로자 15명과 근로계약을 체결하였다." }],
+  "footnotes": []
 }
 
-3. TPL_CONVERSATIONAL_FLOW
+3. TPL_CONVERSATIONAL_FLOW — 대화문/면접/상담
 {
-  "participants": "Array<{ id: string, name: string, role: string }>",
-  "messages": "Array<{ p_id: string, text: string, timestamp: string }>"
+  "participants": [{ "id": "p1", "name": "상담사", "role": "counselor" }, { "id": "p2", "name": "A씨", "role": "client" }],
+  "messages": [{ "p_id": "p1", "text": "안녕하세요. 어떤 일로 오셨나요?", "timestamp": "" }, { "p_id": "p2", "text": "퇴직금 관련해서 문의드리려고요.", "timestamp": "" }]
 }
 
-4. TPL_CASE_DIAGNOSTIC_FRAME
+4. TPL_CASE_DIAGNOSTIC_FRAME — 사례/사건/인물 스토리
 {
-  "case_profile": "{ name: string, context: string }",
-  "narrative": "string",
-  "check_items": "Array<{ id: string | number, label: string, is_checked: boolean }>"
+  "case_profile": { "name": "A씨", "context": "중소기업에 다니는 만 32세 근로자" },
+  "narrative": "A씨는 최근 회사로부터 정리해고 통보를 받았다. A씨는 이에 부당함을 느끼고 노동위원회에 구제를 신청하려 한다.",
+  "check_items": [{ "id": 1, "label": "부당해고 구제 신청 기간은?", "is_checked": false }]
 }
 
-5. TPL_SEQUENTIAL_WORKFLOW
+5. TPL_SEQUENTIAL_WORKFLOW — 순서도/단계/절차
 {
-  "orientation": "'horizontal' | 'vertical'",
-  "steps": "Array<{ idx: number, label: string, desc: string, is_missing: boolean }>"
+  "orientation": "vertical",
+  "steps": [
+    { "idx": 1, "label": "채용 공고", "desc": "채용 사이트에 공고 게시", "is_missing": false },
+    { "idx": 2, "label": "서류 전형", "desc": "자기소개서 및 이력서 검토", "is_missing": false },
+    { "idx": 3, "label": "면접 전형", "desc": "1차 실무면접 및 2차 임원면접", "is_missing": false }
+  ]
 }
 
-6. TPL_INSTRUCTIONAL_SCENE
+6. TPL_INSTRUCTIONAL_SCENE — 수업 장면/강의
 {
-  "instructor": "{ id: string, text: string }",
-  "canvas_content": "{ type: 'text'|'table'|'image'|'mind_map'|'key_map', data: string | string[][] | {src: string, alt?: string} }",
-  "students": "Array<{ id: string, text: string }>"
+  "instructor": { "id": "t1", "text": "오늘은 근로기준법에 대해 알아보겠습니다." },
+  "canvas_content": { "type": "text", "data": "근로기준법은 근로자의 기본적인 근로 조건을 보장하기 위한 법률이다." },
+  "students": [{ "id": "s1", "text": "선생님, 최저임금은 얼마인가요?" }]
 }
 
-7. TPL_DIGITAL_FORUM_INTERFACE
+7. TPL_DIGITAL_FORUM_INTERFACE — 게시판/Q&A/민원
 {
-  "forum_name": "string",
-  "main_post": "{ author: string, title: string, content: string }",
-  "comments": "Array<{ author: string, text: string }>"
+  "forum_name": "노동 상담 게시판",
+  "main_post": { "author": "익명", "title": "퇴직금 문의", "content": "퇴직금은 언제 받을 수 있나요?" },
+  "comments": [{ "author": "전문가", "text": "퇴직금은 퇴사일로부터 14일 이내에 지급되어야 합니다." }]
 }
 
-8. TPL_QUANTITATIVE_CHART
+8. TPL_QUANTITATIVE_CHART — 차트/그래프/수치
 {
-  "chart_type": "'radar' | 'bar' | 'line'",
-  "axes": "Array<{ key: string, label: string, max: number }>",
-  "datasets": "Array<{ label: string, values: number[] }>"
+  "chart_type": "bar",
+  "axes": [{ "key": "year", "label": "연도", "max": 5 }, { "key": "amount", "label": "금액(만원)", "max": 100 }],
+  "datasets": [{ "label": "평균 임금", "values": [2500, 2700, 2900, 3100, 3300] }]
 }
 
-9. TPL_PROMOTIONAL_CANVAS
+9. TPL_PROMOTIONAL_CANVAS — 광고/홍보/안내문
 {
-  "slogan": "string",
-  "bullets": "Array<string>",
-  "visual_elements": "Array<string>",
-  "missing_part": "string"
+  "slogan": "일과 삶의 균형, 우리 회사에서 시작하세요!",
+  "bullets": ["유연 근무제 시행", "자기 개발비 지원", "분기별 팀 워크숍"],
+  "visual_elements": [],
+  "missing_part": ""
 }
-
 
 # [Output JSON Schema]
 각 문항 객체는 반드시 아래 구조를 완전히 갖춰야 한다. 필드 누락 시 시스템 오류로 간주한다.
@@ -340,6 +343,8 @@ PLAIN_TEXT처럼 단순 문자열을 반환하는 것은 금지한다.
 
 **[주의]** 수치 계산이 필요한 문항의 경우 반드시 stimulus_data에 계산에 필요한 구체적 수치를 포함하고, question_stem에서 계산 대상을 명확히 지시하라.
 예: "A씨의 근로기준법상 야간근로 시간은?", "A씨가 받을 수 있는 휴업급여는 1일 기준 얼마인가?", "A씨가 받을 수 있는 주휴수당은?"
+
+**[주의] 위 법률(근로기준법·노동조합법·고용보험법·산재보험법 등) 이외의 법률(중소기업기본법, 중소기업창업 지원법)의 조항을 묻는 계산 문제는 생성하지 마라. 이 법률들은 이 과목의 출제 범위가 아니다.**
 
 # [참고: 실제 수능 기출 예시 — 성공적인 직업생활]
 아래는 실제 수능·모의평가 기출 문항의 예시이다. 이 예시들의 스타일, 난이도, 자료 구성 방식을 참고하여 문항을 설계하라.

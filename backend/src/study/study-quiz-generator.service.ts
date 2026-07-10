@@ -7,9 +7,9 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import * as fs from 'fs';
 import * as path from 'path';
-import OpenAI from 'openai';
+import type OpenAI from 'openai';
 import { TextbookService } from '../textbook/textbook.service';
-import { getOpenAIApiKey } from '../lib/openai-keys';
+import { getOpenAIClient } from '../lib/openai-keys';
 import { AiUsageLog, AiUsageSource } from '../entities/ai-usage-log.entity';
 import type { BlankQuestion, ConceptPair } from '../textbook/textbook.service';
 
@@ -19,7 +19,6 @@ export type CacheType = 'blank' | 'concept';
 @Injectable()
 export class StudyQuizGeneratorService {
   private readonly logger = new Logger(StudyQuizGeneratorService.name);
-  private readonly openai: OpenAI;
 
   // 과목 slug → summation 폴더명
   private readonly SUBJECT_FOLDER_MAP: Record<string, string> = {
@@ -31,11 +30,7 @@ export class StudyQuizGeneratorService {
     @InjectRepository(AiUsageLog)
     private readonly aiUsageLogRepo: Repository<AiUsageLog>,
     private readonly textbookService: TextbookService,
-  ) {
-    this.openai = new OpenAI({
-      apiKey: getOpenAIApiKey(),
-    });
-  }
+  ) {}
 
   // ============================================================
   // Public API
@@ -177,7 +172,7 @@ ${md}
 
 JSON만 출력하라.`;
 
-    const response = await this.openai.chat.completions.create({
+    const response = await getOpenAIClient().chat.completions.create({
       model: process.env.OPENAI_MODEL ?? 'gpt-4o',
       messages: [
         { role: 'system', content: this.getPersona() },
@@ -241,7 +236,7 @@ ${md}
 
 JSON만 출력하라.`;
 
-    const response = await this.openai.chat.completions.create({
+    const response = await getOpenAIClient().chat.completions.create({
       model: process.env.OPENAI_MODEL ?? 'gpt-4o',
       messages: [
         { role: 'system', content: this.getPersona() },

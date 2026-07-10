@@ -16,7 +16,7 @@ import {
   TPLQuantitativeChart,
   TPLPromotionalCanvas,
 } from '../index';
-import { parseStimulus, getTemplateLabel, inferTemplate } from '@/utils/examParser';
+import { parseStimulus, getTemplateLabel, inferTemplate } from '@shared/utils/examParser';
 import type { ExamQuestion, ParsedStimulus } from '@/types/examQuestion';
 import { getExplanationText, getOptionNumber, normalizeOptions } from '@/types/examQuestion';
 import ReactMarkdown from 'react-markdown';
@@ -31,6 +31,30 @@ export interface QuestionRendererProps {
   correctAnswer?: number | null;
   showExplanation?: boolean;
   flat?: boolean;
+}
+
+function renderPlainTextFallback(data: unknown, className?: string): React.ReactNode {
+  const text = typeof data === 'string' ? data
+    : data && typeof data === 'object' ? JSON.stringify(data, null, 2)
+    : String(data ?? '');
+  if (!text.trim()) return null;
+  return (
+    <div className={className ?? s.stimulusPlainText}>
+      <ReactMarkdown remarkPlugins={[remarkGfm]}>{text}</ReactMarkdown>
+    </div>
+  );
+}
+
+class StimulusErrorBoundary extends React.Component<
+  { children: React.ReactNode; fallback: React.ReactNode },
+  { hasError: boolean }
+> {
+  state = { hasError: false };
+  static getDerivedStateFromError() { return { hasError: true }; }
+  render() {
+    if (this.state.hasError) return this.props.fallback;
+    return this.props.children;
+  }
 }
 
 export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
@@ -56,37 +80,36 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
   const { metadata, render_ready } = question;
   const { question_stem, stimulus_data, options, options_list } = render_ready;
 
-  // exam3.json은 explanation이 render_ready 밖 최상위에 위치
   const explanation = question.explanation ?? render_ready.explanation;
 
-  // options 또는 options_list 통일
   const normalizedOptions = normalizeOptions(options, options_list);
 
-  // recommended_template 없으면 자동 추론
   const resolvedTemplate = metadata.recommended_template ?? inferTemplate(stimulus_data) ?? '';
   const parsed = parseStimulus(resolvedTemplate, stimulus_data);
 
   const renderStimulus = (parsed: ParsedStimulus | null) => {
-    if (!parsed) return null;
+    if (!parsed) return renderPlainTextFallback(stimulus_data);
 
     switch (parsed.template) {
       case 'TPL_COMPARATIVE_MATRIX': {
         const raw = parsed.data;
-        if (!raw) return null;
-        if (!raw.rows || !raw.headers) return null;
-        const rowIds = raw.rows.map((r) => String(r.id));
+        if (!raw) return renderPlainTextFallback(stimulus_data);
+        const rows = raw.rows ?? [];
+        const headers = raw.headers ?? [];
+        if (!rows.length || !headers.length) return renderPlainTextFallback(stimulus_data);
+        const rowIds = rows.map((r) => String(r.id));
         const chipsAreRowLabels = raw.selection_chips?.every((chip) =>
           rowIds.includes(chip)
         );
 
         if (chipsAreRowLabels) {
-          const labeledRows = raw.rows.map((row) => ({
+          const labeledRows = rows.map((row) => ({
             ...row,
             cells: [String(row.id), ...(row.cells ?? [])],
           }));
           const labeledHeaders = [
             { id: '_label', label: '구분' },
-            ...raw.headers,
+            ...headers,
           ];
           return (
             <TPLComparativeMatrix
@@ -101,17 +124,26 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
           />
         );
       }
-      case 'TPL_FORMAL_DOCUMENT':
-        return <TPLFormalDocument data={parsed.data} />;
-      case 'TPL_CONVERSATIONAL_FLOW':
-        return <TPLConversationalFlow data={parsed.data} />;
-      case 'TPL_CASE_DIAGNOSTIC_FRAME':
+      case 'TPL_FORMAL_DOCUMENT': {
+        const raw = parsed.data;
+        if (!raw || !raw.paragraphs?.length) return renderPlainTextFallback(stimulus_data);
+        return <TPLFormalDocument data={raw} />;
+      }
+      case 'TPL_CONVERSATIONAL_FLOW': {
+        const raw = parsed.data;
+        if (!raw || !raw.messages?.length) return renderPlainTextFallback(stimulus_data);
+        return <TPLConversationalFlow data={raw} />;
+      }
+      case 'TPL_CASE_DIAGNOSTIC_FRAME': {
+        const raw = parsed.data;
+        if (!raw) return renderPlainTextFallback(stimulus_data);
         return (
           <TPLCaseDiagnosticFrame
             data={{
-              ...parsed.data,
-              check_items: Array.isArray(parsed.data.check_items)
-                ? parsed.data.check_items.map((item) => ({
+              ...raw,
+              case_profile: raw.case_profile ?? { name: '', context: '' },
+              check_items: Array.isArray(raw.check_items)
+                ? raw.check_items.map((item) => ({
                     ...item,
                     is_checked: false,
                   }))
@@ -119,19 +151,35 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
             }}
           />
         );
-      case 'TPL_SEQUENTIAL_WORKFLOW':
-        return <TPLSequentialWorkflow data={parsed.data} />;
-      case 'TPL_INSTRUCTIONAL_SCENE':
-        return <TPLInstructionalScene data={parsed.data} />;
-      case 'TPL_DIGITAL_FORUM_INTERFACE':
-        return <TPLDigitalForumInterface data={parsed.data} />;
-      case 'TPL_QUANTITATIVE_CHART':
-        return <TPLQuantitativeChart data={parsed.data} />;
-      case 'TPL_PROMOTIONAL_CANVAS':
-        return <TPLPromotionalCanvas data={parsed.data} />;
+      }
+      case 'TPL_SEQUENTIAL_WORKFLOW': {
+        const raw = parsed.data;
+        if (!raw || !raw.steps?.length) return renderPlainTextFallback(stimulus_data);
+        return <TPLSequentialWorkflow data={raw} />;
+      }
+      case 'TPL_INSTRUCTIONAL_SCENE': {
+        const raw = parsed.data;
+        if (!raw || !raw.instructor?.text) return renderPlainTextFallback(stimulus_data);
+        return <TPLInstructionalScene data={raw} />;
+      }
+      case 'TPL_DIGITAL_FORUM_INTERFACE': {
+        const raw = parsed.data;
+        if (!raw || !raw.main_post?.content) return renderPlainTextFallback(stimulus_data);
+        return <TPLDigitalForumInterface data={raw} />;
+      }
+      case 'TPL_QUANTITATIVE_CHART': {
+        const raw = parsed.data;
+        if (!raw || !raw.datasets?.length || !raw.axes?.length) return renderPlainTextFallback(stimulus_data);
+        return <TPLQuantitativeChart data={raw} />;
+      }
+      case 'TPL_PROMOTIONAL_CANVAS': {
+        const raw = parsed.data;
+        if (!raw || (!raw.slogan && !raw.bullets?.length)) return renderPlainTextFallback(stimulus_data);
+        return <TPLPromotionalCanvas data={raw} />;
+      }
       case 'TPL_PLAIN_TEXT':
         if (!parsed.data || (typeof parsed.data === 'string' && !parsed.data.trim())) {
-          return null;
+          return renderPlainTextFallback(stimulus_data);
         }
         return (
           <div className={s.stimulusPlainText}>
@@ -141,7 +189,7 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
           </div>
         );
       default:
-        return null;
+        return renderPlainTextFallback(stimulus_data);
     }
   };
 
@@ -152,9 +200,10 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
         <div className={s.questionStemText}>{question_stem}</div>
       </HStack>
 
-
       <div className={s.stimulus}>
-        {renderStimulus(parsed)}
+        <StimulusErrorBoundary fallback={renderPlainTextFallback(stimulus_data)}>
+          {renderStimulus(parsed)}
+        </StimulusErrorBoundary>
       </div>
 
       {question.combo_block && question.combo_block.items?.length > 0 && (
@@ -168,7 +217,6 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
         </VStack>
       )}
 
-      {/* 선택지 */}
       <VStack gap={8} fullWidth className={s.optionsSection}>
         {normalizedOptions.map((option) => {
           const num = getOptionNumber(option);

@@ -21,7 +21,7 @@ import { CreateExamDto } from './dto/create-exam.dto';
 import { ExamGenerationJobsService } from './exam-generation-jobs.service';
 import { NotificationsService } from '../notifications/notifications.service';
 import { NotificationType } from '../entities/notification.entity';
-import type { ExamGenerationProgressReporter } from './exam-generator.service';
+import type { ExamGenerationProgressReporter } from './exam-generation.utils';
 
 @Injectable()
 export class ExamsService {
@@ -98,6 +98,8 @@ export class ExamsService {
           dto.targetConcepts,
           undefined,
           dto.customPrompt,
+          userId,
+          dto.excludePrevious,
         )
       : await this.examGeneratorService.generate(
           dto.subjectId,
@@ -108,6 +110,9 @@ export class ExamsService {
           dto.questionCount,
           dto.customPrompt,
           dto.targetConcepts,
+          undefined,
+          userId,
+          dto.excludePrevious,
         );
 
     // ExamRecord 생성
@@ -455,6 +460,8 @@ export class ExamsService {
           dto.targetConcepts,
           reportProgress,
           dto.customPrompt,
+          userId,
+          dto.excludePrevious,
         )
       : await this.examGeneratorService.generate(
           dto.subjectId,
@@ -466,6 +473,8 @@ export class ExamsService {
           dto.customPrompt,
           dto.targetConcepts,
           reportProgress,
+          userId,
+          dto.excludePrevious,
         );
 
     const title = `${subject.title} ${dto.startUnitNum}~${dto.endUnitNum}단원 (${dto.difficulty})`;
