@@ -118,10 +118,9 @@ export class AuthController {
 
   @Get('google')
   async googleLogin(@Req() req: Request, @Res() res: Response, @Query('return_to') returnTo?: string) {
-    const GoogleStrategy = require('passport-google-oauth20').Strategy;
     const passport = require('passport');
     const options: any = { scope: ['email', 'profile'], session: false };
-    if (returnTo) options.state = returnTo;
+    options.state = this.normalizeReturnTo(returnTo);
     passport.authenticate('google', options)(req, res);
   }
 
@@ -137,9 +136,25 @@ export class AuthController {
     const result = await this.authService.googleLogin(profile);
     res.cookie('gap_refresh_token', result.refreshToken, COOKIE_OPTIONS);
     res.cookie('gap_access_token', result.accessToken, ACCESS_COOKIE_OPTIONS);
-    const returnTo = typeof req.query.state === 'string' && req.query.state.startsWith('http')
-      ? req.query.state
-      : (process.env.FRONTEND_URL ?? 'http://localhost:3000');
+    const returnTo = this.normalizeReturnTo(typeof req.query.state === 'string' ? req.query.state : undefined);
     res.redirect(`${returnTo}/auth/google/callback`);
+  }
+
+  private normalizeReturnTo(value?: string): string {
+    const fallback = process.env.FRONTEND_URL ?? 'http://localhost:5173';
+    const allowed = new Set([
+      fallback,
+      ...(process.env.CORS_ORIGINS?.split(',') ?? []),
+    ].map((origin) => origin.replace(/\/$/, '')));
+
+    if (!value) return fallback.replace(/\/$/, '');
+
+    try {
+      const url = new URL(value);
+      const origin = url.origin.replace(/\/$/, '');
+      return allowed.has(origin) ? origin : fallback.replace(/\/$/, '');
+    } catch {
+      return fallback.replace(/\/$/, '');
+    }
   }
 }
