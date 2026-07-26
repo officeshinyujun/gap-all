@@ -58,7 +58,9 @@ export class SimilarityValidatorService {
   }
 
   private cosineSimilarity(a: number[], b: number[]): number {
-    let dot = 0, normA = 0, normB = 0;
+    let dot = 0,
+      normA = 0,
+      normB = 0;
     for (let i = 0; i < a.length; i++) {
       dot += a[i] * b[i];
       normA += a[i] * a[i];
@@ -88,7 +90,12 @@ export class SimilarityValidatorService {
     optionsList: string[],
     comboBlockText: string,
     threshold: number = 0.78,
-  ): Promise<{ passed: boolean; similarity: number; matchedSource: string | null; reason?: string }> {
+  ): Promise<{
+    passed: boolean;
+    similarity: number;
+    matchedSource: string | null;
+    reason?: string;
+  }> {
     const emb = this.loadEmbeddings();
     if (!emb || !emb.questions || emb.questions.length === 0) {
       return { passed: true, similarity: 0, matchedSource: null };

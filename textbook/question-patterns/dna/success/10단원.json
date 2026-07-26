@@ -1,0 +1,2593 @@
+{
+  "schemaVersion": 1,
+  "subject": "success",
+  "unit": 10,
+  "generatedAt": "2026-07-18T08:32:03.792Z",
+  "extractorVersion": "question-dna-v1.0.0",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "dnaId": "dna-success-10-0480a14c406ba334",
+      "subject": "success",
+      "unitNumber": 10,
+      "targetConcepts": [
+        "기업의 사업 활동"
+      ],
+      "difficulty": "INTERGRATE",
+      "itemFamily": "combination_judgment",
+      "provenance": {
+        "sourceHash": "sha256:0480a14c406ba334e7eed783f4ff44d5f60bcb76990cf39458e0ed5ef0f67f90",
+        "sourceType": "moi",
+        "questionNumber": 7,
+        "extractorVersion": "question-dna-v1.0.0"
+      },
+      "solutionStrategy": {
+        "patternId": "success-10-moi-7-4816bdae4070",
+        "sourceType": "reference_pattern",
+        "itemFamily": "combination_judgment",
+        "requiredSteps": [
+          "자료에서 판단 기준과 절차 조건을 찾는다",
+          "각 보기의 주장을 자료 조건에 대입해 참거짓을 판정한다",
+          "참으로 판정된 보기 조합과 선택지를 대응한다"
+        ],
+        "evidenceExtraction": [
+          "자료에서 판정 기준을 추출한다",
+          "보기별 주장과 자료 근거를 연결한다"
+        ],
+        "decisionRule": "자료 조건과 일치하는 보기만 참으로 판정하고, 참 보기 전체를 포함한 선택지만 정답이다.",
+        "distractorPatterns": [
+          "절차 순서 혼동",
+          "자료 조건 일부 누락",
+          "보기 주장 과잉 일반화"
+        ],
+        "answerValidationRule": "참으로 판정된 보기 전체를 포함한 조합만 정답이다."
+      },
+      "referenceProfile": {
+        "style": {
+          "stemPattern": "unclassified",
+          "stemEnding": "",
+          "discourseMarkers": [
+            "다음",
+            "에 대한"
+          ],
+          "anonymizedEntities": [
+            "anonymized placeholder marker",
+            "organization placeholder marker",
+            "organization placeholder marker",
+            "organization placeholder marker"
+          ],
+          "optionPattern": "five_circled_options",
+          "viewItemPattern": "korean_lettered_view_items",
+          "sentenceEndings": [
+            "이다",
+            "한다"
+          ],
+          "forbiddenToneHints": []
+        },
+        "material": {
+          "kind": "table",
+          "requiresVisualParity": true,
+          "recommendedTemplate": "TPL_COMPARATIVE_MATRIX",
+          "evidenceMarkers": [
+            "구분\\s*\\|"
+          ],
+          "structuredSurrogateAllowed": true
+        },
+        "confidence": "high",
+        "fallbackPolicy": "structured_surrogate"
+      },
+      "structuralPattern": {
+        "assessmentIntent": "target concept application and evidence judgment",
+        "judgmentAxis": "view statement truth judgment",
+        "skeleton": {
+          "itemFamily": "combination_judgment",
+          "stimulusTemplate": "TPL_COMPARATIVE_MATRIX",
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true,
+          "viewCount": 4
+        },
+        "distractorBlueprint": [
+          "절차 순서 혼동",
+          "자료 조건 일부 누락",
+          "보기 주장 과잉 일반화"
+        ],
+        "difficultyDrivers": [
+          "declared_intergrate",
+          "multi_view_judgment",
+          "structured_material_parity",
+          "five_choice_discrimination"
+        ]
+      },
+      "noveltyConstraints": {
+        "forbiddenMarkers": [
+          "source-specific entity markers",
+          "source-specific numeric markers",
+          "source-specific named placeholders"
+        ],
+        "forbiddenTokenSpans": [
+          "source eight-token verbatim spans",
+          "source stimulus phrase structure",
+          "source answer option phrasing",
+          "source view item phrasing"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "dnaId": "dna-success-10-0878ad6a4f6d7ebf",
+      "subject": "success",
+      "unitNumber": 10,
+      "targetConcepts": [
+        "경영 관리 활동"
+      ],
+      "difficulty": "HIGH",
+      "itemFamily": "single_selection",
+      "provenance": {
+        "sourceHash": "sha256:0878ad6a4f6d7ebfab0e2f13293370b8de250dbbbf5ef14d779ee45b0cae2bd9",
+        "sourceType": "moi",
+        "questionNumber": 5,
+        "extractorVersion": "question-dna-v1.0.0"
+      },
+      "solutionStrategy": {
+        "patternId": "success-10-moi-5-79bc52495145",
+        "sourceType": "reference_pattern",
+        "itemFamily": "single_selection",
+        "requiredSteps": [
+          "자료에서 판단 기준과 핵심 조건을 찾는다",
+          "각 선택지를 자료 조건과 비교한다",
+          "결정 규칙을 만족하는 최선의 선택지를 고른다"
+        ],
+        "evidenceExtraction": [
+          "자료에서 판정 기준을 추출한다",
+          "보기별 주장과 자료 근거를 연결한다"
+        ],
+        "decisionRule": "자료 조건과 가장 직접적으로 일치하고 다른 선택지의 오류 유형에 해당하지 않는 선택지만 정답이다.",
+        "distractorPatterns": [
+          "자료 조건 일부 누락",
+          "개념 적용 대상 혼동",
+          "근거 없는 일반화"
+        ],
+        "answerValidationRule": "자료 근거와 결정 규칙을 모두 만족하는 하나의 선지만 정답이다."
+      },
+      "referenceProfile": {
+        "style": {
+          "stemPattern": "best_choice",
+          "stemEnding": "best_choice_question",
+          "discourseMarkers": [
+            "다음",
+            "가장 적절한"
+          ],
+          "anonymizedEntities": [
+            "anonymized placeholder marker",
+            "anonymized placeholder marker",
+            "anonymized placeholder marker"
+          ],
+          "optionPattern": "five_circled_options",
+          "viewItemPattern": "none",
+          "sentenceEndings": [
+            "이다"
+          ],
+          "forbiddenToneHints": []
+        },
+        "material": {
+          "kind": "dialogue",
+          "requiresVisualParity": false,
+          "recommendedTemplate": "TPL_CONVERSATIONAL_FLOW",
+          "evidenceMarkers": [
+            "^[^\\n:]{1,12}:\\s"
+          ],
+          "structuredSurrogateAllowed": true
+        },
+        "confidence": "high",
+        "fallbackPolicy": "preserve_marker"
+      },
+      "structuralPattern": {
+        "assessmentIntent": "target concept application and evidence judgment",
+        "judgmentAxis": "single best answer judgment",
+        "skeleton": {
+          "itemFamily": "single_selection",
+          "stimulusTemplate": "TPL_CONVERSATIONAL_FLOW",
+          "choiceType": "five_option_selection",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "자료 조건 일부 누락",
+          "개념 적용 대상 혼동",
+          "근거 없는 일반화"
+        ],
+        "difficultyDrivers": [
+          "declared_high",
+          "five_choice_discrimination"
+        ]
+      },
+      "noveltyConstraints": {
+        "forbiddenMarkers": [
+          "source-specific entity markers",
+          "source-specific numeric markers",
+          "source-specific named placeholders"
+        ],
+        "forbiddenTokenSpans": [
+          "source eight-token verbatim spans",
+          "source stimulus phrase structure",
+          "source answer option phrasing"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "dnaId": "dna-success-10-0b0cdd83917b10aa",
+      "subject": "success",
+      "unitNumber": 10,
+      "targetConcepts": [
+        "기업의 경영 활동"
+      ],
+      "difficulty": "HIGH",
+      "itemFamily": "single_selection",
+      "provenance": {
+        "sourceHash": "sha256:0b0cdd83917b10aa594943a830504f539a28163807131508ebde48032ee948dd",
+        "sourceType": "moi",
+        "questionNumber": 14,
+        "extractorVersion": "question-dna-v1.0.0"
+      },
+      "solutionStrategy": {
+        "patternId": "success-10-moi-14-5be2e00a7f04",
+        "sourceType": "reference_pattern",
+        "itemFamily": "single_selection",
+        "requiredSteps": [
+          "자료에서 판단 기준과 핵심 조건을 찾는다",
+          "각 선택지를 자료 조건과 비교한다",
+          "결정 규칙을 만족하는 최선의 선택지를 고른다"
+        ],
+        "evidenceExtraction": [
+          "자료에서 판정 기준을 추출한다",
+          "보기별 주장과 자료 근거를 연결한다"
+        ],
+        "decisionRule": "자료 조건과 가장 직접적으로 일치하고 다른 선택지의 오류 유형에 해당하지 않는 선택지만 정답이다.",
+        "distractorPatterns": [
+          "자료 조건 일부 누락",
+          "개념 적용 대상 혼동",
+          "근거 없는 일반화"
+        ],
+        "answerValidationRule": "자료 근거와 결정 규칙을 모두 만족하는 하나의 선지만 정답이다."
+      },
+      "referenceProfile": {
+        "style": {
+          "stemPattern": "best_choice",
+          "stemEnding": "best_choice_question",
+          "discourseMarkers": [
+            "다음",
+            "가장 적절한"
+          ],
+          "anonymizedEntities": [],
+          "optionPattern": "five_circled_options",
+          "viewItemPattern": "none",
+          "sentenceEndings": [
+            "이다"
+          ],
+          "forbiddenToneHints": []
+        },
+        "material": {
+          "kind": "dialogue",
+          "requiresVisualParity": false,
+          "recommendedTemplate": "TPL_CONVERSATIONAL_FLOW",
+          "evidenceMarkers": [
+            "^[^\\n:]{1,12}:\\s"
+          ],
+          "structuredSurrogateAllowed": true
+        },
+        "confidence": "high",
+        "fallbackPolicy": "preserve_marker"
+      },
+      "structuralPattern": {
+        "assessmentIntent": "target concept application and evidence judgment",
+        "judgmentAxis": "single best answer judgment",
+        "skeleton": {
+          "itemFamily": "single_selection",
+          "stimulusTemplate": "TPL_CONVERSATIONAL_FLOW",
+          "choiceType": "five_option_selection",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "자료 조건 일부 누락",
+          "개념 적용 대상 혼동",
+          "근거 없는 일반화"
+        ],
+        "difficultyDrivers": [
+          "declared_high",
+          "five_choice_discrimination"
+        ]
+      },
+      "noveltyConstraints": {
+        "forbiddenMarkers": [
+          "source-specific entity markers",
+          "source-specific numeric markers"
+        ],
+        "forbiddenTokenSpans": [
+          "source eight-token verbatim spans",
+          "source stimulus phrase structure",
+          "source answer option phrasing"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "dnaId": "dna-success-10-18510b148d17c1c6",
+      "subject": "success",
+      "unitNumber": 10,
+      "targetConcepts": [
+        "기업 경영 활동"
+      ],
+      "difficulty": "HIGH",
+      "itemFamily": "combination_judgment",
+      "provenance": {
+        "sourceHash": "sha256:18510b148d17c1c6c6507c31e2aaa001c8667372d8c899b4a4a443cf038b473d",
+        "sourceType": "moi",
+        "questionNumber": 3,
+        "extractorVersion": "question-dna-v1.0.0"
+      },
+      "solutionStrategy": {
+        "patternId": "success-10-moi-3-e5700e988b1e",
+        "sourceType": "reference_pattern",
+        "itemFamily": "combination_judgment",
+        "requiredSteps": [
+          "자료에서 판단 기준과 절차 조건을 찾는다",
+          "각 보기의 주장을 자료 조건에 대입해 참거짓을 판정한다",
+          "참으로 판정된 보기 조합과 선택지를 대응한다"
+        ],
+        "evidenceExtraction": [
+          "자료에서 판정 기준을 추출한다",
+          "보기별 주장과 자료 근거를 연결한다"
+        ],
+        "decisionRule": "자료 조건과 일치하는 보기만 참으로 판정하고, 참 보기 전체를 포함한 선택지만 정답이다.",
+        "distractorPatterns": [
+          "절차 순서 혼동",
+          "자료 조건 일부 누락",
+          "보기 주장 과잉 일반화"
+        ],
+        "answerValidationRule": "참으로 판정된 보기 전체를 포함한 조합만 정답이다."
+      },
+      "referenceProfile": {
+        "style": {
+          "stemPattern": "unclassified",
+          "stemEnding": "classified_question_ending",
+          "discourseMarkers": [
+            "다음"
+          ],
+          "anonymizedEntities": [
+            "anonymized placeholder marker",
+            "anonymized placeholder marker",
+            "anonymized placeholder marker",
+            "person placeholder marker",
+            "person placeholder marker"
+          ],
+          "optionPattern": "five_circled_options",
+          "viewItemPattern": "korean_lettered_view_items",
+          "sentenceEndings": [
+            "하였다",
+            "이다",
+            "한다"
+          ],
+          "forbiddenToneHints": []
+        },
+        "material": {
+          "kind": "plain_text",
+          "requiresVisualParity": false,
+          "recommendedTemplate": "TPL_PLAIN_TEXT",
+          "evidenceMarkers": [],
+          "structuredSurrogateAllowed": true
+        },
+        "confidence": "medium",
+        "fallbackPolicy": "preserve_marker"
+      },
+      "structuralPattern": {
+        "assessmentIntent": "target concept application and evidence judgment",
+        "judgmentAxis": "view statement truth judgment",
+        "skeleton": {
+          "itemFamily": "combination_judgment",
+          "stimulusTemplate": "TPL_PLAIN_TEXT",
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true,
+          "viewCount": 3
+        },
+        "distractorBlueprint": [
+          "절차 순서 혼동",
+          "자료 조건 일부 누락",
+          "보기 주장 과잉 일반화"
+        ],
+        "difficultyDrivers": [
+          "declared_high",
+          "multi_view_judgment",
+          "five_choice_discrimination"
+        ]
+      },
+      "noveltyConstraints": {
+        "forbiddenMarkers": [
+          "source-specific entity markers",
+          "source-specific numeric markers",
+          "source-specific named placeholders"
+        ],
+        "forbiddenTokenSpans": [
+          "source eight-token verbatim spans",
+          "source stimulus phrase structure",
+          "source answer option phrasing",
+          "source view item phrasing"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "dnaId": "dna-success-10-283e568b153363da",
+      "subject": "success",
+      "unitNumber": 10,
+      "targetConcepts": [
+        "국민내일배움카드"
+      ],
+      "difficulty": "MIDDLE",
+      "itemFamily": "single_selection",
+      "provenance": {
+        "sourceHash": "sha256:283e568b153363da90846bff4a695c17e4af13d6a3ccf369d7469f0bac9d7483",
+        "sourceType": "suteck",
+        "questionNumber": 7,
+        "extractorVersion": "question-dna-v1.0.0"
+      },
+      "solutionStrategy": {
+        "patternId": "success-10-suteck-7-8a14a703095a",
+        "sourceType": "reference_pattern",
+        "itemFamily": "single_selection",
+        "requiredSteps": [
+          "자료에서 판단 기준과 핵심 조건을 찾는다",
+          "각 선택지를 자료 조건과 비교한다",
+          "결정 규칙을 만족하는 최선의 선택지를 고른다"
+        ],
+        "evidenceExtraction": [
+          "자료에서 판정 기준을 추출한다",
+          "보기별 주장과 자료 근거를 연결한다"
+        ],
+        "decisionRule": "자료 조건과 가장 직접적으로 일치하고 다른 선택지의 오류 유형에 해당하지 않는 선택지만 정답이다.",
+        "distractorPatterns": [
+          "자료 조건 일부 누락",
+          "개념 적용 대상 혼동",
+          "근거 없는 일반화"
+        ],
+        "answerValidationRule": "자료 근거와 결정 규칙을 모두 만족하는 하나의 선지만 정답이다."
+      },
+      "referenceProfile": {
+        "style": {
+          "stemPattern": "correct_statement",
+          "stemEnding": "correct_statement_question",
+          "discourseMarkers": [
+            "다음",
+            "에 대한"
+          ],
+          "anonymizedEntities": [
+            "source marker class"
+          ],
+          "optionPattern": "five_circled_options",
+          "viewItemPattern": "none",
+          "sentenceEndings": [
+            "이다"
+          ],
+          "forbiddenToneHints": []
+        },
+        "material": {
+          "kind": "dialogue",
+          "requiresVisualParity": false,
+          "recommendedTemplate": "TPL_CONVERSATIONAL_FLOW",
+          "evidenceMarkers": [
+            "^[^\\n:]{1,12}:\\s"
+          ],
+          "structuredSurrogateAllowed": true
+        },
+        "confidence": "high",
+        "fallbackPolicy": "preserve_marker"
+      },
+      "structuralPattern": {
+        "assessmentIntent": "target concept application and evidence judgment",
+        "judgmentAxis": "single best answer judgment",
+        "skeleton": {
+          "itemFamily": "single_selection",
+          "stimulusTemplate": "TPL_CONVERSATIONAL_FLOW",
+          "choiceType": "five_option_selection",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "자료 조건 일부 누락",
+          "개념 적용 대상 혼동",
+          "근거 없는 일반화"
+        ],
+        "difficultyDrivers": [
+          "declared_middle",
+          "five_choice_discrimination"
+        ]
+      },
+      "noveltyConstraints": {
+        "forbiddenMarkers": [
+          "source-specific entity markers",
+          "source-specific numeric markers"
+        ],
+        "forbiddenTokenSpans": [
+          "source eight-token verbatim spans",
+          "source stimulus phrase structure",
+          "source answer option phrasing"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "dnaId": "dna-success-10-3c9b5561c605b42b",
+      "subject": "success",
+      "unitNumber": 10,
+      "targetConcepts": [
+        "기업 형태",
+        "회사법"
+      ],
+      "difficulty": "INTERGRATE",
+      "itemFamily": "single_selection",
+      "provenance": {
+        "sourceHash": "sha256:3c9b5561c605b42b6bdc7efaf2dbeeb36c76a0a441cfcca062d7b19060ea125d",
+        "sourceType": "moi",
+        "questionNumber": 10,
+        "extractorVersion": "question-dna-v1.0.0"
+      },
+      "solutionStrategy": {
+        "patternId": "success-10-moi-10-3d58cba26f5b",
+        "sourceType": "reference_pattern",
+        "itemFamily": "single_selection",
+        "requiredSteps": [
+          "자료에서 판단 기준과 핵심 조건을 찾는다",
+          "각 선택지를 자료 조건과 비교한다",
+          "결정 규칙을 만족하는 최선의 선택지를 고른다"
+        ],
+        "evidenceExtraction": [
+          "자료에서 판정 기준을 추출한다",
+          "보기별 주장과 자료 근거를 연결한다"
+        ],
+        "decisionRule": "자료 조건과 가장 직접적으로 일치하고 다른 선택지의 오류 유형에 해당하지 않는 선택지만 정답이다.",
+        "distractorPatterns": [
+          "자료 조건 일부 누락",
+          "개념 적용 대상 혼동",
+          "근거 없는 일반화"
+        ],
+        "answerValidationRule": "자료 근거와 결정 규칙을 모두 만족하는 하나의 선지만 정답이다."
+      },
+      "referenceProfile": {
+        "style": {
+          "stemPattern": "correct_statement",
+          "stemEnding": "",
+          "discourseMarkers": [
+            "에 대한"
+          ],
+          "anonymizedEntities": [
+            "anonymized placeholder marker",
+            "anonymized placeholder marker",
+            "organization placeholder marker",
+            "organization placeholder marker",
+            "organization placeholder marker"
+          ],
+          "optionPattern": "five_circled_options",
+          "viewItemPattern": "none",
+          "sentenceEndings": [
+            "한다",
+            "이다"
+          ],
+          "forbiddenToneHints": []
+        },
+        "material": {
+          "kind": "table",
+          "requiresVisualParity": true,
+          "recommendedTemplate": "TPL_COMPARATIVE_MATRIX",
+          "evidenceMarkers": [
+            "\\|.+\\|",
+            "\\n\\s*-{2,}\\s*\\|"
+          ],
+          "structuredSurrogateAllowed": true
+        },
+        "confidence": "high",
+        "fallbackPolicy": "structured_surrogate"
+      },
+      "structuralPattern": {
+        "assessmentIntent": "target concept application and evidence judgment",
+        "judgmentAxis": "single best answer judgment",
+        "skeleton": {
+          "itemFamily": "single_selection",
+          "stimulusTemplate": "TPL_COMPARATIVE_MATRIX",
+          "choiceType": "five_option_selection",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "자료 조건 일부 누락",
+          "개념 적용 대상 혼동",
+          "근거 없는 일반화"
+        ],
+        "difficultyDrivers": [
+          "declared_intergrate",
+          "structured_material_parity",
+          "five_choice_discrimination"
+        ]
+      },
+      "noveltyConstraints": {
+        "forbiddenMarkers": [
+          "source-specific entity markers",
+          "source-specific numeric markers",
+          "source-specific named placeholders"
+        ],
+        "forbiddenTokenSpans": [
+          "source eight-token verbatim spans",
+          "source stimulus phrase structure",
+          "source answer option phrasing"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "dnaId": "dna-success-10-3ff01974f79cd90c",
+      "subject": "success",
+      "unitNumber": 10,
+      "targetConcepts": [
+        "국가직무능력표준(NCS)",
+        "능력단위 검색"
+      ],
+      "difficulty": "MIDDLE",
+      "itemFamily": "combination_judgment",
+      "provenance": {
+        "sourceHash": "sha256:3ff01974f79cd90c17aa7c699e7d1508d9270707bf19b575bbbc8a4e53455e8e",
+        "sourceType": "suteck",
+        "questionNumber": 3,
+        "extractorVersion": "question-dna-v1.0.0"
+      },
+      "solutionStrategy": {
+        "patternId": "success-10-suteck-3-9e91db71d5fb",
+        "sourceType": "reference_pattern",
+        "itemFamily": "combination_judgment",
+        "requiredSteps": [
+          "자료에서 판단 기준과 절차 조건을 찾는다",
+          "각 보기의 주장을 자료 조건에 대입해 참거짓을 판정한다",
+          "참으로 판정된 보기 조합과 선택지를 대응한다"
+        ],
+        "evidenceExtraction": [
+          "자료에서 판정 기준을 추출한다",
+          "보기별 주장과 자료 근거를 연결한다"
+        ],
+        "decisionRule": "자료 조건과 일치하는 보기만 참으로 판정하고, 참 보기 전체를 포함한 선택지만 정답이다.",
+        "distractorPatterns": [
+          "절차 순서 혼동",
+          "자료 조건 일부 누락",
+          "보기 주장 과잉 일반화"
+        ],
+        "answerValidationRule": "참으로 판정된 보기 전체를 포함한 조합만 정답이다."
+      },
+      "referenceProfile": {
+        "style": {
+          "stemPattern": "unclassified",
+          "stemEnding": "classified_question_ending",
+          "discourseMarkers": [
+            "다음",
+            "에 대한"
+          ],
+          "anonymizedEntities": [
+            "anonymized placeholder marker",
+            "anonymized placeholder marker"
+          ],
+          "optionPattern": "five_circled_options",
+          "viewItemPattern": "korean_lettered_view_items",
+          "sentenceEndings": [
+            "이다"
+          ],
+          "forbiddenToneHints": []
+        },
+        "material": {
+          "kind": "dialogue",
+          "requiresVisualParity": false,
+          "recommendedTemplate": "TPL_CONVERSATIONAL_FLOW",
+          "evidenceMarkers": [
+            "^[^\\n:]{1,12}:\\s"
+          ],
+          "structuredSurrogateAllowed": true
+        },
+        "confidence": "high",
+        "fallbackPolicy": "preserve_marker"
+      },
+      "structuralPattern": {
+        "assessmentIntent": "target concept application and evidence judgment",
+        "judgmentAxis": "view statement truth judgment",
+        "skeleton": {
+          "itemFamily": "combination_judgment",
+          "stimulusTemplate": "TPL_CONVERSATIONAL_FLOW",
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true,
+          "viewCount": 4
+        },
+        "distractorBlueprint": [
+          "절차 순서 혼동",
+          "자료 조건 일부 누락",
+          "보기 주장 과잉 일반화"
+        ],
+        "difficultyDrivers": [
+          "declared_middle",
+          "multi_view_judgment",
+          "five_choice_discrimination"
+        ]
+      },
+      "noveltyConstraints": {
+        "forbiddenMarkers": [
+          "source-specific entity markers",
+          "source-specific numeric markers",
+          "source-specific named placeholders"
+        ],
+        "forbiddenTokenSpans": [
+          "source eight-token verbatim spans",
+          "source stimulus phrase structure",
+          "source answer option phrasing",
+          "source view item phrasing"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "dnaId": "dna-success-10-427eb76cd8b50a02",
+      "subject": "success",
+      "unitNumber": 10,
+      "targetConcepts": [
+        "면접 유형",
+        "집단 면접"
+      ],
+      "difficulty": "MIDDLE",
+      "itemFamily": "single_selection",
+      "provenance": {
+        "sourceHash": "sha256:427eb76cd8b50a026ab23988115c2155cd8c1132dab24a29cbbccaced5b59df6",
+        "sourceType": "suteck",
+        "questionNumber": 9,
+        "extractorVersion": "question-dna-v1.0.0"
+      },
+      "solutionStrategy": {
+        "patternId": "success-10-suteck-9-073dd71f52ee",
+        "sourceType": "reference_pattern",
+        "itemFamily": "single_selection",
+        "requiredSteps": [
+          "자료에서 판단 기준과 핵심 조건을 찾는다",
+          "각 선택지를 자료 조건과 비교한다",
+          "결정 규칙을 만족하는 최선의 선택지를 고른다"
+        ],
+        "evidenceExtraction": [
+          "자료에서 판정 기준을 추출한다",
+          "보기별 주장과 자료 근거를 연결한다"
+        ],
+        "decisionRule": "자료 조건과 가장 직접적으로 일치하고 다른 선택지의 오류 유형에 해당하지 않는 선택지만 정답이다.",
+        "distractorPatterns": [
+          "자료 조건 일부 누락",
+          "개념 적용 대상 혼동",
+          "근거 없는 일반화"
+        ],
+        "answerValidationRule": "자료 근거와 결정 규칙을 모두 만족하는 하나의 선지만 정답이다."
+      },
+      "referenceProfile": {
+        "style": {
+          "stemPattern": "best_choice",
+          "stemEnding": "best_choice_question",
+          "discourseMarkers": [
+            "에 대한",
+            "가장 적절한"
+          ],
+          "anonymizedEntities": [],
+          "optionPattern": "five_circled_options",
+          "viewItemPattern": "none",
+          "sentenceEndings": [
+            "이다"
+          ],
+          "forbiddenToneHints": []
+        },
+        "material": {
+          "kind": "plain_text",
+          "requiresVisualParity": false,
+          "recommendedTemplate": "TPL_PLAIN_TEXT",
+          "evidenceMarkers": [],
+          "structuredSurrogateAllowed": true
+        },
+        "confidence": "medium",
+        "fallbackPolicy": "preserve_marker"
+      },
+      "structuralPattern": {
+        "assessmentIntent": "target concept application and evidence judgment",
+        "judgmentAxis": "single best answer judgment",
+        "skeleton": {
+          "itemFamily": "single_selection",
+          "stimulusTemplate": "TPL_PLAIN_TEXT",
+          "choiceType": "five_option_selection",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "자료 조건 일부 누락",
+          "개념 적용 대상 혼동",
+          "근거 없는 일반화"
+        ],
+        "difficultyDrivers": [
+          "declared_middle",
+          "five_choice_discrimination"
+        ]
+      },
+      "noveltyConstraints": {
+        "forbiddenMarkers": [
+          "source-specific entity markers",
+          "source-specific numeric markers"
+        ],
+        "forbiddenTokenSpans": [
+          "source eight-token verbatim spans",
+          "source answer option phrasing"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "dnaId": "dna-success-10-54f0cd6939fd11c5",
+      "subject": "success",
+      "unitNumber": 10,
+      "targetConcepts": [
+        "기업의 형태",
+        "회사법"
+      ],
+      "difficulty": "INTERGRATE",
+      "itemFamily": "single_selection",
+      "provenance": {
+        "sourceHash": "sha256:54f0cd6939fd11c5c347558e3c5e7d0516d43574bb640132334108460692701d",
+        "sourceType": "moi",
+        "questionNumber": 17,
+        "extractorVersion": "question-dna-v1.0.0"
+      },
+      "solutionStrategy": {
+        "patternId": "success-10-moi-17-016ea344d901",
+        "sourceType": "reference_pattern",
+        "itemFamily": "single_selection",
+        "requiredSteps": [
+          "자료에서 판단 기준과 핵심 조건을 찾는다",
+          "각 선택지를 자료 조건과 비교한다",
+          "결정 규칙을 만족하는 최선의 선택지를 고른다"
+        ],
+        "evidenceExtraction": [
+          "자료에서 판정 기준을 추출한다",
+          "보기별 주장과 자료 근거를 연결한다"
+        ],
+        "decisionRule": "자료 조건과 가장 직접적으로 일치하고 다른 선택지의 오류 유형에 해당하지 않는 선택지만 정답이다.",
+        "distractorPatterns": [
+          "자료 조건 일부 누락",
+          "개념 적용 대상 혼동",
+          "근거 없는 일반화"
+        ],
+        "answerValidationRule": "자료 근거와 결정 규칙을 모두 만족하는 하나의 선지만 정답이다."
+      },
+      "referenceProfile": {
+        "style": {
+          "stemPattern": "best_choice",
+          "stemEnding": "",
+          "discourseMarkers": [
+            "에\n 대한",
+            "가장 적절한"
+          ],
+          "anonymizedEntities": [
+            "source marker class",
+            "source marker class",
+            "source marker class"
+          ],
+          "optionPattern": "five_circled_options",
+          "viewItemPattern": "none",
+          "sentenceEndings": [
+            "이다",
+            "한다",
+            "할 수 있다"
+          ],
+          "forbiddenToneHints": []
+        },
+        "material": {
+          "kind": "table",
+          "requiresVisualParity": true,
+          "recommendedTemplate": "TPL_COMPARATIVE_MATRIX",
+          "evidenceMarkers": [
+            "\\|.+\\|"
+          ],
+          "structuredSurrogateAllowed": true
+        },
+        "confidence": "high",
+        "fallbackPolicy": "structured_surrogate"
+      },
+      "structuralPattern": {
+        "assessmentIntent": "target concept application and evidence judgment",
+        "judgmentAxis": "single best answer judgment",
+        "skeleton": {
+          "itemFamily": "single_selection",
+          "stimulusTemplate": "TPL_COMPARATIVE_MATRIX",
+          "choiceType": "five_option_selection",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "자료 조건 일부 누락",
+          "개념 적용 대상 혼동",
+          "근거 없는 일반화"
+        ],
+        "difficultyDrivers": [
+          "declared_intergrate",
+          "structured_material_parity",
+          "five_choice_discrimination"
+        ]
+      },
+      "noveltyConstraints": {
+        "forbiddenMarkers": [
+          "source-specific entity markers",
+          "source-specific numeric markers"
+        ],
+        "forbiddenTokenSpans": [
+          "source eight-token verbatim spans",
+          "source stimulus phrase structure",
+          "source answer option phrasing"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "dnaId": "dna-success-10-6534fea4c994a3d2",
+      "subject": "success",
+      "unitNumber": 10,
+      "targetConcepts": [
+        "기업의 형태"
+      ],
+      "difficulty": "INTERGRATE",
+      "itemFamily": "combination_judgment",
+      "provenance": {
+        "sourceHash": "sha256:6534fea4c994a3d20ac9cfba713afc637881f52f142c3e516cb6000adbea7316",
+        "sourceType": "moi",
+        "questionNumber": 11,
+        "extractorVersion": "question-dna-v1.0.0"
+      },
+      "solutionStrategy": {
+        "patternId": "success-10-moi-11-92fd1872832e",
+        "sourceType": "reference_pattern",
+        "itemFamily": "combination_judgment",
+        "requiredSteps": [
+          "자료에서 판단 기준과 절차 조건을 찾는다",
+          "각 보기의 주장을 자료 조건에 대입해 참거짓을 판정한다",
+          "참으로 판정된 보기 조합과 선택지를 대응한다"
+        ],
+        "evidenceExtraction": [
+          "자료에서 판정 기준을 추출한다",
+          "보기별 주장과 자료 근거를 연결한다"
+        ],
+        "decisionRule": "자료 조건과 일치하는 보기만 참으로 판정하고, 참 보기 전체를 포함한 선택지만 정답이다.",
+        "distractorPatterns": [
+          "절차 순서 혼동",
+          "자료 조건 일부 누락",
+          "보기 주장 과잉 일반화"
+        ],
+        "answerValidationRule": "참으로 판정된 보기 전체를 포함한 조합만 정답이다."
+      },
+      "referenceProfile": {
+        "style": {
+          "stemPattern": "unclassified",
+          "stemEnding": "",
+          "discourseMarkers": [
+            "에 대한"
+          ],
+          "anonymizedEntities": [
+            "source marker class",
+            "source marker class",
+            "source marker class"
+          ],
+          "optionPattern": "five_circled_options",
+          "viewItemPattern": "korean_lettered_view_items",
+          "sentenceEndings": [
+            "이다",
+            "한다"
+          ],
+          "forbiddenToneHints": []
+        },
+        "material": {
+          "kind": "table",
+          "requiresVisualParity": true,
+          "recommendedTemplate": "TPL_COMPARATIVE_MATRIX",
+          "evidenceMarkers": [
+            "\\|.+\\|",
+            "구분\\s*\\|"
+          ],
+          "structuredSurrogateAllowed": true
+        },
+        "confidence": "high",
+        "fallbackPolicy": "structured_surrogate"
+      },
+      "structuralPattern": {
+        "assessmentIntent": "target concept application and evidence judgment",
+        "judgmentAxis": "view statement truth judgment",
+        "skeleton": {
+          "itemFamily": "combination_judgment",
+          "stimulusTemplate": "TPL_COMPARATIVE_MATRIX",
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true,
+          "viewCount": 4
+        },
+        "distractorBlueprint": [
+          "절차 순서 혼동",
+          "자료 조건 일부 누락",
+          "보기 주장 과잉 일반화"
+        ],
+        "difficultyDrivers": [
+          "declared_intergrate",
+          "multi_view_judgment",
+          "structured_material_parity",
+          "five_choice_discrimination"
+        ]
+      },
+      "noveltyConstraints": {
+        "forbiddenMarkers": [
+          "source-specific entity markers",
+          "source-specific numeric markers"
+        ],
+        "forbiddenTokenSpans": [
+          "source eight-token verbatim spans",
+          "source stimulus phrase structure",
+          "source answer option phrasing",
+          "source view item phrasing"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "dnaId": "dna-success-10-726f8878af27b146",
+      "subject": "success",
+      "unitNumber": 10,
+      "targetConcepts": [
+        "기업의 형태",
+        "합자회사"
+      ],
+      "difficulty": "INTERGRATE",
+      "itemFamily": "single_selection",
+      "provenance": {
+        "sourceHash": "sha256:726f8878af27b146ef3459263e7cd6225c23fd52e26aa7df26eb18c7b5a1a6a1",
+        "sourceType": "moi",
+        "questionNumber": 14,
+        "extractorVersion": "question-dna-v1.0.0"
+      },
+      "solutionStrategy": {
+        "patternId": "success-10-moi-14-ae98419ef736",
+        "sourceType": "reference_pattern",
+        "itemFamily": "single_selection",
+        "requiredSteps": [
+          "자료에서 판단 기준과 핵심 조건을 찾는다",
+          "각 선택지를 자료 조건과 비교한다",
+          "결정 규칙을 만족하는 최선의 선택지를 고른다"
+        ],
+        "evidenceExtraction": [
+          "자료에서 판정 기준을 추출한다",
+          "보기별 주장과 자료 근거를 연결한다"
+        ],
+        "decisionRule": "자료 조건과 가장 직접적으로 일치하고 다른 선택지의 오류 유형에 해당하지 않는 선택지만 정답이다.",
+        "distractorPatterns": [
+          "자료 조건 일부 누락",
+          "개념 적용 대상 혼동",
+          "근거 없는 일반화"
+        ],
+        "answerValidationRule": "자료 근거와 결정 규칙을 모두 만족하는 하나의 선지만 정답이다."
+      },
+      "referenceProfile": {
+        "style": {
+          "stemPattern": "correct_statement",
+          "stemEnding": "",
+          "discourseMarkers": [
+            "다음",
+            "에 대한"
+          ],
+          "anonymizedEntities": [
+            "anonymized placeholder marker",
+            "anonymized placeholder marker",
+            "person placeholder marker",
+            "person placeholder marker"
+          ],
+          "optionPattern": "five_circled_options",
+          "viewItemPattern": "none",
+          "sentenceEndings": [
+            "한다",
+            "이다",
+            "하였다",
+            "할 수 있다"
+          ],
+          "forbiddenToneHints": []
+        },
+        "material": {
+          "kind": "dialogue",
+          "requiresVisualParity": false,
+          "recommendedTemplate": "TPL_CONVERSATIONAL_FLOW",
+          "evidenceMarkers": [
+            "^[^\\n:]{1,12}:\\s"
+          ],
+          "structuredSurrogateAllowed": true
+        },
+        "confidence": "high",
+        "fallbackPolicy": "preserve_marker"
+      },
+      "structuralPattern": {
+        "assessmentIntent": "target concept application and evidence judgment",
+        "judgmentAxis": "single best answer judgment",
+        "skeleton": {
+          "itemFamily": "single_selection",
+          "stimulusTemplate": "TPL_CONVERSATIONAL_FLOW",
+          "choiceType": "five_option_selection",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "자료 조건 일부 누락",
+          "개념 적용 대상 혼동",
+          "근거 없는 일반화"
+        ],
+        "difficultyDrivers": [
+          "declared_intergrate",
+          "five_choice_discrimination"
+        ]
+      },
+      "noveltyConstraints": {
+        "forbiddenMarkers": [
+          "source-specific entity markers",
+          "source-specific numeric markers",
+          "source-specific named placeholders"
+        ],
+        "forbiddenTokenSpans": [
+          "source eight-token verbatim spans",
+          "source stimulus phrase structure",
+          "source answer option phrasing"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "dnaId": "dna-success-10-7a7e40e462b0ff50",
+      "subject": "success",
+      "unitNumber": 10,
+      "targetConcepts": [
+        "국가직무능력표준(NCS)",
+        "직무 수행 능력 탐색"
+      ],
+      "difficulty": "MIDDLE",
+      "itemFamily": "combination_judgment",
+      "provenance": {
+        "sourceHash": "sha256:7a7e40e462b0ff5060cdf95089c4cf8e814c0225e3a59d6feadfcd62f8cbd577",
+        "sourceType": "suteck",
+        "questionNumber": 1,
+        "extractorVersion": "question-dna-v1.0.0"
+      },
+      "solutionStrategy": {
+        "patternId": "success-10-suteck-1-7daada09ae21",
+        "sourceType": "reference_pattern",
+        "itemFamily": "combination_judgment",
+        "requiredSteps": [
+          "자료에서 판단 기준과 절차 조건을 찾는다",
+          "각 보기의 주장을 자료 조건에 대입해 참거짓을 판정한다",
+          "참으로 판정된 보기 조합과 선택지를 대응한다"
+        ],
+        "evidenceExtraction": [
+          "자료에서 판정 기준을 추출한다",
+          "보기별 주장과 자료 근거를 연결한다"
+        ],
+        "decisionRule": "자료 조건과 일치하는 보기만 참으로 판정하고, 참 보기 전체를 포함한 선택지만 정답이다.",
+        "distractorPatterns": [
+          "절차 순서 혼동",
+          "자료 조건 일부 누락",
+          "보기 주장 과잉 일반화"
+        ],
+        "answerValidationRule": "참으로 판정된 보기 전체를 포함한 조합만 정답이다."
+      },
+      "referenceProfile": {
+        "style": {
+          "stemPattern": "choose_all_correct_from_view",
+          "stemEnding": "choose_all_correct_from_view_question",
+          "discourseMarkers": [
+            "다음",
+            "에 대한"
+          ],
+          "anonymizedEntities": [],
+          "optionPattern": "five_circled_options",
+          "viewItemPattern": "korean_lettered_view_items",
+          "sentenceEndings": [
+            "이다"
+          ],
+          "forbiddenToneHints": []
+        },
+        "material": {
+          "kind": "workflow",
+          "requiresVisualParity": true,
+          "recommendedTemplate": "TPL_SEQUENTIAL_WORKFLOW",
+          "evidenceMarkers": [
+            "\\d+단계"
+          ],
+          "structuredSurrogateAllowed": true
+        },
+        "confidence": "high",
+        "fallbackPolicy": "structured_surrogate"
+      },
+      "structuralPattern": {
+        "assessmentIntent": "target concept application and evidence judgment",
+        "judgmentAxis": "view statement truth judgment",
+        "skeleton": {
+          "itemFamily": "combination_judgment",
+          "stimulusTemplate": "TPL_SEQUENTIAL_WORKFLOW",
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true,
+          "viewCount": 3
+        },
+        "distractorBlueprint": [
+          "절차 순서 혼동",
+          "자료 조건 일부 누락",
+          "보기 주장 과잉 일반화"
+        ],
+        "difficultyDrivers": [
+          "declared_middle",
+          "multi_view_judgment",
+          "structured_material_parity",
+          "five_choice_discrimination"
+        ]
+      },
+      "noveltyConstraints": {
+        "forbiddenMarkers": [
+          "source-specific entity markers",
+          "source-specific numeric markers"
+        ],
+        "forbiddenTokenSpans": [
+          "source eight-token verbatim spans",
+          "source stimulus phrase structure",
+          "source answer option phrasing",
+          "source view item phrasing"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "dnaId": "dna-success-10-87e8f854e6823c6e",
+      "subject": "success",
+      "unitNumber": 10,
+      "targetConcepts": [
+        "국가직무능력표준(NCS)",
+        "능력단위"
+      ],
+      "difficulty": "MIDDLE",
+      "itemFamily": "combination_judgment",
+      "provenance": {
+        "sourceHash": "sha256:87e8f854e6823c6e9fa03c1ec2361bfc8971c9d59346495f7e4df21dd2f4f14e",
+        "sourceType": "suteck",
+        "questionNumber": 4,
+        "extractorVersion": "question-dna-v1.0.0"
+      },
+      "solutionStrategy": {
+        "patternId": "success-10-suteck-4-08a8d2633218",
+        "sourceType": "reference_pattern",
+        "itemFamily": "combination_judgment",
+        "requiredSteps": [
+          "자료에서 판단 기준과 절차 조건을 찾는다",
+          "각 보기의 주장을 자료 조건에 대입해 참거짓을 판정한다",
+          "참으로 판정된 보기 조합과 선택지를 대응한다"
+        ],
+        "evidenceExtraction": [
+          "자료에서 판정 기준을 추출한다",
+          "보기별 주장과 자료 근거를 연결한다"
+        ],
+        "decisionRule": "자료 조건과 일치하는 보기만 참으로 판정하고, 참 보기 전체를 포함한 선택지만 정답이다.",
+        "distractorPatterns": [
+          "절차 순서 혼동",
+          "자료 조건 일부 누락",
+          "보기 주장 과잉 일반화"
+        ],
+        "answerValidationRule": "참으로 판정된 보기 전체를 포함한 조합만 정답이다."
+      },
+      "referenceProfile": {
+        "style": {
+          "stemPattern": "unclassified",
+          "stemEnding": "classified_question_ending",
+          "discourseMarkers": [
+            "다음",
+            "에 대한"
+          ],
+          "anonymizedEntities": [],
+          "optionPattern": "five_circled_options",
+          "viewItemPattern": "korean_lettered_view_items",
+          "sentenceEndings": [
+            "이다",
+            "할 수 있다"
+          ],
+          "forbiddenToneHints": []
+        },
+        "material": {
+          "kind": "dialogue",
+          "requiresVisualParity": false,
+          "recommendedTemplate": "TPL_CONVERSATIONAL_FLOW",
+          "evidenceMarkers": [
+            "^[^\\n:]{1,12}:\\s"
+          ],
+          "structuredSurrogateAllowed": true
+        },
+        "confidence": "high",
+        "fallbackPolicy": "preserve_marker"
+      },
+      "structuralPattern": {
+        "assessmentIntent": "target concept application and evidence judgment",
+        "judgmentAxis": "view statement truth judgment",
+        "skeleton": {
+          "itemFamily": "combination_judgment",
+          "stimulusTemplate": "TPL_CONVERSATIONAL_FLOW",
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true,
+          "viewCount": 4
+        },
+        "distractorBlueprint": [
+          "절차 순서 혼동",
+          "자료 조건 일부 누락",
+          "보기 주장 과잉 일반화"
+        ],
+        "difficultyDrivers": [
+          "declared_middle",
+          "multi_view_judgment",
+          "five_choice_discrimination"
+        ]
+      },
+      "noveltyConstraints": {
+        "forbiddenMarkers": [
+          "source-specific entity markers",
+          "source-specific numeric markers"
+        ],
+        "forbiddenTokenSpans": [
+          "source eight-token verbatim spans",
+          "source stimulus phrase structure",
+          "source answer option phrasing",
+          "source view item phrasing"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "dnaId": "dna-success-10-8f928bbd43964879",
+      "subject": "success",
+      "unitNumber": 10,
+      "targetConcepts": [
+        "기업 형태",
+        "채용 절차"
+      ],
+      "difficulty": "HIGH",
+      "itemFamily": "combination_judgment",
+      "provenance": {
+        "sourceHash": "sha256:8f928bbd439648797d2dbc0156513b8da86158671358c528b612023ee0f435eb",
+        "sourceType": "moi",
+        "questionNumber": 5,
+        "extractorVersion": "question-dna-v1.0.0"
+      },
+      "solutionStrategy": {
+        "patternId": "success-10-moi-5-428f47ffbf65",
+        "sourceType": "reference_pattern",
+        "itemFamily": "combination_judgment",
+        "requiredSteps": [
+          "자료에서 판단 기준과 절차 조건을 찾는다",
+          "각 보기의 주장을 자료 조건에 대입해 참거짓을 판정한다",
+          "참으로 판정된 보기 조합과 선택지를 대응한다"
+        ],
+        "evidenceExtraction": [
+          "자료에서 판정 기준을 추출한다",
+          "보기별 주장과 자료 근거를 연결한다"
+        ],
+        "decisionRule": "자료 조건과 일치하는 보기만 참으로 판정하고, 참 보기 전체를 포함한 선택지만 정답이다.",
+        "distractorPatterns": [
+          "절차 순서 혼동",
+          "자료 조건 일부 누락",
+          "보기 주장 과잉 일반화"
+        ],
+        "answerValidationRule": "참으로 판정된 보기 전체를 포함한 조합만 정답이다."
+      },
+      "referenceProfile": {
+        "style": {
+          "stemPattern": "unclassified",
+          "stemEnding": "classified_question_ending",
+          "discourseMarkers": [
+            "다음"
+          ],
+          "anonymizedEntities": [
+            "anonymized placeholder marker",
+            "anonymized placeholder marker"
+          ],
+          "optionPattern": "five_circled_options",
+          "viewItemPattern": "korean_lettered_view_items",
+          "sentenceEndings": [
+            "이다",
+            "한다"
+          ],
+          "forbiddenToneHints": []
+        },
+        "material": {
+          "kind": "workflow",
+          "requiresVisualParity": true,
+          "recommendedTemplate": "TPL_SEQUENTIAL_WORKFLOW",
+          "evidenceMarkers": [
+            "절차"
+          ],
+          "structuredSurrogateAllowed": true
+        },
+        "confidence": "high",
+        "fallbackPolicy": "structured_surrogate"
+      },
+      "structuralPattern": {
+        "assessmentIntent": "target concept application and evidence judgment",
+        "judgmentAxis": "view statement truth judgment",
+        "skeleton": {
+          "itemFamily": "combination_judgment",
+          "stimulusTemplate": "TPL_SEQUENTIAL_WORKFLOW",
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true,
+          "viewCount": 3
+        },
+        "distractorBlueprint": [
+          "절차 순서 혼동",
+          "자료 조건 일부 누락",
+          "보기 주장 과잉 일반화"
+        ],
+        "difficultyDrivers": [
+          "declared_high",
+          "multi_view_judgment",
+          "structured_material_parity",
+          "five_choice_discrimination"
+        ]
+      },
+      "noveltyConstraints": {
+        "forbiddenMarkers": [
+          "source-specific entity markers",
+          "source-specific numeric markers",
+          "source-specific named placeholders"
+        ],
+        "forbiddenTokenSpans": [
+          "source eight-token verbatim spans",
+          "source stimulus phrase structure",
+          "source answer option phrasing",
+          "source view item phrasing"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "dnaId": "dna-success-10-9354b32ccc4f0767",
+      "subject": "success",
+      "unitNumber": 10,
+      "targetConcepts": [
+        "직무기술서"
+      ],
+      "difficulty": "MIDDLE",
+      "itemFamily": "combination_judgment",
+      "provenance": {
+        "sourceHash": "sha256:9354b32ccc4f076747aedeacbd57fcd490f0de654be0119556aa272d6bcb8ea2",
+        "sourceType": "suteck",
+        "questionNumber": 6,
+        "extractorVersion": "question-dna-v1.0.0"
+      },
+      "solutionStrategy": {
+        "patternId": "success-10-suteck-6-ecd681f18f0c",
+        "sourceType": "reference_pattern",
+        "itemFamily": "combination_judgment",
+        "requiredSteps": [
+          "자료에서 판단 기준과 절차 조건을 찾는다",
+          "각 보기의 주장을 자료 조건에 대입해 참거짓을 판정한다",
+          "참으로 판정된 보기 조합과 선택지를 대응한다"
+        ],
+        "evidenceExtraction": [
+          "자료에서 판정 기준을 추출한다",
+          "보기별 주장과 자료 근거를 연결한다"
+        ],
+        "decisionRule": "자료 조건과 일치하는 보기만 참으로 판정하고, 참 보기 전체를 포함한 선택지만 정답이다.",
+        "distractorPatterns": [
+          "절차 순서 혼동",
+          "자료 조건 일부 누락",
+          "보기 주장 과잉 일반화"
+        ],
+        "answerValidationRule": "참으로 판정된 보기 전체를 포함한 조합만 정답이다."
+      },
+      "referenceProfile": {
+        "style": {
+          "stemPattern": "unclassified",
+          "stemEnding": "classified_question_ending",
+          "discourseMarkers": [
+            "다음",
+            "에 대한"
+          ],
+          "anonymizedEntities": [
+            "source marker class"
+          ],
+          "optionPattern": "five_circled_options",
+          "viewItemPattern": "korean_lettered_view_items",
+          "sentenceEndings": [
+            "이다"
+          ],
+          "forbiddenToneHints": []
+        },
+        "material": {
+          "kind": "dialogue",
+          "requiresVisualParity": false,
+          "recommendedTemplate": "TPL_CONVERSATIONAL_FLOW",
+          "evidenceMarkers": [
+            "^[^\\n:]{1,12}:\\s"
+          ],
+          "structuredSurrogateAllowed": true
+        },
+        "confidence": "high",
+        "fallbackPolicy": "preserve_marker"
+      },
+      "structuralPattern": {
+        "assessmentIntent": "target concept application and evidence judgment",
+        "judgmentAxis": "view statement truth judgment",
+        "skeleton": {
+          "itemFamily": "combination_judgment",
+          "stimulusTemplate": "TPL_CONVERSATIONAL_FLOW",
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true,
+          "viewCount": 3
+        },
+        "distractorBlueprint": [
+          "절차 순서 혼동",
+          "자료 조건 일부 누락",
+          "보기 주장 과잉 일반화"
+        ],
+        "difficultyDrivers": [
+          "declared_middle",
+          "multi_view_judgment",
+          "five_choice_discrimination"
+        ]
+      },
+      "noveltyConstraints": {
+        "forbiddenMarkers": [
+          "source-specific entity markers"
+        ],
+        "forbiddenTokenSpans": [
+          "source eight-token verbatim spans",
+          "source stimulus phrase structure",
+          "source answer option phrasing",
+          "source view item phrasing"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "dnaId": "dna-success-10-96e74cb319f28c6f",
+      "subject": "success",
+      "unitNumber": 10,
+      "targetConcepts": [
+        "회사의 종류 (합명회사, 합자회사)"
+      ],
+      "difficulty": "INTERGRATE",
+      "itemFamily": "single_selection",
+      "provenance": {
+        "sourceHash": "sha256:96e74cb319f28c6fbd73df179d634cbce5f80adc08232d51e619eb47b6ee9478",
+        "sourceType": "moi",
+        "questionNumber": 16,
+        "extractorVersion": "question-dna-v1.0.0"
+      },
+      "solutionStrategy": {
+        "patternId": "success-10-moi-16-82988b65d6a3",
+        "sourceType": "reference_pattern",
+        "itemFamily": "single_selection",
+        "requiredSteps": [
+          "자료에서 판단 기준과 핵심 조건을 찾는다",
+          "각 선택지를 자료 조건과 비교한다",
+          "결정 규칙을 만족하는 최선의 선택지를 고른다"
+        ],
+        "evidenceExtraction": [
+          "자료에서 판정 기준을 추출한다",
+          "보기별 주장과 자료 근거를 연결한다"
+        ],
+        "decisionRule": "자료 조건과 가장 직접적으로 일치하고 다른 선택지의 오류 유형에 해당하지 않는 선택지만 정답이다.",
+        "distractorPatterns": [
+          "자료 조건 일부 누락",
+          "개념 적용 대상 혼동",
+          "근거 없는 일반화"
+        ],
+        "answerValidationRule": "자료 근거와 결정 규칙을 모두 만족하는 하나의 선지만 정답이다."
+      },
+      "referenceProfile": {
+        "style": {
+          "stemPattern": "correct_statement",
+          "stemEnding": "",
+          "discourseMarkers": [
+            "다음",
+            "에 대한"
+          ],
+          "anonymizedEntities": [
+            "source marker class",
+            "source marker class"
+          ],
+          "optionPattern": "five_circled_options",
+          "viewItemPattern": "none",
+          "sentenceEndings": [
+            "이다",
+            "할 수 있다",
+            "한다"
+          ],
+          "forbiddenToneHints": []
+        },
+        "material": {
+          "kind": "dialogue",
+          "requiresVisualParity": false,
+          "recommendedTemplate": "TPL_CONVERSATIONAL_FLOW",
+          "evidenceMarkers": [
+            "^[^\\n:]{1,12}:\\s"
+          ],
+          "structuredSurrogateAllowed": true
+        },
+        "confidence": "high",
+        "fallbackPolicy": "preserve_marker"
+      },
+      "structuralPattern": {
+        "assessmentIntent": "target concept application and evidence judgment",
+        "judgmentAxis": "single best answer judgment",
+        "skeleton": {
+          "itemFamily": "single_selection",
+          "stimulusTemplate": "TPL_CONVERSATIONAL_FLOW",
+          "choiceType": "five_option_selection",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "자료 조건 일부 누락",
+          "개념 적용 대상 혼동",
+          "근거 없는 일반화"
+        ],
+        "difficultyDrivers": [
+          "declared_intergrate",
+          "five_choice_discrimination"
+        ]
+      },
+      "noveltyConstraints": {
+        "forbiddenMarkers": [
+          "source-specific entity markers",
+          "source-specific numeric markers"
+        ],
+        "forbiddenTokenSpans": [
+          "source eight-token verbatim spans",
+          "source stimulus phrase structure",
+          "source answer option phrasing"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "dnaId": "dna-success-10-9862055611336533",
+      "subject": "success",
+      "unitNumber": 10,
+      "targetConcepts": [
+        "기업의 부서 업무",
+        "직업기초능력",
+        "경영 관리 활동"
+      ],
+      "difficulty": "HIGH",
+      "itemFamily": "combination_judgment",
+      "provenance": {
+        "sourceHash": "sha256:98620556113365332fcfdd2a9f9822f0b4b8d915b47f5c146b2f0d4ad9ac2737",
+        "sourceType": "moi",
+        "questionNumber": 6,
+        "extractorVersion": "question-dna-v1.0.0"
+      },
+      "solutionStrategy": {
+        "patternId": "success-10-moi-6-b18f8f8a9805",
+        "sourceType": "reference_pattern",
+        "itemFamily": "combination_judgment",
+        "requiredSteps": [
+          "자료에서 판단 기준과 절차 조건을 찾는다",
+          "각 보기의 주장을 자료 조건에 대입해 참거짓을 판정한다",
+          "참으로 판정된 보기 조합과 선택지를 대응한다"
+        ],
+        "evidenceExtraction": [
+          "자료에서 판정 기준을 추출한다",
+          "보기별 주장과 자료 근거를 연결한다"
+        ],
+        "decisionRule": "자료 조건과 일치하는 보기만 참으로 판정하고, 참 보기 전체를 포함한 선택지만 정답이다.",
+        "distractorPatterns": [
+          "절차 순서 혼동",
+          "자료 조건 일부 누락",
+          "보기 주장 과잉 일반화"
+        ],
+        "answerValidationRule": "참으로 판정된 보기 전체를 포함한 조합만 정답이다."
+      },
+      "referenceProfile": {
+        "style": {
+          "stemPattern": "unclassified",
+          "stemEnding": "classified_question_ending",
+          "discourseMarkers": [
+            "다음",
+            "에 대한"
+          ],
+          "anonymizedEntities": [],
+          "optionPattern": "five_circled_options",
+          "viewItemPattern": "korean_lettered_view_items",
+          "sentenceEndings": [
+            "이다",
+            "한다"
+          ],
+          "forbiddenToneHints": []
+        },
+        "material": {
+          "kind": "workflow",
+          "requiresVisualParity": true,
+          "recommendedTemplate": "TPL_SEQUENTIAL_WORKFLOW",
+          "evidenceMarkers": [
+            "공정"
+          ],
+          "structuredSurrogateAllowed": true
+        },
+        "confidence": "high",
+        "fallbackPolicy": "structured_surrogate"
+      },
+      "structuralPattern": {
+        "assessmentIntent": "target concept application and evidence judgment",
+        "judgmentAxis": "view statement truth judgment",
+        "skeleton": {
+          "itemFamily": "combination_judgment",
+          "stimulusTemplate": "TPL_SEQUENTIAL_WORKFLOW",
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true,
+          "viewCount": 4
+        },
+        "distractorBlueprint": [
+          "절차 순서 혼동",
+          "자료 조건 일부 누락",
+          "보기 주장 과잉 일반화"
+        ],
+        "difficultyDrivers": [
+          "declared_high",
+          "multi_view_judgment",
+          "structured_material_parity",
+          "five_choice_discrimination"
+        ]
+      },
+      "noveltyConstraints": {
+        "forbiddenMarkers": [
+          "source-specific entity markers",
+          "source-specific numeric markers"
+        ],
+        "forbiddenTokenSpans": [
+          "source eight-token verbatim spans",
+          "source stimulus phrase structure",
+          "source answer option phrasing",
+          "source view item phrasing"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "dnaId": "dna-success-10-a623ee56ca866d78",
+      "subject": "success",
+      "unitNumber": 10,
+      "targetConcepts": [
+        "기업의 형태",
+        "유한책임회사",
+        "주식회사"
+      ],
+      "difficulty": "INTERGRATE",
+      "itemFamily": "combination_judgment",
+      "provenance": {
+        "sourceHash": "sha256:a623ee56ca866d78b6adf6267ff55845a7d275b4030484401f02e678dcf6a2e7",
+        "sourceType": "moi",
+        "questionNumber": 20,
+        "extractorVersion": "question-dna-v1.0.0"
+      },
+      "solutionStrategy": {
+        "patternId": "success-10-moi-20-278b2bf98153",
+        "sourceType": "reference_pattern",
+        "itemFamily": "combination_judgment",
+        "requiredSteps": [
+          "자료에서 판단 기준과 절차 조건을 찾는다",
+          "각 보기의 주장을 자료 조건에 대입해 참거짓을 판정한다",
+          "참으로 판정된 보기 조합과 선택지를 대응한다"
+        ],
+        "evidenceExtraction": [
+          "자료에서 판정 기준을 추출한다",
+          "보기별 주장과 자료 근거를 연결한다"
+        ],
+        "decisionRule": "자료 조건과 일치하는 보기만 참으로 판정하고, 참 보기 전체를 포함한 선택지만 정답이다.",
+        "distractorPatterns": [
+          "절차 순서 혼동",
+          "자료 조건 일부 누락",
+          "보기 주장 과잉 일반화"
+        ],
+        "answerValidationRule": "참으로 판정된 보기 전체를 포함한 조합만 정답이다."
+      },
+      "referenceProfile": {
+        "style": {
+          "stemPattern": "unclassified",
+          "stemEnding": "",
+          "discourseMarkers": [
+            "다음",
+            "에 따른"
+          ],
+          "anonymizedEntities": [],
+          "optionPattern": "five_circled_options",
+          "viewItemPattern": "korean_lettered_view_items",
+          "sentenceEndings": [
+            "이다"
+          ],
+          "forbiddenToneHints": []
+        },
+        "material": {
+          "kind": "workflow",
+          "requiresVisualParity": true,
+          "recommendedTemplate": "TPL_SEQUENTIAL_WORKFLOW",
+          "evidenceMarkers": [
+            "공정"
+          ],
+          "structuredSurrogateAllowed": true
+        },
+        "confidence": "high",
+        "fallbackPolicy": "structured_surrogate"
+      },
+      "structuralPattern": {
+        "assessmentIntent": "target concept application and evidence judgment",
+        "judgmentAxis": "view statement truth judgment",
+        "skeleton": {
+          "itemFamily": "combination_judgment",
+          "stimulusTemplate": "TPL_SEQUENTIAL_WORKFLOW",
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true,
+          "viewCount": 4
+        },
+        "distractorBlueprint": [
+          "절차 순서 혼동",
+          "자료 조건 일부 누락",
+          "보기 주장 과잉 일반화"
+        ],
+        "difficultyDrivers": [
+          "declared_intergrate",
+          "multi_view_judgment",
+          "structured_material_parity",
+          "five_choice_discrimination"
+        ]
+      },
+      "noveltyConstraints": {
+        "forbiddenMarkers": [
+          "source-specific entity markers",
+          "source-specific numeric markers"
+        ],
+        "forbiddenTokenSpans": [
+          "source eight-token verbatim spans",
+          "source stimulus phrase structure",
+          "source answer option phrasing",
+          "source view item phrasing"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "dnaId": "dna-success-10-b060816ecebda8ae",
+      "subject": "success",
+      "unitNumber": 10,
+      "targetConcepts": [
+        "국가직무능력표준(NCS)",
+        "분류 번호 체계"
+      ],
+      "difficulty": "MIDDLE",
+      "itemFamily": "combination_judgment",
+      "provenance": {
+        "sourceHash": "sha256:b060816ecebda8aecd04d81999fce123169305d777e09f7477425bf409b8e2ef",
+        "sourceType": "suteck",
+        "questionNumber": 5,
+        "extractorVersion": "question-dna-v1.0.0"
+      },
+      "solutionStrategy": {
+        "patternId": "success-10-suteck-5-b4c1b93a97fd",
+        "sourceType": "reference_pattern",
+        "itemFamily": "combination_judgment",
+        "requiredSteps": [
+          "자료에서 판단 기준과 절차 조건을 찾는다",
+          "각 보기의 주장을 자료 조건에 대입해 참거짓을 판정한다",
+          "참으로 판정된 보기 조합과 선택지를 대응한다"
+        ],
+        "evidenceExtraction": [
+          "자료에서 판정 기준을 추출한다",
+          "보기별 주장과 자료 근거를 연결한다"
+        ],
+        "decisionRule": "자료 조건과 일치하는 보기만 참으로 판정하고, 참 보기 전체를 포함한 선택지만 정답이다.",
+        "distractorPatterns": [
+          "절차 순서 혼동",
+          "자료 조건 일부 누락",
+          "보기 주장 과잉 일반화"
+        ],
+        "answerValidationRule": "참으로 판정된 보기 전체를 포함한 조합만 정답이다."
+      },
+      "referenceProfile": {
+        "style": {
+          "stemPattern": "choose_all_correct_from_view",
+          "stemEnding": "choose_all_correct_from_view_question",
+          "discourseMarkers": [
+            "다음",
+            "에 대한"
+          ],
+          "anonymizedEntities": [],
+          "optionPattern": "five_circled_options",
+          "viewItemPattern": "korean_lettered_view_items",
+          "sentenceEndings": [
+            "이다"
+          ],
+          "forbiddenToneHints": []
+        },
+        "material": {
+          "kind": "table",
+          "requiresVisualParity": true,
+          "recommendedTemplate": "TPL_COMPARATIVE_MATRIX",
+          "evidenceMarkers": [
+            "\\|.+\\|"
+          ],
+          "structuredSurrogateAllowed": true
+        },
+        "confidence": "high",
+        "fallbackPolicy": "structured_surrogate"
+      },
+      "structuralPattern": {
+        "assessmentIntent": "target concept application and evidence judgment",
+        "judgmentAxis": "view statement truth judgment",
+        "skeleton": {
+          "itemFamily": "combination_judgment",
+          "stimulusTemplate": "TPL_COMPARATIVE_MATRIX",
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true,
+          "viewCount": 3
+        },
+        "distractorBlueprint": [
+          "절차 순서 혼동",
+          "자료 조건 일부 누락",
+          "보기 주장 과잉 일반화"
+        ],
+        "difficultyDrivers": [
+          "declared_middle",
+          "multi_view_judgment",
+          "structured_material_parity",
+          "five_choice_discrimination"
+        ]
+      },
+      "noveltyConstraints": {
+        "forbiddenMarkers": [
+          "source-specific entity markers",
+          "source-specific numeric markers"
+        ],
+        "forbiddenTokenSpans": [
+          "source eight-token verbatim spans",
+          "source stimulus phrase structure",
+          "source answer option phrasing",
+          "source view item phrasing"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "dnaId": "dna-success-10-b0952ee91eb23044",
+      "subject": "success",
+      "unitNumber": 10,
+      "targetConcepts": [
+        "기업 활동",
+        "생산 시스템",
+        "서비스업 특성"
+      ],
+      "difficulty": "HIGH",
+      "itemFamily": "combination_judgment",
+      "provenance": {
+        "sourceHash": "sha256:b0952ee91eb2304443a7e558b13998a953a87e6fa9ea3265cc5b4e65fb6c293b",
+        "sourceType": "moi",
+        "questionNumber": 4,
+        "extractorVersion": "question-dna-v1.0.0"
+      },
+      "solutionStrategy": {
+        "patternId": "success-10-moi-4-80c8f7fb9c67",
+        "sourceType": "reference_pattern",
+        "itemFamily": "combination_judgment",
+        "requiredSteps": [
+          "자료에서 판단 기준과 절차 조건을 찾는다",
+          "각 보기의 주장을 자료 조건에 대입해 참거짓을 판정한다",
+          "참으로 판정된 보기 조합과 선택지를 대응한다"
+        ],
+        "evidenceExtraction": [
+          "자료에서 판정 기준을 추출한다",
+          "보기별 주장과 자료 근거를 연결한다"
+        ],
+        "decisionRule": "자료 조건과 일치하는 보기만 참으로 판정하고, 참 보기 전체를 포함한 선택지만 정답이다.",
+        "distractorPatterns": [
+          "절차 순서 혼동",
+          "자료 조건 일부 누락",
+          "보기 주장 과잉 일반화"
+        ],
+        "answerValidationRule": "참으로 판정된 보기 전체를 포함한 조합만 정답이다."
+      },
+      "referenceProfile": {
+        "style": {
+          "stemPattern": "unclassified",
+          "stemEnding": "classified_question_ending",
+          "discourseMarkers": [
+            "다음",
+            "에 대한",
+            "에 따른"
+          ],
+          "anonymizedEntities": [
+            "organization placeholder marker",
+            "organization placeholder marker"
+          ],
+          "optionPattern": "five_circled_options",
+          "viewItemPattern": "korean_lettered_view_items",
+          "sentenceEndings": [],
+          "forbiddenToneHints": []
+        },
+        "material": {
+          "kind": "table",
+          "requiresVisualParity": true,
+          "recommendedTemplate": "TPL_COMPARATIVE_MATRIX",
+          "evidenceMarkers": [
+            "\\|.+\\|",
+            "구분\\s*\\|"
+          ],
+          "structuredSurrogateAllowed": true
+        },
+        "confidence": "high",
+        "fallbackPolicy": "structured_surrogate"
+      },
+      "structuralPattern": {
+        "assessmentIntent": "target concept application and evidence judgment",
+        "judgmentAxis": "view statement truth judgment",
+        "skeleton": {
+          "itemFamily": "combination_judgment",
+          "stimulusTemplate": "TPL_COMPARATIVE_MATRIX",
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true,
+          "viewCount": 4
+        },
+        "distractorBlueprint": [
+          "절차 순서 혼동",
+          "자료 조건 일부 누락",
+          "보기 주장 과잉 일반화"
+        ],
+        "difficultyDrivers": [
+          "declared_high",
+          "multi_view_judgment",
+          "structured_material_parity",
+          "five_choice_discrimination"
+        ]
+      },
+      "noveltyConstraints": {
+        "forbiddenMarkers": [
+          "source-specific entity markers",
+          "source-specific numeric markers",
+          "source-specific named placeholders"
+        ],
+        "forbiddenTokenSpans": [
+          "source eight-token verbatim spans",
+          "source stimulus phrase structure",
+          "source answer option phrasing",
+          "source view item phrasing"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "dnaId": "dna-success-10-b11ac1586a60d6ad",
+      "subject": "success",
+      "unitNumber": 10,
+      "targetConcepts": [
+        "기업 경영 활동",
+        "재무 관리",
+        "생산 관리"
+      ],
+      "difficulty": "HIGH",
+      "itemFamily": "combination_judgment",
+      "provenance": {
+        "sourceHash": "sha256:b11ac1586a60d6ad2d9c12302423e0622fde0fd421cd01b1937ff39a99591964",
+        "sourceType": "moi",
+        "questionNumber": 14,
+        "extractorVersion": "question-dna-v1.0.0"
+      },
+      "solutionStrategy": {
+        "patternId": "success-10-moi-14-c69de47e6588",
+        "sourceType": "reference_pattern",
+        "itemFamily": "combination_judgment",
+        "requiredSteps": [
+          "자료에서 판단 기준과 절차 조건을 찾는다",
+          "각 보기의 주장을 자료 조건에 대입해 참거짓을 판정한다",
+          "참으로 판정된 보기 조합과 선택지를 대응한다"
+        ],
+        "evidenceExtraction": [
+          "자료에서 판정 기준을 추출한다",
+          "보기별 주장과 자료 근거를 연결한다"
+        ],
+        "decisionRule": "자료 조건과 일치하는 보기만 참으로 판정하고, 참 보기 전체를 포함한 선택지만 정답이다.",
+        "distractorPatterns": [
+          "절차 순서 혼동",
+          "자료 조건 일부 누락",
+          "보기 주장 과잉 일반화"
+        ],
+        "answerValidationRule": "참으로 판정된 보기 전체를 포함한 조합만 정답이다."
+      },
+      "referenceProfile": {
+        "style": {
+          "stemPattern": "unclassified",
+          "stemEnding": "classified_question_ending",
+          "discourseMarkers": [
+            "다음"
+          ],
+          "anonymizedEntities": [],
+          "optionPattern": "five_circled_options",
+          "viewItemPattern": "korean_lettered_view_items",
+          "sentenceEndings": [],
+          "forbiddenToneHints": []
+        },
+        "material": {
+          "kind": "workflow",
+          "requiresVisualParity": true,
+          "recommendedTemplate": "TPL_SEQUENTIAL_WORKFLOW",
+          "evidenceMarkers": [
+            "공정"
+          ],
+          "structuredSurrogateAllowed": true
+        },
+        "confidence": "high",
+        "fallbackPolicy": "structured_surrogate"
+      },
+      "structuralPattern": {
+        "assessmentIntent": "target concept application and evidence judgment",
+        "judgmentAxis": "view statement truth judgment",
+        "skeleton": {
+          "itemFamily": "combination_judgment",
+          "stimulusTemplate": "TPL_SEQUENTIAL_WORKFLOW",
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true,
+          "viewCount": 4
+        },
+        "distractorBlueprint": [
+          "절차 순서 혼동",
+          "자료 조건 일부 누락",
+          "보기 주장 과잉 일반화"
+        ],
+        "difficultyDrivers": [
+          "declared_high",
+          "multi_view_judgment",
+          "structured_material_parity",
+          "five_choice_discrimination"
+        ]
+      },
+      "noveltyConstraints": {
+        "forbiddenMarkers": [
+          "source-specific entity markers",
+          "source-specific numeric markers"
+        ],
+        "forbiddenTokenSpans": [
+          "source eight-token verbatim spans",
+          "source stimulus phrase structure",
+          "source answer option phrasing",
+          "source view item phrasing"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "dnaId": "dna-success-10-bafc170b32b9bd43",
+      "subject": "success",
+      "unitNumber": 10,
+      "targetConcepts": [
+        "취업 프로그램",
+        "구직자 취업 역량 강화 프로그램"
+      ],
+      "difficulty": "MIDDLE",
+      "itemFamily": "single_selection",
+      "provenance": {
+        "sourceHash": "sha256:bafc170b32b9bd432adb2ab6bc4fdd01edd41a42ac7a0b1b6a876f555c14fbd5",
+        "sourceType": "suteck",
+        "questionNumber": 2,
+        "extractorVersion": "question-dna-v1.0.0"
+      },
+      "solutionStrategy": {
+        "patternId": "success-10-suteck-2-2e9de5f35790",
+        "sourceType": "reference_pattern",
+        "itemFamily": "single_selection",
+        "requiredSteps": [
+          "자료에서 판단 기준과 핵심 조건을 찾는다",
+          "각 선택지를 자료 조건과 비교한다",
+          "결정 규칙을 만족하는 최선의 선택지를 고른다"
+        ],
+        "evidenceExtraction": [
+          "자료에서 판정 기준을 추출한다",
+          "보기별 주장과 자료 근거를 연결한다"
+        ],
+        "decisionRule": "자료 조건과 가장 직접적으로 일치하고 다른 선택지의 오류 유형에 해당하지 않는 선택지만 정답이다.",
+        "distractorPatterns": [
+          "자료 조건 일부 누락",
+          "개념 적용 대상 혼동",
+          "근거 없는 일반화"
+        ],
+        "answerValidationRule": "자료 근거와 결정 규칙을 모두 만족하는 하나의 선지만 정답이다."
+      },
+      "referenceProfile": {
+        "style": {
+          "stemPattern": "correct_statement",
+          "stemEnding": "correct_statement_question",
+          "discourseMarkers": [
+            "다음",
+            "에 대한"
+          ],
+          "anonymizedEntities": [],
+          "optionPattern": "five_circled_options",
+          "viewItemPattern": "none",
+          "sentenceEndings": [],
+          "forbiddenToneHints": []
+        },
+        "material": {
+          "kind": "table",
+          "requiresVisualParity": true,
+          "recommendedTemplate": "TPL_COMPARATIVE_MATRIX",
+          "evidenceMarkers": [
+            "\\|.+\\|"
+          ],
+          "structuredSurrogateAllowed": true
+        },
+        "confidence": "high",
+        "fallbackPolicy": "structured_surrogate"
+      },
+      "structuralPattern": {
+        "assessmentIntent": "target concept application and evidence judgment",
+        "judgmentAxis": "single best answer judgment",
+        "skeleton": {
+          "itemFamily": "single_selection",
+          "stimulusTemplate": "TPL_COMPARATIVE_MATRIX",
+          "choiceType": "five_option_selection",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "자료 조건 일부 누락",
+          "개념 적용 대상 혼동",
+          "근거 없는 일반화"
+        ],
+        "difficultyDrivers": [
+          "declared_middle",
+          "structured_material_parity",
+          "five_choice_discrimination"
+        ]
+      },
+      "noveltyConstraints": {
+        "forbiddenMarkers": [
+          "source-specific entity markers",
+          "source-specific numeric markers"
+        ],
+        "forbiddenTokenSpans": [
+          "source eight-token verbatim spans",
+          "source stimulus phrase structure",
+          "source answer option phrasing"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "dnaId": "dna-success-10-bbe3b6a55fdfa141",
+      "subject": "success",
+      "unitNumber": 10,
+      "targetConcepts": [
+        "기업의 분류",
+        "제조업과 서비스업"
+      ],
+      "difficulty": "HIGH",
+      "itemFamily": "combination_judgment",
+      "provenance": {
+        "sourceHash": "sha256:bbe3b6a55fdfa14149cee401f548af7a4cfbc06e90e1d42220003d10e021e53e",
+        "sourceType": "moi",
+        "questionNumber": 18,
+        "extractorVersion": "question-dna-v1.0.0"
+      },
+      "solutionStrategy": {
+        "patternId": "success-10-moi-18-eb0d67ec56b5",
+        "sourceType": "reference_pattern",
+        "itemFamily": "combination_judgment",
+        "requiredSteps": [
+          "자료에서 판단 기준과 절차 조건을 찾는다",
+          "각 보기의 주장을 자료 조건에 대입해 참거짓을 판정한다",
+          "참으로 판정된 보기 조합과 선택지를 대응한다"
+        ],
+        "evidenceExtraction": [
+          "자료에서 판정 기준을 추출한다",
+          "보기별 주장과 자료 근거를 연결한다"
+        ],
+        "decisionRule": "자료 조건과 일치하는 보기만 참으로 판정하고, 참 보기 전체를 포함한 선택지만 정답이다.",
+        "distractorPatterns": [
+          "절차 순서 혼동",
+          "자료 조건 일부 누락",
+          "보기 주장 과잉 일반화"
+        ],
+        "answerValidationRule": "참으로 판정된 보기 전체를 포함한 조합만 정답이다."
+      },
+      "referenceProfile": {
+        "style": {
+          "stemPattern": "unclassified",
+          "stemEnding": "",
+          "discourseMarkers": [
+            "다음",
+            "에 대한",
+            "에 따른"
+          ],
+          "anonymizedEntities": [
+            "organization placeholder marker",
+            "organization placeholder marker"
+          ],
+          "optionPattern": "five_circled_options",
+          "viewItemPattern": "korean_lettered_view_items",
+          "sentenceEndings": [
+            "한다",
+            "이다"
+          ],
+          "forbiddenToneHints": []
+        },
+        "material": {
+          "kind": "workflow",
+          "requiresVisualParity": true,
+          "recommendedTemplate": "TPL_SEQUENTIAL_WORKFLOW",
+          "evidenceMarkers": [
+            "공정"
+          ],
+          "structuredSurrogateAllowed": true
+        },
+        "confidence": "high",
+        "fallbackPolicy": "structured_surrogate"
+      },
+      "structuralPattern": {
+        "assessmentIntent": "target concept application and evidence judgment",
+        "judgmentAxis": "view statement truth judgment",
+        "skeleton": {
+          "itemFamily": "combination_judgment",
+          "stimulusTemplate": "TPL_SEQUENTIAL_WORKFLOW",
+          "choiceType": "truth_combination",
+          "choiceCount": 5,
+          "hasComboBlock": true,
+          "viewCount": 3
+        },
+        "distractorBlueprint": [
+          "절차 순서 혼동",
+          "자료 조건 일부 누락",
+          "보기 주장 과잉 일반화"
+        ],
+        "difficultyDrivers": [
+          "declared_high",
+          "multi_view_judgment",
+          "structured_material_parity",
+          "five_choice_discrimination"
+        ]
+      },
+      "noveltyConstraints": {
+        "forbiddenMarkers": [
+          "source-specific entity markers",
+          "source-specific numeric markers",
+          "source-specific named placeholders"
+        ],
+        "forbiddenTokenSpans": [
+          "source eight-token verbatim spans",
+          "source stimulus phrase structure",
+          "source answer option phrasing",
+          "source view item phrasing"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "dnaId": "dna-success-10-d11ab8e604f58e86",
+      "subject": "success",
+      "unitNumber": 10,
+      "targetConcepts": [
+        "기업의 경영 활동",
+        "재무 관리"
+      ],
+      "difficulty": "HIGH",
+      "itemFamily": "single_selection",
+      "provenance": {
+        "sourceHash": "sha256:d11ab8e604f58e86a7826784f3ac386255baa5c625e4bd1613e42f79628cae72",
+        "sourceType": "moi",
+        "questionNumber": 7,
+        "extractorVersion": "question-dna-v1.0.0"
+      },
+      "solutionStrategy": {
+        "patternId": "success-10-moi-7-b377422c0ac7",
+        "sourceType": "reference_pattern",
+        "itemFamily": "single_selection",
+        "requiredSteps": [
+          "자료에서 판단 기준과 핵심 조건을 찾는다",
+          "각 선택지를 자료 조건과 비교한다",
+          "결정 규칙을 만족하는 최선의 선택지를 고른다"
+        ],
+        "evidenceExtraction": [
+          "자료에서 판정 기준을 추출한다",
+          "보기별 주장과 자료 근거를 연결한다"
+        ],
+        "decisionRule": "자료 조건과 가장 직접적으로 일치하고 다른 선택지의 오류 유형에 해당하지 않는 선택지만 정답이다.",
+        "distractorPatterns": [
+          "자료 조건 일부 누락",
+          "개념 적용 대상 혼동",
+          "근거 없는 일반화"
+        ],
+        "answerValidationRule": "자료 근거와 결정 규칙을 모두 만족하는 하나의 선지만 정답이다."
+      },
+      "referenceProfile": {
+        "style": {
+          "stemPattern": "best_choice",
+          "stemEnding": "best_choice_question",
+          "discourseMarkers": [
+            "다음",
+            "가장 적절한"
+          ],
+          "anonymizedEntities": [
+            "anonymized placeholder marker",
+            "anonymized placeholder marker",
+            "anonymized placeholder marker",
+            "anonymized placeholder marker"
+          ],
+          "optionPattern": "five_circled_options",
+          "viewItemPattern": "none",
+          "sentenceEndings": [
+            "한다",
+            "이다",
+            "했다"
+          ],
+          "forbiddenToneHints": []
+        },
+        "material": {
+          "kind": "document",
+          "requiresVisualParity": false,
+          "recommendedTemplate": "TPL_FORMAL_DOCUMENT",
+          "evidenceMarkers": [
+            "신문",
+            "\\d{4}년\\s*\\d{1,2}월\\s*\\d{1,2}일"
+          ],
+          "structuredSurrogateAllowed": true
+        },
+        "confidence": "high",
+        "fallbackPolicy": "preserve_marker"
+      },
+      "structuralPattern": {
+        "assessmentIntent": "target concept application and evidence judgment",
+        "judgmentAxis": "single best answer judgment",
+        "skeleton": {
+          "itemFamily": "single_selection",
+          "stimulusTemplate": "TPL_FORMAL_DOCUMENT",
+          "choiceType": "five_option_selection",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "자료 조건 일부 누락",
+          "개념 적용 대상 혼동",
+          "근거 없는 일반화"
+        ],
+        "difficultyDrivers": [
+          "declared_high",
+          "five_choice_discrimination"
+        ]
+      },
+      "noveltyConstraints": {
+        "forbiddenMarkers": [
+          "source-specific entity markers",
+          "source-specific numeric markers",
+          "source-specific named placeholders"
+        ],
+        "forbiddenTokenSpans": [
+          "source eight-token verbatim spans",
+          "source stimulus phrase structure",
+          "source answer option phrasing"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "dnaId": "dna-success-10-f2ee12937d36271a",
+      "subject": "success",
+      "unitNumber": 10,
+      "targetConcepts": [
+        "회사의 형태",
+        "합명회사",
+        "합자회사"
+      ],
+      "difficulty": "INTERGRATE",
+      "itemFamily": "single_selection",
+      "provenance": {
+        "sourceHash": "sha256:f2ee12937d36271ae3b47d86d94f32889056c7ff5d4fcd918a901ed7955ee9bc",
+        "sourceType": "moi",
+        "questionNumber": 18,
+        "extractorVersion": "question-dna-v1.0.0"
+      },
+      "solutionStrategy": {
+        "patternId": "success-10-moi-18-9e2323016951",
+        "sourceType": "reference_pattern",
+        "itemFamily": "single_selection",
+        "requiredSteps": [
+          "자료에서 판단 기준과 핵심 조건을 찾는다",
+          "각 선택지를 자료 조건과 비교한다",
+          "결정 규칙을 만족하는 최선의 선택지를 고른다"
+        ],
+        "evidenceExtraction": [
+          "자료에서 판정 기준을 추출한다",
+          "보기별 주장과 자료 근거를 연결한다"
+        ],
+        "decisionRule": "자료 조건과 가장 직접적으로 일치하고 다른 선택지의 오류 유형에 해당하지 않는 선택지만 정답이다.",
+        "distractorPatterns": [
+          "자료 조건 일부 누락",
+          "개념 적용 대상 혼동",
+          "근거 없는 일반화"
+        ],
+        "answerValidationRule": "자료 근거와 결정 규칙을 모두 만족하는 하나의 선지만 정답이다."
+      },
+      "referenceProfile": {
+        "style": {
+          "stemPattern": "correct_statement",
+          "stemEnding": "",
+          "discourseMarkers": [
+            "다음",
+            "이를 통해"
+          ],
+          "anonymizedEntities": [
+            "anonymized placeholder marker",
+            "anonymized placeholder marker"
+          ],
+          "optionPattern": "five_circled_options",
+          "viewItemPattern": "none",
+          "sentenceEndings": [
+            "이다",
+            "하였다",
+            "한다",
+            "할 수 있다"
+          ],
+          "forbiddenToneHints": []
+        },
+        "material": {
+          "kind": "dialogue",
+          "requiresVisualParity": false,
+          "recommendedTemplate": "TPL_CONVERSATIONAL_FLOW",
+          "evidenceMarkers": [
+            "^[^\\n:]{1,12}:\\s"
+          ],
+          "structuredSurrogateAllowed": true
+        },
+        "confidence": "high",
+        "fallbackPolicy": "preserve_marker"
+      },
+      "structuralPattern": {
+        "assessmentIntent": "target concept application and evidence judgment",
+        "judgmentAxis": "single best answer judgment",
+        "skeleton": {
+          "itemFamily": "single_selection",
+          "stimulusTemplate": "TPL_CONVERSATIONAL_FLOW",
+          "choiceType": "five_option_selection",
+          "choiceCount": 5,
+          "hasComboBlock": false
+        },
+        "distractorBlueprint": [
+          "자료 조건 일부 누락",
+          "개념 적용 대상 혼동",
+          "근거 없는 일반화"
+        ],
+        "difficultyDrivers": [
+          "declared_intergrate",
+          "five_choice_discrimination"
+        ]
+      },
+      "noveltyConstraints": {
+        "forbiddenMarkers": [
+          "source-specific entity markers",
+          "source-specific numeric markers",
+          "source-specific named placeholders"
+        ],
+        "forbiddenTokenSpans": [
+          "source eight-token verbatim spans",
+          "source stimulus phrase structure",
+          "source answer option phrasing"
+        ]
+      }
+    }
+  ]
+}

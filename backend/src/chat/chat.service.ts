@@ -155,16 +155,22 @@ export class ChatService {
   // ============================================================
   // 이미지 문제 처리
   // ============================================================
-  async processImageQuestion(userId: string, sessionId: string, imageBuffer: Buffer) {
+  async processImageQuestion(
+    userId: string,
+    sessionId: string,
+    imageBuffer: Buffer,
+  ) {
     const session = await this.sessionRepo.findOne({
       where: { id: sessionId },
       relations: ['subject'],
     });
     if (!session) throw new NotFoundException('채팅 세션을 찾을 수 없습니다.');
-    if (session.userId !== userId) throw new ForbiddenException('접근 권한이 없습니다.');
+    if (session.userId !== userId)
+      throw new ForbiddenException('접근 권한이 없습니다.');
 
     // 1. GPT-4o Vision OCR
-    const extracted = await this.chatAiService.extractQuestionFromImage(imageBuffer);
+    const extracted =
+      await this.chatAiService.extractQuestionFromImage(imageBuffer);
 
     // 2. 기존 문제 매칭
     const matched = this.studyService.findQuestionBySourceAndNumber(
@@ -177,23 +183,21 @@ export class ChatService {
     if (matched?.conceptHighlightV2) {
       const v2 = matched.conceptHighlightV2;
       const markers = ['ㄱ', 'ㄴ', 'ㄷ', 'ㄹ'];
-      const lines = [
-        `## 문제 분석`,
-        ``,
-        `**정답: ${extracted.answer}**`,
-        ``,
-      ];
+      const lines = [`## 문제 분석`, ``, `**정답: ${extracted.answer}**`, ``];
       if (v2.solvingFlow?.length > 0) {
         lines.push(`### 풀이 흐름`);
-        v2.solvingFlow.forEach((s: any) => lines.push(`${s.step}. ${s.action}`));
+        v2.solvingFlow.forEach((s: any) =>
+          lines.push(`${s.step}. ${s.action}`),
+        );
         lines.push('');
       }
       if (v2.optionAnalysis?.length > 0) {
         lines.push(`### 선택지 분석`);
         v2.optionAnalysis.forEach((o: any) => {
-          const label = extracted.box_items.length > 0
-            ? (markers[o.optionNum - 1] ?? o.optionNum)
-            : `${o.optionNum}번`;
+          const label =
+            extracted.box_items.length > 0
+              ? (markers[o.optionNum - 1] ?? o.optionNum)
+              : `${o.optionNum}번`;
           lines.push(`- **${label}(${o.verdict})**: ${o.reasoning}`);
         });
         lines.push('');
@@ -204,7 +208,8 @@ export class ChatService {
       }
       explanationText = lines.join('\n');
     } else {
-      explanationText = await this.chatAiService.generateQuestionExplanation(extracted);
+      explanationText =
+        await this.chatAiService.generateQuestionExplanation(extracted);
     }
 
     // 4. 유사 문제 검색
@@ -213,7 +218,10 @@ export class ChatService {
       extracted.target_concepts,
       5,
     );
-    console.log('[DEBUG] Found similar questions count:', similarQuestions.length);
+    console.log(
+      '[DEBUG] Found similar questions count:',
+      similarQuestions.length,
+    );
 
     // 5. 이미지 로컬 저장 (프론트엔드 표시용)
     const uploadsDir = path.join(process.cwd(), 'uploads');

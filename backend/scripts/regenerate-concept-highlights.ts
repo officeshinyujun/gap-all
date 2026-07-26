@@ -16,7 +16,7 @@ if (API_KEYS.length === 0) {
   process.exit(1);
 }
 
-const clients = API_KEYS.map(key => new OpenAI({ apiKey: key }));
+const clients = API_KEYS.map((key) => new OpenAI({ apiKey: key }));
 let clientIndex = 0;
 function getNextClient(): OpenAI {
   const client = clients[clientIndex % clients.length];
@@ -24,8 +24,20 @@ function getNextClient(): OpenAI {
   return client;
 }
 
-const PROMPT_PATH = path.resolve(__dirname, '..', '..', 'prompts', 'concept_highlight_v2.txt');
-const DATA_DIR = path.resolve(__dirname, '..', '..', 'textbook', 'kongil_cards_moi');
+const PROMPT_PATH = path.resolve(
+  __dirname,
+  '..',
+  '..',
+  'prompts',
+  'concept_highlight_v2.txt',
+);
+const DATA_DIR = path.resolve(
+  __dirname,
+  '..',
+  '..',
+  'textbook',
+  'kongil_cards_moi',
+);
 const MODEL = 'gpt-4o';
 const CONCURRENCY = 2;
 
@@ -45,7 +57,9 @@ interface Task {
   realQ: any;
 }
 
-async function generateHighlight(task: Task): Promise<ConceptHighlightV2 | null> {
+async function generateHighlight(
+  task: Task,
+): Promise<ConceptHighlightV2 | null> {
   const { concept, realQ } = task;
   const client = getNextClient();
 
@@ -82,7 +96,13 @@ async function generateHighlight(task: Task): Promise<ConceptHighlightV2 | null>
 function parseCorrectAnswer(value: unknown): number {
   if (typeof value === 'number') return value;
   if (typeof value === 'string') {
-    const map: Record<string, number> = { '①': 1, '②': 2, '③': 3, '④': 4, '⑤': 5 };
+    const map: Record<string, number> = {
+      '①': 1,
+      '②': 2,
+      '③': 3,
+      '④': 4,
+      '⑤': 5,
+    };
     if (map[value]) return map[value];
     const num = parseInt(value.replace(/[^0-9]/g, ''), 10);
     if (!isNaN(num) && num >= 1 && num <= 5) return num;
@@ -96,15 +116,22 @@ function extractJson(text: string): any {
   return JSON.parse(raw);
 }
 
-async function processBatch(tasks: Task[]): Promise<Map<string, { idx: number; highlight: ConceptHighlightV2 }[]>> {
-  const results = new Map<string, { idx: number; highlight: ConceptHighlightV2 }[]>();
+async function processBatch(
+  tasks: Task[],
+): Promise<Map<string, { idx: number; highlight: ConceptHighlightV2 }[]>> {
+  const results = new Map<
+    string,
+    { idx: number; highlight: ConceptHighlightV2 }[]
+  >();
 
   for (let i = 0; i < tasks.length; i += CONCURRENCY) {
     const batch = tasks.slice(i, i + CONCURRENCY);
     const promises = batch.map(async (task) => {
       const highlight = await generateHighlight(task);
       if (highlight) {
-        console.log(`  ✓ ${task.concept.name} (단서 ${highlight.stimulusClues.length}개, 풀이 ${highlight.solvingFlow.length}단계)`);
+        console.log(
+          `  ✓ ${task.concept.name} (단서 ${highlight.stimulusClues.length}개, 풀이 ${highlight.solvingFlow.length}단계)`,
+        );
         return { task, highlight };
       }
       return null;
@@ -119,7 +146,7 @@ async function processBatch(tasks: Task[]): Promise<Map<string, { idx: number; h
     }
 
     if (i + CONCURRENCY < tasks.length) {
-      await new Promise(resolve => setTimeout(resolve, 300));
+      await new Promise((resolve) => setTimeout(resolve, 300));
     }
   }
 
@@ -127,7 +154,9 @@ async function processBatch(tasks: Task[]): Promise<Map<string, { idx: number; h
 }
 
 async function main() {
-  const files = fs.readdirSync(DATA_DIR).filter(f => f.endsWith('.json') && !f.startsWith('_'));
+  const files = fs
+    .readdirSync(DATA_DIR)
+    .filter((f) => f.endsWith('.json') && !f.startsWith('_'));
 
   const allTasks: Task[] = [];
 
@@ -145,7 +174,9 @@ async function main() {
     }
   }
 
-  console.log(`총 ${allTasks.length}개 concept 처리 예정 (병렬 ${CONCURRENCY}, API키 ${API_KEYS.length}개)\n`);
+  console.log(
+    `총 ${allTasks.length}개 concept 처리 예정 (병렬 ${CONCURRENCY}, API키 ${API_KEYS.length}개)\n`,
+  );
 
   if (allTasks.length === 0) {
     console.log('처리할 항목 없음. 이미 모두 완료됨.');
@@ -162,11 +193,15 @@ async function main() {
       savedCount++;
     }
     fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf-8');
-    console.log(`💾 ${path.basename(filePath)} 저장 (${highlights.length}개 업데이트)`);
+    console.log(
+      `💾 ${path.basename(filePath)} 저장 (${highlights.length}개 업데이트)`,
+    );
   }
 
   console.log(`\n========================================`);
-  console.log(`완료: ${savedCount}/${allTasks.length} 성공, ${allTasks.length - savedCount}개 실패`);
+  console.log(
+    `완료: ${savedCount}/${allTasks.length} 성공, ${allTasks.length - savedCount}개 실패`,
+  );
 }
 
 main().catch(console.error);

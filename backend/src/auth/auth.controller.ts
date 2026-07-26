@@ -14,6 +14,7 @@ import {
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { Throttle } from '@nestjs/throttler';
+import passport from 'passport';
 import type { Request, Response } from 'express';
 import { AuthService } from './auth.service';
 import { RegisterDto } from './dto/register.dto';
@@ -55,7 +56,7 @@ export class AuthController {
 
   @Post('verify-code')
   @Throttle({ default: { ttl: 60000, limit: 5 } })
-  async verifyCode(@Body() dto: VerifyCodeDto) {
+  verifyCode(@Body() dto: VerifyCodeDto) {
     return this.authService.verifyCode(dto.email, dto.code);
   }
 
@@ -68,7 +69,8 @@ export class AuthController {
     const result = await this.authService.register(dto);
     res.cookie('gap_refresh_token', result.refreshToken, COOKIE_OPTIONS);
     res.cookie('gap_access_token', result.accessToken, ACCESS_COOKIE_OPTIONS);
-    const { refreshToken, ...body } = result;
+    const { refreshToken: nextRefreshToken, ...body } = result;
+    void nextRefreshToken;
     return body;
   }
 
@@ -82,7 +84,8 @@ export class AuthController {
     const result = await this.authService.login(dto);
     res.cookie('gap_refresh_token', result.refreshToken, COOKIE_OPTIONS);
     res.cookie('gap_access_token', result.accessToken, ACCESS_COOKIE_OPTIONS);
-    const { refreshToken, ...body } = result;
+    const { refreshToken: nextRefreshToken, ...body } = result;
+    void nextRefreshToken;
     return body;
   }
 
@@ -100,7 +103,8 @@ export class AuthController {
     const result = await this.authService.refresh(refreshToken);
     res.cookie('gap_refresh_token', result.refreshToken, COOKIE_OPTIONS);
     res.cookie('gap_access_token', result.accessToken, ACCESS_COOKIE_OPTIONS);
-    const { refreshToken: _, ...body } = result;
+    const { refreshToken: nextRefreshToken, ...body } = result;
+    void nextRefreshToken;
     return body;
   }
 
@@ -117,8 +121,11 @@ export class AuthController {
   }
 
   @Get('google')
-  async googleLogin(@Req() req: Request, @Res() res: Response, @Query('return_to') returnTo?: string) {
-    const passport = require('passport');
+  googleLogin(
+    @Req() req: Request,
+    @Res() res: Response,
+    @Query('return_to') returnTo?: string,
+  ) {
     const options: any = { scope: ['email', 'profile'], session: false };
     options.state = this.normalizeReturnTo(returnTo);
     passport.authenticate('google', options)(req, res);
@@ -136,16 +143,19 @@ export class AuthController {
     const result = await this.authService.googleLogin(profile);
     res.cookie('gap_refresh_token', result.refreshToken, COOKIE_OPTIONS);
     res.cookie('gap_access_token', result.accessToken, ACCESS_COOKIE_OPTIONS);
-    const returnTo = this.normalizeReturnTo(typeof req.query.state === 'string' ? req.query.state : undefined);
+    const returnTo = this.normalizeReturnTo(
+      typeof req.query.state === 'string' ? req.query.state : undefined,
+    );
     res.redirect(`${returnTo}/auth/google/callback`);
   }
 
   private normalizeReturnTo(value?: string): string {
     const fallback = process.env.FRONTEND_URL ?? 'http://localhost:5173';
-    const allowed = new Set([
-      fallback,
-      ...(process.env.CORS_ORIGINS?.split(',') ?? []),
-    ].map((origin) => origin.replace(/\/$/, '')));
+    const allowed = new Set(
+      [fallback, ...(process.env.CORS_ORIGINS?.split(',') ?? [])].map(
+        (origin) => origin.replace(/\/$/, ''),
+      ),
+    );
 
     if (!value) return fallback.replace(/\/$/, '');
 

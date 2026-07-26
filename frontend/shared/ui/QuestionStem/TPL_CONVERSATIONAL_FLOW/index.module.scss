@@ -1,5 +1,3 @@
-@import '@/styles/variables.scss';
-
 .participantList {
   padding-bottom: $spacing-8;
   border-bottom: 1px solid $border-primary;
@@ -11,4 +9,12 @@
   padding: $spacing-16 $spacing-20;
   box-sizing: border-box;
   background-color: $background-primary;
+}
+
+.sceneLabel {
+  align-self: flex-start;
+  padding: 2px $spacing-8;
+  border: 1px solid $border-primary;
+  color: $text-secondary;
+  font-size: 11px;
 }

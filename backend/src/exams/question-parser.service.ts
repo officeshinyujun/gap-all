@@ -27,13 +27,16 @@ export interface ParsedQuestion {
   hasStimulus: boolean;
 }
 
-
-
 @Injectable()
 export class QuestionParserService {
   private readonly logger = new Logger(QuestionParserService.name);
   private readonly PARSED_DIR = path.join(
-    __dirname, '..', '..', '..', 'textbook', 'parsed',
+    __dirname,
+    '..',
+    '..',
+    '..',
+    'textbook',
+    'parsed',
   );
 
   async parseSuteckPdf(
@@ -49,8 +52,17 @@ export class QuestionParserService {
     const response = await getOpenAIClient().chat.completions.create({
       model: process.env.OPENAI_STEP1_MODEL || 'gpt-4o',
       messages: [
-        { role: 'system', content: 'Extract all Korean CSAT exam questions from PDF text. Return JSON array of {questionNumber, stem, stimulus, viewItems, choices, hasStimulus, targetConcepts}. Ignore markers, annotations, and answer keys.' },
-        { role: 'user', content: 'Extract all questions from this Korean CSAT PDF text. Return JSON array with ALL questions:\n\n' + rawText.slice(0, 15000) },
+        {
+          role: 'system',
+          content:
+            'Extract all Korean CSAT exam questions from PDF text. Return JSON array of {questionNumber, stem, stimulus, viewItems, choices, hasStimulus, targetConcepts}. Ignore markers, annotations, and answer keys.',
+        },
+        {
+          role: 'user',
+          content:
+            'Extract all questions from this Korean CSAT PDF text. Return JSON array with ALL questions:\n\n' +
+            rawText.slice(0, 15000),
+        },
       ],
       response_format: { type: 'json_object' },
       temperature: 0,
@@ -62,9 +74,12 @@ export class QuestionParserService {
     let parsedQuestions: any[] = [];
     try {
       const parsed = JSON.parse(content);
-      parsedQuestions = parsed.questions || parsed.items || (Array.isArray(parsed) ? parsed : [parsed]);
+      parsedQuestions =
+        parsed.questions ||
+        parsed.items ||
+        (Array.isArray(parsed) ? parsed : [parsed]);
       if (!Array.isArray(parsedQuestions)) parsedQuestions = [parsedQuestions];
-    } catch (e) {
+    } catch {
       this.logger.warn('Failed to parse LLM response');
       return [];
     }
@@ -73,7 +88,13 @@ export class QuestionParserService {
     for (const q of parsedQuestions) {
       if (!q.questionNumber) continue;
       results.push({
-        source: { type: 'suteck', subject, subjectKor, unitNumber, filename: path.basename(filePath) },
+        source: {
+          type: 'suteck',
+          subject,
+          subjectKor,
+          unitNumber,
+          filename: path.basename(filePath),
+        },
         questionNumber: q.questionNumber,
         stem: q.stem || '',
         stimulus: q.stimulus || '',
@@ -86,7 +107,9 @@ export class QuestionParserService {
       });
     }
 
-    this.logger.log('Parsed ' + results.length + ' questions from ' + path.basename(filePath));
+    this.logger.log(
+      'Parsed ' + results.length + ' questions from ' + path.basename(filePath),
+    );
     return results;
   }
 
@@ -104,8 +127,15 @@ export class QuestionParserService {
     const response = await getOpenAIClient().chat.completions.create({
       model: process.env.OPENAI_STEP1_MODEL || 'gpt-4o',
       messages: [
-        { role: 'system', content: 'Extract all Korean CSAT exam questions from this PDF text. Return JSON array. Each question: {questionNumber, stem, stimulus, viewItems, choices, hasStimulus, targetConcepts}. Ignore markers and annotations.' },
-        { role: 'user', content: 'Extract all questions:\n' + rawText.slice(0, 15000) },
+        {
+          role: 'system',
+          content:
+            'Extract all Korean CSAT exam questions from this PDF text. Return JSON array. Each question: {questionNumber, stem, stimulus, viewItems, choices, hasStimulus, targetConcepts}. Ignore markers and annotations.',
+        },
+        {
+          role: 'user',
+          content: 'Extract all questions:\n' + rawText.slice(0, 15000),
+        },
       ],
       response_format: { type: 'json_object' },
       temperature: 0,
@@ -117,9 +147,12 @@ export class QuestionParserService {
     let parsedQuestions: any[] = [];
     try {
       const parsed = JSON.parse(content);
-      parsedQuestions = parsed.questions || parsed.items || (Array.isArray(parsed) ? parsed : [parsed]);
+      parsedQuestions =
+        parsed.questions ||
+        parsed.items ||
+        (Array.isArray(parsed) ? parsed : [parsed]);
       if (!Array.isArray(parsedQuestions)) parsedQuestions = [parsedQuestions];
-    } catch (e) {
+    } catch {
       return [];
     }
 
@@ -127,7 +160,14 @@ export class QuestionParserService {
     for (const q of parsedQuestions) {
       if (!q.questionNumber) continue;
       results.push({
-        source: { type: 'moi', subject, subjectKor, year, examType, filename: path.basename(filePath) },
+        source: {
+          type: 'moi',
+          subject,
+          subjectKor,
+          year,
+          examType,
+          filename: path.basename(filePath),
+        },
         questionNumber: q.questionNumber,
         stem: q.stem || '',
         stimulus: q.stimulus || '',
@@ -153,7 +193,11 @@ export class QuestionParserService {
     return results;
   }
 
-  saveParsedQuestions(questions: ParsedQuestion[], subDir: string, filename: string): string {
+  saveParsedQuestions(
+    questions: ParsedQuestion[],
+    subDir: string,
+    filename: string,
+  ): string {
     const dir = path.join(this.PARSED_DIR, subDir);
     fs.mkdirSync(dir, { recursive: true });
     const outPath = path.join(dir, filename);
@@ -169,7 +213,10 @@ export class QuestionParserService {
   }
 
   private extractText(filePath: string): string {
-    return execSync('pdftotext -raw "' + filePath + '" - 2>/dev/null', { encoding: 'utf-8', timeout: 30000 });
+    return execSync('pdftotext -raw "' + filePath + '" - 2>/dev/null', {
+      encoding: 'utf-8',
+      timeout: 30000,
+    });
   }
 
   private parseAnswerPdf(answerPdfPath: string): Map<number, number> {
@@ -189,7 +236,15 @@ export class QuestionParserService {
   }
 
   async parseAllSuteck(): Promise<void> {
-    const baseDir = path.join(__dirname, '..', '..', '..', '..', 'question', 'suteck');
+    const baseDir = path.join(
+      __dirname,
+      '..',
+      '..',
+      '..',
+      '..',
+      'question',
+      'suteck',
+    );
     for (const subject of ['성직', '공일']) {
       const en = subject === '성직' ? 'sungjik' : 'kongil';
       const kor = subject === '성직' ? '성공적인 직업생활' : '공업 일반';
@@ -198,7 +253,11 @@ export class QuestionParserService {
         if (!fs.existsSync(fp)) continue;
         try {
           const questions = await this.parseSuteckPdf(fp, en, kor, unit);
-          this.saveParsedQuestions(questions, en + '/suteck', unit + '단원.json');
+          this.saveParsedQuestions(
+            questions,
+            en + '/suteck',
+            unit + '단원.json',
+          );
         } catch (e: any) {
           this.logger.error('Failed ' + fp + ': ' + e.message);
         }
@@ -207,7 +266,15 @@ export class QuestionParserService {
   }
 
   async parseAllMoi(): Promise<void> {
-    const baseDir = path.join(__dirname, '..', '..', '..', '..', 'question', 'moi');
+    const baseDir = path.join(
+      __dirname,
+      '..',
+      '..',
+      '..',
+      '..',
+      'question',
+      'moi',
+    );
     const subjects: [string, string, string][] = [
       ['sungjik', 'sungjik', '성공적인 직업생활'],
       ['kongil', 'kongil', '공업 일반'],
@@ -217,16 +284,25 @@ export class QuestionParserService {
         for (const examType of ['6월_모의평가', '9월_모의평가', '수능']) {
           const dir = path.join(baseDir, en, String(year), examType);
           if (!fs.existsSync(dir)) continue;
-          const probFile = fs.readdirSync(dir).find((f) => f.endsWith('문제.pdf') || f.endsWith('문제지.pdf'));
+          const probFile = fs
+            .readdirSync(dir)
+            .find((f) => f.endsWith('문제.pdf') || f.endsWith('문제지.pdf'));
           const ansFile = fs.readdirSync(dir).find((f) => f.includes('정답'));
           if (!probFile) continue;
           try {
             const questions = await this.parseMoiPdf(
               path.join(dir, probFile),
               ansFile ? path.join(dir, ansFile) : null,
-              en, kor, year, examType,
+              en,
+              kor,
+              year,
+              examType,
             );
-            this.saveParsedQuestions(questions, en + '/moi', year + '_' + examType + '.json');
+            this.saveParsedQuestions(
+              questions,
+              en + '/moi',
+              year + '_' + examType + '.json',
+            );
           } catch (e: any) {
             this.logger.error('Failed ' + probFile + ': ' + e.message);
           }

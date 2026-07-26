@@ -978,17 +978,26 @@ export class StudyService {
 
       const conceptContentParts: string[] = [];
       if (definition) conceptContentParts.push(`## 개념 정의\n${definition}`);
-      if (textbookExcerpt) conceptContentParts.push(`## 교과서 원문\n${textbookExcerpt}`);
-      if (keyPoints.length) conceptContentParts.push(`## 핵심 포인트\n${keyPoints.map((p: string) => `- ${p}`).join('\n')}`);
+      if (textbookExcerpt)
+        conceptContentParts.push(`## 교과서 원문\n${textbookExcerpt}`);
+      if (keyPoints.length)
+        conceptContentParts.push(
+          `## 핵심 포인트\n${keyPoints.map((p: string) => `- ${p}`).join('\n')}`,
+        );
       if (caution) conceptContentParts.push(`## ⚠️ 오답 주의\n${caution}`);
-      if (conceptUsage) conceptContentParts.push(`## 실제 출제 포인트\n${conceptUsage}`);
+      if (conceptUsage)
+        conceptContentParts.push(`## 실제 출제 포인트\n${conceptUsage}`);
 
       const guideSteps: any[] = [
         { type: 'intro', message: `${c.name}에 대해 알아보아요.` },
         { type: 'definition', title: c.name, content: definition },
       ];
       if (keyPoints.length) {
-        guideSteps.push({ type: 'keypoints', title: '핵심 포인트', items: keyPoints });
+        guideSteps.push({
+          type: 'keypoints',
+          title: '핵심 포인트',
+          items: keyPoints,
+        });
       }
       if (caution) {
         guideSteps.push({
@@ -1009,7 +1018,10 @@ export class StudyService {
           });
         }
       }
-      guideSteps.push({ type: 'guide', message: `${c.name}에 대해 잘 이해하셨나요? 다음으로 넘어가요!` });
+      guideSteps.push({
+        type: 'guide',
+        message: `${c.name}에 대해 잘 이해하셨나요? 다음으로 넘어가요!`,
+      });
 
       return {
         rank: c.rank,
@@ -1017,7 +1029,7 @@ export class StudyService {
         frequency: c.frequency,
         sources: c.sources || [],
         questionFormats: [],
-         description: c.card?.enrichedDefinition || definition,
+        description: c.card?.enrichedDefinition || definition,
         keyPoints,
         examTips: caution ? [caution] : [],
         conceptContent: conceptContentParts.join('\n\n'),
@@ -1029,57 +1041,82 @@ export class StudyService {
                 unit_name: raw.unitTitle || '',
                 target_concept: c.name,
                 item_type: '실전 모의고사',
-                recommended_template: realQ.metadata?.recommended_template ?? undefined,
+                recommended_template:
+                  realQ.metadata?.recommended_template ?? undefined,
               },
               render_ready: {
-                question_stem: this.stripQuestionNumber(realQ.render_ready?.question_stem || realQ.stem || ''),
-                stimulus_data: this.normalizeRealStimulus(realQ.render_ready?.stimulus_data, realQ.metadata?.recommended_template) ?? (realQ.stimulus ? { content: realQ.stimulus } : null),
-                options_list: realQ.render_ready?.options_list || realQ.options || [],
+                question_stem: this.stripQuestionNumber(
+                  realQ.render_ready?.question_stem || realQ.stem || '',
+                ),
+                stimulus_data:
+                  this.normalizeRealStimulus(
+                    realQ.render_ready?.stimulus_data,
+                    realQ.metadata?.recommended_template,
+                  ) ?? (realQ.stimulus ? { content: realQ.stimulus } : null),
+                options_list:
+                  realQ.render_ready?.options_list || realQ.options || [],
                 explanation: realQ.render_ready?.explanation || '',
               },
-              combo_block: realQ.combo_block || (realQ.box_items && realQ.box_items.length > 0
-                ? { title: '<보기>', items: realQ.box_items.map((text: string, i: number) => ({ key: ['ㄱ','ㄴ','ㄷ','ㄹ'][i] || `${i+1}`, text })) }
-                : null),
-              correct_answer: this.parseCorrectAnswer(realQ.correct_answer ?? realQ.answer),
-              questionNumber: realQ.number || realQ.metadata?.question_number || null,
+              combo_block:
+                realQ.combo_block ||
+                (realQ.box_items && realQ.box_items.length > 0
+                  ? {
+                      title: '<보기>',
+                      items: realQ.box_items.map((text: string, i: number) => ({
+                        key: ['ㄱ', 'ㄴ', 'ㄷ', 'ㄹ'][i] || `${i + 1}`,
+                        text,
+                      })),
+                    }
+                  : null),
+              correct_answer: this.parseCorrectAnswer(
+                realQ.correct_answer ?? realQ.answer,
+              ),
+              questionNumber:
+                realQ.number || realQ.metadata?.question_number || null,
               questionSource: realQ.questionSource || realQ.source_exam || '',
               rawStimulus: realQ.stimulus ?? '',
             }
-          : (c.quiz?.[0]
-          ? {
-              metadata: {
-                unit_name: raw.unitTitle || '',
-                target_concept: c.name,
-                item_type: '학습 확인 퀴즈',
-              },
-              render_ready: {
-                question_stem: c.quiz[0].question || '',
-                stimulus_data: null,
-                options_list: c.quiz[0].options || [],
-                explanation: c.quiz[0].explanation || '',
-              },
-              combo_block: null,
-              correct_answer: (c.quiz[0].answer ?? 0) + 1,
-              questionSource: `${c.name} 확인 퀴즈`,
-            }
-          : null),
+          : c.quiz?.[0]
+            ? {
+                metadata: {
+                  unit_name: raw.unitTitle || '',
+                  target_concept: c.name,
+                  item_type: '학습 확인 퀴즈',
+                },
+                render_ready: {
+                  question_stem: c.quiz[0].question || '',
+                  stimulus_data: null,
+                  options_list: c.quiz[0].options || [],
+                  explanation: c.quiz[0].explanation || '',
+                },
+                combo_block: null,
+                correct_answer: (c.quiz[0].answer ?? 0) + 1,
+                questionSource: `${c.name} 확인 퀴즈`,
+              }
+            : null,
         guideSteps,
         questionHighlights: [],
         questionExplanation: caution,
         clueAnalysis: conceptUsage
           ? {
-              clueSteps: [{
-                targetText: conceptUsage,
-                location: '문제',
-                explanation: conceptUsage,
-                conceptLink: c.name,
-              }],
+              clueSteps: [
+                {
+                  targetText: conceptUsage,
+                  location: '문제',
+                  explanation: conceptUsage,
+                  conceptLink: c.name,
+                },
+              ],
               conclusion: caution,
               markedStimulus: '',
             }
           : undefined,
-        conceptHighlight: c.realQuestion?.conceptHighlight || { inStimulus: [], inOptions: [], reason: '' },
-              conceptHighlightV2: c.realQuestion?.conceptHighlightV2 || null,
+        conceptHighlight: c.realQuestion?.conceptHighlight || {
+          inStimulus: [],
+          inOptions: [],
+          reason: '',
+        },
+        conceptHighlightV2: c.realQuestion?.conceptHighlightV2 || null,
       };
     });
 
@@ -1099,7 +1136,13 @@ export class StudyService {
   private parseCorrectAnswer(value: unknown): number {
     if (typeof value === 'number') return value;
     if (typeof value === 'string') {
-      const circledMap: Record<string, number> = { '①': 1, '②': 2, '③': 3, '④': 4, '⑤': 5 };
+      const circledMap: Record<string, number> = {
+        '①': 1,
+        '②': 2,
+        '③': 3,
+        '④': 4,
+        '⑤': 5,
+      };
       if (circledMap[value]) return circledMap[value];
       const num = parseInt(value.replace(/[^0-9]/g, ''), 10);
       if (!isNaN(num) && num >= 1 && num <= 5) return num;
@@ -1154,13 +1197,15 @@ export class StudyService {
   findQuestionBySourceAndNumber(
     sourceExam: string | null,
     number: number | null,
-  ): any | null {
+  ): any {
     if (!sourceExam || !number) return null;
     const folders = ['success_cards_moi', 'kongil_cards_moi'];
     for (const folder of folders) {
       const base = path.join(this.getTextbookBase(), folder);
       if (!fs.existsSync(base)) continue;
-      const files = fs.readdirSync(base).filter(f => /^\d+단원\.json$/.test(f));
+      const files = fs
+        .readdirSync(base)
+        .filter((f) => /^\d+단원\.json$/.test(f));
       for (const file of files) {
         try {
           const d = JSON.parse(fs.readFileSync(path.join(base, file), 'utf-8'));
@@ -1179,11 +1224,14 @@ export class StudyService {
                 conceptName: concept.name,
                 unitNumber: parseInt(file.replace('단원.json', ''), 10),
                 questionData: qd,
-                conceptHighlightV2: concept.realQuestion?.conceptHighlightV2 ?? null,
+                conceptHighlightV2:
+                  concept.realQuestion?.conceptHighlightV2 ?? null,
               };
             }
           }
-        } catch { continue; }
+        } catch {
+          continue;
+        }
       }
     }
     return null;
@@ -1192,33 +1240,37 @@ export class StudyService {
   // ============================================================
   // 유사 문제 검색: 개념명 기준으로 cards_moi에서 검색
   // ============================================================
-  findSimilarByConceptNames(
-    conceptNames: string[],
-    limit = 5,
-  ): any[] {
+  findSimilarByConceptNames(conceptNames: string[], limit = 5): any[] {
     if (!conceptNames || conceptNames.length === 0) return [];
     const results: any[] = [];
     const folders = ['success_cards_moi', 'kongil_cards_moi'];
     for (const folder of folders) {
       const base = path.join(this.getTextbookBase(), folder);
       if (!fs.existsSync(base)) continue;
-      const files = fs.readdirSync(base).filter(f => /^\d+단원\.json$/.test(f));
+      const files = fs
+        .readdirSync(base)
+        .filter((f) => /^\d+단원\.json$/.test(f));
       for (const file of files) {
         if (results.length >= limit) break;
         try {
           const d = JSON.parse(fs.readFileSync(path.join(base, file), 'utf-8'));
           for (const concept of d.concepts ?? []) {
             if (results.length >= limit) break;
-            const matchedNames = conceptNames.filter(name => {
-              const nameWords = name.split(/\s+/).filter(w => w.length > 1);
-              const conceptWords = concept.name.split(/\s+/).filter(w => w.length > 1);
-              
+            const matchedNames = conceptNames.filter((name) => {
+              const nameWords = name.split(/\s+/).filter((w) => w.length > 1);
+              const conceptWords = concept.name
+                .split(/\s+/)
+                .filter((w) => w.length > 1);
+
               // 1. 완전 일치 또는 부분 문자열 일치
-              if (concept.name.includes(name) || name.includes(concept.name)) return true;
-              
+              if (concept.name.includes(name) || name.includes(concept.name))
+                return true;
+
               // 2. 단어 단위 교집합 확인
-              return nameWords.some(nw => concept.name.includes(nw)) || 
-                     conceptWords.some(cw => name.includes(cw));
+              return (
+                nameWords.some((nw) => concept.name.includes(nw)) ||
+                conceptWords.some((cw) => name.includes(cw))
+              );
             });
             if (matchedNames.length === 0) continue;
             const qd = concept.realQuestion?.questionData;
@@ -1236,18 +1288,22 @@ export class StudyService {
                 correct_answer: parseAnswer(qd.correct_answer ?? qd.answer),
                 rawStimulus: qd.stimulus ?? '',
               },
-              conceptHighlightV2: concept.realQuestion?.conceptHighlightV2 ?? null,
+              conceptHighlightV2:
+                concept.realQuestion?.conceptHighlightV2 ?? null,
             });
           }
-        } catch { continue; }
+        } catch {
+          continue;
+        }
       }
     }
     return results;
   }
-
 }
 
-function buildComboBlock(boxItems: string[] | undefined): { title: string; items: { key: string; text: string }[] } | null {
+function buildComboBlock(
+  boxItems: string[] | undefined,
+): { title: string; items: { key: string; text: string }[] } | null {
   if (!boxItems || boxItems.length === 0) return null;
   const markers = ['ㄱ', 'ㄴ', 'ㄷ', 'ㄹ'];
   return {

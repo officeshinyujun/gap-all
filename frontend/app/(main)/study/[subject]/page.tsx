@@ -1,7 +1,7 @@
 'use client';
 
-import React, { use, useState, useEffect, useMemo } from 'react';
-import { useRouter } from 'next/navigation';
+import React, { useState, useEffect, useMemo } from 'react';
+import { useNavigate, useParams } from 'react-router';
 import { X } from 'lucide-react';
 import { VStack } from '@shared/ui/VStack';
 import { HStack } from '@shared/ui/HStack';
@@ -39,11 +39,10 @@ function buildSubUnits(unit: ApiUnit) {
   });
 }
 
-export default function StudyPage({ params }: { params: Promise<{ subject: string }> }) {
-  const unwrappedParams = use(params);
-  const subject = unwrappedParams.subject;
+export default function StudyPage() {
+  const { subject = '' } = useParams();
   const subjectName = getSubjectName(subject);
-  const router = useRouter();
+  const navigate = useNavigate();
 
   const [units, setUnits] = useState<ApiUnit[]>([]);
   const [loading, setLoading] = useState(true);
@@ -112,7 +111,7 @@ export default function StudyPage({ params }: { params: Promise<{ subject: strin
       .filter((u) => u.progress > 0)
       .map((u) => u.unitNumber)
       .join(',');
-    router.push(`/exam/${subject}${learnedUnits ? `?learnedUnits=${learnedUnits}` : ''}`);
+    navigate(`/exam/${subject}${learnedUnits ? `?learnedUnits=${learnedUnits}` : ''}`);
   }
 
   function renderSubUnitList() {
@@ -123,7 +122,7 @@ export default function StudyPage({ params }: { params: Promise<{ subject: strin
         <div
           key={sub.id}
           className={`${s.subUnitDetailItem} ${sub.status === 'completed' ? s.completed : ''} ${isClickable ? s.clickable : ''}`}
-          onClick={() => isClickable && router.push(href)}
+          onClick={() => isClickable && navigate(href)}
         >
           <Typo.MD size={16} color="primary" style={{ fontWeight: 500 }}>
             {sub.id}. {sub.title}

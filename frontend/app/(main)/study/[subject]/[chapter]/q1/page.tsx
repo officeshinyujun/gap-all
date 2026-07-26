@@ -1,7 +1,7 @@
 'use client';
 
-import { use, useEffect, useState } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { useNavigate, useParams, useSearchParams } from 'react-router';
 import Typo from '@shared/ui/Typo';
 import { SPACING } from '@shared/constants/spacing';
 import { fetchBlankQuestions, updateStudyProgress } from '@/lib/studyQuizApi';
@@ -19,15 +19,11 @@ function parseUnitNumber(chapter: string): number {
 type PageState = 'loading' | 'error' | 'quiz' | 'result';
 type ChipState = 'default' | 'correct' | 'wrong' | 'disabled';
 
-export default function StudyQ1Page({
-  params,
-}: {
-  params: Promise<{ subject: string; chapter: string }>;
-}) {
-  const { subject, chapter } = use(params);
+export default function StudyQ1Page() {
+  const { subject = '', chapter = '' } = useParams();
   const unitNumber = parseUnitNumber(chapter);
-  const router = useRouter();
-  const searchParams = useSearchParams();
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const count = (searchParams.get('count') === '20' ? 20 : 10) as QuizCount;
 
   const [pageState, setPageState] = useState<PageState>('loading');
@@ -96,7 +92,7 @@ export default function StudyQ1Page({
     <div className={s.container}>
       {/* 헤더 */}
       <div className={s.header}>
-        <button className={s.backButton} onClick={() => router.back()}>
+        <button className={s.backButton} onClick={() => navigate(-1)}>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <path d="M10 12L6 8L10 4" stroke="#5C6370" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
@@ -185,7 +181,7 @@ export default function StudyQ1Page({
             </button>
             <button
               className={`${s.footerButton} ${s.footerButtonNext}`}
-              onClick={() => router.push(`/study/${subject}/${chapter}/q2?count=10`)}
+              onClick={() => navigate(`/study/${subject}/${chapter}/q2?count=10`)}
             >
               양방향 개념 풀기 →
             </button>

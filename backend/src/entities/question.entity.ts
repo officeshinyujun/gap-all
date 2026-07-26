@@ -6,11 +6,13 @@ import {
   OneToMany,
   JoinColumn,
   CreateDateColumn,
+  Index,
 } from 'typeorm';
 import { Subject } from './subject.entity';
 import { Unit } from './unit.entity';
 import { ExamItem } from './exam-item.entity';
 import { Difficulty } from './exam-record.entity';
+import type { QuestionGenerationLineage } from '../exams/reference-frame.types';
 
 @Entity('questions')
 export class Question {
@@ -35,6 +37,10 @@ export class Question {
   @Column({ name: 'recommended_template' })
   recommendedTemplate: string;
 
+  @Index('IDX_questions_variant_group')
+  @Column({ name: 'variant_group_id', nullable: true })
+  variantGroupId?: string;
+
   @Column({ name: 'question_stem', type: 'text' })
   questionStem: string;
 
@@ -56,11 +62,24 @@ export class Question {
   @Column({ name: 'correct_answer' })
   correctAnswer: number;
 
-  @Column({ name: 'set_group_id', type: 'varchar', nullable: true, default: null })
+  @Column({
+    name: 'set_group_id',
+    type: 'varchar',
+    nullable: true,
+    default: null,
+  })
   setGroupId: string | null;
 
   @Column({ name: 'set_position', type: 'int', nullable: true, default: null })
   setPosition: number | null;
+
+  @Column({
+    name: 'generation_lineage',
+    type: 'jsonb',
+    nullable: true,
+    default: null,
+  })
+  generationLineage: QuestionGenerationLineage | null;
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;

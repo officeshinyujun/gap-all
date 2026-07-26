@@ -1,0 +1,2 @@
+npm test -- --runInBand src/exams/reference-archetype.golden.spec.ts
+PASS: 1 suite, 2 tests, 1 snapshot

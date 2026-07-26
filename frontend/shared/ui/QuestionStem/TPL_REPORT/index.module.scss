@@ -1,0 +1,122 @@
+.reportBox {
+  width: 100%;
+  border: 1.5px solid $text-strong;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding: $spacing-20 $spacing-24;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: $bold;
+  color: $text-primary;
+  margin: 0 0 $spacing-12;
+}
+
+.metaRow {
+  display: flex;
+  gap: $spacing-16;
+  font-size: 13px;
+  color: $text-secondary;
+  margin-bottom: $spacing-12;
+}
+
+.metadataGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-8 $spacing-16;
+  padding: $spacing-12;
+  background: $background-secondary;
+  border-radius: 6px;
+  margin-bottom: $spacing-16;
+}
+
+.metaItem {
+  display: flex;
+  gap: $spacing-4;
+  font-size: 13px;
+}
+
+.metaLabel {
+  color: $text-secondary;
+  white-space: nowrap;
+}
+
+.metaValue {
+  color: $text-primary;
+  font-weight: $medium;
+}
+
+.sections {
+  margin-bottom: $spacing-16;
+}
+
+.section {
+  margin-bottom: $spacing-20;
+}
+
+.sectionHeading {
+  font-size: 15px;
+  font-weight: $semi-bold;
+  color: $text-primary;
+  margin: 0 0 $spacing-8;
+  padding-bottom: $spacing-4;
+  border-bottom: 2px solid $background-secondary;
+}
+
+.sectionContent {
+  font-size: 14px;
+  font-weight: $regular;
+  line-height: 1.7;
+  color: $text-primary;
+  margin: 0 0 $spacing-12;
+}
+
+.tableWrapper {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+}
+
+.table th,
+.table td {
+  padding: $spacing-6 $spacing-10;
+  border: 1px solid $border-primary;
+  text-align: left;
+}
+
+.table th {
+  background: $background-secondary;
+  font-weight: $semi-bold;
+  color: $text-primary;
+}
+
+.table td {
+  color: $text-primary;
+}
+
+.conclusion {
+  margin-top: $spacing-16;
+  padding-top: $spacing-16;
+  border-top: 1px solid $border-primary;
+}
+
+.conclusionTitle {
+  font-size: 14px;
+  font-weight: $semi-bold;
+  color: $text-primary;
+  margin: 0 0 $spacing-6;
+}
+
+.conclusionContent {
+  font-size: 14px;
+  font-weight: $regular;
+  line-height: 1.7;
+  color: $text-primary;
+  margin: 0;
+}

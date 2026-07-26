@@ -1,7 +1,7 @@
 'use client';
 
-import { use, useEffect, useState, useRef } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useEffect, useState, useRef } from 'react';
+import { useNavigate, useParams, useSearchParams } from 'react-router';
 import Typo from '@shared/ui/Typo';
 import { fetchConceptPairs, updateStudyProgress } from '@/lib/studyQuizApi';
 import { fetchUnitId } from '@/lib/studyApi';
@@ -16,15 +16,11 @@ function parseUnitNumber(chapter: string): number {
 type PageState = 'loading' | 'error' | 'quiz' | 'result';
 type AnswerState = 'idle' | 'submitted';
 
-export default function StudyQ2Page({
-  params,
-}: {
-  params: Promise<{ subject: string; chapter: string }>;
-}) {
-  const { subject, chapter } = use(params);
+export default function StudyQ2Page() {
+  const { subject = '', chapter = '' } = useParams();
   const unitNumber = parseUnitNumber(chapter);
-  const router = useRouter();
-  const searchParams = useSearchParams();
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const count = (searchParams.get('count') === '20' ? 20 : 10) as QuizCount;
 
   const [pageState, setPageState] = useState<PageState>('loading');
@@ -105,7 +101,7 @@ export default function StudyQ2Page({
     <div className={s.container}>
       {/* 헤더 */}
       <div className={s.header}>
-        <button className={s.backButton} onClick={() => router.back()}>
+        <button className={s.backButton} onClick={() => navigate(-1)}>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <path d="M10 12L6 8L10 4" stroke="#5C6370" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
@@ -222,7 +218,7 @@ export default function StudyQ2Page({
             <button className={s.footerButton} onClick={loadPairs}>다시 풀기</button>
             <button
               className={`${s.footerButton} ${s.footerButtonNext}`}
-              onClick={() => router.push(`/study/${subject}`)}
+              onClick={() => navigate(`/study/${subject}`)}
             >
               학습 완료 →
             </button>

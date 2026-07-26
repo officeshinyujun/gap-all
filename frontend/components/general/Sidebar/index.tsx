@@ -6,10 +6,8 @@ import { HStack } from "../HStack";
 import Typo from "../Typo";
 import { SPACING } from "../../../constants/spacing";
 import s from "./style.module.scss";
-import { LayoutDashboard, MessageSquare, Briefcase, Hammer, Plus, BookOpen, User, X, FileText, RotateCcw, RefreshCcw } from "lucide-react";
-import Link from 'next/link';
-import Image from 'next/image';
-import { usePathname, useSearchParams, useRouter } from 'next/navigation';
+import { LayoutDashboard, MessageSquare, Briefcase, Hammer, Plus, BookOpen, User, X, FileText, RefreshCcw, type LucideIcon } from "lucide-react";
+import { Link, useLocation, useNavigate, useSearchParams } from 'react-router';
 import { APP_CONFIG } from "../../../constants/app";
 import { API_BASE_URL } from "../../../lib/auth";
 import { useAuth } from "../../../contexts/AuthContext";
@@ -19,9 +17,9 @@ interface ChatSession {
   title: string;
 }
 
-function SidebarItem({ icon: Icon, label, href, isActive }: { icon: any, label: string, href: string, isActive?: boolean }) {
+function SidebarItem({ icon: Icon, label, href, isActive }: { icon: LucideIcon, label: string, href: string, isActive?: boolean }) {
   return (
-    <Link href={href} style={{ textDecoration: 'none', display: 'block' }}>
+    <Link to={href} style={{ textDecoration: 'none', display: 'block' }}>
       <HStack gap={SPACING.s8} align="center" className={`${s.menuItem} ${isActive ? s.menuItemActive : ''}`}>
         <Icon size={16} color={isActive ? "var(--text-primary)" : "var(--text-secondary)"} />
         <Typo.MD size={14} color={isActive ? "primary" : "secondary"}>{label}</Typo.MD>
@@ -42,13 +40,13 @@ const STUDY_SHEET_ITEMS = {
 };
 
 function MobileStudySheet({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
-  const router = useRouter();
+  const navigate = useNavigate();
 
   if (!isOpen) return null;
 
   const handleItemClick = (href: string) => {
     onClose();
-    router.push(href);
+    navigate(href);
   };
 
   return (
@@ -115,7 +113,7 @@ function BottomBar({ pathname }: { pathname: string }) {
   return (
     <>
       <nav className={s.bottomBar}>
-        <Link href="/" className={`${s.bottomBarItem} ${isRouteActive('/') ? s.bottomBarItemActive : ''}`}>
+        <Link to="/" className={`${s.bottomBarItem} ${isRouteActive('/') ? s.bottomBarItemActive : ''}`}>
           <LayoutDashboard size={22} color={isRouteActive('/') ? "#3333CC" : "#5C5C70"} />
           <span className={s.bottomBarLabel}>홈</span>
         </Link>
@@ -129,18 +127,18 @@ function BottomBar({ pathname }: { pathname: string }) {
         </button>
 
         {reviewEnabled && (
-          <Link href="/review" className={`${s.bottomBarItem} ${isRouteActive('/review') ? s.bottomBarItemActive : ''}`}>
+          <Link to="/review" className={`${s.bottomBarItem} ${isRouteActive('/review') ? s.bottomBarItemActive : ''}`}>
             <RefreshCcw size={22} color={isRouteActive('/review') ? "#3333CC" : "#5C5C70"} />
             <span className={s.bottomBarLabel}>오답</span>
           </Link>
         )}
 
-        <Link href="/chat" className={`${s.bottomBarItem} ${isRouteActive('/chat') ? s.bottomBarItemActive : ''}`}>
+        <Link to="/chat" className={`${s.bottomBarItem} ${isRouteActive('/chat') ? s.bottomBarItemActive : ''}`}>
           <MessageSquare size={22} color={isRouteActive('/chat') ? "#3333CC" : "#5C5C70"} />
           <span className={s.bottomBarLabel}>채팅</span>
         </Link>
 
-        <Link href="/profile" className={`${s.bottomBarItem} ${isRouteActive('/profile') ? s.bottomBarItemActive : ''}`}>
+        <Link to="/profile" className={`${s.bottomBarItem} ${isRouteActive('/profile') ? s.bottomBarItemActive : ''}`}>
           <User size={22} color={isRouteActive('/profile') ? "#3333CC" : "#5C5C70"} />
           <span className={s.bottomBarLabel}>프로필</span>
         </Link>
@@ -152,8 +150,8 @@ function BottomBar({ pathname }: { pathname: string }) {
 }
 
 export function Sidebar() {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
+  const { pathname } = useLocation();
+  const [searchParams] = useSearchParams();
   const { user } = useAuth();
   const [sessions, setSessions] = useState<ChatSession[]>([]);
   const [showAll, setShowAll] = useState(false);
@@ -189,7 +187,7 @@ export function Sidebar() {
       <VStack justify="between" align="center" className={s.sidebar} fullHeight>
         <VStack gap={SPACING.s10} fullWidth>
           <HStack gap={SPACING.s8} align="center" style={{ padding: SPACING.s12 }}>
-            <Image src="/2830_logo.png" alt={APP_CONFIG.name} width={32} height={32} />
+            <img src="/2830_logo.png" alt={APP_CONFIG.name} width={32} height={32} />
             <Typo.MD size={16} color="primary">{APP_CONFIG.name}</Typo.MD>
           </HStack>
 
@@ -239,7 +237,7 @@ export function Sidebar() {
           </VStack>
         </VStack>
 
-        <Link href="/profile" style={{ textDecoration: 'none', display: 'block', width: '100%' }}>
+        <Link to="/profile" style={{ textDecoration: 'none', display: 'block', width: '100%' }}>
           <HStack gap={SPACING.s8} align="center" className={s.userProfile} fullWidth style={{ cursor: 'pointer' }}>
             <div className={s.avatar} />
             <VStack gap={SPACING.s4}>

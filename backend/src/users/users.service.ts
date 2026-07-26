@@ -17,7 +17,8 @@ export class UsersService {
   async findById(id: string) {
     const user = await this.userRepo.findOne({ where: { id } });
     if (!user) throw new NotFoundException('사용자를 찾을 수 없습니다.');
-    const { passwordHash: _, ...safe } = user;
+    const { passwordHash, ...safe } = user;
+    void passwordHash;
     return safe;
   }
 

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useNavigate } from 'react-router';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { VStack } from '@shared/ui/VStack';
@@ -68,7 +68,7 @@ function saveProgress(groupKey: string, nextQuizIndex: number, currentAnswers: R
 }
 
 export default function ReviewPage() {
-  const router = useRouter();
+  const navigate = useNavigate();
   const [pageState, setPageState] = useState<PageState>('loading');
   const [groups, setGroups] = useState<GroupedRecommendation[]>([]);
   const [totalConcepts, setTotalConcepts] = useState(0);
@@ -317,7 +317,7 @@ export default function ReviewPage() {
       {pageState === 'empty' && (
         <VStack align="center" justify="center" fullWidth style={{ padding: SPACING.s24 }}>
           <Typo.MD size={16} color="secondary">복습할 오답이 없습니다!</Typo.MD>
-          <button className={s.actionButton} onClick={() => router.push('/')}>
+          <button className={s.actionButton} onClick={() => navigate('/')}>
             <Typo.SM size={14} color="brand">메인으로 돌아가기</Typo.SM>
           </button>
         </VStack>
@@ -586,7 +586,7 @@ export default function ReviewPage() {
               </HStack>
             )}
           </VStack>
-          <button className={s.actionButton} onClick={() => router.push('/')}>
+          <button className={s.actionButton} onClick={() => navigate('/')}>
             <Typo.SM size={14} color="brand">메인으로 돌아가기</Typo.SM>
           </button>
         </VStack>

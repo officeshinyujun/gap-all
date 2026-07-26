@@ -21,22 +21,33 @@ Return a JSON object with a "questions" array containing ALL questions found acr
 
 Return json with: {"questions": [...]}`;
 
-async function parsePdf(pdfPath: string, subjectEn: string, subjectKor: string, unitNum: number) {
+async function parsePdf(
+  pdfPath: string,
+  subjectEn: string,
+  subjectKor: string,
+  unitNum: number,
+) {
   const tmpDir = `/tmp/pdf_v_${subjectEn}_${unitNum}`;
   fs.mkdirSync(tmpDir, { recursive: true });
 
   // Convert all pages to images
-  execSync(`pdftoppm -png -r 200 "${pdfPath}" "${tmpDir}/page"`, { timeout: 60000 });
+  execSync(`pdftoppm -png -r 200 "${pdfPath}" "${tmpDir}/page"`, {
+    timeout: 60000,
+  });
 
-  const pageFiles = fs.readdirSync(tmpDir)
-    .filter(f => f.endsWith('.png'))
+  const pageFiles = fs
+    .readdirSync(tmpDir)
+    .filter((f) => f.endsWith('.png'))
     .sort((a, b) => {
       const na = parseInt(a.replace(/\D/g, '')) || 0;
       const nb = parseInt(b.replace(/\D/g, '')) || 0;
       return na - nb;
     });
 
-  if (pageFiles.length === 0) { console.log('  no pages'); return []; }
+  if (pageFiles.length === 0) {
+    console.log('  no pages');
+    return [];
+  }
 
   // Build vision content
   const msgContent: any[] = [{ type: 'text', text: VISION_PROMPT }];
@@ -67,12 +78,22 @@ async function parsePdf(pdfPath: string, subjectEn: string, subjectKor: string, 
     return items
       .filter((q: any) => q.questionNumber)
       .map((q: any) => ({
-        source: { type: 'suteck' as const, subject: subjectEn, subjectKor, unitNumber: unitNum, filename: path.basename(pdfPath) },
+        source: {
+          type: 'suteck' as const,
+          subject: subjectEn,
+          subjectKor,
+          unitNumber: unitNum,
+          filename: path.basename(pdfPath),
+        },
         questionNumber: q.questionNumber,
         stem: String(q.stem || '').replace(/\\n/g, '\n'),
         stimulus: String(q.stimulus || '').replace(/\\n/g, '\n'),
-        viewItems: (Array.isArray(q.viewItems) ? q.viewItems : []).map((v: any) => String(v).trim()),
-        choices: (Array.isArray(q.choices) ? q.choices : []).map((c: any) => String(c).trim()),
+        viewItems: (Array.isArray(q.viewItems) ? q.viewItems : []).map(
+          (v: any) => String(v).trim(),
+        ),
+        choices: (Array.isArray(q.choices) ? q.choices : []).map((c: any) =>
+          String(c).trim(),
+        ),
         correctAnswer: null,
         difficulty: 'MIDDLE',
         targetConcepts: Array.isArray(q.targetConcepts) ? q.targetConcepts : [],
@@ -97,7 +118,10 @@ async function main() {
     console.log(`\n===== ${subj.en} =====`);
     for (let unit = 1; unit <= 20; unit++) {
       const pdfPath = path.join(baseDir, `${subj.prefix}_${unit}단원_문제.pdf`);
-      if (!fs.existsSync(pdfPath)) { console.log(`  ${unit}: no pdf`); continue; }
+      if (!fs.existsSync(pdfPath)) {
+        console.log(`  ${unit}: no pdf`);
+        continue;
+      }
 
       process.stdout.write(`  ${unit}단원... `);
       try {
@@ -105,7 +129,10 @@ async function main() {
         if (questions.length > 0) {
           const outDir = path.join(outBase, subj.en, 'suteck');
           fs.mkdirSync(outDir, { recursive: true });
-          fs.writeFileSync(path.join(outDir, `${unit}단원.json`), JSON.stringify(questions, null, 2));
+          fs.writeFileSync(
+            path.join(outDir, `${unit}단원.json`),
+            JSON.stringify(questions, null, 2),
+          );
           console.log(`${questions.length}q ✓`);
         } else {
           console.log('0q ✗');

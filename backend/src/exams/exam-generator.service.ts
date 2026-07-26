@@ -13,8 +13,9 @@ import { PromptsService } from '../prompts/prompts.service';
 import { PatternMatcherService } from './pattern-matcher.service';
 import { SimilarityValidatorService } from './similarity-validator.service';
 import { StimulusNormalizer } from './stimulus-normalizer';
-import { getTplSchema } from './tpl-schemas';
+import { getTplSchema, isStructuredTplName } from './tpl-schemas';
 import { Question } from '../entities/question.entity';
+import { QuestionSeenRecord } from '../entities/question-seen-record.entity';
 import { Subject } from '../entities/subject.entity';
 import { Unit } from '../entities/unit.entity';
 import { Difficulty, ExamRecord } from '../entities/exam-record.entity';
@@ -31,7 +32,12 @@ import {
   isSimilarText,
   extractJson,
 } from './exam-generation.utils';
-import { validateItems, validateCombinationEncoding, validateStemPattern, validateItemLogic } from './exam-question-validator';
+import {
+  validateItems,
+  validateCombinationEncoding,
+  validateStemPattern,
+  validateItemLogic,
+} from './exam-question-validator';
 
 const OPENAI_TIMEOUT_MS = Number(process.env.OPENAI_TIMEOUT_MS) || 180_000;
 const MAX_UNIT_TEXT_LENGTH = Number(process.env.MAX_UNIT_TEXT_LENGTH) || 12_000;
@@ -61,6 +67,8 @@ export class ExamGeneratorService {
     private readonly examRecordRepo: Repository<ExamRecord>,
     @InjectRepository(ExamItem)
     private readonly examItemRepo: Repository<ExamItem>,
+    @InjectRepository(QuestionSeenRecord)
+    private readonly questionSeenRecordRepo: Repository<QuestionSeenRecord>,
     private readonly textbookService: TextbookService,
     private readonly promptsService: PromptsService,
     private readonly patternMatcher: PatternMatcherService,
@@ -91,10 +99,15 @@ export class ExamGeneratorService {
     let previousQuestionIds: Set<string> | undefined;
     if (userId && excludePrevious !== false) {
       previousQuestionIds = await this.getUserPreviousQuestionIds(
-        userId, subjectId, startUnitNum, endUnitNum,
+        userId,
+        subjectId,
+        startUnitNum,
+        endUnitNum,
       );
       if (previousQuestionIds.size > 0) {
-        this.logger.log(`이전 문항 ${previousQuestionIds.size}개 제외 (사용자 중복 방지)`);
+        this.logger.log(
+          `이전 문항 ${previousQuestionIds.size}개 제외 (사용자 중복 방지)`,
+        );
       }
     }
 
@@ -113,7 +126,11 @@ export class ExamGeneratorService {
     this.logger.log(`텍스트북 로딩 완료: ${units.length}개 단원`);
 
     // 2. 단원별 문항 할당량 계산
-    const unitWeights = computeUnitWeights(startUnitNum, endUnitNum, questionCount);
+    const unitWeights = computeUnitWeights(
+      startUnitNum,
+      endUnitNum,
+      questionCount,
+    );
     this.logger.log(
       `단원 할당: ${[...unitWeights.entries()].map(([u, c]) => `${u}단원=${c}문항`).join(', ')}`,
     );
@@ -134,7 +151,9 @@ export class ExamGeneratorService {
     for (const [unitNum, count] of unitWeights) {
       unitIdx++;
       const unitPayload = units.find(
-        (u) => u.unit_name === `${unitNum}단원` || u.unit_name.includes(`Unit_${String(unitNum).padStart(2, '0')}`),
+        (u) =>
+          u.unit_name === `${unitNum}단원` ||
+          u.unit_name.includes(`Unit_${String(unitNum).padStart(2, '0')}`),
       ) || { unit_name: `${unitNum}단원`, text_payload: '' };
       const singleUnits = [unitPayload];
 
@@ -177,7 +196,11 @@ export class ExamGeneratorService {
       const normalizedItems = this.stimulusNormalizer.normalizeItems(rawItems);
 
       // 3c. 구조 검증
-      const validated = validateItems(normalizedItems, this.logger, this.stimulusNormalizer);
+      const validated = validateItems(
+        normalizedItems,
+        this.logger,
+        this.stimulusNormalizer,
+      );
       // 3d. 의미적 검증 + 부족분 재생성 (최대 2회)
       let semValid = await this.runSemanticValidation(client, validated);
       let retryRound = 0;
@@ -185,18 +208,42 @@ export class ExamGeneratorService {
         retryRound++;
         const deficit = count - semValid.length;
         const extraBp = await this.runStep1(
-          client, singleUnits, difficulty, deficit, subjectSlug,
-          numPlayHint, 0, targetConcepts, undefined, unitNum, unitNum,
+          client,
+          singleUnits,
+          difficulty,
+          deficit,
+          subjectSlug,
+          numPlayHint,
+          0,
+          targetConcepts,
+          undefined,
+          unitNum,
+          unitNum,
         );
-        const extraRaw = await this.runStep2(client, extraBp, singleUnits, subjectSlug, 0);
+        const extraRaw = await this.runStep2(
+          client,
+          extraBp,
+          singleUnits,
+          subjectSlug,
+          0,
+        );
         const extraNorm = this.stimulusNormalizer.normalizeItems(extraRaw);
-        const extraVal = validateItems(extraNorm, this.logger, this.stimulusNormalizer);        const extraSem = await this.runSemanticValidation(client, extraVal);
+        const extraVal = validateItems(
+          extraNorm,
+          this.logger,
+          this.stimulusNormalizer,
+        );
+        const extraSem = await this.runSemanticValidation(client, extraVal);
         semValid = [...semValid, ...extraSem];
       }
       if (semValid.length > count) semValid = semValid.slice(0, count);
 
       // 3e. 유사도 검증 + 파이프라인 내 중복 체크 (병렬 실행 + 공용 함수)
-      const addedCount = await this.filterAndDeduplicate(semValid, allValid, seenConceptKeys);
+      const addedCount = await this.filterAndDeduplicate(
+        semValid,
+        allValid,
+        seenConceptKeys,
+      );
 
       this.logger.log(
         `--- ${unitNum}단원 완료: ${semValid.length}개 → 유사도 통과 ${addedCount}개 ---`,
@@ -220,14 +267,33 @@ export class ExamGeneratorService {
       const deficit = questionCount - finalItems.length;
       this.logger.log(`전체 ${deficit}개 부족, 통합 재생성`);
       const fallbackBp = await this.runStep1(
-        client, units, difficulty, deficit, subjectSlug,
-        customPrompt, 0, targetConcepts, undefined,
-        startUnitNum, endUnitNum,
+        client,
+        units,
+        difficulty,
+        deficit,
+        subjectSlug,
+        customPrompt,
+        0,
+        targetConcepts,
+        undefined,
+        startUnitNum,
+        endUnitNum,
       );
-      const fallbackRaw = await this.runStep2(client, fallbackBp, units, subjectSlug, 0);
+      const fallbackRaw = await this.runStep2(
+        client,
+        fallbackBp,
+        units,
+        subjectSlug,
+        0,
+      );
       const fallbackNorm = this.stimulusNormalizer.normalizeItems(fallbackRaw);
-      const fallbackVal = validateItems(fallbackNorm, this.logger, this.stimulusNormalizer);      const fallbackSem = await this.runSemanticValidation(client, fallbackVal);
-      const fbAdded = await this.filterAndDeduplicate(fallbackSem, finalItems, seenConceptKeys);
+      const fallbackVal = validateItems(
+        fallbackNorm,
+        this.logger,
+        this.stimulusNormalizer,
+      );
+      const fallbackSem = await this.runSemanticValidation(client, fallbackVal);
+      await this.filterAndDeduplicate(fallbackSem, finalItems, seenConceptKeys);
       if (finalItems.length >= questionCount) {
         finalItems = finalItems.slice(0, questionCount);
       }
@@ -238,12 +304,52 @@ export class ExamGeneratorService {
     }
 
     // 5. DB 저장
+    const PLACEHOLDER_PATTERNS = [
+      '(내용 없음)',
+      '내용 없음',
+      '값을 입력',
+      '여기에 ',
+    ];
+    const contentful = finalItems.filter((item) => {
+      const stimJson = JSON.stringify(item.stimulusData ?? {});
+      if (PLACEHOLDER_PATTERNS.some((p) => stimJson.includes(p))) {
+        this.logger.warn(
+          `[CONTFILTER] 플레이스홀더 포함 — ${item.targetConcept} 스킵`,
+        );
+        return false;
+      }
+      if (item.questionStem.trim().length < 15) {
+        this.logger.warn(
+          `[CONTFILTER] stem 너무 짧음 — ${item.targetConcept} 스킵`,
+        );
+        return false;
+      }
+      return true;
+    });
+    if (contentful.length < finalItems.length) {
+      this.logger.warn(
+        `[CONTFILTER] ${finalItems.length - contentful.length}개 문항 콘텐츠 부족으로 제거`,
+      );
+    }
+    if (contentful.length === 0) {
+      this.logger.warn(
+        '[CONTFILTER] 콘텐츠 유효한 문항 0개 — 빈 결과 저장 안 함',
+      );
+      await this.reportProgress(reportProgress, {
+        stage: 'saving_questions',
+        progress: 100,
+        status: 'warning',
+        message: '생성된 문항 중 유효한 콘텐츠가 없어 저장된 문항이 없습니다.',
+      });
+      return [];
+    }
+
     const questions = await this.saveQuestions(
-      finalItems,
+      contentful.slice(0, questionCount),
       subjectId,
       subjectSlug,
       reportProgress,
-      previousQuestionIds,
+      userId,
     );
 
     return questions;
@@ -383,6 +489,52 @@ export class ExamGeneratorService {
       if (!Array.isArray(arr) || arr.length === 0) {
         throw new Error('Step 1 결과가 빈 배열입니다.');
       }
+      const unsupportedTemplates = arr.filter(
+        (blueprint) =>
+          !isStructuredTplName(blueprint?.metadata?.recommended_template),
+      );
+      if (unsupportedTemplates.length > 0) {
+        throw new Error(
+          `Step 1이 지원하지 않는 TPL을 선택했습니다: ${unsupportedTemplates
+            .map(
+              (blueprint) =>
+                blueprint?.metadata?.recommended_template || '(empty)',
+            )
+            .join(', ')}`,
+        );
+      }
+
+      const dnaCandidates =
+        startUnitNum != null && endUnitNum != null
+          ? this.patternMatcher.findDna(
+              subjectSlug,
+              startUnitNum,
+              endUnitNum,
+              targetConcepts,
+              arr.length,
+            )
+          : [];
+      if (dnaCandidates.length > 0) {
+        if (dnaCandidates.length < arr.length) {
+          throw new Error(
+            `DNA v2가 부족합니다: requested=${arr.length}, available=${dnaCandidates.length}`,
+          );
+        }
+        arr.forEach((blueprint, index) => {
+          const dna = dnaCandidates[index];
+          blueprint.dna_id = dna.dnaId;
+          blueprint.dna_contract = dna;
+          blueprint.metadata = {
+            ...(blueprint.metadata ?? {}),
+            recommended_template: dna.materialContract.requiredTemplate,
+          };
+          blueprint.item_structure = {
+            ...(blueprint.item_structure ?? {}),
+            item_family: dna.stemContract.responseMode,
+            judgment_axis: dna.stemContract.judgmentTarget,
+          };
+        });
+      }
 
       await this.reportProgress(reportProgress, {
         stage: 'step1',
@@ -422,6 +574,8 @@ export class ExamGeneratorService {
           retryCount + 1,
           targetConcepts,
           reportProgress,
+          startUnitNum,
+          endUnitNum,
         );
       }
 
@@ -489,10 +643,15 @@ export class ExamGeneratorService {
           ``,
           `# [Blueprint]`,
           `${JSON.stringify(bp)}`,
+          bp.dna_contract
+            ? '# [DNA v2 강제 계약]\nBlueprint의 dna_contract.materialContract.requiredTemplate을 변경하지 마라. 자료는 dna_contract.solutionContract.evidenceSlots 중 서로 다른 원천 단위의 불가결 근거 두 개와 교과 규칙을 반드시 사용하게 설계하라. claimProofs.indispensabilityChecks에 지정된 각 근거를 제거하면 해당 판단이 불가능하거나 진위가 바뀌어야 한다. 단순 보충ㆍ반복 근거를 끼워 넣어 요건을 충족한 것으로 처리하지 마라. 자료에 없는 법 조항, 예외, 정의로 선지를 판단하게 하지 마라. 각 핵심 보기 또는 선지는 dna_contract.solutionContract.claimProofs의 근거 관계를 유지하라. 한 문장 또는 한 표 셀만 읽으면 정답이 드러나는 구조는 금지한다. 문서형 TPL은 materialContract.metadataRequirements의 실제 값을 모두 채워라.'
+            : '',
           `- units: ${unitsJson}`,
-        ].join('\n');
+        ]
+          .filter(Boolean)
+          .join('\n');
 
-        let item: any | null = null;
+        let item: any = null;
         const maxRetries = 3;
         for (let attempt = 0; attempt < maxRetries; attempt++) {
           const controller = new AbortController();
@@ -510,7 +669,11 @@ export class ExamGeneratorService {
                 ? {
                     response_format: {
                       type: 'json_schema' as const,
-                      json_schema: { name: tplSchema.name, schema: tplSchema.schema, strict: true },
+                      json_schema: {
+                        name: tplSchema.name,
+                        schema: tplSchema.schema,
+                        strict: true,
+                      },
                     },
                   }
                 : {}),
@@ -521,13 +684,15 @@ export class ExamGeneratorService {
           clearTimeout(timer);
 
           if (response.usage) {
-            usageLogs.push(this.aiUsageLogRepo.create({
-              source: AiUsageSource.EXAM_STEP2,
-              model: process.env.OPENAI_STEP2_MODEL ?? 'gpt-4o',
-              promptTokens: response.usage.prompt_tokens ?? 0,
-              completionTokens: response.usage.completion_tokens ?? 0,
-              totalTokens: response.usage.total_tokens ?? 0,
-            }));
+            usageLogs.push(
+              this.aiUsageLogRepo.create({
+                source: AiUsageSource.EXAM_STEP2,
+                model: process.env.OPENAI_STEP2_MODEL ?? 'gpt-4o',
+                promptTokens: response.usage.prompt_tokens ?? 0,
+                completionTokens: response.usage.completion_tokens ?? 0,
+                totalTokens: response.usage.total_tokens ?? 0,
+              }),
+            );
           }
 
           const content = response.choices[0]?.message?.content ?? '';
@@ -543,27 +708,9 @@ export class ExamGeneratorService {
         }
 
         if (item) {
-          results.push(item);
+          results.push({ ...item, dna_contract: bp.dna_contract });
         } else {
-          this.logger.warn(
-            `Step 2 최종 실패 (3/3): ${tpl} — fallback Blueprint 데이터로 대체`,
-          );
-          // fallback: Blueprint의 render_ready가 있으면 사용, 없으면 최소 구조 생성
-          results.push(bp.render_ready ? {
-            metadata: bp.metadata,
-            render_ready: bp.render_ready,
-            correct_answer: 1,
-            explanation: { judgment: '', distractors: { '2': '', '3': '', '4': '', '5': '' } },
-          } : {
-            metadata: bp.metadata,
-            render_ready: {
-              question_stem: bp.metadata?.target_concept ? `${bp.metadata.target_concept}에 대한 설명으로 옳은 것은?` : '',
-              stimulus_data: {},
-              options_list: ['① 선택지 1', '② 선택지 2', '③ 선택지 3', '④ 선택지 4', '⑤ 선택지 5'],
-            },
-            correct_answer: 1,
-            explanation: { judgment: '', distractors: { '2': '', '3': '', '4': '', '5': '' } },
-          });
+          this.logger.warn(`Step 2 최종 실패 (3/3): ${tpl} — 문항 탈락`);
         }
       }
     }
@@ -787,7 +934,6 @@ export class ExamGeneratorService {
   private async runSemanticValidation(
     client: OpenAI,
     items: GeneratedQuestion[],
-    reportProgress?: ExamGenerationProgressReporter,
   ): Promise<GeneratedQuestion[]> {
     if (items.length === 0) return items;
 
@@ -798,6 +944,7 @@ export class ExamGeneratorService {
       stimulus_data: item.stimulusData,
       options: item.optionsList,
       correct_answer: item.correctAnswer,
+      dna_contract: item.dnaContract ?? null,
     }));
 
     const prompt = `You are an expert exam quality reviewer for Korean CSAT-style questions (EBS 수능특강 style). Evaluate each question.
@@ -811,6 +958,7 @@ For each question, check ALL of the following:
 6. CONTENT COMPLETENESS: Is every field in stimulus_data filled with concrete, specific content (names, numbers, scenarios, statements)? Generic or abstract filler like "적절한 사례", "해당 내용", "관련 설명" without actual substance is a FAIL.
 7. STIMULUS-STEM RELEVANCE: Is the stimulus_data (table, diagram, conversation, etc.) actually relevant to what the question_stem is asking? If the stimulus shows a comparison table of A vs B but the stem asks about an unrelated concept C that doesn't require the table to answer, that's a FAIL. The stimulus must be NECESSARY to answer the question — if removing it doesn't change the difficulty, it's decorative and that's a FAIL.
 8. CONCEPT USAGE (BALANCED): Using curriculum concept terms in the stem IS ALLOWED in EBS-style questions. The stem MAY name concepts like "직업 가치관", "유연 근무제", "홀랜드 유형" etc. This is NOT a failure. However, if the stem names the concept AND the answer can be determined purely from knowing the concept name without reading the stimulus_data at all, that's a FAIL. The test is: "Does the student still need to read and interpret the stimulus to answer correctly?" If yes → PASS. If the stimulus is unnecessary because the stem already gives away everything → FAIL.
+9. DNA CONTRACT: When dna_contract is present, requiredTemplate must match the actual material. The answer must require at least dna_contract.solutionContract.minimumReasoningSteps steps, a curriculum rule, and at least dna_contract.qualityConstraints.requiredEvidenceSlotCount distinct, indispensable source units. For each claim, test every source unit named by its indispensabilityChecks: removing it must make the verdict indeterminate or change it. Reject a question if a single sentence or a single table cell reveals the answer, if an option needs a legal exception not stated in the material, or if the generated material does not support dna_contract.solutionContract.decisionRule.
 
 Input questions:
 ${JSON.stringify(validationInput, null, 2)}
@@ -870,17 +1018,19 @@ Output JSON only.`;
 
       if (passed.length === 0) {
         this.logger.warn(
-          '모든 문항이 의미적 검증에 실패. 구조 검증 통과분 그대로 사용.',
+          '모든 문항이 의미적 검증에 실패. 재생성 대상으로 반환.',
         );
-        return items;
+        return [];
       }
 
       this.logger.log(`의미적 검증: ${passed.length}/${items.length}개 통과`);
       return passed;
     } catch (err) {
       const message = err instanceof Error ? err.message : String(err);
-      this.logger.warn(`의미적 검증 호출 실패, 스킵: ${message}`);
-      return items;
+      this.logger.warn(
+        `의미적 검증 호출 실패, 재생성 대상으로 반환: ${message}`,
+      );
+      return [];
     }
   }
 
@@ -931,7 +1081,10 @@ Output JSON only.`;
           ctCache.set(item, ct);
         }
         const result = await this.similarityValidator.validate(
-          item.questionStem, item.stimulusData, item.optionsList, ct,
+          item.questionStem,
+          item.stimulusData,
+          item.optionsList,
+          ct,
         );
         return { item, passed: result.passed };
       }),
@@ -941,11 +1094,15 @@ Output JSON only.`;
       if (!passed) continue;
       const conceptKey = `${item.targetConcept}::${item.itemType}`;
       if (seenKeys.has(conceptKey)) {
-        this.logger.warn(`개념 중복 필터링: targetConcept=${item.targetConcept}`);
+        this.logger.warn(
+          `개념 중복 필터링: targetConcept=${item.targetConcept}`,
+        );
         continue;
       }
       if (this.isDuplicateInPipeline(item, targetArray)) {
-        this.logger.warn(`유사도 중복 필터링: targetConcept=${item.targetConcept}, stem=${item.questionStem.slice(0, 50)}...`);
+        this.logger.warn(
+          `유사도 중복 필터링: targetConcept=${item.targetConcept}, stem=${item.questionStem.slice(0, 50)}...`,
+        );
         continue;
       }
       seenKeys.add(conceptKey);
@@ -965,7 +1122,10 @@ Output JSON only.`;
       if (isSimilarText(existing.questionStem, item.questionStem, 0.8)) {
         return true;
       }
-      if (hasStimulus && JSON.stringify(existing.stimulusData) === itemStimKey) {
+      if (
+        hasStimulus &&
+        JSON.stringify(existing.stimulusData) === itemStimKey
+      ) {
         return true;
       }
     }
@@ -973,14 +1133,14 @@ Output JSON only.`;
   }
 
   // ============================================================
-  // DB 저장 (재사용 체크)
+  // DB 저장 (항상 새 문항 INSERT + 유저 본 문항 기록)
   // ============================================================
   private async saveQuestions(
     items: GeneratedQuestion[],
     subjectId: string,
     subjectSlug: string,
     reportProgress?: ExamGenerationProgressReporter,
-    previousQuestionIds?: Set<string>,
+    userId?: string,
   ): Promise<Question[]> {
     const saved: Question[] = [];
 
@@ -996,18 +1156,16 @@ Output JSON only.`;
       await this.reportProgress(reportProgress, {
         stage: 'saving_questions',
         progress: currentProgress,
-        message: `문항 저장/재사용 처리 중 (${index + 1}/${items.length})`,
+        message: `문항 저장 처리 중 (${index + 1}/${items.length})`,
         detail: item.targetConcept || item.recommendedTemplate,
       });
 
-      // 단원 찾기
       const unitNumber =
         parseInt(item.unitName.replace(/[^0-9]/g, ''), 10) || 1;
       let unit = await this.unitRepo.findOne({
         where: { subjectId, unitNumber },
       });
 
-      // 단원이 없으면 생성
       if (!unit) {
         unit = this.unitRepo.create({
           subjectId,
@@ -1017,38 +1175,34 @@ Output JSON only.`;
         await this.unitRepo.save(unit);
       }
 
-      // 재사용 체크
-      const existing = await this.questionRepo.findOne({
-        where: {
-          subjectId,
-          unitId: unit.id,
-          targetConcept: item.targetConcept,
-          recommendedTemplate: item.recommendedTemplate,
-        },
-      });
-
-      if (existing && !previousQuestionIds?.has(existing.id)) {
-        this.logger.log(
-          `재사용: ${item.targetConcept} (${item.recommendedTemplate})`,
-        );
-        saved.push(existing);
-        continue;
-      }
-
-      if (existing && previousQuestionIds?.has(existing.id)) {
-        this.logger.log(
-          `사용자 중복 방지: ${item.targetConcept} (${item.recommendedTemplate}) — 새 문항 생성`,
-        );
-      }
-
-      // 새 문항 저장
-      const safeTemplate = this.stimulusNormalizer.resolveTemplate(item.recommendedTemplate);
-      // 저장 전 stimulus_data 정규화: 빈 구조 채움 + viewItems 오염 제거
+      const safeTemplate = this.stimulusNormalizer.resolveTemplate(
+        item.recommendedTemplate,
+      );
       const finalStimulus = this.stimulusNormalizer.normalizeStimulusData(
         item.stimulusData ?? {},
         safeTemplate,
       );
       const finalTemplate = safeTemplate;
+      const variantGroupId = `${subjectId}::${unit.id}::${item.targetConcept}::${finalTemplate}`;
+
+      const unseenFromPool = userId
+        ? await this.findUnseenPoolVariant(userId, variantGroupId)
+        : null;
+
+      if (unseenFromPool) {
+        this.logger.log(
+          `풀 사용: ${item.targetConcept} (${finalTemplate}) — 기존 변형 재할당`,
+        );
+        if (userId) {
+          await this.questionSeenRecordRepo.upsert(
+            { userId, questionId: unseenFromPool.id, seenAt: new Date() },
+            ['userId', 'questionId'],
+          );
+        }
+        saved.push(unseenFromPool);
+        continue;
+      }
+
       const question = this.questionRepo.create({
         subjectId,
         unitId: unit.id,
@@ -1056,6 +1210,7 @@ Output JSON only.`;
         itemType: item.itemType,
         difficulty: item.difficulty,
         recommendedTemplate: finalTemplate,
+        variantGroupId,
         questionStem: item.questionStem,
         stimulusData: finalStimulus,
         optionsList: item.optionsList,
@@ -1067,6 +1222,14 @@ Output JSON only.`;
       });
 
       await this.questionRepo.save(question);
+
+      if (userId) {
+        await this.questionSeenRecordRepo.upsert(
+          { userId, questionId: question.id, seenAt: new Date() },
+          ['userId', 'questionId'],
+        );
+      }
+
       saved.push(question);
     }
 
@@ -1074,10 +1237,27 @@ Output JSON only.`;
       stage: 'saving_questions',
       progress: 96,
       status: 'success',
-      message: `문항 ${saved.length}개 저장/재사용 완료`,
+      message: `문항 ${saved.length}개 저장 완료`,
     });
 
     return saved;
+  }
+
+  private async findUnseenPoolVariant(
+    userId: string,
+    variantGroupId: string,
+  ): Promise<Question | null> {
+    const pool = await this.questionRepo.find({
+      where: { variantGroupId },
+    });
+    if (pool.length === 0) return null;
+
+    const seen = await this.questionSeenRecordRepo.find({
+      where: { userId },
+      select: ['questionId'],
+    });
+    const seenIds = new Set(seen.map((r) => r.questionId));
+    return pool.find((q) => !seenIds.has(q.id)) ?? null;
   }
 
   private async reportProgress(
@@ -1091,8 +1271,6 @@ Output JSON only.`;
     await reportProgress(update);
   }
 
-
-
   async regenerate(
     subjectId: string,
     subjectSlug: string,
@@ -1105,6 +1283,7 @@ Output JSON only.`;
     customPrompt?: string,
     userId?: string,
     excludePrevious?: boolean,
+    skipReferenceEnhancements?: boolean,
   ): Promise<Question[]> {
     // 이 요청 전용 OpenAI 클라이언트 (요청별 키 고정 — 동시 요청은 각각 다른 키 사용)
     const client = getOpenAIClient();
@@ -1113,19 +1292,31 @@ Output JSON only.`;
     let previousQuestionIds: Set<string> | undefined;
     if (userId && excludePrevious !== false) {
       previousQuestionIds = await this.getUserPreviousQuestionIds(
-        userId, subjectId, startUnitNum, endUnitNum,
+        userId,
+        subjectId,
+        startUnitNum,
+        endUnitNum,
       );
       if (previousQuestionIds.size > 0) {
-        this.logger.log(`[REGEN] 이전 문항 ${previousQuestionIds.size}개 제외 (사용자 중복 방지)`);
+        this.logger.log(
+          `[REGEN] 이전 문항 ${previousQuestionIds.size}개 제외 (사용자 중복 방지)`,
+        );
       }
     }
 
-    await this.reportProgress(reportProgress, { stage: 'loading_references', progress: 5, message: '참조 문항을 불러오는 중입니다.' });
+    await this.reportProgress(reportProgress, {
+      stage: 'loading_references',
+      progress: 5,
+      message: '참조 문항을 불러오는 중입니다.',
+    });
 
     const subjectEn = subjectSlug === 'success' ? 'sungjik' : 'kongil';
-    const subjectKor = subjectEn === 'sungjik' ? '성공적인 직업생활' : '공업 일반';
-    const subjectPrefix = subjectEn === 'sungjik' ? '성직' : '공일';
-    const allDir = '/Users/yjshin/projects/gap/textbook/parsed/' + subjectEn + '/all';
+    const allDir = path.resolve(
+      __dirname,
+      '../../../textbook/parsed',
+      subjectEn,
+      'all',
+    );
 
     let references: any[] = [];
     for (let unit = startUnitNum; unit <= endUnitNum; unit++) {
@@ -1133,30 +1324,74 @@ Output JSON only.`;
       if (fs.existsSync(fp)) {
         try {
           const qs = JSON.parse(fs.readFileSync(fp, 'utf-8'));
-          references.push(...qs);
-        } catch {}
+          references.push(
+            ...qs.filter(
+              (question: any) =>
+                typeof question?.stem === 'string' &&
+                question.stem.trim().length >= 10 &&
+                typeof question?.stimulus === 'string' &&
+                question.stimulus.trim().length >= 20 &&
+                Array.isArray(question?.choices) &&
+                question.choices.length === 5,
+            ),
+          );
+        } catch (error: any) {
+          this.logger.warn(
+            `[REGEN] 참조 문항 파일을 읽지 못했습니다: ${fp} (${error?.message || error})`,
+          );
+        }
       }
     }
 
     if (references.length === 0) {
-      this.logger.warn('No reference questions found for units ' + startUnitNum + '-' + endUnitNum);
+      this.logger.warn(
+        'No reference questions found for units ' +
+          startUnitNum +
+          '-' +
+          endUnitNum,
+      );
       return [];
     }
 
     if (targetConcepts && targetConcepts.length > 0) {
       references = references.filter((r: any) => {
-        return targetConcepts!.some((tc) =>
-          r.targetConcepts?.some((rc: string) => rc.includes(tc) || tc.includes(rc)),
+        return targetConcepts.some((tc) =>
+          r.targetConcepts?.some(
+            (rc: string) => rc.includes(tc) || tc.includes(rc),
+          ),
         );
       });
     }
 
+    if (references.length === 0) {
+      throw new InternalServerErrorException(
+        '선택한 단원 또는 개념에 사용할 수 있는 기출 참조 문항이 없습니다.',
+      );
+    }
+
+    if (!skipReferenceEnhancements) {
+      references = references.map((reference) => ({
+        ...reference,
+        dnaContract: this.patternMatcher.findDnaForReference(
+          subjectSlug,
+          reference.source?.unitNumber ?? startUnitNum,
+          reference,
+        ),
+      }));
+    }
+
     references.sort(() => Math.random() - 0.5);
 
-    await this.reportProgress(reportProgress, { stage: 'regenerating', progress: 20, message: questionCount + '개 문항 재생성 중...' });
+    await this.reportProgress(reportProgress, {
+      stage: 'regenerating',
+      progress: 20,
+      message: questionCount + '개 문항 재생성 중...',
+    });
 
     // 문항 유형 분포 퀀텀 프롬프트 조각
-    const itemFamilyQuota = subjectSlug ? buildItemFamilyQuotaPrompt(subjectSlug, questionCount) : '';
+    const itemFamilyQuota = subjectSlug
+      ? buildItemFamilyQuotaPrompt(subjectSlug, questionCount)
+      : '';
 
     const CHUNK_SIZE = 15;
     const result: any[] = [];
@@ -1174,8 +1409,21 @@ Output JSON only.`;
       }
 
       const chunkResult: any[] = [];
-      const batchPrompt = this.regeneratorService.buildBatchRegenPrompt(chunk, difficulty, itemFamilyQuota, customPrompt);
-      await this.regeneratorService.regenerateBatch(client, batchPrompt, chunk, chunkResult, difficulty, startUnitNum, reportProgress);
+      const batchPrompt = this.regeneratorService.buildBatchRegenPrompt(
+        chunk,
+        difficulty,
+        itemFamilyQuota,
+        customPrompt,
+      );
+      await this.regeneratorService.regenerateBatch(
+        client,
+        batchPrompt,
+        chunk,
+        chunkResult,
+        difficulty,
+        startUnitNum,
+        reportProgress,
+      );
 
       if (chunkResult.length < chunk.length) {
         remaining.unshift(...chunk.slice(chunkResult.length));
@@ -1183,14 +1431,35 @@ Output JSON only.`;
       if (chunkResult.length === 0) continue;
 
       await this.regeneratorService.convertBatchToTpl(client, chunkResult);
-      const failedIndices = await this.regeneratorService.verifyBatch(client, chunkResult);
-      const domainFailedIndices = this.regeneratorService.filterDomainMismatch(chunkResult, subjectSlug, startUnitNum, endUnitNum);
-      const allFailed = new Set([...failedIndices, ...domainFailedIndices]);
+      const failedIndices = await this.regeneratorService.verifyBatch(
+        client,
+        chunkResult,
+      );
+      const domainFailedIndices = this.regeneratorService.filterDomainMismatch(
+        chunkResult,
+        subjectSlug,
+        startUnitNum,
+        endUnitNum,
+      );
+      const dnaFailedIndices = chunkResult
+        .map((item, index) =>
+          item.metadata?.recommended_template === 'TPL_REGENERATION_REQUIRED'
+            ? index
+            : -1,
+        )
+        .filter((index) => index >= 0);
+      const allFailed = new Set([
+        ...failedIndices,
+        ...domainFailedIndices,
+        ...dnaFailedIndices,
+      ]);
       const passed = chunkResult.filter((_, i) => !allFailed.has(i));
 
       if (passed.length > 0) {
         result.push(...passed);
-        this.logger.log('[REGEN] attempt ' + attempts + ': got ' + passed.length + '/' + need);
+        this.logger.log(
+          '[REGEN] attempt ' + attempts + ': got ' + passed.length + '/' + need,
+        );
       }
     }
 
@@ -1200,7 +1469,8 @@ Output JSON only.`;
       targetConcept: item.metadata?.target_concept || '',
       itemType: item.metadata?.item_type || 'reference_variant',
       difficulty: item.metadata?.difficulty || difficulty,
-      recommendedTemplate: item.metadata?.recommended_template || 'TPL_EXAM_REFERENCE',
+      recommendedTemplate:
+        item.metadata?.recommended_template || 'TPL_PLAIN_TEXT',
       questionStem: item.render_ready?.question_stem || '',
       stimulusData: item.render_ready?.stimulus_data ?? {},
       optionsList: item.render_ready?.options_list || [],
@@ -1220,17 +1490,24 @@ Output JSON only.`;
         item,
       );
       if (tplErrors.length > 0) {
-        this.logger.warn(`[REGEN] TPL schema mismatch: ${tplErrors.join('; ')}`);
+        this.logger.warn(
+          `[REGEN] TPL schema mismatch: ${tplErrors.join('; ')}`,
+        );
       }
     }
 
     const allValid: GeneratedQuestion[] = [];
     for (const item of generated) {
       const ct = item.comboBlock
-        ? item.comboBlock.title + ' ' + item.comboBlock.items.map((x: any) => x.text).join(' ')
+        ? item.comboBlock.title +
+          ' ' +
+          item.comboBlock.items.map((x: any) => x.text).join(' ')
         : '';
       const simResult = await this.similarityValidator.validate(
-        item.questionStem, item.stimulusData, item.optionsList, ct,
+        item.questionStem,
+        item.stimulusData,
+        item.optionsList,
+        ct,
       );
       if (simResult.passed) allValid.push(item);
     }
@@ -1244,9 +1521,10 @@ Output JSON only.`;
     }
 
     // 저장 전 품질 검사: 내용 없는 item 제거
-    const contentful = allValid.filter(item => {
+    const contentful = allValid.filter((item) => {
       const json = JSON.stringify(item.stimulusData);
-      if (json.includes('(내용 없음)') || json.includes('내용 없음')) return false;
+      if (json.includes('(내용 없음)') || json.includes('내용 없음'))
+        return false;
       if (item.recommendedTemplate === 'TPL_PLAIN_TEXT') {
         return (item.stimulusData as any)?.data?.trim().length >= 20;
       }
@@ -1257,14 +1535,18 @@ Output JSON only.`;
       this.logger.log(`[REGEN] 품질 검사: ${filteredCount}개 제거 (내용 없음)`);
     }
 
-    await this.reportProgress(reportProgress, { stage: 'saving', progress: 85, message: contentful.length + '개 문항 저장 중...' });
+    await this.reportProgress(reportProgress, {
+      stage: 'saving',
+      progress: 85,
+      message: contentful.length + '개 문항 저장 중...',
+    });
 
     return this.saveQuestions(
       contentful.slice(0, questionCount),
       subjectId,
       subjectSlug,
       reportProgress,
-      previousQuestionIds,
+      userId,
     );
   }
 }

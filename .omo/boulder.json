@@ -1,0 +1,564 @@
+{
+  "schema_version": 2,
+  "active_work_id": "reference-generation-deadline-recovery-07241316",
+  "active_plan": "/Users/yjshin/projects/product/gap/.omo/plans/reference-generation-deadline-recovery.md",
+  "plan_name": "reference-generation-deadline-recovery",
+  "started_at": "2026-07-24T13:16:28.404Z",
+  "status": "active",
+  "updated_at": "2026-07-24T11:58:01.992Z",
+  "session_ids": [
+    "opencode:ses_070448c65ffe2SaZ28GHXH3JO3"
+  ],
+  "session_origins": {},
+  "agent": "atlas",
+  "task_sessions": {
+    "todo:1": {
+      "task_key": "todo:1",
+      "task_label": "1",
+      "task_title": "Add a redacted monotonic reference-job progress contract",
+      "session_id": "opencode:ses_06c68dbe8ffeS8c3jSJ0iQKxLy",
+      "agent": "Sisyphus-Junior",
+      "category": "quick",
+      "started_at": "2026-07-24T09:35:29.468Z",
+      "status": "running",
+      "updated_at": "2026-07-24T10:07:24.600Z"
+    },
+    "todo:2": {
+      "task_key": "todo:2",
+      "task_label": "2",
+      "task_title": "Introduce a job-wide deadline and stage-bounded provider timeout API.",
+      "session_id": "opencode:ses_06c84063afferUsWZ1OgdYq45o",
+      "agent": "Sisyphus-Junior",
+      "category": "ultrabrain",
+      "updated_at": "2026-07-24T09:47:48.452Z",
+      "started_at": "2026-07-24T09:47:48.452Z",
+      "status": "running"
+    },
+    "todo:3": {
+      "task_key": "todo:3",
+      "task_label": "3",
+      "task_title": "Thread progress and deadline through reference selection, planner, and final batches",
+      "session_id": "opencode:ses_06c578f8bffeVlPIGp3twk7vP0",
+      "agent": "Sisyphus-Junior",
+      "category": "quick",
+      "started_at": "2026-07-24T10:25:02.335Z",
+      "status": "running",
+      "updated_at": "2026-07-24T10:26:50.960Z"
+    },
+    "todo:4": {
+      "task_key": "todo:4",
+      "task_label": "4",
+      "task_title": "Map reference deadline/failure outcomes into safe terminal job receipts",
+      "session_id": "opencode:ses_06c556c92ffev5x3TjB2S2PgCg",
+      "agent": "Sisyphus-Junior",
+      "category": "unspecified-high",
+      "updated_at": "2026-07-24T10:35:02.937Z",
+      "started_at": "2026-07-24T10:35:02.937Z",
+      "status": "running"
+    },
+    "todo:5": {
+      "task_key": "todo:5",
+      "task_label": "5",
+      "task_title": "Stage reference-frame cache mutations until exact-count transaction commit",
+      "session_id": "opencode:ses_06c4da8f1ffewjY2ntDw1SjR5i",
+      "agent": "Sisyphus-Junior",
+      "category": "unspecified-high",
+      "updated_at": "2026-07-24T10:48:46.116Z",
+      "started_at": "2026-07-24T10:48:46.116Z",
+      "status": "running"
+    },
+    "todo:6": {
+      "task_key": "todo:6",
+      "task_label": "6",
+      "task_title": "Add end-to-end regression coverage and run authenticated unit-15 release QA",
+      "session_id": "opencode:ses_06c417f3bffep7191i8GC5aMpJ",
+      "agent": "Sisyphus-Junior",
+      "started_at": "2026-07-24T11:08:08.534Z",
+      "status": "running",
+      "updated_at": "2026-07-24T11:22:06.445Z"
+    },
+    "final-wave:f1": {
+      "task_key": "final-wave:f1",
+      "task_label": "F1",
+      "task_title": "Plan compliance audit",
+      "session_id": "opencode:ses_06c1f8c72ffexuLoM25WVFSKms",
+      "agent": "Sisyphus-Junior",
+      "started_at": "2026-07-24T11:45:05.583Z",
+      "status": "running",
+      "updated_at": "2026-07-24T11:53:43.980Z"
+    },
+    "final-wave:f2": {
+      "task_key": "final-wave:f2",
+      "task_label": "F2",
+      "task_title": "Code quality and timeout-contract audit",
+      "session_id": "opencode:ses_06c05d874ffe6sKYtYNSRlOBeU",
+      "agent": "Sisyphus-Junior",
+      "category": "quick",
+      "updated_at": "2026-07-24T11:57:30.321Z",
+      "started_at": "2026-07-24T11:57:30.321Z",
+      "status": "running"
+    }
+  },
+  "works": {
+    "reference-job-timeout-observability-07240927": {
+      "work_id": "reference-job-timeout-observability-07240927",
+      "active_plan": "/Users/yjshin/projects/product/gap/.omo/plans/reference-job-timeout-observability.md",
+      "plan_name": "reference-job-timeout-observability",
+      "status": "completed",
+      "started_at": "2026-07-24T09:27:04.863Z",
+      "session_ids": [
+        "opencode:ses_070448c65ffe2SaZ28GHXH3JO3"
+      ],
+      "agent": "atlas",
+      "worktree_path": null,
+      "task_sessions": {
+        "todo:1": {
+          "task_key": "todo:1",
+          "task_label": "1",
+          "task_title": "Add a redacted monotonic reference-job progress contract",
+          "session_id": "opencode:ses_06c68dbe8ffeS8c3jSJ0iQKxLy",
+          "agent": "Sisyphus-Junior",
+          "category": "quick",
+          "started_at": "2026-07-24T09:35:29.468Z",
+          "status": "running",
+          "updated_at": "2026-07-24T10:07:24.600Z"
+        },
+        "todo:2": {
+          "task_key": "todo:2",
+          "task_label": "2",
+          "task_title": "Introduce a job-wide deadline and stage-bounded provider timeout API.",
+          "session_id": "opencode:ses_06c84063afferUsWZ1OgdYq45o",
+          "agent": "Sisyphus-Junior",
+          "category": "ultrabrain",
+          "updated_at": "2026-07-24T09:47:48.452Z",
+          "started_at": "2026-07-24T09:47:48.452Z",
+          "status": "running"
+        },
+        "todo:3": {
+          "task_key": "todo:3",
+          "task_label": "3",
+          "task_title": "Thread progress and deadline through reference selection, planner, and final batches",
+          "session_id": "opencode:ses_06c578f8bffeVlPIGp3twk7vP0",
+          "agent": "Sisyphus-Junior",
+          "category": "quick",
+          "started_at": "2026-07-24T10:25:02.335Z",
+          "status": "running",
+          "updated_at": "2026-07-24T10:26:50.960Z"
+        },
+        "todo:4": {
+          "task_key": "todo:4",
+          "task_label": "4",
+          "task_title": "Map reference deadline/failure outcomes into safe terminal job receipts",
+          "session_id": "opencode:ses_06c556c92ffev5x3TjB2S2PgCg",
+          "agent": "Sisyphus-Junior",
+          "category": "unspecified-high",
+          "updated_at": "2026-07-24T10:35:02.937Z",
+          "started_at": "2026-07-24T10:35:02.937Z",
+          "status": "running"
+        },
+        "todo:5": {
+          "task_key": "todo:5",
+          "task_label": "5",
+          "task_title": "Stage reference-frame cache mutations until exact-count transaction commit",
+          "session_id": "opencode:ses_06c4da8f1ffewjY2ntDw1SjR5i",
+          "agent": "Sisyphus-Junior",
+          "category": "unspecified-high",
+          "updated_at": "2026-07-24T10:48:46.116Z",
+          "started_at": "2026-07-24T10:48:46.116Z",
+          "status": "running"
+        },
+        "todo:6": {
+          "task_key": "todo:6",
+          "task_label": "6",
+          "task_title": "Add end-to-end regression coverage and run authenticated unit-15 release QA",
+          "session_id": "opencode:ses_06c417f3bffep7191i8GC5aMpJ",
+          "agent": "Sisyphus-Junior",
+          "started_at": "2026-07-24T11:08:08.534Z",
+          "status": "running",
+          "updated_at": "2026-07-24T11:22:06.445Z"
+        },
+        "final-wave:f1": {
+          "task_key": "final-wave:f1",
+          "task_label": "F1",
+          "task_title": "Plan compliance audit",
+          "session_id": "opencode:ses_06c1f8c72ffexuLoM25WVFSKms",
+          "agent": "Sisyphus-Junior",
+          "started_at": "2026-07-24T11:45:05.583Z",
+          "status": "running",
+          "updated_at": "2026-07-24T11:53:43.980Z"
+        },
+        "final-wave:f2": {
+          "task_key": "final-wave:f2",
+          "task_label": "F2",
+          "task_title": "Code quality and timeout-contract audit",
+          "session_id": "opencode:ses_06c05d874ffe6sKYtYNSRlOBeU",
+          "agent": "Sisyphus-Junior",
+          "category": "quick",
+          "updated_at": "2026-07-24T11:57:30.321Z",
+          "started_at": "2026-07-24T11:57:30.321Z",
+          "status": "running"
+        }
+      },
+      "session_origins": {},
+      "updated_at": "2026-07-24T11:58:01.992Z",
+      "ended_at": "2026-07-24T11:58:01.992Z",
+      "elapsed_ms": 9057129
+    },
+    "reference-generation-resilience-07240738": {
+      "work_id": "reference-generation-resilience-07240738",
+      "active_plan": "/Users/yjshin/projects/product/gap/.omo/plans/reference-generation-resilience.md",
+      "plan_name": "reference-generation-resilience",
+      "status": "completed",
+      "started_at": "2026-07-24T07:38:47.430Z",
+      "session_ids": [
+        "opencode:ses_070448c65ffe2SaZ28GHXH3JO3"
+      ],
+      "agent": "atlas",
+      "worktree_path": null,
+      "task_sessions": {
+        "todo:1": {
+          "task_key": "todo:1",
+          "task_label": "1",
+          "task_title": "Normalize one canonical source target at every source entry point",
+          "session_id": "opencode:ses_06cedf1d9ffeOiaW646Y8A4c8J",
+          "agent": "Sisyphus-Junior",
+          "started_at": "2026-07-24T07:55:11.385Z",
+          "status": "running",
+          "updated_at": "2026-07-24T07:57:08.244Z"
+        },
+        "todo:2": {
+          "task_key": "todo:2",
+          "task_label": "2",
+          "task_title": "Unify concept-key and catalog reconciliation rules",
+          "session_id": "opencode:ses_06cde3faaffeLBGYmzdsxywD0h",
+          "agent": "Sisyphus-Junior",
+          "started_at": "2026-07-24T08:07:20.192Z",
+          "status": "running",
+          "updated_at": "2026-07-24T08:14:29.575Z"
+        },
+        "todo:5": {
+          "task_key": "todo:5",
+          "task_label": "5",
+          "task_title": "Make fixtures and mocks represent real source contract variants",
+          "session_id": "opencode:ses_06cde3f88ffebP7AXzQxA6qnar",
+          "agent": "Sisyphus-Junior",
+          "category": "unspecified-high",
+          "updated_at": "2026-07-24T08:12:40.269Z",
+          "started_at": "2026-07-24T08:12:40.269Z",
+          "status": "running"
+        },
+        "todo:3": {
+          "task_key": "todo:3",
+          "task_label": "3",
+          "task_title": "Enforce canonical target at planner and fidelity boundaries",
+          "session_id": "opencode:ses_06cce9b10ffeMNQX1Xbj62VVGs",
+          "agent": "Sisyphus-Junior",
+          "category": "deep",
+          "updated_at": "2026-07-24T08:24:44.972Z",
+          "started_at": "2026-07-24T08:24:44.972Z",
+          "status": "running"
+        },
+        "todo:4": {
+          "task_key": "todo:4",
+          "task_label": "4",
+          "task_title": "Replace uncaught source failures with typed exact-count outcomes",
+          "session_id": "opencode:ses_06cc4c138ffeuJzIKS4q90xaDB",
+          "agent": "Sisyphus-Junior",
+          "started_at": "2026-07-24T08:37:07.368Z",
+          "status": "running",
+          "updated_at": "2026-07-24T08:38:26.992Z"
+        },
+        "final-wave:f1": {
+          "task_key": "final-wave:f1",
+          "task_label": "F1",
+          "task_title": "Plan-compliance audit",
+          "session_id": "opencode:ses_06cb6217bffeY6rVezfq4MS0oE",
+          "agent": "Sisyphus-Junior",
+          "category": "quick",
+          "started_at": "2026-07-24T08:40:49.142Z",
+          "status": "running",
+          "updated_at": "2026-07-24T08:46:03.489Z"
+        }
+      },
+      "session_origins": {},
+      "updated_at": "2026-07-24T08:46:38.695Z",
+      "ended_at": "2026-07-24T08:46:38.695Z",
+      "elapsed_ms": 4071265
+    },
+    "reference-faithful-regeneration-070448c6": {
+      "work_id": "reference-faithful-regeneration-070448c6",
+      "active_plan": "/Users/yjshin/projects/product/gap/.omo/plans/reference-faithful-regeneration.md",
+      "plan_name": "reference-faithful-regeneration",
+      "status": "completed",
+      "started_at": "2026-07-23T16:48:44.435Z",
+      "session_ids": [
+        "opencode:ses_070448c65ffe2SaZ28GHXH3JO3"
+      ],
+      "session_origins": {},
+      "agent": "atlas",
+      "worktree_path": null,
+      "task_sessions": {
+        "todo:1": {
+          "task_key": "todo:1",
+          "task_label": "1",
+          "task_title": "Establish source-faithful regression fixtures and retire source-free expectations",
+          "session_id": "opencode:ses_06feed8b9ffeBt7aoMu297eaJj",
+          "agent": "Sisyphus-Junior",
+          "started_at": "2026-07-23T17:43:17.489Z",
+          "status": "completed",
+          "updated_at": "2026-07-24T04:22:27.205Z",
+          "ended_at": "2026-07-24T04:22:27.205Z",
+          "elapsed_ms": 38349716
+        },
+        "todo:2": {
+          "task_key": "todo:2",
+          "task_label": "2",
+          "task_title": "Define and extract a versioned source-fidelity contract from each selected reference",
+          "session_id": "opencode:ses_06d83dbefffeMvcKxXM2NN3h1M",
+          "agent": "Sisyphus-Junior",
+          "category": "deep",
+          "started_at": "2026-07-24T04:23:02.893Z",
+          "status": "completed",
+          "updated_at": "2026-07-24T05:12:36.507Z",
+          "ended_at": "2026-07-24T05:12:36.507Z",
+          "elapsed_ms": 2973614
+        },
+        "todo:3": {
+          "task_key": "todo:3",
+          "task_label": "3",
+          "task_title": "Preserve canonical source concepts through selection and concept payload planning",
+          "session_id": "opencode:ses_06d83dbefffeMvcKxXM2NN3h1M",
+          "agent": "Sisyphus-Junior",
+          "updated_at": "2026-07-24T05:23:22.253Z",
+          "started_at": "2026-07-24T05:23:22.253Z",
+          "status": "completed",
+          "ended_at": "2026-07-24T05:23:22.253Z",
+          "elapsed_ms": 0
+        },
+        "todo:4": {
+          "task_key": "todo:4",
+          "task_label": "4",
+          "task_title": "Make final generation source-aware while enforcing the close-paraphrase contract",
+          "session_id": "opencode:ses_06d83dbefffeMvcKxXM2NN3h1M",
+          "agent": "Sisyphus-Junior",
+          "updated_at": "2026-07-24T05:30:49.558Z",
+          "started_at": "2026-07-24T05:30:49.558Z",
+          "status": "completed",
+          "ended_at": "2026-07-24T05:30:49.558Z",
+          "elapsed_ms": 0
+        },
+        "todo:5": {
+          "task_key": "todo:5",
+          "task_label": "5",
+          "task_title": "Add deterministic fidelity and copy-overlap gates plus a bounded semantic verdict",
+          "session_id": "opencode:ses_06d83dbefffeMvcKxXM2NN3h1M",
+          "agent": "Sisyphus-Junior",
+          "updated_at": "2026-07-24T05:40:08.290Z",
+          "started_at": "2026-07-24T05:40:08.289Z",
+          "status": "completed",
+          "ended_at": "2026-07-24T05:40:08.290Z",
+          "elapsed_ms": 1
+        },
+        "todo:6": {
+          "task_key": "todo:6",
+          "task_label": "6",
+          "task_title": "Persist auditable fidelity receipts and wire the end-to-end failure surface",
+          "session_id": "opencode:ses_06d83dbefffeMvcKxXM2NN3h1M",
+          "agent": "Sisyphus-Junior",
+          "updated_at": "2026-07-24T05:46:59.179Z",
+          "started_at": "2026-07-24T05:46:59.179Z",
+          "status": "completed",
+          "ended_at": "2026-07-24T05:46:59.179Z",
+          "elapsed_ms": 0
+        },
+        "todo:7": {
+          "task_key": "todo:7",
+          "task_label": "7",
+          "task_title": "Complete integration, live-quality, and regression coverage for faithful variants",
+          "session_id": "opencode:ses_06d83dbefffeMvcKxXM2NN3h1M",
+          "agent": "Sisyphus-Junior",
+          "updated_at": "2026-07-24T05:54:33.483Z",
+          "started_at": "2026-07-24T05:54:33.483Z",
+          "status": "running"
+        },
+        "final-wave:f1": {
+          "task_key": "final-wave:f1",
+          "task_label": "F1",
+          "task_title": "Plan-compliance audit",
+          "session_id": "opencode:ses_06d4e6295ffeg2gslNVu4AReHH",
+          "agent": "Sisyphus-Junior",
+          "category": "unspecified-high",
+          "updated_at": "2026-07-24T06:00:50.772Z",
+          "started_at": "2026-07-24T06:00:50.772Z",
+          "status": "running"
+        },
+        "final-wave:f4": {
+          "task_key": "final-wave:f4",
+          "task_label": "F4",
+          "task_title": "Scope-fidelity and persistence audit",
+          "session_id": "opencode:ses_06d4e60a2ffeGwzvr0t4p1VuqC",
+          "agent": "Sisyphus-Junior",
+          "category": "unspecified-high",
+          "updated_at": "2026-07-24T06:05:26.847Z",
+          "started_at": "2026-07-24T06:05:26.847Z",
+          "status": "running"
+        }
+      },
+      "updated_at": "2026-07-24T06:06:05.870Z",
+      "ended_at": "2026-07-24T06:06:05.870Z",
+      "elapsed_ms": 47841435
+    },
+    "reference-archetype-locked-fidelity-075259f4": {
+      "work_id": "reference-archetype-locked-fidelity-075259f4",
+      "active_plan": "/Users/yjshin/projects/product/gap/.omo/plans/reference-archetype-locked-fidelity.md",
+      "plan_name": "reference-archetype-locked-fidelity",
+      "status": "active",
+      "started_at": "2026-07-22T17:23:15.486Z",
+      "session_ids": [
+        "opencode:ses_075259f4bffeWzmNC8c36jXc6f"
+      ],
+      "session_origins": {},
+      "agent": "atlas",
+      "worktree_path": null,
+      "task_sessions": {
+        "todo:1": {
+          "task_key": "todo:1",
+          "task_label": "1",
+          "task_title": "Define `ReferenceMaterialKind`, `ReferenceReasoningPattern`, `ReferenceChoiceTopology`, `ReferenceDocumentShell`, `ReferenceRegister`, evidence-block schema, multi-concept roles, distractor transformations, combination-plan schema, and optional set structure in `backend/src/exams/reference-archetype.ts` and `reference-frame.types.ts`; add a source-derived archetype validator that requires compatible response mode, choice encoding, view-item count, structure blueprint, and source-derived document mechanics.",
+          "session_id": "opencode:ses_07512b069ffeWlVDLc1bugb0wG",
+          "agent": "Sisyphus-Junior",
+          "started_at": "2026-07-22T17:29:06.661Z",
+          "status": "running",
+          "updated_at": "2026-07-22T17:44:54.417Z"
+        }
+      },
+      "updated_at": "2026-07-22T17:44:54.417Z"
+    },
+    "question-art-layer-f33a6650": {
+      "work_id": "question-art-layer-f33a6650",
+      "active_plan": "/Users/yjshin/projects/product/gap/.omo/plans/question-art-layer.md",
+      "plan_name": "question-art-layer",
+      "status": "active",
+      "session_ids": [],
+      "session_origins": {}
+    },
+    "reference-generation-blueprint-batches-29290081": {
+      "work_id": "reference-generation-blueprint-batches-29290081",
+      "active_plan": "/Users/yjshin/projects/product/gap/.omo/plans/reference-generation-blueprint-batches.md",
+      "plan_name": "reference-generation-blueprint-batches",
+      "status": "paused",
+      "session_ids": [],
+      "session_origins": {}
+    },
+    "reference-generation-hardening-0768a1db": {
+      "work_id": "reference-generation-hardening-0768a1db",
+      "active_plan": "/Users/yjshin/projects/product/gap/.omo/plans/reference-generation-hardening.md",
+      "plan_name": "reference-generation-hardening",
+      "status": "completed",
+      "started_at": "2026-07-22T15:08:27.460Z",
+      "session_ids": [
+        "opencode:ses_0768a1db2ffeZz8tQ7eI34Tf9m",
+        "opencode:ses_070b3d2d1ffec4RS1iLZe5JAyp",
+        "opencode:ses_070b3cfbbffeAKtwbc6BCluUik"
+      ],
+      "agent": "atlas",
+      "task_sessions": {
+        "todo:1": {
+          "task_key": "todo:1",
+          "task_label": "1",
+          "task_title": "`reference-archetype.golden.spec.ts:58`: expected projection shell `timeline`, actual source-derived archetype shell `dialogue`.",
+          "session_id": "opencode:ses_0719c0c2bffeooRpsahfKvqQ1r",
+          "agent": "Sisyphus-Junior",
+          "started_at": "2026-07-22T15:21:46.651Z",
+          "ended_at": "2026-07-23T10:26:05.922Z",
+          "elapsed_ms": 68659271,
+          "status": "completed",
+          "updated_at": "2026-07-23T10:26:05.922Z"
+        },
+        "todo:2": {
+          "task_key": "todo:2",
+          "task_label": "2",
+          "task_title": "Build golden source fixtures for representative 성직 and 공일 questions without copying their display prose into final-generation fixtures.",
+          "session_id": "opencode:ses_0714a9072ffeD7ZW6WmABrDhQW",
+          "agent": "oracle",
+          "started_at": "2026-07-23T09:58:31.050Z",
+          "ended_at": "2026-07-23T11:23:04.915Z",
+          "elapsed_ms": 5073865,
+          "status": "completed",
+          "updated_at": "2026-07-23T11:23:04.915Z"
+        },
+        "todo:3": {
+          "task_key": "todo:3",
+          "task_label": "3",
+          "task_title": "Make Step 1 planner prompts and cache validation extract, validate, version, and persist the immutable archetype with the ReferenceFrame.",
+          "session_id": "opencode:ses_07132c7e8ffegc3rOIKHrpxPU4",
+          "agent": "oracle",
+          "started_at": "2026-07-23T11:46:37.003Z",
+          "ended_at": "2026-07-23T11:52:00.400Z",
+          "elapsed_ms": 323397,
+          "status": "completed",
+          "updated_at": "2026-07-23T11:52:00.400Z"
+        },
+        "todo:4": {
+          "task_key": "todo:4",
+          "task_label": "4",
+          "task_title": "Lock Step 2 ConceptPayload and TPL selection to the Step 1 archetype instead of allowing payload or selector drift; preserve the source's multi-concept roles, distractor transformations, combination logic, and optional shared-document set position.",
+          "session_id": "opencode:ses_071129ea5ffeytwoXJNUNivxvb",
+          "agent": "oracle",
+          "started_at": "2026-07-23T12:07:55.774Z",
+          "ended_at": "2026-07-23T12:24:37.311Z",
+          "elapsed_ms": 1001537,
+          "status": "completed",
+          "updated_at": "2026-07-23T12:24:37.311Z"
+        },
+        "todo:5": {
+          "task_key": "todo:5",
+          "task_label": "5",
+          "task_title": "Project the immutable archetype into the source-free final-generation prompt and strict final output schema, including document shell, evidence-block order, multi-concept roles, distractor transformations, and combination or set topology.",
+          "session_id": "opencode:ses_0710e402fffeOyUnphm7qiFMMe",
+          "agent": "Sisyphus-Junior",
+          "category": "ultrabrain",
+          "updated_at": "2026-07-23T12:40:50.462Z",
+          "started_at": "2026-07-23T12:40:50.461Z",
+          "status": "completed",
+          "ended_at": "2026-07-23T12:40:50.462Z",
+          "elapsed_ms": 1
+        },
+        "todo:6": {
+          "task_key": "todo:6",
+          "task_label": "6",
+          "task_title": "Add deterministic final archetype fidelity validation and path-specific correction retries before persistence, rejecting document-shell drift, evidence-block loss, shallow single-concept rewrites, incorrect distractor logic, combination-plan drift, and broken shared-document set structure.",
+          "session_id": "opencode:ses_07100973bffewgHg3wY0jXNB8Q",
+          "agent": "Sisyphus-Junior",
+          "category": "ultrabrain",
+          "updated_at": "2026-07-23T12:56:43.889Z",
+          "started_at": "2026-07-23T12:56:43.888Z",
+          "status": "completed",
+          "ended_at": "2026-07-23T12:56:43.889Z",
+          "elapsed_ms": 1
+        },
+        "todo:7": {
+          "task_key": "todo:7",
+          "task_label": "7",
+          "task_title": "Run real-provider golden QA for representative 성직 and 공일 archetypes and capture persisted structural evidence with cleanup.",
+          "session_id": "opencode:ses_070a69c97ffe4cR9fPiqvUE6dt",
+          "agent": "Sisyphus-Junior",
+          "category": "quick",
+          "started_at": "2026-07-23T13:18:16.005Z",
+          "status": "running",
+          "updated_at": "2026-07-23T14:34:06.856Z"
+        }
+      },
+      "session_origins": {
+        "opencode:ses_070b3d2d1ffec4RS1iLZe5JAyp": "appended",
+        "opencode:ses_070b3cfbbffeAKtwbc6BCluUik": "appended"
+      },
+      "updated_at": "2026-07-23T14:34:06.856Z",
+      "ended_at": "2026-07-22T16:25:59.812Z",
+      "elapsed_ms": 4652352
+    }
+  },
+  "worktree_path": null,
+  "ended_at": "2026-07-24T11:58:01.992Z",
+  "elapsed_ms": 9057129
+}

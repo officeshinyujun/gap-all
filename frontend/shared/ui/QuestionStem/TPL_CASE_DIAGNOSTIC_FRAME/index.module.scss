@@ -1,5 +1,3 @@
-@import '@/styles/variables.scss';
-
 // 프로필 + 서술 통합 박스
 .caseBox {
   width: 100%;
@@ -15,6 +13,10 @@
   background-color: $background-secondary;
   border-bottom: 1px solid $border-primary;
   box-sizing: border-box;
+}
+
+.profileHeaderGap {
+  border-top: 2px solid $border-primary;
 }
 
 .avatar {

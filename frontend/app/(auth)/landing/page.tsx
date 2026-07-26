@@ -1,34 +1,32 @@
 'use client';
 
 import { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
-import Image from 'next/image';
-import Link from 'next/link';
+import { Link, useNavigate } from 'react-router';
 import { APP_CONFIG } from '@/constants/app';
 import { useAuth } from '@shared/contexts/AuthContext';
 import s from './page.module.scss';
 
 export default function LandingPage() {
-  const router = useRouter();
+  const navigate = useNavigate();
   const { user, isLoading } = useAuth();
 
   useEffect(() => {
     if (!isLoading && user) {
-      router.replace('/');
+      navigate('/', { replace: true });
     }
-  }, [isLoading, user, router]);
+  }, [isLoading, user, navigate]);
 
   return (
     <div className={s.page}>
-      <div className={s.card}>
-        <div className={s.logoWrapper}>
-          <Image src="/2830_logo.png" alt={APP_CONFIG.name} width={72} height={72} priority />
-        </div>
+        <div className={s.card}>
+          <div className={s.logoWrapper}>
+          <img src="/2830_logo.png" alt={APP_CONFIG.name} width={72} height={72} />
+          </div>
         <div className={s.textGroup}>
           <h1 className={s.title}>{APP_CONFIG.name}</h1>
           <p className={s.description}>{APP_CONFIG.description}</p>
         </div>
-        <Link href="/login" className={s.ctaButton}>
+        <Link to="/login" className={s.ctaButton}>
           시작하기
         </Link>
       </div>

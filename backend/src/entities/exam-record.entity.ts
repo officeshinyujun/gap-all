@@ -19,6 +19,11 @@ export enum Difficulty {
   INTERGRATE = 'INTERGRATE',
 }
 
+export enum ExamSourceType {
+  AI = 'ai',
+  REFERENCE = 'reference',
+}
+
 @Entity('exam_records')
 export class ExamRecord {
   @PrimaryGeneratedColumn('uuid')
@@ -47,6 +52,14 @@ export class ExamRecord {
 
   @Column({ name: 'custom_prompt', nullable: true, type: 'text' })
   customPrompt: string | null;
+
+  @Column({
+    name: 'source_type',
+    type: 'varchar',
+    length: 20,
+    default: ExamSourceType.AI,
+  })
+  sourceType: ExamSourceType;
 
   @Column({ name: 'total_score', type: 'int', nullable: true })
   totalScore: number | null;

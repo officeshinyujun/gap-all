@@ -25,6 +25,12 @@ export function ExamGenerationToast() {
   if (!hasShown || !jobStatus) return null;
 
   const isDone = jobStatus.status === 'completed' || jobStatus.status === 'failed';
+  const displayMessage = jobStatus.status === 'failed'
+    ? jobStatus.errorMessage ?? jobStatus.message
+    : jobStatus.message;
+  const diagnosticLabel = jobStatus.status === 'failed' && jobStatus.errorCode
+    ? [jobStatus.errorStage, jobStatus.errorCode].filter(Boolean).join(' · ')
+    : '';
 
   return (
     <>
@@ -45,7 +51,10 @@ export function ExamGenerationToast() {
             <span className={s.spinner} />
           )}
           <div className={s.text}>
-            <div className={s.title}>{jobStatus.message}</div>
+            <div className={s.title}>{displayMessage}</div>
+            {diagnosticLabel && (
+              <div className={s.progress}>{diagnosticLabel}</div>
+            )}
             {!isDone && (
               <div className={s.progress}>{jobStatus.progress}%</div>
             )}

@@ -1,4 +1,4 @@
-import { Logger } from '@nestjs/common';
+import * as path from 'path';
 import { Difficulty } from '../entities/exam-record.entity';
 
 // ============================================================
@@ -21,6 +21,7 @@ export interface GeneratedQuestion {
   unitName: string;
   setGroupId: string | null;
   setPosition: number | null;
+  dnaContract?: Record<string, any>;
 }
 
 export interface ExamGenerationProgressUpdate {
@@ -29,7 +30,20 @@ export interface ExamGenerationProgressUpdate {
   message: string;
   status?: 'info' | 'success' | 'warning' | 'error';
   detail?: string;
+  referenceProgress?: ExamGenerationReferenceProgress;
+  completed?: number;
+  total?: number;
+  attempt?: number;
+  maxAttempts?: number;
 }
+
+export type ExamGenerationReferenceProgress = Readonly<{
+  stage: string;
+  completed: number;
+  total: number;
+  attempt: number;
+  maxAttempts: number;
+}>;
 
 export type ExamGenerationProgressReporter = (
   update: ExamGenerationProgressUpdate,
@@ -41,30 +55,98 @@ export type ExamGenerationProgressReporter = (
 
 // 실제 수능/모의평가 11개 시험 분석 기반 단원별 출제 비중 (%)
 export const UNIT_REAL_WEIGHTS: Record<number, number> = {
-  1: 7.41, 2: 4.17, 3: 7.87, 4: 4.63, 5: 1.85,
-  6: 6.94, 7: 4.17, 8: 6.02, 9: 0.5, 10: 5.56,
-  11: 5.09, 12: 0.93, 13: 4.17, 14: 7.41, 15: 5.09,
-  16: 2.31, 17: 4.63, 18: 5.09, 19: 6.94, 20: 9.72,
+  1: 7.41,
+  2: 4.17,
+  3: 7.87,
+  4: 4.63,
+  5: 1.85,
+  6: 6.94,
+  7: 4.17,
+  8: 6.02,
+  9: 0.5,
+  10: 5.56,
+  11: 5.09,
+  12: 0.93,
+  13: 4.17,
+  14: 7.41,
+  15: 5.09,
+  16: 2.31,
+  17: 4.63,
+  18: 5.09,
+  19: 6.94,
+  20: 9.72,
 };
 
 // 과목별 fallback 키워드
 export const FALLBACK_KEYWORDS: Record<string, string[]> = {
   success: [
-    '근로', '임금', '퇴직', '고용', '해고', '노동', '직업', '취업',
-    '진로', '창업', 'NCS', '산재', '휴가', '휴게', '야간', '연장',
-    '연소', '단시간', '계약', '고용보험', '산업재해', '근로기준법',
-    '노동조합', '근로자', '사용자', '실업', '급여', '수당',
-    '근로시간', '교육훈련', '자격', '학점', '평생교육',
+    '근로',
+    '임금',
+    '퇴직',
+    '고용',
+    '해고',
+    '노동',
+    '직업',
+    '취업',
+    '진로',
+    '창업',
+    'NCS',
+    '산재',
+    '휴가',
+    '휴게',
+    '야간',
+    '연장',
+    '연소',
+    '단시간',
+    '계약',
+    '고용보험',
+    '산업재해',
+    '근로기준법',
+    '노동조합',
+    '근로자',
+    '사용자',
+    '실업',
+    '급여',
+    '수당',
+    '근로시간',
+    '교육훈련',
+    '자격',
+    '학점',
+    '평생교육',
   ],
   industry: [
-    '공업', '제조', '생산', '품질', '재고', '공정', '안전', '설비',
-    '재료', '부품', '가공', '조립', '검사', 'KS', '공차', '도면',
-    'CAD', 'CNC', 'PLC', '자동화', '로봇', '에너지', '환경',
-    '산업안전', '재해', '위험', '보호구', '안전보건',
+    '공업',
+    '제조',
+    '생산',
+    '품질',
+    '재고',
+    '공정',
+    '안전',
+    '설비',
+    '재료',
+    '부품',
+    '가공',
+    '조립',
+    '검사',
+    'KS',
+    '공차',
+    '도면',
+    'CAD',
+    'CNC',
+    'PLC',
+    '자동화',
+    '로봇',
+    '에너지',
+    '환경',
+    '산업안전',
+    '재해',
+    '위험',
+    '보호구',
+    '안전보건',
   ],
 };
 
-export const TEXTBOOK_BASE = '/Users/yjshin/projects/gap/textbook';
+export const TEXTBOOK_BASE = path.resolve(__dirname, '../../../textbook');
 
 // ============================================================
 // Utility functions
@@ -139,10 +221,14 @@ export function buildItemFamilyQuotaPrompt(
       `나머지 최소 ${nonComboMin}문항은 non-조합형(single_selection, direct_statement, blank_workflow)으로 설계하라.`,
       `single_selection은 최소 ${singleMin}문항 포함하라.`,
       `direct_statement는 최소 ${directMin}문항 포함하라.`,
-      workflowMin > 0 ? `blank_workflow는 최소 ${workflowMin}문항 포함하라.` : '',
+      workflowMin > 0
+        ? `blank_workflow는 최소 ${workflowMin}문항 포함하라.`
+        : '',
       '채용 공고, 면접 장면, NCS 화면, 기사/칼럼, 취업 프로그램 안내는 single_selection 또는 direct_statement를 우선 사용하라.',
       '발문에 <보기>가 없는 경우 combination_judgment를 사용하지 마라.',
-    ].filter(Boolean).join('\n');
+    ]
+      .filter(Boolean)
+      .join('\n');
   }
 
   const singleMin = Math.max(1, Math.ceil(questionCount * 0.15));
@@ -158,10 +244,16 @@ export function buildItemFamilyQuotaPrompt(
     '시스템명(MES/SCM/CRM/JIT/POP), 공정/기법/분류 중 하나를 고르는 문제는 single_selection을 우선 사용하라.',
     '보고서/표/기사/점검표를 읽고 하나의 판단을 내리는 문제는 direct_statement를 우선 사용하라.',
     '발문에 <보기>가 없는 경우 combination_judgment를 사용하지 마라.',
-  ].filter(Boolean).join('\n');
+  ]
+    .filter(Boolean)
+    .join('\n');
 }
 
-export function isSimilarText(text1: string, text2: string, threshold: number): boolean {
+export function isSimilarText(
+  text1: string,
+  text2: string,
+  threshold: number,
+): boolean {
   if (!text1 || !text2) return false;
   const s1 = text1.replace(/\s+/g, '').toLowerCase();
   const s2 = text2.replace(/\s+/g, '').toLowerCase();

@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useNavigate } from 'react-router';
 import { VStack } from "@/components/general/VStack";
 import { HStack } from "@/components/general/HStack";
 import Typo from "@/components/general/Typo";
@@ -75,7 +75,7 @@ function getStudyAction(unit: ApiUnit, subjectSlug: string) {
 }
 
 export default function Home() {
-  const router = useRouter();
+  const navigate = useNavigate();
   const { user, isLoading: isAuthLoading } = useAuth();
   const [reviewData, setReviewData] = useState<ReviewRecommendationsResponse | null>(null);
   const [streak, setStreak] = useState(0);
@@ -196,7 +196,7 @@ export default function Home() {
                 취약 개념 {reviewData.totalIncorrectConcepts}개
               </Typo.SM>
             </VStack>
-            <button className={s.reviewButton} onClick={() => router.push('/review')}>
+            <button className={s.reviewButton} onClick={() => navigate('/review')}>
               <Typo.SM size={14} color="brand">복습하러 가기 →</Typo.SM>
             </button>
           </HStack>
@@ -230,7 +230,7 @@ export default function Home() {
               className={s.studyCard}
               fullWidth
               style={{ padding: SPACING.s16, cursor: 'pointer' }}
-              onClick={() => router.push(study.actionRoute)}
+              onClick={() => navigate(study.actionRoute)}
             >
               <Typo.MD size={12} color="secondary">현재 진행중인 {study.category}</Typo.MD>
               <HStack justify="between" align="center" fullWidth style={{ padding: SPACING.s12 }}>
@@ -244,7 +244,7 @@ export default function Home() {
                   style={{ cursor: 'pointer' }}
                   onClick={(event) => {
                     event.stopPropagation();
-                    router.push(study.actionRoute);
+                    navigate(study.actionRoute);
                   }}
                 >
                   {study.actionText}

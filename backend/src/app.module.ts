@@ -23,6 +23,12 @@ import { ExamRecord } from './entities/exam-record.entity';
 import { ExamTag } from './entities/exam-tag.entity';
 import { ExamItem } from './entities/exam-item.entity';
 import { Question } from './entities/question.entity';
+import { ReferenceQuestion } from './entities/reference-question.entity';
+import { ReferenceFrameCache } from './entities/reference-frame-cache.entity';
+import { GenerationRun } from './entities/generation-run.entity';
+import { GeneratedQuestion } from './entities/generated-question.entity';
+import { GenerationExamSession } from './entities/generation-exam-session.entity';
+import { GenerationExamItem } from './entities/generation-exam-item.entity';
 import { ChatSession } from './entities/chat-session.entity';
 import { ChatMessage } from './entities/chat-message.entity';
 import { AiUsageLog } from './entities/ai-usage-log.entity';
@@ -32,6 +38,7 @@ import { NotificationSetting } from './entities/notification-setting.entity';
 import { PushSubscription } from './entities/push-subscription.entity';
 import { ConceptBookmark } from './entities/concept-bookmark.entity';
 import { FlaggedQuestion } from './entities/flagged-question.entity';
+import { QuestionSeenRecord } from './entities/question-seen-record.entity';
 
 @Module({
   imports: [
@@ -59,6 +66,12 @@ import { FlaggedQuestion } from './entities/flagged-question.entity';
           ExamTag,
           ExamItem,
           Question,
+          ReferenceQuestion,
+          ReferenceFrameCache,
+          GenerationRun,
+          GeneratedQuestion,
+          GenerationExamSession,
+          GenerationExamItem,
           ChatSession,
           ChatMessage,
           AiUsageLog,
@@ -68,9 +81,12 @@ import { FlaggedQuestion } from './entities/flagged-question.entity';
           PushSubscription,
           ConceptBookmark,
           FlaggedQuestion,
+          QuestionSeenRecord,
         ],
         synchronize: config.get<string>('NODE_ENV') !== 'production',
-        logging: config.get<string>('NODE_ENV') === 'development',
+        logging:
+          config.get<string>('NODE_ENV') === 'development' &&
+          process.env.TYPEORM_LOGGING !== 'false',
       }),
     }),
     AuthModule,

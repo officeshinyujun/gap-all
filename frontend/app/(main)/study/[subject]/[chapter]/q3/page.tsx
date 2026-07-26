@@ -1,7 +1,7 @@
 'use client';
 
-import { use, useEffect, useState, useCallback } from 'react';
-import { useRouter } from 'next/navigation';
+import { useEffect, useState, useCallback } from 'react';
+import { useNavigate, useParams } from 'react-router';
 import Typo from '@shared/ui/Typo';
 import { QuestionRenderer } from '@shared/ui/QuestionStem/QuestionRenderer';
 import {
@@ -29,14 +29,10 @@ type PageState = 'init' | 'polling' | 'ready' | 'submitted' | 'result' | 'error'
 const QUESTION_COUNT = 10;
 const POLL_INTERVAL_MS = 2000;
 
-export default function StudyQ3Page({
-  params,
-}: {
-  params: Promise<{ subject: string; chapter: string }>;
-}) {
-  const { subject, chapter } = use(params);
+export default function StudyQ3Page() {
+  const { subject = '', chapter = '' } = useParams();
   const unitNumber = parseUnitNumber(chapter);
-  const router = useRouter();
+  const navigate = useNavigate();
 
   const [pageState, setPageState] = useState<PageState>('init');
   const [errorMsg, setErrorMsg] = useState('');
@@ -67,7 +63,8 @@ export default function StudyQ3Page({
         (e) =>
           e.startUnitNum === unitNumber &&
           e.endUnitNum === unitNumber &&
-          e.difficulty === 'MIDDLE',
+          e.difficulty === 'MIDDLE' &&
+          e.sourceType === 'reference',
       );
 
       if (cached) {
@@ -79,7 +76,11 @@ export default function StudyQ3Page({
       }
 
       // 3. 없으면 새로 생성
-      const { jobId } = await createExamJob(subjectInfo.id, unitNumber, QUESTION_COUNT);
+      const { jobId } = await createExamJob(
+        subjectInfo.id,
+        unitNumber,
+        QUESTION_COUNT,
+      );
       setPageState('polling');
 
       // 3. 폴링
@@ -155,7 +156,7 @@ export default function StudyQ3Page({
     <div className={s.container}>
       {/* 헤더 */}
       <div className={s.header}>
-        <button className={s.backButton} onClick={() => router.back()}>
+        <button className={s.backButton} onClick={() => navigate(-1)}>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <path d="M10 12L6 8L10 4" stroke="#5C6370" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
@@ -254,7 +255,7 @@ export default function StudyQ3Page({
             </button>
             <button
               className={`${s.footerButton} ${s.footerButtonNext}`}
-              onClick={() => router.push(`/study/${subject}`)}
+              onClick={() => navigate(`/study/${subject}`)}
             >
               학습 완료 →
             </button>

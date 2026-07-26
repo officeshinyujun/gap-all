@@ -1,0 +1,61 @@
+.annBox {
+  width: 100%;
+  border: 1.5px solid $text-strong;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding: $spacing-20 $spacing-24;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: $bold;
+  color: $text-primary;
+  margin: 0 0 $spacing-12;
+}
+
+.metaRow {
+  display: flex;
+  gap: $spacing-16;
+  font-size: 13px;
+  color: $text-secondary;
+  margin-bottom: $spacing-8;
+  flex-wrap: wrap;
+}
+
+.targetRow,
+.locationRow {
+  font-size: 13px;
+  color: $text-secondary;
+  margin-bottom: $spacing-8;
+}
+
+.details {
+  margin: $spacing-16 0;
+  border-top: 1px solid $border-primary;
+  padding-top: $spacing-12;
+}
+
+.detailItem {
+  margin-bottom: $spacing-10;
+}
+
+.detailLabel {
+  font-weight: $semi-bold;
+  font-size: 13px;
+  color: $text-primary;
+  margin-right: $spacing-8;
+}
+
+.detailContent {
+  font-size: 14px;
+  color: $text-primary;
+  line-height: 1.6;
+}
+
+.contactRow {
+  margin-top: $spacing-12;
+  padding-top: $spacing-12;
+  border-top: 1px solid $border-primary;
+  font-size: 13px;
+  color: $text-secondary;
+}

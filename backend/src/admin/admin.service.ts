@@ -72,7 +72,10 @@ export class AdminService {
     const users = await this.userRepo.find({
       order: { createdAt: 'DESC' },
     });
-    return users.map(({ passwordHash: _, ...safe }) => safe);
+    return users.map(({ passwordHash, ...safe }) => {
+      void passwordHash;
+      return safe;
+    });
   }
 
   // ============================================================

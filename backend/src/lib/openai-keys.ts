@@ -9,9 +9,10 @@ function loadKeys(): string[] {
   if (allKeys === null) {
     const keys: string[] = [];
     for (let i = 1; i <= 10; i++) {
-      const key = i === 1
-        ? process.env.OPENAI_API_KEY
-        : process.env[`OPENAI_API_KEY${i}`];
+      const key =
+        i === 1
+          ? process.env.OPENAI_API_KEY
+          : process.env[`OPENAI_API_KEY${i}`];
       if (key && key.length > 0) keys.push(key);
     }
     allKeys = keys;
@@ -22,7 +23,7 @@ function loadKeys(): string[] {
 function loadClients(): OpenAI[] {
   if (clients === null) {
     const keys = loadKeys();
-    clients = keys.map(key => new OpenAI({ apiKey: key }));
+    clients = keys.map((key) => new OpenAI({ apiKey: key }));
   }
   return clients;
 }

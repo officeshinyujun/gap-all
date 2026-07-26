@@ -12,9 +12,14 @@ import { Unit } from '../entities/unit.entity';
 import { AiUsageLog } from '../entities/ai-usage-log.entity';
 import { IncorrectRecord } from '../entities/incorrect-record.entity';
 import { FlaggedQuestion } from '../entities/flagged-question.entity';
+import { ReferenceQuestion } from '../entities/reference-question.entity';
+import { ReferenceFrameCache } from '../entities/reference-frame-cache.entity';
+import { QuestionSeenRecord } from '../entities/question-seen-record.entity';
 import { ExamGenerationJobsService } from './exam-generation-jobs.service';
 import { SimilarityValidatorService } from './similarity-validator.service';
 import { ExamRegeneratorService } from './exam-regenerator.service';
+import { ReferenceFrameGenerationService } from './reference-frame-generation.service';
+import { SimplyReferenceGenerationService } from './simply-reference-generation.service';
 import { TextbookModule } from '../textbook/textbook.module';
 import { PromptsModule } from '../prompts/prompts.module';
 import { NotificationsModule } from '../notifications/notifications.module';
@@ -30,13 +35,25 @@ import { NotificationsModule } from '../notifications/notifications.module';
       AiUsageLog,
       IncorrectRecord,
       FlaggedQuestion,
+      ReferenceQuestion,
+      ReferenceFrameCache,
+      QuestionSeenRecord,
     ]),
     TextbookModule,
     PromptsModule,
     NotificationsModule,
   ],
   controllers: [ExamsController],
-  providers: [ExamsService, ExamGeneratorService, ExamRegeneratorService, ExamGenerationJobsService, PatternMatcherService, SimilarityValidatorService],
+  providers: [
+    ExamsService,
+    ExamGeneratorService,
+    ExamRegeneratorService,
+    ReferenceFrameGenerationService,
+    SimplyReferenceGenerationService,
+    ExamGenerationJobsService,
+    PatternMatcherService,
+    SimilarityValidatorService,
+  ],
   exports: [ExamsService],
 })
 export class ExamsModule {}

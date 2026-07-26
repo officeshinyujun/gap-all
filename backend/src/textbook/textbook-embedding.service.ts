@@ -7,7 +7,6 @@ import { getOpenAIClient } from '../lib/openai-keys';
 const CHUNK_SIZE = 1500; // 청크당 최대 글자 수
 const CHUNK_OVERLAP = 300; // 청크 간 겹침 글자 수
 const EMBEDDING_MODEL = 'text-embedding-3-small';
-const EMBEDDING_DIM = 1536;
 const TOP_K = 8; // RAG 검색 시 반환할 청크 수
 
 @Injectable()

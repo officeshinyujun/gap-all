@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { useRouter } from 'next/navigation';
+import { useNavigate } from 'react-router';
 import { HStack } from '@shared/ui/HStack';
 import { Bell, Moon, User } from 'lucide-react';
 import { SPACING } from '@shared/constants/spacing';
@@ -15,7 +15,7 @@ interface HeaderActionsProps {
 }
 
 export function HeaderActions({ showUser = false }: HeaderActionsProps) {
-    const router = useRouter();
+    const navigate = useNavigate();
     const { toggleTheme } = useTheme();
     const [notifications, setNotifications] = useState<NotificationItem[]>([]);
     const [unreadCount, setUnreadCount] = useState(0);
@@ -53,13 +53,13 @@ export function HeaderActions({ showUser = false }: HeaderActionsProps) {
 
         switch (notification.type) {
             case 'EXAM_COMPLETE':
-                router.push('/exam/success');
+                navigate('/exam/success');
                 break;
             case 'REVIEW_REMINDER':
-                router.push('/review');
+                navigate('/review');
                 break;
             default:
-                router.push('/');
+                navigate('/');
         }
     };
 

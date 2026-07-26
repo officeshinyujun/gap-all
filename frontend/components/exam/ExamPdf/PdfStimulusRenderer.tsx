@@ -11,6 +11,11 @@ import type {
   TPL_DIGITAL_FORUM_INTERFACE,
   TPL_QUANTITATIVE_CHART,
   TPL_PROMOTIONAL_CANVAS,
+  TPL_ARTICLE,
+  TPL_STATISTICS,
+  TPL_INCIDENT_REPORT,
+  TPL_ANNOUNCEMENT,
+  TPL_REPORT,
 } from '@/types/questionstem';
 
 interface Props {
@@ -75,12 +80,41 @@ function renderConversationalFlow(data: TPL_CONVERSATIONAL_FLOW) {
   return safe(() => {
     const participants = data.participants ?? [];
     const messages = data.messages ?? [];
-    const participantMap = new Map(participants.map((p) => [p.id, p.name]));
+    const participantMap = new Map(participants.map((p) => [p.id, p]));
+    const actionLabels = {
+      request: '요청', inform: '알림', consult: '상담', approve: '승인',
+      reject: '거절', provide: '제공', report: '보고', notify: '통지',
+      pay: '지급', regulate: '규제',
+    } as const;
+    const sceneLabels = {
+      dialogue: '대화 장면', interview: '인터뷰 장면', school: '학교 장면',
+      office: '사무실 장면', public_service: '공공기관 장면',
+      hospital: '의료기관 장면', shop: '상점 장면', court: '법원 장면',
+    } as const;
+    const sceneLabel = data.scene_kind && data.scene_kind !== 'none'
+      ? sceneLabels[data.scene_kind]
+      : undefined;
+    const visualAid = data.visual_aid;
     return (
       <View style={styles.stimulusBox}>
+        {sceneLabel ? <Text style={styles.stimulusTitle}>[{sceneLabel}]</Text> : null}
+        {visualAid?.kind === 'actor_flow' ? (
+          <View style={{ marginBottom: 3 }}>
+            {visualAid.relations.map((relation, index) => {
+              const from = participantMap.get(relation.from_id);
+              const to = participantMap.get(relation.to_id);
+              if (!from || !to) return null;
+              return (
+                <Text key={index} style={styles.stimulusText}>
+                  [{from.name}] --{actionLabels[relation.action_key]}--&gt; [{to.name}]
+                </Text>
+              );
+            })}
+          </View>
+        ) : null}
         {messages.map((msg, i) => (
           <View key={i} style={{ marginBottom: 3 }}>
-            <Text style={styles.speakerName}>{participantMap.get(msg.p_id) ?? msg.p_id}:</Text>
+            <Text style={styles.speakerName}>{participantMap.get(msg.p_id)?.name ?? msg.p_id}:</Text>
             <Text style={styles.messageText}>{msg.text ?? ''}</Text>
           </View>
         ))}
@@ -91,12 +125,21 @@ function renderConversationalFlow(data: TPL_CONVERSATIONAL_FLOW) {
 
 function renderCaseDiagnosticFrame(data: TPL_CASE_DIAGNOSTIC_FRAME) {
   return safe(() => {
-    const profile = data.case_profile;
+    const profiles = Array.isArray(data.case_profile)
+      ? data.case_profile
+      : data.case_profile
+        ? [data.case_profile]
+        : [];
     const checkItems = Array.isArray(data.check_items) ? data.check_items : [];
     return (
       <View style={styles.stimulusBox}>
-        <Text style={styles.stimulusTitle}>[사례] {profile?.name ?? ''}</Text>
-        <Text style={styles.stimulusText}>{profile?.context ?? ''}</Text>
+        {profiles.map((p, pi) => (
+          <View key={pi}>
+            {pi > 0 && <View style={{ height: 1, backgroundColor: '#ccc', marginVertical: 3 }} />}
+            <Text style={styles.stimulusTitle}>{p.name ?? ''}</Text>
+            <Text style={styles.stimulusText}>{p.context ?? ''}</Text>
+          </View>
+        ))}
         <Text style={[styles.stimulusText, { marginTop: 3 }]}>{data.narrative ?? ''}</Text>
         {checkItems.length > 0 && (
           <View style={{ marginTop: 4 }}>
@@ -191,14 +234,30 @@ function renderQuantitativeChart(data: TPL_QUANTITATIVE_CHART) {
   return safe(() => {
     const datasets = data.datasets ?? [];
     const axes = data.axes ?? [];
-    if (datasets.length === 0) return null;
+    if (datasets.length === 0 || axes.length === 0) return null;
+    const chartLabel = data.chart_type === 'line'
+      ? '꺾은선그래프'
+      : data.chart_type === 'radar'
+        ? '방사형 그래프'
+        : '막대그래프';
     return (
       <View style={styles.stimulusBox}>
-        <Text style={styles.stimulusTitle}>[{data.chart_type ?? 'bar'} 차트]</Text>
-        {datasets.map((ds, i) => (
-          <Text key={i} style={styles.stimulusText}>
-            {ds.label ?? ''}: {(ds.values ?? []).map((v, vi) => `${axes[vi]?.label ?? vi}=${v}`).join(', ')}
-          </Text>
+        <Text style={styles.stimulusTitle}>[{chartLabel}]</Text>
+        <View style={[styles.tableRow, { borderTopWidth: 0.5, borderTopColor: '#999', borderTopStyle: 'solid' as const }]}>
+          <Text style={styles.tableCellHeader}>구분</Text>
+          {datasets.map((ds, i) => (
+            <Text key={i} style={styles.tableCellHeader}>{ds.label ?? ''}</Text>
+          ))}
+        </View>
+        {axes.map((axis, axisIdx) => (
+          <View key={axis.key ?? axisIdx} style={styles.tableRow}>
+            <Text style={styles.tableCellHeader}>{axis.label}</Text>
+            {datasets.map((ds, dsIdx) => (
+              <Text key={ds.label ?? dsIdx} style={styles.tableCell}>
+                {(ds.values ?? [])[axisIdx] ?? '-'}
+              </Text>
+            ))}
+          </View>
         ))}
       </View>
     );
@@ -227,6 +286,121 @@ function renderPromotionalCanvas(data: TPL_PROMOTIONAL_CANVAS) {
   }, null);
 }
 
+function renderArticle(data: TPL_ARTICLE) {
+  return safe(() => {
+    const paragraphs = data.body_paragraphs ?? [];
+    return (
+      <View style={styles.stimulusBox}>
+        <Text style={styles.stimulusTitle}>{data.title ?? ''}</Text>
+        {data.byline ? <Text style={[styles.stimulusText, { fontSize: 7, color: '#666' }]}>{data.byline}</Text> : null}
+        {data.published_date ? <Text style={[styles.stimulusText, { fontSize: 7, color: '#999' }]}>{data.published_date}</Text> : null}
+        {paragraphs.map((p, i) => (
+          <Text key={i} style={[styles.stimulusText, { marginTop: 2 }]}>{p}</Text>
+        ))}
+        {data.source ? <Text style={[styles.stimulusText, { fontSize: 7, color: '#999', marginTop: 4 }]}>출처: {data.source}</Text> : null}
+      </View>
+    );
+  }, null);
+}
+
+function renderStatistics(data: TPL_STATISTICS) {
+  return safe(() => {
+    const entries = data.data_entries ?? [];
+    return (
+      <View style={styles.stimulusBox}>
+        <Text style={styles.stimulusTitle}>{data.title ?? ''}</Text>
+        {data.category_label ? <Text style={[styles.stimulusText, { fontSize: 7, color: '#666' }]}>구분: {data.category_label}</Text> : null}
+        {entries.length > 0 && (
+          <View style={{ marginTop: 3 }}>
+            <View style={[styles.tableRow, { borderTopWidth: 0.5, borderTopColor: '#999', borderTopStyle: 'solid' as const }]}>
+              <Text style={styles.tableCellHeader}>{data.category_label || '항목'}</Text>
+              <Text style={styles.tableCellHeader}>{data.unit || '값'}</Text>
+            </View>
+            {entries.map((e, i) => (
+              <View key={i} style={styles.tableRow}>
+                <Text style={styles.tableCell}>{e.label ?? ''}</Text>
+                <Text style={[styles.tableCell, { textAlign: 'right' }]}>{e.value ?? ''}</Text>
+              </View>
+            ))}
+          </View>
+        )}
+        {data.source ? <Text style={[styles.stimulusText, { fontSize: 7, color: '#999', marginTop: 4 }]}>출처: {data.source}</Text> : null}
+      </View>
+    );
+  }, null);
+}
+
+function renderIncidentReport(data: TPL_INCIDENT_REPORT) {
+  return safe(() => {
+    return (
+      <View style={styles.stimulusBox}>
+        <Text style={styles.stimulusTitle}>{data.title ?? ''}</Text>
+        <Text style={[styles.stimulusText, { fontSize: 7, color: '#e65100', marginBottom: 3 }]}>{data.incident_type ?? ''}</Text>
+        {data.date ? <Text style={styles.stimulusText}>발생 일시: {data.date}</Text> : null}
+        {data.location ? <Text style={styles.stimulusText}>발생 장소: {data.location}</Text> : null}
+        <Text style={[styles.stimulusText, { marginTop: 3 }]}>개요: {data.overview ?? ''}</Text>
+        {data.cause ? <Text style={styles.stimulusText}>원인: {data.cause}</Text> : null}
+        {data.damage ? <Text style={styles.stimulusText}>피해: {data.damage}</Text> : null}
+        {data.timeline && data.timeline.length > 0 ? (
+          <View style={{ marginTop: 3 }}>
+            {data.timeline.map((ev, i) => (
+              <Text key={i} style={styles.stimulusText}>{ev.time ?? ''} → {ev.event ?? ''}</Text>
+            ))}
+          </View>
+        ) : null}
+      </View>
+    );
+  }, null);
+}
+
+function renderAnnouncement(data: TPL_ANNOUNCEMENT) {
+  return safe(() => {
+    return (
+      <View style={styles.stimulusBox}>
+        <Text style={styles.stimulusTitle}>{data.title ?? ''}</Text>
+        <Text style={[styles.stimulusText, { fontSize: 7, color: '#666' }]}>주최: {data.organizer ?? ''}</Text>
+        {data.schedule ? (
+          <Text style={styles.stimulusText}>기간: {data.schedule.start}{data.schedule.end ? ` ~ ${data.schedule.end}` : ''}</Text>
+        ) : null}
+        {data.location ? <Text style={styles.stimulusText}>장소: {data.location}</Text> : null}
+        {data.target ? <Text style={styles.stimulusText}>대상: {data.target}</Text> : null}
+        {(data.details ?? []).map((d, i) => (
+          <Text key={i} style={styles.stimulusText}>[{d.label ?? ''}] {d.content ?? ''}</Text>
+        ))}
+        {data.contact ? <Text style={[styles.stimulusText, { marginTop: 3 }]}>문의: {data.contact}</Text> : null}
+      </View>
+    );
+  }, null);
+}
+
+function renderReport(data: TPL_REPORT) {
+  return safe(() => {
+    const sections = data.sections ?? [];
+    return (
+      <View style={styles.stimulusBox}>
+        <Text style={styles.stimulusTitle}>{data.title ?? ''}</Text>
+        {data.author || data.date ? (
+          <Text style={[styles.stimulusText, { fontSize: 7, color: '#666', marginBottom: 3 }]}>
+            {data.author ? `작성자: ${data.author}` : ''}{data.author && data.date ? ' | ' : ''}{data.date ? `작성일: ${data.date}` : ''}
+          </Text>
+        ) : null}
+        {sections.map((s, i) => (
+          <View key={i} style={{ marginTop: 3 }}>
+            <Text style={[styles.stimulusText, { fontWeight: 700 }]}>{s.heading ?? ''}</Text>
+            <Text style={styles.stimulusText}>{s.content ?? ''}</Text>
+          </View>
+        ))}
+        {data.conclusion ? (
+          <View style={{ marginTop: 4, borderTopWidth: 0.5, borderTopColor: '#ccc', borderTopStyle: 'solid' as const, paddingTop: 2 }}>
+            <Text style={[styles.stimulusText, { fontWeight: 700 }]}>결론</Text>
+            <Text style={styles.stimulusText}>{data.conclusion}</Text>
+          </View>
+        ) : null}
+      </View>
+    );
+  }, null);
+}
+
 export function PdfStimulusRenderer({ template, data }: Props) {
   if (!data) return null;
 
@@ -249,6 +423,16 @@ export function PdfStimulusRenderer({ template, data }: Props) {
       return renderQuantitativeChart(data as TPL_QUANTITATIVE_CHART);
     case 'TPL_PROMOTIONAL_CANVAS':
       return renderPromotionalCanvas(data as TPL_PROMOTIONAL_CANVAS);
+    case 'TPL_ARTICLE':
+      return renderArticle(data as TPL_ARTICLE);
+    case 'TPL_STATISTICS':
+      return renderStatistics(data as TPL_STATISTICS);
+    case 'TPL_INCIDENT_REPORT':
+      return renderIncidentReport(data as TPL_INCIDENT_REPORT);
+    case 'TPL_ANNOUNCEMENT':
+      return renderAnnouncement(data as TPL_ANNOUNCEMENT);
+    case 'TPL_REPORT':
+      return renderReport(data as TPL_REPORT);
     default:
       if (typeof data === 'string' && data.trim()) {
         return (

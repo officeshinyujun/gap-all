@@ -74,7 +74,11 @@ export class ChatController {
     @Param('sessionId') sessionId: string,
     @UploadedFile() file: Express.Multer.File,
   ) {
-    return this.chatService.processImageQuestion(user.id, sessionId, file.buffer);
+    return this.chatService.processImageQuestion(
+      user.id,
+      sessionId,
+      file.buffer,
+    );
   }
 
   @Get('images/:filename')

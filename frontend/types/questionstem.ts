@@ -59,11 +59,63 @@ export interface TPL_FORMAL_DOCUMENT {
 // 3. TPL_CONVERSATIONAL_FLOW
 // ------------------------------------------------------------
 
+export type ConversationIconKey =
+  | 'person'
+  | 'student'
+  | 'teacher'
+  | 'citizen'
+  | 'employee'
+  | 'employer'
+  | 'customer'
+  | 'public_official'
+  | 'expert'
+  | 'organization'
+  | 'group'
+  | 'hospital'
+  | 'court';
+
+export type ConversationSceneKind =
+  | 'none'
+  | 'dialogue'
+  | 'interview'
+  | 'school'
+  | 'office'
+  | 'public_service'
+  | 'hospital'
+  | 'shop'
+  | 'court';
+
+export type ConversationActionKey =
+  | 'request'
+  | 'inform'
+  | 'consult'
+  | 'approve'
+  | 'reject'
+  | 'provide'
+  | 'report'
+  | 'notify'
+  | 'pay'
+  | 'regulate';
+
+export interface ConversationVisualRelation {
+  from_id: string;
+  to_id: string;
+  action_key: ConversationActionKey;
+  evidence_message_indexes: number[];
+}
+
+export interface ConversationVisualAid {
+  kind: 'none' | 'actor_flow';
+  actor_ids: string[];
+  relations: ConversationVisualRelation[];
+}
+
 export interface ConvParticipant {
   /** messages의 p_id와 매칭 */
   id: string;
   name: string;
   role: string;
+  icon_key?: ConversationIconKey;
 }
 
 export interface ConvMessage {
@@ -77,6 +129,8 @@ export interface TPL_CONVERSATIONAL_FLOW {
   /** index 0: 좌측 배치, 나머지: 우측 배치 */
   participants: ConvParticipant[];
   messages: ConvMessage[];
+  scene_kind?: ConversationSceneKind;
+  visual_aid?: ConversationVisualAid;
 }
 
 // ------------------------------------------------------------
@@ -97,7 +151,8 @@ export interface CaseCheckItemData {
 }
 
 export interface TPL_CASE_DIAGNOSTIC_FRAME {
-  case_profile: CaseProfile;
+  /** 단일 사례 객체 또는 복수 사례 배열 */
+  case_profile: CaseProfile | CaseProfile[];
   /** 줄바꿈(\n) 포함 가능 */
   narrative: string;
   check_items: CaseCheckItemData[];
@@ -131,6 +186,8 @@ export interface SceneParticipant {
   /** 화면에 이름 레이블로 표시 */
   id: string;
   text: string;
+  /** SVG data URI 또는 이미지 URL. 없으면 id 첫글자 이니셜 fallback */
+  avatar?: string;
 }
 
 export interface CanvasImageData {
@@ -215,4 +272,116 @@ export interface TPL_PROMOTIONAL_CANVAS {
   visual_elements: string[];
   /** 빈칸 없으면 빈 문자열("") */
   missing_part: string;
+}
+
+// ------------------------------------------------------------
+// 10. TPL_ARTICLE
+// ------------------------------------------------------------
+
+export interface TPL_ARTICLE {
+  title: string;
+  body_paragraphs: string[];
+  /** (옵션) 저자/기자명 */
+  byline?: string;
+  /** (옵션) 발행일 */
+  published_date?: string;
+  /** (옵션) 출처 */
+  source?: string;
+}
+
+// ------------------------------------------------------------
+// 11. TPL_STATISTICS
+// ------------------------------------------------------------
+
+export interface StatisticsEntry {
+  label: string;
+  value: string;
+  /** (옵션) 하위 레이블 */
+  sub_label?: string;
+}
+
+export interface TPL_STATISTICS {
+  title: string;
+  category_label?: string;
+  data_entries: StatisticsEntry[];
+  /** (옵션) 단위 표시 */
+  unit?: string;
+  /** (옵션) 출처 */
+  source?: string;
+}
+
+// ------------------------------------------------------------
+// 12. TPL_INCIDENT_REPORT
+// ------------------------------------------------------------
+
+export interface TimelineEvent {
+  time: string;
+  event: string;
+}
+
+export interface TPL_INCIDENT_REPORT {
+  title: string;
+  incident_type: string;
+  date?: string;
+  location?: string;
+  overview: string;
+  cause?: string;
+  damage?: string;
+  response?: string;
+  prevention?: string;
+  timeline?: TimelineEvent[];
+}
+
+// ------------------------------------------------------------
+// 13. TPL_ANNOUNCEMENT
+// ------------------------------------------------------------
+
+export interface AnnouncementSchedule {
+  start: string;
+  end?: string;
+}
+
+export interface AnnouncementDetail {
+  label: string;
+  content: string;
+}
+
+export interface TPL_ANNOUNCEMENT {
+  title: string;
+  organizer: string;
+  schedule?: AnnouncementSchedule;
+  location?: string;
+  target?: string;
+  details: AnnouncementDetail[];
+  contact?: string;
+}
+
+// ------------------------------------------------------------
+// 14. TPL_REPORT
+// ------------------------------------------------------------
+
+export interface ReportMeta {
+  label: string;
+  value: string;
+}
+
+export interface ReportSectionTable {
+  headers: string[];
+  rows: string[][];
+}
+
+export interface ReportSection {
+  heading: string;
+  content: string;
+  /** (옵션) 섹션에 포함된 표 */
+  table?: ReportSectionTable;
+}
+
+export interface TPL_REPORT {
+  title: string;
+  author?: string;
+  date?: string;
+  metadata?: ReportMeta[];
+  sections: ReportSection[];
+  conclusion?: string;
 }

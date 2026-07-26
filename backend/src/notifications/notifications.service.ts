@@ -134,18 +134,29 @@ export class NotificationsService {
     message: string,
     url: string,
   ): Promise<Notification> {
-    const notification = await this.createNotification(userId, type, title, message);
+    const notification = await this.createNotification(
+      userId,
+      type,
+      title,
+      message,
+    );
     await this.sendPush(userId, title, message, url).catch((err) =>
       this.logger.error(`Push failed for user ${userId}: ${err.message}`),
     );
     return notification;
   }
 
-  private async sendPush(userId: string, title: string, body: string, url: string) {
+  private async sendPush(
+    userId: string,
+    title: string,
+    body: string,
+    url: string,
+  ) {
     const vapidPublic = this.configService.get<string>('VAPID_PUBLIC_KEY');
     const vapidPrivate = this.configService.get<string>('VAPID_PRIVATE_KEY');
     const vapidSubject =
-      this.configService.get<string>('VAPID_SUBJECT') || 'mailto:admin@example.com';
+      this.configService.get<string>('VAPID_SUBJECT') ||
+      'mailto:admin@example.com';
 
     if (!vapidPublic || !vapidPrivate) {
       this.logger.warn('VAPID keys not configured, skipping push');

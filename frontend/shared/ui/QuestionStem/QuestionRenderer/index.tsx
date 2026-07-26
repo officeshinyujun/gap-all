@@ -15,6 +15,11 @@ import {
   TPLDigitalForumInterface,
   TPLQuantitativeChart,
   TPLPromotionalCanvas,
+  TPLArticle,
+  TPLStatistics,
+  TPLIncidentReport,
+  TPLAnnouncement,
+  TPLReport,
 } from '../index';
 import { parseStimulus, getTemplateLabel, inferTemplate } from '@shared/utils/examParser';
 import type { ExamQuestion, ParsedStimulus } from '@/types/examQuestion';
@@ -78,13 +83,14 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
   }
 
   const { metadata, render_ready } = question;
-  const { question_stem, stimulus_data, options, options_list } = render_ready;
+  const { question_stem: raw_stem, stimulus_data, options, options_list } = render_ready;
+  const question_stem = raw_stem.replace(/^\d+\.\s*/, '');
 
   const explanation = question.explanation ?? render_ready.explanation;
 
   const normalizedOptions = normalizeOptions(options, options_list);
 
-  const resolvedTemplate = metadata.recommended_template ?? inferTemplate(stimulus_data) ?? '';
+  const resolvedTemplate = metadata.recommended_template || inferTemplate(stimulus_data) || '';
   const parsed = parseStimulus(resolvedTemplate, stimulus_data);
 
   const renderStimulus = (parsed: ParsedStimulus | null) => {
@@ -176,6 +182,31 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
         const raw = parsed.data;
         if (!raw || (!raw.slogan && !raw.bullets?.length)) return renderPlainTextFallback(stimulus_data);
         return <TPLPromotionalCanvas data={raw} />;
+      }
+      case 'TPL_ARTICLE': {
+        const raw = parsed.data;
+        if (!raw || !raw.body_paragraphs?.length) return renderPlainTextFallback(stimulus_data);
+        return <TPLArticle data={raw} />;
+      }
+      case 'TPL_STATISTICS': {
+        const raw = parsed.data;
+        if (!raw || !raw.data_entries?.length) return renderPlainTextFallback(stimulus_data);
+        return <TPLStatistics data={raw} />;
+      }
+      case 'TPL_INCIDENT_REPORT': {
+        const raw = parsed.data;
+        if (!raw || !raw.overview) return renderPlainTextFallback(stimulus_data);
+        return <TPLIncidentReport data={raw} />;
+      }
+      case 'TPL_ANNOUNCEMENT': {
+        const raw = parsed.data;
+        if (!raw || !raw.title || !raw.details?.length) return renderPlainTextFallback(stimulus_data);
+        return <TPLAnnouncement data={raw} />;
+      }
+      case 'TPL_REPORT': {
+        const raw = parsed.data;
+        if (!raw || !raw.sections?.length) return renderPlainTextFallback(stimulus_data);
+        return <TPLReport data={raw} />;
       }
       case 'TPL_PLAIN_TEXT':
         if (!parsed.data || (typeof parsed.data === 'string' && !parsed.data.trim())) {

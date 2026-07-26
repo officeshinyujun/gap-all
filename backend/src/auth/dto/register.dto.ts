@@ -14,10 +14,10 @@ import {
 class PasswordStrengthConstraint implements ValidatorConstraintInterface {
   validate(password: string, args: ValidationArguments) {
     if (!/^[A-Z]/.test(password)) return false;
-    const specialChars = password.match(
-      /[!@#$%^&*()_+\-=\[\]{}|;':",./<>?~`\\]/g,
-    );
-    if (!specialChars || specialChars.length < 2) return false;
+    const specialCharCount = [...password].filter((char) =>
+      '!@#$%^&*()_+-=[]{}|;\':",./<>?~`\\'.includes(char),
+    ).length;
+    if (specialCharCount < 2) return false;
 
     const dto = args.object as RegisterDto;
     if (dto.birthday) {

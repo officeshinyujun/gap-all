@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'react-router';
 import Typo from '@shared/ui/Typo';
 import { VStack } from '@shared/ui/VStack';
 import { HStack } from '@shared/ui/HStack';
@@ -22,7 +22,7 @@ interface ChatSession {
 }
 
 export default function ChatPage() {
-  const searchParams = useSearchParams();
+  const [searchParams] = useSearchParams();
   const [sessions, setSessions] = useState<ChatSession[]>([]);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [modalOpen, setModalOpen] = useState(false);

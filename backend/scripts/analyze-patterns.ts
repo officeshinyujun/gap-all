@@ -1,4 +1,3 @@
-import { execSync } from 'child_process';
 import * as fs from 'fs';
 import * as path from 'path';
 import OpenAI from 'openai';
@@ -31,20 +30,27 @@ Return JSON with an "entries" array, one per question, in the SAME ORDER as rece
   "variationTips": ["변형 팁1", "변형 팁2"]
 }`;
 
-async function analyzeBatch(questions: any[], batchLabel: string): Promise<any[]> {
-  const qtext = questions.map((q, i) => {
-    let txt = `[Q${q.questionNumber}] stem: ${(q.stem || '').slice(0, 300)}\n`;
-    if (q.stimulus) txt += `  stimulus: ${q.stimulus.slice(0, 200)}\n`;
-    if (q.viewItems?.length) txt += `  viewItems: ${q.viewItems.join(' | ').slice(0, 300)}\n`;
-    if (q.targetConcepts?.length) txt += `  concepts: ${q.targetConcepts.join(', ')}\n`;
-    return txt;
-  }).join('\n');
+async function analyzeBatch(questions: any[]): Promise<any[]> {
+  const qtext = questions
+    .map((q) => {
+      let txt = `[Q${q.questionNumber}] stem: ${(q.stem || '').slice(0, 300)}\n`;
+      if (q.stimulus) txt += `  stimulus: ${q.stimulus.slice(0, 200)}\n`;
+      if (q.viewItems?.length)
+        txt += `  viewItems: ${q.viewItems.join(' | ').slice(0, 300)}\n`;
+      if (q.targetConcepts?.length)
+        txt += `  concepts: ${q.targetConcepts.join(', ')}\n`;
+      return txt;
+    })
+    .join('\n');
 
   const response = await openai.chat.completions.create({
     model: process.env.OPENAI_STEP1_MODEL || 'gpt-4o',
     messages: [
       { role: 'system', content: ANALYZE_PROMPT },
-      { role: 'user', content: `Analyze these questions and extract patterns:\n\n${qtext}` },
+      {
+        role: 'user',
+        content: `Analyze these questions and extract patterns:\n\n${qtext}`,
+      },
     ],
     response_format: { type: 'json_object' },
     temperature: 0,
@@ -74,8 +80,8 @@ async function analyzeUnit(subject: string, unit: number) {
 
   try {
     const [p1, p2] = await Promise.all([
-      analyzeBatch(batch1, `${unit}-1`),
-      analyzeBatch(batch2, `${unit}-2`),
+      analyzeBatch(batch1),
+      analyzeBatch(batch2),
     ]);
 
     const entries = [...p1, ...p2];
@@ -87,7 +93,10 @@ async function analyzeUnit(subject: string, unit: number) {
       entries,
     };
 
-    fs.writeFileSync(outDir + '/' + unit + '단원.json', JSON.stringify(result, null, 2));
+    fs.writeFileSync(
+      outDir + '/' + unit + '단원.json',
+      JSON.stringify(result, null, 2),
+    );
     process.stdout.write(entries.length + '개 엔트리 ✓\n');
   } catch (e: any) {
     process.stdout.write('실패: ' + e.message.slice(0, 60) + '\n');

@@ -1,7 +1,7 @@
 'use client';
 
-import { use, useEffect, useState, useCallback, useRef } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useEffect, useState, useCallback, useRef } from 'react';
+import { useNavigate, useParams, useSearchParams } from 'react-router';
 import Typo from '@shared/ui/Typo';
 import { VStack } from '@shared/ui/VStack';
 import { HStack } from '@shared/ui/HStack';
@@ -21,14 +21,10 @@ import s from './page.module.scss';
 
 type PageState = 'loading' | 'ready' | 'result' | 'review' | 'error';
 
-export default function ExamDetailPage({
-  params,
-}: {
-  params: Promise<{ subject: string; examId: string }>;
-}) {
-  const { subject, examId } = use(params);
-  const router = useRouter();
-  const searchParams = useSearchParams();
+export default function ExamDetailPage() {
+  const { subject = '', examId = '' } = useParams();
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const isReviewEntry = searchParams.get('review') === '1';
   const learnedUnitsParam = searchParams.get('learnedUnits') ?? '';
   const learnedUnits = learnedUnitsParam.split(',').map(Number).filter(Boolean);
@@ -198,7 +194,7 @@ export default function ExamDetailPage({
   return (
     <div className={s.container}>
       <div className={s.header}>
-        <button className={s.backButton} onClick={() => router.back()}>
+        <button className={s.backButton} onClick={() => navigate(-1)}>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <path d="M10 12L6 8L10 4" stroke="#5C6370" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
@@ -363,7 +359,7 @@ export default function ExamDetailPage({
             </button>
             <button
               className={`${s.footerButton} ${s.footerButtonNext}`}
-              onClick={() => router.push(`/exam/${subject}`)}
+              onClick={() => navigate(`/exam/${subject}`)}
             >
               목록으로 →
             </button>

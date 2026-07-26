@@ -24,7 +24,6 @@ import { ReviewGenerateDto } from './dto/review-generate.dto';
 import { JwtAuthGuard } from '../common/guards/jwt-auth.guard';
 import { CurrentUser } from '../common/decorators/current-user.decorator';
 import type { CurrentUserPayload } from '../common/decorators/current-user.decorator';
-import type { QuizCount, CacheType } from './study-quiz-generator.service';
 import { TextbookEmbeddingService } from '../textbook/textbook-embedding.service';
 
 @Controller('study')
@@ -212,7 +211,7 @@ export class StudyController {
   }
 
   @Get(':subjectSlug/:unitNumber/concept')
-  async getConcept(
+  getConcept(
     @Param('subjectSlug') subjectSlug: string,
     @Param('unitNumber', ParseIntPipe) unitNumber: number,
     @Query('name') name: string,
@@ -244,7 +243,7 @@ export class StudyController {
   }
 
   @Get(':subjectSlug/:unitNumber/concept-md')
-  async getConceptMd(
+  getConceptMd(
     @Param('subjectSlug') subjectSlug: string,
     @Param('unitNumber', ParseIntPipe) unitNumber: number,
   ) {
@@ -272,7 +271,7 @@ export class StudyController {
   }
 
   @Delete(':subjectSlug/:unitNumber/cache')
-  async clearCache(
+  clearCache(
     @CurrentUser() user: CurrentUserPayload,
     @Param('subjectSlug') subjectSlug: string,
     @Param('unitNumber', ParseIntPipe) unitNumber: number,

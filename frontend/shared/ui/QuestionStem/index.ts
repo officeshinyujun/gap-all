@@ -140,3 +140,23 @@ export type { PromoVisualTagProps } from './TPL_PROMOTIONAL_CANVAS/PromoVisualTa
 
 export { PromoMissingPart } from './TPL_PROMOTIONAL_CANVAS/PromoMissingPart';
 export type { PromoMissingPartProps } from './TPL_PROMOTIONAL_CANVAS/PromoMissingPart';
+
+// --- TPL_ARTICLE ---
+export { TPLArticle } from './TPL_ARTICLE';
+export type { TPLArticleProps } from './TPL_ARTICLE';
+
+// --- TPL_STATISTICS ---
+export { TPLStatistics } from './TPL_STATISTICS';
+export type { TPLStatisticsProps } from './TPL_STATISTICS';
+
+// --- TPL_INCIDENT_REPORT ---
+export { TPLIncidentReport } from './TPL_INCIDENT_REPORT';
+export type { TPLIncidentReportProps } from './TPL_INCIDENT_REPORT';
+
+// --- TPL_ANNOUNCEMENT ---
+export { TPLAnnouncement } from './TPL_ANNOUNCEMENT';
+export type { TPLAnnouncementProps } from './TPL_ANNOUNCEMENT';
+
+// --- TPL_REPORT ---
+export { TPLReport } from './TPL_REPORT';
+export type { TPLReportProps } from './TPL_REPORT';

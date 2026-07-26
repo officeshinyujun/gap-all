@@ -50,9 +50,17 @@ export async function createExamJob(
   unitNumber: number,
   questionCount = 10,
 ): Promise<{ jobId: string }> {
+  const request = {
+    subjectId,
+    startUnitNum: unitNumber,
+    endUnitNum: unitNumber,
+    difficulty: 'MIDDLE',
+    questionCount,
+    sourceType: 'simply_reference',
+  };
   return apiFetch<{ jobId: string }>('/exams/jobs', {
     method: 'POST',
-    body: JSON.stringify({ subjectId, startUnitNum: unitNumber, endUnitNum: unitNumber, difficulty: 'MIDDLE', questionCount }),
+    body: JSON.stringify(request),
   });
 }
 

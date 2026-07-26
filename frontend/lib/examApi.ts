@@ -50,6 +50,7 @@ export interface ExamListItem {
   difficulty: string;
   questionCount: number;
   totalScore: number | null;
+  sourceType: 'ai' | 'reference';
   createdAt: string;
   subject?: { id: string; slug: string; title: string };
   tags?: { id: string; tagName: string }[];
@@ -90,6 +91,7 @@ export interface ExamData {
   title: string;
   difficulty: string;
   questionCount: number;
+  sourceType: 'ai' | 'reference';
   items: ExamItem[];
 }
 
@@ -120,15 +122,17 @@ export async function createExamJob(
   unitNumber: number,
   questionCount = 10,
 ): Promise<{ jobId: string }> {
+  const request = {
+    subjectId,
+    startUnitNum: unitNumber,
+    endUnitNum: unitNumber,
+    difficulty: 'MIDDLE',
+    questionCount,
+    sourceType: 'simply_reference',
+  };
   return apiFetch<{ jobId: string }>('/exams/jobs', {
     method: 'POST',
-    body: JSON.stringify({
-      subjectId,
-      startUnitNum: unitNumber,
-      endUnitNum: unitNumber,
-      difficulty: 'MIDDLE',
-      questionCount,
-    }),
+    body: JSON.stringify(request),
   });
 }
 

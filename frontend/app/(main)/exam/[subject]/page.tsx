@@ -1,6 +1,6 @@
 "use client";
-import React, { useState, use, useEffect } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useParams, useSearchParams } from 'react-router';
 import { X, Download, FileText } from 'lucide-react';
 import { HStack } from '@shared/ui/HStack';
 import { VStack } from '@shared/ui/VStack';
@@ -44,12 +44,11 @@ function examToItem(exam: ExamListItem): ProblemItem {
   };
 }
 
-export default function ExamPage({ params }: { params: Promise<{ subject: string }> }) {
-  const unwrappedParams = use(params);
-  const subject = unwrappedParams.subject;
+export default function ExamPage() {
+  const { subject = '' } = useParams();
   const subjectName = getSubjectName(subject);
-  const router = useRouter();
-  const searchParams = useSearchParams();
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
 
   const learnedUnitsParam = searchParams.get('learnedUnits') ?? '';
   const learnedUnitsArr = learnedUnitsParam.split(',').map(Number).filter(Boolean);
@@ -255,7 +254,7 @@ export default function ExamPage({ params }: { params: Promise<{ subject: string
               <HStack fullWidth gap={SPACING.s8}>
                 <button
                   className={`${s.startButton} ${s.outlineButton}`}
-                  onClick={() => selectedItem.id && router.push(examHref(selectedItem.id))}
+                    onClick={() => selectedItem.id && navigate(examHref(selectedItem.id))}
                 >
                   <Typo.MD size={14} color="brand" style={{ fontWeight: 600 }}>
                     {selectedItem.score !== '미채점' ? '다시 풀기' : '문제 풀기'}
@@ -264,7 +263,7 @@ export default function ExamPage({ params }: { params: Promise<{ subject: string
                 {selectedItem.score !== '미채점' && (
                   <button
                     className={s.startButton}
-                    onClick={() => selectedItem.id && router.push(`/exam/${subject}/${selectedItem.id}?review=1`)}
+                    onClick={() => selectedItem.id && navigate(`/exam/${subject}/${selectedItem.id}?review=1`)}
                   >
                     <Typo.MD size={14} color="primary" style={{ fontWeight: 600, color: '#fff' }}>해설 보기</Typo.MD>
                   </button>
@@ -350,7 +349,7 @@ export default function ExamPage({ params }: { params: Promise<{ subject: string
 
             <button
               className={s.startButton}
-              onClick={() => selectedItem.id && router.push(examHref(selectedItem.id))}
+              onClick={() => selectedItem.id && navigate(examHref(selectedItem.id))}
             >
               <Typo.MD size={14} color="primary" style={{ fontWeight: 600, color: '#fff' }}>문제 풀기</Typo.MD>
             </button>

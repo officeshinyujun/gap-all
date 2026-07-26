@@ -1,7 +1,7 @@
 'use client';
 
-import { use, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { useNavigate, useParams } from 'react-router';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { VStack } from '@shared/ui/VStack';
@@ -46,14 +46,10 @@ function highlightStimulus(text: string, quotes: string[]): React.ReactNode {
   );
 }
 
-export function ConceptStudyPage({
-  params,
-}: {
-  params: Promise<{ subject: string; chapter: string }>;
-}) {
-  const { subject, chapter } = use(params);
+export function ConceptStudyPage() {
+  const { subject = '', chapter = '' } = useParams();
   const unitNumber = parseUnitNumber(chapter);
-  const router = useRouter();
+  const navigate = useNavigate();
 
   const {
     mainTab, setMainTab, slideView, setSlideView,
@@ -77,7 +73,7 @@ export function ConceptStudyPage({
   return (
     <div className={s.container}>
       <div className={s.header}>
-        <button className={s.backButton} onClick={() => router.back()}>
+        <button className={s.backButton} onClick={() => navigate(-1)}>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <path d="M10 12L6 8L10 4" stroke="#5C6370" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>

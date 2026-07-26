@@ -251,7 +251,10 @@ JSON만 반환하세요.`,
             },
             {
               type: 'image_url',
-              image_url: { url: `data:image/jpeg;base64,${base64}`, detail: 'high' },
+              image_url: {
+                url: `data:image/jpeg;base64,${base64}`,
+                detail: 'high',
+              },
             },
           ],
         },
@@ -274,8 +277,14 @@ JSON만 반환하세요.`,
       };
     } catch {
       return {
-        source_exam: null, number: null, stem: '', stimulus: '',
-        box_items: [], options: [], answer: '', target_concepts: [],
+        source_exam: null,
+        number: null,
+        stem: '',
+        stimulus: '',
+        box_items: [],
+        options: [],
+        answer: '',
+        target_concepts: [],
       };
     }
   }
@@ -328,7 +337,9 @@ ${extracted.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
       messages: [{ role: 'user', content: prompt }],
     });
 
-    return response.choices[0]?.message?.content ?? '해설을 생성할 수 없습니다.';
+    return (
+      response.choices[0]?.message?.content ?? '해설을 생성할 수 없습니다.'
+    );
   }
   private loadSummationFallback(
     subjectSlug: string,

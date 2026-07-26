@@ -1,7 +1,7 @@
 'use client';
 
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
-import { useRouter } from 'next/navigation';
+import { useNavigate } from 'react-router';
 import { API_BASE_URL } from '@/lib/auth';
 
 interface User {
@@ -16,6 +16,7 @@ interface User {
 interface AuthContextValue {
   user: User | null;
   isLoading: boolean;
+  refreshUser: () => Promise<User | null>;
   login: (email: string, password: string) => Promise<void>;
   register: (email: string, name: string, password: string, birthday: string, verificationToken: string) => Promise<void>;
   logout: () => void;
@@ -26,19 +27,28 @@ const AuthContext = createContext<AuthContextValue | null>(null);
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const router = useRouter();
+  const navigate = useNavigate();
+
+  const refreshUser = useCallback(async (): Promise<User | null> => {
+    const res = await fetch(`${API_BASE_URL}/users/me`, {
+      credentials: 'include',
+    });
+
+    if (!res.ok) {
+      setUser(null);
+      return null;
+    }
+
+    const data = await res.json() as User;
+    setUser(data);
+    return data;
+  }, []);
 
   useEffect(() => {
-    fetch(`${API_BASE_URL}/users/me`, {
-      credentials: 'include',
-    })
-      .then((res) => (res.ok ? res.json() : null))
-      .then((data) => {
-        if (data) setUser(data);
-      })
-      .catch(() => {})
+    refreshUser()
+      .catch(() => setUser(null))
       .finally(() => setIsLoading(false));
-  }, []);
+  }, [refreshUser]);
 
   const login = useCallback(async (email: string, password: string) => {
     const res = await fetch(`${API_BASE_URL}/auth/login`, {
@@ -55,8 +65,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
     const data = await res.json();
     setUser(data.user);
-    router.replace('/');
-  }, [router]);
+    navigate('/', { replace: true });
+  }, [navigate]);
 
   const register = useCallback(async (email: string, name: string, password: string, birthday: string, verificationToken: string) => {
     const res = await fetch(`${API_BASE_URL}/auth/register`, {
@@ -73,8 +83,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
     const data = await res.json();
     setUser(data.user);
-    router.replace('/');
-  }, [router]);
+    navigate('/', { replace: true });
+  }, [navigate]);
 
   const logout = useCallback(async () => {
     try {
@@ -84,11 +94,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       });
     } catch {}
     setUser(null);
-    router.replace('/landing');
-  }, [router]);
+    navigate('/landing', { replace: true });
+  }, [navigate]);
 
   return (
-    <AuthContext.Provider value={{ user, isLoading, login, register, logout }}>
+    <AuthContext.Provider value={{ user, isLoading, refreshUser, login, register, logout }}>
       {children}
     </AuthContext.Provider>
   );

@@ -16,8 +16,12 @@ export const TPLCaseDiagnosticFrame: React.FC<TPLCaseDiagnosticFrameProps> = ({
   data,
   label,
 }) => {
-  const profile = data.case_profile;
   const narrative = data.narrative || '';
+  const profiles = Array.isArray(data.case_profile)
+    ? data.case_profile
+    : data.case_profile
+      ? [data.case_profile]
+      : [];
 
   return (
     <StemBox>
@@ -26,9 +30,9 @@ export const TPLCaseDiagnosticFrame: React.FC<TPLCaseDiagnosticFrameProps> = ({
 
         {/* 프로필 + 서술 통합 박스 */}
         <div className={s.caseBox}>
-          {/* 프로필 헤더 */}
-          {profile && (
-            <div className={s.profileHeader}>
+          {/* 프로필 헤더 (단일 또는 복수) */}
+          {profiles.map((profile, pi) => (
+            <div key={profile.name || `profile-${pi}`} className={pi > 0 ? s.profileHeader + ' ' + s.profileHeaderGap : s.profileHeader}>
               <HStack gap={10} align="center">
                 <div className={s.avatar}>
                   <span className={s.avatarInitial}>{profile.name?.charAt(0) || '?'}</span>
@@ -39,7 +43,7 @@ export const TPLCaseDiagnosticFrame: React.FC<TPLCaseDiagnosticFrameProps> = ({
                 </VStack>
               </HStack>
             </div>
-          )}
+          ))}
 
           {/* 서술 본문 */}
           {narrative && (

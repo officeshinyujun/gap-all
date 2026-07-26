@@ -46,7 +46,7 @@ export function JobProgressProvider({ children }: { children: React.ReactNode })
         }
       } catch {
         setJobStatus((prev) =>
-          prev ? { ...prev, status: 'failed', message: '오류 발생' } : null,
+          prev ? { ...prev, status: 'failed', message: '오류 발생', errorMessage: '오류 발생' } : null,
         );
         if (pollingRef.current) clearInterval(pollingRef.current);
         pollingRef.current = null;

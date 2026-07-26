@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useNavigate } from 'react-router';
 import type { FrequencyConcept, FrequencyConceptItem, ConceptExplanation, StructuredConcept, ConceptBookmark } from '@entities/concept/model/types';
 import { fetchFrequencyConcept, fetchConceptByName, fetchStructuredConcept, fetchConceptBookmarks, addConceptBookmark, removeConceptBookmark } from '@entities/concept/api/conceptApi';
 import { fetchUnitId, updateStudyProgress } from '@entities/study/api/studyApi';
@@ -24,7 +24,7 @@ function readSession<T>(key: string, defaultValue: T): T {
 }
 
 export function useConceptStudy(subject: string, unitNumber: number, chapter: string) {
-  const router = useRouter();
+  const navigate = useNavigate();
   const cacheKey = getCacheKey(subject, unitNumber);
 
   const [mainTab, setMainTabState] = useState<MainTab>(() => readSession(`${cacheKey}-mainTab`, 'concept') as MainTab);
@@ -133,7 +133,7 @@ export function useConceptStudy(subject: string, unitNumber: number, chapter: st
   };
   const handleComplete = async () => {
     try { const unitId = await fetchUnitId(subject, unitNumber); if (unitId) await updateStudyProgress(unitId, 'BASIC_CONCEPT', 100); } catch { /* ignore */ }
-    router.push(`/study/${subject}/${chapter}/q1?count=10`);
+    navigate(`/study/${subject}/${chapter}/q1?count=10`);
   };
 
   const isFirst = currentIndex === 0 && slideView === 'learn';

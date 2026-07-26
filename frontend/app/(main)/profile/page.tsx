@@ -37,7 +37,7 @@ const CONDITION_OPTIONS = [
     { label: '일주일 미복습', value: 7 },
 ];
 
-const VAPID_PUBLIC_KEY = process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY ?? '';
+const VAPID_PUBLIC_KEY = import.meta.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY ?? import.meta.env.VITE_VAPID_PUBLIC_KEY ?? '';
 
 export default function ProfilePage() {
     const { logout } = useAuth();

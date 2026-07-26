@@ -1,0 +1,85 @@
+.wrapper {
+  width: 100%;
+  padding: $spacing-12;
+  border: 1px solid $border-primary;
+  background-color: $background-secondary;
+}
+
+.title {
+  margin-bottom: $spacing-8;
+  color: $text-strong;
+  font-size: 12px;
+  font-weight: $semi-bold;
+}
+
+.actors,
+.relations {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-8;
+}
+
+.actor {
+  display: flex;
+  min-width: 132px;
+  align-items: center;
+  gap: $spacing-8;
+  padding: $spacing-8;
+  border: 1px solid $border-primary;
+  background-color: $background-primary;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  color: $brand-primary;
+  flex: 0 0 auto;
+}
+
+.actorName {
+  color: $text-primary;
+  font-size: 12px;
+  font-weight: $semi-bold;
+}
+
+.actorRole {
+  margin-top: 2px;
+  color: $text-secondary;
+  font-size: 11px;
+}
+
+.relations {
+  margin-top: $spacing-8;
+}
+
+.relation {
+  display: flex;
+  align-items: center;
+  gap: $spacing-4;
+  color: $text-strong;
+  font-size: 12px;
+}
+
+.arrow {
+  color: $text-secondary;
+}
+
+.action {
+  padding: 2px $spacing-4;
+  border-radius: 999px;
+  color: $brand-primary;
+  background-color: $brand-secondary;
+  font-size: 11px;
+  font-weight: $semi-bold;
+}
+
+@media (max-width: 480px) {
+  .actors,
+  .relations {
+    flex-direction: column;
+  }
+
+  .actor {
+    width: 100%;
+  }
+}

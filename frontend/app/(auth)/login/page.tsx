@@ -1,9 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import Image from 'next/image';
-import Link from 'next/link';
+import { Link } from 'react-router';
 import { useAuth } from '@shared/contexts/AuthContext';
 import { APP_CONFIG } from '@/constants/app';
 import { API_BASE_URL } from '@shared/lib/auth';
@@ -42,7 +40,6 @@ function validatePassword(password: string, birthday: string): { valid: boolean;
 
 export default function LoginPage() {
   const { login, register } = useAuth();
-  const router = useRouter();
   const [mode, setMode] = useState<Mode>('login');
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
@@ -128,8 +125,8 @@ export default function LoginPage() {
   return (
     <div className={s.page}>
       <div className={s.card}>
-        <Link href="/landing" className={s.logoLink}>
-          <Image src="/2830_logo.png" alt={APP_CONFIG.name} width={40} height={40} />
+        <Link to="/landing" className={s.logoLink}>
+          <img src="/2830_logo.png" alt={APP_CONFIG.name} width={40} height={40} />
           <span className={s.logoText}>{APP_CONFIG.name}</span>
         </Link>
 
@@ -307,7 +304,10 @@ export default function LoginPage() {
         <button
           className={s.googleButton}
           type="button"
-          onClick={() => { window.location.href = `${API_BASE_URL}/auth/google`; }}
+          onClick={() => {
+            const returnTo = window.location.origin;
+            window.location.href = `${API_BASE_URL}/auth/google?return_to=${encodeURIComponent(returnTo)}`;
+          }}
         >
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844a4.14 4.14 0 0 1-1.796 2.716v2.259h2.908c1.702-1.567 2.684-3.875 2.684-6.615Z" fill="#4285F4" />

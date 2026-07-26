@@ -11,7 +11,7 @@ import {
 } from 'class-validator';
 import { Difficulty } from '../../entities/exam-record.entity';
 
-export type ExamSourceType = 'ai' | 'reference';
+export type ExamSourceType = 'ai' | 'reference' | 'simply_reference';
 
 export class CreateExamDto {
   @IsUUID()
@@ -49,4 +49,9 @@ export class CreateExamDto {
   @IsBoolean()
   @IsOptional()
   excludePrevious?: boolean;
+
+  @IsArray()
+  @IsString({ each: true })
+  @IsOptional()
+  referenceSourceIds?: string[];
 }

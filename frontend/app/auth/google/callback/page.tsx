@@ -1,22 +1,26 @@
 'use client';
 
-import { useEffect } from 'react';
-import { API_BASE_URL } from '@shared/lib/auth';
+import { useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router';
+import { useAuth } from '@shared/contexts/AuthContext';
 
 export default function GoogleCallbackPage() {
+  const navigate = useNavigate();
+  const { refreshUser } = useAuth();
+  const processedRef = useRef(false);
+
   useEffect(() => {
-    fetch(`${API_BASE_URL}/users/me`, { credentials: 'include' })
-      .then((res) => {
-        if (res.ok) {
-          window.location.href = '/';
-        } else {
-          window.location.href = '/login';
-        }
+    if (processedRef.current) return;
+    processedRef.current = true;
+
+    refreshUser()
+      .then((user) => {
+        navigate(user ? '/' : '/login', { replace: true });
       })
       .catch(() => {
-        window.location.href = '/login';
+        navigate('/login', { replace: true });
       });
-  }, []);
+  }, [navigate, refreshUser]);
 
   return (
     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>

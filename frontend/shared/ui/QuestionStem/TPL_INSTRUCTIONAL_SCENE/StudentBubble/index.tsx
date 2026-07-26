@@ -7,6 +7,7 @@ import s from './index.module.scss';
 export interface StudentBubbleProps {
   text?: string | null;
   id?: string | null;
+  avatar?: string | null;
   colorIndex?: number;
   className?: string;
 }
@@ -19,6 +20,7 @@ export interface StudentBubbleProps {
 export const StudentBubble: React.FC<StudentBubbleProps> = ({
   text,
   id,
+  avatar,
   className,
 }) => {
   return (
@@ -29,7 +31,9 @@ export const StudentBubble: React.FC<StudentBubbleProps> = ({
       </div>
       <VStack gap={4} align="center" className={s.avatarCol}>
         <div className={s.avatar}>
-          <span className={s.avatarInitial}>{id?.charAt(0) ?? '?'}</span>
+          {avatar
+            ? <img src={avatar} alt={id ?? ''} className={s.avatarImg} />
+            : <span className={s.avatarInitial}>{id?.charAt(0) ?? '?'}</span>}
         </div>
         <span className={s.label}>{id ?? ''}</span>
       </VStack>

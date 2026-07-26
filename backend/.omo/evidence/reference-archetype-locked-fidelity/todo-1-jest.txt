@@ -1,0 +1,4 @@
+
+> backend@0.0.1 test
+> jest --runInBand src/exams/reference-archetype.spec.ts src/exams/reference-frame.contract.spec.ts
+

@@ -131,6 +131,73 @@ function normalizePromotionalCanvas(data: unknown): any {
   };
 }
 
+function normalizeArticle(data: unknown): any {
+  const d = asRecord(data);
+  return {
+    title: typeof d.title === 'string' ? d.title : '',
+    body_paragraphs: Array.isArray(d.body_paragraphs) ? d.body_paragraphs : [],
+    byline: typeof d.byline === 'string' ? d.byline : '',
+    published_date: typeof d.published_date === 'string' ? d.published_date : '',
+    source: typeof d.source === 'string' ? d.source : '',
+  };
+}
+
+function normalizeStatistics(data: unknown): any {
+  const d = asRecord(data);
+  return {
+    title: typeof d.title === 'string' ? d.title : '',
+    category_label: typeof d.category_label === 'string' ? d.category_label : '',
+    data_entries: Array.isArray(d.data_entries) ? d.data_entries : [],
+    unit: typeof d.unit === 'string' ? d.unit : '',
+    source: typeof d.source === 'string' ? d.source : '',
+  };
+}
+
+function normalizeIncidentReport(data: unknown): any {
+  const d = asRecord(data);
+  return {
+    title: typeof d.title === 'string' ? d.title : '',
+    incident_type: typeof d.incident_type === 'string' ? d.incident_type : '',
+    date: typeof d.date === 'string' ? d.date : '',
+    location: typeof d.location === 'string' ? d.location : '',
+    overview: typeof d.overview === 'string' ? d.overview : '',
+    cause: typeof d.cause === 'string' ? d.cause : '',
+    damage: typeof d.damage === 'string' ? d.damage : '',
+    response: typeof d.response === 'string' ? d.response : '',
+    prevention: typeof d.prevention === 'string' ? d.prevention : '',
+    timeline: Array.isArray(d.timeline) ? d.timeline : [],
+  };
+}
+
+function normalizeAnnouncement(data: unknown): any {
+  const d = asRecord(data);
+  const schedule = asRecord(d.schedule);
+  return {
+    title: typeof d.title === 'string' ? d.title : '',
+    organizer: typeof d.organizer === 'string' ? d.organizer : '',
+    schedule: {
+      start: typeof schedule.start === 'string' ? schedule.start : '',
+      end: typeof schedule.end === 'string' ? schedule.end : '',
+    },
+    location: typeof d.location === 'string' ? d.location : '',
+    target: typeof d.target === 'string' ? d.target : '',
+    details: Array.isArray(d.details) ? d.details : [],
+    contact: typeof d.contact === 'string' ? d.contact : '',
+  };
+}
+
+function normalizeReport(data: unknown): any {
+  const d = asRecord(data);
+  return {
+    title: typeof d.title === 'string' ? d.title : '',
+    author: typeof d.author === 'string' ? d.author : '',
+    date: typeof d.date === 'string' ? d.date : '',
+    metadata: Array.isArray(d.metadata) ? d.metadata : [],
+    sections: Array.isArray(d.sections) ? d.sections : [],
+    conclusion: typeof d.conclusion === 'string' ? d.conclusion : '',
+  };
+}
+
 function normalizePlainText(data: unknown): string {
   if (typeof data === 'string') return data;
   const d = asRecord(data);
@@ -157,6 +224,11 @@ export function inferTemplate(data: unknown): string | null {
   if ('forum_name' in d && 'main_post' in d) return 'TPL_DIGITAL_FORUM_INTERFACE';
   if ('chart_type' in d && 'axes' in d && 'datasets' in d) return 'TPL_QUANTITATIVE_CHART';
   if ('slogan' in d && 'bullets' in d) return 'TPL_PROMOTIONAL_CANVAS';
+  if ('body_paragraphs' in d && 'title' in d) return 'TPL_ARTICLE';
+  if ('data_entries' in d && Array.isArray(d.data_entries) && d.data_entries.length > 0) return 'TPL_STATISTICS';
+  if ('incident_type' in d && 'overview' in d) return 'TPL_INCIDENT_REPORT';
+  if ('organizer' in d && 'details' in d) return 'TPL_ANNOUNCEMENT';
+  if ('sections' in d && Array.isArray(d.sections) && d.sections.length > 0) return 'TPL_REPORT';
   if ('profile' in d) return 'TPL_CASE_DIAGNOSTIC_FRAME';
   if ('events' in d) return 'TPL_SEQUENTIAL_WORKFLOW';
   if ('post' in d) return 'TPL_DIGITAL_FORUM_INTERFACE';
@@ -202,6 +274,16 @@ export function parseStimulus(
       return { template: 'TPL_QUANTITATIVE_CHART', data: normalizeQuantitativeChart(data) };
     case 'TPL_PROMOTIONAL_CANVAS':
       return { template: 'TPL_PROMOTIONAL_CANVAS', data: normalizePromotionalCanvas(data) };
+    case 'TPL_ARTICLE':
+      return { template: 'TPL_ARTICLE', data: normalizeArticle(data) };
+    case 'TPL_STATISTICS':
+      return { template: 'TPL_STATISTICS', data: normalizeStatistics(data) };
+    case 'TPL_INCIDENT_REPORT':
+      return { template: 'TPL_INCIDENT_REPORT', data: normalizeIncidentReport(data) };
+    case 'TPL_ANNOUNCEMENT':
+      return { template: 'TPL_ANNOUNCEMENT', data: normalizeAnnouncement(data) };
+    case 'TPL_REPORT':
+      return { template: 'TPL_REPORT', data: normalizeReport(data) };
     case 'TPL_PLAIN_TEXT':
       return { template: 'TPL_PLAIN_TEXT', data: normalizePlainText(data) };
     default:
@@ -226,6 +308,11 @@ export function getTemplateLabel(template: string): string {
     TPL_DIGITAL_FORUM_INTERFACE: '게시판',
     TPL_QUANTITATIVE_CHART: '차트',
     TPL_PROMOTIONAL_CANVAS: '광고문',
+    TPL_ARTICLE: '기사문',
+    TPL_STATISTICS: '통계',
+    TPL_INCIDENT_REPORT: '사고 보고서',
+    TPL_ANNOUNCEMENT: '공고문',
+    TPL_REPORT: '보고서',
   };
   return labels[template] ?? template;
 }

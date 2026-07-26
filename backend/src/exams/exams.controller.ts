@@ -42,16 +42,25 @@ export class ExamsController {
 
   @Get('jobs/:jobId')
   @Throttle({ default: { ttl: 60000, limit: 120 } })
-  async getJob(
+  getJob(
     @CurrentUser() user: CurrentUserPayload,
     @Param('jobId') jobId: string,
   ) {
     return this.examsService.getJob(user.id, jobId);
   }
 
+  @Delete('jobs/:jobId')
+  @HttpCode(HttpStatus.OK)
+  removeJob(
+    @CurrentUser() user: CurrentUserPayload,
+    @Param('jobId') jobId: string,
+  ) {
+    return this.examsService.removeJob(user.id, jobId);
+  }
+
   @Get('concepts')
   @Public()
-  async getConcepts(
+  getConcepts(
     @Query('subjectSlug') subjectSlug: string,
     @Query('startUnitNum') startUnitNum: string,
     @Query('endUnitNum') endUnitNum: string,

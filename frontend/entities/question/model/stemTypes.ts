@@ -97,7 +97,8 @@ export interface CaseCheckItemData {
 }
 
 export interface TPL_CASE_DIAGNOSTIC_FRAME {
-  case_profile: CaseProfile;
+  /** 단일 사례 객체 또는 복수 사례 배열 */
+  case_profile: CaseProfile | CaseProfile[];
   /** 줄바꿈(\n) 포함 가능 */
   narrative: string;
   check_items: CaseCheckItemData[];
@@ -209,10 +210,112 @@ export interface TPL_QUANTITATIVE_CHART {
 
 export interface TPL_PROMOTIONAL_CANVAS {
   slogan: string;
-  /** "키워드: 설명" 형식 또는 단순 텍스트. 빈칸 "(가)" 포함 가능 */
   bullets: string[];
-  /** 시각 요소 플레이스홀더 텍스트 */
   visual_elements: string[];
-  /** 빈칸 없으면 빈 문자열("") */
   missing_part: string;
+}
+
+// ------------------------------------------------------------
+// 10. TPL_ARTICLE
+// ------------------------------------------------------------
+
+export interface TPL_ARTICLE {
+  title: string;
+  body_paragraphs: string[];
+  byline?: string;
+  published_date?: string;
+  source?: string;
+}
+
+// ------------------------------------------------------------
+// 11. TPL_STATISTICS
+// ------------------------------------------------------------
+
+export interface StatisticsEntry {
+  label: string;
+  value: string;
+  sub_label?: string;
+}
+
+export interface TPL_STATISTICS {
+  title: string;
+  category_label?: string;
+  data_entries: StatisticsEntry[];
+  unit?: string;
+  source?: string;
+}
+
+// ------------------------------------------------------------
+// 12. TPL_INCIDENT_REPORT
+// ------------------------------------------------------------
+
+export interface TimelineEvent {
+  time: string;
+  event: string;
+}
+
+export interface TPL_INCIDENT_REPORT {
+  title: string;
+  incident_type: string;
+  date?: string;
+  location?: string;
+  overview: string;
+  cause?: string;
+  damage?: string;
+  response?: string;
+  prevention?: string;
+  timeline?: TimelineEvent[];
+}
+
+// ------------------------------------------------------------
+// 13. TPL_ANNOUNCEMENT
+// ------------------------------------------------------------
+
+export interface AnnouncementSchedule {
+  start: string;
+  end?: string;
+}
+
+export interface AnnouncementDetail {
+  label: string;
+  content: string;
+}
+
+export interface TPL_ANNOUNCEMENT {
+  title: string;
+  organizer: string;
+  schedule?: AnnouncementSchedule;
+  location?: string;
+  target?: string;
+  details: AnnouncementDetail[];
+  contact?: string;
+}
+
+// ------------------------------------------------------------
+// 14. TPL_REPORT
+// ------------------------------------------------------------
+
+export interface ReportMeta {
+  label: string;
+  value: string;
+}
+
+export interface ReportSectionTable {
+  headers: string[];
+  rows: string[][];
+}
+
+export interface ReportSection {
+  heading: string;
+  content: string;
+  table?: ReportSectionTable;
+}
+
+export interface TPL_REPORT {
+  title: string;
+  author?: string;
+  date?: string;
+  metadata?: ReportMeta[];
+  sections: ReportSection[];
+  conclusion?: string;
 }

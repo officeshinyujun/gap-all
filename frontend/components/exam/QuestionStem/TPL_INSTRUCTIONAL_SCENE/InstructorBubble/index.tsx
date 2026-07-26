@@ -7,6 +7,7 @@ import s from './index.module.scss';
 export interface InstructorBubbleProps {
   text?: string | null;
   id?: string | null;
+  avatar?: string | null;
   className?: string;
 }
 
@@ -18,13 +19,16 @@ export interface InstructorBubbleProps {
 export const InstructorBubble: React.FC<InstructorBubbleProps> = ({
   text,
   id,
+  avatar,
   className,
 }) => {
   return (
     <HStack gap={10} align="start" className={cs(s.wrapper, className)}>
       <VStack gap={4} align="center" className={s.avatarCol}>
         <div className={s.avatar}>
-          <span className={s.avatarInitial}>{id?.charAt(0) ?? '?'}</span>
+          {avatar
+            ? <img src={avatar} alt={id ?? ''} className={s.avatarImg} />
+            : <span className={s.avatarInitial}>{id?.charAt(0) ?? '?'}</span>}
         </div>
         <span className={s.label}>{id ?? ''}</span>
       </VStack>

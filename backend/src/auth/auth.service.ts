@@ -71,7 +71,7 @@ export class AuthService {
   // ============================================================
   // Verify Code
   // ============================================================
-  async verifyCode(email: string, code: string) {
+  verifyCode(email: string, code: string) {
     const entry = this.verificationCodes.get(email);
     if (!entry) {
       throw new UnauthorizedException('인증번호를 먼저 요청해주세요.');
@@ -272,7 +272,8 @@ export class AuthService {
   }
 
   private sanitize(user: User) {
-    const { passwordHash: _, ...safe } = user;
+    const { passwordHash, ...safe } = user;
+    void passwordHash;
     return safe;
   }
 }

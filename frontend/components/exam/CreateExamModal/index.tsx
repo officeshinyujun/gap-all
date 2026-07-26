@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { VStack } from '@shared/ui/VStack';
 import { HStack } from '@shared/ui/HStack';
 import { Select } from '@shared/ui/Select';
@@ -24,6 +24,11 @@ const SUBJECT_SLUG_MAP: Record<string, string> = {
     '공업 일반': 'industry',
 };
 
+const SUBJECT_OPTIONS = [
+    { label: '성직', value: '성공적인 직업생활' },
+    { label: '공일', value: '공업 일반' },
+];
+
 const DIFFICULTY_MAP: Record<Difficulty, string> = {
     [Difficulty.LOW]: 'LOW',
     [Difficulty.MIDDLE]: 'MIDDLE',
@@ -32,6 +37,7 @@ const DIFFICULTY_MAP: Record<Difficulty, string> = {
 };
 
 export function CreateExamModal({ isOpen, onClose, subjectName, onCreated, defaultStartUnit = 1, defaultEndUnit = 3 }: CreateExamModalProps) {
+    const [selectedSubjectName, setSelectedSubjectName] = useState(subjectName);
     const [startUnit, setStartUnit] = useState(defaultStartUnit);
     const [endUnit, setEndUnit] = useState(defaultEndUnit);
     const [difficulty, setDifficulty] = useState<Difficulty>(Difficulty.MIDDLE);
@@ -40,13 +46,17 @@ export function CreateExamModal({ isOpen, onClose, subjectName, onCreated, defau
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
 
+    useEffect(() => {
+        setSelectedSubjectName(subjectName);
+    }, [subjectName]);
+
     if (!isOpen) return null;
 
     async function handleCreate() {
         setLoading(true);
         setError('');
         try {
-            const slug = SUBJECT_SLUG_MAP[subjectName];
+            const slug = SUBJECT_SLUG_MAP[selectedSubjectName];
             if (!slug) throw new Error('지원하지 않는 과목입니다.');
 
             const subject = await fetchSubjectBySlug(slug);
@@ -64,7 +74,7 @@ export function CreateExamModal({ isOpen, onClose, subjectName, onCreated, defau
                     difficulty: DIFFICULTY_MAP[difficulty],
                     questionCount,
                     customPrompt: prompt || undefined,
-                    sourceType: 'reference',
+                    sourceType: 'simply_reference',
                 }),
             });
 
@@ -89,10 +99,23 @@ export function CreateExamModal({ isOpen, onClose, subjectName, onCreated, defau
                 <VStack gap={SPACING.s24} fullWidth>
                     <VStack gap={SPACING.s8}>
                         <Typo.SM size={24} color="primary">새로운 문제 생성</Typo.SM>
-                        <Typo.MD size={14} color="secondary">{subjectName} 과목의 맞춤형 시험을 생성합니다.</Typo.MD>
+                        <Typo.MD size={14} color="secondary">{selectedSubjectName} 과목의 맞춤형 시험을 생성합니다.</Typo.MD>
                     </VStack>
 
                     <VStack gap={SPACING.s16} fullWidth>
+                        <VStack gap={SPACING.s8} fullWidth>
+                            <Typo.MD size={14} color="primary">과목</Typo.MD>
+                            <Select
+                                value={selectedSubjectName}
+                                onChange={(val) => {
+                                    if (typeof val === 'string') {
+                                        setSelectedSubjectName(val);
+                                    }
+                                }}
+                                options={SUBJECT_OPTIONS}
+                            />
+                        </VStack>
+
                         {/* Range */}
                         <VStack gap={SPACING.s8} fullWidth>
                             <Typo.MD size={14} color="primary">단원 범위</Typo.MD>

@@ -8,6 +8,7 @@ export interface ExamListItem {
   difficulty: string;
   questionCount: number;
   totalScore: number | null;
+  sourceType: 'ai' | 'reference';
   createdAt: string;
   subject?: { id: string; slug: string; title: string };
   tags?: { id: string; tagName: string }[];
@@ -26,6 +27,7 @@ export interface ExamData {
   title: string;
   difficulty: string;
   questionCount: number;
+  sourceType: 'ai' | 'reference';
   items: ExamItem[];
 }
 
@@ -57,5 +59,8 @@ export interface ExamJobStatus {
   progress: number;
   stage: string;
   message: string;
+  errorCode?: string;
+  errorMessage?: string;
+  errorStage?: string;
   examId?: string;
 }
