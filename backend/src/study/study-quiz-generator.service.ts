@@ -5,13 +5,12 @@ import {
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import * as fs from 'fs';
-import * as path from 'path';
 import type OpenAI from 'openai';
 import { TextbookService } from '../textbook/textbook.service';
 import { getOpenAIClient } from '../lib/openai-keys';
 import { AiUsageLog, AiUsageSource } from '../entities/ai-usage-log.entity';
 import type { BlankQuestion, ConceptPair } from '../textbook/textbook.service';
+import { SupabaseService } from '../supabase/supabase.service';
 
 export type QuizCount = 10 | 20;
 export type CacheType = 'blank' | 'concept';
@@ -21,7 +20,7 @@ export class StudyQuizGeneratorService {
   private readonly logger = new Logger(StudyQuizGeneratorService.name);
 
   // 과목 slug → summation 폴더명
-  private readonly SUBJECT_FOLDER_MAP: Record<string, string> = {
+  private readonly SUBJECT_MAP: Record<string, string> = {
     success: 'sungjik',
     industry: 'kongil',
   };
@@ -30,14 +29,15 @@ export class StudyQuizGeneratorService {
     @InjectRepository(AiUsageLog)
     private readonly aiUsageLogRepo: Repository<AiUsageLog>,
     private readonly textbookService: TextbookService,
+    private readonly supabase: SupabaseService,
   ) {}
 
   // ============================================================
   // Public API
   // ============================================================
 
-  getSummationMd(subjectSlug: string, unitNumber: number): string {
-    return this.textbookService.getSummationMd(subjectSlug, unitNumber);
+  async getSummationMd(subjectSlug: string, unitNumber: number): Promise<string> {
+    return await this.textbookService.getSummationMd(subjectSlug, unitNumber);
   }
 
   async generateBlankQuestions(
@@ -45,7 +45,7 @@ export class StudyQuizGeneratorService {
     unitNumber: number,
     count: QuizCount = 10,
   ): Promise<BlankQuestion[]> {
-    const cached = this.readCache<BlankQuestion[]>(
+    const cached = await this.readCache<BlankQuestion[]>(
       subjectSlug,
       unitNumber,
       'blank',
@@ -61,7 +61,7 @@ export class StudyQuizGeneratorService {
     this.logger.log(
       `AI 생성 시작: ${subjectSlug} ${unitNumber}단원 blank ${count}개`,
     );
-    const raw = this.textbookService.getSummationMd(subjectSlug, unitNumber);
+    const raw = await this.textbookService.getSummationMd(subjectSlug, unitNumber);
     let md: string;
     try {
       md = this.textbookService.extractTextFromSummation(raw);
@@ -78,7 +78,7 @@ export class StudyQuizGeneratorService {
     unitNumber: number,
     count: QuizCount = 10,
   ): Promise<ConceptPair[]> {
-    const cached = this.readCache<ConceptPair[]>(
+    const cached = await this.readCache<ConceptPair[]>(
       subjectSlug,
       unitNumber,
       'concept',
@@ -94,7 +94,7 @@ export class StudyQuizGeneratorService {
     this.logger.log(
       `AI 생성 시작: ${subjectSlug} ${unitNumber}단원 concept ${count}개`,
     );
-    const raw = this.textbookService.getSummationMd(subjectSlug, unitNumber);
+    const raw = await this.textbookService.getSummationMd(subjectSlug, unitNumber);
     let md: string;
     try {
       md = this.textbookService.extractTextFromSummation(raw);
@@ -106,27 +106,29 @@ export class StudyQuizGeneratorService {
     return items;
   }
 
-  clearCache(
+  async clearCache(
     subjectSlug: string,
     unitNumber: number,
     type?: CacheType,
     count?: QuizCount,
-  ): void {
-    const folder = this.SUBJECT_FOLDER_MAP[subjectSlug];
-    if (!folder) return;
+  ): Promise<void> {
+    const subject = this.SUBJECT_MAP[subjectSlug];
+    if (!subject) return;
 
-    const cacheDir = this.getCacheDir(folder);
-    const counts: QuizCount[] = count ? [count] : [10, 20];
-    const types: CacheType[] = type ? [type] : ['blank', 'concept'];
+    let query = this.supabase.client
+      .from('quiz_cache')
+      .delete()
+      .eq('subject', subject)
+      .eq('unit_number', unitNumber);
 
-    for (const t of types) {
-      for (const c of counts) {
-        const filePath = path.join(cacheDir, `${unitNumber}_${t}_${c}.json`);
-        if (fs.existsSync(filePath)) {
-          fs.unlinkSync(filePath);
-          this.logger.log(`캐시 삭제: ${filePath}`);
-        }
-      }
+    if (type) query = query.eq('cache_type', type);
+    if (count) query = query.eq('quiz_count', count);
+
+    const { error } = await query;
+    if (error) {
+      this.logger.error(`캐시 삭제 실패: ${error.message}`);
+    } else {
+      this.logger.log(`캐시 삭제: ${subject} ${unitNumber}단원 ${type ?? 'all'}`);
     }
   }
 
@@ -266,55 +268,53 @@ JSON만 출력하라.`;
   // 캐시 유틸
   // ============================================================
 
-  private getCacheDir(folder: string): string {
-    const textbookBase =
-      process.env.TEXTBOOK_BASE_PATH ??
-      path.resolve(__dirname, '..', '..', '..', 'textbook');
-    return path.join(textbookBase, `${folder}_summation`, 'cache');
-  }
-
-  private readCache<T>(
+  private async readCache<T>(
     subjectSlug: string,
     unitNumber: number,
     type: CacheType,
     count: QuizCount,
-  ): T | null {
-    const folder = this.SUBJECT_FOLDER_MAP[subjectSlug];
-    if (!folder) return null;
+  ): Promise<T | null> {
+    const subject = this.SUBJECT_MAP[subjectSlug];
+    if (!subject) return null;
 
-    const filePath = path.join(
-      this.getCacheDir(folder),
-      `${unitNumber}_${type}_${count}.json`,
-    );
+    const { data, error } = await this.supabase.client
+      .from('quiz_cache')
+      .select('data')
+      .eq('subject', subject)
+      .eq('unit_number', unitNumber)
+      .eq('cache_type', type)
+      .eq('quiz_count', count)
+      .single();
 
-    if (!fs.existsSync(filePath)) return null;
-
-    try {
-      const raw = fs.readFileSync(filePath, 'utf-8');
-      return JSON.parse(raw) as T;
-    } catch {
-      return null;
-    }
+    if (error || !data) return null;
+    return data.data as T;
   }
 
-  private writeCache<T>(
+  private async writeCache<T>(
     subjectSlug: string,
     unitNumber: number,
     type: CacheType,
     count: QuizCount,
     data: T,
-  ): void {
-    const folder = this.SUBJECT_FOLDER_MAP[subjectSlug];
-    if (!folder) return;
+  ): Promise<void> {
+    const subject = this.SUBJECT_MAP[subjectSlug];
+    if (!subject) return;
 
-    const cacheDir = this.getCacheDir(folder);
-    if (!fs.existsSync(cacheDir)) {
-      fs.mkdirSync(cacheDir, { recursive: true });
+    const { error } = await this.supabase.client
+      .from('quiz_cache')
+      .upsert({
+        subject,
+        unit_number: unitNumber,
+        cache_type: type,
+        quiz_count: count,
+        data,
+      }, { onConflict: 'subject, unit_number, cache_type, quiz_count' });
+
+    if (error) {
+      this.logger.error(`캐시 저장 실패: ${error.message}`);
+    } else {
+      this.logger.log(`캐시 저장: ${subject} ${unitNumber}단원 ${type} ${count}개`);
     }
-
-    const filePath = path.join(cacheDir, `${unitNumber}_${type}_${count}.json`);
-    fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf-8');
-    this.logger.log(`캐시 저장: ${filePath}`);
   }
 
   // ============================================================

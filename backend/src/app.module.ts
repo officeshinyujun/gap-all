@@ -14,6 +14,7 @@ import { StudyModule } from './study/study.module';
 import { ChatModule } from './chat/chat.module';
 import { AdminModule } from './admin/admin.module';
 import { NotificationsModule } from './notifications/notifications.module';
+import { SupabaseModule } from './supabase/supabase.module';
 import { User } from './entities/user.entity';
 import { RefreshToken } from './entities/refresh-token.entity';
 import { Subject } from './entities/subject.entity';
@@ -53,9 +54,16 @@ import { QuestionSeenRecord } from './entities/question-seen-record.entity';
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
-      useFactory: (config: ConfigService) => ({
+      useFactory: (config: ConfigService) => {
+        const dbProvider = process.env.DB_PROVIDER || 'local';
+        const isSupabase = dbProvider === 'supabase';
+        const databaseUrl = isSupabase
+          ? config.get<string>('DATABASE_SUPABASE_URL')
+          : config.get<string>('DATABASE_LOCAL_URL');
+        return {
         type: 'postgres',
-        url: config.get<string>('DATABASE_URL'),
+        url: databaseUrl,
+        ssl: isSupabase ? { rejectUnauthorized: false } : false,
         entities: [
           User,
           RefreshToken,
@@ -87,7 +95,8 @@ import { QuestionSeenRecord } from './entities/question-seen-record.entity';
         logging:
           config.get<string>('NODE_ENV') === 'development' &&
           process.env.TYPEORM_LOGGING !== 'false',
-      }),
+      };
+    },
     }),
     AuthModule,
     UsersModule,
@@ -99,6 +108,7 @@ import { QuestionSeenRecord } from './entities/question-seen-record.entity';
     ChatModule,
     AdminModule,
     NotificationsModule,
+    SupabaseModule,
   ],
   providers: [
     {

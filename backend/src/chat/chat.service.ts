@@ -5,9 +5,6 @@ import {
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import * as crypto from 'crypto';
-import * as fs from 'fs';
-import * as path from 'path';
 import { ChatSession } from '../entities/chat-session.entity';
 import { ChatMessage, ChatSender } from '../entities/chat-message.entity';
 import { Subject } from '../entities/subject.entity';
@@ -15,6 +12,7 @@ import { CreateSessionDto } from './dto/create-session.dto';
 import { SendMessageDto } from './dto/send-message.dto';
 import { ChatAiService } from './chat-ai.service';
 import { StudyService } from '../study/study.service';
+import { ChatImageUploadService } from './chat-image-upload.service';
 
 @Injectable()
 export class ChatService {
@@ -27,6 +25,7 @@ export class ChatService {
     private readonly subjectRepo: Repository<Subject>,
     private readonly chatAiService: ChatAiService,
     private readonly studyService: StudyService,
+    private readonly imageUploadService: ChatImageUploadService,
   ) {}
 
   // ============================================================
@@ -223,14 +222,9 @@ export class ChatService {
       similarQuestions.length,
     );
 
-    // 5. 이미지 로컬 저장 (프론트엔드 표시용)
-    const uploadsDir = path.join(process.cwd(), 'uploads');
-    if (!fs.existsSync(uploadsDir)) {
-      fs.mkdirSync(uploadsDir, { recursive: true });
-    }
-    const filename = `${crypto.randomUUID()}.jpg`;
-    fs.writeFileSync(path.join(uploadsDir, filename), imageBuffer);
-    const imageUrlMsg = `[IMAGE:${filename}]`;
+    // 5. 이미지 Supabase Storage 저장
+    const imageUrl = await this.imageUploadService.uploadImage(imageBuffer);
+    const imageUrlMsg = `[IMAGE:${imageUrl}]`;
 
     // 6. 메시지 저장
     const userMessage = await this.messageRepo.save(

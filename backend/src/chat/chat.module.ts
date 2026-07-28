@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ChatService } from './chat.service';
 import { ChatController } from './chat.controller';
 import { ChatAiService } from './chat-ai.service';
+import { ChatImageUploadService } from './chat-image-upload.service';
 import { ChatSession } from '../entities/chat-session.entity';
 import { ChatMessage } from '../entities/chat-message.entity';
 import { Subject } from '../entities/subject.entity';
@@ -17,6 +18,6 @@ import { StudyModule } from '../study/study.module';
     StudyModule,
   ],
   controllers: [ChatController],
-  providers: [ChatService, ChatAiService],
+  providers: [ChatService, ChatAiService, ChatImageUploadService],
 })
 export class ChatModule {}

@@ -26,6 +26,7 @@ import { StimulusNormalizer } from '../exams/stimulus-normalizer';
 import { IsOptional, IsString, IsArray, IsIn, IsNumber } from 'class-validator';
 import { Type } from 'class-transformer';
 import type { BlankQuestion, ConceptPair } from '../textbook/textbook.service';
+import { SupabaseService } from '../supabase/supabase.service';
 
 export class DeleteCacheBulkDto {
   @IsOptional()
@@ -77,7 +78,7 @@ export class StudyService {
   private readonly logger = new Logger(StudyService.name);
   private readonly normalizer = new StimulusNormalizer();
 
-  private readonly SUBJECT_FOLDER_MAP: Record<string, string> = {
+  private readonly SUBJECT_MAP: Record<string, string> = {
     success: 'sungjik',
     industry: 'kongil',
   };
@@ -103,6 +104,7 @@ export class StudyService {
     private readonly subjectRepo: Repository<Subject>,
     @InjectRepository(User)
     private readonly userRepo: Repository<User>,
+    private readonly supabase: SupabaseService,
     @InjectRepository(IncorrectRecord)
     private readonly incorrectRecordRepo: Repository<IncorrectRecord>,
     @InjectRepository(Question)
@@ -286,13 +288,13 @@ export class StudyService {
     return date.toISOString().slice(0, 10);
   }
 
-  getConceptMd(subjectSlug: string, unitNumber: number): { md: string } {
-    const md = this.quizGenerator.getSummationMd(subjectSlug, unitNumber);
+  async getConceptMd(subjectSlug: string, unitNumber: number): Promise<{ md: string }> {
+    const md = await this.quizGenerator.getSummationMd(subjectSlug, unitNumber);
     return { md };
   }
 
-  getSummationCards(subjectSlug: string, unitNumber: number): any {
-    const md = this.quizGenerator.getSummationMd(subjectSlug, unitNumber);
+  async getSummationCards(subjectSlug: string, unitNumber: number): Promise<any> {
+    const md = await this.quizGenerator.getSummationMd(subjectSlug, unitNumber);
     const jsonMatch = md.match(/```json\s*([\s\S]*?)```/);
     if (!jsonMatch) {
       throw new NotFoundException(
@@ -302,20 +304,34 @@ export class StudyService {
     return JSON.parse(jsonMatch[1]);
   }
 
-  getSummationV2Cards(subjectSlug: string, unitNumber: number): any {
-    const folder = this.SUBJECT_FOLDER_MAP[subjectSlug];
-    if (!folder) {
+  async getSummationV2Cards(subjectSlug: string, unitNumber: number): Promise<any> {
+    const subject = this.SUBJECT_MAP[subjectSlug];
+    if (!subject) {
       throw new NotFoundException(`지원하지 않는 과목입니다: ${subjectSlug}`);
     }
-    const v2Path = path.join(
-      this.getTextbookBase(),
-      `${folder}_summation_v2`,
-      `${unitNumber}단원.json`,
-    );
-    if (fs.existsSync(v2Path)) {
-      return JSON.parse(fs.readFileSync(v2Path, 'utf-8'));
+
+    const { data: unit } = await this.supabase.client
+      .from('textbook_units')
+      .select('id')
+      .eq('subject', subject)
+      .eq('unit_number', unitNumber)
+      .single();
+
+    if (!unit) {
+      return this.getSummationCards(subjectSlug, unitNumber);
     }
-    return this.getSummationCards(subjectSlug, unitNumber);
+
+    const { data: cards } = await this.supabase.client
+      .from('textbook_summation_cards')
+      .select('title, body, key_concepts')
+      .eq('unit_id', unit.id)
+      .order('card_index');
+
+    if (!cards?.length) {
+      return this.getSummationCards(subjectSlug, unitNumber);
+    }
+
+    return { unit: unitNumber, cards: cards.map((c: any) => ({ content: c })) };
   }
 
   async updateSummationCards(
@@ -323,21 +339,40 @@ export class StudyService {
     unitNumber: number,
     cards: any[],
   ): Promise<any> {
-    const folder = this.SUBJECT_FOLDER_MAP[subjectSlug];
-    if (!folder) {
+    const subject = this.SUBJECT_MAP[subjectSlug];
+    if (!subject) {
       throw new NotFoundException(`지원하지 않는 과목입니다: ${subjectSlug}`);
     }
 
-    const filePath = path.join(
-      this.getTextbookBase(),
-      `${folder}_summation`,
-      `${unitNumber}단원.md`,
-    );
+    const { data: unit } = await this.supabase.client
+      .from('textbook_units')
+      .select('id')
+      .eq('subject', subject)
+      .eq('unit_number', unitNumber)
+      .single();
 
-    if (!fs.existsSync(filePath)) {
+    if (!unit) {
       throw new NotFoundException(
-        `${subjectSlug} 과목의 ${unitNumber}단원 summation 파일을 찾을 수 없습니다.`,
+        `${subjectSlug} 과목의 ${unitNumber}단원을 찾을 수 없습니다.`,
       );
+    }
+
+    // 기존 카드 삭제 후 재삽입
+    await this.supabase.client
+      .from('textbook_summation_cards')
+      .delete()
+      .eq('unit_id', unit.id);
+
+    for (let i = 0; i < cards.length; i++) {
+      await this.supabase.client
+        .from('textbook_summation_cards')
+        .insert({
+          unit_id: unit.id,
+          card_index: i,
+          title: cards[i].content?.title ?? null,
+          body: cards[i].content?.body ?? null,
+          key_concepts: cards[i].content?.key_concepts ?? null,
+        });
     }
 
     const data = {
@@ -346,28 +381,24 @@ export class StudyService {
       cards,
     };
 
-    const content = '```json\n' + JSON.stringify(data, null, 2) + '\n```';
-    fs.writeFileSync(filePath, content, 'utf-8');
-
-    this.quizGenerator.clearCache(subjectSlug, unitNumber);
-
+    await this.quizGenerator.clearCache(subjectSlug, unitNumber);
     await this.embeddingService.embedUnit(subjectSlug, unitNumber);
 
     return data;
   }
 
-  getConceptByName(
+  async getConceptByName(
     subjectSlug: string,
     unitNumber: number,
     targetConcept: string,
-  ): {
+  ): Promise<{
     title: string;
     description: string;
     bulletPoints: string[];
     trapPoints: string[];
     logicFlow: string;
-  } | null {
-    const rawMd = this.quizGenerator.getSummationMd(subjectSlug, unitNumber);
+  } | null> {
+    const rawMd = await this.quizGenerator.getSummationMd(subjectSlug, unitNumber);
 
     const jsonMatch = rawMd.match(/```json\s*([\s\S]*?)```/);
     if (!jsonMatch) return null;
@@ -693,125 +724,72 @@ export class StudyService {
     );
   }
 
-  private getCacheDir(folder: string): string {
-    return path.join(this.getTextbookBase(), `${folder}_summation`, 'cache');
+  private async getAvailableUnits(subject: string): Promise<number[]> {
+    const { data } = await this.supabase.client
+      .from('textbook_units')
+      .select('unit_number')
+      .eq('subject', subject)
+      .order('unit_number');
+    return (data ?? []).map((u: any) => u.unit_number);
   }
 
-  private getAvailableUnits(folder: string): number[] {
-    const summationDir = path.join(
-      this.getTextbookBase(),
-      `${folder}_summation`,
-    );
-    if (!fs.existsSync(summationDir)) return [];
-    const files = fs.readdirSync(summationDir);
-    const units: number[] = [];
-    for (const f of files) {
-      const match = f.match(/^(\d+)단원\.md$/);
-      if (match) units.push(parseInt(match[1], 10));
-    }
-    return units.sort((a, b) => a - b);
-  }
+  async getCacheStatus() {
+    const entries = Object.entries(this.SUBJECT_MAP);
+    const result: Array<{ slug: string; title: string; units: any[] }> = [];
 
-  getCacheStatus() {
-    const subjects = Object.entries(this.SUBJECT_FOLDER_MAP).map(
-      ([slug, folder]) => {
-        const cacheDir = this.getCacheDir(folder);
-        const units: Array<{
-          unitNumber: number;
-          blank10: number | null;
-          blank20: number | null;
-          concept10: number | null;
-          concept20: number | null;
-        }> = [];
+    for (const [slug, subject] of entries) {
+      const { data: cacheRows } = await this.supabase.client
+        .from('quiz_cache')
+        .select('unit_number, cache_type, quiz_count, data')
+        .eq('subject', subject);
 
-        const availableUnits = this.getAvailableUnits(folder);
-
-        for (const unitNumber of availableUnits) {
-          const entry: any = {
-            unitNumber,
-            blank10: null,
-            blank20: null,
-            concept10: null,
-            concept20: null,
-          };
-
-          if (fs.existsSync(cacheDir)) {
-            for (const type of ['blank', 'concept'] as const) {
-              for (const count of [10, 20] as const) {
-                const filePath = path.join(
-                  cacheDir,
-                  `${unitNumber}_${type}_${count}.json`,
-                );
-                if (fs.existsSync(filePath)) {
-                  try {
-                    const raw = fs.readFileSync(filePath, 'utf-8');
-                    const arr = JSON.parse(raw);
-                    entry[`${type}${count}`] = Array.isArray(arr)
-                      ? arr.length
-                      : null;
-                  } catch {
-                    entry[`${type}${count}`] = null;
-                  }
-                }
-              }
-            }
-          }
-
-          units.push(entry);
+      const availableUnits = await await this.getAvailableUnits(subject);
+      const units = availableUnits.map((unitNumber) => {
+        const entry: any = { unitNumber, blank10: null, blank20: null, concept10: null, concept20: null };
+        const rows = (cacheRows ?? []).filter((r: any) => r.unit_number === unitNumber);
+        for (const row of rows) {
+          const key = `${row.cache_type}${row.quiz_count}`;
+          entry[key] = Array.isArray(row.data) ? row.data.length : null;
         }
+        return entry;
+      });
 
-        return {
-          slug,
-          title: this.SUBJECT_TITLE_MAP[slug] ?? slug,
-          units,
-        };
-      },
-    );
+      result.push({ slug, title: this.SUBJECT_TITLE_MAP[slug] ?? slug, units });
+    }
 
-    return { subjects };
+    return { subjects: result };
   }
 
-  deleteCacheBulk(dto: DeleteCacheBulkDto): { deleted: number } {
+    async deleteCacheBulk(dto: DeleteCacheBulkDto): Promise<{ deleted: number }> {
     let deleted = 0;
     const slugs = dto.subjectSlug
       ? [dto.subjectSlug]
-      : Object.keys(this.SUBJECT_FOLDER_MAP);
+      : Object.keys(this.SUBJECT_MAP);
 
     for (const slug of slugs) {
-      const folder = this.SUBJECT_FOLDER_MAP[slug];
-      if (!folder) continue;
+      const subject = this.SUBJECT_MAP[slug];
+      if (!subject) continue;
 
-      const cacheDir = this.getCacheDir(folder);
-      if (!fs.existsSync(cacheDir)) continue;
+      let query = this.supabase.client
+        .from('quiz_cache')
+        .delete()
+        .eq('subject', subject);
 
-      const unitNumbers = dto.unitNumbers ?? this.getAvailableUnits(folder);
-      const types: CacheType[] = dto.types ?? ['blank', 'concept'];
-      const counts: QuizCount[] = [10, 20];
+      if (dto.unitNumbers?.length) query = query.in('unit_number', dto.unitNumbers);
+      if (dto.types?.length) query = query.in('cache_type', dto.types);
 
-      for (const unitNumber of unitNumbers) {
-        for (const type of types) {
-          for (const count of counts) {
-            const filePath = path.join(
-              cacheDir,
-              `${unitNumber}_${type}_${count}.json`,
-            );
-            if (fs.existsSync(filePath)) {
-              fs.unlinkSync(filePath);
-              deleted++;
-            }
-          }
-        }
-      }
+      const { error, count } = await query.select('id');
+      if (!error && count) deleted += count;
     }
 
     return { deleted };
   }
 
-  regenerateCache(dto: RegenerateCacheDto): { status: string; total: number } {
-    const folder = this.SUBJECT_FOLDER_MAP[dto.subjectSlug];
+  async regenerateCache(dto: RegenerateCacheDto): Promise<{ status: string; total: number }> {
+    const folder = this.SUBJECT_MAP[dto.subjectSlug];
     if (!folder) return { status: 'error', total: 0 };
 
-    const unitNumbers = dto.unitNumbers ?? this.getAvailableUnits(folder);
+    const unitNumbers = dto.unitNumbers ?? await this.getAvailableUnits(folder);
     const types: CacheType[] = dto.types ?? ['blank', 'concept'];
     const count: QuizCount = dto.count ?? 10;
     const total = unitNumbers.length * types.length;
@@ -914,57 +892,78 @@ export class StudyService {
     return { message: '삭제되었습니다.' };
   }
 
-  getFrequencyConcept(subjectSlug: string, unitNumber: number): any {
-    const folder = this.SUBJECT_FOLDER_MAP[subjectSlug];
-    if (!folder) {
+  async getFrequencyConcept(subjectSlug: string, unitNumber: number): Promise<any> {
+    const subject = this.SUBJECT_MAP[subjectSlug];
+    if (!subject) {
       throw new NotFoundException(`지원하지 않는 과목입니다: ${subjectSlug}`);
     }
-    const cardsPath = path.join(
-      this.getTextbookBase(),
-      `${folder === 'sungjik' ? 'success' : 'kongil'}_cards_moi`,
-      `${unitNumber}단원.json`,
-    );
-    const frequencyPath = path.join(
-      this.getTextbookBase(),
-      `${folder}_frequency`,
-      `${unitNumber}단원.json`,
-    );
 
-    if (fs.existsSync(cardsPath)) {
-      const raw = JSON.parse(fs.readFileSync(cardsPath, 'utf-8'));
-      if (raw.concepts && raw.concepts.length >= 5) {
-        return this.transformCardsToFrequency(raw);
+    // concept_cards 먼저 시도
+    const { data: unit } = await this.supabase.client
+      .from('textbook_units')
+      .select('id')
+      .eq('subject', subject)
+      .eq('unit_number', unitNumber)
+      .single();
+
+    if (unit) {
+      const { data: cards } = await this.supabase.client
+        .from('textbook_concept_cards')
+        .select('*')
+        .eq('unit_id', unit.id)
+        .order('rank');
+
+      if (cards && cards.length >= 5) {
+        return this.transformCardsToFrequency({ concepts: cards });
       }
-      if (fs.existsSync(frequencyPath)) {
-        return JSON.parse(fs.readFileSync(frequencyPath, 'utf-8'));
-      }
-      return this.transformCardsToFrequency(raw);
+
+      // frequency 테이블 fallback
+      const { data: freq } = await this.supabase.client
+        .from('textbook_frequencies')
+        .select('frequency_data')
+        .eq('unit_id', unit.id)
+        .single();
+
+      if (freq) return freq.frequency_data;
     }
 
-    if (!fs.existsSync(frequencyPath)) {
-      throw new NotFoundException(
-        `${subjectSlug} 과목의 ${unitNumber}단원 frequency concept 파일을 찾을 수 없습니다.`,
-      );
-    }
-    return JSON.parse(fs.readFileSync(frequencyPath, 'utf-8'));
+    throw new NotFoundException(
+      `${subjectSlug} 과목의 ${unitNumber}단원 frequency concept를 찾을 수 없습니다.`,
+    );
   }
 
-  getMindmap(subjectSlug: string, unitNumber: number): any {
-    const folder = this.SUBJECT_FOLDER_MAP[subjectSlug];
-    if (!folder) {
+  async getMindmap(subjectSlug: string, unitNumber: number): Promise<any> {
+    const subject = this.SUBJECT_MAP[subjectSlug];
+    if (!subject) {
       throw new NotFoundException(`지원하지 않는 과목입니다: ${subjectSlug}`);
     }
-    const mindmapPath = path.join(
-      this.getTextbookBase(),
-      `${folder === 'sungjik' ? 'success' : folder}_mindmaps`,
-      `${unitNumber}단원.json`,
-    );
-    if (!fs.existsSync(mindmapPath)) {
+
+    const { data: unit } = await this.supabase.client
+      .from('textbook_units')
+      .select('id')
+      .eq('subject', subject)
+      .eq('unit_number', unitNumber)
+      .single();
+
+    if (!unit) {
+      throw new NotFoundException(
+        `${subjectSlug} 과목의 ${unitNumber}단원을 찾을 수 없습니다.`,
+      );
+    }
+
+    const { data: mindmap } = await this.supabase.client
+      .from('textbook_mindmaps')
+      .select('mindmap_data')
+      .eq('unit_id', unit.id)
+      .single();
+
+    if (!mindmap) {
       throw new NotFoundException(
         `${subjectSlug} 과목의 ${unitNumber}단원 마인드맵을 찾을 수 없습니다.`,
       );
     }
-    return JSON.parse(fs.readFileSync(mindmapPath, 'utf-8'));
+
+    return mindmap.mindmap_data;
   }
 
   private transformCardsToFrequency(raw: any): any {
@@ -1174,7 +1173,7 @@ export class StudyService {
   }
 
   getStructuredConcept(subjectSlug: string, unitNumber: number): any {
-    const folder = this.SUBJECT_FOLDER_MAP[subjectSlug];
+    const folder = this.SUBJECT_MAP[subjectSlug];
     if (!folder) {
       throw new NotFoundException(`지원하지 않는 과목입니다: ${subjectSlug}`);
     }

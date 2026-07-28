@@ -54,7 +54,7 @@ export class ChatAiService {
     if (isConcept && conceptCandidate) {
       this.logger.debug(`개념 질문 감지: "${userMessage}"`);
       this.logger.debug(`개념 후보 추출: "${conceptCandidate}"`);
-      conceptContext = this.lookupConceptContext(
+      conceptContext = await this.lookupConceptContext(
         subjectSlug,
         effectiveStartUnit,
         effectiveEndUnit,
@@ -116,7 +116,7 @@ export class ChatAiService {
         this.logger.warn(
           `임베딩 없음 — summation fallback 사용: ${subjectSlug}`,
         );
-        textbookContext = this.loadSummationFallback(
+        textbookContext = await this.loadSummationFallback(
           subjectSlug,
           effectiveStartUnit,
           effectiveEndUnit,
@@ -126,7 +126,7 @@ export class ChatAiService {
       this.logger.warn(`RAG 검색 실패, fallback 사용: ${err}`);
       textbookContext = conceptContext
         ? conceptContext
-        : this.loadSummationFallback(
+        : await this.loadSummationFallback(
             subjectSlug,
             effectiveStartUnit,
             effectiveEndUnit,
@@ -341,11 +341,11 @@ ${extracted.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
       response.choices[0]?.message?.content ?? '해설을 생성할 수 없습니다.'
     );
   }
-  private loadSummationFallback(
+  private async loadSummationFallback(
     subjectSlug: string,
     startUnit?: number,
     endUnit?: number,
-  ): string {
+  ): Promise<string> {
     try {
       const from = startUnit ?? 1;
       const to = Math.min(endUnit ?? from + 2, from + 2); // 최대 3단원
@@ -353,7 +353,7 @@ ${extracted.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
 
       for (let u = from; u <= to; u++) {
         try {
-          const md = this.textbookService.getSummationMd(subjectSlug, u);
+          const md = await this.textbookService.getSummationMd(subjectSlug, u);
           // 앞 2000자만 사용
           results.push(`[${u}단원]\n${md.slice(0, 2000)}`);
         } catch {
@@ -436,12 +436,12 @@ ${extracted.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
     return undefined;
   }
 
-  private lookupConceptContext(
+  private async lookupConceptContext(
     subjectSlug: string,
     startUnit?: number,
     endUnit?: number,
     conceptCandidate?: string,
-  ): string {
+  ): Promise<string> {
     if (!conceptCandidate) return '';
 
     const from = startUnit ?? 1;
@@ -449,7 +449,7 @@ ${extracted.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
 
     for (let unit = from; unit <= to; unit++) {
       try {
-        const unitConcepts = this.textbookService.getConcepts(
+        const unitConcepts = await this.textbookService.getConcepts(
           subjectSlug,
           unit,
           unit,
@@ -466,7 +466,7 @@ ${extracted.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
 
         if (!hasMatch) continue;
 
-        const card = this.parseConceptCardFromSummation(
+        const card = await this.parseConceptCardFromSummation(
           subjectSlug,
           unit,
           conceptCandidate,
@@ -504,19 +504,19 @@ ${extracted.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
     return '';
   }
 
-  private parseConceptCardFromSummation(
+  private async parseConceptCardFromSummation(
     subjectSlug: string,
     unitNumber: number,
     targetConcept: string,
-  ): {
+  ): Promise<{
     title: string;
     description: string;
     bulletPoints: string[];
     trapPoints: string[];
     logicFlow: string;
-  } | null {
+  } | null> {
     try {
-      const rawMd = this.textbookService.getSummationMd(
+      const rawMd = await this.textbookService.getSummationMd(
         subjectSlug,
         unitNumber,
       );

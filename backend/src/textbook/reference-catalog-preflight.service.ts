@@ -81,7 +81,7 @@ export class ReferenceCatalogPreflightService {
     }
 
     for (const validRow of validRows) {
-      rows.push(this.reconcile(validRow));
+      rows.push(await this.reconcile(validRow));
     }
 
     const sortedRows = rows.sort(compareRows);
@@ -96,8 +96,8 @@ export class ReferenceCatalogPreflightService {
     };
   }
 
-  private reconcile(row: ValidatedCatalogRow): ReferenceCatalogPreflightRow {
-    const catalog = new ReferenceConceptCatalogResolver(
+  private async reconcile(row: ValidatedCatalogRow): Promise<ReferenceCatalogPreflightRow> {
+    const catalog = await new ReferenceConceptCatalogResolver(
       this.conceptCatalogReader,
     ).resolve(row.subject, row.unitNumber, row.unitNumber);
     const reconciliation = reconcileReferenceConceptCatalog(

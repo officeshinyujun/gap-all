@@ -212,12 +212,12 @@ export class ReferenceFrameGenerationService {
     options?: ReferenceFrameGenerationOptions,
   ): Promise<readonly ReferenceFrameGeneratedDraft[]> {
     const subject = subjectStyle(subjectSlug);
-    const unitConcepts = this.textbookService.getConcepts(
+    const unitConcepts = await this.textbookService.getConcepts(
       subjectSlug,
       startUnitNum,
       endUnitNum,
     );
-    const textbookCatalogConcepts = new ReferenceConceptCatalogResolver(
+    const textbookCatalogConcepts = await new ReferenceConceptCatalogResolver(
       this.textbookService,
     ).resolve(subject, startUnitNum, endUnitNum);
     const parsedReferences = await this.readReferences(
@@ -755,7 +755,7 @@ export class ReferenceFrameGenerationService {
             reference: parsed.value,
             archetype,
             referenceDistractorAxes: [],
-            catalogConcepts: new ReferenceConceptCatalogResolver(
+            catalogConcepts: await new ReferenceConceptCatalogResolver(
               this.textbookService,
             ).resolve(
               subject,

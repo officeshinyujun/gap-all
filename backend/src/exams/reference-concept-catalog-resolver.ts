@@ -34,14 +34,14 @@ export class ReferenceConceptCatalogResolver {
     private readonly textbookService: ReferenceConceptCatalogReader,
   ) {}
 
-  resolve(
+  async resolve(
     subject: SubjectStyle,
     startUnit: number,
     endUnit: number,
-  ): readonly ReferenceCatalogConcept[] {
+  ): Promise<readonly ReferenceCatalogConcept[]> {
     const subjectSlug = subject === 'kongil' ? 'industry' : subject;
-    return this.textbookService
-      .getConcepts(subjectSlug, startUnit, endUnit)
+    return (await this.textbookService
+      .getConcepts(subjectSlug, startUnit, endUnit))
       .flatMap(({ unitName, concepts }) => {
         const unit = Number.parseInt(unitName, 10);
         if (!Number.isInteger(unit) || unit < startUnit || unit > endUnit) {

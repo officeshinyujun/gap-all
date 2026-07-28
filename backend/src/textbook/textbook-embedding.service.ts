@@ -41,7 +41,7 @@ export class TextbookEmbeddingService {
   async embedUnit(subjectSlug: string, unitNumber: number): Promise<number> {
     this.logger.log(`임베딩 시작: ${subjectSlug} ${unitNumber}단원`);
 
-    const raw = this.textbookService.getSummationMd(subjectSlug, unitNumber);
+    const raw = await this.textbookService.getSummationMd(subjectSlug, unitNumber);
 
     let text: string;
     try {

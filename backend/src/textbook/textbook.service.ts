@@ -1,6 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import * as fs from 'fs';
-import * as path from 'path';
+import { SupabaseService } from '../supabase/supabase.service';
 
 export interface UnitPayload {
   unit_name: string;
@@ -29,126 +28,135 @@ export interface ConceptPair {
   explanation: string;
 }
 
-// 과목 slug → 텍스트북 폴더명 매핑
-const SUBJECT_FOLDER_MAP: Record<string, string> = {
+// 과목 slug → DB subject 컬럼값 매핑
+const SUBJECT_MAP: Record<string, string> = {
   success: 'sungjik',
   industry: 'kongil',
 };
 
 @Injectable()
 export class TextbookService {
-  private readonly textbookBasePath: string;
-
-  constructor() {
-    this.textbookBasePath =
-      process.env.TEXTBOOK_BASE_PATH ??
-      path.resolve(__dirname, '..', '..', '..', 'textbook');
-  }
+  constructor(private readonly supabase: SupabaseService) {}
 
   /**
-   * concepts/ 폴더의 JSON 파일에서 단원별 핵심 개념 목록을 반환합니다.
+   * concepts 테이블에서 단원별 핵심 개념 목록을 반환합니다.
    */
-  getConcepts(
+  async getConcepts(
     subjectSlug: string,
     startUnit: number,
     endUnit: number,
-  ): UnitConcepts[] {
-    const folder = SUBJECT_FOLDER_MAP[subjectSlug];
-    if (!folder) {
+  ): Promise<UnitConcepts[]> {
+    const subject = SUBJECT_MAP[subjectSlug];
+    if (!subject) {
       throw new NotFoundException(`지원하지 않는 과목입니다: ${subjectSlug}`);
     }
 
-    const result: UnitConcepts[] = [];
+    // unit_id 조회
+    const { data: units } = await this.supabase.client
+      .from('textbook_units')
+      .select('id, unit_number')
+      .eq('subject', subject)
+      .gte('unit_number', startUnit)
+      .lte('unit_number', endUnit);
 
-    for (let unitNum = startUnit; unitNum <= endUnit; unitNum++) {
-      const paddedNum = String(unitNum).padStart(2, '0');
-      const jsonPath = path.join(
-        this.textbookBasePath,
-        'concepts',
-        folder,
-        `Unit_${paddedNum}.json`,
-      );
+    if (!units?.length) return [];
 
-      if (!fs.existsSync(jsonPath)) {
-        continue;
-      }
+    const unitIds = units.map((u) => u.id);
 
-      const raw = fs.readFileSync(jsonPath, 'utf-8');
-      const data: UnitConcepts = JSON.parse(raw);
+    const { data: concepts } = await this.supabase.client
+      .from('textbook_concepts')
+      .select('unit_id, concept_name')
+      .in('unit_id', unitIds)
+      .order('sort_order', { ascending: true });
 
-      if (data.concepts.length > 0) {
-        result.push(data);
-      }
+    if (!concepts?.length) return [];
+
+    // unit별로 그룹화
+    const grouped = new Map<string, string[]>();
+    for (const c of concepts) {
+      const list = grouped.get(c.unit_id) ?? [];
+      list.push(c.concept_name);
+      grouped.set(c.unit_id, list);
     }
 
-    return result;
+    return units.map((u) => ({
+      unitName: `${u.unit_number}단원`,
+      concepts: grouped.get(u.id) ?? [],
+    }));
   }
 
   /**
    * 과목 slug와 단원 범위를 받아 텍스트 페이로드 배열을 반환합니다.
    */
-  getUnits(
+  async getUnits(
     subjectSlug: string,
     startUnit: number,
     endUnit: number,
-  ): UnitPayload[] {
-    const folder = SUBJECT_FOLDER_MAP[subjectSlug];
-    if (!folder) {
+  ): Promise<UnitPayload[]> {
+    const subject = SUBJECT_MAP[subjectSlug];
+    if (!subject) {
       throw new NotFoundException(`지원하지 않는 과목입니다: ${subjectSlug}`);
     }
 
-    const units: UnitPayload[] = [];
+    const { data: units } = await this.supabase.client
+      .from('textbook_units')
+      .select('unit_number, text_payload')
+      .eq('subject', subject)
+      .gte('unit_number', startUnit)
+      .lte('unit_number', endUnit)
+      .order('unit_number');
 
-    for (let unitNum = startUnit; unitNum <= endUnit; unitNum++) {
-      const paddedNum = String(unitNum).padStart(2, '0');
-      const filePath = path.join(
-        this.textbookBasePath,
-        folder,
-        `Unit_${paddedNum}.txt`,
-      );
-
-      if (!fs.existsSync(filePath)) {
-        continue;
-      }
-
-      const text = fs.readFileSync(filePath, 'utf-8');
-      units.push({
-        unit_name: `${unitNum}단원`,
-        text_payload: text,
-      });
-    }
-
-    if (units.length === 0) {
+    if (!units?.length) {
       throw new NotFoundException(
         `${subjectSlug} 과목의 ${startUnit}~${endUnit}단원 텍스트를 찾을 수 없습니다.`,
       );
     }
 
-    return units;
+    return units.map((u) => ({
+      unit_name: `${u.unit_number}단원`,
+      text_payload: u.text_payload,
+    }));
   }
 
   /**
-   * summation MD 파일을 읽어 반환합니다. (AI 생성 서비스에서 사용)
+   * summation 카드 데이터를 읽어 raw JSON 문자열로 반환합니다.
+   * (AI 생성 서비스에서 사용 - 기존과 동일한 인터페이스 유지)
    */
-  getSummationMd(subjectSlug: string, unitNumber: number): string {
-    const folder = SUBJECT_FOLDER_MAP[subjectSlug];
-    if (!folder) {
+  async getSummationMd(subjectSlug: string, unitNumber: number): Promise<string> {
+    const subject = SUBJECT_MAP[subjectSlug];
+    if (!subject) {
       throw new NotFoundException(`지원하지 않는 과목입니다: ${subjectSlug}`);
     }
 
-    const filePath = path.join(
-      this.textbookBasePath,
-      `${folder}_summation`,
-      `${unitNumber}단원.md`,
-    );
+    // unit 조회
+    const { data: unit } = await this.supabase.client
+      .from('textbook_units')
+      .select('id')
+      .eq('subject', subject)
+      .eq('unit_number', unitNumber)
+      .single();
 
-    if (!fs.existsSync(filePath)) {
+    if (!unit) {
       throw new NotFoundException(
-        `${subjectSlug} 과목의 ${unitNumber}단원 summation 파일을 찾을 수 없습니다.`,
+        `${subjectSlug} 과목의 ${unitNumber}단원 summation을 찾을 수 없습니다.`,
       );
     }
 
-    return fs.readFileSync(filePath, 'utf-8');
+    // summation cards 조회
+    const { data: cards } = await this.supabase.client
+      .from('textbook_summation_cards')
+      .select('title, body, key_concepts')
+      .eq('unit_id', unit.id)
+      .order('card_index');
+
+    if (!cards?.length) {
+      throw new NotFoundException(
+        `${subjectSlug} 과목의 ${unitNumber}단원 summation을 찾을 수 없습니다.`,
+      );
+    }
+
+    // 기존 JSON 형식으로 재구성
+    return JSON.stringify({ cards: cards.map((c) => ({ content: c })) });
   }
 
   extractTextFromSummation(raw: string): string {
@@ -164,6 +172,7 @@ export class TextbookService {
       const parts: string[] = [];
       if (c.title) parts.push(`## ${c.title}`);
       if (c.description) parts.push(c.description);
+      if (c.body) parts.push(c.body);
       if (c.integrated_data?.table) parts.push(c.integrated_data.table);
       if (c.integrated_data?.logic_flow)
         parts.push(c.integrated_data.logic_flow);
@@ -174,6 +183,15 @@ export class TextbookService {
       }
       if (Array.isArray(c.trap_points) && c.trap_points.length > 0) {
         parts.push(`주의: ${c.trap_points.join(', ')}`);
+      }
+      // key_concepts가 배열이면 텍스트로 변환
+      if (Array.isArray(c.key_concepts)) {
+        for (const kc of c.key_concepts) {
+          if (kc.name) parts.push(`### ${kc.name}`);
+          if (kc.definition) parts.push(kc.definition);
+          if (Array.isArray(kc.key_points))
+            parts.push(kc.key_points.map((kp: string) => `- ${kp}`).join('\n'));
+        }
       }
 
       if (parts.length > 0) sections.push(parts.join('\n'));

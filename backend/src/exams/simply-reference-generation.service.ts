@@ -167,7 +167,7 @@ export class SimplyReferenceGenerationService {
       const parsed = parseReference(reference, subject);
       return parsed.ok && sourceTemplate(parsed.value) !== null;
     });
-    const textbookConcepts = this.textbookService.getConcepts(
+    const textbookConcepts = await this.textbookService.getConcepts(
       subjectSlug,
       startUnitNum,
       endUnitNum,

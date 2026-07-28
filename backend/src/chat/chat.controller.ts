@@ -14,9 +14,8 @@ import {
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import type { Response } from 'express';
-import * as path from 'path';
-import * as fs from 'fs';
 import { ChatService } from './chat.service';
+import { ChatImageUploadService } from './chat-image-upload.service';
 import { CreateSessionDto } from './dto/create-session.dto';
 import { SendMessageDto } from './dto/send-message.dto';
 import { JwtAuthGuard } from '../common/guards/jwt-auth.guard';
@@ -26,7 +25,10 @@ import type { CurrentUserPayload } from '../common/decorators/current-user.decor
 @Controller('chat')
 @UseGuards(JwtAuthGuard)
 export class ChatController {
-  constructor(private readonly chatService: ChatService) {}
+  constructor(
+    private readonly chatService: ChatService,
+    private readonly imageUploadService: ChatImageUploadService,
+  ) {}
 
   @Get('sessions')
   async findAllSessions(@CurrentUser() user: CurrentUserPayload) {
@@ -83,10 +85,7 @@ export class ChatController {
 
   @Get('images/:filename')
   getImage(@Param('filename') filename: string, @Res() res: Response) {
-    const filePath = path.join(process.cwd(), 'uploads', filename);
-    if (fs.existsSync(filePath)) {
-      return res.sendFile(filePath);
-    }
-    return res.status(404).send('Not found');
+    const url = this.imageUploadService.getPublicUrl(filename);
+    return res.redirect(url);
   }
 }

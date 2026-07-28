@@ -118,7 +118,7 @@ export class ExamGeneratorService {
     });
 
     // 1. 텍스트북 로딩
-    const units = this.textbookService.getUnits(
+    const units = await this.textbookService.getUnits(
       subjectSlug,
       startUnitNum,
       endUnitNum,
@@ -379,7 +379,7 @@ export class ExamGeneratorService {
       });
     }
 
-    const step1Prompt = this.promptsService.getStep1Prompt(
+    const step1Prompt = await this.promptsService.getStep1Prompt(
       questionCount,
       difficulty,
       subjectSlug,
@@ -629,7 +629,7 @@ export class ExamGeneratorService {
             : u.text_payload,
       }));
 
-      const step2Prompt = this.promptsService.getStep2Prompt(subjectSlug);
+      const step2Prompt = await this.promptsService.getStep2Prompt(subjectSlug);
       const unitsJson = JSON.stringify(truncatedUnitsForStep2);
 
       for (const bp of otherBlueprints) {
@@ -716,7 +716,7 @@ export class ExamGeneratorService {
     }
 
     if (promoBlueprints.length > 0) {
-      const promoPrompt = this.promptsService.getStep2PromotionalCanvasPrompt();
+      const promoPrompt = await this.promptsService.getStep2PromotionalCanvasPrompt();
 
       for (const bp of promoBlueprints) {
         const userContent = [
