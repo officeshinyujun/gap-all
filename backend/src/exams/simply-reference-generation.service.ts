@@ -616,6 +616,7 @@ function buildSimplyReferencePrompt(
       'Use each sourceId and sourceHash exactly once and unchanged.',
       'Return exactly five choices prefixed in order with ①, ②, ③, ④, ⑤.',
       'Encode stimulusData as one valid JSON object string in stimulusDataJson.',
+      'selectedTemplate is mandatory: stimulusDataJson must satisfy that exact template schema. Never substitute another template or plain text; omit the source instead when it cannot be satisfied.',
       'Ensure the explanation proves the correct answer and explains why every distractor is wrong.',
       'For combo sources, put every ㄱㄴㄷ claim only in comboBlock, never in questionStem or stimulusDataJson, and preserve the supplied key order exactly.',
       'For comparative matrix sources, use only headers and cell values grounded in the source stimulus, and preserve the source decision facts.',
@@ -1190,28 +1191,10 @@ function sourceTemplate(
 function pickBestTemplate(
   selected: StructuredTplName,
   data: Record<string, unknown>,
-): string | null {
-  if (validateSimplyReferenceStructuredTpl(selected, data)) return selected;
-  const detected = normalizer.detectTpl(data);
-  if (
-    detected !== null &&
-    detected !== selected &&
-    isStructuredTplName(detected)
-  ) {
-    if (validateSimplyReferenceStructuredTpl(detected, data)) {
-      console.log(
-        `[SIMPLY_REF_OVERRIDE] template overridden: selected=${selected}, detected=${detected}`,
-      );
-      return detected;
-    }
-  }
-  if (validateSimplyReferenceStructuredTpl('TPL_PLAIN_TEXT', data)) {
-    console.log(
-      `[SIMPLY_REF_OVERRIDE] fallback to PLAIN_TEXT: selected=${selected}`,
-    );
-    return 'TPL_PLAIN_TEXT';
-  }
-  return null;
+): StructuredTplName | null {
+  return validateSimplyReferenceStructuredTpl(selected, data)
+    ? selected
+    : null;
 }
 
 const TPL_DESCRIPTIONS: Record<string, string> = {

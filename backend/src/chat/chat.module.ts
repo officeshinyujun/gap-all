@@ -7,13 +7,14 @@ import { ChatImageUploadService } from './chat-image-upload.service';
 import { ChatSession } from '../entities/chat-session.entity';
 import { ChatMessage } from '../entities/chat-message.entity';
 import { Subject } from '../entities/subject.entity';
+import { Question } from '../entities/question.entity';
 import { AiUsageLog } from '../entities/ai-usage-log.entity';
 import { TextbookModule } from '../textbook/textbook.module';
 import { StudyModule } from '../study/study.module';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([ChatSession, ChatMessage, Subject, AiUsageLog]),
+    TypeOrmModule.forFeature([ChatSession, ChatMessage, Subject, Question, AiUsageLog]),
     TextbookModule,
     StudyModule,
   ],

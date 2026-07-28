@@ -2,9 +2,13 @@ import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
 import cookieParser from 'cookie-parser';
 import helmet from 'helmet';
+import * as dotenv from 'dotenv';
 import { AppModule } from './app.module';
 import { HttpExceptionFilter } from './common/filters/http-exception.filter';
 import { validateEnv } from './config/env-validation';
+
+// .env 로드를 NestJS ConfigModule보다 먼저 실행 (validateEnv에서 필요)
+dotenv.config();
 
 async function bootstrap() {
   validateEnv();

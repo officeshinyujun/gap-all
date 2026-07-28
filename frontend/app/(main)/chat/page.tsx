@@ -25,6 +25,7 @@ export default function ChatPage() {
   const [searchParams] = useSearchParams();
   const [sessions, setSessions] = useState<ChatSession[]>([]);
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [selectedTitle, setSelectedTitle] = useState<string>('');
   const [modalOpen, setModalOpen] = useState(false);
   const [loading, setLoading] = useState(true);
   const [showSessionDrawer, setShowSessionDrawer] = useState(false);
@@ -52,7 +53,13 @@ export default function ChatPage() {
     });
     if (res.ok) {
       const data = await res.json();
-      setSessions(Array.isArray(data) ? data : data.sessions ?? []);
+      const list = Array.isArray(data) ? data : data.sessions ?? [];
+      setSessions(list);
+      // 선택된 세션 타이틀 유지 (세션 리스트 갱신돼도 ChatWindow 안 꺼지게)
+      if (selectedId) {
+        const current = list.find((s: ChatSession) => s.id === selectedId);
+        if (current) setSelectedTitle(current.title);
+      }
     }
     setLoading(false);
   };
@@ -68,18 +75,18 @@ export default function ChatPage() {
     if (sessionId) {
       setSelectedId(sessionId);
       setModalOpen(false);
+      const found = sessions.find((s) => s.id === sessionId);
+      if (found) setSelectedTitle(found.title);
     } else if (isNew) {
-      setSelectedId(null);
       setModalOpen(true);
-    } else {
-      setSelectedId(null);
-      setModalOpen(false);
     }
-  }, [searchParams]);
+    // else: do nothing — don't reset selectedId, it may have been set by handleCreated
+  }, [searchParams]); // sessions 제거 — sessions 변경 시 selectedId 초기화 방지
 
   const handleCreated = (session: { id: string; title: string }) => {
-    fetchSessions();
     setSelectedId(session.id);
+    setSelectedTitle(session.title);
+    fetchSessions();
   };
 
   const handleDelete = async (e: React.MouseEvent, sessionId: string) => {
@@ -151,7 +158,7 @@ export default function ChatPage() {
                       className={s.drawerSessionItem}
                       align="center"
                       fullWidth
-                      onClick={() => { setSelectedId(session.id); handleCloseDrawer(); }}
+                      onClick={() => { setSelectedId(session.id); setSelectedTitle(session.title); handleCloseDrawer(); }}
                     >
                       <VStack gap={SPACING.s4}>
                         <Typo.MD size={14} color="primary">{session.title}</Typo.MD>
@@ -201,9 +208,7 @@ export default function ChatPage() {
 
       {/* 채팅창 */}
       <div className={s.chatWindowWrapper}>
-        {selectedSession && (
-          <ChatWindow sessionId={selectedSession.id} sessionTitle={selectedSession.title} />
-        )}
+        <ChatWindow key={selectedId} sessionId={selectedId!} sessionTitle={selectedTitle} />
       </div>
 
       {isMobile && showSessionDrawer && (
@@ -225,7 +230,7 @@ export default function ChatPage() {
                     className={`${s.drawerSessionItem} ${session.id === selectedId ? s.drawerSessionActive : ''}`}
                     align="center"
                     fullWidth
-                    onClick={() => { setSelectedId(session.id); handleCloseDrawer(); }}
+                    onClick={() => { setSelectedId(session.id); setSelectedTitle(session.title); handleCloseDrawer(); }}
                   >
                     <VStack gap={SPACING.s4}>
                       <Typo.MD size={14} color="primary">{session.title}</Typo.MD>

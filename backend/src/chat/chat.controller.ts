@@ -2,6 +2,7 @@ import {
   Controller,
   Get,
   Post,
+  Patch,
   Delete,
   Body,
   Param,
@@ -87,5 +88,14 @@ export class ChatController {
   getImage(@Param('filename') filename: string, @Res() res: Response) {
     const url = this.imageUploadService.getPublicUrl(filename);
     return res.redirect(url);
+  }
+
+  @Patch('messages/:messageId/answer')
+  async saveAnswer(
+    @CurrentUser() user: CurrentUserPayload,
+    @Param('messageId') messageId: string,
+    @Body() dto: { answer: number },
+  ) {
+    return this.chatService.saveAnswer(user.id, messageId, dto.answer);
   }
 }

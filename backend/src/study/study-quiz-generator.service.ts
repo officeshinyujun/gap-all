@@ -1,10 +1,12 @@
 import {
+  BadGatewayException,
+  HttpException,
   Injectable,
   InternalServerErrorException,
   Logger,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { DataSource, Repository } from 'typeorm';
 import type OpenAI from 'openai';
 import { TextbookService } from '../textbook/textbook.service';
 import { getOpenAIClient } from '../lib/openai-keys';
@@ -30,6 +32,7 @@ export class StudyQuizGeneratorService {
     private readonly aiUsageLogRepo: Repository<AiUsageLog>,
     private readonly textbookService: TextbookService,
     private readonly supabase: SupabaseService,
+    private readonly dataSource: DataSource,
   ) {}
 
   // ============================================================
@@ -45,32 +48,25 @@ export class StudyQuizGeneratorService {
     unitNumber: number,
     count: QuizCount = 10,
   ): Promise<BlankQuestion[]> {
-    const cached = await this.readCache<BlankQuestion[]>(
-      subjectSlug,
-      unitNumber,
-      'blank',
-      count,
-    );
+    const cached = await this.readCache<BlankQuestion[]>(subjectSlug, unitNumber, 'blank', count);
     if (cached) {
-      this.logger.log(
-        `캐시 히트: ${subjectSlug} ${unitNumber}단원 blank ${count}개`,
-      );
+      this.logger.log(`캐시 히트: ${subjectSlug} ${unitNumber}단원 blank ${count}개`);
       return cached;
     }
 
-    this.logger.log(
-      `AI 생성 시작: ${subjectSlug} ${unitNumber}단원 blank ${count}개`,
-    );
-    const raw = await this.textbookService.getSummationMd(subjectSlug, unitNumber);
-    let md: string;
     try {
-      md = this.textbookService.extractTextFromSummation(raw);
-    } catch {
-      md = raw;
+      this.logger.log(`AI 생성 시작: ${subjectSlug} ${unitNumber}단원 blank ${count}개`);
+      const raw = await this.textbookService.getSummationMd(subjectSlug, unitNumber);
+      let md: string;
+      try { md = this.textbookService.extractTextFromSummation(raw); } catch { md = raw; }
+      const items = await this.callOpenAiForBlank(md, count);
+      await this.writeCache(subjectSlug, unitNumber, 'blank', count, items);
+      return items;
+    } catch (err: any) {
+      this.logger.error(`Blank question generation failed: ${err?.stack ?? err?.message}`);
+      if (err instanceof HttpException) throw err;
+      throw new BadGatewayException('빈칸 문제 생성에 실패했습니다. 잠시 후 다시 시도해주세요.');
     }
-    const items = await this.callOpenAiForBlank(md, count);
-    this.writeCache(subjectSlug, unitNumber, 'blank', count, items);
-    return items;
   }
 
   async generateConceptPairs(
@@ -78,32 +74,25 @@ export class StudyQuizGeneratorService {
     unitNumber: number,
     count: QuizCount = 10,
   ): Promise<ConceptPair[]> {
-    const cached = await this.readCache<ConceptPair[]>(
-      subjectSlug,
-      unitNumber,
-      'concept',
-      count,
-    );
+    const cached = await this.readCache<ConceptPair[]>(subjectSlug, unitNumber, 'concept', count);
     if (cached) {
-      this.logger.log(
-        `캐시 히트: ${subjectSlug} ${unitNumber}단원 concept ${count}개`,
-      );
+      this.logger.log(`캐시 히트: ${subjectSlug} ${unitNumber}단원 concept ${count}개`);
       return cached;
     }
 
-    this.logger.log(
-      `AI 생성 시작: ${subjectSlug} ${unitNumber}단원 concept ${count}개`,
-    );
-    const raw = await this.textbookService.getSummationMd(subjectSlug, unitNumber);
-    let md: string;
     try {
-      md = this.textbookService.extractTextFromSummation(raw);
-    } catch {
-      md = raw;
+      this.logger.log(`AI 생성 시작: ${subjectSlug} ${unitNumber}단원 concept ${count}개`);
+      const raw = await this.textbookService.getSummationMd(subjectSlug, unitNumber);
+      let md: string;
+      try { md = this.textbookService.extractTextFromSummation(raw); } catch { md = raw; }
+      const items = await this.callOpenAiForConcept(md, count);
+      await this.writeCache(subjectSlug, unitNumber, 'concept', count, items);
+      return items;
+    } catch (err: any) {
+      this.logger.error(`Concept pair generation failed: ${err?.stack ?? err?.message}`);
+      if (err instanceof HttpException) throw err;
+      throw new BadGatewayException('개념 페어 생성에 실패했습니다. 잠시 후 다시 시도해주세요.');
     }
-    const items = await this.callOpenAiForConcept(md, count);
-    this.writeCache(subjectSlug, unitNumber, 'concept', count, items);
-    return items;
   }
 
   async clearCache(
@@ -114,6 +103,26 @@ export class StudyQuizGeneratorService {
   ): Promise<void> {
     const subject = this.SUBJECT_MAP[subjectSlug];
     if (!subject) return;
+
+    if (process.env.DB_PROVIDER === 'local') {
+      const clauses = ['subject = $1', 'unit_number = $2'];
+      const params: Array<string | number> = [subject, unitNumber];
+      if (type) {
+        params.push(type);
+        clauses.push(`cache_type = $${params.length}`);
+      }
+      if (count) {
+        params.push(count);
+        clauses.push(`quiz_count = $${params.length}`);
+      }
+
+      await this.dataSource.query(
+        `DELETE FROM quiz_cache WHERE ${clauses.join(' AND ')}`,
+        params,
+      );
+      this.logger.log(`캐시 삭제: ${subject} ${unitNumber}단원 ${type ?? 'all'}`);
+      return;
+    }
 
     let query = this.supabase.client
       .from('quiz_cache')
@@ -277,6 +286,15 @@ JSON만 출력하라.`;
     const subject = this.SUBJECT_MAP[subjectSlug];
     if (!subject) return null;
 
+    if (process.env.DB_PROVIDER === 'local') {
+      const rows = (await this.dataSource.query(
+        `SELECT data FROM quiz_cache
+         WHERE subject = $1 AND unit_number = $2 AND cache_type = $3 AND quiz_count = $4`,
+        [subject, unitNumber, type, count],
+      )) as Array<{ data: T }>;
+      return rows[0]?.data ?? null;
+    }
+
     const { data, error } = await this.supabase.client
       .from('quiz_cache')
       .select('data')
@@ -299,6 +317,18 @@ JSON만 출력하라.`;
   ): Promise<void> {
     const subject = this.SUBJECT_MAP[subjectSlug];
     if (!subject) return;
+
+    if (process.env.DB_PROVIDER === 'local') {
+      await this.dataSource.query(
+        `INSERT INTO quiz_cache (subject, unit_number, cache_type, quiz_count, data)
+         VALUES ($1, $2, $3, $4, $5::jsonb)
+         ON CONFLICT (subject, unit_number, cache_type, quiz_count)
+         DO UPDATE SET data = EXCLUDED.data, generated_at = now()`,
+        [subject, unitNumber, type, count, JSON.stringify(data)],
+      );
+      this.logger.log(`캐시 저장: ${subject} ${unitNumber}단원 ${type} ${count}개`);
+      return;
+    }
 
     const { error } = await this.supabase.client
       .from('quiz_cache')

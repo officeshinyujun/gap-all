@@ -100,9 +100,7 @@ export class ChatAiService {
       }
 
       if (chunks.length > 0) {
-        const chunkContext = chunks
-          .map((chunk, i) => `[참고 자료 ${i + 1}]\n${chunk}`)
-          .join('\n\n');
+        const chunkContext = chunks.join('\n\n');
         this.logger.debug(`RAG 검색 완료: ${chunks.length}개 청크 사용`);
         this.logger.debug(
           `청크 미리보기:\n${chunks.map((c, i) => `[${i + 1}] ${c.slice(0, 80)}...`).join('\n')}`,
@@ -135,39 +133,46 @@ export class ChatAiService {
 
     const unitRequestGuidance = isUnitSummaryRequest
       ? [
-          `# [Unit Summary Instruction]`,
-          `- 사용자의 요청은 특정 단원(${mentionedUnit}단원)에 대한 설명 또는 요약이다.`,
-          `- [Knowledge Base]에 포함된 ${mentionedUnit}단원 자료 전체를 종합하여 핵심 개념, 주요 내용, 주의할 점을 구조적으로 설명하라.`,
-          `- 단원명, 핵심 개념, 세부 내용, 기억할 포인트 순서로 정리하라.`,
-          `- [Knowledge Base]에 ${mentionedUnit}단원 자료가 이미 포함되어 있으므로, 범위 밖이라고 거절하지 말고 제공된 자료를 요약해 답변하라.`,
+          `## 특별 지시사항`,
+          `사용자가 ${mentionedUnit}단원에 대한 설명/요약을 요청했습니다. 아래 제공된 ${mentionedUnit}단원 교과 내용을 종합하여:`,
+          `1) 단원명과 핵심 주제`,
+          `2) 주요 개념과 정의`,
+          `3) 반드시 기억해야 할 포인트`,
+          `4) 자주 실수하는 함정`,
+          `순서로 체계적으로 정리해주세요. 절대 "범위 밖"이라며 거절하지 마세요.`,
           ``,
         ]
       : [];
 
     const systemPrompt = [
-      `# Role: ${subjectTitle} 전문 튜터`,
-      `# Persona:`,
-      `- 너는 ${subjectTitle} 분야의 최고 권위자로서, 학생의 질문에 대해 논리적이고 체계적으로 답변한다.`,
-      `- 불필요한 미사여구는 배제하고, 핵심 개념과 원리를 꿰뚫는 통찰력 있는 답변을 제공한다.`,
-      `- 학생이 혼동하기 쉬운 지점을 미리 짚어주는 깐깐하면서도 친절한 멘토의 톤앤매너를 유지한다.`,
+      `당신은 "${subjectTitle}" 과목의 전문 튜터입니다. 특성화고 학생들이 시험을 준비할 수 있도록 돕고 있습니다.`,
       ``,
-      `# [Strict Grounding Rule: 범위 폐쇄 참조]`,
-      `1. 모든 답변은 오직 아래 [Knowledge Base]의 내용만을 근거로 작성해야 한다. (현재 범위: ${unitRange})`,
-      `2. 만약 질문에 대한 답이 [Knowledge Base]에 명시되어 있지 않다면, Knowledge Base의 내용을 바탕으로 추론하여 답변할 수 있다. 단, 추론임을 명시하라.`,
-      `3. Knowledge Base와 완전히 무관한 질문에는 "제공된 학습 범위 밖의 내용입니다. 해당 범위 내에서는 안내가 어렵습니다."라고 정중히 거절하라.`,
-      `4. 외부 지식이나 AI가 학습한 일반적인 상식을 답변에 섞는 것을 금지한다.`,
+      `## 성격과 말투`,
+      `- 친근하고 편안한 반말을 사용하세요. "~야", "~거든", "~하는 게 좋아" 같은 자연스러운 문어체 반말로 대화하세요.`,
+      `- 학생이 모르는 것을 부끄러워하지 않도록 격려하는 태도를 유지하세요.`,
+      `- 길게 늘어지지 않고 핵심을 짧고 명확하게 전달하세요.`,
+      `- 개념을 설명할 때는 실제 사례나 비유를 들어 쉽게 풀어주세요.`,
+      ``,
+      `## 답변 원칙`,
+      `1. 아래 제공된 교과 내용을 바탕으로 답변하세요. 이것이 당신의 알고 있는 지식입니다.`,
+      `2. 제공된 내용으로 답할 수 없는 질문이라도, 관련된 내용을 찾아 최대한 도움이 되는 답변을 시도하세요. "모르겠다"는 말 대신 "이 부분에 대해서는 다음과 같은 관련 내용이 있어"라고 연결해주세요.`,
+      `3. 교과 내용과 정말 무관한 질문(예: 날씨, 연예인)에는 "이 과목과 관련된 질문을 부탁해!"라고 자연스럽게 안내하세요.`,
+      `4. 당신의 답변에 "교과 내용", "지식 베이스", "참고 자료", "청크" 같은 시스템 용어를 절대 언급하지 마세요. 당신이 가진 지식인 것처럼 자연스럽게 답하세요.`,
+      `5. "제공된 범위", "학습 범위" 같은 표현도 사용하지 마세요. 그냥 아는 대로 가르쳐주는 선생님처럼 행동하세요.`,
       ``,
       ...unitRequestGuidance,
-      `# [Interaction Guidelines]`,
-      `1. **단계별 설명 (Chain of Thought):** 복잡한 개념은 논리적 단계로 나누어 설명하라.`,
-      `2. **의미적 치환 (Paraphrasing):** 단순 복사 대신, 학생이 이해하기 쉬운 전문 용어로 재구성하여 설명하라.`,
-      `3. **확인 질문:** 답변 끝에는 학생이 제대로 이해했는지 확인할 수 있는 간단한 질문이나 핵심 포인트를 덧붙여라.`,
+      `## 학생과의 상호작용 방식`,
+      `- 복잡한 개념은 논리적 단계로 차근차근 설명하세요.`,
+      `- 교과서 문장을 그대로 옮기지 말고, 학생이 이해하기 쉽게 풀어서 설명하세요.`,
+      `- 답변 마지막에는 "이해됐어?" 또는 간단한 확인 질문으로 학생의 이해도를 체크하세요.`,
+      `- Markdown 형식(제목, 리스트, 강조)을 활용해 가독성 좋게 작성하세요.`,
       ``,
-      `# [Knowledge Base]`,
+      `## 현재 수업 범위: ${unitRange}`,
+      ``,
+      `## 교과 내용`,
       textbookContext,
       ``,
-      `# [Final Command]`,
-      `설정된 페르소나를 유지하며, 주입된 지식 범위 내에서 가장 전문적인 답변을 생성하라. Markdown 형식을 사용하여 가독성을 높여라.`,
+      `위 내용을 바탕으로 학생의 질문에 답변해주세요.`,
     ].join('\n');
 
     const recentHistory = history.slice(-HISTORY_LIMIT);
@@ -341,6 +346,112 @@ ${extracted.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
       response.choices[0]?.message?.content ?? '해설을 생성할 수 없습니다.'
     );
   }
+
+  // ============================================================
+  // GPT-4o: 기출 스타일 문제 생성 + 해설
+  // ============================================================
+  async generateExamQuestion(
+    subjectSlug: string,
+    subjectTitle: string,
+    topic: string,
+    startUnit?: number,
+    endUnit?: number,
+  ): Promise<string> {
+    try {
+    // 교과 컨텍스트 로드 (summation cards에서 텍스트 추출 — 개념 테이블 의존성 제거)
+    const from = startUnit ?? 1;
+    const to = endUnit ?? 20;
+    const textbookSections: string[] = [];
+
+    for (let u = from; u <= Math.min(to, from + 4); u++) {
+      try {
+        const raw = await this.textbookService.getSummationMd(subjectSlug, u);
+        const text = this.textbookService.extractTextFromSummation(raw);
+        textbookSections.push(`[${u}단원]\n${text.slice(0, 2000)}`);
+      } catch (e) { /* skip unit */ }
+    }
+
+    const textbookContext = textbookSections.length > 0
+      ? textbookSections.join('\n\n')
+      : '교과 내용을 불러올 수 없습니다.';
+
+    const systemPrompt = [
+      `당신은 "${subjectTitle}" 과목의 수능/모의고사 문제 출제 전문가입니다.`,
+      `특성화고 학생들의 사고력을 측정하는 객관식 문제를 출제합니다.`,
+      ``,
+      `## 핵심 출제 원칙`,
+      `- 아래 [개념 목록]과 [교과 내용]을 바탕으로 문제를 출제하세요.`,
+      `- 사용자가 요청한 주제: "${topic}"`,
+      ``,
+      `## ⚠️ 절대 금지 사항`,
+      `1. 문제 발문, 지문, 선택지 어디에도 "${topic}"이나 개념명을 직접 언급하지 마세요.`,
+      `2. "근로기준법", "근로계약", "해고" 등의 개념 용어 자체를 문제에 쓰지 마세요.`,
+      `3. 학생이 개념을 스스로 도출할 수 있도록, 상황/사례/판례를 통해 간접적으로 물어보세요.`,
+      `4. 예: "근로기준법"을 묻고 싶으면 → "다음 중 근로자의 권리를 침해한 사례로 옳은 것은?"`,
+      ``,
+      `## 문제 형식`,
+      `- 수능 스타일: 발문 → 사례/지문 → 필요시 보기(ㄱㄴㄷ) → 5지선다`,
+      `- 실제 시험 난이도로 출제`,
+      `- 정답은 교과 내용에 근거`,
+      `- 오답지는 학생들이 자주 헷갈리는 개념으로 구성`,
+      ``,
+      `## 교과 내용`,
+      textbookContext,
+      ``,
+      ``,
+      `## 해설 작성 지침`,
+      `- 해설(explanation)에서 비로소 "${topic}" 개념을 밝히고 설명하세요.`,
+      `- 왜 정답인지, 각 오답이 왜 틀렸는지 간결하게 설명하세요.`,
+      `- "이 문제는 ~개념을 묻는 문제입니다"로 시작하세요.`,
+      ``,
+      `## 출력 형식 (JSON ONLY, 코드블럭 없이 순수 JSON)`,
+      `{`,
+      `  "question_stem": "question text without mentioning the concept name",`,
+      `  "stimulus": "case study or passage, empty string if none",`,
+      `  "combo_title": "title for combo block, empty if none",`,
+      `  "combo_items": [{"key": "ㄱ", "text": "item text"}],`,
+      `  "options": ["(1) option1", "(2) option2", "(3) option3", "(4) option4", "(5) option5"],`,
+      `  "correct_answer": 3,`,
+      `  "explanation": "This question tests the concept of X. explain why correct, why each wrong answer is wrong",`,
+      `  "target_concept": "the core concept name being tested",`,
+      `  "difficulty": "하 or 중 or 상"`,
+      `}`,
+    ].join('\n');
+
+    this.logger.log(`generateExamQuestion: calling OpenAI for "${topic}"`);
+
+    const response = await getOpenAIClient().chat.completions.create({
+      model: this.model,
+      messages: [
+        { role: 'system', content: systemPrompt },
+        { role: 'user', content: topic },
+      ],
+    });
+
+    const content = response.choices[0]?.message?.content ?? '{}';
+    this.logger.log(`generateExamQuestion: OpenAI response received (${content.length} chars)`);
+
+    // 토큰 사용량 로깅
+    const usage = response.usage;
+    if (usage) {
+      await this.aiUsageLogRepo.save(
+        this.aiUsageLogRepo.create({
+          source: AiUsageSource.CHAT,
+          model: this.model,
+          promptTokens: usage.prompt_tokens ?? 0,
+          completionTokens: usage.completion_tokens ?? 0,
+          totalTokens: usage.total_tokens ?? 0,
+        }),
+      );
+    }
+
+    return content;
+    } catch (err: any) {
+      this.logger.error(`generateExamQuestion failed: ${err?.message}`, err?.stack);
+      throw err;
+    }
+  }
+
   private async loadSummationFallback(
     subjectSlug: string,
     startUnit?: number,
@@ -348,19 +459,26 @@ ${extracted.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
   ): Promise<string> {
     try {
       const from = startUnit ?? 1;
-      const to = Math.min(endUnit ?? from + 2, from + 2); // 최대 3단원
+      const to = Math.min(endUnit ?? from + 4, from + 4); // 최대 5단원
       const results: string[] = [];
 
       for (let u = from; u <= to; u++) {
         try {
-          const md = await this.textbookService.getSummationMd(subjectSlug, u);
-          // 앞 2000자만 사용
-          results.push(`[${u}단원]\n${md.slice(0, 2000)}`);
+          const rawMd = await this.textbookService.getSummationMd(subjectSlug, u);
+          // extracted text 사용 (raw JSON 대신 구조화된 텍스트)
+          const text =
+            this.textbookService.extractTextFromSummation(rawMd);
+          // 한 단원당 최대 4000자까지 (extractTextFromSummation으로 더 풍부해짐)
+          results.push(
+            `[${u}단원]\n${text.slice(0, 4000)}`,
+          );
         } catch {
           // 해당 단원 없으면 스킵
         }
       }
 
+      if (results.length === 0) return '';
+      this.logger.debug(`Fallback: ${results.length}개 단원 로드됨`);
       return results.join('\n\n');
     } catch {
       this.logger.warn(`Fallback 교재 로드 실패: ${subjectSlug}`);
@@ -374,24 +492,64 @@ ${extracted.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
   }
 
   private extractQuotedOrNounLikeKeyword(message: string): string | undefined {
-    const cleaned = message.replace(/[?!.]/g, ' ').trim();
-    const quotedMatch = cleaned.match(/["'“”‘’]([^"'“”‘’]{2,30})["'“”‘’]/);
+    const cleaned = message.replace(/[?!.]+/g, ' ').trim();
+
+    // 따옴표로 감싼 용어 추출 (일반 따옴표 + 스마트 따옴표)
+    const allQuotes = '"\u201C\u201D\u2018\u2019\u300C\u300D';
+    const quotedMatch = cleaned.match(
+      new RegExp(`[${allQuotes}]([^${allQuotes}]{2,30})[${allQuotes}]`),
+    );
     if (quotedMatch) {
       return quotedMatch[1].trim();
     }
 
-    const candidates = cleaned
-      .split(/\s+/)
-      .map((token) => token.replace(/[.,()[\]{}]/g, '').trim())
-      .filter((token) => token.length >= 2)
-      .filter(
-        (token) =>
-          !/^(그|그거|그런거|있잖아|아|뭐지|뭐더라|대해서|설명해봐|설명|요약|정리|알려줘|말해줘)$/.test(
-            token,
-          ),
-      );
+    const stopWords = new Set([
+      '은', '는', '이', '가', '을', '를', '에', '의', '로', '으로',
+      '에서', '에게', '한테', '보다', '도', '만', '까지', '조차', '마저',
+      '부터', '나', '이나', '든지', '든가', '라고', '이라', '라',
+      '그', '그거', '그런거', '이거', '저거', '뭐', '어떤', '어떻게',
+      '있잖아', '아', '뭐지', '뭐더라', '무엇', '어디', '언제', '누가',
+      '대해서', '대해', '대한', '관해서', '관한',
+      '설명해봐', '설명', '설명해줘', '설명해', '요약', '정리',
+      '알려줘', '말해줘', '가르쳐줘', '알아', '몰라',
+      '하는', '있는', '것', '수', '있다', '없다',
+    ]);
 
-    return candidates.sort((a, b) => b.length - a.length)[0];
+    // 1차: 공백과 문장부호로 분할
+    const rawTokens = cleaned
+      .split(/[\s,.[\](){}<>/]+/)
+      .map((t) => t.trim())
+      .filter((t) => t.length >= 2);
+
+    // 2차: 후치 조사 제거 (ex: "근로기준법은" → "근로기준법")
+    const filteredTokens: string[] = [];
+    for (const token of rawTokens) {
+      const stripped = token.replace(
+        /(은|는|이|가|을|를|에|의|로|으로|에서|에게|한테|보다|도|만|까지|조차|마저|부터|나|이나|든지|든가|라고|이라|라|란|라는|과|와|하고|하며|이고|이며)$/,
+        '',
+      );
+      const candidate = stripped.length >= 2 ? stripped : token;
+      if (!stopWords.has(candidate) && candidate.length >= 2) {
+        filteredTokens.push(candidate);
+      }
+    }
+
+    if (filteredTokens.length === 0) return undefined;
+
+    // 3차: 연속된 의미 토큰을 복합 키워드로 병합
+    // ex: ["근로", "기준법", "적용"] → "근로 기준법 적용"
+    const phrases: string[] = [];
+    const maxWindow = Math.min(3, filteredTokens.length);
+    for (let w = maxWindow; w >= 1; w--) {
+      for (let i = 0; i <= filteredTokens.length - w; i++) {
+        const phrase = filteredTokens.slice(i, i + w).join(' ');
+        if (phrase.length >= 3 && phrase.length <= 60) {
+          phrases.push(phrase);
+        }
+      }
+    }
+
+    return phrases.sort((a, b) => b.length - a.length)[0];
   }
 
   private mergeChunks(primary: string[], secondary: string[]): string[] {

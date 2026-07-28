@@ -26,13 +26,17 @@ export const metadata: Metadata = {
   },
 };
 
+const background = {
+  backgroundColor : "#040406"
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html lang="ko" className={`${geistSans.variable} ${geistMono.variable} ${background}`}>
       <body>
         <ThemeProvider>
           <AuthProvider>

@@ -1,4 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
+import { DataSource } from 'typeorm';
 import { SupabaseService } from '../supabase/supabase.service';
 
 export interface UnitPayload {
@@ -36,7 +37,14 @@ const SUBJECT_MAP: Record<string, string> = {
 
 @Injectable()
 export class TextbookService {
-  constructor(private readonly supabase: SupabaseService) {}
+  constructor(
+    private readonly supabase?: SupabaseService,
+    private readonly dataSource?: DataSource,
+  ) {}
+
+  private get isLocal(): boolean {
+    return process.env.DB_PROVIDER === 'local';
+  }
 
   /**
    * concepts 테이블에서 단원별 핵심 개념 목록을 반환합니다.
@@ -51,8 +59,30 @@ export class TextbookService {
       throw new NotFoundException(`지원하지 않는 과목입니다: ${subjectSlug}`);
     }
 
+    if (this.isLocal) {
+      const units = (await this.dataSource!.query(
+        `SELECT id, unit_number
+         FROM textbook_units
+         WHERE subject = $1 AND unit_number BETWEEN $2 AND $3
+         ORDER BY unit_number`,
+        [subject, startUnit, endUnit],
+      )) as Array<{ id: string; unit_number: number }>;
+
+      if (!units.length) return [];
+
+      const concepts = (await this.dataSource!.query(
+        `SELECT unit_id, concept_name
+         FROM textbook_concepts
+         WHERE unit_id = ANY($1::uuid[])
+         ORDER BY sort_order`,
+        [units.map((unit) => unit.id)],
+      )) as Array<{ unit_id: string; concept_name: string }>;
+
+      return this.groupConceptsByUnit(units, concepts);
+    }
+
     // unit_id 조회
-    const { data: units } = await this.supabase.client
+    const { data: units } = await this.supabase!.client
       .from('textbook_units')
       .select('id, unit_number')
       .eq('subject', subject)
@@ -63,7 +93,7 @@ export class TextbookService {
 
     const unitIds = units.map((u) => u.id);
 
-    const { data: concepts } = await this.supabase.client
+    const { data: concepts } = await this.supabase!.client
       .from('textbook_concepts')
       .select('unit_id, concept_name')
       .in('unit_id', unitIds)
@@ -71,6 +101,13 @@ export class TextbookService {
 
     if (!concepts?.length) return [];
 
+    return this.groupConceptsByUnit(units, concepts);
+  }
+
+  private groupConceptsByUnit(
+    units: Array<{ id: string; unit_number: number }>,
+    concepts: Array<{ unit_id: string; concept_name: string }>,
+  ): UnitConcepts[] {
     // unit별로 그룹화
     const grouped = new Map<string, string[]>();
     for (const c of concepts) {
@@ -98,7 +135,28 @@ export class TextbookService {
       throw new NotFoundException(`지원하지 않는 과목입니다: ${subjectSlug}`);
     }
 
-    const { data: units } = await this.supabase.client
+    if (this.isLocal) {
+      const units = (await this.dataSource!.query(
+        `SELECT unit_number, text_payload
+         FROM textbook_units
+         WHERE subject = $1 AND unit_number BETWEEN $2 AND $3
+         ORDER BY unit_number`,
+        [subject, startUnit, endUnit],
+      )) as Array<{ unit_number: number; text_payload: string }>;
+
+      if (!units.length) {
+        throw new NotFoundException(
+          `${subjectSlug} 과목의 ${startUnit}~${endUnit}단원 텍스트를 찾을 수 없습니다.`,
+        );
+      }
+
+      return units.map((unit) => ({
+        unit_name: `${unit.unit_number}단원`,
+        text_payload: unit.text_payload,
+      }));
+    }
+
+    const { data: units } = await this.supabase!.client
       .from('textbook_units')
       .select('unit_number, text_payload')
       .eq('subject', subject)
@@ -128,8 +186,39 @@ export class TextbookService {
       throw new NotFoundException(`지원하지 않는 과목입니다: ${subjectSlug}`);
     }
 
+    if (this.isLocal) {
+      const units = (await this.dataSource!.query(
+        `SELECT id FROM textbook_units
+         WHERE subject = $1 AND unit_number = $2`,
+        [subject, unitNumber],
+      )) as Array<{ id: string }>;
+      const unit = units[0];
+
+      if (!unit) {
+        throw new NotFoundException(
+          `${subjectSlug} 과목의 ${unitNumber}단원 summation을 찾을 수 없습니다.`,
+        );
+      }
+
+      const cards = (await this.dataSource!.query(
+        `SELECT title, body, key_concepts
+         FROM textbook_summation_cards
+         WHERE unit_id = $1
+         ORDER BY card_index`,
+        [unit.id],
+      )) as Array<{ title: string | null; body: string | null; key_concepts: unknown }>;
+
+      if (!cards.length) {
+        throw new NotFoundException(
+          `${subjectSlug} 과목의 ${unitNumber}단원 summation을 찾을 수 없습니다.`,
+        );
+      }
+
+      return JSON.stringify({ cards: cards.map((card) => ({ content: card })) });
+    }
+
     // unit 조회
-    const { data: unit } = await this.supabase.client
+    const { data: unit } = await this.supabase!.client
       .from('textbook_units')
       .select('id')
       .eq('subject', subject)
@@ -143,7 +232,7 @@ export class TextbookService {
     }
 
     // summation cards 조회
-    const { data: cards } = await this.supabase.client
+    const { data: cards } = await this.supabase!.client
       .from('textbook_summation_cards')
       .select('title, body, key_concepts')
       .eq('unit_id', unit.id)

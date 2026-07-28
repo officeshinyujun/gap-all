@@ -59,6 +59,30 @@ function responseFor(sources: readonly PromptSource[]): string {
   });
 }
 
+function responseForDifferentTemplate(
+  sources: readonly PromptSource[],
+): string {
+  return JSON.stringify({
+    questions: sources.map((source) => ({
+      ...source,
+      questionStem: `Generated question ${source.sourceId}`,
+      stimulusDataJson: JSON.stringify(
+        source.selectedTemplate === 'TPL_FORMAL_DOCUMENT'
+          ? stimulusDataForTemplate('TPL_CASE_DIAGNOSTIC_FRAME')
+          : {
+              doc_type: '안내문',
+              header_info: {},
+              paragraphs: [{ content: '원본 근거를 보존한 안내문 내용입니다.' }],
+            },
+      ),
+      comboBlock: null,
+      choices: ['① one', '② two', '③ three', '④ four', '⑤ five'],
+      correctAnswer: 1,
+      explanation: 'Because the source evidence supports choice one.',
+    })),
+  });
+}
+
 function comboResponseFor(sources: readonly PromptSource[]): string {
   return JSON.stringify({
     questions: sources.map((source) => ({
@@ -217,6 +241,48 @@ describe('SimplyReferenceGenerationService', () => {
 
     expect(drafts).toHaveLength(5);
     expect(callCount).toBe(2);
+  });
+
+  it('Given valid data for a different template, When generating a simply-reference question, Then rejects it and repairs with the selected template', async () => {
+    let callCount = 0;
+    const service = {
+      textbookService: {
+        getConcepts: jest
+          .fn()
+          .mockReturnValue([
+            { unitName: '1단원', concepts: ['Career values'] },
+          ]),
+      },
+      catalogReader: {
+        find: jest.fn().mockResolvedValue([
+          { unitNumber: 1, sourcePayload: sourcePayload(1) },
+        ]),
+      },
+      dependencies: {
+        completeBatch: jest.fn(async (prompt: string) => {
+          callCount += 1;
+          const sources = sourcesFromPrompt(prompt);
+          return callCount === 1
+            ? responseForDifferentTemplate(sources)
+            : responseFor(sources);
+        }),
+      },
+    };
+
+    const drafts =
+      await SimplyReferenceGenerationService.prototype.generate.call(
+        service,
+        'success',
+        1,
+        1,
+        Difficulty.MIDDLE,
+        1,
+      );
+
+    expect(callCount).toBe(2);
+    expect(drafts[0]?.result.metadata.recommended_template).toBe(
+      drafts[0]?.lineage.selectedTemplate,
+    );
   });
 
   it('Given a legacy-shaped model response, When generating a batch, Then parses its question fields', async () => {

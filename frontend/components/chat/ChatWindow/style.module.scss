@@ -159,7 +159,7 @@
   width: 100%;
   max-width: 700px;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   gap: $spacing-8;
 }
 
@@ -206,10 +206,41 @@
   }
 }
 
-/* ── 이미지 업로드 ── */
-.imageBtn {
-  width: 40px;
-  height: 40px;
+/* ── 도구 그룹 (호버 시 위로 확장) ── */
+.toolGroup {
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.toolPopup {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-bottom: 8px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  transform-origin: bottom center;
+  scale: 0.8;
+}
+
+.toolGroup:hover .toolPopup {
+  opacity: 1;
+  pointer-events: auto;
+  scale: 1;
+}
+
+.toolBtn {
+  position: relative;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   background: $background-secondary;
   border: 1.5px solid $border-primary;
@@ -222,6 +253,123 @@
   transition: all 0.15s;
   &:hover:not(:disabled) { border-color: $brand-primary; color: $brand-primary; }
   &:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  // 툴팁 — 버튼 오른쪽에 나타나는 설명
+  &::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    left: calc(100% + 10px);
+    top: 50%;
+    transform: translateY(-50%);
+    white-space: nowrap;
+    padding: 6px 12px;
+    border-radius: 8px;
+    background: $background-secondary;
+    color: $text-primary;
+    border: 1px solid $border-primary;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.5;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+    transform: translateY(-50%) translateX(-4px);
+    z-index: 10;
+  }
+
+  &:hover::after {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+}
+
+.toolActive {
+  background: $brand-primary;
+  border-color: $brand-primary;
+  color: $background-primary;
+  &:hover:not(:disabled) {
+    opacity: 0.85;
+    color: $background-primary;
+  }
+}
+
+.toolTrigger {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: $background-secondary;
+  border: 1.5px solid $border-primary;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: $text-secondary;
+  transition: all 0.2s ease;
+  &:hover:not(:disabled) {
+    background: $brand-primary;
+    border-color: $brand-primary;
+    color: $background-primary;
+    transform: rotate(45deg);
+  }
+  &:disabled { opacity: 0.5; cursor: not-allowed; }
+}
+
+/* ── 생성된 문제 카드 ── */
+.generatedQuestionSection {
+  max-width: 700px;
+  width: 100%;
+  margin-top: $spacing-8;
+}
+
+.generatedQuestionLabel {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: $brand-primary;
+  margin-bottom: $spacing-8;
+}
+
+.generatedQuestionCard {
+  border: 1.5px solid $brand-primary;
+  border-radius: 10px;
+  padding: $spacing-14;
+  background: $background-primary;
+}
+
+.answerFeedback {
+  margin-top: $spacing-12;
+  padding-top: $spacing-12;
+  border-top: 1px solid $border-primary;
+}
+
+.feedbackCorrect {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: $text-correct;
+  margin-bottom: $spacing-8;
+}
+
+.feedbackWrong {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: $text-wrong;
+  margin-bottom: $spacing-8;
+}
+
+.explanationBox {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  line-height: 1.7;
+  color: $text-primary;
+  white-space: pre-wrap;
+  padding: $spacing-10;
+  background: $background-secondary;
+  border-radius: 8px;
 }
 
 .imagePreviewArea {

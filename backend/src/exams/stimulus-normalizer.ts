@@ -1,4 +1,5 @@
 import { Logger } from '@nestjs/common';
+import { isDeepStrictEqual } from 'node:util';
 import { normalizeConversationVisualMetadata } from './conversation-visual-aid-validator';
 import { STRUCTURED_TPL_NAMES } from './tpl-schemas';
 
@@ -426,8 +427,7 @@ export class StimulusNormalizer {
           );
           const visualMatches =
             normalized.scene_kind === data.scene_kind &&
-            JSON.stringify(normalized.visual_aid) ===
-              JSON.stringify(data.visual_aid) &&
+            isDeepStrictEqual(normalized.visual_aid, data.visual_aid) &&
             (data.participants ?? []).every(
               (participant: any, index: number) =>
                 participant?.icon_key ===

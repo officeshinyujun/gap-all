@@ -42,11 +42,12 @@ export async function deleteChatSession(sessionId: string): Promise<void> {
 export async function sendChatMessage(
   sessionId: string,
   message: string,
-): Promise<{ userMessage: ChatMessage; aiMessage: ChatMessage }> {
+  mode?: 'chat' | 'generate',
+): Promise<{ userMessage: ChatMessage; aiMessage: ChatMessage; generatedQuestion?: any }> {
   return apiFetch(`/chat/sessions/${sessionId}/messages`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ message }),
+    body: JSON.stringify({ message, mode }),
   });
 }
 

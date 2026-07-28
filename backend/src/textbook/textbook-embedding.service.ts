@@ -7,7 +7,8 @@ import { getOpenAIClient } from '../lib/openai-keys';
 const CHUNK_SIZE = 1500; // 청크당 최대 글자 수
 const CHUNK_OVERLAP = 300; // 청크 간 겹침 글자 수
 const EMBEDDING_MODEL = 'text-embedding-3-small';
-const TOP_K = 8; // RAG 검색 시 반환할 청크 수
+const TOP_K = 15; // RAG 검색 시 반환할 청크 수 (8 → 15 증가)
+const SENTENCE_BOUNDARY_WINDOW = 150; // 문장 경계 탐색 윈도우
 
 @Injectable()
 export class TextbookEmbeddingService {
@@ -20,16 +21,51 @@ export class TextbookEmbeddingService {
   ) {}
 
   // ============================================================
-  // 텍스트를 청크로 분할
+  // 텍스트를 청크로 분할 (문장 경계 인식)
   // ============================================================
   private splitIntoChunks(text: string): string[] {
     const chunks: string[] = [];
     let start = 0;
 
     while (start < text.length) {
-      const end = Math.min(start + CHUNK_SIZE, text.length);
+      let end = Math.min(start + CHUNK_SIZE, text.length);
+
+      // 마지막 청크가 아니면, 문장 경계를 찾아 자연스럽게 자름
+      if (end < text.length) {
+        const searchStart = Math.max(start, end - SENTENCE_BOUNDARY_WINDOW);
+        const searchRegion = text.slice(searchStart, end + SENTENCE_BOUNDARY_WINDOW);
+
+        // 문장 종결 지점 찾기: 한글/영문 + 문장부호(.!?) + 공백/줄바꿈,
+        // 또는 내용 사이의 줄바꿈
+        const sentenceEnd = searchRegion.search(
+          /(?<=[가-힣a-zA-Z)])[.!?](?=\s|\n|$)|\n(?=\S)/
+        );
+
+        if (sentenceEnd !== -1) {
+          const adjusted = searchStart + sentenceEnd + 1;
+          // 윈도우 내에서만 조정
+          if (adjusted > start && adjusted < end + SENTENCE_BOUNDARY_WINDOW) {
+            end = Math.min(adjusted, text.length);
+          }
+        } else {
+          // 문장 경계를 못 찾았으면 최소한 공백에서 자름
+          const spaceEnd = searchRegion.search(/\s(?=\S)/);
+          if (spaceEnd !== -1) {
+            end = Math.min(searchStart + spaceEnd + 1, text.length);
+          }
+        }
+      }
+
       chunks.push(text.slice(start, end).trim());
-      start += CHUNK_SIZE - CHUNK_OVERLAP;
+      // 다음 청크 시작 위치: 겹침을 적용하되, 반드시 앞으로 진행
+      const nextStart = end - CHUNK_OVERLAP;
+      if (nextStart <= start) {
+        // 겹침으로도 진행이 안 되면 최소 1글자 이상 진행
+        start = start + 1;
+      } else {
+        start = nextStart;
+      }
+      if (start >= text.length) break;
     }
 
     return chunks.filter((c) => c.length > 50);
@@ -105,7 +141,7 @@ export class TextbookEmbeddingService {
   }
 
   // ============================================================
-  // RAG 검색: 질문과 유사한 청크 반환
+  // RAG 검색: 질문과 유사한 청크 반환 (pgvector cosine similarity)
   // ============================================================
   async searchSimilarChunks(
     subjectSlug: string,
@@ -126,9 +162,9 @@ export class TextbookEmbeddingService {
     const from = startUnit ?? 1;
     const to = endUnit ?? 20;
 
-    // pgvector cosine similarity 검색
-    const rows: { content: string }[] = await this.dataSource.query(
-      `SELECT content
+    // pgvector cosine similarity 검색 (더 많은 결과를 가져와 diversity 확보)
+    const rows: { content: string; unit_number: number }[] = await this.dataSource.query(
+      `SELECT content, unit_number
        FROM textbook_chunks
        WHERE subject_slug = $1
          AND unit_number BETWEEN $2 AND $3
@@ -138,7 +174,21 @@ export class TextbookEmbeddingService {
       [subjectSlug, from, to, vectorStr, topK],
     );
 
-    return rows.map((r) => r.content);
+    // 단원 분산을 위한 diversity-aware 반환 (같은 단원에서만 너무 많이 오지 않도록)
+    const seenUnits = new Set<number>();
+    const diverse: string[] = [];
+    const rest: string[] = [];
+
+    for (const r of rows) {
+      if (!seenUnits.has(r.unit_number) && diverse.length < 8) {
+        seenUnits.add(r.unit_number);
+        diverse.push(r.content);
+      } else {
+        rest.push(r.content);
+      }
+    }
+
+    return [...diverse, ...rest].slice(0, topK);
   }
 
   // ============================================================

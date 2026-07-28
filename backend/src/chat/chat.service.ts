@@ -4,10 +4,11 @@ import {
   ForbiddenException,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Repository, ILike } from 'typeorm';
 import { ChatSession } from '../entities/chat-session.entity';
 import { ChatMessage, ChatSender } from '../entities/chat-message.entity';
 import { Subject } from '../entities/subject.entity';
+import { Question } from '../entities/question.entity';
 import { CreateSessionDto } from './dto/create-session.dto';
 import { SendMessageDto } from './dto/send-message.dto';
 import { ChatAiService } from './chat-ai.service';
@@ -23,6 +24,8 @@ export class ChatService {
     private readonly messageRepo: Repository<ChatMessage>,
     @InjectRepository(Subject)
     private readonly subjectRepo: Repository<Subject>,
+    @InjectRepository(Question)
+    private readonly questionRepo: Repository<Question>,
     private readonly chatAiService: ChatAiService,
     private readonly studyService: StudyService,
     private readonly imageUploadService: ChatImageUploadService,
@@ -98,6 +101,28 @@ export class ChatService {
   }
 
   // ============================================================
+  // 생성된 문제에 대한 사용자 답변 저장
+  // ============================================================
+  async saveAnswer(userId: string, messageId: string, answer: number) {
+    const message = await this.messageRepo.findOne({
+      where: { id: messageId },
+      relations: ['chatSession'],
+    });
+    if (!message) throw new NotFoundException('메시지를 찾을 수 없습니다.');
+    if (message.chatSession?.userId !== userId) {
+      throw new ForbiddenException('접근 권한이 없습니다.');
+    }
+
+    // similarQuestions JSONB에 userAnswer 추가
+    const existing = (message.similarQuestions as any) ?? {};
+    await this.messageRepo.update(messageId, {
+      similarQuestions: { ...existing, userAnswer: answer },
+    });
+
+    return { messageId, answer };
+  }
+
+  // ============================================================
   // 메시지 전송 + AI 응답
   // ============================================================
   async sendMessage(userId: string, sessionId: string, dto: SendMessageDto) {
@@ -112,24 +137,6 @@ export class ChatService {
       throw new ForbiddenException('접근 권한이 없습니다.');
     }
 
-    // 히스토리 조회 (최근 10개 — AI 서비스에서도 슬라이싱하지만 DB 부하 줄이기 위해 여기서도 제한)
-    const history = await this.messageRepo.find({
-      where: { chatSessionId: sessionId },
-      order: { createdAt: 'DESC' },
-      take: 10,
-    });
-    history.reverse(); // 오래된 순으로 정렬
-
-    // AI 응답 생성
-    const aiText = await this.chatAiService.getResponse(
-      session.subject!.slug,
-      session.subject!.title,
-      history,
-      dto.message,
-      session.startUnit ?? undefined,
-      session.endUnit ?? undefined,
-    );
-
     // 유저 메시지 저장
     const userMessage = await this.messageRepo.save(
       this.messageRepo.create({
@@ -139,16 +146,89 @@ export class ChatService {
       }),
     );
 
+    let aiText: string;
+    let generatedQuestion: any = undefined;
+
+    console.log('[ChatService] sendMessage mode:', dto.mode, 'message:', dto.message.slice(0, 50));
+
+    if (dto.mode === 'generate') {
+      // ── AI 문제 생성 모드 ──
+      let rawJson: string;
+      try {
+        rawJson = await this.chatAiService.generateExamQuestion(
+          session.subject!.slug,
+          session.subject!.title,
+          dto.message,
+          session.startUnit ?? undefined,
+          session.endUnit ?? undefined,
+        );
+      } catch (err: any) {
+        console.error('[ChatService] generateExamQuestion failed:', err);
+        aiText = `문제 생성 중 오류가 발생했어요.\n\n(${err?.message ?? '알 수 없는 오류'})`;
+        const aiMessage = await this.messageRepo.save(
+          this.messageRepo.create({ chatSessionId: sessionId, sender: ChatSender.AI, message: aiText }),
+        );
+        return { userMessage, aiMessage };
+      }
+
+      // JSON 파싱
+      let parsed: any;
+      try {
+        const jsonMatch = rawJson.match(/```(?:json)?\s*([\s\S]*?)```/);
+        const jsonStr = jsonMatch ? jsonMatch[1].trim() : rawJson.trim();
+        parsed = JSON.parse(jsonStr);
+      } catch {
+        aiText = rawJson;
+        const aiMessage = await this.messageRepo.save(
+          this.messageRepo.create({ chatSessionId: sessionId, sender: ChatSender.AI, message: aiText }),
+        );
+        return { userMessage, aiMessage };
+      }
+
+      generatedQuestion = {
+        question_stem: parsed.question_stem ?? '',
+        stimulus: parsed.stimulus ?? '',
+        combo_title: parsed.combo_title ?? '',
+        combo_items: parsed.combo_items ?? [],
+        options: parsed.options ?? [],
+        correct_answer: parsed.correct_answer ?? null,
+        explanation: parsed.explanation ?? '',
+        target_concept: parsed.target_concept ?? '',
+        difficulty: parsed.difficulty ?? '중',
+      };
+
+      // 개념명은 설명에만 노출, 텍스트 말풍선은 짧게
+      aiText = `📝 이 문제를 풀어보세요.\n\n(출제 의도와 해설은 정답 선택 후 확인할 수 있어요)`;
+    } else {
+      // ── 일반 채팅 모드 ──
+      const history = await this.messageRepo.find({
+        where: { chatSessionId: sessionId },
+        order: { createdAt: 'DESC' },
+        take: 10,
+      });
+      history.reverse();
+
+      aiText = await this.chatAiService.getResponse(
+        session.subject!.slug,
+        session.subject!.title,
+        history,
+        dto.message,
+        session.startUnit ?? undefined,
+        session.endUnit ?? undefined,
+      );
+    }
+
     // AI 메시지 저장
     const aiMessage = await this.messageRepo.save(
       this.messageRepo.create({
         chatSessionId: sessionId,
         sender: ChatSender.AI,
         message: aiText,
+        similarQuestions: generatedQuestion ?? null,
       }),
     );
 
-    return { userMessage, aiMessage };
+    return { userMessage, aiMessage, generatedQuestion };
   }
 
   // ============================================================

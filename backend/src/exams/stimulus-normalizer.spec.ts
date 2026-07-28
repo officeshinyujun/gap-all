@@ -152,6 +152,36 @@ describe('StimulusNormalizer TPL renderability', () => {
     });
   });
 
+  it('accepts valid conversation visual data regardless of relation key order', () => {
+    expect(
+      normalizer.isRenderableTplData(
+        {
+          participants: [
+            { id: 'student', name: '학생', role: '학생', icon_key: 'student' },
+            { id: 'teacher', name: '교사', role: '교사', icon_key: 'teacher' },
+          ],
+          messages: [
+            { p_id: 'student', text: '상담을 요청합니다.', timestamp: '' },
+          ],
+          scene_kind: 'school',
+          visual_aid: {
+            kind: 'actor_flow',
+            actor_ids: ['student', 'teacher'],
+            relations: [
+              {
+                to_id: 'teacher',
+                from_id: 'student',
+                action_key: 'consult',
+                evidence_message_indexes: [0],
+              },
+            ],
+          },
+        },
+        'TPL_CONVERSATIONAL_FLOW',
+      ),
+    ).toBe(true);
+  });
+
   it('rejects malformed explicit conversation visual data', () => {
     expect(
       normalizer.isRenderableTplData(

@@ -49,7 +49,7 @@ export default function LandingPage() {
         <div className={s.headerInner}>
           <div className={s.headerLeft}>
             <Link to="/landing" className={s.logo}>2830</Link>
-            
+
           </div>
           <div className={s.headerActions}>
             <Link to="/login" className={s.headerCta}>회원가입</Link>
@@ -141,7 +141,6 @@ export default function LandingPage() {
             <a href="mailto:officeshinyujun@gmail.com" className={s.footerEmail}>officeshinyujun@gmail.com</a>
           </div>
           <div className={s.footerLinks}>
-            <div className={s.footerCol}><Link to="/terms">이용약관</Link><Link to="/privacy">개인정보처리방침</Link></div>
             <div className={s.footerCol}><Link to="/terms">이용약관</Link><Link to="/privacy">개인정보처리방침</Link></div>
           </div>
         </div>
