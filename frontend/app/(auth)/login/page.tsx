@@ -148,58 +148,19 @@ export default function LoginPage() {
         <form className={s.form} onSubmit={handleSubmit}>
           <div className={s.fieldGroup}>
             <label className={s.label}>이메일</label>
-            <div className={s.inputRow}>
-              <input
-                className={s.input}
-                type="email"
-                placeholder="example@email.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                autoComplete="email"
-                disabled={mode === 'register' && isEmailVerified}
-              />
-              {mode === 'register' && !isEmailVerified && (
-                <button
-                  type="button"
-                  className={s.sendCodeButton}
-                  onClick={handleSendCode}
-                  disabled={isSendingCode || !email}
-                >
-                  {isSendingCode ? '발송 중...' : codeSent ? '재발송' : '인증번호 발송'}
-                </button>
-              )}
-              {mode === 'register' && isEmailVerified && (
-                <span className={s.verifiedBadge}>인증완료</span>
-              )}
-            </div>
+            <input
+              className={s.input}
+              type="email"
+              placeholder="example@email.com"
+              value={email}
+              onChange={(e) => { setEmail(e.target.value); if (mode === 'register') { setCodeSent(false); setIsEmailVerified(false); setVerificationCode(''); setVerificationToken(''); } }}
+              required
+              autoComplete="email"
+              disabled={mode === 'register' && isEmailVerified}
+            />
           </div>
 
-          {mode === 'register' && codeSent && !isEmailVerified && (
-            <div className={s.fieldGroup}>
-              <label className={s.label}>인증번호</label>
-              <div className={s.inputRow}>
-                <input
-                  className={s.input}
-                  type="text"
-                  placeholder="6자리 인증번호"
-                  value={verificationCode}
-                  onChange={(e) => setVerificationCode(e.target.value.replace(/\D/g, '').slice(0, 6))}
-                  maxLength={6}
-                />
-                <button
-                  type="button"
-                  className={s.verifyButton}
-                  onClick={handleVerifyCode}
-                  disabled={isVerifying || verificationCode.length !== 6}
-                >
-                  {isVerifying ? '확인 중...' : '확인'}
-                </button>
-              </div>
-            </div>
-          )}
-
-          {mode === 'register' && isEmailVerified && (
+          {mode === 'register' && (
             <>
               <div className={s.fieldGroup}>
                 <label className={s.label}>이름</label>
@@ -212,6 +173,7 @@ export default function LoginPage() {
                   required
                   minLength={2}
                   maxLength={20}
+                  autoComplete="name"
                 />
               </div>
               <div className={s.fieldGroup}>
@@ -223,6 +185,7 @@ export default function LoginPage() {
                   onChange={(e) => setBirthday(e.target.value)}
                   required
                   max={new Date().toISOString().split('T')[0]}
+                  autoComplete="bday"
                 />
               </div>
               <div className={s.fieldGroup}>
@@ -263,6 +226,48 @@ export default function LoginPage() {
                   );
                 })()}
               </div>
+
+              <div className={s.verificationSection}>
+                {!isEmailVerified && (
+                  <button
+                    type="button"
+                    className={s.sendCodeFullButton}
+                    onClick={handleSendCode}
+                    disabled={isSendingCode || !email}
+                  >
+                    {isSendingCode ? '발송 중...' : codeSent ? '인증번호 재발송' : '이메일 인증번호 발송'}
+                  </button>
+                )}
+
+                {codeSent && !isEmailVerified && (
+                  <div className={s.verifyRow}>
+                    <input
+                      className={s.input}
+                      type="text"
+                      placeholder="6자리 인증번호"
+                      value={verificationCode}
+                      onChange={(e) => setVerificationCode(e.target.value.replace(/\D/g, '').slice(0, 6))}
+                      maxLength={6}
+                      autoComplete="one-time-code"
+                    />
+                    <button
+                      type="button"
+                      className={s.verifyButton}
+                      onClick={handleVerifyCode}
+                      disabled={isVerifying || verificationCode.length !== 6}
+                    >
+                      {isVerifying ? '확인 중...' : '확인'}
+                    </button>
+                  </div>
+                )}
+
+                {isEmailVerified && (
+                  <div className={s.verifiedRow}>
+                    <span className={s.verifiedIcon}>✓</span>
+                    <span className={s.verifiedText}>이메일 인증 완료</span>
+                  </div>
+                )}
+              </div>
             </>
           )}
 
@@ -284,15 +289,13 @@ export default function LoginPage() {
 
           {error && <p className={s.error}>{error}</p>}
 
-          {(mode === 'login' || isEmailVerified) && (
-            <button
-              className={s.submitButton}
-              type="submit"
-              disabled={isLoading}
-            >
-              {isLoading ? '처리 중...' : mode === 'login' ? '로그인' : '회원가입'}
-            </button>
-          )}
+          <button
+            className={s.submitButton}
+            type="submit"
+            disabled={isLoading || (mode === 'register' && !isEmailVerified)}
+          >
+            {isLoading ? '처리 중...' : mode === 'login' ? '로그인' : '회원가입'}
+          </button>
         </form>
 
         <div className={s.divider}>

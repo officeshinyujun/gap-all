@@ -8,6 +8,8 @@ import { JobProgressProvider } from '@features/exam-generation/model/JobProgress
 import { ExamGenerationToast } from '@widgets/ExamGenerationToast/ui/ExamGenerationToast';
 import LandingPage from '@/app/(auth)/landing/page';
 import LoginPage from '@/app/(auth)/login/page';
+import TermsPage from '@/app/(auth)/terms/page';
+import PrivacyPage from '@/app/(auth)/privacy/page';
 import MainLayout from '@/app/(main)/layout';
 import Home from '@/app/(main)/page';
 import StudyHome from '@/app/(main)/study/page';
@@ -40,6 +42,8 @@ createRoot(root).render(
             <Routes>
               <Route path="/landing" element={<LandingPage />} />
               <Route path="/login" element={<LoginPage />} />
+              <Route path="/terms" element={<TermsPage />} />
+              <Route path="/privacy" element={<PrivacyPage />} />
               <Route path="/auth/google/callback" element={<GoogleCallbackPage />} />
               <Route element={<MainLayout />}>
                 <Route index element={<Home />} />

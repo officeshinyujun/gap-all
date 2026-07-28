@@ -274,3 +274,74 @@
     content: '✗ ';
   }
 }
+
+// 이메일 인증 섹션
+.verificationSection {
+  margin-top: $spacing-8;
+  padding-top: $spacing-20;
+  border-top: 1px solid $border-primary;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-12;
+}
+
+.sendCodeFullButton {
+  width: 100%;
+  padding: $spacing-12;
+  background-color: $brand-primary;
+  color: $background-primary;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  border-radius: $spacing-8;
+  cursor: pointer;
+  font-family: var(--font-geist-sans);
+  transition: opacity 0.15s;
+
+  &:hover:not(:disabled) {
+    opacity: 0.85;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+}
+
+.verifyRow {
+  display: flex;
+  gap: $spacing-8;
+  width: 100%;
+
+  input {
+    flex: 1;
+  }
+}
+
+.verifiedRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-8;
+  padding: $spacing-10 0;
+}
+
+.verifiedIcon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: $brand-primary;
+  color: $background-primary;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.verifiedText {
+  font-size: 14px;
+  font-weight: 500;
+  color: $brand-primary;
+  font-family: var(--font-geist-sans);
+}
