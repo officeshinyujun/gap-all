@@ -8,5 +8,5 @@ export const APP_CONFIG = {
   /** 브라우저 탭 타이틀 */
   title: '2830 - 직업계 고등학교 학습 플랫폼',
   /** 서비스 설명 */
-  description: '수능특강 기반 AI 학습 플랫폼',
+  description: '성직공일 AI 학습 프로그램',
 } as const;
