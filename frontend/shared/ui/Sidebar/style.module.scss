@@ -107,7 +107,8 @@
 }
 
 @media (max-width: 768px) {
-    .sidebar {
+    // Override Flex's base display:flex regardless of CSS injection order.
+    .sidebar.sidebar {
         display: none;
     }
 

@@ -1,6 +1,6 @@
 import { Injectable, Logger, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { DataSource, Repository } from 'typeorm';
 import * as fs from 'fs';
 import * as path from 'path';
 import { TextbookEmbeddingService } from '../textbook/textbook-embedding.service';
@@ -105,6 +105,7 @@ export class StudyService {
     @InjectRepository(User)
     private readonly userRepo: Repository<User>,
     private readonly supabase: SupabaseService,
+    private readonly dataSource: DataSource,
     @InjectRepository(IncorrectRecord)
     private readonly incorrectRecordRepo: Repository<IncorrectRecord>,
     @InjectRepository(Question)
@@ -898,6 +899,43 @@ export class StudyService {
       throw new NotFoundException(`지원하지 않는 과목입니다: ${subjectSlug}`);
     }
 
+    if (process.env.DB_PROVIDER === 'local') {
+      const units = (await this.dataSource.query(
+        `SELECT id FROM textbook_units
+         WHERE subject = $1 AND unit_number = $2`,
+        [subject, unitNumber],
+      )) as Array<{ id: string }>;
+      const unit = units[0];
+
+      if (!unit) {
+        return this.emptyFrequencyConcept(subjectSlug, unitNumber);
+      }
+
+      const cards = (await this.dataSource.query(
+        `SELECT rank, name, frequency, sources, definition, key_points,
+                textbook_excerpt, enriched_definition, caution, quiz,
+                real_question AS "realQuestion"
+         FROM textbook_concept_cards
+         WHERE unit_id = $1
+         ORDER BY rank NULLS LAST, name`,
+        [unit.id],
+      )) as any[];
+
+      if (cards.length >= 5) {
+        return this.transformCardsToFrequency({ concepts: cards });
+      }
+
+      const frequencies = (await this.dataSource.query(
+        `SELECT frequency_data FROM textbook_frequencies WHERE unit_id = $1`,
+        [unit.id],
+      )) as Array<{ frequency_data: any }>;
+      if (frequencies[0]) {
+        return this.normalizeFrequencyConcepts(frequencies[0].frequency_data);
+      }
+
+      return this.emptyFrequencyConcept(subjectSlug, unitNumber);
+    }
+
     // concept_cards 먼저 시도
     const { data: unit } = await this.supabase.client
       .from('textbook_units')
@@ -924,12 +962,37 @@ export class StudyService {
         .eq('unit_id', unit.id)
         .single();
 
-      if (freq) return freq.frequency_data;
+      if (freq) return this.normalizeFrequencyConcepts(freq.frequency_data);
     }
 
-    throw new NotFoundException(
-      `${subjectSlug} 과목의 ${unitNumber}단원 frequency concept를 찾을 수 없습니다.`,
+    // 데이터 없으면 빈 배열 반환 (500 대신)
+    return this.emptyFrequencyConcept(subjectSlug, unitNumber);
+  }
+
+  private emptyFrequencyConcept(subjectSlug: string, unitNumber: number) {
+    this.logger.warn(`No frequency concept data for ${subjectSlug}/${unitNumber}`);
+    return { concepts: [] };
+  }
+
+  private normalizeFrequencyConcepts(frequencyData: any): any {
+    if (!Array.isArray(frequencyData?.concepts)) return frequencyData;
+
+    return {
+      ...frequencyData,
+      concepts: frequencyData.concepts.map((concept: any) => ({
+        ...concept,
+        description:
+          this.extractDefinition(concept.conceptContent) ?? concept.description,
+      })),
+    };
+  }
+
+  private extractDefinition(conceptContent: unknown): string | null {
+    if (typeof conceptContent !== 'string') return null;
+    const match = conceptContent.match(
+      /^##\s*개념 정의\s*\n+([\s\S]*?)(?=^##\s|$)/m,
     );
+    return match?.[1].trim() || null;
   }
 
   async getMindmap(subjectSlug: string, unitNumber: number): Promise<any> {
@@ -969,9 +1032,11 @@ export class StudyService {
   private transformCardsToFrequency(raw: any): any {
     const concepts = (raw.concepts || []).map((c: any) => {
       const realQ = c.realQuestion?.questionData;
-      const textbookExcerpt = c.card?.textbookExcerpt || '';
-      const definition = c.card?.definition || '';
-      const keyPoints = c.card?.keyPoints || [];
+      const textbookExcerpt = c.textbook_excerpt ?? c.card?.textbookExcerpt ?? '';
+      const definition = c.definition ?? c.card?.definition ?? '';
+      const keyPoints = c.key_points ?? c.card?.keyPoints ?? [];
+      const description =
+        c.enriched_definition ?? c.card?.enrichedDefinition ?? definition;
       const caution = c.caution || '';
       const conceptUsage = c.realQuestion?.conceptUsage || '';
 
@@ -1028,7 +1093,7 @@ export class StudyService {
         frequency: c.frequency,
         sources: c.sources || [],
         questionFormats: [],
-        description: c.card?.enrichedDefinition || definition,
+        description,
         keyPoints,
         examTips: caution ? [caution] : [],
         conceptContent: conceptContentParts.join('\n\n'),

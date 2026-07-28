@@ -30,7 +30,8 @@
     "repair:reference-context": "node -r ts-node/register scripts/repair-reference-context.ts",
     "fix:reference-unit-concepts": "node -r ts-node/register scripts/fix-reference-unit-concepts.ts",
     "preflight:reference-catalog": "node -r ts-node/register scripts/reference-catalog-preflight.ts",
-    "preflight:reference-catalog:markdown": "node -r ts-node/register scripts/reference-catalog-preflight.ts --format=markdown"
+    "preflight:reference-catalog:markdown": "node -r ts-node/register scripts/reference-catalog-preflight.ts --format=markdown",
+    "seed:textbook:local": "node -r ts-node/register scripts/seed-local-textbook.ts"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",

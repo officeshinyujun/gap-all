@@ -211,12 +211,12 @@ export class StudyController {
   }
 
   @Get(':subjectSlug/:unitNumber/concept')
-  getConcept(
+  async getConcept(
     @Param('subjectSlug') subjectSlug: string,
     @Param('unitNumber', ParseIntPipe) unitNumber: number,
     @Query('name') name: string,
   ) {
-    const concept = this.studyService.getConceptByName(
+    const concept = await this.studyService.getConceptByName(
       subjectSlug,
       unitNumber,
       name,

@@ -78,18 +78,18 @@ describe('StudyController', () => {
   });
 
   describe('getConcept', () => {
-    it('개념을 찾으면 found: true', () => {
-      studyService.getConceptByName.mockReturnValue({
+    it('개념을 찾으면 found: true', async () => {
+      studyService.getConceptByName.mockResolvedValue({
         title: '개념A', description: '설명', bulletPoints: [], trapPoints: [], logicFlow: '',
       });
-      const result = controller.getConcept('success', 1, '개념A');
+      const result = await controller.getConcept('success', 1, '개념A');
       expect(result.found).toBe(true);
       expect(result.title).toBe('개념A');
     });
 
-    it('개념을 못 찾으면 found: false', () => {
-      studyService.getConceptByName.mockReturnValue(null);
-      const result = controller.getConcept('success', 1, '없는개념');
+    it('개념을 못 찾으면 found: false', async () => {
+      studyService.getConceptByName.mockResolvedValue(null);
+      const result = await controller.getConcept('success', 1, '없는개념');
       expect(result.found).toBe(false);
     });
   });

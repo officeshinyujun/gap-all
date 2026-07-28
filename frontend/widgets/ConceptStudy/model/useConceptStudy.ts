@@ -9,7 +9,7 @@ import { fetchUnitId, updateStudyProgress } from '@entities/study/api/studyApi';
 export type MainTab = 'concept' | 'overview';
 export type SlideView = 'learn' | 'question';
 
-const CACHE_VERSION = 'v10';
+const CACHE_VERSION = 'v14';
 
 function getCacheKey(subject: string, unitNumber: number) {
   return `concept-${CACHE_VERSION}-${subject}-${unitNumber}`;

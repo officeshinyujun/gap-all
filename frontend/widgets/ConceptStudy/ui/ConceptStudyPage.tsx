@@ -64,7 +64,8 @@ export function ConceptStudyPage() {
   const [keyPointsOpen, setKeyPointsOpen] = useState(false);
 
   const v2 = current?.conceptHighlightV2;
-  const questionSource = current?.sampleQuestion.questionSource ?? current?.sampleQuestion.metadata?.source_exam;
+  const sampleQuestion = current?.sampleQuestion;
+  const questionSource = sampleQuestion?.questionSource ?? sampleQuestion?.metadata?.source_exam;
   const analysisExplanation = v2?.takeaway ?? null;
 
   if (loading) return <div className={s.container}><div className={s.center}><div className={s.spinner} /></div></div>;
@@ -191,21 +192,21 @@ export function ConceptStudyPage() {
               </div>
             )}
 
-            {current && slideView === 'question' && (
+            {current && sampleQuestion && slideView === 'question' && (
               <div className={s.questionTwoCol}>
                 <div className={s.questionCol}>
                   {questionSource && (
                     <HStack justify="between" align="center" fullWidth className={s.questionSourceRow}>
                       <span className={s.questionSourceLabel}>유사 출제 문제</span>
                       <span className={s.questionSourceBadge}>
-                        {questionSource}{current.sampleQuestion.questionNumber != null && ` ${current.sampleQuestion.questionNumber}번`}
+                        {questionSource}{sampleQuestion.questionNumber != null && ` ${sampleQuestion.questionNumber}번`}
                       </span>
                     </HStack>
                   )}
                   <QuestionRenderer
-                    question={{ ...current.sampleQuestion, explanation: current.sampleQuestion.explanation ?? current.sampleQuestion.render_ready?.explanation ?? (analysisExplanation || undefined) }}
+                    question={{ ...sampleQuestion, explanation: sampleQuestion.explanation ?? sampleQuestion.render_ready?.explanation ?? (analysisExplanation || undefined) }}
                     questionNumber={currentIndex + 1}
-                    correctAnswer={current.sampleQuestion.correct_answer}
+                    correctAnswer={sampleQuestion.correct_answer}
                     flat
                   />
                 </div>
@@ -231,10 +232,10 @@ export function ConceptStudyPage() {
                             {key === 'stimulusClues' && v2 && (
                               <VStack gap={12} fullWidth>
                                 {/* 원본 지문 + 하이라이팅 */}
-                                {current?.sampleQuestion.rawStimulus && (
+                                {sampleQuestion.rawStimulus && (
                                   <div className={s.rawStimulusBox}>
                                     {highlightStimulus(
-                                      current.sampleQuestion.rawStimulus,
+                                      sampleQuestion.rawStimulus,
                                       v2.stimulusClues.map(c => c.quote)
                                     )}
                                   </div>
@@ -253,7 +254,7 @@ export function ConceptStudyPage() {
                             {key === 'optionAnalysis' && v2 && (
                               <VStack gap={6} fullWidth>
                                 {v2.optionAnalysis.map((opt, i) => {
-                                  const hasComboBlock = !!current?.sampleQuestion?.combo_block?.items?.length;
+                                  const hasComboBlock = !!sampleQuestion.combo_block?.items?.length;
                                   const label = hasComboBlock
                                     ? (['ㄱ', 'ㄴ', 'ㄷ', 'ㄹ'][opt.optionNum - 1] ?? String(opt.optionNum))
                                     : (['①', '②', '③', '④', '⑤'][opt.optionNum - 1] ?? String(opt.optionNum));
@@ -278,6 +279,9 @@ export function ConceptStudyPage() {
                   {!v2 && <p className={s.noAnalysisText}>분석 데이터가 없습니다.</p>}
                 </div>
               </div>
+            )}
+            {current && !sampleQuestion && slideView === 'question' && (
+              <p className={s.noAnalysisText}>문제 데이터가 없습니다.</p>
             )}
           </div>
 

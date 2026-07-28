@@ -186,10 +186,12 @@ export function Sidebar() {
     <>
       <VStack justify="between" align="center" className={s.sidebar} fullHeight>
         <VStack gap={SPACING.s10} fullWidth>
-          <HStack gap={SPACING.s8} align="center" style={{ padding: SPACING.s12 }}>
-            <img src="/2830_logo.png" alt={APP_CONFIG.name} width={32} height={32} />
-            <Typo.MD size={16} color="primary">{APP_CONFIG.name}</Typo.MD>
-          </HStack>
+          <Link to="/" aria-label="메인페이지로 이동" style={{ textDecoration: 'none', display: 'block' }}>
+            <HStack gap={SPACING.s8} align="center" style={{ padding: SPACING.s12 }}>
+              <img src="/2830_logo.png" alt={APP_CONFIG.name} width={32} height={32} />
+              <Typo.MD size={16} color="primary">{APP_CONFIG.name}</Typo.MD>
+            </HStack>
+          </Link>
 
           <VStack gap={SPACING.s8} style={{ padding: SPACING.s8 }}>
             <Typo.MD size={12} color="secondary">General</Typo.MD>
