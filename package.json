@@ -35,5 +35,8 @@
   },
   "devDependencies": {
     "playwright": "^1.60.0"
+  },
+  "dependencies": {
+    "sass": "1.99.0"
   }
 }

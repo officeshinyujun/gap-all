@@ -67,5 +67,7 @@ security review without changing intended study flows.
 - Full backend Jest suite: 594 passed, 2 failed in existing reference-generation and
   simply-reference-generation suites.
 - `npm run lint -w backend`: failed in the existing broad test-source typecheck.
-- Dashboard build and the remaining audit advisories require follow-up; `npm audit` reports
-  10 remaining advisories that need breaking/transitive upgrades.
+- `npm run build -w dashboard`: passed after normalizing Turbopack's workspace
+  root and resolving its Sass and Recharts peer dependencies.
+- Remaining audit advisories require follow-up; the dependency install reports five high
+  severity vulnerabilities. A full audit remains pending.

@@ -2,6 +2,10 @@ import type { NextConfig } from 'next';
 import path from 'path';
 
 const nextConfig: NextConfig = {
+  turbopack: {
+    // Next and Sass are installed from the monorepo workspace root.
+    root: path.resolve(__dirname, '..'),
+  },
   sassOptions: {
     additionalData: `@import "${path.join(process.cwd(), 'styles/variables')}";`,
   },
