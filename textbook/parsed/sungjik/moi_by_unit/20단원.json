@@ -19,7 +19,7 @@
       "④ 인간의 다양성과 개성을 존중하는 시대가 심화될 것이다.",
       "⑤ 여가 생활이 중요시되어 문화 콘텐츠 산업이 확대될 것이다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "미래 산업 사회 변화",
@@ -48,7 +48,7 @@
       "④ 일학습 병행제",
       "⑤ 평생 학습 계좌제"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "평생 학습 제도"
@@ -105,7 +105,7 @@
       "④ 신재생에너지 기술자",
       "⑤ 생체인식 시스템 개발자"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "미래 유망 직업",

@@ -309,7 +309,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "창업의 요소"
@@ -337,7 +337,7 @@
       "④ 사회적 책임성 - 창업 자본",
       "⑤ 사회적 책임성 - 창업 아이템"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "기업가 정신",
@@ -366,7 +366,7 @@
       "④ 필요한 정보를 충분히 수집하고 분석하여 의사 결정을 하였다.",
       "⑤ 일정 지역에 대한 독점 판매권을 얻을 수 있는 방법으로 창업 하였다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "창업",
@@ -399,7 +399,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "창업",
@@ -433,7 +433,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "창업 계획서"
@@ -465,7 +465,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "창업 방법"
@@ -493,7 +493,7 @@
       "④ 사례 2에는 창업 요소로 창업자, 창업 아이템, 창업 자본, 시장이 제시되어 있다.",
       "⑤ 사례 2의 창업 방법은 사례 1의 창업 방법에 비해 초기 유통 경로 및 시장 확보가 유리하다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "창업",
@@ -556,7 +556,7 @@
       "④ B씨의 창업 요소에는 창업 자본이 포함되어 있다.",
       "⑤ A씨의 창업 방법은 B씨의 창업 방법에 비해 시장 진입에 불리하다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "창업과 기업 경영"
@@ -588,7 +588,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "기업의 형태"
@@ -616,7 +616,7 @@
       "④ A씨의 희망 창업 방법은 B씨의 창업 방법에 비해 창업자의 자율적인 의사 결정이 어렵다.",
       "⑤ B씨의 창업 방법은 A씨의 희망 창업 방법에 비해 창업 준비 기간이 상대적으로 짧다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "프랜차이즈 창업",
@@ -701,7 +701,7 @@
       "④ B기업의 창업자는 회사의 채무에 대하여 출자 금액을 한도로 책임을 진다.",
       "⑤ B기업은 A기업에 비해 창업 자본 대비 자기 자본의 비율이 더 낮다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "창업 사례 분석",

@@ -19,7 +19,7 @@
       "④ 성실성 정직성",
       "⑤ 봉사성 준법성"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "직업 윤리"
@@ -51,7 +51,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "근무 방식",
@@ -80,7 +80,7 @@
       "④ 직장에서의 승진을 중요한 가치로 생각하고 있다.",
       "⑤ 물리적인 근무 환경을 중요한 가치로 생각하고 있다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "직업 가치관"
@@ -108,7 +108,7 @@
       "④ 정보 능력 / 자원 관리 능력",
       "⑤ 의사 소통 능력 / 기술 능력"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "직업기초능력"
@@ -140,7 +140,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "채용 절차",
@@ -170,7 +170,7 @@
       "④ 경제적, 심리적으로 독립 / 초기 경력 재평가 및 생산성 유지",
       "⑤ 경제적, 심리적으로 독립 / 진로 선택을 위한 흥미, 적성 검사"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "생애 발달 단계",
@@ -199,7 +199,7 @@
       "④ 일학습 병행제",
       "⑤ 평생 학습 계좌제"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "평생 학습 제도"
@@ -231,7 +231,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 활동",
@@ -264,7 +264,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "국가직무능력표준(NCS)"
@@ -297,7 +297,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "근로 계약",
@@ -326,7 +326,7 @@
       "④ 사물인터넷 기술이 활용되고 있다.",
       "⑤ 신재생 에너지 기술이 활용되고 있다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "사물인터넷(IoT)",
@@ -360,7 +360,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "채용 면접",
@@ -389,7 +389,7 @@
       "④ 10월 8일 노조는 단체 교섭권을 행사하였다.",
       "⑤ 사용자 측의 대항 행위는 직장 폐쇄에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "노사 관계",
@@ -418,7 +418,7 @@
       "④ 필요한 정보를 충분히 수집하고 분석하여 의사 결정을 하였다.",
       "⑤ 일정 지역에 대한 독점 판매권을 얻을 수 있는 방법으로 창업 하였다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "창업",
@@ -451,7 +451,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "창업",
@@ -480,7 +480,7 @@
       "④ 정규직 입사 후 담당 직무 관련 교육 및 직장 예절 교육 이수",
       "⑤ 관심 있는 사업 분야를 선택한 후 같은 업종 내 여러 기업을 선정하여 비교"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "취업 준비"
@@ -513,7 +513,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "창업 계획서"
@@ -545,7 +545,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "노사 협의회"
@@ -573,7 +573,7 @@
       "④ B씨에게 적용된 보험의 보험료는 사업주와 근로자가 함께 부담 한다.",
       "⑤ A씨에게 적용된 보험과 B씨에게 적용된 보험의 보험 관계 성립 신고 주체는 사업주이다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "사회 보험",
@@ -602,7 +602,7 @@
       "④ (나)의 경우 법원의 인가를 받지 아니하면 기업 형태에 따른 조직 변경의 효력이 없다.",
       "⑤ (가)와 (나)의 경우 조직 변경 후 기업 형태에서는 1인 1의결권을 행사하게 된다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "기업 형태 변경"

@@ -332,7 +332,7 @@
       "④ (가)~(다)는 부품 산업에 파급 효과가 큰 공업이다.",
       "⑤ (가)~(다)는 생산 제품의 규모에 따라 분류하면 중공업에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "공업의 종류",
@@ -363,7 +363,7 @@
       "④ (다) 공업은 호프만(Hoffman, W.)의 산업 분류 방식에 따르면 생산재 산업에 해당한다.",
       "⑤ (가), (나) 공업은 (다) 공업에 기초 소재를 제공한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "공업의 분류",
@@ -397,7 +397,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄱ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "공업의 특징 및 유형"
@@ -429,7 +429,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "섬유 공업",

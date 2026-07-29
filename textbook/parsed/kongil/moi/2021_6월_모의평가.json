@@ -19,7 +19,7 @@
       "④ 물질 지향적 직업관 - 연대 의식",
       "⑤ 업적 주의적 직업관 - 평등 의식"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "직업관",
@@ -53,7 +53,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "조직 형태",
@@ -87,7 +87,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "인턴 사원 교육",
@@ -117,7 +117,7 @@
       "④ (라)에서 도입한 원자재 주문 방식은 정기 발주 모형 방식에 해당된다.",
       "⑤ ○○제품 수명 주기 중에서 매출과 성장이 점차 둔화되는 시기는 (가)에 해당된다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "제품 수명 주기",
@@ -148,7 +148,7 @@
       "④ (가)~(다)는 부품 산업에 파급 효과가 큰 공업이다.",
       "⑤ (가)~(다)는 생산 제품의 규모에 따라 분류하면 중공업에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "공업의 종류",
@@ -183,7 +183,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "환경 오염",
@@ -218,7 +218,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "OEM",
@@ -252,7 +252,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "유연 생산 시스템",
@@ -287,7 +287,7 @@
       "④ ㄱ, ㄴ, ㄹ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "건설업",
@@ -322,7 +322,7 @@
       "④ (가) - ㄴ, (나) - ㄹ",
       "⑤ (가) - ㄷ, (나) - ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "첨단 기술",
@@ -357,7 +357,7 @@
       "④ ㄴ, ㄷ, ㄹ",
       "⑤ ㄱ, ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 관리",
@@ -388,7 +388,7 @@
       "④ 내마모성이 크고 높은 온도에 잘 견디는 자동차용 엔진 블록",
       "⑤ 체온과 동일한 온도에서 원래의 외형으로 복원되는 치아 교정용 와이어"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "신소재",
@@ -422,7 +422,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "산업 분류",
@@ -452,7 +452,7 @@
       "④ (라)에서 환경 개선을 위한 방법으로는 작업 공정을 습식에서 건식으로 변경하는 방법이 있다.",
       "⑤ (마)에서 부착한 산업안전보건표지는 '경고 표지'에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "안전 관리 조직",
@@ -482,7 +482,7 @@
       "④ 몬트리올 의정서",
       "⑤ 사막화 방지 협약"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "환경 보존",
@@ -517,7 +517,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "JIT 시스템",
@@ -552,7 +552,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "기업의 사회적 책임",
@@ -582,7 +582,7 @@
       "④ 점검 결과 가스 누출 탐지 센서 10개 중 2개가 오작동하는 것을 확인하였다.",
       "⑤ 가스 누출 탐지 센서의 오작동 원인을 조사한 결과 부품의 불량이 직접 원인임을 밝혀냈다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "하인리히",
@@ -615,7 +615,7 @@
       "④ ㄱ, ㄷ",
       "⑤ ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "한국표준직업분류",
@@ -650,7 +650,7 @@
       "④ ㄱ, ㄷ, ㄹ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 방식",

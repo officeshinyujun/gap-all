@@ -5,6 +5,9 @@ export const SIMPLY_REFERENCE_HISTORICAL_AUDIT_ISSUE_CODES = [
   'invalid_tpl',
   'missing_combo',
   'duplicate_combo',
+  'duplicate_choice',
+  'duplicate_question',
+  'answer_mismatch',
   'hash_drift',
   'missing_source',
 ] as const;
@@ -16,6 +19,9 @@ export type PersistedSimplyReferenceAuditRow = Readonly<{
   questionId: string;
   recommendedTemplate: string;
   stimulusData: Readonly<Record<string, unknown>> | null;
+  questionStem: string;
+  optionsList: readonly string[];
+  correctAnswer: number | null;
   comboBlock: Readonly<{
     title: string;
     items: readonly Readonly<{ key: string; text: string }>[];
@@ -27,6 +33,7 @@ export type PersistedSimplyReferenceAuditRow = Readonly<{
   catalogSourceId: string | null;
   catalogContentHash: string | null;
   catalogViewKeys: readonly string[] | null;
+  catalogCorrectAnswer: number | null;
 }>;
 
 export type SimplyReferenceHistoricalAuditReader = Readonly<{
@@ -58,12 +65,9 @@ export class SimplyReferenceHistoricalAuditService {
 
   async audit(): Promise<SimplyReferenceHistoricalAuditReport> {
     const persistedRows = await this.reader.find();
-    const questionsWithDuplicateCombo =
-      duplicateComboQuestionIds(persistedRows);
+    const duplicateQuestions = duplicateQuestionIds(persistedRows);
     const questions = persistedRows
-      .map((row) =>
-        classify(row, questionsWithDuplicateCombo.has(row.questionId)),
-      )
+      .map((row) => classify(row, duplicateQuestions.has(row.questionId)))
       .sort((left, right) => compare(left.questionId, right.questionId));
     const failedQuestionCount = questions.filter(
       (question) => question.issueCodes.length > 0,
@@ -87,7 +91,7 @@ export function renderSimplyReferenceHistoricalAuditJson(
 
 function classify(
   row: PersistedSimplyReferenceAuditRow,
-  hasDuplicateCombo: boolean,
+  isDuplicateQuestion: boolean,
 ): SimplyReferenceHistoricalAuditQuestion {
   const issueCodes: SimplyReferenceHistoricalAuditIssueCode[] = [];
 
@@ -104,7 +108,7 @@ function classify(
   }
   if (row.catalogSourceId === null) {
     issueCodes.push('missing_source');
-  } else if (row.catalogContentHash !== row.lineageSourceHash) {
+  } else if (hasComparableHashDrift(row)) {
     issueCodes.push('hash_drift');
   }
   if (
@@ -114,8 +118,20 @@ function classify(
   ) {
     issueCodes.push('missing_combo');
   }
-  if (hasDuplicateCombo || hasDuplicateComboKey(row.comboBlock)) {
+  if (hasDuplicateComboKey(row.comboBlock)) {
     issueCodes.push('duplicate_combo');
+  }
+  if (hasDuplicateChoice(row.optionsList)) {
+    issueCodes.push('duplicate_choice');
+  }
+  if (isDuplicateQuestion) {
+    issueCodes.push('duplicate_question');
+  }
+  if (
+    row.catalogCorrectAnswer !== null &&
+    row.correctAnswer !== row.catalogCorrectAnswer
+  ) {
+    issueCodes.push('answer_mismatch');
   }
 
   return {
@@ -154,21 +170,49 @@ function hasDuplicateComboKey(
   return new Set(keys).size !== keys.length;
 }
 
-function duplicateComboQuestionIds(
+function duplicateQuestionIds(
   rows: readonly PersistedSimplyReferenceAuditRow[],
 ): ReadonlySet<string> {
-  const questionIdsByCombo = new Map<string, string[]>();
+  const questionIdsByVisibleContent = new Map<string, string[]>();
   for (const row of rows) {
-    if (row.comboBlock === null) continue;
-    const key = JSON.stringify(row.comboBlock);
-    const questionIds = questionIdsByCombo.get(key) ?? [];
+    const key = JSON.stringify({
+      questionStem: row.questionStem.trim(),
+      stimulusData: row.stimulusData,
+      optionsList: row.optionsList.map((option) => option.trim()),
+      comboBlock: row.comboBlock,
+    });
+    const questionIds = questionIdsByVisibleContent.get(key) ?? [];
     questionIds.push(row.questionId);
-    questionIdsByCombo.set(key, questionIds);
+    questionIdsByVisibleContent.set(key, questionIds);
   }
   return new Set(
-    [...questionIdsByCombo.values()]
+    [...questionIdsByVisibleContent.values()]
       .filter((questionIds) => questionIds.length > 1)
       .flat(),
+  );
+}
+
+function hasDuplicateChoice(optionsList: readonly string[]): boolean {
+  const normalized = optionsList.map((choice) =>
+    choice
+      .replace(/^[①②③④⑤]\s*/u, '')
+      .replace(/\s+/gu, ' ')
+      .trim(),
+  );
+  return new Set(normalized).size !== normalized.length;
+}
+
+function hasComparableHashDrift(
+  row: PersistedSimplyReferenceAuditRow,
+): boolean {
+  if (row.catalogContentHash === null || row.lineageSourceHash === null) {
+    return false;
+  }
+  const catalogScheme = row.catalogContentHash.split(':', 1)[0];
+  const lineageScheme = row.lineageSourceHash.split(':', 1)[0];
+  return (
+    catalogScheme === lineageScheme &&
+    row.catalogContentHash !== row.lineageSourceHash
   );
 }
 

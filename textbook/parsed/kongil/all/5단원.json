@@ -321,7 +321,7 @@
       "④ 내마모성이 크고 높은 온도에 잘 견디는 자동차용 엔진 블록",
       "⑤ 체온과 동일한 온도에서 원래의 외형으로 복원되는 치아 교정용 와이어"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "신소재",
@@ -355,7 +355,7 @@
       "④ (가)-ㄷ, (나)-ㄹ",
       "⑤ (가)-ㄹ, (나)-ㄱ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "첨단 기술",
@@ -385,7 +385,7 @@
       "④ 파인 세라믹스를 이용한 자동차 엔진 부품",
       "⑤ 형상 기억 합금이 내장된 절수형 전자 샤워기"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "신소재",
@@ -418,7 +418,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "공장 입지 조건",
@@ -452,7 +452,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "지식 재산권",
@@ -481,7 +481,7 @@
       "④ 형상 기억 합금",
       "⑤ 탄소 섬유 강화 플라스틱"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "신소재"
@@ -509,7 +509,7 @@
       "④ A 제품을 생산하는 공업은 노동 집약적 조립 공업에 해당한다.",
       "⑤ A 제품은 호프만(Hoffman, W.)의 산업 분류 방식에 따르면 소비재 산업의 생산품에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "제조 공정",
@@ -542,7 +542,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "제품 개발",
@@ -571,7 +571,7 @@
       "④ 바이오 센서를 이용한 의료 진단용 계측기",
       "⑤ 탄소 섬유 강화 플라스틱을 이용한 테니스 라켓"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "신소재의 이해",
@@ -604,7 +604,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "생산 기술의 변화",
@@ -633,7 +633,7 @@
       "④ 형상 기억 합금",
       "⑤ 탄소 섬유 강화 플라스틱"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "신소재",
@@ -667,7 +667,7 @@
       "④ ㄱ, ㄴ, ㄹ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "산업 분류",
@@ -702,7 +702,7 @@
       "④ ㄱ, ㄴ, ㄹ",
       "⑤ ㄱ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "공업 입지",
@@ -732,7 +732,7 @@
       "④ 형상 기억 합금",
       "⑤ 탄소 섬유 강화 플라스틱"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "신소재"
@@ -760,7 +760,7 @@
       "④ 압전세라믹스",
       "⑤ 형상기억합금"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "신소재",
@@ -789,7 +789,7 @@
       "④ 파인세라믹스",
       "⑤ 형상 기억 합금"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "신소재"
@@ -817,7 +817,7 @@
       "④ 탄소 나노 튜브",
       "⑤ 형상 기억 합금"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "신소재의 종류"
@@ -850,7 +850,7 @@
       "④ ㄱ, ㄷ, ㄹ",
       "⑤ ㄱ, ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "제품 개발 프로세스"
@@ -878,7 +878,7 @@
       "④ 형상 기억 합금",
       "⑤ 탄소 섬유 강화 플라스틱"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "신소재",
@@ -911,7 +911,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "기술 인증",
@@ -941,7 +941,7 @@
       "④ 탄소 나노 튜브",
       "⑤ 형상 기억 합금"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "신소재",

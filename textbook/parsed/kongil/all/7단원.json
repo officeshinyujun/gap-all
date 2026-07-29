@@ -240,7 +240,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 방식(컨베이어)",
@@ -274,7 +274,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "린 시스템",
@@ -304,7 +304,7 @@
       "④ 설계 과정에서 컴퓨터를 이용한 설계 프로그램을 활용하고 있다.",
       "⑤ 생산 방식은 시장 수요의 형태에 따라 분류하면 '주문 생산 방식'에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "생산 방식",
@@ -340,7 +340,7 @@
       "④ ㄱ, ㄴ, ㄹ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "재고 관리(ABC)",
@@ -374,7 +374,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "품질 관리 기법",
@@ -408,7 +408,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "경영 기법(벤치마킹)",
@@ -442,7 +442,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 시스템",
@@ -473,7 +473,7 @@
       "④ B기업이 개발한 제품은 국내에서 최초로 개발된 기술을 적용한 제품에 대하여 정부가 부여하는 인증을 획득하였다.",
       "⑤ A, B기업 업종의 한국표준산업분류상 대분류 항목의 분류 코드는 'C'에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "경영 혁신"
@@ -506,7 +506,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "경영 조직",
@@ -539,7 +539,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "경영 혁신"
@@ -573,7 +573,7 @@
       "④ ㄷ-ㅁ-ㄴ-ㄹ-ㄱ",
       "⑤ ㅁ-ㄴ-ㄷ-ㄹ-ㄱ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "제조 과정",
@@ -606,7 +606,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "경영 혁신 기법",
@@ -635,7 +635,7 @@
       "④ 2019년에 증축한 것은 유동 자본에 해당한다.",
       "⑤ 2019년에 획득한 인증은 유럽 수출을 위해 필요하다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "기업 경영 연혁",
@@ -668,7 +668,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "재고 관리 기법",
@@ -702,7 +702,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "공정 설계"
@@ -734,7 +734,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "인사 관리",
@@ -769,7 +769,7 @@
       "④ ㄱ, ㄷ, ㄹ",
       "⑤ ㄱ, ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "품질 관리",
@@ -799,7 +799,7 @@
       "④ 제2공장은 공업의 입지 조건 중 사회적 입지 조건을 고려하여 설립할 계획이다.",
       "⑤ ○○기업의 업종은 클라크(Clark, C. G.)의 산업 분류에 따르면 제1차 산업에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "산업 입지",
@@ -829,7 +829,7 @@
       "④ 한국산업표준(KS)의 '방법 표준'에 대한 적용을 제안하였다.",
       "⑤ ○○기업의 업종은 한국표준산업분류의 대분류 항목 중 '건설업'에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "기업 경영 분석",
@@ -859,7 +859,7 @@
       "④ 22분",
       "⑤ 27분"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "공정 분석",
@@ -893,7 +893,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "공장 입지 선정"
@@ -921,7 +921,7 @@
       "④ A기업: SCM, B기업: CRM",
       "⑤ A기업: SCM, B기업: POP"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "생산 정보 시스템"
@@ -953,7 +953,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "산업 분류 및 인증"
@@ -981,7 +981,7 @@
       "④ B기업이 제품 입출고 관리에 활용한 시스템은 자동 창고 시스템에 해당한다.",
       "⑤ A, B기업의 업종은 한국표준산업분류상 대분류 항목의 분류 코드 'C'에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "경영 기법",
@@ -1010,7 +1010,7 @@
       "④ 작업 관리에는 생산 합리화의 원칙 중 '표준화'가 적용되었다.",
       "⑤ 적용된 표준은 적용 범위에 따라 분류하면 '단체 표준'에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "기업의 생산 관리"
@@ -1038,7 +1038,7 @@
       "④ 거치대 재질은 한국 산업 표준의 KS C에 규정되어 있다.",
       "⑤ 시장 현황에 따르면 제품은 제품 수명 주기 중 '쇠퇴기' 단계에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "표준화",
@@ -1072,7 +1072,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "경영 조직",
@@ -1107,7 +1107,7 @@
       "④ ㄱ, ㄷ, ㄹ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "경영 혁신 기법",
@@ -1141,7 +1141,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "품질 인증 제도",
@@ -1170,7 +1170,7 @@
       "④ CRM",
       "⑤ MES"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "고객 관계 관리",
@@ -1204,7 +1204,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "품질 관리 도구",
@@ -1235,7 +1235,7 @@
       "④ 채용 분야는 한국표준직업분류의 대분류 항목 중 '전문가 및 관련 종사자'에 해당한다.",
       "⑤ 채용 방식은 일정 기간 현장 수습 기간을 거친 후 평가 결과에 따라 정규직으로 채용하는 방식이다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "인적 자원 관리",
@@ -1265,7 +1265,7 @@
       "④ 불량률 개선을 위해 품질 분임조 활동을 실시한다.",
       "⑤ ABC 재고 관리 시스템을 적용하여 재고를 관리한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "재고 관리",
@@ -1300,7 +1300,7 @@
       "④ ㄱ, ㄴ, ㄹ",
       "⑤ ㄱ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 관리",
@@ -1331,7 +1331,7 @@
       "④ SCM",
       "⑤ TPS"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 정보 시스템",
@@ -1365,7 +1365,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄱ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "경영 관리 기법",
@@ -1398,7 +1398,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 계획 및 통제",
@@ -1431,7 +1431,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "인적 자원 관리"
@@ -1463,7 +1463,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "경영 혁신"
@@ -1495,7 +1495,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "제품 수명 주기",
@@ -1530,7 +1530,7 @@
       "④ ㄱ, ㄴ, ㄹ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "인적 자원 관리",
@@ -1564,7 +1564,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "생산 방식",
@@ -1594,7 +1594,7 @@
       "④ 물류센터 부지 선정에는 사회적 입지 조건을 고려하였다.",
       "⑤ 의사결정 과정에서 상호 비판 없이 최대한 많은 의견을 자유롭게 제시하는 기법을 활용하였다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "경영 혁신",
@@ -1628,7 +1628,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "공장입지 요인",
@@ -1662,7 +1662,7 @@
       "④ ㄴ, ㄷ, ㄹ",
       "⑤ ㄱ, ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "자재 관리",
@@ -1692,7 +1692,7 @@
       "④ 상품성 개선을 위해 획득한 정부 인증은 NEP이다.",
       "⑤ 시장성 확대를 위해 획득한 인증은 CCC 인증이다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "표준",
@@ -1722,7 +1722,7 @@
       "④ (라)의 업무에 사용한 도표는 산정도이다.",
       "⑤ (마)에서는 생산 합리화의 원칙 중 '전문화'의 적용 방안을 제안하였다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 관리",
@@ -1756,7 +1756,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "인적 자원 관리",
@@ -1790,7 +1790,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "생산품 분류",
@@ -1820,7 +1820,7 @@
       "④ 제조 리드타임은 구축 전에 비하여 구축 후 10% 감소하였다.",
       "⑤ 사내 지침에서 준수한 한국산업표준(KS)은 '전달 표준'에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 시스템",
@@ -1854,7 +1854,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "경영 혁신",
@@ -1889,7 +1889,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄱ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "경영 혁신 기법",
@@ -1923,7 +1923,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄱ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "제조 현장 관리",
@@ -1957,7 +1957,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "인적 자원 관리",
@@ -1986,7 +1986,7 @@
       "④ 공장의 생산품은 제품 규모에 따라 분류하면 경공업 제품에 해당한다.",
       "⑤ 신규 공장에서 생산할 자동차는 운행 과정에서 탄소 배출이 내연기관 자동차에 비해 많다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "공장 입지 및 생산 시스템"
@@ -2018,7 +2018,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "공정 기호",
@@ -2048,7 +2048,7 @@
       "④ TPS",
       "⑤ CRM"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "생산 정보 시스템",
@@ -2082,7 +2082,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "JIT 시스템",
@@ -2113,7 +2113,7 @@
       "④ 인적 자원 관리 원칙 중 '종업원 안정의 원칙'을 적용하고 있다.",
       "⑤ 국제 표준화 기구에서 제정한 품질 관리 및 품질 보증에 관한 인증을 획득하고자 한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "기업의 경영 혁신",
@@ -2148,7 +2148,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "생산 혁신",
@@ -2182,7 +2182,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 정보 시스템",
@@ -2217,7 +2217,7 @@
       "④ ㄱ, ㄴ, ㄹ",
       "⑤ ㄱ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "경영 혁신 전략",
@@ -2254,7 +2254,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "제품 설계 과정",

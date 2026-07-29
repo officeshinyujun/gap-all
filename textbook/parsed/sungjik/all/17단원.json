@@ -306,7 +306,7 @@
       "④ A씨와 B씨가 신청한 보험은 저축성 보험의 성격을 갖는다.",
       "⑤ A씨와 B씨가 신청한 보험 급여를 받을 권리는 제3자에게 양도할 수 있다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "사회 보험",
@@ -341,7 +341,7 @@
       "④ ㄱ, ㄴ, ㄹ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "사회보험",
@@ -370,7 +370,7 @@
       "④ B씨에게 적용된 보험의 보험료는 사업주와 근로자가 함께 부담 한다.",
       "⑤ A씨에게 적용된 보험과 B씨에게 적용된 보험의 보험 관계 성립 신고 주체는 사업주이다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "사회 보험",
@@ -399,7 +399,7 @@
       "④ B씨는 근로복지공단에 직접 방문하여 실업 급여를 신청하였다.",
       "⑤ A씨와 B씨가 재취업하지 않았을 때 수령할 수 있는 구직 급여의 소정 급여 일수는 같다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "사회 보험 (고용 보험)"

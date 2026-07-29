@@ -24,7 +24,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "직업의식"
@@ -57,7 +57,7 @@
       "④ ㄱ, ㄷ, ㄹ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "산업 안전 보건",
@@ -90,7 +90,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "산업 분류",
@@ -124,7 +124,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "제품 수명 주기",
@@ -154,7 +154,7 @@
       "④ 압전세라믹스",
       "⑤ 형상기억합금"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "신소재",
@@ -188,7 +188,7 @@
       "④ ㄱ, ㄴ, ㄹ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "인적 자원 관리",
@@ -222,7 +222,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "생산 방식",
@@ -257,7 +257,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 혁신",
@@ -291,7 +291,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "SWOT 분석",
@@ -321,7 +321,7 @@
       "④ 물류센터 부지 선정에는 사회적 입지 조건을 고려하였다.",
       "⑤ 의사결정 과정에서 상호 비판 없이 최대한 많은 의견을 자유롭게 제시하는 기법을 활용하였다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "경영 혁신",
@@ -356,7 +356,7 @@
       "④ ㄱ, ㄷ, ㄹ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 관리",
@@ -390,7 +390,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "재해 발생 원인",
@@ -423,7 +423,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "표준화",
@@ -452,7 +452,7 @@
       "④ 몬트리올 의정서",
       "⑤ 사막화 방지 협약"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "환경 보호 협약",
@@ -481,7 +481,7 @@
       "④ (다)의 유해 요인은 '물리적 유해 요인'에 해당한다.",
       "⑤ (라) 작업장은 (다) 작업장보다 방음용 귀마개 착용의 필요성이 적다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "작업 환경 유해 요인",
@@ -510,7 +510,7 @@
       "④ B기업이 구축한 생산 시스템은 공급 사슬 관리(SCM)이다.",
       "⑤ A, B기업의 업종은 한국표준산업분류의 대분류 코드 'C'에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "경영 전략",
@@ -544,7 +544,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "창업과 벤처 기업",
@@ -578,7 +578,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "경영 혁신 기법",
@@ -612,7 +612,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "생산 관리 기법",
@@ -642,7 +642,7 @@
       "④ 원인에서 '부품 오차'와 '조립 오차'의 누적비율은 95%이다.",
       "⑤ '변속기 불량품 수'에 가장 많은 영향을 미치는 원인은 '부품 오차'이다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "품질 관리 도구",

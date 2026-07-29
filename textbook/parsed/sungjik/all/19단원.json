@@ -313,7 +313,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "산업 안전 사고",
@@ -346,7 +346,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "산업 재해",
@@ -375,7 +375,7 @@
       "④ [사례 2]의 B씨는 입원 기간에 대해 휴업 급여를 지급받을 수 있다.",
       "⑤ [사례 1]의 설치 표지는 '경고 표지', [사례 2]의 설치 표지는 '금지 표지'이다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "산업 재해 보상",
@@ -404,7 +404,7 @@
       "④ 설치한 산업 안전보건표지는 '경고 표지'에 해당한다.",
       "⑤ 재해 예방 대책에서 필요한 개인 보호구에는 안전대가 있다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "산업 재해 분석"
@@ -437,7 +437,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄱ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "산업 재해 보상"
@@ -465,7 +465,7 @@
       "④ △△지부는 동일 산업에 근무하는 근로자들로 구성된 노동조합에 해당한다.",
       "⑤ ○○건설은 근로자와 사용자를 대표하는 동수의 위원으로 구성되는 노사협의회를 설치할 의무가 있다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "산업 재해",
@@ -555,7 +555,7 @@
       "④ B씨가 입원했던 기간 중 사용한 간병인에 대하여 '간병급여'를 지급받을 수 있다.",
       "⑤ A, B씨는 '요양급여'를 국민연금공단에 신청하여 지급받을 수 있다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "산업재해보상보험 급여 종류"
@@ -583,7 +583,7 @@
       "④ A씨에게 적용된 사회 보험의 보험료는 A씨와 C씨가 절반씩 부담한다.",
       "⑤ C씨는 B씨에게 휴업수당을 지급하여야 한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "산업재해보상보험"
@@ -668,7 +668,7 @@
       "④ 혜택받은 사회보험의 보험료는 사업주와 근로자가 함께 부담한다.",
       "⑤ 통원 치료 기간에 대하여 1일당 평균임금의 70%를 지급받을 수 있다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "산업 재해",

@@ -24,7 +24,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "직업의식",
@@ -59,7 +59,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄱ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "금속 공업",
@@ -94,7 +94,7 @@
       "④ ㄱ, ㄴ, ㄹ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "산업 분류",
@@ -129,7 +129,7 @@
       "④ ㄱ, ㄴ, ㄹ",
       "⑤ ㄱ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 관리",
@@ -165,7 +165,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "첨단 기술",
@@ -199,7 +199,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "채용 방식",
@@ -229,7 +229,7 @@
       "④ B, C 작업장의 유해 요인은 물리적 유해 요인에 해당한다.",
       "⑤ (가)와 (나)에 공통된 조치 사항의 예로 국소 배기 장치 설치가 있다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "작업장 유해 환경",
@@ -260,7 +260,7 @@
       "④ SCM",
       "⑤ TPS"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 정보 시스템",
@@ -289,7 +289,7 @@
       "④ 생산 라인과 별도로 안전 관리 전담 부서를 신설하여 경영자와 작업자에게 직접 조언이 가능하도록 하였다.",
       "⑤ 사고의 직접 원인은 하인리히(Heinrich, H. W.)의 사고 연쇄 모형 중 '불안전한 행동 및 상태'에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "산업 재해",
@@ -325,7 +325,7 @@
       "④ ㄱ, ㄴ, ㄹ",
       "⑤ ㄱ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "제품 개발",
@@ -356,7 +356,7 @@
       "④ 사막화 방지 협약",
       "⑤ 생물 다양성 협약"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "국제 환경 협약",
@@ -390,7 +390,7 @@
       "④ ㄱ, ㄴ, ㄹ",
       "⑤ ㄱ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "공업 입지",
@@ -420,7 +420,7 @@
       "④ (가) POP, (나) 6시그마",
       "⑤ (가) POP, (나) 3정 5S"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "적시 생산(JIT)",
@@ -455,7 +455,7 @@
       "④ ㄱ, ㄴ, ㄹ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "인적 자원 관리",
@@ -490,7 +490,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "재생 에너지",
@@ -524,7 +524,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "대기 오염",
@@ -555,7 +555,7 @@
       "④ 밀폐된 도장 부스에서의 자동차 범퍼 도장 작업",
       "⑤ 아파트 고층 공사를 위한 철골 가설 구조물 설치 작업"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "산업 안전",
@@ -585,7 +585,7 @@
       "④ 기술력에 나타난 산업재산권의 권리 존속 기간은 10년씩 갱신할 수 있다.",
       "⑤ 코틀러(Kotler, P.)의 제품 정의 중 '확장 제품'을 고객에게 제공하고 있다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "산업재산권(특허)",
@@ -615,7 +615,7 @@
       "④ 부품 M4의 재고 관리 시스템은 정기 발주 시스템에 해당한다.",
       "⑤ 부품의 재고 관리에는 ABC 재고 관리 시스템을 적용하고 있다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "재고 관리 기법(ABC)",
@@ -649,7 +649,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "도표 분석",

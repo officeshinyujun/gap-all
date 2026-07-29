@@ -19,7 +19,7 @@
       "④ (라)에서는 전자 태그를 무선으로 인식하는 기술을 적용하고 있다.",
       "⑤ (가)~(라)의 과정에서 유해 및 오염 물질이 유입되지 않도록 관리와 점검이 요구된다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "산업의 분류",
@@ -53,7 +53,7 @@
       "④ ㄱ, ㄷ, ㄹ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 시스템",
@@ -86,7 +86,7 @@
       "④ ㄱ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "RFID",
@@ -116,7 +116,7 @@
       "④ 생산 공정에 도입한 기계는 컴퓨터를 이용한 수치 제어 공작 기계에 해당한다.",
       "⑤ 물류 창고에 적재하는 제품에는 전자 태그를 무선 주파수(Radio Frequency)로 인식하는 기술을 적용하고 있다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "물류 관리",
@@ -149,7 +149,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "SWOT 분석",
@@ -184,7 +184,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "구매 관리 및 평가"
@@ -216,7 +216,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "산업의 분류",

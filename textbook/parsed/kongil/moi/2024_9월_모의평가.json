@@ -19,7 +19,7 @@
       "④ 연대 의식 - 과정 지향적 직업관",
       "⑤ 연대의식 - 물질 지향적 직업관"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "직업의식",
@@ -52,7 +52,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "공장입지 요인",
@@ -86,7 +86,7 @@
       "④ ㄴ, ㄷ, ㄹ",
       "⑤ ㄱ, ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "자재 관리",
@@ -116,7 +116,7 @@
       "④ 상품성 개선을 위해 획득한 정부 인증은 NEP이다.",
       "⑤ 시장성 확대를 위해 획득한 인증은 CCC 인증이다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "표준",
@@ -151,7 +151,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "안전관리 조직",
@@ -181,7 +181,7 @@
       "④ 파인세라믹스",
       "⑤ 형상 기억 합금"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "신소재"
@@ -209,7 +209,7 @@
       "④ (라)의 업무에 사용한 도표는 산정도이다.",
       "⑤ (마)에서는 생산 합리화의 원칙 중 '전문화'의 적용 방안을 제안하였다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 관리",
@@ -243,7 +243,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "인적 자원 관리",
@@ -277,7 +277,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "생산품 분류",
@@ -312,7 +312,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄱ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "3D 프린팅",
@@ -342,7 +342,7 @@
       "④ (가) 파리 협정, (나) 몬트리올 의정서",
       "⑤ (가) 생물 다양성 협약, (나) 람사르 협약"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "국제 협약",
@@ -371,7 +371,7 @@
       "④ 제조 리드타임은 구축 전에 비하여 구축 후 10% 감소하였다.",
       "⑤ 사내 지침에서 준수한 한국산업표준(KS)은 '전달 표준'에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 시스템",
@@ -401,7 +401,7 @@
       "④ 우대 사항에 나타난 자동차의 동력원은 신에너지에 해당한다.",
       "⑤ 채용 직종은 한국표준직업분류의 대분류 항목 중 '전문가 및 관련 종사자'에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "채용 방식",
@@ -436,7 +436,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "산업 재해",
@@ -471,7 +471,7 @@
       "④ ㄱ, ㄴ, ㄹ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "수질 오염",
@@ -505,7 +505,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "공업의 분류",
@@ -538,7 +538,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "경영 혁신",
@@ -572,7 +572,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "환경 경영",
@@ -606,7 +606,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "재고 관리",
@@ -636,7 +636,7 @@
       "④ (다)에 제시된 '작업절차'의 세부 원인은 동작 연구를 통해 개선할 수 있다.",
       "⑤ 프로젝트 수행 후 세탁기의 불량률은 6시그마 목표치를 달성한 것이다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "불량률 계산",

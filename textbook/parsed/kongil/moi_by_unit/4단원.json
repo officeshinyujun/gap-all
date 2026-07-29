@@ -23,7 +23,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "기업의 사회적 책임",
@@ -57,7 +57,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "신재생 에너지",
@@ -92,7 +92,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "제조 공정",
@@ -126,7 +126,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "재생 에너지",
@@ -160,7 +160,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "산업 분류",
@@ -190,7 +190,7 @@
       "④ 우대 사항에 나타난 자동차의 동력원은 신에너지에 해당한다.",
       "⑤ 채용 직종은 한국표준직업분류의 대분류 항목 중 '전문가 및 관련 종사자'에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "채용 방식",
@@ -221,7 +221,7 @@
       "④ 산업단지 내에는 자율 주행 자동차가 운행되고 있다.",
       "⑤ 가상의 공간에서 실제처럼 생각하고 보이게 하는 기술을 활용하여 홍보하고 있다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "산업 입지",

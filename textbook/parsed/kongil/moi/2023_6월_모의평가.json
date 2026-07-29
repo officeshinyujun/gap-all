@@ -19,7 +19,7 @@
       "④ 소명 의식 - 결과 지향적 직업관",
       "⑤ 평등 의식 - 결과 지향적 직업관"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "직업관",
@@ -53,7 +53,7 @@
       "④ ㄱ, ㄴ, ㄹ",
       "⑤ ㄱ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 자동화",
@@ -86,7 +86,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "공업의 종류",
@@ -120,7 +120,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "환경 오염",
@@ -149,7 +149,7 @@
       "④ 대기 오염 저감을 위해 친환경 저녹스 보일러 보급을 확대한다.",
       "⑤ 폐냉장고 냉각기에서 나오는 프레온 가스를 친환경 공법을 이용해 제거한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "국제 환경 협약",
@@ -182,7 +182,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "산업 구조",
@@ -211,7 +211,7 @@
       "④ 거치대 재질은 한국 산업 표준의 KS C에 규정되어 있다.",
       "⑤ 시장 현황에 따르면 제품은 제품 수명 주기 중 '쇠퇴기' 단계에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "표준화",
@@ -245,7 +245,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "경영 조직",
@@ -275,7 +275,7 @@
       "④ 형상 기억 합금",
       "⑤ 탄소 섬유 강화 플라스틱"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "신소재",
@@ -309,7 +309,7 @@
       "④ ㄱ, ㄷ, ㄹ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "경영 혁신 기법",
@@ -343,7 +343,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "품질 인증 제도",
@@ -372,7 +372,7 @@
       "④ CRM",
       "⑤ MES"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "고객 관계 관리",
@@ -405,7 +405,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "벤처 기업",
@@ -440,7 +440,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "품질 관리 도구",
@@ -471,7 +471,7 @@
       "④ 채용 분야는 한국표준직업분류의 대분류 항목 중 '전문가 및 관련 종사자'에 해당한다.",
       "⑤ 채용 방식은 일정 기간 현장 수습 기간을 거친 후 평가 결과에 따라 정규직으로 채용하는 방식이다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "인적 자원 관리",
@@ -505,7 +505,7 @@
       "④ ㄱ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "RFID",
@@ -535,7 +535,7 @@
       "④ 불량률 개선을 위해 품질 분임조 활동을 실시한다.",
       "⑤ ABC 재고 관리 시스템을 적용하여 재고를 관리한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "재고 관리",
@@ -570,7 +570,7 @@
       "④ ㄴ, ㄷ, ㄹ",
       "⑤ ㄱ, ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "작업 환경 관리",
@@ -600,7 +600,7 @@
       "④ 동종 사고 예방을 위한 조치 사항은 재해 예방의 원칙 중 '대책 선정의 원칙'에 해당한다.",
       "⑤ 사고의 원인은 하인리히(Heinrich, H. W.)의 사고 연쇄 모형 중 '불안전한 행동 및 상태'에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "산업 재해 예방",
@@ -633,7 +633,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "산업 재해 조사",

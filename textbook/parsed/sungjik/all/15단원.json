@@ -313,7 +313,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "근로자 권익 침해",
@@ -343,7 +343,7 @@
       "④ ○○기업의 사용자는 10일의 연차 유급휴가를 주어야 합니다.",
       "⑤ ○○기업의 사용자는 2022년 12월 31일까지 퇴직금을 지급해야 합니다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "연장근로",
@@ -374,7 +374,7 @@
       "④ D씨는 적법한 절차에 따라 진행된 파업을 주도하였다는 이유로 서면으로 해고 예고를 받은 뒤 30일 만에 해고되었다.",
       "⑤ 주 40시간씩 5년을 근무한 E씨는 개인 사정으로 정상 퇴직하였으나, 두 달이 지난 현재까지 퇴직금을 받지 못하고 있다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "부당노동행위",

@@ -19,7 +19,7 @@
       "④ 평등 의식 - 과정 지향적 직업관",
       "⑤ 평등 의식 - 물질 지향적 직업관"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "직업의식",
@@ -53,7 +53,7 @@
       "④ ㄱ, ㄴ, ㄹ",
       "⑤ ㄱ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "경영 혁신 전략",
@@ -85,7 +85,7 @@
       "④ 강판은 회전하는 롤 사이로 가열된 슬래브를 넣어 일정한 두께로 만드는 공정을 거쳐 생산되고 있다.",
       "⑤ 제품 표면의 후처리에는 미리 입력된 프로그램에 따라 순차적으로 진행하는 산업용 로봇이 활용되고 있다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "스마트 팩토리",
@@ -121,7 +121,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "제품 설계 과정",
@@ -151,7 +151,7 @@
       "④ 탄소 나노 튜브",
       "⑤ 형상 기억 합금"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "신소재",
@@ -184,7 +184,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "섬유 공업",
@@ -215,7 +215,7 @@
       "④ 디자인부에서 교육하는 산업 재산권은 설정 등록일로부터 15년마다 연장하여야 권리가 유지된다.",
       "⑤ 안전 관리부에서 교육에 활용하는 기술은 현실의 이미지나 배경에 3차원 가상 이미지를 겹쳐서 하나의 영상으로 보여 주는 기술이다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "신입 사원 교육",
@@ -246,7 +246,7 @@
       "④ 몬트리올 의정서",
       "⑤ 사막화 방지 협약"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "환경 보전",
@@ -281,7 +281,7 @@
       "④ ㄱ, ㄷ, ㄹ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "소방 안전",
@@ -316,7 +316,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "탄소 저감",
@@ -350,7 +350,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "공업의 종류",
@@ -381,7 +381,7 @@
       "④ 사고 징후를 예측하는 하인리히의 법칙에 따르면, 작년의 무상해 사고 건수는 600건으로 추정할 수 있다.",
       "⑤ 작년에 호평받은 제품은 호프만(Hoffman, W.)의 산업 분류 방식에 따르면 생산재 산업의 생산품에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "인증 제도(UL)",
@@ -412,7 +412,7 @@
       "④ 작업장 출입구에 부착하는 (가) 표지는 지시 표지에 해당한다.",
       "⑤ 예방 대책으로 착용을 의무화하는 장비에는 안전대가 포함된다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "산업 재해 형태",
@@ -447,7 +447,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "직업 분류",
@@ -481,7 +481,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "생산 정보 시스템",
@@ -516,7 +516,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "인증 제도(ISO14001, NEP)",
@@ -546,7 +546,7 @@
       "④ 구매 부서에서 도입하고자 하는 구매 관리 기법은 '표준화법'에 해당한다.",
       "⑤ 생산 부서에서 도입하고자 하는 방안은 통제 기능 중 '여력 관리'에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 통제(여력 관리)",
@@ -576,7 +576,7 @@
       "④ 7월보다 10월에 측정값이 높은 물질은 '광화학 스모그'의 원인 물질 중 하나이다.",
       "⑤ 7월보다 10월에 측정값이 낮은 물질은 오염 물질 분류 체계에 따라 분류하면 '1차 오염 물질'에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "환경 오염",
@@ -611,7 +611,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 관리",
@@ -642,7 +642,7 @@
       "④ (가): 10, (나): 10",
       "⑤ (가): 20, (나): 4"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "공정 관리",

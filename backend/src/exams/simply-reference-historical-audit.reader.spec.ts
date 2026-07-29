@@ -44,6 +44,9 @@ class InMemoryQueryRunner implements HistoricalAuditQueryRunner {
             rows: [{ id: 'row-1', cells: ['Cell'] }],
             selection_chips: [],
           },
+          questionStem: 'Question stem',
+          optionsList: ['① one', '② two', '③ three', '④ four', '⑤ five'],
+          correctAnswer: 1,
           comboBlock: null,
           lineageSourceId: 'success:15:source.pdf:1',
           lineageSourceHash: 'fnv1a:12345678',
@@ -52,6 +55,7 @@ class InMemoryQueryRunner implements HistoricalAuditQueryRunner {
           catalogSourceId: 'success:15:source.pdf:1',
           catalogContentHash: 'fnv1a:12345678',
           catalogViewItems: [],
+          catalogCorrectAnswer: 1,
         },
       ];
     }

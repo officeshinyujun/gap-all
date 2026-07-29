@@ -19,7 +19,7 @@
       "④ (나)와 (다) 공업의 생산 시설 위치는 해안보다 내륙이 유리하다.",
       "⑤ (다) 공업이 (가) 공업에 비해 생산 과정에서 기후의 영향을 더 많이 받는다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "공업의 특징",
@@ -54,7 +54,7 @@
       "④ ㄱ, ㄴ",
       "⑤ ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "한국의 공업"
@@ -86,7 +86,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "공업의 종류",
@@ -121,7 +121,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄱ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "금속 공업",
@@ -151,7 +151,7 @@
       "④ (나)의 생산 설비에는 회전하는 공구에 재료를 이송시켜 절삭하는 설비가 나타나 있다.",
       "⑤ (가), (나) 공업은 클라크(Clark, C. G.)의 산업 분류에 따르면 제3차 산업에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "공업의 분류",
@@ -185,7 +185,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "기업 창업",
@@ -214,7 +214,7 @@
       "④ B기업의 스마트 신발에는 IoT(Internet of Things)가 적용되었다.",
       "⑤ A, B기업 생산품은 제품의 규모에 따라 분류하면 경공업 제품에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "공업 발달",
@@ -247,7 +247,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "공업의 분류",

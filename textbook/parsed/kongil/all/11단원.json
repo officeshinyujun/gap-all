@@ -331,7 +331,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "환경 오염",
@@ -362,7 +362,7 @@
       "④ (라)에서 환경 개선을 위한 방법으로는 작업 공정을 습식에서 건식으로 변경하는 방법이 있다.",
       "⑤ (마)에서 부착한 산업안전보건표지는 '경고 표지'에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "안전 관리 조직",
@@ -392,7 +392,7 @@
       "④ 몬트리올 의정서",
       "⑤ 사막화 방지 협약"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "환경 보존",
@@ -427,7 +427,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "풀 프루프",
@@ -458,7 +458,7 @@
       "④ 시설 내에서 점검한 산업안전보건표지는 '안내 표지'에 해당한다.",
       "⑤ 안전 관리 조치 결과에는 재해 예방의 원칙 중 '대책 선정의 원칙'이 포함되어 있다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "화재 유형",
@@ -494,7 +494,7 @@
       "④ ㄴ, ㄷ, ㄹ",
       "⑤ ㄱ, ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "환경 오염",
@@ -529,7 +529,7 @@
       "④ ㄱ, ㄴ",
       "⑤ ㄱ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "산업 재해",
@@ -563,7 +563,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "환경 오염"
@@ -591,7 +591,7 @@
       "④ 총무 부장이 작업자들에게 안내할 사회 보험은 사업주와 근로자가 보험료를 절반씩 부담한다.",
       "⑤ 현장 소장이 방지하고자 하는 사고의 원인은 버드(Bird, F. E.)의 재해 이론 중 '직접 원인'에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "안전 관리"
@@ -623,7 +623,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "환경 오염 방지",
@@ -656,7 +656,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "환경 기술 적용",
@@ -685,7 +685,7 @@
       "④ 화재의 초기 진압 방법으로 제거 소화 방법을 사용하였다.",
       "⑤ Off-JT(Off the Job Training) 방식으로 안전교육을 실시하였다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "안전 교육",
@@ -714,7 +714,7 @@
       "④ 연마 공정에서 발생하는 분진을 포집하기 위해 국소배기 장치를 설치한다.",
       "⑤ 이산화탄소 포집 기술을 도입하여 공장에서 배출되는 이산화 탄소를 감소시킨다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "환경 보전",
@@ -743,7 +743,7 @@
       "④ 경영진은 재해 예방의 원칙 중 '예방 가능의 원칙'을 적용한 안전 관리 활동을 실시하고 있다.",
       "⑤ 프레스 기계에는 작업자가 기계를 잘못 조작하더라도 사고가 발생하지 않도록 하는 보호 장치가 설치되어 있다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "안전 관리 조직",
@@ -776,7 +776,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "환경 오염 처리"
@@ -804,7 +804,7 @@
       "④ 사막화 방지 협약",
       "⑤ 생물 다양성 협약"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "국제 환경 협약"
@@ -836,7 +836,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "환경 오염",
@@ -865,7 +865,7 @@
       "④ 대기 오염 저감을 위해 친환경 저녹스 보일러 보급을 확대한다.",
       "⑤ 폐냉장고 냉각기에서 나오는 프레온 가스를 친환경 공법을 이용해 제거한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "국제 환경 협약",
@@ -894,7 +894,7 @@
       "④ B, C 작업장의 유해 요인은 물리적 유해 요인에 해당한다.",
       "⑤ (가)와 (나)에 공통된 조치 사항의 예로 국소 배기 장치 설치가 있다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "작업장 유해 환경",
@@ -925,7 +925,7 @@
       "④ 사막화 방지 협약",
       "⑤ 생물 다양성 협약"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "국제 환경 협약",
@@ -958,7 +958,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "대기 오염",
@@ -993,7 +993,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "화재 안전",
@@ -1026,7 +1026,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "환경 오염"
@@ -1054,7 +1054,7 @@
       "④ (가) 몬트리올 의정서, (나) 람사르 협약",
       "⑤ (가) 생물 다양성 협약, (나) 파리 협정"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "국제 환경 협약"
@@ -1082,7 +1082,7 @@
       "④ 몬트리올 의정서",
       "⑤ 사막화 방지 협약"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "환경 보호 협약",
@@ -1111,7 +1111,7 @@
       "④ (다)의 유해 요인은 '물리적 유해 요인'에 해당한다.",
       "⑤ (라) 작업장은 (다) 작업장보다 방음용 귀마개 착용의 필요성이 적다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "작업 환경 유해 요인",
@@ -1145,7 +1145,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "안전관리 조직",
@@ -1175,7 +1175,7 @@
       "④ (가) 파리 협정, (나) 몬트리올 의정서",
       "⑤ (가) 생물 다양성 협약, (나) 람사르 협약"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "국제 협약",
@@ -1208,7 +1208,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "산업 재해",
@@ -1243,7 +1243,7 @@
       "④ ㄱ, ㄴ, ㄹ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "수질 오염",
@@ -1277,7 +1277,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "환경 경영",
@@ -1307,7 +1307,7 @@
       "④ 생물 다양성 협약",
       "⑤ 사막화 방지 협약"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "국제 환경 협약"
@@ -1340,7 +1340,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄱ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "환경 오염과 원인 물질"
@@ -1368,7 +1368,7 @@
       "④ △△ 하천으로 유입된 폐수의 오염원은 배출 지점에 따라 분류하면 비점 오염원이다.",
       "⑤ 전기 집진기에서 배출되는 유해 물질은 작업 환경 유해 요인 중 '물리적 요인'에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "환경 오염 실태",
@@ -1398,7 +1398,7 @@
       "④ (가) 람사르 협약, (나) 몬트리올 의정서",
       "⑤ (가) 생물 다양성 협약, (나) 몬트리올 의정서"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "국제 환경 협약",
@@ -1428,7 +1428,7 @@
       "④ 몬트리올 의정서",
       "⑤ 사막화 방지 협약"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "환경 보전",
@@ -1463,7 +1463,7 @@
       "④ ㄱ, ㄷ, ㄹ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "소방 안전",
@@ -1498,7 +1498,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "탄소 저감",
@@ -1528,7 +1528,7 @@
       "④ 7월보다 10월에 측정값이 높은 물질은 '광화학 스모그'의 원인 물질 중 하나이다.",
       "⑤ 7월보다 10월에 측정값이 낮은 물질은 오염 물질 분류 체계에 따라 분류하면 '1차 오염 물질'에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "환경 오염",

@@ -312,7 +312,7 @@
       "④ ㄱ, ㄷ, ㄹ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "생산 방식",
@@ -341,7 +341,7 @@
       "④ 재고 형태로 보관할 수 없으며 서비스의 제공이 끝나면 즉시 사라지는 특징",
       "⑤ 서비스 제공자가 서비스 소비자의 서비스 품질 평가 피드백을 수용하는 데 소요되는 시간이 긴 특징"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "서비스의 특징"
@@ -374,7 +374,7 @@
       "④ ㄴ, ㄷ, ㄹ",
       "⑤ ㄱ, ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "산업의 분류"
@@ -406,7 +406,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "기업 조사",
@@ -506,7 +506,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "산업의 분류",
@@ -536,7 +536,7 @@
       "④ A 회사는 수요 주체에 따라 분류할 때 '소비자 서비스업'에 해당한다.",
       "⑤ A회사는 고객사의 참여를 유도하는 서비스 생산 방식을 적용하고 있다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "서비스업의 특징"
@@ -568,7 +568,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "서비스업의 특징"
@@ -596,7 +596,7 @@
       "④ A기업의 전자상거래 유형은 B2B이고, B 기업의 전자상거래 유형은 B2C이다.",
       "⑤ A, B기업의 업종은 클라크(Clark, C. G.)의 산업분류에 따르면 제1차 산업에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 방식",
@@ -695,7 +695,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "기업 분석",
@@ -728,7 +728,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "생산 방식",

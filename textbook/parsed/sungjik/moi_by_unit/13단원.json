@@ -53,7 +53,7 @@
       "④ (나)기업은 별도의 합의가 없는 경우 근로자 B씨에게 퇴직한 날로부터 14일 이내에 퇴직금을 지급해야 한다.",
       "⑤ (가), (나)기업은 모두 고용보험에 가입하여야 한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "근로기준법 적용 기준",
@@ -83,7 +83,7 @@
       "④ 구직급여를 받는 동안 직업능력개발 수당을 신청하여 받을 수 있다.",
       "⑤ 2021년에 최대 12일의 연차 유급휴가를 ○○의류로부터 받을 수 있다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "고용보험",
@@ -112,7 +112,7 @@
       "④ 첫 직장에서 실직 전 120일간 근무하다가 구조 조정으로 불가피 하게 퇴직한 근로자는 (가)를 지급받을 수 있다.",
       "⑤ 첫 직장에서 5개월, 두 번째 직장에서 계약 기간 1개월(월 소정근로 시간 5시간)을 근무하고 퇴직한 근로자는 (가)를 지급받을 수 있다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "고용보험",

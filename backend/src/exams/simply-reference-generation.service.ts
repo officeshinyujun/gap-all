@@ -61,6 +61,8 @@ export type SimplyReferenceGenerationOptions = Readonly<{
   generationNonce?: string;
   previousFingerprints?: readonly string[];
   previousSourceIds?: readonly string[];
+  /** Use answer-key verified source content directly instead of model rewriting. */
+  sourcePreserving?: boolean;
 }>;
 
 type SimplyReferenceBatchParseResult = Readonly<{
@@ -165,7 +167,11 @@ export class SimplyReferenceGenerationService {
     const parsedReferences = catalogRows.map(catalogReferencePayload);
     const eligibleParsedReferences = parsedReferences.filter((reference) => {
       const parsed = parseReference(reference, subject);
-      return parsed.ok && sourceTemplate(parsed.value) !== null;
+      return (
+        parsed.ok &&
+        sourceTemplate(parsed.value) !== null &&
+        (!options.sourcePreserving || isSourcePreservingEligible(parsed.value))
+      );
     });
     const textbookConcepts = await this.textbookService.getConcepts(
       subjectSlug,
@@ -214,6 +220,15 @@ export class SimplyReferenceGenerationService {
         : { eligibleReferenceConcepts: targetConcepts }),
     });
     if (selection.kind === 'shortfall') {
+      if (options.sourcePreserving) {
+        throw sourceReextractionRequired(
+          questionCount,
+          eligibleParsedReferences.filter((reference) => {
+            const parsed = parseReference(reference, subject);
+            return parsed.ok && isSourcePreservingEligible(parsed.value);
+          }).length,
+        );
+      }
       throw new InternalServerErrorException({
         code: 'REFERENCE_SELECTION_SHORTFALL',
         ...selection.shortfall,
@@ -252,6 +267,28 @@ export class SimplyReferenceGenerationService {
       attempt: 0,
       maxAttempts: 0,
     });
+
+    if (options.sourcePreserving) {
+      const drafts = selected.map((reference, index) =>
+        sourcePreservingDraft(
+          reference,
+          difficulty,
+          generationNonce,
+          index + 1,
+        ),
+      );
+      await reportProgress?.({
+        stage: 'final',
+        progress: 100,
+        message: '공식 정답이 확인된 원문 기출 문항을 준비했습니다.',
+        status: 'info',
+        completed: drafts.length,
+        total: questionCount,
+        attempt: 1,
+        maxAttempts: 1,
+      });
+      return drafts;
+    }
 
     const draftBySourceId = new Map<string, SimplyReferenceGeneratedDraft>();
     const unresolved: NormalizedSourceReference[] = [];
@@ -864,6 +901,20 @@ function parseQuestion(
     );
     return null;
   }
+  if (isAnswer(ref.correctAnswer) && correctAnswer !== ref.correctAnswer) {
+    console.log('[SIMPLY_REF_DEBUG] parseQuestion: official answer mismatch', {
+      sourceId: sid,
+      expected: ref.correctAnswer,
+      actual: correctAnswer,
+    });
+    return null;
+  }
+  if (hasDuplicateChoices(choices)) {
+    console.log('[SIMPLY_REF_DEBUG] parseQuestion: duplicate choices', {
+      sourceId: sid,
+    });
+    return null;
+  }
   const selectedTemplate = sourceTemplate(ref);
   if (selectedTemplate === null) {
     console.log('[SIMPLY_REF_DEBUG] parseQuestion: selectedTemplate is null');
@@ -1004,7 +1055,7 @@ function hasDuplicatedComboClaim(
   const hasComboMarkers = /[ㄱ-ㅎ]\s*[.．]/u.test(questionStem);
   if (hasComboMarkers) return true;
   const normalizedStem = normalizeClaimText(questionStem);
-  const MIN_MATCH_CHARS = 15;
+  const MIN_MATCH_CHARS = 1;
   return comboBlock.items.some(({ text }) => {
     const normalized = normalizeClaimText(text);
     return (
@@ -1181,6 +1232,134 @@ function referenceViewKeys(
   });
 }
 
+function isSourcePreservingEligible(
+  reference: NormalizedSourceReference,
+): boolean {
+  return (
+    isAnswer(reference.correctAnswer) &&
+    reference.stimulus.trim() !== '' &&
+    normalizeOfficialChoices(reference.choices) !== null &&
+    sourceComboBlock(reference) !== undefined
+  );
+}
+
+function sourcePreservingDraft(
+  reference: NormalizedSourceReference,
+  difficulty: Difficulty,
+  generationNonce: string,
+  batchOrdinal: number,
+): SimplyReferenceGeneratedDraft {
+  const options = normalizeOfficialChoices(reference.choices);
+  const comboBlock = sourceComboBlock(reference);
+  if (
+    !isAnswer(reference.correctAnswer) ||
+    options === null ||
+    comboBlock === undefined
+  ) {
+    throw sourceReextractionRequired(1, 0);
+  }
+  return {
+    result: {
+      metadata: {
+        unit_name: `${reference.unitNumber}단원`,
+        target_concept: reference.target.primaryConcept,
+        item_type: 'simply_reference',
+        difficulty,
+        // Render raw source text neutrally rather than inventing a visual schema.
+        recommended_template: 'TPL_ARTICLE',
+      },
+      render_ready: {
+        question_stem: reference.stem.replace(/^\d+\.\s*/, ''),
+        stimulus_data: sourceArticleStimulus(reference),
+        options_list: options,
+        combo_block: comboBlock,
+      },
+      explanation: {
+        judgment: `공식 정답: ${['①', '②', '③', '④', '⑤'][reference.correctAnswer - 1]}`,
+      },
+      correct_answer: reference.correctAnswer,
+    },
+    lineage: {
+      generationPath: 'simply_reference',
+      generationNonce,
+      source: reference.source,
+      batchOrdinal,
+      selectedTemplate: 'TPL_ARTICLE',
+      validation: 'passed',
+    },
+  };
+}
+
+function sourceArticleStimulus(
+  reference: NormalizedSourceReference,
+): Record<string, unknown> {
+  return {
+    title: '원문 자료',
+    source: reference.source.sourceId,
+    published_date: '',
+    body_paragraphs: reference.stimulus
+      .split(/\n+/u)
+      .map((content) => content.trim())
+      .filter((content) => content !== '')
+      .map((content) => ({ type: 'text', content })),
+    key_facts: [],
+  };
+}
+
+function sourceComboBlock(
+  reference: NormalizedSourceReference,
+):
+  | SimplyReferenceGeneratedDraft['result']['render_ready']['combo_block']
+  | undefined {
+  const viewItems = reference.viewItems ?? [];
+  if (viewItems.length === 0) return null;
+  const keys = referenceViewKeys(reference);
+  const items = viewItems.map((item, index) => {
+    const key = keys[index];
+    const text = normalizeComboItemText(item);
+    return key === undefined || text === '' ? null : { key, text };
+  });
+  return items.some((item) => item === null)
+    ? undefined
+    : { title: '<보기>', items: items.filter(isPresent) };
+}
+
+function normalizeOfficialChoices(
+  choices: readonly string[],
+): readonly string[] | null {
+  if (choices.length !== 5) return null;
+  const numerals = ['①', '②', '③', '④', '⑤'] as const;
+  const normalized = choices.map((choice, index) => {
+    const content = choice
+      .trim()
+      .replace(/^[①②③④⑤]\s*/u, '')
+      .trim();
+    return content === '' ? null : `${numerals[index]} ${content}`;
+  });
+  return normalized.some((choice) => choice === null) ||
+    hasDuplicateChoices(normalized.filter(isPresent))
+    ? null
+    : normalized.filter(isPresent);
+}
+
+function hasDuplicateChoices(choices: readonly string[]): boolean {
+  const normalized = choices.map((choice) =>
+    choice
+      .replace(/^[①②③④⑤]\s*/u, '')
+      .replace(/\s+/gu, ' ')
+      .trim(),
+  );
+  return new Set(normalized).size !== normalized.length;
+}
+
+function normalizeComboItemText(value: string): string {
+  return value
+    .trim()
+    .replace(/^[ㄱ-ㅎ][.．]?\s*/u, '')
+    .replace(/\s+/gu, ' ')
+    .trim();
+}
+
 function sourceTemplate(
   reference: NormalizedSourceReference,
 ): StructuredTplName | null {
@@ -1192,9 +1371,7 @@ function pickBestTemplate(
   selected: StructuredTplName,
   data: Record<string, unknown>,
 ): StructuredTplName | null {
-  return validateSimplyReferenceStructuredTpl(selected, data)
-    ? selected
-    : null;
+  return validateSimplyReferenceStructuredTpl(selected, data) ? selected : null;
 }
 
 const TPL_DESCRIPTIONS: Record<string, string> = {
@@ -1275,6 +1452,19 @@ function invalidOutput(
     reason,
     failedSourceCount: failedSourceIds.length,
     failedSourceIds,
+  });
+}
+
+function sourceReextractionRequired(
+  requestedReferenceCount: number,
+  availableReferenceCount: number,
+): InternalServerErrorException {
+  return new InternalServerErrorException({
+    code: 'REFERENCE_SOURCE_REEXTRACTION_REQUIRED',
+    requestedReferenceCount,
+    availableReferenceCount,
+    message:
+      '공식 정답과 완전한 원문 자료가 확인된 기출 문항이 부족합니다. 정답지를 포함해 원본을 재추출하세요.',
   });
 }
 

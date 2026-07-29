@@ -292,7 +292,7 @@
       "④ (가) 시기의 생산 방식이 (나) 시기보다 대량 생산에 적합하다.",
       "⑤ (가)~(다) 시기의 생산품을 생산하는 공업은 제품의 규모로 볼 때 중공업에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "산업 혁명",
@@ -322,7 +322,7 @@
       "④ (라) 시기에 아웃소싱 경영 기법을 활용하였다.",
       "⑤ (가)~(라) 시기의 생산품을 내구성에 따라 분류하면 내구재에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "공업 발달",
@@ -351,7 +351,7 @@
       "④ 소명 의식 - 결과 지향적 직업관",
       "⑤ 평등 의식 - 결과 지향적 직업관"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "직업관",
@@ -385,7 +385,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "직업관"
@@ -413,7 +413,7 @@
       "④ 직업 포털 사이트에서 유망 직종의 직업 정보를 탐색하였다.",
       "⑤ 직업 박람회에 참석하여 희망 기업의 입사 지원서를 작성하였다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "진로 결정 단계"

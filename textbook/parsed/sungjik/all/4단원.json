@@ -216,7 +216,7 @@
       "④ 토론 면접, 상황 면접",
       "⑤ 토론 면접, 프레젠테이션 면접"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "면접 유형"
@@ -248,7 +248,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "NCS 기반 채용",
@@ -282,7 +282,7 @@
       "④ ㄱ, ㄷ, ㄹ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "취업 준비와 면접"
@@ -314,7 +314,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "채용 절차",
@@ -349,7 +349,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "채용 면접",
@@ -378,7 +378,7 @@
       "④ 정규직 입사 후 담당 직무 관련 교육 및 직장 예절 교육 이수",
       "⑤ 관심 있는 사업 분야를 선택한 후 같은 업종 내 여러 기업을 선정하여 비교"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "취업 준비"
@@ -406,7 +406,7 @@
       "④ 2차 면접에서는 지원자의 문제 해결 능력, 전문성, 기본 실무 능력을 평가한다.",
       "⑤ 2차 면접에서는 내용을 논리적으로 구성하고 시간을 효율적으로 분배하는 능력을 평가한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "채용 절차 및 방법"
@@ -439,7 +439,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "채용 절차",
@@ -468,7 +468,7 @@
       "④ Q-Net(https://www.q-net.or.kr)",
       "⑤ K-MOOC(https://www.kmooc.kr)"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "구직 활동",
@@ -535,7 +535,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "NCS 직무기술서",
@@ -568,7 +568,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "채용 과정",

@@ -19,7 +19,7 @@
       "④ 물질 지향적 직업관 - 전문의식",
       "⑤ 생계 지향적 직업관 - 봉사의식"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "직업관",
@@ -48,7 +48,7 @@
       "④ B제품에 대해 취득한 산업재산권의 권리 존속 기간은 출원일로부터 10년이다.",
       "⑤ B제품 생산을 위해 채용된 사원에게 Off JT(Off the Job Training) 방식으로 교육과 훈련을 실시하였다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "제품 수명 주기",
@@ -84,7 +84,7 @@
       "④ ㄱ, ㄷ, ㄹ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "인증 제도(CCC)",
@@ -118,7 +118,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 방식(컨베이어)",
@@ -152,7 +152,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "린 시스템",
@@ -187,7 +187,7 @@
       "④ (가)-ㄷ, (나)-ㄹ",
       "⑤ (가)-ㄹ, (나)-ㄱ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "첨단 기술",
@@ -217,7 +217,7 @@
       "④ 설계 과정에서 컴퓨터를 이용한 설계 프로그램을 활용하고 있다.",
       "⑤ 생산 방식은 시장 수요의 형태에 따라 분류하면 '주문 생산 방식'에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "생산 방식",
@@ -253,7 +253,7 @@
       "④ ㄱ, ㄴ, ㄹ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "재고 관리(ABC)",
@@ -283,7 +283,7 @@
       "④ (나)와 (다) 공업의 생산 시설 위치는 해안보다 내륙이 유리하다.",
       "⑤ (다) 공업이 (가) 공업에 비해 생산 과정에서 기후의 영향을 더 많이 받는다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "공업의 특징",
@@ -314,7 +314,7 @@
       "④ 파인 세라믹스를 이용한 자동차 엔진 부품",
       "⑤ 형상 기억 합금이 내장된 절수형 전자 샤워기"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "신소재",
@@ -348,7 +348,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "풀 프루프",
@@ -383,7 +383,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "품질 관리 기법",
@@ -417,7 +417,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "신재생 에너지",
@@ -451,7 +451,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "경영 기법(벤치마킹)",
@@ -481,7 +481,7 @@
       "④ (가) 시기의 생산 방식이 (나) 시기보다 대량 생산에 적합하다.",
       "⑤ (가)~(다) 시기의 생산품을 생산하는 공업은 제품의 규모로 볼 때 중공업에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "산업 혁명",
@@ -515,7 +515,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "공장 입지 조건",
@@ -549,7 +549,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 시스템",
@@ -580,7 +580,7 @@
       "④ 시설 내에서 점검한 산업안전보건표지는 '안내 표지'에 해당한다.",
       "⑤ 안전 관리 조치 결과에는 재해 예방의 원칙 중 '대책 선정의 원칙'이 포함되어 있다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "화재 유형",
@@ -616,7 +616,7 @@
       "④ ㄱ, ㄷ, ㄹ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "산업 분류",
@@ -652,7 +652,7 @@
       "④ ㄴ, ㄷ, ㄹ",
       "⑤ ㄱ, ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "환경 오염",

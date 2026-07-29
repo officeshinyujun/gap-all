@@ -19,7 +19,7 @@
       "④ 평등 의식, 물질 지향적 직업관",
       "⑤ 평등 의식, 과정 지향적 직업관"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "직업의식",
@@ -53,7 +53,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄱ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "경영 관리 기법",
@@ -82,7 +82,7 @@
       "④ (나)의 생산 설비에는 회전하는 공구에 재료를 이송시켜 절삭하는 설비가 나타나 있다.",
       "⑤ (가), (나) 공업은 클라크(Clark, C. G.)의 산업 분류에 따르면 제3차 산업에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "공업의 분류",
@@ -116,7 +116,7 @@
       "④ ㄱ, ㄴ, ㄹ",
       "⑤ ㄱ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "산업 재산권",
@@ -150,7 +150,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "기업 창업",
@@ -179,7 +179,7 @@
       "④ 형상 기억 합금",
       "⑤ 탄소 섬유 강화 플라스틱"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "신소재"
@@ -211,7 +211,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 계획 및 통제",
@@ -244,7 +244,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "화재 안전",
@@ -277,7 +277,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "환경 오염"
@@ -309,7 +309,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "인적 자원 관리"
@@ -337,7 +337,7 @@
       "④ (가) 몬트리올 의정서, (나) 람사르 협약",
       "⑤ (가) 생물 다양성 협약, (나) 파리 협정"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "국제 환경 협약"
@@ -369,7 +369,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "직업의 분류",
@@ -398,7 +398,7 @@
       "④ B기업의 스마트 신발에는 IoT(Internet of Things)가 적용되었다.",
       "⑤ A, B기업 생산품은 제품의 규모에 따라 분류하면 경공업 제품에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "공업 발달",
@@ -427,7 +427,7 @@
       "④ 설비 분야에서 설치한 안전 대책은 기계 설비의 안전화 방안 중 '외관(외형)의 안전화'에 해당한다.",
       "⑤ 관리 분야의 예방 대책은 버드(Bird, F. E)의 재해 이론 중 '통제의 부족' 단계를 시정한 활동에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "산업 안전 사고 예방",
@@ -460,7 +460,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "작업 환경 유해 요인",
@@ -493,7 +493,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "경영 혁신"
@@ -525,7 +525,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 공정 기술",
@@ -554,7 +554,7 @@
       "④ 자동문 유리에 획득한 인증은 우리나라의 법정 강제 인증에 해당한다.",
       "⑤ 해외 수출을 위해 획득한 표준은 적용 범위에 따라 분류하면 '국제 표준'에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "산업 표준화",
@@ -587,7 +587,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "재고 관리 기법",
@@ -616,7 +616,7 @@
       "④ 생산 공정에 도입한 기계는 컴퓨터를 이용한 수치 제어 공작 기계에 해당한다.",
       "⑤ 물류 창고에 적재하는 제품에는 전자 태그를 무선 주파수(Radio Frequency)로 인식하는 기술을 적용하고 있다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "물류 관리",

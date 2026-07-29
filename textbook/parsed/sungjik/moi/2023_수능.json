@@ -23,7 +23,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "직업 가치관",
@@ -52,7 +52,7 @@
       "④ 학점 은행제",
       "⑤ 평생 학습 계좌제"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "평생 학습 제도",
@@ -81,7 +81,7 @@
       "④ (나)가 주장을 관철할 목적으로 행할 수 있는 쟁의행위에는 파업, 태업, 직장폐쇄가 있다.",
       "⑤ (가)와 (나)는 전체 근로자를 대표하여 노사 공동의 이익을 증진한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "노사협의회",
@@ -115,7 +115,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "전자상거래",
@@ -148,7 +148,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "기업 형태",
@@ -181,7 +181,7 @@
       "④ ㄱ, ㄴ",
       "⑤ ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "직업 생활의 중요성",
@@ -210,7 +210,7 @@
       "④ B유형은 의사 결정 시 정확한 정보에 근거하기 때문에 실패할 확률이 낮다.",
       "⑤ B유형은 A유형에 비해 타인의 기대와 요구에 크게 영향을 받는다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "진로 의사 결정 유형",
@@ -243,7 +243,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "서비스 생산 방식",
@@ -272,7 +272,7 @@
       "④ △△기업의 사용자는 근로기준법상 전차금 상계 금지 규정을 위반하였다.",
       "⑤ ○○편의점과 △△기업의 사용자는 부당노동행위를 하였다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "근로기준법",
@@ -302,7 +302,7 @@
       "④ ○○기업의 사용자는 10일의 연차 유급휴가를 주어야 합니다.",
       "⑤ ○○기업의 사용자는 2022년 12월 31일까지 퇴직금을 지급해야 합니다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "연장근로",

@@ -371,9 +371,13 @@ CREATE TABLE IF NOT EXISTS public.textbook_concept_cards (
     key_points jsonb,
     textbook_excerpt text,
     enriched_definition text,
+    real_question jsonb,
+    caution text,
+    quiz jsonb,
     created_at timestamp with time zone DEFAULT now()
 );
 ALTER TABLE public.textbook_concept_cards ADD CONSTRAINT "PK_textbook_concept_cards" PRIMARY KEY (id);;
+ALTER TABLE public.textbook_concept_cards ADD CONSTRAINT "UQ_textbook_concept_cards_unit_concept" UNIQUE (unit_id, concept_id);;
 ALTER TABLE public.textbook_concept_cards ADD CONSTRAINT "FK_concept_cards_unit" FOREIGN KEY (unit_id) REFERENCES public.textbook_units(id) ON DELETE CASCADE;;
 
 CREATE TABLE IF NOT EXISTS public.textbook_structured_units (

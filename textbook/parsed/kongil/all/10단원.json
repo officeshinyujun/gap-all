@@ -345,7 +345,7 @@
       "④ ㄱ, ㄴ, ㄹ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "건설업",
@@ -375,7 +375,7 @@
       "④ 질소 산화물의 배출원은 배출 지점에 따라 분류하면 비점 오염원에 해당한다.",
       "⑤ 빗물 유출 저감 장치 사례에 나타난 하천의 수질 오염 지표는 생물학적 산소 요구량이다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "친환경 건축",
@@ -409,7 +409,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "직업의 분류",
@@ -442,7 +442,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "공업의 종류",

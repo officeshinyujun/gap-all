@@ -14,6 +14,7 @@ export default function LoginPage() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const apiBaseUrl = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3001';
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -31,6 +32,13 @@ export default function LoginPage() {
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const handleGoogleLogin = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    window.location.assign(
+      `${apiBaseUrl}/auth/google?return_to=${encodeURIComponent(window.location.origin)}`,
+    );
   };
 
   return (
@@ -116,7 +124,8 @@ export default function LoginPage() {
 
         <a
           className={s.googleButton}
-          href={`${process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3001'}/auth/google?return_to=${encodeURIComponent('http://localhost:3002')}`}
+          href={`${apiBaseUrl}/auth/google`}
+          onClick={handleGoogleLogin}
         >
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className={s.googleIcon}>
             <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>

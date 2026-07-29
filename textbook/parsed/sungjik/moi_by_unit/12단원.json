@@ -24,7 +24,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "근로 계약서 작성",
@@ -57,7 +57,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "근로기준법",
@@ -90,7 +90,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "근무 방식",
@@ -124,7 +124,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "근로 계약",
@@ -158,7 +158,7 @@
       "④ ㄱ, ㄴ, ㄹ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "근로계약",
@@ -187,7 +187,7 @@
       "④ 직업능력개발 수당을 신청하여 받을 수 있다.",
       "⑤ 법정기한 내 국가인권위원회에 신청을 통해 구제받을 수 있다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "사회 보험",
@@ -216,7 +216,7 @@
       "④ B씨가 일주일에 5일 개근하였을 경우 1주에 2회의 유급 휴일을 보장받는다.",
       "⑤ A씨는 B씨가 거부할 경우 근로 계약서를 교부하지 않아도 된다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "근로기준법",
@@ -246,7 +246,7 @@
       "④ △△기업의 사용자는 근로기준법상 전차금 상계 금지 규정을 위반하였다.",
       "⑤ ○○편의점과 △△기업의 사용자는 부당노동행위를 하였다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "근로기준법",
@@ -309,7 +309,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "파견 근로",
@@ -342,7 +342,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "근로 관계의 종료",
@@ -371,7 +371,7 @@
       "④ B는 고용노동부장관으로부터 취직인허증을 발급받아야 근로할 수 있다.",
       "⑤ C는 위 친권자 동의서와 B의 연령을 증명하는 가족관계기록사항에 관한 증명서를 사업장에 갖추어 두어야 한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "연소근로자 보호",
@@ -430,7 +430,7 @@
       "④ A의 연장근로에 대한 지급액은 시간당 18,750원이다.",
       "⑤ 2024년에 사용자는 A에게 16일 이상의 연차 유급휴가를 주어야 한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "근로계약",
@@ -460,7 +460,7 @@
       "④ 사용자는 B와의 합의에 따라 18시까지 1시간을 초과근로시킬 경우 연장근로 가산수당을 지급하지 않아도 된다.",
       "⑤ A, B는 기간의 정함이 없는 근로계약을 체결하였다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "근로계약",

@@ -24,7 +24,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "직업의 요건"
@@ -57,7 +57,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "직업 가치관",
@@ -90,7 +90,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "기업 경영 활동"
@@ -118,7 +118,7 @@
       "④ 학점 은행제",
       "⑤ 일학습 병행제"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "평생 학습 제도"
@@ -151,7 +151,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "유연근무제"
@@ -183,7 +183,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "파견 근로",
@@ -216,7 +216,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "산업의 분류",
@@ -246,7 +246,7 @@
       "④ B씨의 창업 요소에는 창업 자본이 포함되어 있다.",
       "⑤ A씨의 창업 방법은 B씨의 창업 방법에 비해 시장 진입에 불리하다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "창업과 기업 경영"
@@ -278,7 +278,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "기업의 형태"
@@ -306,7 +306,7 @@
       "④ (나)기업은 별도의 합의가 없는 경우 근로자 B씨에게 퇴직한 날로부터 14일 이내에 퇴직금을 지급해야 한다.",
       "⑤ (가), (나)기업은 모두 고용보험에 가입하여야 한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "근로기준법 적용 기준",
@@ -340,7 +340,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "SWOT 분석",
@@ -373,7 +373,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "근로 관계의 종료",
@@ -402,7 +402,7 @@
       "④ A 회사는 수요 주체에 따라 분류할 때 '소비자 서비스업'에 해당한다.",
       "⑤ A회사는 고객사의 참여를 유도하는 서비스 생산 방식을 적용하고 있다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "서비스업의 특징"
@@ -434,7 +434,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "첨단 기술"
@@ -467,7 +467,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "NCS 직무기술서",
@@ -496,7 +496,7 @@
       "④ 직업 윤리: 생명 윤리, 기업가 정신: 진취성",
       "⑤ 직업 윤리: 생명 윤리, 기업가 정신: 사회적 책임성"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "직업 윤리",
@@ -530,7 +530,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "면접 유형",
@@ -564,7 +564,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "생애 발달 단계",
@@ -593,7 +593,7 @@
       "④ B씨가 입원했던 기간 중 사용한 간병인에 대하여 '간병급여'를 지급받을 수 있다.",
       "⑤ A, B씨는 '요양급여'를 국민연금공단에 신청하여 지급받을 수 있다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "산업재해보상보험 급여 종류"
@@ -625,7 +625,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "노사 관계",

@@ -19,7 +19,7 @@
       "④ 토론 면접, 상황 면접",
       "⑤ 토론 면접, 프레젠테이션 면접"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "면접 유형"
@@ -47,7 +47,7 @@
       "④ 혁신적인 아이디어를 바탕으로 창의적인 시도를 추구한다.",
       "⑤ 건강을 유지하고 마음의 여유를 가지는 것을 최우선으로 생각한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "직업 가치관"
@@ -79,7 +79,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "유연 근무제",
@@ -113,7 +113,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 방식의 변화",
@@ -142,7 +142,7 @@
       "④ A씨와 B씨가 신청한 보험은 저축성 보험의 성격을 갖는다.",
       "⑤ A씨와 B씨가 신청한 보험 급여를 받을 권리는 제3자에게 양도할 수 있다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "사회 보험",
@@ -172,7 +172,7 @@
       "④ 신체적 노화를 수용하고 은퇴 후의 새로운 생활을 준비한다.",
       "⑤ 관심 있는 직업 정보를 조사하여 다양한 직업에 대한 이해도를 높인다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "생애 발달 시기",
@@ -201,7 +201,7 @@
       "④ 마케팅 관리",
       "⑤ 인적 자원 관리"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "기업의 경영 활동",
@@ -234,7 +234,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "산업 안전 사고",
@@ -267,7 +267,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "NCS 기반 채용",
@@ -296,7 +296,7 @@
       "④ 자신이 내린 결정에 대하여 책임을 지지 않으려는 의사 결정 유형이다.",
       "⑤ 정보 탐색 과정이 없으므로 실패로 이어질 확률이 높은 의사 결정 유형이다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "진로 의사 결정 유형",
@@ -325,7 +325,7 @@
       "④ 인간의 다양성과 개성을 존중하는 시대가 심화될 것이다.",
       "⑤ 여가 생활이 중요시되어 문화 콘텐츠 산업이 확대될 것이다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "미래 산업 사회 변화",
@@ -359,7 +359,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "직업기초능력"
@@ -392,7 +392,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "직업 윤리"
@@ -420,7 +420,7 @@
       "④ B씨는 기업의 대표 행위를 할 수 있다.",
       "⑤ A씨와 B씨는 ○○기업의 채무에 대하여 책임을 지지 않는다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "기업의 형태",
@@ -453,7 +453,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "창업의 요소"
@@ -481,7 +481,7 @@
       "④ 일학습 병행제",
       "⑤ 평생 학습 계좌제"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "평생 학습 제도",
@@ -514,7 +514,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "NCS 기반 자기소개서",
@@ -547,7 +547,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "기업의 분류",
@@ -580,7 +580,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "노사 관계",
@@ -614,7 +614,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "근로 계약서 작성",

@@ -72,7 +72,9 @@ function responseForDifferentTemplate(
           : {
               doc_type: '안내문',
               header_info: {},
-              paragraphs: [{ content: '원본 근거를 보존한 안내문 내용입니다.' }],
+              paragraphs: [
+                { content: '원본 근거를 보존한 안내문 내용입니다.' },
+              ],
             },
       ),
       comboBlock: null,
@@ -202,6 +204,122 @@ describe('SimplyReferenceGenerationService', () => {
     ]);
   });
 
+  it('Given answer-key verified sources, When source-preserving generation is enabled, Then stores the original question without calling the model', async () => {
+    const completeBatch = jest.fn();
+    const officialSource = {
+      ...sourcePayload(1, [
+        'ㄱ. 첫 번째 판단 내용',
+        'ㄴ. 두 번째 판단 내용',
+        'ㄷ. 세 번째 판단 내용',
+      ]),
+      stem: '다음 자료를 통해 알 수 있는 내용으로 옳은 것은?',
+      stimulus: '원문 자료의 수치와 조건이다.\n두 번째 원문 문단이다.',
+      choices: ['① ㄱ', '② ㄴ', '③ ㄱ, ㄴ', '④ ㄴ, ㄷ', '⑤ ㄱ, ㄴ, ㄷ'],
+      correctAnswer: 3,
+    };
+    const service = {
+      textbookService: {
+        getConcepts: jest
+          .fn()
+          .mockReturnValue([
+            { unitName: '1단원', concepts: ['Career values'] },
+          ]),
+      },
+      catalogReader: {
+        find: jest
+          .fn()
+          .mockResolvedValue([
+            { unitNumber: 1, sourcePayload: officialSource },
+          ]),
+      },
+      dependencies: { completeBatch },
+    };
+
+    const drafts =
+      await SimplyReferenceGenerationService.prototype.generate.call(
+        service,
+        'success',
+        1,
+        1,
+        Difficulty.MIDDLE,
+        1,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        { sourcePreserving: true, generationNonce: 'verified-source' },
+      );
+
+    expect(completeBatch).not.toHaveBeenCalled();
+    expect(drafts).toHaveLength(1);
+    expect(drafts[0]).toMatchObject({
+      result: {
+        metadata: { recommended_template: 'TPL_ARTICLE' },
+        render_ready: {
+          question_stem: officialSource.stem,
+          options_list: officialSource.choices,
+          combo_block: {
+            title: '<보기>',
+            items: [
+              { key: 'ㄱ', text: '첫 번째 판단 내용' },
+              { key: 'ㄴ', text: '두 번째 판단 내용' },
+              { key: 'ㄷ', text: '세 번째 판단 내용' },
+            ],
+          },
+        },
+        correct_answer: 3,
+      },
+      lineage: {
+        generationPath: 'simply_reference',
+        selectedTemplate: 'TPL_ARTICLE',
+      },
+    });
+  });
+
+  it('Given sources without answer keys, When source-preserving generation is enabled, Then fails before calling the model', async () => {
+    const completeBatch = jest.fn();
+    const service = {
+      textbookService: {
+        getConcepts: jest
+          .fn()
+          .mockReturnValue([
+            { unitName: '1단원', concepts: ['Career values'] },
+          ]),
+      },
+      catalogReader: {
+        find: jest
+          .fn()
+          .mockResolvedValue([
+            { unitNumber: 1, sourcePayload: sourcePayload(1) },
+          ]),
+      },
+      dependencies: { completeBatch },
+    };
+
+    await expect(
+      SimplyReferenceGenerationService.prototype.generate.call(
+        service,
+        'success',
+        1,
+        1,
+        Difficulty.MIDDLE,
+        1,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        { sourcePreserving: true },
+      ),
+    ).rejects.toMatchObject({
+      response: expect.objectContaining({
+        code: 'REFERENCE_SOURCE_REEXTRACTION_REQUIRED',
+      }),
+    });
+    expect(completeBatch).not.toHaveBeenCalled();
+  });
+
   it('Given a model response that omits a selected source, When generating a batch, Then repairs only that source', async () => {
     let callCount = 0;
     const service = {
@@ -254,9 +372,11 @@ describe('SimplyReferenceGenerationService', () => {
           ]),
       },
       catalogReader: {
-        find: jest.fn().mockResolvedValue([
-          { unitNumber: 1, sourcePayload: sourcePayload(1) },
-        ]),
+        find: jest
+          .fn()
+          .mockResolvedValue([
+            { unitNumber: 1, sourcePayload: sourcePayload(1) },
+          ]),
       },
       dependencies: {
         completeBatch: jest.fn(async (prompt: string) => {

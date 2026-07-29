@@ -49,6 +49,7 @@ function row(
       stem: `Question ${questionNumber} for unit ${unitNumber}`,
       stimulus: `Reference stimulus for unit ${unitNumber} question ${questionNumber}`,
       choices: ['one', 'two', 'three', 'four', 'five'],
+      correctAnswer: 1,
       targetConcepts,
     },
   };
@@ -165,5 +166,28 @@ Failures: 0
     });
     expect(referenceCatalogPreflightExitCode(report)).toBe(1);
     expect(reader.writeCount).toBe(0);
+  });
+
+  it('Given a catalog source without an official answer, When preflighting, Then requires re-extraction before it can be used', async () => {
+    const base = row('success:1:unit-1.pdf:1', 1, ['Career Values']);
+    const missingAnswer: PersistedReferenceQuestion = {
+      ...base,
+      sourcePayload: { ...base.sourcePayload, correctAnswer: null },
+    };
+    const report = await new ReferenceCatalogPreflightService(
+      new InMemoryReferenceCatalogReader([missingAnswer]),
+      new InMemoryConceptCatalogReader([
+        { unitName: '1단원', concepts: ['Career Values'] },
+      ]),
+    ).preflight();
+
+    expect(report.rows).toEqual([
+      {
+        sourceId: 'success:1:unit-1.pdf:1',
+        canonicalId: null,
+        result: 'MISSING_OFFICIAL_ANSWER',
+      },
+    ]);
+    expect(referenceCatalogPreflightExitCode(report)).toBe(1);
   });
 });

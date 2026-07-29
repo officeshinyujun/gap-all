@@ -1120,14 +1120,16 @@ export class StudyService {
 
   private transformCardsToFrequency(raw: any): any {
     const concepts = (raw.concepts || []).map((c: any) => {
-      const realQ = c.realQuestion?.questionData;
+      // TypeORM aliases this as realQuestion; Supabase returns the DB column name.
+      const realQuestion = c.realQuestion ?? c.real_question;
+      const realQ = realQuestion?.questionData;
       const textbookExcerpt = c.textbook_excerpt ?? c.card?.textbookExcerpt ?? '';
       const definition = c.definition ?? c.card?.definition ?? '';
       const keyPoints = c.key_points ?? c.card?.keyPoints ?? [];
       const description =
         c.enriched_definition ?? c.card?.enrichedDefinition ?? definition;
       const caution = c.caution || '';
-      const conceptUsage = c.realQuestion?.conceptUsage || '';
+      const conceptUsage = realQuestion?.conceptUsage || '';
 
       const conceptContentParts: string[] = [];
       if (definition) conceptContentParts.push(`## 개념 정의\n${definition}`);
@@ -1264,12 +1266,12 @@ export class StudyService {
               markedStimulus: '',
             }
           : undefined,
-        conceptHighlight: c.realQuestion?.conceptHighlight || {
+        conceptHighlight: realQuestion?.conceptHighlight || {
           inStimulus: [],
           inOptions: [],
           reason: '',
         },
-        conceptHighlightV2: c.realQuestion?.conceptHighlightV2 || null,
+        conceptHighlightV2: realQuestion?.conceptHighlightV2 || null,
       };
     });
 

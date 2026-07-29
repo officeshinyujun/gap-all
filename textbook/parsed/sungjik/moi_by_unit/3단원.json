@@ -19,7 +19,7 @@
       "④ 자신이 내린 결정에 대하여 책임을 지지 않으려는 의사 결정 유형이다.",
       "⑤ 정보 탐색 과정이 없으므로 실패로 이어질 확률이 높은 의사 결정 유형이다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "진로 의사 결정 유형",
@@ -53,7 +53,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "진로 의사 결정 유형"
@@ -81,7 +81,7 @@
       "④ 학생 A: 독학 학위제, 학생 B: 일학습 병행제",
       "⑤ 학생 A: 일학습 병행제, 학생 B: 독학 학위제"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "평생 학습 제도"
@@ -114,7 +114,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "직업 선택의 동기"
@@ -142,7 +142,7 @@
       "④ B의 의사 결정 유형은 자신의 특성을 고려하여 신중하게 결정한다.",
       "⑤ A와 B의 의사 결정 유형은 실패하였을 때 타인을 탓하기 쉽다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "진로 의사 결정 유형"
@@ -170,7 +170,7 @@
       "④ 음식 조리가 나에게 적합한 분야인지 고민해 본다.",
       "⑤ 선택한 직업들의 급여, 전망, 근무 환경을 비교하여 최선안을 확정한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "진로 의사 결정 과정"
@@ -202,7 +202,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "진로 의사 결정",
@@ -231,7 +231,7 @@
       "④ 학점 은행제",
       "⑤ 평생 학습 계좌제"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "평생 학습 제도",
@@ -260,7 +260,7 @@
       "④ B유형은 의사 결정 시 정확한 정보에 근거하기 때문에 실패할 확률이 낮다.",
       "⑤ B유형은 A유형에 비해 타인의 기대와 요구에 크게 영향을 받는다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "진로 의사 결정 유형",
@@ -321,7 +321,7 @@
       "④ (나)는 산업체 등이 채용을 조건으로 특별한 교육과정의 운영을 요구하는 경우 설치·운영된다.",
       "⑤ (가), (나)를 이용하여 학사 학위를 취득할 수 있다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "평생 학습 제도",
@@ -355,7 +355,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "진로 의사 결정 유형"
@@ -388,7 +388,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "채용 면접 방식",
@@ -422,7 +422,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "NCS",
@@ -555,7 +555,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "국가직무능력표준(NCS)",
@@ -584,7 +584,7 @@
       "④ A의 의사 결정 유형은 B의 의사 결정 유형에 비해 타인의 기대와 요구에 따라 많은 영향을 받는다.",
       "⑤ A는 B에 비해 진로 의사 결정에 있어 환경적 요인보다 개인적 요인을 중시하고 있다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "진로 의사 결정 유형",

@@ -24,7 +24,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "직업의식"
@@ -57,7 +57,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "공정 설계"
@@ -90,7 +90,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄱ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "신제품 개발",
@@ -120,7 +120,7 @@
       "④ 제조 현장에서 도입한 생산 정보 시스템은 MES에 해당한다.",
       "⑤ 작업 관리에서 부품 A~C는 6월 계획 작업량을 모두 달성하였다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 정보 시스템",
@@ -150,7 +150,7 @@
       "④ 연마 공정에서 발생하는 분진을 포집하기 위해 국소배기 장치를 설치한다.",
       "⑤ 이산화탄소 포집 기술을 도입하여 공장에서 배출되는 이산화 탄소를 감소시킨다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "환경 보전",
@@ -183,7 +183,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄱ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "산업 안전",
@@ -217,7 +217,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "인사 관리",
@@ -252,7 +252,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "제조 공정",
@@ -287,7 +287,7 @@
       "④ ㄱ, ㄷ, ㄹ",
       "⑤ ㄱ, ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "품질 관리",
@@ -321,7 +321,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "신소재",
@@ -354,7 +354,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "채용 정보",
@@ -384,7 +384,7 @@
       "④ 제2공장은 공업의 입지 조건 중 사회적 입지 조건을 고려하여 설립할 계획이다.",
       "⑤ ○○기업의 업종은 클라크(Clark, C. G.)의 산업 분류에 따르면 제1차 산업에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "산업 입지",
@@ -418,7 +418,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "생산 공정",
@@ -447,7 +447,7 @@
       "④ B기업이 구축한 생산 정보 시스템은 생산, 영업, 재무 등 기업 전체의 업무를 통합 관리하는 시스템이다.",
       "⑤ A, B기업이 도입한 부품 공급 방식은 푸시(push) 방식에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 자동화",
@@ -476,7 +476,7 @@
       "④ 질소 산화물의 배출원은 배출 지점에 따라 분류하면 비점 오염원에 해당한다.",
       "⑤ 빗물 유출 저감 장치 사례에 나타난 하천의 수질 오염 지표는 생물학적 산소 요구량이다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "친환경 건축",
@@ -506,7 +506,7 @@
       "④ 한국산업표준(KS)의 '방법 표준'에 대한 적용을 제안하였다.",
       "⑤ ○○기업의 업종은 한국표준산업분류의 대분류 항목 중 '건설업'에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "기업 경영 분석",
@@ -536,7 +536,7 @@
       "④ 화재의 초기 진압 방법으로 질식 소화법을 적용할 수 있다.",
       "⑤ 불안전 요소를 파악하는 활동은 사고 예방 대책 5단계 중 '사실의 발견' 단계에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "사고 예방",
@@ -570,7 +570,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "진로 탐색",
@@ -603,7 +603,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "생산 관리 도구",
@@ -633,7 +633,7 @@
       "④ 22분",
       "⑤ 27분"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "공정 분석",

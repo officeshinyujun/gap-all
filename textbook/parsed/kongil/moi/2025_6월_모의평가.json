@@ -24,7 +24,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "직업의식",
@@ -57,7 +57,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "공정 기호",
@@ -91,7 +91,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "석유 화학 공업",
@@ -125,7 +125,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "산업의 분류",
@@ -155,7 +155,7 @@
       "④ TPS",
       "⑤ CRM"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "생산 정보 시스템",
@@ -184,7 +184,7 @@
       "④ 2차 전형은 면접관과 개별적으로 질의 응답하는 방식으로 진행된다.",
       "⑤ 우대 사항에 나타난 국가기술자격은 관련 기능사 자격 취득 후 해당 분야에서 실무 경력 3년이면 응시하여 자격을 취득할 수 있다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "인적 자원 관리",
@@ -218,7 +218,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "산업 재해",
@@ -253,7 +253,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "JIT 시스템",
@@ -284,7 +284,7 @@
       "④ △△ 하천으로 유입된 폐수의 오염원은 배출 지점에 따라 분류하면 비점 오염원이다.",
       "⑤ 전기 집진기에서 배출되는 유해 물질은 작업 환경 유해 요인 중 '물리적 요인'에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "환경 오염 실태",
@@ -314,7 +314,7 @@
       "④ 인적 자원 관리 원칙 중 '종업원 안정의 원칙'을 적용하고 있다.",
       "⑤ 국제 표준화 기구에서 제정한 품질 관리 및 품질 보증에 관한 인증을 획득하고자 한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "기업의 경영 혁신",
@@ -345,7 +345,7 @@
       "④ 산업단지 내에는 자율 주행 자동차가 운행되고 있다.",
       "⑤ 가상의 공간에서 실제처럼 생각하고 보이게 하는 기술을 활용하여 홍보하고 있다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "산업 입지",
@@ -375,7 +375,7 @@
       "④ 형상 기억 합금",
       "⑤ 탄소 섬유 강화 플라스틱"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "신소재",
@@ -404,7 +404,7 @@
       "④ (가) 람사르 협약, (나) 몬트리올 의정서",
       "⑤ (가) 생물 다양성 협약, (나) 몬트리올 의정서"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "국제 환경 협약",
@@ -438,7 +438,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "산업 재해",
@@ -472,7 +472,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "생산 혁신",
@@ -506,7 +506,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "기술 인증",
@@ -540,7 +540,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "산업 표준",
@@ -574,7 +574,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 정보 시스템",
@@ -604,7 +604,7 @@
       "④ (가) 특성 요인도, (나) 관리도",
       "⑤ (가) 히스토그램, (나) 파레토도"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "품질 관리 도구",
@@ -639,7 +639,7 @@
       "④ ㄱ, ㄴ, ㄹ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "재고 관리 모형",

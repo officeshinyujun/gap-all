@@ -43,6 +43,7 @@ export function parseReference(
   const rawViewItems =
     value.viewItems === undefined ? [] : textArray(value.viewItems);
   const choices = textArray(value.choices);
+  const correctAnswer = officialAnswer(value.correctAnswer);
   const rawTargetConcepts = textArray(value.targetConcepts);
   const primaryConcept = rawTargetConcepts?.[0];
   if (
@@ -55,6 +56,7 @@ export function parseReference(
     rawViewItems === null ||
     choices === null ||
     choices.length !== 5 ||
+    correctAnswer === undefined ||
     primaryConcept === undefined
   ) {
     return { ok: false };
@@ -91,6 +93,7 @@ export function parseReference(
       stimulus,
       ...viewItems,
       ...choices,
+      ...(correctAnswer === null ? [] : [String(correctAnswer)]),
       ...target.concepts,
     ].join('\u0000'),
   )}`;
@@ -104,6 +107,7 @@ export function parseReference(
       stimulus,
       viewItems,
       choices,
+      correctAnswer,
       targetConcepts: target.concepts,
       target,
       archetype: archetype.value,
@@ -220,6 +224,13 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 
 function whole(value: unknown): number | null {
   return typeof value === 'number' && Number.isInteger(value) ? value : null;
+}
+
+function officialAnswer(value: unknown): number | null | undefined {
+  if (value === undefined || value === null) return null;
+  return whole(value) !== null && whole(value)! >= 1 && whole(value)! <= 5
+    ? whole(value)!
+    : undefined;
 }
 
 function nonEmptyText(value: unknown): string | null {

@@ -82,6 +82,9 @@ async function migrateConceptCards() {
           key_points: c.card?.keyPoints,
           textbook_excerpt: c.card?.textbookExcerpt,
           enriched_definition: c.card?.enrichedDefinition,
+          real_question: c.realQuestion ?? null,
+          caution: c.caution ?? null,
+          quiz: c.quiz ?? [],
         }, { onConflict: 'unit_id, concept_id' });
       }
       console.log(`  ✅ ${file} (${(data.concepts ?? []).length} concepts)`);

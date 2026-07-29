@@ -22,6 +22,7 @@ export const REFERENCE_CATALOG_PREFLIGHT_RESULTS = [
   'CATALOG_UNIT_MISMATCH',
   'INVALID_LOGICAL_SOURCE_ID',
   'INVALID_SOURCE_PAYLOAD',
+  'MISSING_OFFICIAL_ANSWER',
   'MISSING_PRIMARY_TARGET',
   'RESOLVED',
   'SOURCE_ID_PAYLOAD_MISMATCH',
@@ -96,7 +97,9 @@ export class ReferenceCatalogPreflightService {
     };
   }
 
-  private async reconcile(row: ValidatedCatalogRow): Promise<ReferenceCatalogPreflightRow> {
+  private async reconcile(
+    row: ValidatedCatalogRow,
+  ): Promise<ReferenceCatalogPreflightRow> {
     const catalog = await new ReferenceConceptCatalogResolver(
       this.conceptCatalogReader,
     ).resolve(row.subject, row.unitNumber, row.unitNumber);
@@ -191,6 +194,9 @@ function validateCatalogRow(row: PersistedReferenceQuestion):
   );
   if (!parsedReference.ok) {
     return { kind: 'rejected', result: 'INVALID_SOURCE_PAYLOAD' };
+  }
+  if (parsedReference.value.correctAnswer === null) {
+    return { kind: 'rejected', result: 'MISSING_OFFICIAL_ANSWER' };
   }
   if (parsedReference.value.source.sourceId !== row.logicalSourceId) {
     return { kind: 'rejected', result: 'SOURCE_ID_PAYLOAD_MISMATCH' };

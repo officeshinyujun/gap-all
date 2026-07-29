@@ -60,6 +60,21 @@ function jobFailure(error: unknown): ExamGenerationJobFailure {
       message: '참조 문항 검증에 실패했습니다.',
     };
   }
+  if (error instanceof HttpException) {
+    const response = error.getResponse();
+    if (
+      isRecord(response) &&
+      response.code === 'REFERENCE_SOURCE_REEXTRACTION_REQUIRED'
+    ) {
+      return {
+        code: 'REFERENCE_SOURCE_REEXTRACTION_REQUIRED',
+        message:
+          typeof response.message === 'string'
+            ? response.message
+            : '공식 정답이 포함된 원본 기출을 재추출해야 합니다.',
+      };
+    }
+  }
   const shortfall = referenceGenerationShortfall(error);
   if (shortfall !== undefined) {
     return {
@@ -103,6 +118,15 @@ function synchronousReferenceFailure(
       code: 'REFERENCE_FIDELITY_FAILED',
       message: '참조 문항 검증에 실패했습니다.',
     });
+  }
+  if (error instanceof HttpException) {
+    const response = error.getResponse();
+    if (
+      isRecord(response) &&
+      response.code === 'REFERENCE_SOURCE_REEXTRACTION_REQUIRED'
+    ) {
+      return new InternalServerErrorException(response);
+    }
   }
   const shortfall = referenceGenerationShortfall(error);
   if (shortfall !== undefined) {
@@ -810,6 +834,7 @@ export class ExamsService {
         generationNonce: randomUUID(),
         previousFingerprints: history?.fingerprints,
         previousSourceIds: history?.sourceIds,
+        sourcePreserving: true,
       },
     );
     if (drafts.length !== dto.questionCount) {

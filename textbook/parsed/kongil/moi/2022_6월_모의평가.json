@@ -19,7 +19,7 @@
       "④ 물질 지향적 직업관 - 전문의식",
       "⑤ 업적 주의적 직업관 - 봉사의식"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "직업관",
@@ -54,7 +54,7 @@
       "④ ㄷ-ㅁ-ㄴ-ㄹ-ㄱ",
       "⑤ ㅁ-ㄴ-ㄷ-ㄹ-ㄱ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "제조 과정",
@@ -83,7 +83,7 @@
       "④ A 제품을 생산하는 공업은 노동 집약적 조립 공업에 해당한다.",
       "⑤ A 제품은 호프만(Hoffman, W.)의 산업 분류 방식에 따르면 소비재 산업의 생산품에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "제조 공정",
@@ -117,7 +117,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 혁신",
@@ -150,7 +150,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "환경 오염 방지",
@@ -183,7 +183,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "경영 혁신 기법",
@@ -212,7 +212,7 @@
       "④ (라)에서는 전자 태그를 무선으로 인식하는 기술을 적용하고 있다.",
       "⑤ (가)~(라)의 과정에서 유해 및 오염 물질이 유입되지 않도록 관리와 점검이 요구된다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "산업의 분류",
@@ -246,7 +246,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "산업 재해 방지",
@@ -275,7 +275,7 @@
       "④ 취득하려는 국가기술자격은 해당 분야 실무 경력이 2년 이상이어야 응시할 수 있다.",
       "⑤ 희망 직업은 한국표준직업분류의 대분류 항목 중 '장치·기계 조작 및 조립 종사자'에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "진로 탐색",
@@ -308,7 +308,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "제품 개발",
@@ -341,7 +341,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "환경 기술 적용",
@@ -370,7 +370,7 @@
       "④ 화재의 초기 진압 방법으로 제거 소화 방법을 사용하였다.",
       "⑤ Off-JT(Off the Job Training) 방식으로 안전교육을 실시하였다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "안전 교육",
@@ -399,7 +399,7 @@
       "④ 2019년에 증축한 것은 유동 자본에 해당한다.",
       "⑤ 2019년에 획득한 인증은 유럽 수출을 위해 필요하다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "기업 경영 연혁",
@@ -433,7 +433,7 @@
       "④ ㄱ, ㄷ, ㄹ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 시스템",
@@ -462,7 +462,7 @@
       "④ 바이오 센서를 이용한 의료 진단용 계측기",
       "⑤ 탄소 섬유 강화 플라스틱을 이용한 테니스 라켓"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "신소재의 이해",
@@ -496,7 +496,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "산업 발전 과정",
@@ -530,7 +530,7 @@
       "④ ㄱ, ㄷ, ㄹ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "제품 수명 주기",
@@ -563,7 +563,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "재고 관리 기법",
@@ -597,7 +597,7 @@
       "④ ㄱ, ㄷ, ㄹ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "컨설팅 내용 분석",
@@ -631,7 +631,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "직업병의 이해",

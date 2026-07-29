@@ -116,7 +116,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "조직 형태",
@@ -150,7 +150,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "인턴 사원 교육",
@@ -180,7 +180,7 @@
       "④ (라)에서 도입한 원자재 주문 방식은 정기 발주 모형 방식에 해당된다.",
       "⑤ ○○제품 수명 주기 중에서 매출과 성장이 점차 둔화되는 시기는 (가)에 해당된다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "제품 수명 주기",
@@ -215,7 +215,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "OEM",
@@ -249,7 +249,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "유연 생산 시스템",
@@ -284,7 +284,7 @@
       "④ ㄴ, ㄷ, ㄹ",
       "⑤ ㄱ, ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 관리",
@@ -320,7 +320,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "산업 분류",
@@ -355,7 +355,7 @@
       "④ ㄱ, ㄷ, ㄹ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 방식",
@@ -386,7 +386,7 @@
       "④ B제품에 대해 취득한 산업재산권의 권리 존속 기간은 출원일로부터 10년이다.",
       "⑤ B제품 생산을 위해 채용된 사원에게 Off JT(Off the Job Training) 방식으로 교육과 훈련을 실시하였다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "제품 수명 주기",
@@ -422,7 +422,7 @@
       "④ ㄱ, ㄷ, ㄹ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "인증 제도(CCC)",
@@ -452,7 +452,7 @@
       "④ 2호기의 9월 불량 건수는 9월 전체 불량 건수의 30% 이하이다.",
       "⑤ 인사 관리부에서는 인적 자원 관리 원칙 중 '단결의 원칙'을 적용하였다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 혁신"
@@ -480,7 +480,7 @@
       "④ 고객과 관련된 자료를 분석하여 제품 설계에 활용하고자 한다.",
       "⑤ 부품 조립 공정에서는 생산 합리화의 원칙 중 '단순화'를 적용하고자 한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "생산 계획 및 통제"
@@ -512,7 +512,7 @@
       "④ ㄱ, ㄴ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 방식",
@@ -547,7 +547,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 혁신",
@@ -581,7 +581,7 @@
       "④ ㄱ, ㄷ, ㄹ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "제품 수명 주기",
@@ -615,7 +615,7 @@
       "④ ㄱ, ㄷ, ㄹ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "컨설팅 내용 분석",
@@ -649,7 +649,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄱ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "신제품 개발",
@@ -679,7 +679,7 @@
       "④ 제조 현장에서 도입한 생산 정보 시스템은 MES에 해당한다.",
       "⑤ 작업 관리에서 부품 A~C는 6월 계획 작업량을 모두 달성하였다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 정보 시스템",
@@ -713,7 +713,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "생산 공정",
@@ -746,7 +746,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "생산 관리 도구",
@@ -781,7 +781,7 @@
       "④ ㄱ, ㄷ, ㄹ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "품질 혁신 활동",
@@ -814,7 +814,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "제품 제조 공정",
@@ -847,7 +847,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "생산 자동화",
@@ -880,7 +880,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "산업 표준",
@@ -913,7 +913,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "재고 관리"
@@ -941,7 +941,7 @@
       "④ 27분",
       "⑤ 30분"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "공정 관리"
@@ -974,7 +974,7 @@
       "④ ㄱ, ㄴ, ㄹ",
       "⑤ ㄱ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "제품 개발",
@@ -1005,7 +1005,7 @@
       "④ (가) POP, (나) 6시그마",
       "⑤ (가) POP, (나) 3정 5S"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "적시 생산(JIT)",
@@ -1035,7 +1035,7 @@
       "④ 부품 M4의 재고 관리 시스템은 정기 발주 시스템에 해당한다.",
       "⑤ 부품의 재고 관리에는 ABC 재고 관리 시스템을 적용하고 있다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "재고 관리 기법(ABC)",
@@ -1069,7 +1069,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "도표 분석",
@@ -1102,7 +1102,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 공정 기술",
@@ -1131,7 +1131,7 @@
       "④ 자동문 유리에 획득한 인증은 우리나라의 법정 강제 인증에 해당한다.",
       "⑤ 해외 수출을 위해 획득한 표준은 적용 범위에 따라 분류하면 '국제 표준'에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "산업 표준화",
@@ -1164,7 +1164,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "재고 관리 기법",
@@ -1198,7 +1198,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 혁신",
@@ -1233,7 +1233,7 @@
       "④ ㄱ, ㄷ, ㄹ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 관리",
@@ -1267,7 +1267,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "표준화",
@@ -1296,7 +1296,7 @@
       "④ B기업이 구축한 생산 시스템은 공급 사슬 관리(SCM)이다.",
       "⑤ A, B기업의 업종은 한국표준산업분류의 대분류 코드 'C'에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "경영 전략",
@@ -1330,7 +1330,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "경영 혁신 기법",
@@ -1364,7 +1364,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "생산 관리 기법",
@@ -1394,7 +1394,7 @@
       "④ 원인에서 '부품 오차'와 '조립 오차'의 누적비율은 95%이다.",
       "⑤ '변속기 불량품 수'에 가장 많은 영향을 미치는 원인은 '부품 오차'이다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "품질 관리 도구",
@@ -1427,7 +1427,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "재고 관리",
@@ -1457,7 +1457,7 @@
       "④ (다)에 제시된 '작업절차'의 세부 원인은 동작 연구를 통해 개선할 수 있다.",
       "⑤ 프로젝트 수행 후 세탁기의 불량률은 6시그마 목표치를 달성한 것이다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "불량률 계산",
@@ -1490,7 +1490,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄱ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "생산 시스템 설계",
@@ -1524,7 +1524,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄱ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "품질 관리 수단",
@@ -1553,7 +1553,7 @@
       "④ (가) 제품 표준, (나) 합성 섬유 필라멘트사의 검사 표준",
       "⑤ (가) 제품 표준, (나) 자동차 연료탱크 주유구의 모양 및 치수 표준"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "한국산업표준(KS)"
@@ -1581,7 +1581,7 @@
       "④ (가) 특성 요인도, (나) 관리도",
       "⑤ (가) 히스토그램, (나) 파레토도"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "품질 관리 도구",
@@ -1616,7 +1616,7 @@
       "④ ㄱ, ㄴ, ㄹ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "재고 관리 모형",
@@ -1646,7 +1646,7 @@
       "④ 사고 징후를 예측하는 하인리히의 법칙에 따르면, 작년의 무상해 사고 건수는 600건으로 추정할 수 있다.",
       "⑤ 작년에 호평받은 제품은 호프만(Hoffman, W.)의 산업 분류 방식에 따르면 생산재 산업의 생산품에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "인증 제도(UL)",
@@ -1681,7 +1681,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "생산 정보 시스템",
@@ -1716,7 +1716,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "인증 제도(ISO14001, NEP)",
@@ -1746,7 +1746,7 @@
       "④ 구매 부서에서 도입하고자 하는 구매 관리 기법은 '표준화법'에 해당한다.",
       "⑤ 생산 부서에서 도입하고자 하는 방안은 통제 기능 중 '여력 관리'에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 통제(여력 관리)",
@@ -1780,7 +1780,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 관리",
@@ -1811,7 +1811,7 @@
       "④ (가): 10, (나): 10",
       "⑤ (가): 20, (나): 4"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "공정 관리",

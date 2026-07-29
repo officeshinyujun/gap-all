@@ -35,6 +35,9 @@ function row(
       rows: [{ id: 'row-1', cells: ['Cell'] }],
       selection_chips: [],
     },
+    questionStem: `Question ${questionId}`,
+    optionsList: ['① one', '② two', '③ three', '④ four', '⑤ five'],
+    correctAnswer: 1,
     comboBlock: null,
     lineageSourceId: `success:15:source.pdf:${questionId}`,
     lineageSourceHash: `fnv1a:${questionId}`,
@@ -43,6 +46,7 @@ function row(
     catalogSourceId: `success:15:source.pdf:${questionId}`,
     catalogContentHash: `fnv1a:${questionId}`,
     catalogViewKeys: [],
+    catalogCorrectAnswer: 1,
     ...overrides,
   };
 }
@@ -126,14 +130,14 @@ describe('SimplyReferenceHistoricalAuditService', () => {
     expect(reader.writeCount).toBe(0);
   });
 
-  it('Given duplicate persisted combo blocks, When auditing, Then marks every duplicate question without writes', async () => {
+  it('Given duplicate persisted visible questions, When auditing, Then marks every duplicate question without writes', async () => {
     const comboBlock = {
       title: 'View',
       items: [{ key: 'ㄱ', text: 'one' }],
     };
     const reader = new InMemoryHistoricalAuditReader([
-      row('first-combo', { comboBlock }),
-      row('second-combo', { comboBlock }),
+      row('first-combo', { comboBlock, questionStem: 'Same question' }),
+      row('second-combo', { comboBlock, questionStem: 'Same question' }),
     ]);
 
     const report = await new SimplyReferenceHistoricalAuditService(
@@ -144,15 +148,41 @@ describe('SimplyReferenceHistoricalAuditService', () => {
       {
         questionId: 'first-combo',
         template: 'TPL_COMPARATIVE_MATRIX',
-        issueCodes: ['duplicate_combo'],
+        issueCodes: ['duplicate_question'],
       },
       {
         questionId: 'second-combo',
         template: 'TPL_COMPARATIVE_MATRIX',
-        issueCodes: ['duplicate_combo'],
+        issueCodes: ['duplicate_question'],
       },
     ]);
     expect(reader.readCount).toBe(1);
     expect(reader.writeCount).toBe(0);
+  });
+
+  it('Given duplicated choices or an official-answer mismatch, When auditing, Then reports the semantic integrity defects', async () => {
+    const reader = new InMemoryHistoricalAuditReader([
+      row('duplicate-choice', {
+        optionsList: ['① ㄱ', '② ㄴ', '③ ㄱ, ㄷ', '④ ㄴ, ㄷ', '⑤ ㄱ, ㄷ'],
+      }),
+      row('answer-mismatch', { correctAnswer: 2, catalogCorrectAnswer: 3 }),
+    ]);
+
+    const report = await new SimplyReferenceHistoricalAuditService(
+      reader,
+    ).audit();
+
+    expect(report.questions).toEqual([
+      {
+        questionId: 'answer-mismatch',
+        template: 'TPL_COMPARATIVE_MATRIX',
+        issueCodes: ['answer_mismatch'],
+      },
+      {
+        questionId: 'duplicate-choice',
+        template: 'TPL_COMPARATIVE_MATRIX',
+        issueCodes: ['duplicate_choice'],
+      },
+    ]);
   });
 });

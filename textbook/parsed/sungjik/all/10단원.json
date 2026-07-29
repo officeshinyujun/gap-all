@@ -319,7 +319,7 @@
       "④ 마케팅 관리",
       "⑤ 인적 자원 관리"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "기업의 경영 활동",
@@ -348,7 +348,7 @@
       "④ B씨는 기업의 대표 행위를 할 수 있다.",
       "⑤ A씨와 B씨는 ○○기업의 채무에 대하여 책임을 지지 않는다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "기업의 형태",
@@ -381,7 +381,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "기업의 분류",
@@ -415,7 +415,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "기업의 형태"
@@ -443,7 +443,7 @@
       "④ 인적 자원 관리",
       "⑤ 회계 정보 관리"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "기업의 경영 활동"
@@ -471,7 +471,7 @@
       "④ (나)의 경우 법원의 인가를 받지 아니하면 기업 형태에 따른 조직 변경의 효력이 없다.",
       "⑤ (가)와 (나)의 경우 조직 변경 후 기업 형태에서는 1인 1의결권을 행사하게 된다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "기업 형태 변경"
@@ -504,7 +504,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "기업의 사업 활동"
@@ -537,7 +537,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "기업 활동",
@@ -567,7 +567,7 @@
       "④ 인적 자원 관리",
       "⑤ 회계 정보 관리"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "경영 관리 활동"
@@ -595,7 +595,7 @@
       "④ (가), (나)의 전 사원은 회사의 채무에 대하여 무한 책임을 진다.",
       "⑤ (가)~(다)는 1인 1표의 의결 방식으로 의사 결정을 한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "기업의 형태",
@@ -628,7 +628,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "기업 형태",
@@ -691,7 +691,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "기업 경영 활동"
@@ -719,7 +719,7 @@
       "④ A기업은 물적 회사, B기업은 인적 회사에 해당한다.",
       "⑤ A~C기업은 조합 기업 형태의 공동 기업이다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "기업 형태",
@@ -753,7 +753,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "기업 경영 활동",
@@ -816,7 +816,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "기업의 부서 업무",
@@ -851,7 +851,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "기업의 형태",

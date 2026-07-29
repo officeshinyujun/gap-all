@@ -332,7 +332,7 @@
       "④ ㄱ, ㄴ, ㄹ",
       "⑤ ㄱ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "스마트 팩토리"
@@ -365,7 +365,7 @@
       "④ ㄱ, ㄴ, ㄹ",
       "⑤ ㄱ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "제품 수명 주기",
@@ -394,7 +394,7 @@
       "④ B기업이 구축한 생산 정보 시스템은 생산, 영업, 재무 등 기업 전체의 업무를 통합 관리하는 시스템이다.",
       "⑤ A, B기업이 도입한 부품 공급 방식은 푸시(push) 방식에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 자동화",
@@ -428,7 +428,7 @@
       "④ ㄱ, ㄴ, ㄹ",
       "⑤ ㄱ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 자동화",
@@ -462,7 +462,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄱ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "3D 프린팅",
@@ -492,7 +492,7 @@
       "④ 도입한 정보 시스템은 POP(Point Of Production) 시스템에 해당한다.",
       "⑤ 생산 자동화 시스템으로 컴퓨터 통합 생산 시스템(CIM)을 구축하였다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 자동화 및 인증"
@@ -520,7 +520,7 @@
       "④ 강판은 회전하는 롤 사이로 가열된 슬래브를 넣어 일정한 두께로 만드는 공정을 거쳐 생산되고 있다.",
       "⑤ 제품 표면의 후처리에는 미리 입력된 프로그램에 따라 순차적으로 진행하는 산업용 로봇이 활용되고 있다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "스마트 팩토리",

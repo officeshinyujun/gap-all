@@ -23,7 +23,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "노사 관계",
@@ -56,7 +56,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "노사관계와 노동조합"
@@ -84,7 +84,7 @@
       "④ 10월 8일 노조는 단체 교섭권을 행사하였다.",
       "⑤ 사용자 측의 대항 행위는 직장 폐쇄에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "노사 관계",
@@ -117,7 +117,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "노사 협의회"
@@ -150,7 +150,7 @@
       "④ ㄱ, ㄴ, ㄹ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "노사 관계 구조"
@@ -178,7 +178,7 @@
       "④ 노동조합 대표자와의 단체 교섭을 정당한 이유 없이 거부한 것",
       "⑤ 근로자가 고의로 사업에 막대한 지장을 초래한 것을 이유로\n 해고한 것"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "부당노동행위",
@@ -207,7 +207,7 @@
       "④ (나)가 주장을 관철할 목적으로 행할 수 있는 쟁의행위에는 파업, 태업, 직장폐쇄가 있다.",
       "⑤ (가)와 (나)는 전체 근로자를 대표하여 노사 공동의 이익을 증진한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "노사협의회",
@@ -307,7 +307,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "노사 관계",
@@ -337,7 +337,7 @@
       "④ (다)는 사용자와의 협의가 결렬될 경우 적법한 절차에 따라 쟁의 행위를 할 수 있다.",
       "⑤ (나)는 사용자의 동의 없이 노동쟁의의 조정을 (가)에 신청할 수 있다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "노사 관계",
@@ -400,7 +400,7 @@
       "④ 9월 13일 사측의 징계는 부당노동행위에 해당하지 않는다.",
       "⑤ 10월 30일 신청한 중재는 조정을 거쳐야만 신청할 수 있다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "노사 분규",

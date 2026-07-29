@@ -24,7 +24,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "직업의식"
@@ -57,7 +57,7 @@
       "④ ㄱ, ㄴ, ㄹ",
       "⑤ ㄱ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "스마트 팩토리"
@@ -85,7 +85,7 @@
       "④ 2호기의 9월 불량 건수는 9월 전체 불량 건수의 30% 이하이다.",
       "⑤ 인사 관리부에서는 인적 자원 관리 원칙 중 '단결의 원칙'을 적용하였다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 혁신"
@@ -118,7 +118,7 @@
       "④ ㄱ, ㄷ, ㄹ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "기업 환경",
@@ -151,7 +151,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "지식 재산권",
@@ -185,7 +185,7 @@
       "④ ㄱ, ㄴ, ㄹ",
       "⑤ ㄱ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "직업병",
@@ -218,7 +218,7 @@
       "④ ㄱ, ㄴ",
       "⑤ ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "한국의 공업"
@@ -246,7 +246,7 @@
       "④ B기업이 개발한 제품은 국내에서 최초로 개발된 기술을 적용한 제품에 대하여 정부가 부여하는 인증을 획득하였다.",
       "⑤ A, B기업 업종의 한국표준산업분류상 대분류 항목의 분류 코드는 'C'에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "경영 혁신"
@@ -278,7 +278,7 @@
       "④ ㄱ, ㄴ",
       "⑤ ㄱ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "산업 재해",
@@ -307,7 +307,7 @@
       "④ 형상 기억 합금",
       "⑤ 탄소 섬유 강화 플라스틱"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "신소재"
@@ -335,7 +335,7 @@
       "④ (라) 시기에 아웃소싱 경영 기법을 활용하였다.",
       "⑤ (가)~(라) 시기의 생산품을 내구성에 따라 분류하면 내구재에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "공업 발달",
@@ -369,7 +369,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "경영 조직",
@@ -398,7 +398,7 @@
       "④ 고객과 관련된 자료를 분석하여 제품 설계에 활용하고자 한다.",
       "⑤ 부품 조립 공정에서는 생산 합리화의 원칙 중 '단순화'를 적용하고자 한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "생산 계획 및 통제"
@@ -431,7 +431,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "환경 오염"
@@ -463,7 +463,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "경영 혁신"
@@ -491,7 +491,7 @@
       "④ 총무 부장이 작업자들에게 안내할 사회 보험은 사업주와 근로자가 보험료를 절반씩 부담한다.",
       "⑤ 현장 소장이 방지하고자 하는 사고의 원인은 버드(Bird, F. E.)의 재해 이론 중 '직접 원인'에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "안전 관리"
@@ -519,7 +519,7 @@
       "④ 몬트리올 의정서",
       "⑤ 사막화 방지 협약"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "환경 보전",
@@ -553,7 +553,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "직업 경로",
@@ -587,7 +587,7 @@
       "④ ㄱ, ㄴ, ㄹ",
       "⑤ ㄱ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "제품 수명 주기",
@@ -620,7 +620,7 @@
       "④ ㄱ, ㄴ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 방식",

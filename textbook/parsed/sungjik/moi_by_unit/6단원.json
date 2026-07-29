@@ -19,7 +19,7 @@
       "④ 신체적 노화를 수용하고 은퇴 후의 새로운 생활을 준비한다.",
       "⑤ 관심 있는 직업 정보를 조사하여 다양한 직업에 대한 이해도를 높인다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "생애 발달 시기",
@@ -53,7 +53,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생애 발달 단계별 과업"
@@ -81,7 +81,7 @@
       "④ 경제적, 심리적으로 독립 / 초기 경력 재평가 및 생산성 유지",
       "⑤ 경제적, 심리적으로 독립 / 진로 선택을 위한 흥미, 적성 검사"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "생애 발달 단계",
@@ -110,7 +110,7 @@
       "④ 일학습 병행제",
       "⑤ 평생학습 계좌제"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "평생 학습 제도"
@@ -142,7 +142,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생애 발달 단계와 과업"
@@ -170,7 +170,7 @@
       "④ 직장에서는 경력자로서의 역할과 책임을 다하며 노후를 준비한다.",
       "⑤ 자신만의 전문 직업 영역을 넓혀 가는 시기로 사회 구성원으로서의\n 역할을 수행한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생애 발달 단계",
@@ -232,7 +232,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "생애 발달 단계",
@@ -265,7 +265,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "직업 생활 트렌드",
@@ -298,7 +298,7 @@
       "④ ㄱ, ㄷ",
       "⑤ ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "생애 발달 과업",
@@ -388,7 +388,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생애 발달 단계",

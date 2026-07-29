@@ -24,7 +24,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "첨단 기술"
@@ -57,7 +57,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "공장 입지 선정"
@@ -89,7 +89,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "생산 기술의 변화",
@@ -122,7 +122,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "인력 채용 및 자격"
@@ -150,7 +150,7 @@
       "④ 부착 예정인 산업안전보건표지는 '경고 표지'에 해당한다.",
       "⑤ 적치된 마그네슘 분말은 연소의 3요소 중 '가연물'에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "산업 안전 및 화재"
@@ -178,7 +178,7 @@
       "④ A기업: SCM, B기업: CRM",
       "⑤ A기업: SCM, B기업: POP"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "생산 정보 시스템"
@@ -210,7 +210,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "산업 분류 및 인증"
@@ -238,7 +238,7 @@
       "④ 경영진은 재해 예방의 원칙 중 '예방 가능의 원칙'을 적용한 안전 관리 활동을 실시하고 있다.",
       "⑤ 프레스 기계에는 작업자가 기계를 잘못 조작하더라도 사고가 발생하지 않도록 하는 보호 장치가 설치되어 있다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "안전 관리 조직",
@@ -272,7 +272,7 @@
       "④ ㄱ, ㄷ, ㄹ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "품질 혁신 활동",
@@ -301,7 +301,7 @@
       "④ 과정 지향적 직업관, 평등 의식",
       "⑤ 물질 지향적 직업관, 전문 의식"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "직업관과 직업의식"
@@ -329,7 +329,7 @@
       "④ B기업이 제품 입출고 관리에 활용한 시스템은 자동 창고 시스템에 해당한다.",
       "⑤ A, B기업의 업종은 한국표준산업분류상 대분류 항목의 분류 코드 'C'에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "경영 기법",
@@ -358,7 +358,7 @@
       "④ 작업 관리에는 생산 합리화의 원칙 중 '표준화'가 적용되었다.",
       "⑤ 적용된 표준은 적용 범위에 따라 분류하면 '단체 표준'에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "기업의 생산 관리"
@@ -390,7 +390,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "환경 오염 처리"
@@ -422,7 +422,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "제품 제조 공정",
@@ -455,7 +455,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "생산 자동화",
@@ -484,7 +484,7 @@
       "④ 도장 공정에서 사용된 유기 용제 흡입에 의한 신경계 질환 발생",
       "⑤ 고객 상담 과정에서 감정 노동의 업무 특성으로 인해 만성 심리적 질환 발생"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "직업병 및 유해 요인"
@@ -516,7 +516,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "산업 표준",
@@ -545,7 +545,7 @@
       "④ 사막화 방지 협약",
       "⑤ 생물 다양성 협약"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "국제 환경 협약"
@@ -577,7 +577,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "재고 관리"
@@ -605,7 +605,7 @@
       "④ 27분",
       "⑤ 30분"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "공정 관리"

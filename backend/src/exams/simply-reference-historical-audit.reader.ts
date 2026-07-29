@@ -8,6 +8,9 @@ export const HISTORICAL_SIMPLY_REFERENCE_AUDIT_SQL = `WITH scoped_questions AS (
     q.id AS "questionId",
     q.recommended_template AS "recommendedTemplate",
     q.stimulus_data AS "stimulusData",
+    q.question_stem AS "questionStem",
+    q.options_list AS "optionsList",
+    q.correct_answer AS "correctAnswer",
     q.combo_block AS "comboBlock",
     q.generation_lineage #>> '{source,sourceId}' AS "lineageSourceId",
     q.generation_lineage #>> '{source,sourceHash}' AS "lineageSourceHash",
@@ -21,6 +24,9 @@ SELECT
   q."questionId",
   q."recommendedTemplate",
   q."stimulusData",
+  q."questionStem",
+  q."optionsList",
+  q."correctAnswer",
   q."comboBlock",
   q."lineageSourceId",
   q."lineageSourceHash",
@@ -28,6 +34,7 @@ SELECT
   q."lineageValidation",
   rq.logical_source_id AS "catalogSourceId",
   rq.content_hash AS "catalogContentHash",
+  rq.source_payload -> 'correctAnswer' AS "catalogCorrectAnswer",
   CASE
     WHEN rq.id IS NULL THEN NULL
     ELSE COALESCE(rq.source_payload -> 'viewItems', '[]'::jsonb)
@@ -100,6 +107,9 @@ function parseRow(value: unknown): PersistedSimplyReferenceAuditRow {
       'recommendedTemplate',
     ),
     stimulusData: nullableRecord(value.stimulusData),
+    questionStem: requiredText(value.questionStem, 'questionStem'),
+    optionsList: stringArray(value.optionsList, 'optionsList'),
+    correctAnswer: nullableAnswer(value.correctAnswer, 'correctAnswer'),
     comboBlock: comboBlock(value.comboBlock),
     lineageSourceId: nullableText(value.lineageSourceId),
     lineageSourceHash: nullableText(value.lineageSourceHash),
@@ -108,6 +118,10 @@ function parseRow(value: unknown): PersistedSimplyReferenceAuditRow {
     catalogSourceId: nullableText(value.catalogSourceId),
     catalogContentHash: nullableText(value.catalogContentHash),
     catalogViewKeys: catalogViewKeys(value.catalogViewItems),
+    catalogCorrectAnswer: nullableAnswer(
+      value.catalogCorrectAnswer,
+      'catalogCorrectAnswer',
+    ),
   };
 }
 
@@ -157,6 +171,19 @@ function nullableRecord(
   value: unknown,
 ): Readonly<Record<string, unknown>> | null {
   return isRecord(value) ? value : null;
+}
+
+function nullableAnswer(value: unknown, field: string): number | null {
+  if (value === null || value === undefined) return null;
+  if (
+    typeof value === 'number' &&
+    Number.isInteger(value) &&
+    value >= 1 &&
+    value <= 5
+  ) {
+    return value;
+  }
+  throw new HistoricalAuditRowError(`${field} is not an answer number`);
 }
 
 function isRecord(value: unknown): value is Record<string, unknown> {

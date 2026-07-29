@@ -24,7 +24,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 방식의 변화",
@@ -53,7 +53,7 @@
       "④ 웰빙라이프",
       "⑤ 유비쿼터스"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "직업 사회의 변화"
@@ -81,7 +81,7 @@
       "④ 사물인터넷 기술이 활용되고 있다.",
       "⑤ 신재생 에너지 기술이 활용되고 있다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "사물인터넷(IoT)",
@@ -110,7 +110,7 @@
       "④ 리사이클링 기술",
       "⑤ 유전자 편집 기술"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "첨단 기술"
@@ -143,7 +143,7 @@
       "④ (가)-ㄴ, (나)-ㄹ, (다)-ㄷ",
       "⑤ (가)-ㄷ, (나)-ㄴ, (다)-ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "직업의 변화 요인"
@@ -171,7 +171,7 @@
       "④ 업사이클링 기술",
       "⑤ 사물인터넷 기술"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "첨단 기술",
@@ -205,7 +205,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "전자상거래",
@@ -238,7 +238,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "서비스 생산 방식",
@@ -271,7 +271,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "첨단 기술"
@@ -304,7 +304,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "첨단 기술",

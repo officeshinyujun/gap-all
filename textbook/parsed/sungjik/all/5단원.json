@@ -313,7 +313,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "직업 윤리"
@@ -341,7 +341,7 @@
       "④ 정직과 신용",
       "⑤ 근면과 성실"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "직업 윤리"
@@ -369,7 +369,7 @@
       "④ 성실성 정직성",
       "⑤ 봉사성 준법성"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "직업 윤리"
@@ -402,7 +402,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "직업 윤리"
@@ -430,7 +430,7 @@
       "④ 장애인 윤리, 진취성",
       "⑤ 장애인 윤리, 사회적 책임성"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "직업 윤리",
@@ -488,7 +488,7 @@
       "④ 직업 윤리: 생명 윤리, 기업가 정신: 진취성",
       "⑤ 직업 윤리: 생명 윤리, 기업가 정신: 사회적 책임성"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "직업 윤리",
@@ -522,7 +522,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "면접 유형",
@@ -552,7 +552,7 @@
       "④ 정보 윤리 / 위험 감수성",
       "⑤ 정보 윤리 / 사회적 책임성"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "직업 윤리",
@@ -615,7 +615,7 @@
       "④ (가) 환경 윤리, (나) 진취성",
       "⑤ (가) 환경 윤리, (나) 혁신성"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "직업 윤리",

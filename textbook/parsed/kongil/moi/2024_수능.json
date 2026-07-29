@@ -24,7 +24,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "직업관"
@@ -57,7 +57,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄱ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "경영 혁신 기법",
@@ -86,7 +86,7 @@
       "④ (다) 공업은 호프만(Hoffman, W.)의 산업 분류 방식에 따르면 생산재 산업에 해당한다.",
       "⑤ (가), (나) 공업은 (다) 공업에 기초 소재를 제공한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "공업의 분류",
@@ -120,7 +120,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄱ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "제조 현장 관리",
@@ -154,7 +154,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄱ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "공업의 특징 및 유형"
@@ -182,7 +182,7 @@
       "④ (나)의 알루미늄 분진은 연소의 3요소 중 '가연물'에 해당한다.",
       "⑤ (가)와 (나)에서 발생한 사고의 결과는 '중대재해'에 해당한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "산업 안전사고",
@@ -215,7 +215,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄱ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "생산 시스템 설계",
@@ -249,7 +249,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄱ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "품질 관리 수단",
@@ -283,7 +283,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "인적 자원 관리",
@@ -312,7 +312,7 @@
       "④ 도입한 정보 시스템은 POP(Point Of Production) 시스템에 해당한다.",
       "⑤ 생산 자동화 시스템으로 컴퓨터 통합 생산 시스템(CIM)을 구축하였다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "생산 자동화 및 인증"
@@ -340,7 +340,7 @@
       "④ 생물 다양성 협약",
       "⑤ 사막화 방지 협약"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "국제 환경 협약"
@@ -373,7 +373,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "구매 관리 및 평가"
@@ -401,7 +401,7 @@
       "④ (가) 제품 표준, (나) 합성 섬유 필라멘트사의 검사 표준",
       "⑤ (가) 제품 표준, (나) 자동차 연료탱크 주유구의 모양 및 치수 표준"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "한국산업표준(KS)"
@@ -429,7 +429,7 @@
       "④ 직업 포털 사이트에서 유망 직종의 직업 정보를 탐색하였다.",
       "⑤ 직업 박람회에 참석하여 희망 기업의 입사 지원서를 작성하였다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "진로 결정 단계"
@@ -457,7 +457,7 @@
       "④ 공장의 생산품은 제품 규모에 따라 분류하면 경공업 제품에 해당한다.",
       "⑤ 신규 공장에서 생산할 자동차는 운행 과정에서 탄소 배출이 내연기관 자동차에 비해 많다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "공장 입지 및 생산 시스템"
@@ -490,7 +490,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄱ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "재해 예방 및 안전 조직"
@@ -518,7 +518,7 @@
       "④ 조사에 필요한 안전 관리 기록과 재해자의 작업 일지를 확인한다.",
       "⑤ 현장 조사 결과를 바탕으로 풀 프루프(fool proof) 기능이 작동하지 않은 다양한 원인들을 분석하고 평가한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "사고 예방 5단계"
@@ -546,7 +546,7 @@
       "④ 탄소 나노 튜브",
       "⑤ 형상 기억 합금"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "신소재의 종류"
@@ -579,7 +579,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄱ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "환경 오염과 원인 물질"
@@ -612,7 +612,7 @@
       "④ ㄱ, ㄷ, ㄹ",
       "⑤ ㄱ, ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "제품 개발 프로세스"

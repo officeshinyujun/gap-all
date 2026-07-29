@@ -58,6 +58,8 @@ export type SelectedParsedReference = Readonly<{
   stimulus: string;
   viewItems?: readonly string[];
   choices: readonly string[];
+  /** Official answer extracted from an answer key. Missing/null means unverified. */
+  correctAnswer?: number | null;
   targetConcepts: readonly string[];
   archetype?: ReferenceArchetype;
 }>;

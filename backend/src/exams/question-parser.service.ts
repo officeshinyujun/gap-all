@@ -27,6 +27,37 @@ export interface ParsedQuestion {
   hasStimulus: boolean;
 }
 
+export function parseOfficialAnswerKeyText(text: string): Map<number, number> {
+  const answers = new Map<number, number>();
+  const numeralToAnswer = new Map([
+    ['①', 1],
+    ['②', 2],
+    ['③', 3],
+    ['④', 4],
+    ['⑤', 5],
+  ]);
+
+  // Evaluation-service answer sheets place several `question answer score`
+  // triplets on one line, not one answer per line.
+  for (const match of text.matchAll(
+    /(?:^|\s)([1-9]|1\d|20)\s+([①②③④⑤])\s+\d+(?=\s|$)/gu,
+  )) {
+    const questionNumber = Number(match[1]);
+    const answer = numeralToAnswer.get(match[2] ?? '');
+    if (answer !== undefined) answers.set(questionNumber, answer);
+  }
+
+  // Retain support for compact one-answer-per-line keys without scores.
+  for (const line of text.split('\n')) {
+    const match = line.trim().match(/^(\d{1,2})\s*[.．]?\s*([①②③④⑤])$/u);
+    if (match === null) continue;
+    const questionNumber = Number(match[1]);
+    const answer = numeralToAnswer.get(match[2] ?? '');
+    if (answer !== undefined) answers.set(questionNumber, answer);
+  }
+  return answers;
+}
+
 @Injectable()
 export class QuestionParserService {
   private readonly logger = new Logger(QuestionParserService.name);
@@ -220,19 +251,7 @@ export class QuestionParserService {
   }
 
   private parseAnswerPdf(answerPdfPath: string): Map<number, number> {
-    const text = this.extractText(answerPdfPath);
-    const answers = new Map<number, number>();
-    const lines = text.split('\n');
-    for (const line of lines) {
-      const t = line.trim();
-      if (!t) continue;
-      const m = t.match(/^(\d{1,2})\s*[.．]?\s*([①②③④⑤])/);
-      if (m) {
-        const idx = ['①', '②', '③', '④', '⑤'].indexOf(m[2]) + 1;
-        if (idx >= 1) answers.set(parseInt(m[1], 10), idx);
-      }
-    }
-    return answers;
+    return parseOfficialAnswerKeyText(this.extractText(answerPdfPath));
   }
 
   async parseAllSuteck(): Promise<void> {
