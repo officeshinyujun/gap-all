@@ -44,6 +44,7 @@ export function ChatWindow({ sessionId, sessionTitle }: ChatWindowProps) {
   const [loading, setLoading] = useState(false);
   const [fetching, setFetching] = useState(true);
   const [pendingImage, setPendingImage] = useState<File | null>(null);
+  const [imageError, setImageError] = useState('');
   const [similarQuestionsMap, setSimilarQuestionsMap] = useState<Record<string, SimilarQuestion[]>>({});
   const [expandedCards, setExpandedCards] = useState<Set<string>>(new Set());
   const [explanationOpen, setExplanationOpen] = useState<Set<string>>(new Set());
@@ -240,9 +241,11 @@ export function ChatWindow({ sessionId, sessionTitle }: ChatWindowProps) {
 
   const handleImageSend = async () => {
     if (!pendingImage || loading) return;
+    const imageFile = pendingImage;
     setLoading(true);
+    setImageError('');
     
-    const localImageUrl = URL.createObjectURL(pendingImage);
+    const localImageUrl = URL.createObjectURL(imageFile);
     const tempUserMsg: Message = {
       id: `temp-${Date.now()}`,
       sender: 'USER',
@@ -252,7 +255,7 @@ export function ChatWindow({ sessionId, sessionTitle }: ChatWindowProps) {
     setMessages((prev) => [...prev, tempUserMsg]);
     setPendingImage(null);
     try {
-      const data = await sendImageQuestion(sessionId, pendingImage);
+      const data = await sendImageQuestion(sessionId, imageFile);
       setMessages((prev) => [
         ...prev.filter((m) => m.id !== tempUserMsg.id),
         data.userMessage,
@@ -265,9 +268,16 @@ export function ChatWindow({ sessionId, sessionTitle }: ChatWindowProps) {
           [data.aiMessage.id]: data.similarQuestions,
         }));
       }
-    } catch {
+    } catch (error) {
       setMessages((prev) => prev.filter((m) => m.id !== tempUserMsg.id));
+      setPendingImage(imageFile);
+      setImageError(
+        error instanceof Error
+          ? error.message
+          : '이미지 분석에 실패했습니다. 잠시 후 다시 시도해 주세요.',
+      );
     } finally {
+      URL.revokeObjectURL(localImageUrl);
       setLoading(false);
     }
   };
@@ -560,11 +570,12 @@ export function ChatWindow({ sessionId, sessionTitle }: ChatWindowProps) {
         <div className={s.imagePreviewArea}>
           <div className={s.imagePreview}>
             <img src={URL.createObjectURL(pendingImage)} alt="문제 이미지" />
-            <button className={s.imageRemoveBtn} onClick={() => setPendingImage(null)}>
+            <button className={s.imageRemoveBtn} onClick={() => { setPendingImage(null); setImageError(''); }}>
               <X size={12} />
             </button>
           </div>
           <Typo.MD size={12} color="secondary">이미지를 전송하면 문제를 분석합니다.</Typo.MD>
+          {imageError && <Typo.MD size={12} color="wrong">{imageError}</Typo.MD>}
         </div>
       )}
 
@@ -574,11 +585,14 @@ export function ChatWindow({ sessionId, sessionTitle }: ChatWindowProps) {
           <input
             ref={fileInputRef}
             type="file"
-            accept="image/*"
+            accept="image/jpeg,image/png,image/webp"
             style={{ display: 'none' }}
             onChange={(e) => {
               const file = e.target.files?.[0];
-              if (file) setPendingImage(file);
+              if (file) {
+                setPendingImage(file);
+                setImageError('');
+              }
               e.target.value = '';
             }}
           />

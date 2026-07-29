@@ -218,7 +218,7 @@ export class ChatAiService {
   // ============================================================
   // GPT-4o Vision: 이미지에서 문제 구조 추출
   // ============================================================
-  async extractQuestionFromImage(imageBuffer: Buffer): Promise<{
+  async extractQuestionFromImage(imageBuffer: Buffer, mimeType = 'image/jpeg'): Promise<{
     source_exam: string | null;
     number: number | null;
     stem: string;
@@ -257,7 +257,7 @@ JSON만 반환하세요.`,
             {
               type: 'image_url',
               image_url: {
-                url: `data:image/jpeg;base64,${base64}`,
+                url: `data:${mimeType};base64,${base64}`,
                 detail: 'high',
               },
             },

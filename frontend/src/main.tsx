@@ -6,6 +6,7 @@ import { ThemeProvider } from '@shared/contexts/ThemeContext';
 import { AuthProvider } from '@shared/contexts/AuthContext';
 import { JobProgressProvider } from '@features/exam-generation/model/JobProgressProvider';
 import { ExamGenerationToast } from '@widgets/ExamGenerationToast/ui/ExamGenerationToast';
+import { ErrorReport } from '@widgets/ErrorReport';
 import LandingPage from '@/app/(auth)/landing/page';
 import LoginPage from '@/app/(auth)/login/page';
 import TermsPage from '@/app/(auth)/terms/page';
@@ -63,6 +64,7 @@ createRoot(root).render(
               </Route>
             </Routes>
             <ExamGenerationToast />
+            <ErrorReport />
           </JobProgressProvider>
         </AuthProvider>
       </ThemeProvider>

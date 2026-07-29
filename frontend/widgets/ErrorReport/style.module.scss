@@ -1,0 +1,147 @@
+.trigger {
+  position: fixed;
+  right: $spacing-24;
+  bottom: $spacing-24;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  color: $background-primary;
+  background-color: $brand-primary;
+  border: 1px solid $border-primary;
+  border-radius: 50%;
+  box-shadow: 0 $spacing-4 $spacing-16 color-mix(in srgb, var(--text-primary) 20%, transparent);
+  cursor: pointer;
+
+  &:hover,
+  &:focus-visible {
+    opacity: 0.9;
+  }
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-24;
+  background-color: color-mix(in srgb, var(--text-primary) 55%, transparent);
+  backdrop-filter: blur($spacing-4);
+}
+
+[data-theme="dark"] .overlay {
+  background-color: color-mix(in srgb, var(--background-primary) 50%, transparent);
+}
+
+.modal {
+  width: min(100%, 520px);
+  padding: $spacing-24;
+  background-color: $background-primary;
+  border: 1px solid $border-primary;
+  border-radius: $spacing-16;
+  box-shadow: 0 $spacing-10 40px color-mix(in srgb, var(--text-primary) 20%, transparent);
+}
+
+.closeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: $spacing-32;
+  min-height: $spacing-32;
+  color: $text-secondary;
+  background: transparent;
+  border: 0;
+  border-radius: $spacing-8;
+  cursor: pointer;
+
+  &:hover,
+  &:focus-visible {
+    color: $text-primary;
+    background-color: $background-third;
+  }
+}
+
+.form {
+  width: 100%;
+}
+
+.label {
+  color: $text-primary;
+  font-size: $spacing-14;
+  font-weight: $medium;
+}
+
+.textarea {
+  width: 100%;
+  min-height: 160px;
+  padding: $spacing-12;
+  color: $text-primary;
+  font: inherit;
+  line-height: 1.5;
+  background-color: $background-secondary;
+  border: 1px solid $border-primary;
+  border-radius: $spacing-8;
+  outline: none;
+  resize: vertical;
+
+  &:focus {
+    border-color: $brand-primary;
+    background-color: $background-primary;
+  }
+}
+
+.primaryButton,
+.secondaryButton {
+  padding: $spacing-12 $spacing-16;
+  border: 0;
+  border-radius: $spacing-8;
+  font: inherit;
+  font-size: $spacing-14;
+  font-weight: $semi-bold;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.primaryButton {
+  color: $background-primary;
+  background-color: $brand-primary;
+
+  &:hover:not(:disabled),
+  &:focus-visible:not(:disabled) {
+    opacity: 0.9;
+  }
+}
+
+.secondaryButton {
+  color: $text-primary;
+  background-color: $background-third;
+
+  &:hover:not(:disabled),
+  &:focus-visible:not(:disabled) {
+    background-color: $background-fourth;
+  }
+}
+
+@media (max-width: 768px) {
+  .trigger {
+    right: $spacing-16;
+    bottom: calc($spacing-16 + env(safe-area-inset-bottom));
+  }
+
+  .overlay {
+    align-items: flex-end;
+    padding: $spacing-16;
+  }
+
+  .modal {
+    width: 100%;
+  }
+}

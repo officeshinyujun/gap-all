@@ -238,6 +238,7 @@ export class ChatService {
     userId: string,
     sessionId: string,
     imageBuffer: Buffer,
+    imageMimeType: string,
   ) {
     const session = await this.sessionRepo.findOne({
       where: { id: sessionId },
@@ -249,7 +250,7 @@ export class ChatService {
 
     // 1. GPT-4o Vision OCR
     const extracted =
-      await this.chatAiService.extractQuestionFromImage(imageBuffer);
+      await this.chatAiService.extractQuestionFromImage(imageBuffer, imageMimeType);
 
     // 2. 기존 문제 매칭
     const matched = this.studyService.findQuestionBySourceAndNumber(
@@ -303,8 +304,11 @@ export class ChatService {
     );
 
     // 5. 이미지 Supabase Storage 저장
-    const imageUrl = await this.imageUploadService.uploadImage(imageBuffer);
-    const imageUrlMsg = `[IMAGE:${imageUrl}]`;
+    const imageFilename = await this.imageUploadService.uploadImage(
+      imageBuffer,
+      imageMimeType,
+    );
+    const imageUrlMsg = `[IMAGE:${imageFilename}]`;
 
     // 6. 메시지 저장
     const userMessage = await this.messageRepo.save(

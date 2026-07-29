@@ -11,11 +11,6 @@ export class SupabaseService implements OnModuleInit {
   constructor(private readonly configService: ConfigService) {}
 
   onModuleInit() {
-    if (process.env.DB_PROVIDER !== 'supabase') {
-      this.logger.log('DB_PROVIDER is not supabase — skipping Supabase client init');
-      return;
-    }
-
     const url = this.configService.get<string>('SUPABASE_URL');
     const serviceKey = this.configService.get<string>('SUPABASE_SERVICE_KEY');
 
@@ -33,7 +28,7 @@ export class SupabaseService implements OnModuleInit {
 
   get client(): SupabaseClient {
     if (!this._client) {
-      throw new Error('Supabase client not available (DB_PROVIDER is not supabase)');
+      throw new Error('Supabase client not available');
     }
     return this._client;
   }

@@ -8,6 +8,8 @@ import { StudyService } from '../study/study.service';
 import { ChatSession } from '../entities/chat-session.entity';
 import { ChatMessage, ChatSender } from '../entities/chat-message.entity';
 import { Subject } from '../entities/subject.entity';
+import { Question } from '../entities/question.entity';
+import { ChatImageUploadService } from './chat-image-upload.service';
 
 describe('ChatService', () => {
   let service: ChatService;
@@ -70,8 +72,10 @@ describe('ChatService', () => {
       save: jest.fn(),
     };
     const mockSubjectRepo = { findOne: jest.fn() };
+    const mockQuestionRepo = { find: jest.fn(), findOne: jest.fn() };
     const mockChatAiService = { getResponse: jest.fn(), extractQuestionFromImage: jest.fn(), generateQuestionExplanation: jest.fn() };
     const mockStudyService = { findQuestionBySourceAndNumber: jest.fn(), findSimilarByConceptNames: jest.fn() };
+    const mockImageUploadService = { uploadImage: jest.fn() };
 
     const module: TestingModule = await Test.createTestingModule({
       providers: [
@@ -79,8 +83,10 @@ describe('ChatService', () => {
         { provide: getRepositoryToken(ChatSession), useValue: mockSessionRepo },
         { provide: getRepositoryToken(ChatMessage), useValue: mockMessageRepo },
         { provide: getRepositoryToken(Subject), useValue: mockSubjectRepo },
+        { provide: getRepositoryToken(Question), useValue: mockQuestionRepo },
         { provide: ChatAiService, useValue: mockChatAiService },
         { provide: StudyService, useValue: mockStudyService },
+        { provide: ChatImageUploadService, useValue: mockImageUploadService },
       ],
     }).compile();
 

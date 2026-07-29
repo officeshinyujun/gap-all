@@ -1,0 +1,100 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-24;
+  background-color: color-mix(in srgb, var(--text-primary) 55%, transparent);
+  backdrop-filter: blur($spacing-4);
+}
+
+[data-theme="dark"] .overlay {
+  // Dark mode's primary text is light, so it cannot be used for the backdrop.
+  // Use the dark surface token to preserve a dimmed background instead.
+  background-color: color-mix(in srgb, var(--background-primary) 50%, transparent);
+}
+
+.modal {
+  position: relative;
+  width: min(100%, 640px);
+  max-height: 100%;
+  padding: $spacing-32;
+  overflow-y: auto;
+  background-color: $background-primary;
+  border: 1px solid $border-primary;
+  border-radius: $spacing-16;
+  box-shadow: 0 $spacing-10 40px color-mix(in srgb, var(--text-primary) 20%, transparent);
+}
+
+.closeButton {
+  position: absolute;
+  top: $spacing-16;
+  right: $spacing-16;
+  width: $spacing-32;
+  height: $spacing-32;
+  color: $text-secondary;
+  font-size: 24px;
+  line-height: 1;
+  background: transparent;
+  border: 0;
+  border-radius: $spacing-8;
+  cursor: pointer;
+
+  &:hover,
+  &:focus-visible {
+    color: $text-primary;
+    background-color: $background-third;
+  }
+}
+
+.content {
+  padding-right: $spacing-24;
+}
+
+.actions {
+  flex-shrink: 0;
+}
+
+.closeAction,
+.hideAction {
+  padding: $spacing-12 $spacing-16;
+  border-radius: $spacing-8;
+  font-weight: $semi-bold;
+  font-size: $spacing-14;
+  cursor: pointer;
+}
+
+.closeAction {
+  color: $text-primary;
+  background-color: $background-third;
+  border: 0;
+
+  &:hover,
+  &:focus-visible {
+    background-color: $background-fourth;
+  }
+}
+
+.hideAction {
+  color: $background-primary;
+  background-color: $brand-primary;
+  border: 0;
+
+  &:hover,
+  &:focus-visible {
+    opacity: 0.9;
+  }
+}
+
+@media (max-width: 768px) {
+  .overlay {
+    padding: $spacing-16;
+  }
+
+  .modal {
+    padding: $spacing-24;
+    border-radius: $spacing-12;
+  }
+}

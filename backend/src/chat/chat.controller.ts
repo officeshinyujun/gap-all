@@ -5,6 +5,7 @@ import {
   Patch,
   Delete,
   Body,
+  BadRequestException,
   Param,
   UseGuards,
   HttpCode,
@@ -22,6 +23,7 @@ import { SendMessageDto } from './dto/send-message.dto';
 import { JwtAuthGuard } from '../common/guards/jwt-auth.guard';
 import { CurrentUser } from '../common/decorators/current-user.decorator';
 import type { CurrentUserPayload } from '../common/decorators/current-user.decorator';
+import { Public } from '../common/decorators/public.decorator';
 
 @Controller('chat')
 @UseGuards(JwtAuthGuard)
@@ -71,22 +73,41 @@ export class ChatController {
   }
 
   @Post('sessions/:sessionId/image-question')
-  @UseInterceptors(FileInterceptor('image'))
+  @UseInterceptors(
+    FileInterceptor('image', {
+      limits: { fileSize: 10 * 1024 * 1024 },
+      fileFilter: (_request, file, callback) => {
+        const supportedMimeTypes = ['image/jpeg', 'image/png', 'image/webp'];
+        if (!supportedMimeTypes.includes(file.mimetype)) {
+          callback(new BadRequestException('JPEG, PNG, WebP 이미지만 업로드할 수 있습니다.'), false);
+          return;
+        }
+        callback(null, true);
+      },
+    }),
+  )
   async imageQuestion(
     @CurrentUser() user: CurrentUserPayload,
     @Param('sessionId') sessionId: string,
     @UploadedFile() file: Express.Multer.File,
   ) {
+    if (!file) throw new BadRequestException('이미지 파일이 필요합니다.');
+
     return this.chatService.processImageQuestion(
       user.id,
       sessionId,
       file.buffer,
+      file.mimetype,
     );
   }
 
   @Get('images/:filename')
+  @Public()
   getImage(@Param('filename') filename: string, @Res() res: Response) {
     const url = this.imageUploadService.getPublicUrl(filename);
+    // The image request starts on the frontend origin and redirects to Supabase.
+    // Override Helmet's default same-origin policy for this public image resource.
+    res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin');
     return res.redirect(url);
   }
 

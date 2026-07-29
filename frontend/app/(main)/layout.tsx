@@ -2,12 +2,13 @@
 
 import { useEffect } from 'react';
 import { Outlet, useNavigate } from 'react-router';
-import { HStack } from '@shared/ui/HStack';
-import { VStack } from '@shared/ui/VStack';
+import { HStack } from '@/components/general/HStack';
+import { VStack } from '@/components/general/VStack';
 import { Sidebar } from '@shared/ui/Sidebar';
 import { useAuth } from '@shared/contexts/AuthContext';
+import { EntranceNoticeModal } from '@widgets/EntranceNoticeModal';
 import s from './layout.module.scss';
-import { SPACING } from '@shared/constants/spacing';
+import { SPACING } from '@/constants/spacing';
 
 export default function MainLayout() {
   const { user, isLoading } = useAuth();
@@ -28,6 +29,7 @@ export default function MainLayout() {
       <VStack gap={SPACING.s16} className={s.mainContent} style={{ padding: SPACING.s24 }} fullHeight>
         <Outlet />
       </VStack>
+      <EntranceNoticeModal userId={user.id} />
     </HStack>
   );
 }

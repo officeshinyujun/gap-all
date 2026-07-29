@@ -15,6 +15,7 @@ import { ChatModule } from './chat/chat.module';
 import { AdminModule } from './admin/admin.module';
 import { NotificationsModule } from './notifications/notifications.module';
 import { SupabaseModule } from './supabase/supabase.module';
+import { ReportsModule } from './reports/reports.module';
 import { User } from './entities/user.entity';
 import { RefreshToken } from './entities/refresh-token.entity';
 import { Subject } from './entities/subject.entity';
@@ -109,6 +110,7 @@ import { QuestionSeenRecord } from './entities/question-seen-record.entity';
     AdminModule,
     NotificationsModule,
     SupabaseModule,
+    ReportsModule,
   ],
   providers: [
     {
