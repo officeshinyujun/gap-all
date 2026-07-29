@@ -1,4 +1,12 @@
 import { API_BASE_URL } from './auth';
+import {
+  fetchWithClientCache,
+  invalidateClientCache,
+  invalidateClientCachePrefix,
+} from './clientCache';
+
+const USER_STUDY_TTL_MS = 30_000;
+const CONTENT_TTL_MS = 60 * 60 * 1_000;
 
 async function apiFetch<T>(path: string, options?: RequestInit): Promise<T> {
   const res = await fetch(`${API_BASE_URL}${path}`, {
@@ -51,12 +59,20 @@ export interface UnitConceptsResponse {
 export async function fetchUnitsWithProgress(
   subjectSlug: string,
 ): Promise<UnitsWithProgressResponse> {
-  return apiFetch<UnitsWithProgressResponse>(`/study/${subjectSlug}/units`);
+  return fetchWithClientCache(
+    `study:units:${subjectSlug}`,
+    USER_STUDY_TTL_MS,
+    () => apiFetch<UnitsWithProgressResponse>(`/study/${subjectSlug}/units`),
+  );
 }
 
 // GET /study/streak — 현재 유저의 스트릭 일수
 export async function fetchStreak(): Promise<StreakResponse> {
-  return apiFetch<StreakResponse>('/study/streak');
+  return fetchWithClientCache(
+    'study:streak',
+    USER_STUDY_TTL_MS,
+    () => apiFetch<StreakResponse>('/study/streak'),
+  );
 }
 
 // GET /exams/concepts — 단원 핵심 개념 목록 (태그용, 인증 불필요)
@@ -64,17 +80,28 @@ export async function fetchUnitConcepts(
   subjectSlug: string,
   unitNumber: number,
 ): Promise<string[]> {
-  try {
-    const res = await fetch(
-      `${API_BASE_URL}/exams/concepts?subjectSlug=${subjectSlug}&startUnitNum=${unitNumber}&endUnitNum=${unitNumber}`,
-      { headers: { 'Content-Type': 'application/json' } },
-    );
-    if (!res.ok) return [];
-    const data: UnitConceptsResponse[] = await res.json();
-    return data[0]?.concepts ?? [];
-  } catch {
-    return [];
+  return fetchWithClientCache(
+    `content:concepts:${subjectSlug}:${unitNumber}`,
+    CONTENT_TTL_MS,
+    async () => {
+      const res = await fetch(
+        `${API_BASE_URL}/exams/concepts?subjectSlug=${subjectSlug}&startUnitNum=${unitNumber}&endUnitNum=${unitNumber}`,
+        { headers: { 'Content-Type': 'application/json' } },
+      );
+      if (!res.ok) throw new Error(`API 오류: ${res.status}`);
+      const data: UnitConceptsResponse[] = await res.json();
+      return data[0]?.concepts ?? [];
+    },
+  ).catch(() => []);
+}
+
+export function invalidateStudyCache(subjectSlug?: string): void {
+  if (subjectSlug) {
+    invalidateClientCache(`study:units:${subjectSlug}`);
+  } else {
+    invalidateClientCachePrefix('study:units:');
   }
+  invalidateClientCache('study:streak');
 }
 
 // GET /study/:subjectSlug/units → unitNumber로 unitId 조회

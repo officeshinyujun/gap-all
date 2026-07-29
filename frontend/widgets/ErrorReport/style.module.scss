@@ -133,7 +133,7 @@
 @media (max-width: 768px) {
   .trigger {
     right: $spacing-16;
-    bottom: calc($spacing-16 + env(safe-area-inset-bottom));
+    bottom: calc(64px + $spacing-16 + env(safe-area-inset-bottom));
   }
 
   .overlay {

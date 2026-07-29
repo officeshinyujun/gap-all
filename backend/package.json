@@ -28,10 +28,12 @@
     "test:reference-live": "node -r ts-node/register scripts/reference-live-qa.ts",
     "audit:simply-reference-history": "node -r ts-node/register scripts/audit-simply-reference-history.ts",
     "backfill:reference-answer-keys": "node -r ts-node/register scripts/backfill-reference-answer-keys.ts",
+    "sync:reference-answer-keys": "node -r ts-node/register scripts/sync-reference-answer-keys.ts",
     "repair:reference-context": "node -r ts-node/register scripts/repair-reference-context.ts",
     "fix:reference-unit-concepts": "node -r ts-node/register scripts/fix-reference-unit-concepts.ts",
     "preflight:reference-catalog": "node -r ts-node/register scripts/reference-catalog-preflight.ts",
     "preflight:reference-catalog:markdown": "node -r ts-node/register scripts/reference-catalog-preflight.ts --format=markdown",
+    "plan:reference-catalog-legacy-migration": "node -r ts-node/register scripts/plan-reference-catalog-legacy-migration.ts",
     "seed:textbook:local": "node -r ts-node/register scripts/seed-local-textbook.ts",
     "migrate:sungjik-summations": "node -r ts-node/register scripts/migrate-missing-sungjik-summations.ts",
     "migrate:concept-question-data": "node -r ts-node/register scripts/migrate-concept-question-data-to-supabase.ts"

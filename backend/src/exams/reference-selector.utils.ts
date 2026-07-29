@@ -37,7 +37,7 @@ export function parseReference(
   const unitNumber = whole(value.source.unitNumber);
   const questionNumber = whole(value.questionNumber);
   const filename = nonEmptyText(value.source.filename);
-  const stem = nonEmptyText(value.stem);
+  const stem = cleanQuestionStem(nonEmptyText(value.stem));
   const rawStimulus =
     typeof value.stimulus === 'string' ? value.stimulus.trim() : null;
   const rawViewItems =
@@ -157,6 +157,26 @@ function extractEmbeddedViewItems(
       .trim(),
     viewItems: block.items,
   };
+}
+
+/**
+ * Removes passage headers (`[16~17]`) and trailing score labels (`[3점]`)
+ * from question stem text so the question is self-contained.
+ *
+ * Also strips the question-number prefix (e.g. `16. `) that the MOI parser
+ * includes when the source exam uses shared-passage numbering.
+ */
+const PASSAGE_HEADER_PATTERN = /^\s*\[\s*\d+\s*[~～-]\s*\d+\s*\][^\n]*\n?/u;
+const SCORE_LABEL_PATTERN = /\s*\[\s*\d+\s*점\s*\]\s*$/u;
+const QUESTION_NUMBER_PATTERN = /^\s*\d+\.\s*/u;
+
+export function cleanQuestionStem(raw: string | null): string | null {
+  if (raw === null) return null;
+  let stem = raw.replace(PASSAGE_HEADER_PATTERN, '');
+  stem = stem.replace(QUESTION_NUMBER_PATTERN, '');
+  stem = stem.replace(SCORE_LABEL_PATTERN, '');
+  const trimmed = stem.trim();
+  return trimmed === '' ? null : trimmed;
 }
 
 export function unitNumberFromName(unitName: string): number | null {

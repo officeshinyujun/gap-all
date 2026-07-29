@@ -170,6 +170,7 @@ describe('ExamsService reference generation persistence', () => {
       source: { sourceId: 'success:1:source.pdf:1', sourceHash: 'hash-1' },
       batchOrdinal: 1,
       selectedTemplate: 'TPL_REGENERATION_REQUIRED',
+      adapterVersion: 0,
       validation: 'passed' as const,
     };
     const service = {

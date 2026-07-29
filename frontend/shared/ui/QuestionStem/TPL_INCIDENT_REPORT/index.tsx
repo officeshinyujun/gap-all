@@ -1,6 +1,6 @@
 import React from 'react';
-import { VStack } from '@/components/general/VStack';
-import { HStack } from '@/components/general/HStack';
+import { VStack } from '@shared/ui/VStack';
+import { HStack } from '@shared/ui/HStack';
 import { StemBox } from '../_shared/StemBox';
 import { StemLabel } from '../_shared/StemLabel';
 import type { TPL_INCIDENT_REPORT } from '@/types/questionstem';

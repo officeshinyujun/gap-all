@@ -1,6 +1,6 @@
 import React from 'react';
 import cs from 'classnames';
-import { HStack } from '@/components/general/HStack';
+import { HStack } from '@shared/ui/HStack';
 import s from './index.module.scss';
 
 export interface PromoBulletProps {

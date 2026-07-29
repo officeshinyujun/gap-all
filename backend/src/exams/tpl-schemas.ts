@@ -65,8 +65,14 @@ function arr(
 function obj(
   properties: Record<string, unknown>,
   required: string[],
+  additionalProperties = false,
 ): Record<string, unknown> {
-  return { type: 'object', properties, required, additionalProperties: false };
+  return {
+    type: 'object',
+    properties,
+    required,
+    additionalProperties,
+  };
 }
 
 const comboBlockSchema = obj(
@@ -543,39 +549,12 @@ const promoCanvasStimulus = obj(
 const articleStimulus = obj(
   {
     title: { ...str(), description: '기사/서사 제목' },
-    source: { ...str(), description: '출처/작성자 (예: "○○일보", "△△연구소")' },
-    published_date: { ...str(), description: '발행일' },
     body_paragraphs: {
-      ...arr(
-        obj(
-          {
-            type: {
-              type: 'string',
-              enum: ['text', 'subheading'],
-              description: '문단 유형 (text: 본문, subheading: 소제목)',
-            },
-            content: { ...str(), description: '문단 내용' },
-          },
-          ['type', 'content'],
-        ),
-        1,
-      ),
-      description: '본문 문단 배열. 순서대로 읽히는 연속적인 글',
-    },
-    key_facts: {
-      ...arr(
-        obj(
-          {
-            label: { ...str(), description: '핵심 사실 레이블' },
-            value: { ...str(), description: '핵심 사실 값/수치' },
-          },
-          ['label', 'value'],
-        ),
-      ),
-      description: '핵심 수치/사실 요약',
+      ...arr(str(), 1),
+      description: '본문 문단 문자열 배열. 각 요소가 하나의 문단',
     },
   },
-  ['title', 'source', 'published_date', 'body_paragraphs', 'key_facts'],
+  ['title', 'body_paragraphs'],
 );
 
 const statisticsStimulus = obj(

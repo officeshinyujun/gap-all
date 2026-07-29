@@ -1,0 +1,2676 @@
+{
+  "format": "reference-catalog-legacy-rename-backup-v1",
+  "createdAt": "2026-07-29T15:58:38.503Z",
+  "rows": [
+    {
+      "id": "01a04e2a-1220-4bae-8765-d9619412916c",
+      "logicalSourceId": "kongil:moi:kongil_2023_9월_모의평가_02 직탐(공업 일반) 문제지.pdf:1",
+      "subject": "kongil"
+    },
+    {
+      "id": "02bc3888-ea7a-44ac-bc00-444c0ffe759b",
+      "logicalSourceId": "sungjik:suteck:성직_6단원_문제.pdf:7",
+      "subject": "sungjik"
+    },
+    {
+      "id": "02dba29c-39db-47c3-978d-82dda245503a",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_9월_모의평가_06 직탐(성공적인 직업생활) 문제지.pdf:7",
+      "subject": "sungjik"
+    },
+    {
+      "id": "02ebe699-5517-42c1-8ed4-0f2f085dc3dc",
+      "logicalSourceId": "sungjik:moi:sungjik_2025_9월_모의평가_01 성공적인 직업생활_문제.pdf:7",
+      "subject": "sungjik"
+    },
+    {
+      "id": "03176762-b5d5-4fe6-b469-3849c66d534c",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_수능_01 성공적인 직업생활_문제.pdf:9",
+      "subject": "sungjik"
+    },
+    {
+      "id": "047136eb-3a3c-4c6b-a72f-62bfa7b28f83",
+      "logicalSourceId": "kongil:moi:kongil_2023_6월_모의평가_03 직탐(공업 일반)_문제.pdf:10",
+      "subject": "kongil"
+    },
+    {
+      "id": "05804a71-ac9d-495a-849b-4b2b247dd152",
+      "logicalSourceId": "kongil:moi:kongil_2022_6월_모의평가_03 4교시_직업탐구영역_공업 일반_문제.pdf:11",
+      "subject": "kongil"
+    },
+    {
+      "id": "05896bfc-5085-4bbc-ae95-4e4d214af93b",
+      "logicalSourceId": "kongil:moi:kongil_2023_수능_02 공업 일반_문제.pdf:14",
+      "subject": "kongil"
+    },
+    {
+      "id": "062aa9c0-3745-417f-9695-1f7030de9f40",
+      "logicalSourceId": "kongil:suteck:공일_20단원_문제.pdf:1",
+      "subject": "kongil"
+    },
+    {
+      "id": "06527105-b5b5-4ee3-9cd9-a25958fda3f4",
+      "logicalSourceId": "sungjik:moi:sungjik_2025_9월_모의평가_01 성공적인 직업생활_문제.pdf:20",
+      "subject": "sungjik"
+    },
+    {
+      "id": "06945703-945c-4223-b559-04d55e80d458",
+      "logicalSourceId": "kongil:moi:kongil_2024_수능_03 공업 일반_문제.pdf:16",
+      "subject": "kongil"
+    },
+    {
+      "id": "078d81a9-a8d0-497c-8060-1b142a29778c",
+      "logicalSourceId": "sungjik:moi:sungjik_2025_9월_모의평가_01 성공적인 직업생활_문제.pdf:15",
+      "subject": "sungjik"
+    },
+    {
+      "id": "07d44b67-fa2c-4d43-9c1d-39cc822d57e9",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_수능_06 성공적인 직업생활_문제.pdf:10",
+      "subject": "sungjik"
+    },
+    {
+      "id": "086c69e8-916d-460e-aa0e-a990818f783b",
+      "logicalSourceId": "kongil:moi:kongil_2021_9월_모의평가_03 직업탐구영역_공업 일반_문제.pdf:19",
+      "subject": "kongil"
+    },
+    {
+      "id": "08e7bd38-913d-40ee-bf16-ba5808dca6e4",
+      "logicalSourceId": "kongil:moi:kongil_2023_6월_모의평가_03 직탐(공업 일반)_문제.pdf:19",
+      "subject": "kongil"
+    },
+    {
+      "id": "08fc88a2-5aeb-4b9f-b637-25662a9c2920",
+      "logicalSourceId": "kongil:moi:kongil_2024_수능_03 공업 일반_문제.pdf:6",
+      "subject": "kongil"
+    },
+    {
+      "id": "098c91b7-47de-45ec-a1a2-7ed4053782c9",
+      "logicalSourceId": "kongil:moi:kongil_2024_수능_03 공업 일반_문제.pdf:17",
+      "subject": "kongil"
+    },
+    {
+      "id": "0a302abd-62c2-4b37-8c76-d5c97eade347",
+      "logicalSourceId": "kongil:moi:kongil_2022_9월_모의평가_03 직탐(공업 일반)_문제.pdf:19",
+      "subject": "kongil"
+    },
+    {
+      "id": "0b2acc65-247d-4f5a-8cad-a98ca8d0d2cd",
+      "logicalSourceId": "kongil:moi:kongil_2023_6월_모의평가_03 직탐(공업 일반)_문제.pdf:13",
+      "subject": "kongil"
+    },
+    {
+      "id": "0b78bcc5-b98f-4c77-80f2-9eb46c15dc70",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_6월_모의평가_01 4교시_직업탐구영역_성공적인 직업생활_문제.pdf:5",
+      "subject": "sungjik"
+    },
+    {
+      "id": "0bb255ab-6a72-4780-98d4-dbf63bf0c5a2",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_6월_모의평가_01 4교시_직업탐구영역_성공적인 직업생활_문제.pdf:19",
+      "subject": "sungjik"
+    },
+    {
+      "id": "0c060f07-e387-4eca-ae62-ee4f1427b87c",
+      "logicalSourceId": "kongil:moi:kongil_2024_6월_모의평가_03 공업 일반_문제지.pdf:5",
+      "subject": "kongil"
+    },
+    {
+      "id": "0c089907-30fc-4284-a3cf-3e004f888d5e",
+      "logicalSourceId": "kongil:moi:kongil_2022_9월_모의평가_03 직탐(공업 일반)_문제.pdf:9",
+      "subject": "kongil"
+    },
+    {
+      "id": "0cdf15e2-1995-4fc4-b05b-ced5e2fe89f4",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_6월_모의평가_01 성공적인 직업생활_문제지.pdf:11",
+      "subject": "sungjik"
+    },
+    {
+      "id": "0d3f3a73-08d5-4db8-bbd4-ff90d5f8b47e",
+      "logicalSourceId": "kongil:moi:kongil_2022_수능_03 직탐(공업 일반)_문제.pdf:3",
+      "subject": "kongil"
+    },
+    {
+      "id": "0d632ca4-d972-4342-bb46-11b65f2298d7",
+      "logicalSourceId": "sungjik:moi:sungjik_2025_6월_모의평가_01 성공적인 직업생활_문제.pdf:13",
+      "subject": "sungjik"
+    },
+    {
+      "id": "0d8095a1-d2ed-41e2-8406-9fb923e57ea8",
+      "logicalSourceId": "kongil:moi:kongil_2022_6월_모의평가_03 4교시_직업탐구영역_공업 일반_문제.pdf:15",
+      "subject": "kongil"
+    },
+    {
+      "id": "0e1cac2a-f51c-4a21-a496-3801e477cff4",
+      "logicalSourceId": "kongil:moi:kongil_2023_수능_02 공업 일반_문제.pdf:2",
+      "subject": "kongil"
+    },
+    {
+      "id": "0e4c805e-709e-43e2-bc2d-8debab0323d8",
+      "logicalSourceId": "kongil:moi:kongil_2025_9월_모의평가_03 공업 일반_문제.pdf:11",
+      "subject": "kongil"
+    },
+    {
+      "id": "0e70babf-4fe7-4817-814b-e28e6ca6460c",
+      "logicalSourceId": "sungjik:moi:sungjik_2025_6월_모의평가_01 성공적인 직업생활_문제.pdf:2",
+      "subject": "sungjik"
+    },
+    {
+      "id": "0e8899bd-5def-4100-91a2-bf1eb59de5ba",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_9월_모의평가_01 직탐(성공적인 직업생활)_문제.pdf:2",
+      "subject": "sungjik"
+    },
+    {
+      "id": "0eb2f489-bfcf-49f2-b9e8-6223c923802f",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_9월_모의평가_01 성공적인 직업생활_문제지.pdf:14",
+      "subject": "sungjik"
+    },
+    {
+      "id": "10317d9a-a802-464d-bd22-9c8cdb6fa1ed",
+      "logicalSourceId": "kongil:moi:kongil_2022_수능_03 직탐(공업 일반)_문제.pdf:2",
+      "subject": "kongil"
+    },
+    {
+      "id": "11192bc4-1951-4a0a-9f8b-80c388722997",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_9월_모의평가_06 직탐(성공적인 직업생활) 문제지.pdf:18",
+      "subject": "sungjik"
+    },
+    {
+      "id": "11ca2e43-1889-4878-ab55-2dea296140a1",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_9월_모의평가_06 직탐(성공적인 직업생활) 문제지.pdf:10",
+      "subject": "sungjik"
+    },
+    {
+      "id": "1327a3a0-6396-4b39-8afa-8dacfc4f9e65",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_6월_모의평가_01 4교시_직업탐구영역_성공적인 직업생활_문제.pdf:13",
+      "subject": "sungjik"
+    },
+    {
+      "id": "135cea1e-4b56-4883-a7d8-a35d27a88d6d",
+      "logicalSourceId": "kongil:moi:kongil_2025_6월_모의평가_03 공업 일반_문제.pdf:10",
+      "subject": "kongil"
+    },
+    {
+      "id": "1365ec85-3f2c-4888-820d-a84e0817f1a6",
+      "logicalSourceId": "kongil:moi:kongil_2023_6월_모의평가_03 직탐(공업 일반)_문제.pdf:4",
+      "subject": "kongil"
+    },
+    {
+      "id": "14af575a-58c9-40c0-af5a-6016004b67ee",
+      "logicalSourceId": "kongil:moi:kongil_2021_9월_모의평가_03 직업탐구영역_공업 일반_문제.pdf:6",
+      "subject": "kongil"
+    },
+    {
+      "id": "14bd5725-e96c-4495-932a-299f2e500c0f",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_6월_모의평가_01 성공적인 직업생활_문제지.pdf:4",
+      "subject": "sungjik"
+    },
+    {
+      "id": "1523ee78-ba02-4b0e-aa26-2e772922fd3c",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_9월_모의평가_01 성공적인 직업생활_문제지.pdf:16",
+      "subject": "sungjik"
+    },
+    {
+      "id": "1621ad61-c5f8-4173-981f-087062882ce1",
+      "logicalSourceId": "kongil:moi:kongil_2025_6월_모의평가_03 공업 일반_문제.pdf:16",
+      "subject": "kongil"
+    },
+    {
+      "id": "174ab1fc-83e9-4c42-ad84-4a1488c6ece7",
+      "logicalSourceId": "kongil:moi:kongil_2025_6월_모의평가_03 공업 일반_문제.pdf:19",
+      "subject": "kongil"
+    },
+    {
+      "id": "1754604b-21dd-41fd-8ee3-e989713d54c9",
+      "logicalSourceId": "kongil:moi:kongil_2022_6월_모의평가_03 4교시_직업탐구영역_공업 일반_문제.pdf:18",
+      "subject": "kongil"
+    },
+    {
+      "id": "1775f2b5-fe10-4fdf-b042-e5595bd0e2bb",
+      "logicalSourceId": "kongil:moi:kongil_2024_수능_03 공업 일반_문제.pdf:19",
+      "subject": "kongil"
+    },
+    {
+      "id": "17b02563-35fd-46fe-80cc-fd8d9ca4a02b",
+      "logicalSourceId": "kongil:moi:kongil_2021_6월_모의평가_03 직업탐구영역_공업 일반_문제.pdf:10",
+      "subject": "kongil"
+    },
+    {
+      "id": "1867635c-5c3f-4c35-b181-a63e7c788b59",
+      "logicalSourceId": "kongil:moi:kongil_2025_9월_모의평가_03 공업 일반_문제.pdf:15",
+      "subject": "kongil"
+    },
+    {
+      "id": "187f774c-1c58-46b0-97aa-fd2d6feb3405",
+      "logicalSourceId": "kongil:moi:kongil_2021_6월_모의평가_03 직업탐구영역_공업 일반_문제.pdf:11",
+      "subject": "kongil"
+    },
+    {
+      "id": "18b2d958-b9f0-4a34-b2a8-9505ea947c16",
+      "logicalSourceId": "kongil:moi:kongil_2024_6월_모의평가_03 공업 일반_문제지.pdf:20",
+      "subject": "kongil"
+    },
+    {
+      "id": "18fad18b-77fd-44ba-b277-cf1fcf77b681",
+      "logicalSourceId": "kongil:moi:kongil_2025_9월_모의평가_03 공업 일반_문제.pdf:6",
+      "subject": "kongil"
+    },
+    {
+      "id": "19cb71fb-ea66-4fca-a5ee-2c8af711cbc6",
+      "logicalSourceId": "kongil:moi:kongil_2023_6월_모의평가_03 직탐(공업 일반)_문제.pdf:6",
+      "subject": "kongil"
+    },
+    {
+      "id": "1aa75533-b249-4dd1-bf8c-fb1ee6b287c0",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_수능_06 성공적인 직업생활_문제.pdf:9",
+      "subject": "sungjik"
+    },
+    {
+      "id": "1ac9cacc-ef34-4e75-a203-437fdb8137d4",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_수능_01 성공적인 직업생활_문제.pdf:20",
+      "subject": "sungjik"
+    },
+    {
+      "id": "1adc3e0c-844b-4748-875c-6504dc8b3a94",
+      "logicalSourceId": "kongil:moi:kongil_2024_9월_모의평가_03 공업 일반_문제지.pdf:9",
+      "subject": "kongil"
+    },
+    {
+      "id": "1b330d18-b45a-4246-ad5a-4c63195c2852",
+      "logicalSourceId": "kongil:moi:kongil_2025_6월_모의평가_03 공업 일반_문제.pdf:2",
+      "subject": "kongil"
+    },
+    {
+      "id": "1b7fc9d8-d8c4-48d9-9b7e-966cfb09a900",
+      "logicalSourceId": "kongil:moi:kongil_2023_6월_모의평가_03 직탐(공업 일반)_문제.pdf:5",
+      "subject": "kongil"
+    },
+    {
+      "id": "1be9552d-f5a8-46b7-99d4-e186975512ff",
+      "logicalSourceId": "sungjik:moi:sungjik_2025_9월_모의평가_01 성공적인 직업생활_문제.pdf:13",
+      "subject": "sungjik"
+    },
+    {
+      "id": "1bf09a17-a949-4a53-879f-c2ba765393f5",
+      "logicalSourceId": "kongil:moi:kongil_2025_9월_모의평가_03 공업 일반_문제.pdf:3",
+      "subject": "kongil"
+    },
+    {
+      "id": "1c61f71a-ffa8-4519-9e92-b62f4f107466",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_6월_모의평가_01 직탐(성공적인 직업생활)_문제.pdf:16",
+      "subject": "sungjik"
+    },
+    {
+      "id": "1c72c2ac-7717-436f-9dee-0f55df91134c",
+      "logicalSourceId": "kongil:moi:kongil_2021_6월_모의평가_03 직업탐구영역_공업 일반_문제.pdf:9",
+      "subject": "kongil"
+    },
+    {
+      "id": "1e016481-ad06-46be-938a-bd9a32c9d7c4",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_6월_모의평가_01 4교시_직업탐구영역_성공적인 직업생활_문제.pdf:20",
+      "subject": "sungjik"
+    },
+    {
+      "id": "1e704b48-aa65-45f8-ba05-5873667d8a5f",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_9월_모의평가_01 직탐(성공적인 직업생활)_문제.pdf:5",
+      "subject": "sungjik"
+    },
+    {
+      "id": "1ee43a5b-610d-4472-90a1-4c3a249a0c14",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_9월_모의평가_01 성공적인 직업생활_문제지.pdf:9",
+      "subject": "sungjik"
+    },
+    {
+      "id": "1fad5bcc-b585-4d20-b3bb-dc4f2c68a546",
+      "logicalSourceId": "kongil:moi:kongil_2025_수능_03 공업 일반_문제지.pdf:4",
+      "subject": "kongil"
+    },
+    {
+      "id": "202855c9-e0fa-484c-b873-8f2b408872c2",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_9월_모의평가_01 직탐(성공적인 직업생활)_문제.pdf:20",
+      "subject": "sungjik"
+    },
+    {
+      "id": "20479ecd-da5d-40f9-9158-7e318cecfaa4",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_수능_01 직탐(성공적인 직업생활)_문제.pdf:13",
+      "subject": "sungjik"
+    },
+    {
+      "id": "20484f08-4d30-4261-be8a-a566342881e0",
+      "logicalSourceId": "kongil:moi:kongil_2021_9월_모의평가_03 직업탐구영역_공업 일반_문제.pdf:5",
+      "subject": "kongil"
+    },
+    {
+      "id": "20b5a81d-b5aa-4daf-8756-6f261cbf6fc6",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_9월_모의평가_06 직탐(성공적인 직업생활) 문제지.pdf:11",
+      "subject": "sungjik"
+    },
+    {
+      "id": "20f483b2-d637-4e4d-ba34-c2d1ab2be549",
+      "logicalSourceId": "sungjik:moi:sungjik_2025_9월_모의평가_01 성공적인 직업생활_문제.pdf:6",
+      "subject": "sungjik"
+    },
+    {
+      "id": "212679b1-6720-474b-8408-07454d6a5d97",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_6월_모의평가_01 성공적인 직업생활_문제지.pdf:16",
+      "subject": "sungjik"
+    },
+    {
+      "id": "21536e3e-25c0-4ebe-aead-a2353ba0c8b0",
+      "logicalSourceId": "kongil:moi:kongil_2025_9월_모의평가_03 공업 일반_문제.pdf:16",
+      "subject": "kongil"
+    },
+    {
+      "id": "2183ee67-9e6d-4a5b-88ac-d2abcf7300c3",
+      "logicalSourceId": "kongil:moi:kongil_2023_9월_모의평가_02 직탐(공업 일반) 문제지.pdf:6",
+      "subject": "kongil"
+    },
+    {
+      "id": "2343ff8f-960d-4222-80b4-234d2a0bb6bf",
+      "logicalSourceId": "kongil:moi:kongil_2025_수능_03 공업 일반_문제지.pdf:18",
+      "subject": "kongil"
+    },
+    {
+      "id": "2435ebcc-2da4-412b-aaa7-f6fb3cd656db",
+      "logicalSourceId": "kongil:moi:kongil_2021_수능_03 직탐(공업 일반).pdf:3",
+      "subject": "kongil"
+    },
+    {
+      "id": "24a0ae49-0eb2-454c-b0aa-6568bea571cb",
+      "logicalSourceId": "kongil:moi:kongil_2025_6월_모의평가_03 공업 일반_문제.pdf:11",
+      "subject": "kongil"
+    },
+    {
+      "id": "270a7cfd-b18c-4bcf-a455-4a362009b3eb",
+      "logicalSourceId": "kongil:moi:kongil_2022_9월_모의평가_03 직탐(공업 일반)_문제.pdf:14",
+      "subject": "kongil"
+    },
+    {
+      "id": "270e92c5-153f-4bda-8a89-5f189f4e90ba",
+      "logicalSourceId": "kongil:moi:kongil_2022_6월_모의평가_03 4교시_직업탐구영역_공업 일반_문제.pdf:4",
+      "subject": "kongil"
+    },
+    {
+      "id": "27235b56-3c0d-4b27-929b-d603eb4ed483",
+      "logicalSourceId": "kongil:moi:kongil_2025_수능_03 공업 일반_문제지.pdf:1",
+      "subject": "kongil"
+    },
+    {
+      "id": "2791d44a-2b7a-4a5e-b05e-96fb9ba558d5",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_수능_01 성공적인 직업생활_문제.pdf:17",
+      "subject": "sungjik"
+    },
+    {
+      "id": "27d59531-ad55-48c4-a125-f114e19c3bfa",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_9월_모의평가_01 성공적인 직업생활_문제지.pdf:8",
+      "subject": "sungjik"
+    },
+    {
+      "id": "27dc50d8-833a-4e95-ac78-8d0614e1daa8",
+      "logicalSourceId": "kongil:moi:kongil_2023_수능_02 공업 일반_문제.pdf:9",
+      "subject": "kongil"
+    },
+    {
+      "id": "27e6940c-a483-42f8-8e04-7f4307e3b12d",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_수능_01 성공적인 직업생활_문제.pdf:11",
+      "subject": "sungjik"
+    },
+    {
+      "id": "2970d130-b810-4b38-85c1-395ed2a43f4f",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_9월_모의평가_06 직탐(성공적인 직업생활) 문제지.pdf:17",
+      "subject": "sungjik"
+    },
+    {
+      "id": "29b99bbd-5096-4a95-8065-19da5765791c",
+      "logicalSourceId": "kongil:moi:kongil_2023_9월_모의평가_02 직탐(공업 일반) 문제지.pdf:8",
+      "subject": "kongil"
+    },
+    {
+      "id": "29ec6700-d2a3-472f-b62c-cfea2aff52f2",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_6월_모의평가_01 성공적인 직업생활_문제지.pdf:18",
+      "subject": "sungjik"
+    },
+    {
+      "id": "2ad1e623-bc53-4134-8705-6e7a85524080",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_6월_모의평가_01 직탐(성공적인 직업생활)_문제.pdf:17",
+      "subject": "sungjik"
+    },
+    {
+      "id": "2c22ef26-1fe4-4c23-b2fb-6258f75591d6",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_9월_모의평가_01 성공적인 직업생활_문제지.pdf:6",
+      "subject": "sungjik"
+    },
+    {
+      "id": "2c32e713-6a7a-4975-8ccf-64fd78d5c245",
+      "logicalSourceId": "kongil:moi:kongil_2021_9월_모의평가_03 직업탐구영역_공업 일반_문제.pdf:18",
+      "subject": "kongil"
+    },
+    {
+      "id": "2c68a848-ab41-426b-b7e6-94b9066920ac",
+      "logicalSourceId": "kongil:moi:kongil_2021_수능_03 직탐(공업 일반).pdf:15",
+      "subject": "kongil"
+    },
+    {
+      "id": "2d52b26a-d4a7-4ca0-8c59-6c949211b675",
+      "logicalSourceId": "kongil:suteck:공일_20단원_문제.pdf:2",
+      "subject": "kongil"
+    },
+    {
+      "id": "2d587d14-d2b3-4a79-96bc-1a25db6dbff8",
+      "logicalSourceId": "kongil:moi:kongil_2023_수능_02 공업 일반_문제.pdf:10",
+      "subject": "kongil"
+    },
+    {
+      "id": "2dfb05ca-e4b9-46fb-8de1-d30d109347a8",
+      "logicalSourceId": "kongil:moi:kongil_2025_수능_03 공업 일반_문제지.pdf:19",
+      "subject": "kongil"
+    },
+    {
+      "id": "2ec7fdda-03c0-4fba-81e6-68819d1d8af6",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_6월_모의평가_01 4교시_직업탐구영역_성공적인 직업생활_문제.pdf:1",
+      "subject": "sungjik"
+    },
+    {
+      "id": "2f171f7e-1573-4787-aa9f-3932113a5d01",
+      "logicalSourceId": "kongil:moi:kongil_2021_9월_모의평가_03 직업탐구영역_공업 일반_문제.pdf:14",
+      "subject": "kongil"
+    },
+    {
+      "id": "3020c524-0bfc-43cf-9159-40baa8be4caa",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_6월_모의평가_01 직탐(성공적인 직업생활)_문제.pdf:10",
+      "subject": "sungjik"
+    },
+    {
+      "id": "309854ed-1f92-4574-89ca-82eea9aaf825",
+      "logicalSourceId": "sungjik:suteck:성직_6단원_문제.pdf:3",
+      "subject": "sungjik"
+    },
+    {
+      "id": "31976e58-29b3-4076-9b76-9bd9802601b9",
+      "logicalSourceId": "kongil:moi:kongil_2022_6월_모의평가_03 4교시_직업탐구영역_공업 일반_문제.pdf:1",
+      "subject": "kongil"
+    },
+    {
+      "id": "319bf53f-abff-4b68-b442-8eb5d87863a2",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_9월_모의평가_01 직탐(성공적인 직업생활)_문제.pdf:12",
+      "subject": "sungjik"
+    },
+    {
+      "id": "3217382e-7abc-4ce7-9601-8d3457f567a6",
+      "logicalSourceId": "kongil:moi:kongil_2024_6월_모의평가_03 공업 일반_문제지.pdf:8",
+      "subject": "kongil"
+    },
+    {
+      "id": "322abf9b-27c2-439e-a690-a2e5cebcac85",
+      "logicalSourceId": "kongil:moi:kongil_2024_6월_모의평가_03 공업 일반_문제지.pdf:19",
+      "subject": "kongil"
+    },
+    {
+      "id": "322f7b3d-c641-4533-8aed-936cacd235a3",
+      "logicalSourceId": "kongil:moi:kongil_2024_9월_모의평가_03 공업 일반_문제지.pdf:1",
+      "subject": "kongil"
+    },
+    {
+      "id": "32972b31-557a-4588-9e65-cfbd809b9b64",
+      "logicalSourceId": "kongil:moi:kongil_2025_수능_03 공업 일반_문제지.pdf:12",
+      "subject": "kongil"
+    },
+    {
+      "id": "3299271d-7bc7-423b-ba1d-167fb0693419",
+      "logicalSourceId": "kongil:moi:kongil_2024_수능_03 공업 일반_문제.pdf:4",
+      "subject": "kongil"
+    },
+    {
+      "id": "32eaabad-7546-4c98-b130-f7c948b91760",
+      "logicalSourceId": "kongil:moi:kongil_2021_9월_모의평가_03 직업탐구영역_공업 일반_문제.pdf:7",
+      "subject": "kongil"
+    },
+    {
+      "id": "33fc7d56-413f-42b6-b410-287442574cec",
+      "logicalSourceId": "kongil:moi:kongil_2021_6월_모의평가_03 직업탐구영역_공업 일반_문제.pdf:18",
+      "subject": "kongil"
+    },
+    {
+      "id": "34001961-8087-49e2-82c5-805b83165ad8",
+      "logicalSourceId": "kongil:suteck:공일_19단원_문제.pdf:10",
+      "subject": "kongil"
+    },
+    {
+      "id": "347be5fa-9b50-44a8-bca5-188ceee982ac",
+      "logicalSourceId": "kongil:moi:kongil_2025_9월_모의평가_03 공업 일반_문제.pdf:1",
+      "subject": "kongil"
+    },
+    {
+      "id": "3526ecb9-17c1-481c-b55a-0b0d25e75545",
+      "logicalSourceId": "kongil:moi:kongil_2022_9월_모의평가_03 직탐(공업 일반)_문제.pdf:3",
+      "subject": "kongil"
+    },
+    {
+      "id": "35a3ee02-af44-4e00-88bd-37ddc6d66c57",
+      "logicalSourceId": "kongil:moi:kongil_2023_수능_02 공업 일반_문제.pdf:11",
+      "subject": "kongil"
+    },
+    {
+      "id": "36451af4-8c08-47cf-a81d-f10ea3bdcb62",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_수능_01 직탐(성공적인 직업생활)_문제.pdf:3",
+      "subject": "sungjik"
+    },
+    {
+      "id": "364a9932-4377-4896-a660-cc32d65f189b",
+      "logicalSourceId": "sungjik:moi:sungjik_2025_6월_모의평가_01 성공적인 직업생활_문제.pdf:1",
+      "subject": "sungjik"
+    },
+    {
+      "id": "36e0347c-1062-4224-846a-22c35559041d",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_6월_모의평가_01 직탐(성공적인 직업생활)_문제.pdf:18",
+      "subject": "sungjik"
+    },
+    {
+      "id": "36f1967d-8881-4a01-bf1e-c9288cfeba86",
+      "logicalSourceId": "kongil:moi:kongil_2023_6월_모의평가_03 직탐(공업 일반)_문제.pdf:2",
+      "subject": "kongil"
+    },
+    {
+      "id": "380fd7b4-3902-4848-a832-7fc10b33a275",
+      "logicalSourceId": "kongil:moi:kongil_2025_수능_03 공업 일반_문제지.pdf:6",
+      "subject": "kongil"
+    },
+    {
+      "id": "39c594be-e63a-4954-8d9a-ba2120d6c5c2",
+      "logicalSourceId": "kongil:moi:kongil_2024_수능_03 공업 일반_문제.pdf:5",
+      "subject": "kongil"
+    },
+    {
+      "id": "3a18557d-3cab-4e24-ac73-724f5c1757ab",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_9월_모의평가_01 직탐(성공적인 직업생활)_문제.pdf:10",
+      "subject": "sungjik"
+    },
+    {
+      "id": "3ab76dce-d618-4434-8a5a-31d6b58557bc",
+      "logicalSourceId": "kongil:moi:kongil_2024_6월_모의평가_03 공업 일반_문제지.pdf:9",
+      "subject": "kongil"
+    },
+    {
+      "id": "3ad2e3be-3c30-474e-a253-4c2f29e26319",
+      "logicalSourceId": "kongil:moi:kongil_2022_수능_03 직탐(공업 일반)_문제.pdf:14",
+      "subject": "kongil"
+    },
+    {
+      "id": "3af05b57-803a-4e8b-8d5d-90bce79826d5",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_6월_모의평가_01 직탐(성공적인 직업생활)_문제.pdf:4",
+      "subject": "sungjik"
+    },
+    {
+      "id": "3b5f297a-dcae-49db-9eb6-0022874018da",
+      "logicalSourceId": "kongil:suteck:공일_19단원_문제.pdf:4",
+      "subject": "kongil"
+    },
+    {
+      "id": "3c2a7e21-8763-4175-bb43-440ccca010b2",
+      "logicalSourceId": "kongil:moi:kongil_2021_수능_03 직탐(공업 일반).pdf:2",
+      "subject": "kongil"
+    },
+    {
+      "id": "3c38f012-c248-4bb5-907b-2efbf549400c",
+      "logicalSourceId": "kongil:moi:kongil_2025_수능_03 공업 일반_문제지.pdf:14",
+      "subject": "kongil"
+    },
+    {
+      "id": "3c93b593-7ca7-4d29-beda-930b195c7c3e",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_9월_모의평가_06 직탐(성공적인 직업생활) 문제지.pdf:14",
+      "subject": "sungjik"
+    },
+    {
+      "id": "3cedbbd6-1fd2-4561-bf23-a9c52a759433",
+      "logicalSourceId": "kongil:moi:kongil_2022_6월_모의평가_03 4교시_직업탐구영역_공업 일반_문제.pdf:8",
+      "subject": "kongil"
+    },
+    {
+      "id": "3df6a3eb-ce60-4800-bbb4-dbde8fc21966",
+      "logicalSourceId": "kongil:moi:kongil_2021_6월_모의평가_03 직업탐구영역_공업 일반_문제.pdf:13",
+      "subject": "kongil"
+    },
+    {
+      "id": "3e3a89bc-f23d-40e6-8cdd-088bfba6b7d6",
+      "logicalSourceId": "kongil:suteck:공일_20단원_문제.pdf:4",
+      "subject": "kongil"
+    },
+    {
+      "id": "3e6557f3-dac1-436e-8147-ab7a64b1ffd0",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_수능_01 성공적인 직업생활_문제.pdf:2",
+      "subject": "sungjik"
+    },
+    {
+      "id": "3e8636f6-7d4a-49d4-b497-7cb7622fbf5c",
+      "logicalSourceId": "kongil:moi:kongil_2023_6월_모의평가_03 직탐(공업 일반)_문제.pdf:20",
+      "subject": "kongil"
+    },
+    {
+      "id": "3ee9860a-bbba-4906-9f50-a7212aa042e2",
+      "logicalSourceId": "kongil:moi:kongil_2025_9월_모의평가_03 공업 일반_문제.pdf:4",
+      "subject": "kongil"
+    },
+    {
+      "id": "3f2033a3-d272-447d-bdb1-5b10589e4c57",
+      "logicalSourceId": "kongil:moi:kongil_2023_수능_02 공업 일반_문제.pdf:19",
+      "subject": "kongil"
+    },
+    {
+      "id": "3fd1c3bb-736c-47e4-9f8b-f5b517b1d7c0",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_수능_01 성공적인 직업생활_문제.pdf:15",
+      "subject": "sungjik"
+    },
+    {
+      "id": "41ea3349-73b4-4203-8644-6be522ddd9d0",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_9월_모의평가_06 직탐(성공적인 직업생활) 문제지.pdf:4",
+      "subject": "sungjik"
+    },
+    {
+      "id": "4354355e-a60d-4e3f-a424-12eaf6ad3f51",
+      "logicalSourceId": "kongil:moi:kongil_2022_수능_03 직탐(공업 일반)_문제.pdf:9",
+      "subject": "kongil"
+    },
+    {
+      "id": "43a7bffd-e52b-4636-8ef1-9ee3ca89fe2c",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_수능_01 직탐(성공적인 직업생활)_문제.pdf:15",
+      "subject": "sungjik"
+    },
+    {
+      "id": "43fbcdf2-04d2-4739-9528-09bdac401629",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_9월_모의평가_01 직탐(성공적인 직업생활)_문제.pdf:16",
+      "subject": "sungjik"
+    },
+    {
+      "id": "44880eb9-715a-4225-99a8-53fbe4d319de",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_6월_모의평가_01 성공적인 직업생활_문제지.pdf:3",
+      "subject": "sungjik"
+    },
+    {
+      "id": "44b0cb42-12b3-43c7-b6f0-6492d7d75ac4",
+      "logicalSourceId": "kongil:moi:kongil_2023_수능_02 공업 일반_문제.pdf:3",
+      "subject": "kongil"
+    },
+    {
+      "id": "46a2f4a6-e3b5-458c-a126-e945cf0fb0b5",
+      "logicalSourceId": "sungjik:moi:sungjik_2025_6월_모의평가_01 성공적인 직업생활_문제.pdf:20",
+      "subject": "sungjik"
+    },
+    {
+      "id": "4762d697-951e-4bc5-87f5-2bf65a66ffb7",
+      "logicalSourceId": "kongil:moi:kongil_2021_6월_모의평가_03 직업탐구영역_공업 일반_문제.pdf:7",
+      "subject": "kongil"
+    },
+    {
+      "id": "4793d0d4-7d01-4c20-96a2-d270f89fd2c3",
+      "logicalSourceId": "kongil:moi:kongil_2025_9월_모의평가_03 공업 일반_문제.pdf:10",
+      "subject": "kongil"
+    },
+    {
+      "id": "47e2f565-56a3-4ae1-81a9-aa0ed8f22a52",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_수능_01 직탐(성공적인 직업생활)_문제.pdf:1",
+      "subject": "sungjik"
+    },
+    {
+      "id": "48019038-a3f3-4de7-858a-33b335cd6ab6",
+      "logicalSourceId": "kongil:moi:kongil_2022_수능_03 직탐(공업 일반)_문제.pdf:6",
+      "subject": "kongil"
+    },
+    {
+      "id": "48b140bd-fa27-4a5b-be70-0468561cbe90",
+      "logicalSourceId": "kongil:suteck:공일_7단원_문제.pdf:10",
+      "subject": "kongil"
+    },
+    {
+      "id": "491d756a-d2df-4dd1-9897-82a053099b7d",
+      "logicalSourceId": "kongil:moi:kongil_2023_6월_모의평가_03 직탐(공업 일반)_문제.pdf:3",
+      "subject": "kongil"
+    },
+    {
+      "id": "4a0c663f-9384-42c7-8382-0b57b065bad8",
+      "logicalSourceId": "kongil:moi:kongil_2022_6월_모의평가_03 4교시_직업탐구영역_공업 일반_문제.pdf:14",
+      "subject": "kongil"
+    },
+    {
+      "id": "4a735ad2-de18-4266-b37d-b6aa289d22ce",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_9월_모의평가_06 직탐(성공적인 직업생활) 문제지.pdf:13",
+      "subject": "sungjik"
+    },
+    {
+      "id": "4ae8648a-dfd2-411f-871d-e9f3067ccddf",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_6월_모의평가_01 직탐(성공적인 직업생활)_문제.pdf:5",
+      "subject": "sungjik"
+    },
+    {
+      "id": "4aea8990-1233-42c9-91ac-78a6b7eed52a",
+      "logicalSourceId": "sungjik:moi:sungjik_2025_9월_모의평가_01 성공적인 직업생활_문제.pdf:17",
+      "subject": "sungjik"
+    },
+    {
+      "id": "4b04964a-8f46-4487-8b6f-e569d7d58805",
+      "logicalSourceId": "kongil:moi:kongil_2024_9월_모의평가_03 공업 일반_문제지.pdf:3",
+      "subject": "kongil"
+    },
+    {
+      "id": "4cb6a1ba-cd3b-466b-9f7b-c0f4531e0667",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_9월_모의평가_01 성공적인 직업생활_문제지.pdf:13",
+      "subject": "sungjik"
+    },
+    {
+      "id": "4cbabd99-92a8-440c-ad2f-6d9de663c9e3",
+      "logicalSourceId": "sungjik:moi:sungjik_2025_6월_모의평가_01 성공적인 직업생활_문제.pdf:9",
+      "subject": "sungjik"
+    },
+    {
+      "id": "4d0f6a4e-d69c-4ea4-820d-1a2646a6b900",
+      "logicalSourceId": "kongil:moi:kongil_2025_9월_모의평가_03 공업 일반_문제.pdf:17",
+      "subject": "kongil"
+    },
+    {
+      "id": "4d769d6f-9e8d-4a34-ad24-4f32046c7928",
+      "logicalSourceId": "kongil:moi:kongil_2023_수능_02 공업 일반_문제.pdf:1",
+      "subject": "kongil"
+    },
+    {
+      "id": "4e2a1e96-5301-45d1-8072-186bf7f6d489",
+      "logicalSourceId": "sungjik:moi:sungjik_2025_6월_모의평가_01 성공적인 직업생활_문제.pdf:10",
+      "subject": "sungjik"
+    },
+    {
+      "id": "4e6ae198-1fad-436f-9fc8-17a8b620a6b0",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_6월_모의평가_01 성공적인 직업생활_문제지.pdf:17",
+      "subject": "sungjik"
+    },
+    {
+      "id": "4ea864fa-8242-4c78-85ce-b4d6e80b9859",
+      "logicalSourceId": "kongil:moi:kongil_2025_6월_모의평가_03 공업 일반_문제.pdf:12",
+      "subject": "kongil"
+    },
+    {
+      "id": "4f16cf80-b94b-4b63-a32d-c74a346308eb",
+      "logicalSourceId": "kongil:moi:kongil_2021_수능_03 직탐(공업 일반).pdf:16",
+      "subject": "kongil"
+    },
+    {
+      "id": "4f767708-cf13-4d8b-8369-8c0d5bd61b79",
+      "logicalSourceId": "kongil:moi:kongil_2022_6월_모의평가_03 4교시_직업탐구영역_공업 일반_문제.pdf:3",
+      "subject": "kongil"
+    },
+    {
+      "id": "5089ce02-46c4-4275-a007-09f03e5efe9e",
+      "logicalSourceId": "kongil:moi:kongil_2024_9월_모의평가_03 공업 일반_문제지.pdf:17",
+      "subject": "kongil"
+    },
+    {
+      "id": "50d21300-4266-4d52-bb1c-27bd6a347478",
+      "logicalSourceId": "kongil:moi:kongil_2024_9월_모의평가_03 공업 일반_문제지.pdf:10",
+      "subject": "kongil"
+    },
+    {
+      "id": "51579f18-1572-40ba-9783-ffc9a41b1a7d",
+      "logicalSourceId": "kongil:moi:kongil_2023_6월_모의평가_03 직탐(공업 일반)_문제.pdf:7",
+      "subject": "kongil"
+    },
+    {
+      "id": "5255657d-e1fc-42a2-a487-9031be747e0e",
+      "logicalSourceId": "kongil:moi:kongil_2024_수능_03 공업 일반_문제.pdf:12",
+      "subject": "kongil"
+    },
+    {
+      "id": "52f9a1d8-dd52-4cc1-aaff-4161b1906288",
+      "logicalSourceId": "kongil:moi:kongil_2025_9월_모의평가_03 공업 일반_문제.pdf:18",
+      "subject": "kongil"
+    },
+    {
+      "id": "53105a32-7ba0-4a10-acf5-5f82a6b67abc",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_9월_모의평가_01 직탐(성공적인 직업생활)_문제.pdf:18",
+      "subject": "sungjik"
+    },
+    {
+      "id": "53131a2f-b14b-4a5a-b349-cb5777e63f65",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_9월_모의평가_06 직탐(성공적인 직업생활) 문제지.pdf:15",
+      "subject": "sungjik"
+    },
+    {
+      "id": "531f885d-0f9d-4384-872e-f45dc84f154d",
+      "logicalSourceId": "kongil:moi:kongil_2023_6월_모의평가_03 직탐(공업 일반)_문제.pdf:11",
+      "subject": "kongil"
+    },
+    {
+      "id": "539ded96-b1aa-4a3c-91b6-55bc06918a2b",
+      "logicalSourceId": "sungjik:moi:sungjik_2025_9월_모의평가_01 성공적인 직업생활_문제.pdf:9",
+      "subject": "sungjik"
+    },
+    {
+      "id": "53f7a80a-34ab-49fd-a1e6-ce5b9eff0096",
+      "logicalSourceId": "kongil:moi:kongil_2024_6월_모의평가_03 공업 일반_문제지.pdf:2",
+      "subject": "kongil"
+    },
+    {
+      "id": "5404f574-a044-406f-8cb0-f76263053584",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_6월_모의평가_01 4교시_직업탐구영역_성공적인 직업생활_문제.pdf:8",
+      "subject": "sungjik"
+    },
+    {
+      "id": "5414ada4-aa14-4cf4-938d-31edf75eef84",
+      "logicalSourceId": "kongil:moi:kongil_2024_6월_모의평가_03 공업 일반_문제지.pdf:7",
+      "subject": "kongil"
+    },
+    {
+      "id": "5516697d-f83f-4102-b623-9667c3f06a7f",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_수능_01 직탐(성공적인 직업생활)_문제.pdf:14",
+      "subject": "sungjik"
+    },
+    {
+      "id": "557bf04b-94f2-42b3-92e8-fb3fb65289dd",
+      "logicalSourceId": "kongil:moi:kongil_2024_수능_03 공업 일반_문제.pdf:11",
+      "subject": "kongil"
+    },
+    {
+      "id": "56316e2d-97a7-41a1-90eb-1dbae3735de8",
+      "logicalSourceId": "kongil:moi:kongil_2022_수능_03 직탐(공업 일반)_문제.pdf:10",
+      "subject": "kongil"
+    },
+    {
+      "id": "564e5e96-e8c6-47e2-9a69-2ee8ed507e57",
+      "logicalSourceId": "kongil:moi:kongil_2024_9월_모의평가_03 공업 일반_문제지.pdf:13",
+      "subject": "kongil"
+    },
+    {
+      "id": "56993408-bdb1-4df9-87c3-5ce43a63bb63",
+      "logicalSourceId": "kongil:moi:kongil_2024_수능_03 공업 일반_문제.pdf:18",
+      "subject": "kongil"
+    },
+    {
+      "id": "569de3db-cda4-43f6-beb2-e27b98f762c7",
+      "logicalSourceId": "kongil:suteck:공일_20단원_문제.pdf:3",
+      "subject": "kongil"
+    },
+    {
+      "id": "56d20aad-08a9-4efd-90e0-a43f6b941c64",
+      "logicalSourceId": "kongil:moi:kongil_2023_9월_모의평가_02 직탐(공업 일반) 문제지.pdf:15",
+      "subject": "kongil"
+    },
+    {
+      "id": "570a1815-5687-4857-aead-28870cbafbb9",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_9월_모의평가_01 성공적인 직업생활_문제지.pdf:1",
+      "subject": "sungjik"
+    },
+    {
+      "id": "57208ac8-0576-41aa-a5d5-27edb0931b68",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_9월_모의평가_01 성공적인 직업생활_문제지.pdf:17",
+      "subject": "sungjik"
+    },
+    {
+      "id": "576496e0-e54a-4493-a4b4-54fa1a111427",
+      "logicalSourceId": "kongil:suteck:공일_19단원_문제.pdf:8",
+      "subject": "kongil"
+    },
+    {
+      "id": "578db0db-d090-4a21-a817-37daa50e4a21",
+      "logicalSourceId": "kongil:moi:kongil_2021_6월_모의평가_03 직업탐구영역_공업 일반_문제.pdf:6",
+      "subject": "kongil"
+    },
+    {
+      "id": "57d4b1ba-8abe-4f44-9712-d16af6b01ed7",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_9월_모의평가_01 직탐(성공적인 직업생활)_문제.pdf:11",
+      "subject": "sungjik"
+    },
+    {
+      "id": "58194d83-8b2f-40fd-af71-9e26d49f6949",
+      "logicalSourceId": "kongil:moi:kongil_2025_9월_모의평가_03 공업 일반_문제.pdf:19",
+      "subject": "kongil"
+    },
+    {
+      "id": "58e0a1e5-cd76-4dca-80d3-0ef5a7cf0b75",
+      "logicalSourceId": "kongil:moi:kongil_2023_수능_02 공업 일반_문제.pdf:13",
+      "subject": "kongil"
+    },
+    {
+      "id": "591c40cb-9337-4304-991d-adfc2c0660d8",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_9월_모의평가_01 직탐(성공적인 직업생활)_문제.pdf:19",
+      "subject": "sungjik"
+    },
+    {
+      "id": "5a2258a2-edf0-469f-97dd-e2d6590e1e77",
+      "logicalSourceId": "kongil:moi:kongil_2021_수능_03 직탐(공업 일반).pdf:8",
+      "subject": "kongil"
+    },
+    {
+      "id": "5a24f2d3-6a3b-45f3-bf3a-026c65172de4",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_수능_01 직탐(성공적인 직업생활)_문제.pdf:18",
+      "subject": "sungjik"
+    },
+    {
+      "id": "5a925e6d-3d43-4936-bac1-bfd291142db0",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_6월_모의평가_01 성공적인 직업생활_문제지.pdf:19",
+      "subject": "sungjik"
+    },
+    {
+      "id": "5ac159f0-e8f2-4d44-8217-8b14a93834b7",
+      "logicalSourceId": "kongil:moi:kongil_2025_9월_모의평가_03 공업 일반_문제.pdf:20",
+      "subject": "kongil"
+    },
+    {
+      "id": "5b0a0d11-df5f-435c-8d1c-465534d5e21a",
+      "logicalSourceId": "sungjik:suteck:성직_6단원_문제.pdf:1",
+      "subject": "sungjik"
+    },
+    {
+      "id": "5bd474b5-7a91-4733-b9db-34fdd88b6748",
+      "logicalSourceId": "kongil:moi:kongil_2023_6월_모의평가_03 직탐(공업 일반)_문제.pdf:8",
+      "subject": "kongil"
+    },
+    {
+      "id": "5c05a9b4-507a-40d2-9a85-9deca70dc91a",
+      "logicalSourceId": "kongil:moi:kongil_2023_6월_모의평가_03 직탐(공업 일반)_문제.pdf:15",
+      "subject": "kongil"
+    },
+    {
+      "id": "5c076a29-be46-4ed5-b2d4-63526928b6d1",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_6월_모의평가_01 직탐(성공적인 직업생활)_문제.pdf:2",
+      "subject": "sungjik"
+    },
+    {
+      "id": "5c50147f-e949-4fc2-b588-201ba907b0ca",
+      "logicalSourceId": "kongil:moi:kongil_2022_수능_03 직탐(공업 일반)_문제.pdf:7",
+      "subject": "kongil"
+    },
+    {
+      "id": "5c5e496f-b274-4f9b-98c2-259f771dcfb0",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_수능_06 성공적인 직업생활_문제.pdf:4",
+      "subject": "sungjik"
+    },
+    {
+      "id": "5ca7b9f9-ba8b-4643-80d1-1b3a4e3ecebd",
+      "logicalSourceId": "kongil:moi:kongil_2023_6월_모의평가_03 직탐(공업 일반)_문제.pdf:1",
+      "subject": "kongil"
+    },
+    {
+      "id": "5cd15e6a-d6da-4805-b713-d0a9ad0ebe71",
+      "logicalSourceId": "sungjik:moi:sungjik_2025_6월_모의평가_01 성공적인 직업생활_문제.pdf:7",
+      "subject": "sungjik"
+    },
+    {
+      "id": "5cf192a3-4de6-4cc2-82df-fef191bef5a2",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_9월_모의평가_01 성공적인 직업생활_문제지.pdf:4",
+      "subject": "sungjik"
+    },
+    {
+      "id": "5d895e13-e305-4de6-aa15-e430a0c99ed2",
+      "logicalSourceId": "kongil:moi:kongil_2023_수능_02 공업 일반_문제.pdf:8",
+      "subject": "kongil"
+    },
+    {
+      "id": "5ea959c0-e874-4fe2-82dd-b78fa4e17281",
+      "logicalSourceId": "kongil:moi:kongil_2024_6월_모의평가_03 공업 일반_문제지.pdf:18",
+      "subject": "kongil"
+    },
+    {
+      "id": "5ec29284-8cf3-462c-84b2-388cb7bfc6b5",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_수능_06 성공적인 직업생활_문제.pdf:6",
+      "subject": "sungjik"
+    },
+    {
+      "id": "5ef0dc69-391e-48bf-b6a6-997d259e014d",
+      "logicalSourceId": "sungjik:suteck:성직_6단원_문제.pdf:2",
+      "subject": "sungjik"
+    },
+    {
+      "id": "5f40c995-c2c1-4b6d-b43f-590052976709",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_6월_모의평가_01 직탐(성공적인 직업생활)_문제.pdf:20",
+      "subject": "sungjik"
+    },
+    {
+      "id": "5f76efaf-d5f3-4c10-98bd-f57da85b1869",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_수능_01 직탐(성공적인 직업생활)_문제.pdf:8",
+      "subject": "sungjik"
+    },
+    {
+      "id": "5fcd5135-ce2c-4aaf-9a0e-a9edfe248e6a",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_6월_모의평가_01 성공적인 직업생활_문제지.pdf:7",
+      "subject": "sungjik"
+    },
+    {
+      "id": "5fd339a0-e765-45f1-90ac-f2a8d161fa54",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_수능_01 성공적인 직업생활_문제.pdf:10",
+      "subject": "sungjik"
+    },
+    {
+      "id": "606ecc98-9ca8-4af8-a239-8eba8e129ef3",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_수능_06 성공적인 직업생활_문제.pdf:3",
+      "subject": "sungjik"
+    },
+    {
+      "id": "60d2556f-2b07-45be-bb62-14eb52e11d7d",
+      "logicalSourceId": "sungjik:moi:sungjik_2025_6월_모의평가_01 성공적인 직업생활_문제.pdf:6",
+      "subject": "sungjik"
+    },
+    {
+      "id": "60fe5f08-62de-40e7-b469-ac5aa06c67f7",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_수능_01 직탐(성공적인 직업생활)_문제.pdf:9",
+      "subject": "sungjik"
+    },
+    {
+      "id": "6123eb42-666d-4295-86df-27bdbd5a5899",
+      "logicalSourceId": "kongil:moi:kongil_2025_수능_03 공업 일반_문제지.pdf:5",
+      "subject": "kongil"
+    },
+    {
+      "id": "617bd79c-04e0-4851-b505-d7c8d61865d5",
+      "logicalSourceId": "kongil:moi:kongil_2021_6월_모의평가_03 직업탐구영역_공업 일반_문제.pdf:15",
+      "subject": "kongil"
+    },
+    {
+      "id": "61ca2371-4c5f-4caa-b2a7-52b6e7120edd",
+      "logicalSourceId": "kongil:moi:kongil_2024_9월_모의평가_03 공업 일반_문제지.pdf:20",
+      "subject": "kongil"
+    },
+    {
+      "id": "61cc9dc4-0cb2-4ac0-afd0-9f7c9d73160c",
+      "logicalSourceId": "kongil:moi:kongil_2021_6월_모의평가_03 직업탐구영역_공업 일반_문제.pdf:12",
+      "subject": "kongil"
+    },
+    {
+      "id": "623016ae-57fa-4f90-9d30-e2f34917d3f4",
+      "logicalSourceId": "kongil:moi:kongil_2023_수능_02 공업 일반_문제.pdf:7",
+      "subject": "kongil"
+    },
+    {
+      "id": "6232665b-74ba-4990-87e2-3c8e39efec07",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_9월_모의평가_01 직탐(성공적인 직업생활)_문제.pdf:3",
+      "subject": "sungjik"
+    },
+    {
+      "id": "64836e96-9870-48d4-be92-597507723195",
+      "logicalSourceId": "kongil:moi:kongil_2025_수능_03 공업 일반_문제지.pdf:8",
+      "subject": "kongil"
+    },
+    {
+      "id": "64dc50ff-1508-4e9c-96ef-664f65314acb",
+      "logicalSourceId": "kongil:moi:kongil_2025_6월_모의평가_03 공업 일반_문제.pdf:13",
+      "subject": "kongil"
+    },
+    {
+      "id": "6516b838-50ef-4334-be34-9e35cb066b2d",
+      "logicalSourceId": "kongil:moi:kongil_2021_수능_03 직탐(공업 일반).pdf:17",
+      "subject": "kongil"
+    },
+    {
+      "id": "653ce4af-284e-4e92-a2ae-a5f27b85fb0f",
+      "logicalSourceId": "kongil:moi:kongil_2021_9월_모의평가_03 직업탐구영역_공업 일반_문제.pdf:16",
+      "subject": "kongil"
+    },
+    {
+      "id": "661c6dc1-4b49-4e38-914c-d3f26f6d1274",
+      "logicalSourceId": "kongil:moi:kongil_2021_6월_모의평가_03 직업탐구영역_공업 일반_문제.pdf:16",
+      "subject": "kongil"
+    },
+    {
+      "id": "66d44d33-2234-471a-a3cf-ac1595ac81cb",
+      "logicalSourceId": "kongil:moi:kongil_2021_수능_03 직탐(공업 일반).pdf:19",
+      "subject": "kongil"
+    },
+    {
+      "id": "66f4acb3-651e-4710-b7c8-7f258a0669f0",
+      "logicalSourceId": "kongil:moi:kongil_2025_6월_모의평가_03 공업 일반_문제.pdf:9",
+      "subject": "kongil"
+    },
+    {
+      "id": "6ae42e13-4ca9-4e89-8906-6f8c11bedf66",
+      "logicalSourceId": "kongil:moi:kongil_2024_9월_모의평가_03 공업 일반_문제지.pdf:6",
+      "subject": "kongil"
+    },
+    {
+      "id": "6bca788e-b8c8-48f6-a524-773953fab529",
+      "logicalSourceId": "kongil:moi:kongil_2025_수능_03 공업 일반_문제지.pdf:10",
+      "subject": "kongil"
+    },
+    {
+      "id": "6bd54a8b-fc0b-444b-9cbc-e316b531dccb",
+      "logicalSourceId": "kongil:moi:kongil_2023_수능_02 공업 일반_문제.pdf:20",
+      "subject": "kongil"
+    },
+    {
+      "id": "6be2d20d-5e98-4c18-b399-1f10ab69d3f1",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_수능_06 성공적인 직업생활_문제.pdf:1",
+      "subject": "sungjik"
+    },
+    {
+      "id": "6c615e28-583d-4eb9-8532-89d480542c00",
+      "logicalSourceId": "kongil:moi:kongil_2023_수능_02 공업 일반_문제.pdf:16",
+      "subject": "kongil"
+    },
+    {
+      "id": "6e26fe40-e511-4a4f-9c63-c22c45be1754",
+      "logicalSourceId": "kongil:moi:kongil_2022_6월_모의평가_03 4교시_직업탐구영역_공업 일반_문제.pdf:9",
+      "subject": "kongil"
+    },
+    {
+      "id": "6e629d4d-fc39-4cc2-9eff-ccaf10b0ee44",
+      "logicalSourceId": "kongil:moi:kongil_2022_수능_03 직탐(공업 일반)_문제.pdf:1",
+      "subject": "kongil"
+    },
+    {
+      "id": "6f5eb66d-d3ad-46c4-9994-829d5e932f22",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_수능_01 성공적인 직업생활_문제.pdf:8",
+      "subject": "sungjik"
+    },
+    {
+      "id": "6fc062bb-8f1d-4ba9-9262-4ab3ab041df9",
+      "logicalSourceId": "kongil:moi:kongil_2021_9월_모의평가_03 직업탐구영역_공업 일반_문제.pdf:2",
+      "subject": "kongil"
+    },
+    {
+      "id": "6fefe996-00bc-4961-9888-a9485f66921b",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_수능_01 직탐(성공적인 직업생활)_문제.pdf:20",
+      "subject": "sungjik"
+    },
+    {
+      "id": "708400cd-feb9-4840-8ca4-38b442514aa6",
+      "logicalSourceId": "kongil:moi:kongil_2022_6월_모의평가_03 4교시_직업탐구영역_공업 일반_문제.pdf:7",
+      "subject": "kongil"
+    },
+    {
+      "id": "722167a1-9081-4151-93e7-1f66c7b328d3",
+      "logicalSourceId": "kongil:moi:kongil_2022_6월_모의평가_03 4교시_직업탐구영역_공업 일반_문제.pdf:20",
+      "subject": "kongil"
+    },
+    {
+      "id": "728bcac7-fe7e-483f-87ea-5fff5414f382",
+      "logicalSourceId": "kongil:moi:kongil_2023_6월_모의평가_03 직탐(공업 일반)_문제.pdf:12",
+      "subject": "kongil"
+    },
+    {
+      "id": "732ed828-c687-4a59-bf2c-bfa16daf5e15",
+      "logicalSourceId": "kongil:moi:kongil_2023_9월_모의평가_02 직탐(공업 일반) 문제지.pdf:19",
+      "subject": "kongil"
+    },
+    {
+      "id": "74fd6d9b-4c2d-4aa8-a043-7dd3cfd5f609",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_9월_모의평가_01 성공적인 직업생활_문제지.pdf:18",
+      "subject": "sungjik"
+    },
+    {
+      "id": "7704d7ee-5c23-4198-9501-7307567d37c0",
+      "logicalSourceId": "kongil:moi:kongil_2024_수능_03 공업 일반_문제.pdf:13",
+      "subject": "kongil"
+    },
+    {
+      "id": "77266f9a-bd41-4d51-9652-7eb0e8f3e8a1",
+      "logicalSourceId": "kongil:moi:kongil_2024_6월_모의평가_03 공업 일반_문제지.pdf:15",
+      "subject": "kongil"
+    },
+    {
+      "id": "7798384f-527b-4602-9968-3780ebe8c7f1",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_6월_모의평가_01 성공적인 직업생활_문제지.pdf:2",
+      "subject": "sungjik"
+    },
+    {
+      "id": "786daaba-662c-4db2-b2a5-47607806d52a",
+      "logicalSourceId": "kongil:moi:kongil_2023_수능_02 공업 일반_문제.pdf:12",
+      "subject": "kongil"
+    },
+    {
+      "id": "788da66f-f059-49f5-ba42-8824b3503219",
+      "logicalSourceId": "kongil:moi:kongil_2021_수능_03 직탐(공업 일반).pdf:12",
+      "subject": "kongil"
+    },
+    {
+      "id": "78e7587e-375d-4a0d-a1d3-cade29e4e56c",
+      "logicalSourceId": "sungjik:moi:sungjik_2025_9월_모의평가_01 성공적인 직업생활_문제.pdf:16",
+      "subject": "sungjik"
+    },
+    {
+      "id": "7928596a-f389-43b5-a526-46cab6065b9c",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_수능_01 직탐(성공적인 직업생활)_문제.pdf:6",
+      "subject": "sungjik"
+    },
+    {
+      "id": "7962a41b-c74c-4849-932d-1d7c908ff78d",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_9월_모의평가_01 성공적인 직업생활_문제지.pdf:20",
+      "subject": "sungjik"
+    },
+    {
+      "id": "7aee8c7d-3dec-4f22-9fe3-9ccaadb2edc7",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_9월_모의평가_01 성공적인 직업생활_문제지.pdf:12",
+      "subject": "sungjik"
+    },
+    {
+      "id": "7bb38411-e330-40fc-b2a1-bef0e96ad543",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_6월_모의평가_01 직탐(성공적인 직업생활)_문제.pdf:14",
+      "subject": "sungjik"
+    },
+    {
+      "id": "7be5f8bf-2d2d-4a8d-bbb6-d5351855244d",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_6월_모의평가_01 직탐(성공적인 직업생활)_문제.pdf:11",
+      "subject": "sungjik"
+    },
+    {
+      "id": "7c0ad62e-63d0-4afc-ba8f-05bb0fbb5736",
+      "logicalSourceId": "kongil:moi:kongil_2021_9월_모의평가_03 직업탐구영역_공업 일반_문제.pdf:11",
+      "subject": "kongil"
+    },
+    {
+      "id": "7e1ba5a4-fad0-4364-a318-97663805630d",
+      "logicalSourceId": "kongil:moi:kongil_2022_6월_모의평가_03 4교시_직업탐구영역_공업 일반_문제.pdf:19",
+      "subject": "kongil"
+    },
+    {
+      "id": "7eaeb61d-e375-4db2-8df1-e2b9723ac172",
+      "logicalSourceId": "kongil:moi:kongil_2024_9월_모의평가_03 공업 일반_문제지.pdf:18",
+      "subject": "kongil"
+    },
+    {
+      "id": "7ec82150-28c4-433b-a253-aabff46cee4a",
+      "logicalSourceId": "kongil:moi:kongil_2025_수능_03 공업 일반_문제지.pdf:13",
+      "subject": "kongil"
+    },
+    {
+      "id": "7eed1b22-0f1a-48b2-a589-6c99872e139e",
+      "logicalSourceId": "kongil:moi:kongil_2022_6월_모의평가_03 4교시_직업탐구영역_공업 일반_문제.pdf:16",
+      "subject": "kongil"
+    },
+    {
+      "id": "7f353ecd-2318-4b7c-ac76-dc517dcd9d1b",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_수능_01 성공적인 직업생활_문제.pdf:3",
+      "subject": "sungjik"
+    },
+    {
+      "id": "7f49623f-b311-45ee-9b18-edf03e625cae",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_6월_모의평가_01 4교시_직업탐구영역_성공적인 직업생활_문제.pdf:15",
+      "subject": "sungjik"
+    },
+    {
+      "id": "7f81e540-cc4c-4866-a56a-797511acce82",
+      "logicalSourceId": "kongil:moi:kongil_2022_6월_모의평가_03 4교시_직업탐구영역_공업 일반_문제.pdf:2",
+      "subject": "kongil"
+    },
+    {
+      "id": "7fa083ea-6628-4651-94a5-e1bdadc831b1",
+      "logicalSourceId": "sungjik:moi:sungjik_2025_9월_모의평가_01 성공적인 직업생활_문제.pdf:18",
+      "subject": "sungjik"
+    },
+    {
+      "id": "804c0fec-afc0-4cd9-aa69-2c422d0a7d19",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_수능_01 직탐(성공적인 직업생활)_문제.pdf:16",
+      "subject": "sungjik"
+    },
+    {
+      "id": "811c6b33-ed6c-456b-a5a0-9b64281d519c",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_수능_01 성공적인 직업생활_문제.pdf:13",
+      "subject": "sungjik"
+    },
+    {
+      "id": "812f8aac-01cb-4c93-8bf3-80f54a2bfcb9",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_9월_모의평가_06 직탐(성공적인 직업생활) 문제지.pdf:6",
+      "subject": "sungjik"
+    },
+    {
+      "id": "813306a8-ff4f-49dd-9c6f-d72f2cab2f2a",
+      "logicalSourceId": "kongil:suteck:공일_19단원_문제.pdf:1",
+      "subject": "kongil"
+    },
+    {
+      "id": "81483e02-539b-485d-ab73-c1eb95ea523a",
+      "logicalSourceId": "kongil:moi:kongil_2022_9월_모의평가_03 직탐(공업 일반)_문제.pdf:13",
+      "subject": "kongil"
+    },
+    {
+      "id": "816ebb3d-cb21-486c-8449-7c0498ad210d",
+      "logicalSourceId": "kongil:moi:kongil_2024_수능_03 공업 일반_문제.pdf:20",
+      "subject": "kongil"
+    },
+    {
+      "id": "818781be-c907-4625-aef9-0b83e3930d27",
+      "logicalSourceId": "sungjik:moi:sungjik_2025_6월_모의평가_01 성공적인 직업생활_문제.pdf:12",
+      "subject": "sungjik"
+    },
+    {
+      "id": "818945ec-7d0d-4f0b-a01a-aa8037b83823",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_수능_06 성공적인 직업생활_문제.pdf:2",
+      "subject": "sungjik"
+    },
+    {
+      "id": "819b8203-9951-48d9-80d2-87476f3ab531",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_6월_모의평가_01 성공적인 직업생활_문제지.pdf:15",
+      "subject": "sungjik"
+    },
+    {
+      "id": "81ca5164-201d-4ea4-9e22-61ac71b9b590",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_6월_모의평가_01 성공적인 직업생활_문제지.pdf:5",
+      "subject": "sungjik"
+    },
+    {
+      "id": "8237b9f8-a990-4d8b-b925-b98c2fcde936",
+      "logicalSourceId": "kongil:moi:kongil_2025_6월_모의평가_03 공업 일반_문제.pdf:20",
+      "subject": "kongil"
+    },
+    {
+      "id": "827238f7-a967-49f7-ab00-f6cdbe406042",
+      "logicalSourceId": "kongil:moi:kongil_2022_9월_모의평가_03 직탐(공업 일반)_문제.pdf:6",
+      "subject": "kongil"
+    },
+    {
+      "id": "829770fc-aa41-4848-a0a1-5380cf654e7c",
+      "logicalSourceId": "kongil:suteck:공일_20단원_문제.pdf:10",
+      "subject": "kongil"
+    },
+    {
+      "id": "82f0f152-bc43-476e-ae34-6465b8ebd56d",
+      "logicalSourceId": "kongil:moi:kongil_2023_9월_모의평가_02 직탐(공업 일반) 문제지.pdf:3",
+      "subject": "kongil"
+    },
+    {
+      "id": "833f2319-f306-4875-90af-4972317d3ed0",
+      "logicalSourceId": "kongil:moi:kongil_2024_9월_모의평가_03 공업 일반_문제지.pdf:8",
+      "subject": "kongil"
+    },
+    {
+      "id": "836c7846-e2a6-4ece-a91d-972494db842a",
+      "logicalSourceId": "kongil:moi:kongil_2023_수능_02 공업 일반_문제.pdf:17",
+      "subject": "kongil"
+    },
+    {
+      "id": "839b0b3c-bfe6-41df-a30b-5e9d3d912c43",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_수능_01 성공적인 직업생활_문제.pdf:5",
+      "subject": "sungjik"
+    },
+    {
+      "id": "84f9e1e2-222c-46af-975b-f4bdaef64a02",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_6월_모의평가_01 4교시_직업탐구영역_성공적인 직업생활_문제.pdf:7",
+      "subject": "sungjik"
+    },
+    {
+      "id": "859505c8-4e85-4657-8eec-58ed2b0e4b23",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_6월_모의평가_01 직탐(성공적인 직업생활)_문제.pdf:15",
+      "subject": "sungjik"
+    },
+    {
+      "id": "86017c80-d77e-42f5-be60-c48056d19d24",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_6월_모의평가_01 직탐(성공적인 직업생활)_문제.pdf:9",
+      "subject": "sungjik"
+    },
+    {
+      "id": "860a67d9-0319-48a6-99d4-e2ea5b10cfbf",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_수능_01 성공적인 직업생활_문제.pdf:1",
+      "subject": "sungjik"
+    },
+    {
+      "id": "8671c1dc-f569-4e02-93bb-1857d3c7330d",
+      "logicalSourceId": "kongil:moi:kongil_2022_6월_모의평가_03 4교시_직업탐구영역_공업 일반_문제.pdf:13",
+      "subject": "kongil"
+    },
+    {
+      "id": "86d45721-e242-4674-9ed7-350cdb0ff5f4",
+      "logicalSourceId": "kongil:moi:kongil_2022_수능_03 직탐(공업 일반)_문제.pdf:12",
+      "subject": "kongil"
+    },
+    {
+      "id": "89211f88-d574-4fcd-8606-fbd8e6dd6832",
+      "logicalSourceId": "kongil:moi:kongil_2024_수능_03 공업 일반_문제.pdf:7",
+      "subject": "kongil"
+    },
+    {
+      "id": "897290c5-8e94-41bd-a9f4-4dd72e524f63",
+      "logicalSourceId": "kongil:suteck:공일_19단원_문제.pdf:2",
+      "subject": "kongil"
+    },
+    {
+      "id": "89df8a4b-694e-4188-8a3f-34b928390b61",
+      "logicalSourceId": "kongil:moi:kongil_2022_수능_03 직탐(공업 일반)_문제.pdf:4",
+      "subject": "kongil"
+    },
+    {
+      "id": "8a6e24b6-fa19-4e89-b062-6828da880d4c",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_수능_01 성공적인 직업생활_문제.pdf:19",
+      "subject": "sungjik"
+    },
+    {
+      "id": "8a91b108-aa19-4c25-8f60-fbc4b44f6b4b",
+      "logicalSourceId": "kongil:moi:kongil_2022_9월_모의평가_03 직탐(공업 일반)_문제.pdf:11",
+      "subject": "kongil"
+    },
+    {
+      "id": "8c18e838-b7a4-4c26-b10d-d2422433b1ea",
+      "logicalSourceId": "kongil:moi:kongil_2021_수능_03 직탐(공업 일반).pdf:11",
+      "subject": "kongil"
+    },
+    {
+      "id": "8c3280b1-19c9-4a7d-8c99-e0b9c14e9677",
+      "logicalSourceId": "kongil:moi:kongil_2022_9월_모의평가_03 직탐(공업 일반)_문제.pdf:17",
+      "subject": "kongil"
+    },
+    {
+      "id": "8c3702ab-d10c-4758-98e7-d334180d2b78",
+      "logicalSourceId": "kongil:moi:kongil_2021_6월_모의평가_03 직업탐구영역_공업 일반_문제.pdf:20",
+      "subject": "kongil"
+    },
+    {
+      "id": "8e56e413-5dfb-4a92-87bf-d9f389df999d",
+      "logicalSourceId": "kongil:moi:kongil_2023_9월_모의평가_02 직탐(공업 일반) 문제지.pdf:20",
+      "subject": "kongil"
+    },
+    {
+      "id": "8e873b06-8d47-4544-9512-b2e0b43af926",
+      "logicalSourceId": "kongil:moi:kongil_2021_6월_모의평가_03 직업탐구영역_공업 일반_문제.pdf:14",
+      "subject": "kongil"
+    },
+    {
+      "id": "8eab0710-4853-4fae-97b2-163920a887f3",
+      "logicalSourceId": "kongil:moi:kongil_2021_수능_03 직탐(공업 일반).pdf:10",
+      "subject": "kongil"
+    },
+    {
+      "id": "8ed61f75-6977-4ff7-a999-1a183837be3f",
+      "logicalSourceId": "kongil:moi:kongil_2025_6월_모의평가_03 공업 일반_문제.pdf:6",
+      "subject": "kongil"
+    },
+    {
+      "id": "8f5a707c-3f14-4960-a400-1988f4e893d3",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_9월_모의평가_06 직탐(성공적인 직업생활) 문제지.pdf:16",
+      "subject": "sungjik"
+    },
+    {
+      "id": "8ff6872a-8277-4f1c-acc4-ce370a1607e2",
+      "logicalSourceId": "kongil:moi:kongil_2023_9월_모의평가_02 직탐(공업 일반) 문제지.pdf:13",
+      "subject": "kongil"
+    },
+    {
+      "id": "90339fbf-fa40-4799-9118-3d12c199e772",
+      "logicalSourceId": "kongil:moi:kongil_2022_수능_03 직탐(공업 일반)_문제.pdf:5",
+      "subject": "kongil"
+    },
+    {
+      "id": "90655d26-2310-4a1a-a4b9-4455e86dc163",
+      "logicalSourceId": "kongil:moi:kongil_2025_6월_모의평가_03 공업 일반_문제.pdf:3",
+      "subject": "kongil"
+    },
+    {
+      "id": "9261b49f-de48-4280-ad8b-e4fd27665916",
+      "logicalSourceId": "kongil:moi:kongil_2021_6월_모의평가_03 직업탐구영역_공업 일반_문제.pdf:2",
+      "subject": "kongil"
+    },
+    {
+      "id": "929bc2ac-a2aa-4573-95f5-85deecf8e0cd",
+      "logicalSourceId": "kongil:moi:kongil_2024_6월_모의평가_03 공업 일반_문제지.pdf:11",
+      "subject": "kongil"
+    },
+    {
+      "id": "936b01a6-2343-41da-929f-1b28175927f0",
+      "logicalSourceId": "kongil:suteck:공일_7단원_문제.pdf:1",
+      "subject": "kongil"
+    },
+    {
+      "id": "93a67869-8bea-44da-b489-ad14dab84efc",
+      "logicalSourceId": "sungjik:suteck:성직_7단원_문제.pdf:2",
+      "subject": "sungjik"
+    },
+    {
+      "id": "9421b952-5177-49e6-b6a9-1d6a069fb4f0",
+      "logicalSourceId": "kongil:moi:kongil_2025_9월_모의평가_03 공업 일반_문제.pdf:12",
+      "subject": "kongil"
+    },
+    {
+      "id": "94477584-d1b1-4bc3-8b11-1ef08cdd53f7",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_수능_01 성공적인 직업생활_문제.pdf:18",
+      "subject": "sungjik"
+    },
+    {
+      "id": "95a861fc-62b1-46af-9ed1-f70f07f41930",
+      "logicalSourceId": "sungjik:moi:sungjik_2025_6월_모의평가_01 성공적인 직업생활_문제.pdf:3",
+      "subject": "sungjik"
+    },
+    {
+      "id": "95b12a04-e517-447d-accf-21db401a9807",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_9월_모의평가_06 직탐(성공적인 직업생활) 문제지.pdf:12",
+      "subject": "sungjik"
+    },
+    {
+      "id": "95eed796-3962-4312-a00e-aa5745b31f93",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_6월_모의평가_01 직탐(성공적인 직업생활)_문제.pdf:3",
+      "subject": "sungjik"
+    },
+    {
+      "id": "9677e7e6-ec25-48c1-9fb3-fe27454de8d9",
+      "logicalSourceId": "sungjik:moi:sungjik_2025_6월_모의평가_01 성공적인 직업생활_문제.pdf:16",
+      "subject": "sungjik"
+    },
+    {
+      "id": "96b58002-38d5-4caa-ab17-15f9b25f0fe3",
+      "logicalSourceId": "kongil:moi:kongil_2021_9월_모의평가_03 직업탐구영역_공업 일반_문제.pdf:1",
+      "subject": "kongil"
+    },
+    {
+      "id": "971ed0a8-f700-4787-97ee-80162920373d",
+      "logicalSourceId": "kongil:moi:kongil_2025_9월_모의평가_03 공업 일반_문제.pdf:9",
+      "subject": "kongil"
+    },
+    {
+      "id": "9753b571-91b5-40f9-80f2-3b2b6355a45e",
+      "logicalSourceId": "kongil:moi:kongil_2025_6월_모의평가_03 공업 일반_문제.pdf:18",
+      "subject": "kongil"
+    },
+    {
+      "id": "97a3ddbd-1b50-40e7-be09-c9b7f1709a85",
+      "logicalSourceId": "kongil:moi:kongil_2022_9월_모의평가_03 직탐(공업 일반)_문제.pdf:12",
+      "subject": "kongil"
+    },
+    {
+      "id": "97d3265b-62fa-4a1d-b733-39696341cef0",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_9월_모의평가_01 성공적인 직업생활_문제지.pdf:11",
+      "subject": "sungjik"
+    },
+    {
+      "id": "984f41d5-fb01-43bc-a3ca-a1ff342c558d",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_수능_06 성공적인 직업생활_문제.pdf:7",
+      "subject": "sungjik"
+    },
+    {
+      "id": "986d4d8d-1401-4e28-b057-85714f799434",
+      "logicalSourceId": "kongil:moi:kongil_2021_수능_03 직탐(공업 일반).pdf:14",
+      "subject": "kongil"
+    },
+    {
+      "id": "986dee73-ac12-4a5b-b6ef-2bf856871df5",
+      "logicalSourceId": "kongil:moi:kongil_2023_9월_모의평가_02 직탐(공업 일반) 문제지.pdf:7",
+      "subject": "kongil"
+    },
+    {
+      "id": "98958b36-8d68-4d2e-9d60-a097e1c7e3fb",
+      "logicalSourceId": "kongil:moi:kongil_2021_9월_모의평가_03 직업탐구영역_공업 일반_문제.pdf:4",
+      "subject": "kongil"
+    },
+    {
+      "id": "98a7db29-d707-4ea4-9ceb-0aef18ee10ee",
+      "logicalSourceId": "kongil:moi:kongil_2025_9월_모의평가_03 공업 일반_문제.pdf:5",
+      "subject": "kongil"
+    },
+    {
+      "id": "98a8b239-8e46-4589-97c4-d98cc3c92f5d",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_9월_모의평가_01 성공적인 직업생활_문제지.pdf:15",
+      "subject": "sungjik"
+    },
+    {
+      "id": "98bc61d7-f887-4ad0-99ce-8e94f3f13448",
+      "logicalSourceId": "kongil:moi:kongil_2025_9월_모의평가_03 공업 일반_문제.pdf:8",
+      "subject": "kongil"
+    },
+    {
+      "id": "992b7af5-b2ca-480b-b2aa-ff031d606774",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_수능_01 직탐(성공적인 직업생활)_문제.pdf:17",
+      "subject": "sungjik"
+    },
+    {
+      "id": "993d6ea4-ace1-4ae9-a61f-3283b6153bd8",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_6월_모의평가_01 4교시_직업탐구영역_성공적인 직업생활_문제.pdf:12",
+      "subject": "sungjik"
+    },
+    {
+      "id": "997b1c54-271e-4e3d-a8f7-276a14db2f1e",
+      "logicalSourceId": "kongil:moi:kongil_2023_수능_02 공업 일반_문제.pdf:18",
+      "subject": "kongil"
+    },
+    {
+      "id": "99fbb79a-eef8-4295-9760-988f130b40b3",
+      "logicalSourceId": "kongil:moi:kongil_2023_6월_모의평가_03 직탐(공업 일반)_문제.pdf:9",
+      "subject": "kongil"
+    },
+    {
+      "id": "9a60c3a2-d590-430c-8308-ad580830bd44",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_수능_01 직탐(성공적인 직업생활)_문제.pdf:4",
+      "subject": "sungjik"
+    },
+    {
+      "id": "9b630313-53c2-4694-bf17-426dd3ee9c5c",
+      "logicalSourceId": "kongil:suteck:공일_19단원_문제.pdf:5",
+      "subject": "kongil"
+    },
+    {
+      "id": "9bad5020-d0a7-446c-a230-0b13414762aa",
+      "logicalSourceId": "kongil:moi:kongil_2025_수능_03 공업 일반_문제지.pdf:16",
+      "subject": "kongil"
+    },
+    {
+      "id": "9c039165-ef9e-4dbc-ae6d-aad0ec0f3586",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_수능_01 성공적인 직업생활_문제.pdf:6",
+      "subject": "sungjik"
+    },
+    {
+      "id": "9cc5ed46-1f6b-4801-85e2-39f82be92b7c",
+      "logicalSourceId": "kongil:moi:kongil_2025_6월_모의평가_03 공업 일반_문제.pdf:8",
+      "subject": "kongil"
+    },
+    {
+      "id": "9cdf80e7-25bd-4dc1-9591-61a1f65136db",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_수능_01 성공적인 직업생활_문제.pdf:14",
+      "subject": "sungjik"
+    },
+    {
+      "id": "9d752794-9509-454f-934c-b5ed1c6686b5",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_수능_01 직탐(성공적인 직업생활)_문제.pdf:10",
+      "subject": "sungjik"
+    },
+    {
+      "id": "9e9d3910-dd49-4b80-ad1b-bacf706de335",
+      "logicalSourceId": "kongil:moi:kongil_2025_9월_모의평가_03 공업 일반_문제.pdf:14",
+      "subject": "kongil"
+    },
+    {
+      "id": "9f231d47-1e36-42a4-b62c-d8707f50d58b",
+      "logicalSourceId": "kongil:moi:kongil_2025_6월_모의평가_03 공업 일반_문제.pdf:5",
+      "subject": "kongil"
+    },
+    {
+      "id": "9f72cef3-08db-4aab-8c32-e243f6cf435d",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_6월_모의평가_01 성공적인 직업생활_문제지.pdf:13",
+      "subject": "sungjik"
+    },
+    {
+      "id": "9f9a3cd0-cb0e-4b6d-bee6-b93d932fed5d",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_6월_모의평가_01 성공적인 직업생활_문제지.pdf:6",
+      "subject": "sungjik"
+    },
+    {
+      "id": "9fe8ae11-bba0-4ded-bf99-e38b3229c884",
+      "logicalSourceId": "kongil:moi:kongil_2022_수능_03 직탐(공업 일반)_문제.pdf:15",
+      "subject": "kongil"
+    },
+    {
+      "id": "a00d76e8-45eb-4552-8c62-e93d85799d0b",
+      "logicalSourceId": "kongil:moi:kongil_2022_9월_모의평가_03 직탐(공업 일반)_문제.pdf:15",
+      "subject": "kongil"
+    },
+    {
+      "id": "a0be6a8e-5ae3-4866-aa51-d256500c7039",
+      "logicalSourceId": "kongil:moi:kongil_2021_6월_모의평가_03 직업탐구영역_공업 일반_문제.pdf:19",
+      "subject": "kongil"
+    },
+    {
+      "id": "a0c98d93-6448-44f1-bfb0-75229e8515f9",
+      "logicalSourceId": "kongil:moi:kongil_2025_6월_모의평가_03 공업 일반_문제.pdf:7",
+      "subject": "kongil"
+    },
+    {
+      "id": "a0d24722-24a0-4872-b24e-33bf780112a2",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_6월_모의평가_01 4교시_직업탐구영역_성공적인 직업생활_문제.pdf:18",
+      "subject": "sungjik"
+    },
+    {
+      "id": "a168c34d-e30f-4c38-bc47-9e014b9905b4",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_6월_모의평가_01 직탐(성공적인 직업생활)_문제.pdf:1",
+      "subject": "sungjik"
+    },
+    {
+      "id": "a1d8a83b-f764-47a2-9ada-26db5d5a9b2c",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_6월_모의평가_01 성공적인 직업생활_문제지.pdf:20",
+      "subject": "sungjik"
+    },
+    {
+      "id": "a39536c5-2bbf-41e9-962a-588ff46a8029",
+      "logicalSourceId": "kongil:moi:kongil_2024_6월_모의평가_03 공업 일반_문제지.pdf:6",
+      "subject": "kongil"
+    },
+    {
+      "id": "a42fcd9c-aa48-4007-bf73-c5107ff9185e",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_6월_모의평가_01 직탐(성공적인 직업생활)_문제.pdf:19",
+      "subject": "sungjik"
+    },
+    {
+      "id": "a444dce8-bea6-4a7b-a812-c591a6bb5407",
+      "logicalSourceId": "kongil:moi:kongil_2022_6월_모의평가_03 4교시_직업탐구영역_공업 일반_문제.pdf:10",
+      "subject": "kongil"
+    },
+    {
+      "id": "a4827bba-bdca-465b-aeb9-0eb1c83d11be",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_9월_모의평가_01 직탐(성공적인 직업생활)_문제.pdf:17",
+      "subject": "sungjik"
+    },
+    {
+      "id": "a5438a44-e74a-42e1-b75b-811e4b095cca",
+      "logicalSourceId": "kongil:moi:kongil_2025_9월_모의평가_03 공업 일반_문제.pdf:2",
+      "subject": "kongil"
+    },
+    {
+      "id": "a56c63e7-e7b7-4361-bab5-9bc034cc88bb",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_수능_01 직탐(성공적인 직업생활)_문제.pdf:11",
+      "subject": "sungjik"
+    },
+    {
+      "id": "a58f71f3-ce59-474b-800d-4f24731b7fbb",
+      "logicalSourceId": "kongil:moi:kongil_2022_9월_모의평가_03 직탐(공업 일반)_문제.pdf:16",
+      "subject": "kongil"
+    },
+    {
+      "id": "a6bfc4f6-c77c-4093-91c0-03ed3919ddf4",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_수능_01 직탐(성공적인 직업생활)_문제.pdf:5",
+      "subject": "sungjik"
+    },
+    {
+      "id": "a76ad09e-eb8f-48a5-83a2-38d7bbd548e5",
+      "logicalSourceId": "kongil:suteck:공일_20단원_문제.pdf:6",
+      "subject": "kongil"
+    },
+    {
+      "id": "a7e1e8e8-eccd-4c50-93e7-c1d1f90dbc63",
+      "logicalSourceId": "kongil:moi:kongil_2021_9월_모의평가_03 직업탐구영역_공업 일반_문제.pdf:12",
+      "subject": "kongil"
+    },
+    {
+      "id": "a7e4836b-e886-42c7-8c57-24114068bf12",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_수능_01 성공적인 직업생활_문제.pdf:7",
+      "subject": "sungjik"
+    },
+    {
+      "id": "a7ffa82d-e427-4255-b4f5-2ef14f3c09d5",
+      "logicalSourceId": "sungjik:moi:sungjik_2025_9월_모의평가_01 성공적인 직업생활_문제.pdf:8",
+      "subject": "sungjik"
+    },
+    {
+      "id": "a80e3d2d-2039-478a-8578-e7ba81460397",
+      "logicalSourceId": "kongil:moi:kongil_2024_수능_03 공업 일반_문제.pdf:14",
+      "subject": "kongil"
+    },
+    {
+      "id": "a8b5c683-2489-4a58-88c3-7b496be7d910",
+      "logicalSourceId": "kongil:moi:kongil_2024_6월_모의평가_03 공업 일반_문제지.pdf:4",
+      "subject": "kongil"
+    },
+    {
+      "id": "a8b70a95-722a-45ba-b5c4-a867324a95ee",
+      "logicalSourceId": "kongil:moi:kongil_2022_9월_모의평가_03 직탐(공업 일반)_문제.pdf:8",
+      "subject": "kongil"
+    },
+    {
+      "id": "a8b97b55-0512-4568-9794-d1d135b0353b",
+      "logicalSourceId": "kongil:moi:kongil_2023_9월_모의평가_02 직탐(공업 일반) 문제지.pdf:4",
+      "subject": "kongil"
+    },
+    {
+      "id": "a9297aa3-9d63-496f-a7c2-2c2719a6d825",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_6월_모의평가_01 직탐(성공적인 직업생활)_문제.pdf:8",
+      "subject": "sungjik"
+    },
+    {
+      "id": "a95b51d5-24b6-469f-8c0f-9e0c1ef7080d",
+      "logicalSourceId": "kongil:moi:kongil_2021_9월_모의평가_03 직업탐구영역_공업 일반_문제.pdf:9",
+      "subject": "kongil"
+    },
+    {
+      "id": "a9dfd739-305d-40ac-809c-e32505f32ade",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_9월_모의평가_01 성공적인 직업생활_문제지.pdf:19",
+      "subject": "sungjik"
+    },
+    {
+      "id": "aa9b8621-eff5-4bfa-9c50-d689201f57cc",
+      "logicalSourceId": "kongil:moi:kongil_2021_9월_모의평가_03 직업탐구영역_공업 일반_문제.pdf:15",
+      "subject": "kongil"
+    },
+    {
+      "id": "ab477a65-e323-4b26-99f5-e42e27b2c556",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_수능_01 직탐(성공적인 직업생활)_문제.pdf:2",
+      "subject": "sungjik"
+    },
+    {
+      "id": "ac2b74a1-e85c-41ba-aff0-dd6937646831",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_6월_모의평가_01 직탐(성공적인 직업생활)_문제.pdf:13",
+      "subject": "sungjik"
+    },
+    {
+      "id": "ac864027-c576-4dde-a35e-406cdce381d6",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_6월_모의평가_01 4교시_직업탐구영역_성공적인 직업생활_문제.pdf:16",
+      "subject": "sungjik"
+    },
+    {
+      "id": "ad1c5bb0-78f6-4304-a477-31f1a4130713",
+      "logicalSourceId": "kongil:moi:kongil_2024_6월_모의평가_03 공업 일반_문제지.pdf:17",
+      "subject": "kongil"
+    },
+    {
+      "id": "ad7c595e-8f0b-450b-bbe7-96ef91df4403",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_수능_01 직탐(성공적인 직업생활)_문제.pdf:12",
+      "subject": "sungjik"
+    },
+    {
+      "id": "ae1ccbd4-8c90-4b06-9b79-b7a0b4708d39",
+      "logicalSourceId": "kongil:moi:kongil_2023_9월_모의평가_02 직탐(공업 일반) 문제지.pdf:11",
+      "subject": "kongil"
+    },
+    {
+      "id": "ae3999ed-99d6-40be-a037-9a6cb76ff3f4",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_9월_모의평가_01 직탐(성공적인 직업생활)_문제.pdf:9",
+      "subject": "sungjik"
+    },
+    {
+      "id": "af0a12b1-5c5b-4de0-b1f5-6c4c4a3cbee2",
+      "logicalSourceId": "kongil:moi:kongil_2024_수능_03 공업 일반_문제.pdf:3",
+      "subject": "kongil"
+    },
+    {
+      "id": "af3f7ebf-d7f7-4613-8d5c-742d381da1a3",
+      "logicalSourceId": "kongil:moi:kongil_2025_수능_03 공업 일반_문제지.pdf:9",
+      "subject": "kongil"
+    },
+    {
+      "id": "afa24eda-d009-4ec5-8c6a-59209a6fc85a",
+      "logicalSourceId": "kongil:moi:kongil_2021_9월_모의평가_03 직업탐구영역_공업 일반_문제.pdf:10",
+      "subject": "kongil"
+    },
+    {
+      "id": "b03d91b6-4c74-4cd7-af00-7ae579ab52a4",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_6월_모의평가_01 성공적인 직업생활_문제지.pdf:1",
+      "subject": "sungjik"
+    },
+    {
+      "id": "b08ce14c-8a46-4cd5-8696-dff36a937411",
+      "logicalSourceId": "kongil:moi:kongil_2024_9월_모의평가_03 공업 일반_문제지.pdf:5",
+      "subject": "kongil"
+    },
+    {
+      "id": "b1379ac1-8a8c-4336-9d8e-0baf71074a60",
+      "logicalSourceId": "sungjik:moi:sungjik_2025_9월_모의평가_01 성공적인 직업생활_문제.pdf:1",
+      "subject": "sungjik"
+    },
+    {
+      "id": "b170070f-32f0-4c98-9109-ade9cfabede6",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_6월_모의평가_01 성공적인 직업생활_문제지.pdf:12",
+      "subject": "sungjik"
+    },
+    {
+      "id": "b1aa528a-3eea-4e90-9c5a-b051dd9ae8d6",
+      "logicalSourceId": "kongil:moi:kongil_2023_9월_모의평가_02 직탐(공업 일반) 문제지.pdf:17",
+      "subject": "kongil"
+    },
+    {
+      "id": "b3c0389d-f82d-4814-a700-a229de80bfc2",
+      "logicalSourceId": "kongil:moi:kongil_2024_수능_03 공업 일반_문제.pdf:1",
+      "subject": "kongil"
+    },
+    {
+      "id": "b4212a5c-0fbd-4471-b41c-cee0794df0d7",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_6월_모의평가_01 성공적인 직업생활_문제지.pdf:10",
+      "subject": "sungjik"
+    },
+    {
+      "id": "b57b0ac0-bcb8-4b2e-8e32-610369ae00b5",
+      "logicalSourceId": "kongil:moi:kongil_2021_수능_03 직탐(공업 일반).pdf:1",
+      "subject": "kongil"
+    },
+    {
+      "id": "b5dd562a-988e-44d1-a230-01fd35b679ca",
+      "logicalSourceId": "sungjik:moi:sungjik_2025_6월_모의평가_01 성공적인 직업생활_문제.pdf:8",
+      "subject": "sungjik"
+    },
+    {
+      "id": "b654ed19-6e62-47f8-a911-19181d5f3163",
+      "logicalSourceId": "sungjik:moi:sungjik_2025_9월_모의평가_01 성공적인 직업생활_문제.pdf:4",
+      "subject": "sungjik"
+    },
+    {
+      "id": "b6604a8b-6366-4b16-a229-87b619e6b167",
+      "logicalSourceId": "kongil:moi:kongil_2023_수능_02 공업 일반_문제.pdf:5",
+      "subject": "kongil"
+    },
+    {
+      "id": "b69d01a7-5308-40cb-9d80-8ebfec109b02",
+      "logicalSourceId": "kongil:moi:kongil_2025_9월_모의평가_03 공업 일반_문제.pdf:7",
+      "subject": "kongil"
+    },
+    {
+      "id": "b6e70964-2fa2-4fd1-b640-404c3a5f94bc",
+      "logicalSourceId": "kongil:moi:kongil_2024_수능_03 공업 일반_문제.pdf:9",
+      "subject": "kongil"
+    },
+    {
+      "id": "b73ff3dd-3a3b-4e1a-ab15-08efd635c261",
+      "logicalSourceId": "kongil:moi:kongil_2022_9월_모의평가_03 직탐(공업 일반)_문제.pdf:10",
+      "subject": "kongil"
+    },
+    {
+      "id": "b757059c-917a-46bc-b87a-dc493ea2bebb",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_수능_06 성공적인 직업생활_문제.pdf:8",
+      "subject": "sungjik"
+    },
+    {
+      "id": "b789fcd5-ae9a-4293-b8f5-ca2b7e6e8445",
+      "logicalSourceId": "kongil:suteck:공일_20단원_문제.pdf:5",
+      "subject": "kongil"
+    },
+    {
+      "id": "b7977f6d-b69e-48fb-b2c1-9da59d36c48f",
+      "logicalSourceId": "kongil:moi:kongil_2025_6월_모의평가_03 공업 일반_문제.pdf:4",
+      "subject": "kongil"
+    },
+    {
+      "id": "b798217c-ef7d-45a1-80fb-28f5c4c23224",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_9월_모의평가_06 직탐(성공적인 직업생활) 문제지.pdf:1",
+      "subject": "sungjik"
+    },
+    {
+      "id": "b9344f96-2cc3-4b70-9f1b-2974ef7aea9c",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_9월_모의평가_01 직탐(성공적인 직업생활)_문제.pdf:4",
+      "subject": "sungjik"
+    },
+    {
+      "id": "b9759024-06d7-4921-aa8a-9930c6e37d31",
+      "logicalSourceId": "kongil:moi:kongil_2022_9월_모의평가_03 직탐(공업 일반)_문제.pdf:4",
+      "subject": "kongil"
+    },
+    {
+      "id": "b9957c4b-ee01-4403-babd-88551f2f66dc",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_9월_모의평가_01 직탐(성공적인 직업생활)_문제.pdf:6",
+      "subject": "sungjik"
+    },
+    {
+      "id": "bb320173-5c6b-4b94-a8b1-f079c5778dd5",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_9월_모의평가_01 직탐(성공적인 직업생활)_문제.pdf:15",
+      "subject": "sungjik"
+    },
+    {
+      "id": "bb61aa9c-d984-42fa-9390-5cc35ec4ccee",
+      "logicalSourceId": "kongil:moi:kongil_2023_6월_모의평가_03 직탐(공업 일반)_문제.pdf:18",
+      "subject": "kongil"
+    },
+    {
+      "id": "bb97ee49-7cea-475c-9bc6-3c25b54ab72b",
+      "logicalSourceId": "kongil:moi:kongil_2024_9월_모의평가_03 공업 일반_문제지.pdf:4",
+      "subject": "kongil"
+    },
+    {
+      "id": "bc5d7465-7d1f-4aa2-ac4b-255beb88e861",
+      "logicalSourceId": "kongil:moi:kongil_2022_9월_모의평가_03 직탐(공업 일반)_문제.pdf:2",
+      "subject": "kongil"
+    },
+    {
+      "id": "bc94ab95-4af1-4a0b-88a6-af806da837b1",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_9월_모의평가_06 직탐(성공적인 직업생활) 문제지.pdf:2",
+      "subject": "sungjik"
+    },
+    {
+      "id": "bd6dc9e3-67da-4190-976a-10133555aa85",
+      "logicalSourceId": "sungjik:moi:sungjik_2025_6월_모의평가_01 성공적인 직업생활_문제.pdf:15",
+      "subject": "sungjik"
+    },
+    {
+      "id": "bd8ee750-a444-4801-a524-6a78a56f0f2e",
+      "logicalSourceId": "kongil:moi:kongil_2025_수능_03 공업 일반_문제지.pdf:2",
+      "subject": "kongil"
+    },
+    {
+      "id": "bdbb01d2-a549-4bba-84f4-d15ea99850e7",
+      "logicalSourceId": "kongil:moi:kongil_2023_9월_모의평가_02 직탐(공업 일반) 문제지.pdf:10",
+      "subject": "kongil"
+    },
+    {
+      "id": "bddb7094-da29-47c2-98e3-59f312a7c79f",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_6월_모의평가_01 4교시_직업탐구영역_성공적인 직업생활_문제.pdf:3",
+      "subject": "sungjik"
+    },
+    {
+      "id": "beb13bab-6b7b-4b9e-be41-15421857e323",
+      "logicalSourceId": "sungjik:moi:sungjik_2025_9월_모의평가_01 성공적인 직업생활_문제.pdf:14",
+      "subject": "sungjik"
+    },
+    {
+      "id": "bfe66ed5-0765-4b46-b52c-df532502015e",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_9월_모의평가_01 직탐(성공적인 직업생활)_문제.pdf:1",
+      "subject": "sungjik"
+    },
+    {
+      "id": "c07752b1-b396-4a34-8a1b-02e1a36b6f65",
+      "logicalSourceId": "kongil:moi:kongil_2023_9월_모의평가_02 직탐(공업 일반) 문제지.pdf:12",
+      "subject": "kongil"
+    },
+    {
+      "id": "c1244785-0350-4f10-9936-a4b2c7dbe62e",
+      "logicalSourceId": "kongil:moi:kongil_2022_9월_모의평가_03 직탐(공업 일반)_문제.pdf:1",
+      "subject": "kongil"
+    },
+    {
+      "id": "c1c9b9d3-91e1-42d5-887d-d4344ec8fe2d",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_6월_모의평가_01 4교시_직업탐구영역_성공적인 직업생활_문제.pdf:2",
+      "subject": "sungjik"
+    },
+    {
+      "id": "c224c25d-2d7f-40e0-aa0e-8e33ff062a5c",
+      "logicalSourceId": "kongil:moi:kongil_2021_수능_03 직탐(공업 일반).pdf:18",
+      "subject": "kongil"
+    },
+    {
+      "id": "c301c2fc-c3be-493f-81d0-415a2ac2dc5f",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_9월_모의평가_01 직탐(성공적인 직업생활)_문제.pdf:7",
+      "subject": "sungjik"
+    },
+    {
+      "id": "c3486492-474a-4f79-8033-0ae0611d1a27",
+      "logicalSourceId": "kongil:moi:kongil_2023_9월_모의평가_02 직탐(공업 일반) 문제지.pdf:9",
+      "subject": "kongil"
+    },
+    {
+      "id": "c3ae9fa0-427e-4bd6-b4d3-be7ef8f38cd7",
+      "logicalSourceId": "kongil:moi:kongil_2024_9월_모의평가_03 공업 일반_문제지.pdf:19",
+      "subject": "kongil"
+    },
+    {
+      "id": "c3c642cf-1e8d-44cf-82a8-69ffeaf5acee",
+      "logicalSourceId": "kongil:moi:kongil_2025_수능_03 공업 일반_문제지.pdf:3",
+      "subject": "kongil"
+    },
+    {
+      "id": "c4494206-1229-4a9b-9e5d-f75af34d0807",
+      "logicalSourceId": "sungjik:suteck:성직_13단원_문제.pdf:10",
+      "subject": "sungjik"
+    },
+    {
+      "id": "c4628010-6157-442b-932b-fa16e50b003e",
+      "logicalSourceId": "kongil:moi:kongil_2022_수능_03 직탐(공업 일반)_문제.pdf:16",
+      "subject": "kongil"
+    },
+    {
+      "id": "c582a889-d55b-456b-8b69-da0b3db4af24",
+      "logicalSourceId": "kongil:moi:kongil_2021_수능_03 직탐(공업 일반).pdf:6",
+      "subject": "kongil"
+    },
+    {
+      "id": "c5da0d69-96e1-4b9f-9cb7-205dd608d001",
+      "logicalSourceId": "kongil:moi:kongil_2021_수능_03 직탐(공업 일반).pdf:13",
+      "subject": "kongil"
+    },
+    {
+      "id": "c67c1acf-b172-49b3-8874-df7aab169da9",
+      "logicalSourceId": "kongil:moi:kongil_2021_6월_모의평가_03 직업탐구영역_공업 일반_문제.pdf:1",
+      "subject": "kongil"
+    },
+    {
+      "id": "c69e39be-925c-4dba-b928-7e641b70c51a",
+      "logicalSourceId": "kongil:moi:kongil_2021_수능_03 직탐(공업 일반).pdf:9",
+      "subject": "kongil"
+    },
+    {
+      "id": "c7131c64-9777-41c5-ba89-69cc5a141944",
+      "logicalSourceId": "kongil:moi:kongil_2025_수능_03 공업 일반_문제지.pdf:11",
+      "subject": "kongil"
+    },
+    {
+      "id": "c750f37f-92e0-4586-85bb-0c7eb7652add",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_9월_모의평가_06 직탐(성공적인 직업생활) 문제지.pdf:5",
+      "subject": "sungjik"
+    },
+    {
+      "id": "c757aaec-cc42-4e54-bec7-e8eb736fdc67",
+      "logicalSourceId": "kongil:moi:kongil_2022_6월_모의평가_03 4교시_직업탐구영역_공업 일반_문제.pdf:17",
+      "subject": "kongil"
+    },
+    {
+      "id": "c76ab6b3-1084-42f0-8316-6acce06bf35d",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_9월_모의평가_06 직탐(성공적인 직업생활) 문제지.pdf:9",
+      "subject": "sungjik"
+    },
+    {
+      "id": "c7de279a-d2e2-4f1f-b078-f9968f1287d1",
+      "logicalSourceId": "kongil:moi:kongil_2024_9월_모의평가_03 공업 일반_문제지.pdf:7",
+      "subject": "kongil"
+    },
+    {
+      "id": "c7eb455b-7bcf-4a9f-a090-f293d53efacf",
+      "logicalSourceId": "kongil:moi:kongil_2023_수능_02 공업 일반_문제.pdf:15",
+      "subject": "kongil"
+    },
+    {
+      "id": "c86b6336-d34d-4637-853a-e6a2e9594696",
+      "logicalSourceId": "kongil:moi:kongil_2024_9월_모의평가_03 공업 일반_문제지.pdf:11",
+      "subject": "kongil"
+    },
+    {
+      "id": "c9daeb24-05fd-410a-ba06-1a381164adc0",
+      "logicalSourceId": "sungjik:moi:sungjik_2025_6월_모의평가_01 성공적인 직업생활_문제.pdf:14",
+      "subject": "sungjik"
+    },
+    {
+      "id": "ca2d6bdd-1bf9-4154-8c95-650b3bff26f9",
+      "logicalSourceId": "kongil:moi:kongil_2021_9월_모의평가_03 직업탐구영역_공업 일반_문제.pdf:13",
+      "subject": "kongil"
+    },
+    {
+      "id": "ca57eafb-8ed2-4434-be20-0055e4dc1cdc",
+      "logicalSourceId": "kongil:moi:kongil_2023_수능_02 공업 일반_문제.pdf:4",
+      "subject": "kongil"
+    },
+    {
+      "id": "cafd51c0-0da6-40b0-a15d-0ee3ea4c02f5",
+      "logicalSourceId": "kongil:moi:kongil_2024_6월_모의평가_03 공업 일반_문제지.pdf:10",
+      "subject": "kongil"
+    },
+    {
+      "id": "cc1243b8-29b3-4cda-a783-426c974e6944",
+      "logicalSourceId": "kongil:moi:kongil_2022_수능_03 직탐(공업 일반)_문제.pdf:11",
+      "subject": "kongil"
+    },
+    {
+      "id": "cc17b7b2-6b67-496f-8782-e477ea6906fa",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_9월_모의평가_01 성공적인 직업생활_문제지.pdf:7",
+      "subject": "sungjik"
+    },
+    {
+      "id": "cdcdcf3f-27de-49bb-93c7-efe1c7e24816",
+      "logicalSourceId": "kongil:suteck:공일_19단원_문제.pdf:9",
+      "subject": "kongil"
+    },
+    {
+      "id": "cdec5426-d998-40b6-943b-c23bc9af1354",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_9월_모의평가_01 성공적인 직업생활_문제지.pdf:10",
+      "subject": "sungjik"
+    },
+    {
+      "id": "ce37c057-fb1c-4ca8-9d17-cc05a4be75bf",
+      "logicalSourceId": "kongil:moi:kongil_2024_6월_모의평가_03 공업 일반_문제지.pdf:14",
+      "subject": "kongil"
+    },
+    {
+      "id": "cee97f19-fdb7-4a74-b77b-9e6328a3a769",
+      "logicalSourceId": "kongil:moi:kongil_2021_6월_모의평가_03 직업탐구영역_공업 일반_문제.pdf:4",
+      "subject": "kongil"
+    },
+    {
+      "id": "ceec2a48-2601-466a-946f-d444c7a862f2",
+      "logicalSourceId": "kongil:moi:kongil_2024_수능_03 공업 일반_문제.pdf:8",
+      "subject": "kongil"
+    },
+    {
+      "id": "cef759f7-465e-4b47-87a6-ad0dc23d4e9f",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_수능_01 성공적인 직업생활_문제.pdf:16",
+      "subject": "sungjik"
+    },
+    {
+      "id": "cf0275d9-7f94-45d7-bd7d-d3b7c575692b",
+      "logicalSourceId": "kongil:moi:kongil_2021_6월_모의평가_03 직업탐구영역_공업 일반_문제.pdf:3",
+      "subject": "kongil"
+    },
+    {
+      "id": "cf287cf4-7b62-4cef-8cec-13cb70879815",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_9월_모의평가_06 직탐(성공적인 직업생활) 문제지.pdf:8",
+      "subject": "sungjik"
+    },
+    {
+      "id": "cf3ca312-9bd1-4d2b-8123-945223aadc74",
+      "logicalSourceId": "kongil:moi:kongil_2022_수능_03 직탐(공업 일반)_문제.pdf:20",
+      "subject": "kongil"
+    },
+    {
+      "id": "cf8000f7-9746-4eba-9ae5-6304a8a2d556",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_수능_01 성공적인 직업생활_문제.pdf:12",
+      "subject": "sungjik"
+    },
+    {
+      "id": "cf98a6ca-c84b-403b-b8c5-fce1ef0e096c",
+      "logicalSourceId": "kongil:moi:kongil_2025_6월_모의평가_03 공업 일반_문제.pdf:14",
+      "subject": "kongil"
+    },
+    {
+      "id": "d0f01696-7a14-4a16-9f58-cd62eb5bc9d8",
+      "logicalSourceId": "kongil:moi:kongil_2022_9월_모의평가_03 직탐(공업 일반)_문제.pdf:18",
+      "subject": "kongil"
+    },
+    {
+      "id": "d268e3de-54ff-428b-b323-14a1dac61c37",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_6월_모의평가_01 직탐(성공적인 직업생활)_문제.pdf:7",
+      "subject": "sungjik"
+    },
+    {
+      "id": "d29a0ae3-ed93-4f8e-9076-93b081d79109",
+      "logicalSourceId": "kongil:moi:kongil_2025_6월_모의평가_03 공업 일반_문제.pdf:1",
+      "subject": "kongil"
+    },
+    {
+      "id": "d2e2b9a4-9b4b-4f16-8cde-a27f6180c8c0",
+      "logicalSourceId": "kongil:moi:kongil_2021_9월_모의평가_03 직업탐구영역_공업 일반_문제.pdf:20",
+      "subject": "kongil"
+    },
+    {
+      "id": "d34d06a0-c314-4d6b-9824-168a1668bd18",
+      "logicalSourceId": "kongil:moi:kongil_2024_수능_03 공업 일반_문제.pdf:2",
+      "subject": "kongil"
+    },
+    {
+      "id": "d426ea4f-f8b1-41ec-90c3-bcfefa8b2c73",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_6월_모의평가_01 성공적인 직업생활_문제지.pdf:14",
+      "subject": "sungjik"
+    },
+    {
+      "id": "d4690dc7-b10f-482a-b059-784eec6e8c2b",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_수능_01 직탐(성공적인 직업생활)_문제.pdf:19",
+      "subject": "sungjik"
+    },
+    {
+      "id": "d46d9232-368b-495d-b585-57a04b5cbd57",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_9월_모의평가_06 직탐(성공적인 직업생활) 문제지.pdf:3",
+      "subject": "sungjik"
+    },
+    {
+      "id": "d4e3f656-e0e1-4038-8fb9-0a14211afb8a",
+      "logicalSourceId": "kongil:moi:kongil_2022_수능_03 직탐(공업 일반)_문제.pdf:19",
+      "subject": "kongil"
+    },
+    {
+      "id": "d4f64e38-4f64-448c-b4e3-0247bb888ab3",
+      "logicalSourceId": "sungjik:moi:sungjik_2025_6월_모의평가_01 성공적인 직업생활_문제.pdf:18",
+      "subject": "sungjik"
+    },
+    {
+      "id": "d4f9be08-84fa-4fdf-9a72-0593ea1ed06f",
+      "logicalSourceId": "sungjik:moi:sungjik_2025_9월_모의평가_01 성공적인 직업생활_문제.pdf:5",
+      "subject": "sungjik"
+    },
+    {
+      "id": "d542e78c-3e4e-4c88-923a-deda21f9d70b",
+      "logicalSourceId": "sungjik:moi:sungjik_2025_6월_모의평가_01 성공적인 직업생활_문제.pdf:4",
+      "subject": "sungjik"
+    },
+    {
+      "id": "d5ec90bc-1074-4ff6-8b92-5360622920d1",
+      "logicalSourceId": "sungjik:moi:sungjik_2025_9월_모의평가_01 성공적인 직업생활_문제.pdf:10",
+      "subject": "sungjik"
+    },
+    {
+      "id": "d5fe0b50-8e2a-4ac6-a316-1e70417de7ad",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_9월_모의평가_01 직탐(성공적인 직업생활)_문제.pdf:8",
+      "subject": "sungjik"
+    },
+    {
+      "id": "d63661ed-6dee-4582-8a60-359e54a2c147",
+      "logicalSourceId": "kongil:moi:kongil_2022_수능_03 직탐(공업 일반)_문제.pdf:18",
+      "subject": "kongil"
+    },
+    {
+      "id": "d668f6cd-379f-4588-8fb7-b156008aa427",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_6월_모의평가_01 4교시_직업탐구영역_성공적인 직업생활_문제.pdf:10",
+      "subject": "sungjik"
+    },
+    {
+      "id": "d717c7d6-375e-4c66-b6f2-6c62e9bdaea2",
+      "logicalSourceId": "kongil:moi:kongil_2021_9월_모의평가_03 직업탐구영역_공업 일반_문제.pdf:3",
+      "subject": "kongil"
+    },
+    {
+      "id": "d7abeb8f-8a20-429d-a2de-49cfe9f1bcf6",
+      "logicalSourceId": "kongil:moi:kongil_2023_9월_모의평가_02 직탐(공업 일반) 문제지.pdf:5",
+      "subject": "kongil"
+    },
+    {
+      "id": "d7ea9d1c-d9bb-4aac-b5ae-2644f8196713",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_수능_06 성공적인 직업생활_문제.pdf:5",
+      "subject": "sungjik"
+    },
+    {
+      "id": "d800b77c-c91e-48e6-bfe5-7f205e9bea0d",
+      "logicalSourceId": "kongil:moi:kongil_2023_6월_모의평가_03 직탐(공업 일반)_문제.pdf:16",
+      "subject": "kongil"
+    },
+    {
+      "id": "d9084ad0-de64-43dc-9283-991efdb5a5f9",
+      "logicalSourceId": "kongil:moi:kongil_2023_9월_모의평가_02 직탐(공업 일반) 문제지.pdf:18",
+      "subject": "kongil"
+    },
+    {
+      "id": "d91613a4-85cb-4c2e-8b9e-d2e8d7e7738c",
+      "logicalSourceId": "sungjik:moi:sungjik_2025_6월_모의평가_01 성공적인 직업생활_문제.pdf:5",
+      "subject": "sungjik"
+    },
+    {
+      "id": "d92b6d43-60e2-416a-a6fd-9d1e88417f63",
+      "logicalSourceId": "kongil:moi:kongil_2022_9월_모의평가_03 직탐(공업 일반)_문제.pdf:20",
+      "subject": "kongil"
+    },
+    {
+      "id": "d993bb81-1223-4d6d-8c2f-c4b4130152f9",
+      "logicalSourceId": "kongil:moi:kongil_2024_9월_모의평가_03 공업 일반_문제지.pdf:12",
+      "subject": "kongil"
+    },
+    {
+      "id": "db75c3fe-fc52-4b07-ab8f-6d6b07e0c3b2",
+      "logicalSourceId": "kongil:moi:kongil_2022_9월_모의평가_03 직탐(공업 일반)_문제.pdf:5",
+      "subject": "kongil"
+    },
+    {
+      "id": "dba7e764-13e7-40aa-a36b-f33d93050c0b",
+      "logicalSourceId": "kongil:moi:kongil_2022_수능_03 직탐(공업 일반)_문제.pdf:17",
+      "subject": "kongil"
+    },
+    {
+      "id": "dc354a4f-4747-45f4-8b5e-bde02ca40321",
+      "logicalSourceId": "kongil:moi:kongil_2024_9월_모의평가_03 공업 일반_문제지.pdf:15",
+      "subject": "kongil"
+    },
+    {
+      "id": "dcb5105a-cdaf-4be0-bdae-1d9330ffe744",
+      "logicalSourceId": "kongil:moi:kongil_2021_수능_03 직탐(공업 일반).pdf:20",
+      "subject": "kongil"
+    },
+    {
+      "id": "dce5d12d-b2da-4690-baec-38432af228eb",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_6월_모의평가_01 4교시_직업탐구영역_성공적인 직업생활_문제.pdf:4",
+      "subject": "sungjik"
+    },
+    {
+      "id": "dd413ddd-1e08-4548-8362-3070ff32271f",
+      "logicalSourceId": "sungjik:moi:sungjik_2025_9월_모의평가_01 성공적인 직업생활_문제.pdf:11",
+      "subject": "sungjik"
+    },
+    {
+      "id": "dde870ba-6e2f-45de-9574-5f8a26ae4f3c",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_9월_모의평가_01 직탐(성공적인 직업생활)_문제.pdf:14",
+      "subject": "sungjik"
+    },
+    {
+      "id": "ddff862a-96b3-4ea1-b1c0-a00c494ff174",
+      "logicalSourceId": "sungjik:moi:sungjik_2025_6월_모의평가_01 성공적인 직업생활_문제.pdf:17",
+      "subject": "sungjik"
+    },
+    {
+      "id": "dec9bd1a-19f1-4707-b745-6c87bdc5908f",
+      "logicalSourceId": "kongil:moi:kongil_2024_6월_모의평가_03 공업 일반_문제지.pdf:1",
+      "subject": "kongil"
+    },
+    {
+      "id": "dfc8f4c3-b934-4102-98d8-3dd9f2477805",
+      "logicalSourceId": "kongil:moi:kongil_2024_6월_모의평가_03 공업 일반_문제지.pdf:16",
+      "subject": "kongil"
+    },
+    {
+      "id": "e00f832b-fcac-4165-9683-061f4a6098a6",
+      "logicalSourceId": "kongil:moi:kongil_2021_수능_03 직탐(공업 일반).pdf:7",
+      "subject": "kongil"
+    },
+    {
+      "id": "e2078f5e-eeb2-434e-a7cc-d1c21d06a5c8",
+      "logicalSourceId": "kongil:moi:kongil_2024_9월_모의평가_03 공업 일반_문제지.pdf:14",
+      "subject": "kongil"
+    },
+    {
+      "id": "e29a8d3d-9163-4a69-8070-dc89557b5586",
+      "logicalSourceId": "kongil:moi:kongil_2024_6월_모의평가_03 공업 일반_문제지.pdf:13",
+      "subject": "kongil"
+    },
+    {
+      "id": "e2ef2933-39e5-4184-94ec-e19aebf04cd0",
+      "logicalSourceId": "kongil:moi:kongil_2023_9월_모의평가_02 직탐(공업 일반) 문제지.pdf:2",
+      "subject": "kongil"
+    },
+    {
+      "id": "e3313dd4-ac4f-4088-b118-91f03ddf071b",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_9월_모의평가_06 직탐(성공적인 직업생활) 문제지.pdf:20",
+      "subject": "sungjik"
+    },
+    {
+      "id": "e33f782c-6349-45c7-af73-0bb5b8971e69",
+      "logicalSourceId": "kongil:moi:kongil_2022_6월_모의평가_03 4교시_직업탐구영역_공업 일반_문제.pdf:5",
+      "subject": "kongil"
+    },
+    {
+      "id": "e393ed07-b261-4f1b-ad4d-71bb286c680d",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_6월_모의평가_01 성공적인 직업생활_문제지.pdf:9",
+      "subject": "sungjik"
+    },
+    {
+      "id": "e3b43565-6f83-4eba-9d8d-228c1dde43e7",
+      "logicalSourceId": "kongil:moi:kongil_2024_9월_모의평가_03 공업 일반_문제지.pdf:2",
+      "subject": "kongil"
+    },
+    {
+      "id": "e437b15f-f90f-4c4a-a39d-a27ce3c71fe7",
+      "logicalSourceId": "sungjik:moi:sungjik_2025_9월_모의평가_01 성공적인 직업생활_문제.pdf:3",
+      "subject": "sungjik"
+    },
+    {
+      "id": "e4e2ded7-01e6-4b5b-bc3e-c0d79ba7cd00",
+      "logicalSourceId": "kongil:suteck:공일_20단원_문제.pdf:7",
+      "subject": "kongil"
+    },
+    {
+      "id": "e637f713-f43e-47a1-aa5d-20de40d3718a",
+      "logicalSourceId": "kongil:moi:kongil_2021_6월_모의평가_03 직업탐구영역_공업 일반_문제.pdf:5",
+      "subject": "kongil"
+    },
+    {
+      "id": "e69eb70c-d217-4e8b-b01f-22f029061235",
+      "logicalSourceId": "kongil:moi:kongil_2021_수능_03 직탐(공업 일반).pdf:4",
+      "subject": "kongil"
+    },
+    {
+      "id": "e74fdd9b-749b-423b-9767-e082353eea8a",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_9월_모의평가_01 직탐(성공적인 직업생활)_문제.pdf:13",
+      "subject": "sungjik"
+    },
+    {
+      "id": "e79f93d1-63bc-4c5b-b937-2c011ac0160a",
+      "logicalSourceId": "kongil:moi:kongil_2022_수능_03 직탐(공업 일반)_문제.pdf:8",
+      "subject": "kongil"
+    },
+    {
+      "id": "e7a6f648-91d3-4dfe-8fca-885c0385c7f6",
+      "logicalSourceId": "kongil:moi:kongil_2022_수능_03 직탐(공업 일반)_문제.pdf:13",
+      "subject": "kongil"
+    },
+    {
+      "id": "e7b603aa-789d-4892-99c8-87b4b1c0ff3e",
+      "logicalSourceId": "kongil:moi:kongil_2022_6월_모의평가_03 4교시_직업탐구영역_공업 일반_문제.pdf:6",
+      "subject": "kongil"
+    },
+    {
+      "id": "e82384e1-aeee-42e9-9d81-62104982b20b",
+      "logicalSourceId": "kongil:moi:kongil_2025_수능_03 공업 일반_문제지.pdf:7",
+      "subject": "kongil"
+    },
+    {
+      "id": "e8771da2-3175-4602-a2be-432b132a0733",
+      "logicalSourceId": "kongil:moi:kongil_2025_수능_03 공업 일반_문제지.pdf:17",
+      "subject": "kongil"
+    },
+    {
+      "id": "e90022c7-f75d-4a52-9436-286f947c6403",
+      "logicalSourceId": "kongil:moi:kongil_2021_수능_03 직탐(공업 일반).pdf:5",
+      "subject": "kongil"
+    },
+    {
+      "id": "e90fa4dc-0240-47fb-bd74-e6e0f80efe22",
+      "logicalSourceId": "sungjik:moi:sungjik_2025_9월_모의평가_01 성공적인 직업생활_문제.pdf:2",
+      "subject": "sungjik"
+    },
+    {
+      "id": "e9670b24-5101-408f-9424-e05e114c8eec",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_6월_모의평가_01 4교시_직업탐구영역_성공적인 직업생활_문제.pdf:11",
+      "subject": "sungjik"
+    },
+    {
+      "id": "e9880b4c-847c-42f3-9982-bea58e5bafd3",
+      "logicalSourceId": "kongil:moi:kongil_2021_9월_모의평가_03 직업탐구영역_공업 일반_문제.pdf:17",
+      "subject": "kongil"
+    },
+    {
+      "id": "ea0ec384-5a21-450c-b37b-0b348802c914",
+      "logicalSourceId": "kongil:moi:kongil_2025_수능_03 공업 일반_문제지.pdf:15",
+      "subject": "kongil"
+    },
+    {
+      "id": "ea8189a4-af7a-4160-bddd-14548d55936d",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_6월_모의평가_01 4교시_직업탐구영역_성공적인 직업생활_문제.pdf:14",
+      "subject": "sungjik"
+    },
+    {
+      "id": "ebb36495-f7f8-460f-9bed-32836e1f43ba",
+      "logicalSourceId": "kongil:moi:kongil_2022_6월_모의평가_03 4교시_직업탐구영역_공업 일반_문제.pdf:12",
+      "subject": "kongil"
+    },
+    {
+      "id": "ecb90ab1-d689-4381-912a-17339c6bdcc7",
+      "logicalSourceId": "kongil:moi:kongil_2023_수능_02 공업 일반_문제.pdf:6",
+      "subject": "kongil"
+    },
+    {
+      "id": "ed8266a3-57f5-4eea-a666-4b1d620a3f75",
+      "logicalSourceId": "sungjik:moi:sungjik_2025_9월_모의평가_01 성공적인 직업생활_문제.pdf:19",
+      "subject": "sungjik"
+    },
+    {
+      "id": "edc93c41-2df9-4522-91f1-12e5f5f75aa1",
+      "logicalSourceId": "kongil:moi:kongil_2021_6월_모의평가_03 직업탐구영역_공업 일반_문제.pdf:17",
+      "subject": "kongil"
+    },
+    {
+      "id": "eddc9616-9e56-46f9-a4cc-80311fa2fa45",
+      "logicalSourceId": "kongil:moi:kongil_2025_6월_모의평가_03 공업 일반_문제.pdf:15",
+      "subject": "kongil"
+    },
+    {
+      "id": "edeeb02e-3799-473d-8bb1-2cb677adb380",
+      "logicalSourceId": "kongil:moi:kongil_2021_9월_모의평가_03 직업탐구영역_공업 일반_문제.pdf:8",
+      "subject": "kongil"
+    },
+    {
+      "id": "f08e2e92-47d4-46a2-8060-4f0b3826a031",
+      "logicalSourceId": "kongil:moi:kongil_2022_9월_모의평가_03 직탐(공업 일반)_문제.pdf:7",
+      "subject": "kongil"
+    },
+    {
+      "id": "f16a04e2-8eb4-43fa-a3d8-ec94b4b0e61a",
+      "logicalSourceId": "kongil:moi:kongil_2024_수능_03 공업 일반_문제.pdf:10",
+      "subject": "kongil"
+    },
+    {
+      "id": "f1d4e9a6-8552-4163-b1f3-be703fe0816c",
+      "logicalSourceId": "sungjik:moi:sungjik_2025_9월_모의평가_01 성공적인 직업생활_문제.pdf:12",
+      "subject": "sungjik"
+    },
+    {
+      "id": "f2ebe136-20f3-43af-af84-8237836e4d16",
+      "logicalSourceId": "kongil:moi:kongil_2025_9월_모의평가_03 공업 일반_문제.pdf:13",
+      "subject": "kongil"
+    },
+    {
+      "id": "f370bab3-e85e-4e56-9aa8-1f02fd41281a",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_9월_모의평가_06 직탐(성공적인 직업생활) 문제지.pdf:19",
+      "subject": "sungjik"
+    },
+    {
+      "id": "f38c503d-26dd-48f9-a0dd-ae3ecda0b352",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_6월_모의평가_01 4교시_직업탐구영역_성공적인 직업생활_문제.pdf:17",
+      "subject": "sungjik"
+    },
+    {
+      "id": "f3d68989-0278-4d52-8bd4-409587e9fa72",
+      "logicalSourceId": "kongil:moi:kongil_2021_6월_모의평가_03 직업탐구영역_공업 일반_문제.pdf:8",
+      "subject": "kongil"
+    },
+    {
+      "id": "f44f96fe-2c8b-4097-a951-ea3dafe44d76",
+      "logicalSourceId": "kongil:moi:kongil_2023_9월_모의평가_02 직탐(공업 일반) 문제지.pdf:14",
+      "subject": "kongil"
+    },
+    {
+      "id": "f4d3e85d-edaf-4f3e-b31e-d4ff5cb60c2e",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_수능_01 직탐(성공적인 직업생활)_문제.pdf:7",
+      "subject": "sungjik"
+    },
+    {
+      "id": "f4fd745a-aae9-48ce-911a-bcff98d34a7f",
+      "logicalSourceId": "kongil:moi:kongil_2024_수능_03 공업 일반_문제.pdf:15",
+      "subject": "kongil"
+    },
+    {
+      "id": "f57d502b-f176-473c-a99c-59f5640e9dea",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_수능_01 성공적인 직업생활_문제.pdf:4",
+      "subject": "sungjik"
+    },
+    {
+      "id": "f69f19f9-4b06-4be6-ba61-5b53952c537e",
+      "logicalSourceId": "sungjik:moi:sungjik_2025_6월_모의평가_01 성공적인 직업생활_문제.pdf:19",
+      "subject": "sungjik"
+    },
+    {
+      "id": "f6aaa94d-d8b3-4d64-bf8a-e6071481663d",
+      "logicalSourceId": "kongil:suteck:공일_7단원_문제.pdf:6",
+      "subject": "kongil"
+    },
+    {
+      "id": "f715e0e9-c3c4-4f43-84db-2b09484387e2",
+      "logicalSourceId": "kongil:moi:kongil_2024_9월_모의평가_03 공업 일반_문제지.pdf:16",
+      "subject": "kongil"
+    },
+    {
+      "id": "f7835cd8-6369-4d18-b382-a9be366fdafd",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_6월_모의평가_01 4교시_직업탐구영역_성공적인 직업생활_문제.pdf:9",
+      "subject": "sungjik"
+    },
+    {
+      "id": "f828ff8d-9d2c-46e2-88d9-b99f434bbfc1",
+      "logicalSourceId": "sungjik:moi:sungjik_2025_6월_모의평가_01 성공적인 직업생활_문제.pdf:11",
+      "subject": "sungjik"
+    },
+    {
+      "id": "f86f2a04-3504-4790-aa62-961d3ebb2674",
+      "logicalSourceId": "kongil:moi:kongil_2023_6월_모의평가_03 직탐(공업 일반)_문제.pdf:17",
+      "subject": "kongil"
+    },
+    {
+      "id": "f94ac42a-966d-4fb7-967c-b1c7f89490e6",
+      "logicalSourceId": "sungjik:moi:sungjik_2022_6월_모의평가_01 4교시_직업탐구영역_성공적인 직업생활_문제.pdf:6",
+      "subject": "sungjik"
+    },
+    {
+      "id": "f96cfc23-270b-43fe-bd08-a3e1468f15b0",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_6월_모의평가_01 성공적인 직업생활_문제지.pdf:8",
+      "subject": "sungjik"
+    },
+    {
+      "id": "f9fba069-6241-42ef-95da-c8e0bcf67fc9",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_9월_모의평가_01 성공적인 직업생활_문제지.pdf:2",
+      "subject": "sungjik"
+    },
+    {
+      "id": "fa2bb1e9-34df-40ac-9307-5744508bdcd4",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_6월_모의평가_01 직탐(성공적인 직업생활)_문제.pdf:6",
+      "subject": "sungjik"
+    },
+    {
+      "id": "fa43f3a5-586b-4034-8dfa-7f245d60c475",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_9월_모의평가_01 성공적인 직업생활_문제지.pdf:3",
+      "subject": "sungjik"
+    },
+    {
+      "id": "fba18a8f-5559-42c0-b3b3-a8b2be54169b",
+      "logicalSourceId": "kongil:moi:kongil_2025_수능_03 공업 일반_문제지.pdf:20",
+      "subject": "kongil"
+    },
+    {
+      "id": "fc4797a1-bf72-4133-9f86-58d26d8bce67",
+      "logicalSourceId": "kongil:moi:kongil_2023_9월_모의평가_02 직탐(공업 일반) 문제지.pdf:16",
+      "subject": "kongil"
+    },
+    {
+      "id": "fc5ef691-9713-49a0-9d36-4840aab06e47",
+      "logicalSourceId": "kongil:moi:kongil_2024_6월_모의평가_03 공업 일반_문제지.pdf:12",
+      "subject": "kongil"
+    },
+    {
+      "id": "fd92515b-c50d-4fd9-8f43-fd9767688a42",
+      "logicalSourceId": "kongil:moi:kongil_2025_6월_모의평가_03 공업 일반_문제.pdf:17",
+      "subject": "kongil"
+    },
+    {
+      "id": "fdf0f9a1-d3b1-4270-8525-92810ea16b09",
+      "logicalSourceId": "sungjik:moi:sungjik_2024_9월_모의평가_01 성공적인 직업생활_문제지.pdf:5",
+      "subject": "sungjik"
+    },
+    {
+      "id": "fe055c50-181a-40c1-8aa6-e66db3ede7a0",
+      "logicalSourceId": "sungjik:moi:sungjik_2023_6월_모의평가_01 직탐(성공적인 직업생활)_문제.pdf:12",
+      "subject": "sungjik"
+    },
+    {
+      "id": "fe8d4ea3-93ae-4143-978f-a7b0995b793a",
+      "logicalSourceId": "kongil:moi:kongil_2023_6월_모의평가_03 직탐(공업 일반)_문제.pdf:14",
+      "subject": "kongil"
+    },
+    {
+      "id": "ff4b9c61-6d16-4fa7-836e-c8af63369831",
+      "logicalSourceId": "kongil:moi:kongil_2024_6월_모의평가_03 공업 일반_문제지.pdf:3",
+      "subject": "kongil"
+    }
+  ]
+}

@@ -156,6 +156,26 @@ export default function QuizCachePage() {
     }
   }
 
+  async function handleRegenerateAllBlanks() {
+    if (!currentSubject) return;
+    setActionLoading(true);
+    const allUnitNumbers = currentSubject.units.map((u) => u.unitNumber);
+    try {
+      await apiFetch('/study/cache-bulk', {
+        method: 'DELETE',
+        body: JSON.stringify({ subjectSlug: selectedSubject, unitNumbers: allUnitNumbers, types: ['blank'] }),
+      });
+      await apiFetch('/study/cache-regenerate', {
+        method: 'POST',
+        body: JSON.stringify({ subjectSlug: selectedSubject, unitNumbers: allUnitNumbers, types: ['blank'] }),
+      });
+      setRegenStatus({ status: 'running', completed: 0, total: allUnitNumbers.length, errors: [] });
+    } catch {
+    } finally {
+      setActionLoading(false);
+    }
+  }
+
   if (loading) {
     return (
       <VStack gap={SPACING.s16} align="center" style={{ padding: SPACING.s32 }}>
@@ -206,6 +226,20 @@ export default function QuizCachePage() {
             disabled={actionLoading}
           >
             <Typo.MD size={12} color="primary">선택 재생성 ({selectedUnits.length})</Typo.MD>
+          </button>
+        </HStack>
+      )}
+
+      {currentSubject && (
+        <HStack gap={SPACING.s8} align="center">
+          <button
+            className={s.actionButton}
+            onClick={handleRegenerateAllBlanks}
+            disabled={actionLoading || regenStatus.status === 'running'}
+          >
+            <Typo.MD size={12} color="brand">
+              ⚡ 전체 빈칸문제 재생성 ({currentSubject.units.length}단원)
+            </Typo.MD>
           </button>
         </HStack>
       )}

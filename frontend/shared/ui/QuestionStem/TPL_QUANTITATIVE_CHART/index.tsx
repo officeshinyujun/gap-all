@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { VStack } from '@/components/general/VStack';
+import { VStack } from '@shared/ui/VStack';
 import { StemBox } from '../_shared/StemBox';
 import { StemLabel } from '../_shared/StemLabel';
 import type { TPL_QUANTITATIVE_CHART } from '@/types/questionstem';

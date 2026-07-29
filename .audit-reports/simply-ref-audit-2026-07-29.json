@@ -1,0 +1,461 @@
+{
+  "status": "failed",
+  "totalQuestionCount": 65,
+  "failedQuestionCount": 46,
+  "byTemplate": [
+    {
+      "template": "TPL_ARTICLE",
+      "questionCount": 5,
+      "failedQuestionCount": 5
+    },
+    {
+      "template": "TPL_CASE_DIAGNOSTIC_FRAME",
+      "questionCount": 18,
+      "failedQuestionCount": 16
+    },
+    {
+      "template": "TPL_COMPARATIVE_MATRIX",
+      "questionCount": 22,
+      "failedQuestionCount": 13
+    },
+    {
+      "template": "TPL_CONVERSATIONAL_FLOW",
+      "questionCount": 11,
+      "failedQuestionCount": 6
+    },
+    {
+      "template": "TPL_FORMAL_DOCUMENT",
+      "questionCount": 2,
+      "failedQuestionCount": 0
+    },
+    {
+      "template": "TPL_SEQUENTIAL_WORKFLOW",
+      "questionCount": 7,
+      "failedQuestionCount": 6
+    }
+  ],
+  "questions": [
+    {
+      "questionId": "0483afd4-683f-4814-8ebf-10849596d1c9",
+      "template": "TPL_CONVERSATIONAL_FLOW",
+      "issueCodes": [
+        "missing_source"
+      ]
+    },
+    {
+      "questionId": "0b625f95-3476-4465-b9f9-855221b1a915",
+      "template": "TPL_COMPARATIVE_MATRIX",
+      "issueCodes": []
+    },
+    {
+      "questionId": "0b6dc4c8-cdac-4dd6-b51d-8d3aaf442a43",
+      "template": "TPL_SEQUENTIAL_WORKFLOW",
+      "issueCodes": []
+    },
+    {
+      "questionId": "0c4a98a2-348f-4617-a6a6-5996eb6273e2",
+      "template": "TPL_FORMAL_DOCUMENT",
+      "issueCodes": []
+    },
+    {
+      "questionId": "107728fa-4076-430f-b33d-a523e092e9d3",
+      "template": "TPL_COMPARATIVE_MATRIX",
+      "issueCodes": [
+        "duplicate_question"
+      ]
+    },
+    {
+      "questionId": "10ce71ed-4320-411e-887b-aaf144e281aa",
+      "template": "TPL_COMPARATIVE_MATRIX",
+      "issueCodes": [
+        "duplicate_choice"
+      ]
+    },
+    {
+      "questionId": "125afce5-8e01-4e44-93ad-012c8a070877",
+      "template": "TPL_SEQUENTIAL_WORKFLOW",
+      "issueCodes": [
+        "duplicate_question"
+      ]
+    },
+    {
+      "questionId": "12b73b58-fe13-473e-b234-3f6a290f7dc6",
+      "template": "TPL_CONVERSATIONAL_FLOW",
+      "issueCodes": [
+        "missing_source"
+      ]
+    },
+    {
+      "questionId": "1446f911-6fb2-4a9d-9f8c-3b79e45ba10b",
+      "template": "TPL_CASE_DIAGNOSTIC_FRAME",
+      "issueCodes": [
+        "duplicate_question"
+      ]
+    },
+    {
+      "questionId": "1640799b-5914-4d25-b6da-64d4f214e863",
+      "template": "TPL_FORMAL_DOCUMENT",
+      "issueCodes": []
+    },
+    {
+      "questionId": "1ea93e29-ad31-4908-a259-011991d4d853",
+      "template": "TPL_SEQUENTIAL_WORKFLOW",
+      "issueCodes": [
+        "duplicate_question"
+      ]
+    },
+    {
+      "questionId": "1ebfd549-dca6-4fb0-ae8a-dfd49c58cd06",
+      "template": "TPL_COMPARATIVE_MATRIX",
+      "issueCodes": [
+        "duplicate_question"
+      ]
+    },
+    {
+      "questionId": "1f3f2d3d-6528-40c3-b823-a5e7eb16d924",
+      "template": "TPL_CASE_DIAGNOSTIC_FRAME",
+      "issueCodes": [
+        "missing_source"
+      ]
+    },
+    {
+      "questionId": "220b20be-764a-411e-8ddc-23244af3d1b0",
+      "template": "TPL_COMPARATIVE_MATRIX",
+      "issueCodes": [
+        "duplicate_question"
+      ]
+    },
+    {
+      "questionId": "237bba65-623f-4fe6-be99-1d103fe49735",
+      "template": "TPL_CASE_DIAGNOSTIC_FRAME",
+      "issueCodes": [
+        "duplicate_question"
+      ]
+    },
+    {
+      "questionId": "2683b122-00dc-4983-bbb9-f9b5845e7a18",
+      "template": "TPL_COMPARATIVE_MATRIX",
+      "issueCodes": []
+    },
+    {
+      "questionId": "30d1a40f-0d84-411c-a55e-20cd18f9a2aa",
+      "template": "TPL_CASE_DIAGNOSTIC_FRAME",
+      "issueCodes": [
+        "duplicate_question"
+      ]
+    },
+    {
+      "questionId": "31926907-ec0b-44a4-bbcf-fe58dea4b84a",
+      "template": "TPL_ARTICLE",
+      "issueCodes": [
+        "invalid_tpl",
+        "missing_source"
+      ]
+    },
+    {
+      "questionId": "3809c67e-7ac3-4377-8964-2d8676b5b956",
+      "template": "TPL_COMPARATIVE_MATRIX",
+      "issueCodes": [
+        "duplicate_question"
+      ]
+    },
+    {
+      "questionId": "39778360-71d6-492c-b95d-d1a87e1dcc2f",
+      "template": "TPL_CASE_DIAGNOSTIC_FRAME",
+      "issueCodes": [
+        "duplicate_question"
+      ]
+    },
+    {
+      "questionId": "3a6ff997-3579-4d83-9cee-5f7c9297b47d",
+      "template": "TPL_CASE_DIAGNOSTIC_FRAME",
+      "issueCodes": []
+    },
+    {
+      "questionId": "3ab03c6f-c6c4-4ead-94df-1544cc5219eb",
+      "template": "TPL_CONVERSATIONAL_FLOW",
+      "issueCodes": []
+    },
+    {
+      "questionId": "446d6d4d-5487-4761-9eff-1fdaec63c5c1",
+      "template": "TPL_COMPARATIVE_MATRIX",
+      "issueCodes": []
+    },
+    {
+      "questionId": "44b74811-0275-4527-830a-7f192271fd57",
+      "template": "TPL_CASE_DIAGNOSTIC_FRAME",
+      "issueCodes": [
+        "duplicate_question"
+      ]
+    },
+    {
+      "questionId": "4b100a65-78a3-4637-ab94-f0f707b67655",
+      "template": "TPL_CONVERSATIONAL_FLOW",
+      "issueCodes": [
+        "missing_source"
+      ]
+    },
+    {
+      "questionId": "604827fd-a5ce-42fc-bc52-4eccf3dd32e1",
+      "template": "TPL_CASE_DIAGNOSTIC_FRAME",
+      "issueCodes": [
+        "duplicate_question"
+      ]
+    },
+    {
+      "questionId": "6655248c-e8b6-4fea-94f2-907b43c99e56",
+      "template": "TPL_COMPARATIVE_MATRIX",
+      "issueCodes": [
+        "duplicate_question"
+      ]
+    },
+    {
+      "questionId": "6aa7079a-9c1e-4c1a-871d-5667de7b39db",
+      "template": "TPL_CONVERSATIONAL_FLOW",
+      "issueCodes": [
+        "missing_source"
+      ]
+    },
+    {
+      "questionId": "6bfdf2f9-b5ce-4614-82ab-31fcc0fa6a4c",
+      "template": "TPL_COMPARATIVE_MATRIX",
+      "issueCodes": [
+        "duplicate_question"
+      ]
+    },
+    {
+      "questionId": "6f59bf65-9977-43ae-8952-95c938787a3e",
+      "template": "TPL_CONVERSATIONAL_FLOW",
+      "issueCodes": []
+    },
+    {
+      "questionId": "703159aa-700a-4dc3-a1d4-acff2baa2985",
+      "template": "TPL_CONVERSATIONAL_FLOW",
+      "issueCodes": []
+    },
+    {
+      "questionId": "7085cef7-4c29-46f4-9ccc-c1d9b4cb9d9c",
+      "template": "TPL_COMPARATIVE_MATRIX",
+      "issueCodes": [
+        "duplicate_question"
+      ]
+    },
+    {
+      "questionId": "735a3612-9d8b-413a-a63b-966089724ced",
+      "template": "TPL_CASE_DIAGNOSTIC_FRAME",
+      "issueCodes": [
+        "duplicate_question"
+      ]
+    },
+    {
+      "questionId": "7839fe1a-c903-49ed-a8ff-96c5586b0546",
+      "template": "TPL_ARTICLE",
+      "issueCodes": [
+        "invalid_tpl",
+        "missing_source"
+      ]
+    },
+    {
+      "questionId": "792543b4-fc23-4294-88b9-c96159e65af5",
+      "template": "TPL_ARTICLE",
+      "issueCodes": [
+        "invalid_tpl",
+        "missing_source"
+      ]
+    },
+    {
+      "questionId": "794ed8ca-4d6e-4d8a-aa7f-fb4015f96a61",
+      "template": "TPL_SEQUENTIAL_WORKFLOW",
+      "issueCodes": [
+        "duplicate_question"
+      ]
+    },
+    {
+      "questionId": "7ab57cf9-7438-424c-a5a9-0ffe550ca8d5",
+      "template": "TPL_SEQUENTIAL_WORKFLOW",
+      "issueCodes": [
+        "duplicate_question"
+      ]
+    },
+    {
+      "questionId": "7d0c3af1-2a32-4e38-86d8-99c15da9e15b",
+      "template": "TPL_ARTICLE",
+      "issueCodes": [
+        "invalid_tpl",
+        "missing_source"
+      ]
+    },
+    {
+      "questionId": "7f39bf69-1ea1-4270-87c4-39c5c985f688",
+      "template": "TPL_CASE_DIAGNOSTIC_FRAME",
+      "issueCodes": [
+        "missing_source"
+      ]
+    },
+    {
+      "questionId": "83a2097f-a607-4116-8a57-624792d2aa91",
+      "template": "TPL_CASE_DIAGNOSTIC_FRAME",
+      "issueCodes": [
+        "duplicate_question"
+      ]
+    },
+    {
+      "questionId": "8e64b5a6-5dd9-45ce-804e-633c085c9284",
+      "template": "TPL_CONVERSATIONAL_FLOW",
+      "issueCodes": [
+        "missing_source"
+      ]
+    },
+    {
+      "questionId": "966b88dc-e1de-4260-b58e-f2bc8af9889d",
+      "template": "TPL_SEQUENTIAL_WORKFLOW",
+      "issueCodes": [
+        "duplicate_question"
+      ]
+    },
+    {
+      "questionId": "a5499abc-5f50-4081-a7bd-d969aff1a8a5",
+      "template": "TPL_CASE_DIAGNOSTIC_FRAME",
+      "issueCodes": [
+        "duplicate_question"
+      ]
+    },
+    {
+      "questionId": "a92800c0-0b20-4d0d-a48d-6a6b507c9cac",
+      "template": "TPL_CASE_DIAGNOSTIC_FRAME",
+      "issueCodes": []
+    },
+    {
+      "questionId": "ace5843e-d26f-4853-83d4-91483788175a",
+      "template": "TPL_COMPARATIVE_MATRIX",
+      "issueCodes": []
+    },
+    {
+      "questionId": "af1690b1-14ba-4c9b-b165-9e9bd6455ee7",
+      "template": "TPL_CASE_DIAGNOSTIC_FRAME",
+      "issueCodes": [
+        "missing_source"
+      ]
+    },
+    {
+      "questionId": "b02917cd-5526-456a-843b-49738ca20768",
+      "template": "TPL_COMPARATIVE_MATRIX",
+      "issueCodes": []
+    },
+    {
+      "questionId": "b48f6f34-f6e2-4864-a81b-fbdbec913ab0",
+      "template": "TPL_CASE_DIAGNOSTIC_FRAME",
+      "issueCodes": [
+        "duplicate_question"
+      ]
+    },
+    {
+      "questionId": "bf9eca57-f9fb-4fe6-83ea-76a78fa52642",
+      "template": "TPL_COMPARATIVE_MATRIX",
+      "issueCodes": [
+        "duplicate_question"
+      ]
+    },
+    {
+      "questionId": "c1d1d258-b2ee-4e3c-b31a-e30dd79f8ba8",
+      "template": "TPL_COMPARATIVE_MATRIX",
+      "issueCodes": [
+        "duplicate_question"
+      ]
+    },
+    {
+      "questionId": "d377022a-f807-4eba-8d95-ab615f5a4a9d",
+      "template": "TPL_COMPARATIVE_MATRIX",
+      "issueCodes": []
+    },
+    {
+      "questionId": "d63aa00e-b019-43b0-9ede-61e39bb68b28",
+      "template": "TPL_COMPARATIVE_MATRIX",
+      "issueCodes": []
+    },
+    {
+      "questionId": "d6a5d0c9-cf54-40d2-b9d4-712c2e86923c",
+      "template": "TPL_CASE_DIAGNOSTIC_FRAME",
+      "issueCodes": [
+        "duplicate_question"
+      ]
+    },
+    {
+      "questionId": "d857c279-db27-4078-8585-3e96de17cdaa",
+      "template": "TPL_COMPARATIVE_MATRIX",
+      "issueCodes": []
+    },
+    {
+      "questionId": "dc577cf6-8d6b-4f9a-adb2-b8683cdeab05",
+      "template": "TPL_COMPARATIVE_MATRIX",
+      "issueCodes": [
+        "duplicate_question"
+      ]
+    },
+    {
+      "questionId": "dcf397e7-fef0-4c8d-9f5e-6f95d0f8dcdc",
+      "template": "TPL_CONVERSATIONAL_FLOW",
+      "issueCodes": []
+    },
+    {
+      "questionId": "e818b729-9fd0-4d9e-a707-60b2ccbfdd0e",
+      "template": "TPL_CONVERSATIONAL_FLOW",
+      "issueCodes": [
+        "missing_source"
+      ]
+    },
+    {
+      "questionId": "e9de413f-f303-4034-ab2e-94f9f17a4614",
+      "template": "TPL_CASE_DIAGNOSTIC_FRAME",
+      "issueCodes": [
+        "missing_source"
+      ]
+    },
+    {
+      "questionId": "ed7ea782-14c0-4d2c-93c3-15bda69d4093",
+      "template": "TPL_CASE_DIAGNOSTIC_FRAME",
+      "issueCodes": [
+        "duplicate_question"
+      ]
+    },
+    {
+      "questionId": "ef4f5ef9-e132-4a93-bb5b-1f342f2e964b",
+      "template": "TPL_COMPARATIVE_MATRIX",
+      "issueCodes": []
+    },
+    {
+      "questionId": "f47a7166-6461-41dd-9bc2-bc4e720dbc75",
+      "template": "TPL_ARTICLE",
+      "issueCodes": [
+        "invalid_tpl",
+        "missing_source"
+      ]
+    },
+    {
+      "questionId": "f7a7fcd7-f2b8-49c7-815a-642cf0bcfd69",
+      "template": "TPL_SEQUENTIAL_WORKFLOW",
+      "issueCodes": [
+        "duplicate_question"
+      ]
+    },
+    {
+      "questionId": "f895927f-a2d3-4736-b915-e103ab5cfefc",
+      "template": "TPL_CONVERSATIONAL_FLOW",
+      "issueCodes": []
+    },
+    {
+      "questionId": "f94b29f0-1184-4396-94ac-c05d2507ee9c",
+      "template": "TPL_COMPARATIVE_MATRIX",
+      "issueCodes": [
+        "duplicate_question"
+      ]
+    },
+    {
+      "questionId": "fad90e39-a34c-448b-a6df-3d1e29d326d4",
+      "template": "TPL_COMPARATIVE_MATRIX",
+      "issueCodes": [
+        "duplicate_question"
+      ]
+    }
+  ]
+}

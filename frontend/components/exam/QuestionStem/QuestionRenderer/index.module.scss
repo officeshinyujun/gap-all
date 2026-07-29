@@ -27,7 +27,6 @@
   color: $background-primary;
   font-size: 18px;
   font-weight: $bold;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,7 +37,6 @@
   font-size: 15px;
   font-weight: $semi-bold;
   color: $text-primary;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
   line-height: 1.6;
   word-break: keep-all;
   white-space: pre-wrap;
@@ -64,7 +62,6 @@
   font-size: 13px;
   font-weight: $semi-bold;
   color: $text-primary;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
   text-align: center;
   margin-bottom: $spacing-12;
 }
@@ -73,7 +70,6 @@
   font-size: 13px;
   font-weight: $regular;
   color: $text-primary;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
   line-height: 1.8;
   word-break: keep-all;
 }
@@ -109,7 +105,7 @@
 
 .optionCorrect {
   background-color: rgba(137, 218, 127, 0.15);
-  border-left: 3px solid #89DA7F;
+  border-left: 3px solid $text-correct;
 
   &:hover {
     background-color: rgba(137, 218, 127, 0.15);
@@ -118,7 +114,7 @@
 
 .optionWrong {
   background-color: rgba(218, 127, 127, 0.12);
-  border-left: 3px solid #DA7F7F;
+  border-left: 3px solid $text-wrong;
 
   &:hover {
     background-color: rgba(218, 127, 127, 0.12);
@@ -129,7 +125,6 @@
   font-size: 13px;
   font-weight: $regular;
   color: $text-primary;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
   line-height: 1.7;
   word-break: keep-all;
   text-align: left;
@@ -142,7 +137,6 @@
   border: 1px solid $border-primary;
   padding: $spacing-16;
   box-sizing: border-box;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
   font-size: 14px;
   line-height: 1.8;
   color: $text-primary;
@@ -182,7 +176,6 @@
   font-weight: $medium;
   color: $text-secondary;
   cursor: pointer;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
   align-self: flex-start;
   transition: background-color 0.1s, color 0.1s;
 
@@ -211,6 +204,5 @@
   margin: 0;
   line-height: 1.8;
   word-break: keep-all;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
   white-space: pre-line;
 }

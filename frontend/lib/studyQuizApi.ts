@@ -1,4 +1,9 @@
 import { API_BASE_URL } from './auth';
+import {
+  fetchWithClientCache,
+  invalidateClientCache,
+} from './clientCache';
+import { invalidateStudyCache } from './studyApi';
 import type { BlankQuestion, ConceptPair, QuizCount } from '@/types/studyQuiz';
 import type { ExamQuestion } from '@/types/examQuestion';
 export { fetchUnitId } from './studyApi';
@@ -122,6 +127,7 @@ export async function updateStudyProgress(
     },
     body: JSON.stringify({ unitId, studyMode, progressPercent }),
   });
+  invalidateStudyCache();
 }
 
 export async function clearStudyQuizCache(
@@ -166,7 +172,9 @@ export async function postIncorrectRecords(
     const error = await res.json().catch(() => ({ message: res.statusText }));
     throw new Error(error.message ?? `API 오류: ${res.status}`);
   }
-  return res.json();
+  const data = await res.json() as { saved: number };
+  invalidateClientCache('study:review-recommendations');
+  return data;
 }
 
 // 복습 추천 조회
@@ -189,17 +197,23 @@ export interface ReviewRecommendationsResponse {
 }
 
 export async function fetchReviewRecommendations(): Promise<ReviewRecommendationsResponse> {
-  const res = await fetch(`${API_BASE_URL}/study/review-recommendations`, {
-    credentials: 'include',
-    headers: {
-      'Content-Type': 'application/json',
+  return fetchWithClientCache(
+    'study:review-recommendations',
+    30_000,
+    async () => {
+      const res = await fetch(`${API_BASE_URL}/study/review-recommendations`, {
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      if (!res.ok) {
+        const error = await res.json().catch(() => ({ message: res.statusText }));
+        throw new Error(error.message ?? `API 오류: ${res.status}`);
+      }
+      return res.json() as Promise<ReviewRecommendationsResponse>;
     },
-  });
-  if (!res.ok) {
-    const error = await res.json().catch(() => ({ message: res.statusText }));
-    throw new Error(error.message ?? `API 오류: ${res.status}`);
-  }
-  return res.json();
+  );
 }
 
 // 복습 결과 제출
@@ -223,7 +237,9 @@ export async function submitReviewResult(
     const error = await res.json().catch(() => ({ message: res.statusText }));
     throw new Error(error.message ?? `API 오류: ${res.status}`);
   }
-  return res.json();
+  const data = await res.json() as { updated: number; graduated: number };
+  invalidateClientCache('study:review-recommendations');
+  return data;
 }
 
 // 오답 기반 새 문제 생성 요청

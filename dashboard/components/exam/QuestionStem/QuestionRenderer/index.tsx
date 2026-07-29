@@ -68,32 +68,7 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
         if (!raw) return null;
         const rows = raw.rows ?? [];
         const headers = raw.headers ?? [];
-        const selectionChips = raw.selection_chips ?? [];
-        const rowIds = rows.map((r) => String(r.id));
-        // selection_chips가 rows[].id와 매칭되면 행 레이블 역할 → 표 안에 표시
-        // 매칭되지 않으면 정답 힌트 → 마스킹
-        const chipsAreRowLabels = selectionChips.every((chip) =>
-          rowIds.includes(chip)
-        );
-
-        if (chipsAreRowLabels) {
-          // 각 행의 cells[0]을 chip 레이블로 교체하여 표시
-          const labeledRows = rows.map((row) => ({
-            ...row,
-            cells: [String(row.id), ...(row.cells ?? [])],
-          }));
-          const labeledHeaders = [
-            { id: '_label', label: '구분' },
-            ...headers,
-          ];
-          return (
-            <TPLComparativeMatrix
-              data={{ ...raw, headers: labeledHeaders, rows: labeledRows, selection_chips: [] }}
-              label={question_stem}
-            />
-          );
-        }
-
+        if (!rows.length || !headers.length) return null;
         return (
           <TPLComparativeMatrix
             data={{ ...raw, selection_chips: [] }}

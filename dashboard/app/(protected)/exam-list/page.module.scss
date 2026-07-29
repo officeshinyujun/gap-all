@@ -61,7 +61,6 @@
   font-size: 12px;
   font-weight: $medium;
   color: $text-primary;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
   line-height: 1.4;
   word-break: keep-all;
   display: block;
@@ -71,7 +70,6 @@
 .examItemMeta {
   font-size: 11px;
   color: $text-secondary;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
 }
 
 .diffBadge {
@@ -112,7 +110,6 @@
   padding: $spacing-6 $spacing-12;
   font-size: 11px;
   font-weight: $medium;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
   color: $text-primary;
   background-color: $background-primary;
   border: 1px solid $border-primary;
@@ -157,7 +154,6 @@
   padding: $spacing-8 $spacing-16;
   font-size: 12px;
   font-weight: $medium;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
   color: $brand-primary;
   background-color: $background-primary;
   border: 1px solid $brand-primary;
@@ -192,7 +188,6 @@
   padding: $spacing-8 $spacing-6;
   font-size: 11px;
   font-weight: $medium;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
   color: $text-secondary;
   background: none;
   border: none;
@@ -240,7 +235,6 @@
   padding: $spacing-4 $spacing-8;
   font-size: 11px;
   font-weight: $medium;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
   color: $text-wrong;
   background: none;
   border: 1px solid transparent;

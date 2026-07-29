@@ -1,7 +1,7 @@
 import React from 'react';
 import cs from 'classnames';
-import { VStack } from '@/components/general/VStack';
-import { HStack } from '@/components/general/HStack';
+import { VStack } from '@shared/ui/VStack';
+import { HStack } from '@shared/ui/HStack';
 import type { ForumMainPost } from '@/types/questionstem';
 import s from './index.module.scss';
 

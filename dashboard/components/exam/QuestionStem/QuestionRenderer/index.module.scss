@@ -16,7 +16,6 @@
   color: $background-primary;
   font-size: 18px;
   font-weight: $bold;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,14 +29,12 @@
   color: $brand-primary;
   background-color: $brand-secondary;
   padding: 2px $spacing-8;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
 }
 
 .metaTagLight {
   font-size: 11px;
   font-weight: $regular;
   color: $text-secondary;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
 }
 
 .difficultyBadge {
@@ -79,7 +76,6 @@
   font-size: 13px;
   font-weight: $regular;
   color: $text-primary;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
   line-height: 1.8;
   word-break: keep-all;
 }
@@ -97,7 +93,6 @@
   font-size: 13px;
   font-weight: $semi-bold;
   color: $text-primary;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
   text-align: center;
   margin-bottom: $spacing-12;
 }
@@ -106,7 +101,6 @@
   font-size: 13px;
   font-weight: $regular;
   color: $text-primary;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
   line-height: 1.8;
   word-break: keep-all;
 }
@@ -144,7 +138,6 @@
   font-size: 13px;
   font-weight: $regular;
   color: $text-primary;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
   line-height: 1.7;
   word-break: keep-all;
   text-align: left;
@@ -159,7 +152,6 @@
   font-weight: $medium;
   color: $text-secondary;
   cursor: pointer;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
   align-self: flex-start;
   transition: background-color 0.1s, color 0.1s;
 
@@ -181,5 +173,4 @@
   margin: 0;
   line-height: 1.8;
   word-break: keep-all;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
 }

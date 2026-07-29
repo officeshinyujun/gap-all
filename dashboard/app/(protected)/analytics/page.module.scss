@@ -32,7 +32,6 @@
 .statLabel {
   font-size: 12px;
   color: $text-secondary;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
 }
 
 .statValue {
@@ -72,7 +71,6 @@
   min-width: 120px;
   font-size: 12px;
   color: $text-primary;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -125,7 +123,7 @@
   font-family: 'Courier New', monospace;
 }
 
-.pctHigh { color: #89DA7F; }
+.pctHigh { color: $text-correct; }
 .pctMid { color: $brand-primary; }
 .pctLow { color: $text-wrong; }
 
@@ -133,7 +131,6 @@
   flex: 1;
   font-size: 11px;
   color: $text-secondary;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
 }
 
 .historyDate {

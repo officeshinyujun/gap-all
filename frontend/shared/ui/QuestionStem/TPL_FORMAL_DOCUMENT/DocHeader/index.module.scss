@@ -13,7 +13,6 @@
   color: $text-secondary;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
 }
 
 .title {
@@ -22,7 +21,6 @@
   color: $text-primary;
   margin: 0;
   letter-spacing: 0.05em;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
   line-height: 1.4;
 }
 
@@ -30,7 +28,6 @@
   display: inline-flex;
   align-items: center;
   gap: $spacing-6;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
 }
 
 .metaKey {

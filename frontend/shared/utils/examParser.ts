@@ -33,8 +33,22 @@ function normalizeFormalDocument(data: unknown): any {
 function normalizeConversationalFlow(data: unknown): any {
   const d = asRecord(data);
   return {
-    participants: Array.isArray(d.participants) ? d.participants : [],
+    participants: Array.isArray(d.participants)
+      ? d.participants.map((participant) => {
+          const p = asRecord(participant);
+          return {
+            id: typeof p.id === 'string' ? p.id : '',
+            name: typeof p.name === 'string' ? p.name : '',
+            role: typeof p.role === 'string' ? p.role : '',
+            ...(typeof p.icon_key === 'string' ? { icon_key: p.icon_key } : {}),
+          };
+        })
+      : [],
     messages: Array.isArray(d.messages) ? d.messages : [],
+    ...(typeof d.scene_kind === 'string' ? { scene_kind: d.scene_kind } : {}),
+    ...(d.visual_aid && typeof d.visual_aid === 'object'
+      ? { visual_aid: d.visual_aid }
+      : {}),
   };
 }
 
@@ -135,11 +149,21 @@ function normalizeArticle(data: unknown): any {
   const d = asRecord(data);
   return {
     title: typeof d.title === 'string' ? d.title : '',
-    body_paragraphs: Array.isArray(d.body_paragraphs) ? d.body_paragraphs : [],
+    body_paragraphs: normalizeArticleBodyParagraphs(d.body_paragraphs),
     byline: typeof d.byline === 'string' ? d.byline : '',
     published_date: typeof d.published_date === 'string' ? d.published_date : '',
     source: typeof d.source === 'string' ? d.source : '',
   };
+}
+
+function normalizeArticleBodyParagraphs(value: unknown): string[] {
+  if (typeof value === 'string') return [value];
+  if (!Array.isArray(value)) return [];
+  return value.flatMap((paragraph) => {
+    if (typeof paragraph === 'string') return [paragraph];
+    const legacy = asRecord(paragraph);
+    return typeof legacy.content === 'string' ? [legacy.content] : [];
+  });
 }
 
 function normalizeStatistics(data: unknown): any {

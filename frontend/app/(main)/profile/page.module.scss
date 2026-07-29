@@ -193,7 +193,6 @@
   font-weight: 500;
   color: $text-primary;
   cursor: pointer;
-  font-family: var(--font-geist-sans);
   transition: background-color 0.15s;
 
   &:hover {
@@ -210,7 +209,6 @@
   font-weight: 500;
   color: $text-wrong;
   cursor: pointer;
-  font-family: var(--font-geist-sans);
   transition: background-color 0.15s;
 
   &:hover {
@@ -227,7 +225,6 @@
   font-weight: 500;
   color: $text-secondary;
   cursor: pointer;
-  font-family: var(--font-geist-sans);
 }
 
 .deleteConfirmButton {
@@ -239,7 +236,6 @@
   font-weight: 500;
   color: white;
   cursor: pointer;
-  font-family: var(--font-geist-sans);
   transition: opacity 0.15s;
 
   &:hover {

@@ -1138,6 +1138,28 @@ export class StimulusNormalizer {
         };
         break;
 
+      case 'TPL_ARTICLE':
+        result = {
+          title: typeof data?.title === 'string' ? data.title : '',
+          byline: typeof data?.byline === 'string' ? data.byline : '',
+          source: typeof data?.source === 'string' ? data.source : '',
+          published_date:
+            typeof data?.published_date === 'string'
+              ? data.published_date
+              : '',
+          body_paragraphs: normalizeArticleBodyParagraphs(data),
+          key_facts: Array.isArray(data?.key_facts)
+            ? data.key_facts.map((kf: any) => ({
+                label: kf?.label ?? '',
+                value: kf?.value ?? '',
+              }))
+            : [],
+        };
+        if (result.body_paragraphs.length === 0) {
+          result.body_paragraphs = [''];
+        }
+        break;
+
       case 'TPL_PLAIN_TEXT':
       default: {
         if (Array.isArray(data?.events) && data.events.length > 0) {
@@ -1182,4 +1204,37 @@ export class StimulusNormalizer {
 
     return result;
   }
+}
+
+/**
+ * Normalize Article body_paragraphs into the canonical string[] format.
+ *
+ * Supported input shapes:
+ *   - string[]                 → returned as-is (canonical)
+ *   - {type, content}[]        → legacy provider format; extracts .content
+ *   - string (single)          → single-element array
+ *   - undefined/null/[]        → returns []
+ */
+function normalizeArticleBodyParagraphs(data: any): string[] {
+  const raw = data?.body_paragraphs;
+  if (!Array.isArray(raw)) {
+    if (typeof raw === 'string') return [raw];
+    return [];
+  }
+  const first = raw[0];
+  // Already canonical string[]
+  if (first === undefined || typeof first === 'string') {
+    return raw.filter((p): p is string => typeof p === 'string');
+  }
+  // Legacy {type, content}[] format
+  if (typeof first === 'object' && first !== null) {
+    const extracted: string[] = [];
+    for (const p of raw) {
+      if (p && typeof p.content === 'string') {
+        extracted.push(p.content);
+      }
+    }
+    return extracted.length > 0 ? extracted : [];
+  }
+  return [];
 }

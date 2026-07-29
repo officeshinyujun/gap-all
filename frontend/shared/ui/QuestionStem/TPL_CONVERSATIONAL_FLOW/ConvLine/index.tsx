@@ -1,6 +1,6 @@
 import React from 'react';
 import cs from 'classnames';
-import { HStack } from '@/components/general/HStack';
+import { HStack } from '@shared/ui/HStack';
 import type { ConversationIconKey } from '@/types/questionstem';
 import { MaterialIcon } from '../../_shared/MaterialIcon';
 import s from './index.module.scss';

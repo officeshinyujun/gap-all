@@ -33,7 +33,9 @@ export const TPLCaseDiagnosticFrame: React.FC<TPLCaseDiagnosticFrameProps> = ({
               </div>
               <VStack gap={2}>
                 <span className={s.profileName}>{profile.name}</span>
-                <span className={s.profileContext}>{profile.context}</span>
+                {profile.context ? (
+                  <span className={s.profileContext}>{profile.context}</span>
+                ) : null}
               </VStack>
             </HStack>
           </div>

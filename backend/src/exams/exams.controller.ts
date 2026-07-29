@@ -10,6 +10,7 @@ import {
   UseGuards,
   HttpCode,
   HttpStatus,
+  Header,
 } from '@nestjs/common';
 import { Throttle } from '@nestjs/throttler';
 import { ExamsService } from './exams.service';
@@ -60,6 +61,7 @@ export class ExamsController {
 
   @Get('concepts')
   @Public()
+  @Header('Cache-Control', 'public, max-age=300, s-maxage=3600')
   getConcepts(
     @Query('subjectSlug') subjectSlug: string,
     @Query('startUnitNum') startUnitNum: string,

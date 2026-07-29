@@ -217,6 +217,7 @@ describe('ExamsService legacy AI compatibility', () => {
                 },
                 batchOrdinal: 1,
                 selectedTemplate: 'TPL_CASE_DIAGNOSTIC_FRAME',
+                adapterVersion: 0,
                 validation: 'passed',
               },
             },

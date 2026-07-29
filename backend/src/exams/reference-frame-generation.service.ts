@@ -656,7 +656,9 @@ export class ReferenceFrameGenerationService {
         unitNumber: Between(startUnitNum, endUnitNum),
       },
     });
-    return catalogRows.map(catalogReferencePayload);
+    return propagateSharedPassageStimuli(
+      catalogRows.map(catalogReferencePayload),
+    );
   }
 
   async warmCachedFrames(): Promise<
@@ -688,6 +690,9 @@ export class ReferenceFrameGenerationService {
       retryDelayMs: 0,
     });
     const rows = await this.catalogReader.find();
+    const payloads = propagateSharedPassageStimuli(
+      rows.map((row) => catalogReferencePayload(row)),
+    );
     const requestedConcurrency = Number.parseInt(
       process.env.REFERENCE_FRAME_WARMUP_CONCURRENCY ?? '4',
       10,
@@ -701,6 +706,7 @@ export class ReferenceFrameGenerationService {
         for (;;) {
           const row = rows[nextIndex];
           if (row === undefined) return;
+          const payload = payloads[nextIndex];
           nextIndex += 1;
           const subject = catalogSubject(row.subject);
           if (subject === null) {
@@ -708,7 +714,7 @@ export class ReferenceFrameGenerationService {
             logWarmupProgress();
             continue;
           }
-          const parsed = parseReference(catalogReferencePayload(row), subject);
+          const parsed = parseReference(payload, subject);
           if (!parsed.ok) {
             invalidSource += 1;
             logWarmupProgress();
@@ -903,6 +909,31 @@ function catalogReferencePayload(
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
+
+function propagateSharedPassageStimuli(
+  payloads: readonly Readonly<Record<string, unknown>>[],
+): readonly Readonly<Record<string, unknown>>[] {
+  const prevStimulusBySource = new Map<string, string>();
+  return payloads.map((p) => {
+    const source = isRecord(p.source) ? p.source : null;
+    const fn =
+      source !== null && typeof source.filename === 'string'
+        ? source.filename
+        : null;
+    const s = typeof p.stimulus === 'string' ? p.stimulus.trim() : '';
+    if (s !== '' && fn !== null) {
+      prevStimulusBySource.set(fn, s);
+      return p;
+    }
+    if (s === '' && fn !== null) {
+      const inherited = prevStimulusBySource.get(fn);
+      if (inherited !== undefined && inherited !== '') {
+        return { ...p, stimulus: inherited };
+      }
+    }
+    return p;
+  });
 }
 
 export async function mapWithConcurrency<Input, Output>(

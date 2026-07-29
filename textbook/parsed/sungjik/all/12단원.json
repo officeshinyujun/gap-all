@@ -568,7 +568,7 @@
       "④ 사용자는 학생 A에게 백화점 상품권으로 임금을 지급할 수 있다.",
       "⑤ 사용자는 영업을 중단할 경우 평균임금의 100분의 70에 해당하는 휴업수당을 학생 A에게 지급하여야 한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "연소근로자 보호",
@@ -692,7 +692,7 @@
       "④ A씨는 근로기준법상 B군 대신 △△카페의 사용자와 B군의 근로 계약을 체결할 수 있다.",
       "⑤ 5월 29일에 개최된 협의기구는 파업 등의 쟁의 행위가 가능하다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "근로기준법",

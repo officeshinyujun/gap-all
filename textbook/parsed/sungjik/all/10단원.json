@@ -657,7 +657,7 @@
       "④ [변경 후] ○○기업의 유한책임사원은 회사의 재산으로 회사의 채무를 완제할 수 없는 때에는 연대하여 변제할 책임이 있다.",
       "⑤ [변경 전]과 [변경 후] ○○기업의 무한책임사원은 정관에 다른 규정이 없는 때에는 각자가 회사의 업무를 집행할 권리가 있다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "회사의 형태",
@@ -783,7 +783,7 @@
       "④ (가)와 (나)는 자본을 증권화하여 유통할 수 있다.",
       "⑤ 제시된 방안을 실행할 경우 회사는 물적 회사에서 인적 회사로 변경된다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "회사의 종류 (합명회사, 합자회사)"

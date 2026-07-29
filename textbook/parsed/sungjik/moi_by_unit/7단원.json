@@ -308,7 +308,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "직업기초능력평가 결과 분석"
@@ -340,7 +340,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "NCS 구성 요소",
@@ -435,7 +435,7 @@
       "④ 필요한 과업을 파악하고 효과적으로 예산을 수립한다.",
       "⑤ 미래 사회에 유용한 기술을 예측하고 이해하여 해당 기술을 업무에 효과적으로 적용한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "직업기초능력 (기술능력)"

@@ -39,7 +39,6 @@
 
 .headerTitle {
   flex: 1;
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 14px;
   font-weight: 600;
   color: $text-primary;
@@ -94,7 +93,6 @@
   border: none;
   border-radius: 6px;
   background: transparent;
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 12px;
   font-weight: 500;
   color: $text-secondary;
@@ -169,7 +167,6 @@
 }
 
 .analysisPanelTitle {
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 12px;
   font-weight: 600;
   color: $text-secondary;
@@ -193,7 +190,6 @@
   background: $background-primary;
   border: none;
   cursor: pointer;
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 13px;
   font-weight: 600;
   color: $text-primary;
@@ -217,7 +213,6 @@
 .noAnalysisText {
   margin: 0;
   padding: $spacing-14;
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 13px;
   color: $text-secondary;
 }
@@ -228,14 +223,12 @@
 }
 
 .questionSourceLabel {
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 12px;
   font-weight: 600;
   color: $text-secondary;
 }
 
 .questionSourceBadge {
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 11px;
   color: $text-secondary;
   background: $background-primary;
@@ -258,7 +251,6 @@
 }
 
 .analysisDividerLabel {
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 12px;
   font-weight: 600;
   color: $text-secondary;
@@ -278,7 +270,6 @@
 
 .clueQuote {
   margin: 0;
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 13px;
   font-weight: 600;
   color: $text-primary;
@@ -288,7 +279,6 @@
 
 .clueWhy {
   margin: 0;
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 12px;
   color: $text-secondary;
   line-height: 1.6;
@@ -312,14 +302,12 @@
   background: $brand-primary;
   color: $background-primary;
   border-radius: 50%;
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 11px;
   font-weight: 700;
   flex-shrink: 0;
 }
 
 .stepText {
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 13px;
   color: $text-primary;
   line-height: 1.6;
@@ -342,7 +330,6 @@
 }
 
 .optionAnalysisNum {
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 14px;
   font-weight: 600;
   color: $text-primary;
@@ -351,7 +338,6 @@
 }
 
 .verdict {
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 12px;
   font-weight: 700;
   flex-shrink: 0;
@@ -362,7 +348,6 @@
 .verdictX { color: $text-wrong; }
 
 .optionReasoning {
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 12px;
   color: $text-secondary;
   line-height: 1.6;
@@ -380,7 +365,6 @@
 
 .takeawayText {
   margin: 0;
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 13px;
   color: $text-primary;
   line-height: 1.7;
@@ -399,11 +383,9 @@
   font-size: 12px;
   font-weight: 700;
   flex-shrink: 0;
-  font-family: 'Noto Sans KR', sans-serif;
 }
 
 .frequencyLabel {
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 12px;
   color: $text-secondary;
 }
@@ -441,14 +423,12 @@
 
 .descriptionText {
   margin: 0;
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 13px;
   color: $text-primary;
   line-height: 1.7;
 }
 
 .markdownContent {
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 14px;
   line-height: 1.8;
   color: $text-primary;
@@ -501,7 +481,6 @@
 }
 
 .sectionTitle {
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 13px;
   font-weight: 600;
   color: $text-strong;
@@ -510,7 +489,6 @@
 .bulletList {
   padding-left: $spacing-14;
   margin: 0;
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 13px;
   color: $text-primary;
   line-height: 1.8;
@@ -522,7 +500,6 @@
   background: $background-secondary;
   border-left: 3px solid $brand-primary;
   border-radius: 0 8px 8px 0;
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 13px;
   color: $text-primary;
   line-height: 1.7;
@@ -533,7 +510,6 @@
   background: $background-secondary;
   border-left: 3px solid $text-wrong;
   border-radius: 0 8px 8px 0;
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 13px;
   color: $text-primary;
   line-height: 1.7;
@@ -544,7 +520,6 @@
   background: $background-secondary;
   border-left: 3px solid $brand-secondary;
   border-radius: 0 8px 8px 0;
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 13px;
   color: $text-primary;
   line-height: 1.7;
@@ -562,7 +537,6 @@
   background: $background-secondary;
   border: 1px solid $border-primary;
   border-radius: 10px;
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 11px;
   font-weight: 500;
   color: $text-primary;
@@ -573,7 +547,6 @@
   display: flex;
   align-items: center;
   gap: $spacing-8;
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 12px;
   color: $text-secondary;
 }
@@ -598,7 +571,6 @@
 }
 
 .overviewSectionTitle {
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 15px;
   font-weight: 700;
   color: $text-strong;
@@ -619,7 +591,6 @@
   background: $background-secondary;
   border: none;
   cursor: pointer;
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 14px;
   font-weight: 600;
   color: $text-primary;
@@ -637,7 +608,6 @@
 .sectionSummary {
   margin: 0;
   padding: $spacing-12 $spacing-16;
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 13px;
   color: $text-secondary;
   line-height: 1.7;
@@ -657,7 +627,6 @@
   background: $background-primary;
   border: none;
   cursor: pointer;
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 13px;
   font-weight: 500;
   color: $text-primary;
@@ -674,7 +643,6 @@
 
 .subText {
   margin: 0;
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 13px;
   color: $text-primary;
   line-height: 1.7;
@@ -692,7 +660,6 @@
 }
 
 .footerHint {
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 11px;
   color: $text-secondary;
   background: $background-secondary;
@@ -706,7 +673,6 @@
   border: 1.5px solid $border-primary;
   border-radius: 8px;
   background: $background-primary;
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 13px;
   font-weight: 500;
   color: $text-primary;
@@ -754,7 +720,6 @@
 .errorText {
   font-size: 14px;
   color: $text-wrong;
-  font-family: 'Noto Sans KR', sans-serif;
 }
 
 /* ── 반응형 ── */
@@ -818,7 +783,6 @@
   border: none;
   border-radius: 6px;
   background: transparent;
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 11px;
   font-weight: 500;
   color: $text-secondary;
@@ -852,7 +816,6 @@
 }
 
 .progressLabel {
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 12px;
   font-weight: 500;
   color: $text-secondary;
@@ -875,7 +838,6 @@
   background: $background-secondary;
   border: 1px solid $border-primary;
   border-radius: 10px;
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 11px;
   font-weight: 600;
   color: $text-secondary;
@@ -884,7 +846,6 @@
 
 .learnDescription {
   margin: 0;
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 14px;
   color: $text-primary;
   line-height: 1.8;
@@ -917,11 +878,9 @@
   font-size: 11px;
   font-weight: 700;
   flex-shrink: 0;
-  font-family: 'Noto Sans KR', sans-serif;
 }
 
 .tocTitle {
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 13px;
   font-weight: 500;
   color: $text-primary;
@@ -936,7 +895,6 @@
   background: $background-secondary;
   border: 1px solid $border-primary;
   border-radius: 12px;
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 12px;
   color: $text-primary;
 }
@@ -971,7 +929,6 @@
   background: $background-secondary;
   border: none;
   cursor: pointer;
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 13px;
   font-weight: 600;
   color: $text-primary;
@@ -992,7 +949,6 @@
   background: $background-secondary;
   border: 1.5px solid $brand-primary;
   border-radius: 8px;
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 13px;
   font-weight: 600;
   color: $brand-primary;
@@ -1020,7 +976,6 @@
   background: $background-secondary;
   border: 1.5px solid $brand-primary;
   border-radius: 8px;
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 13px;
   font-weight: 600;
   color: $brand-primary;
@@ -1042,7 +997,6 @@
 
 .keyConceptDef {
   margin: 0;
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 13px;
   color: $text-secondary;
   line-height: 1.7;
@@ -1053,7 +1007,6 @@
   background: transparent;
   border: 1px solid $brand-primary;
   border-radius: 6px;
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 11px;
   font-weight: 600;
   color: $brand-primary;
@@ -1088,7 +1041,6 @@
   background: $background-secondary;
   border: 1px solid $border-primary;
   border-radius: 10px;
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 13px;
   line-height: 1.7;
   color: $text-primary;
@@ -1102,7 +1054,6 @@
   background: $background-secondary;
   border: 1px solid $border-primary;
   border-radius: 10px;
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 13px;
   line-height: 1.9;
   color: $text-primary;

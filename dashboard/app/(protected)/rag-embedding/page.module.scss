@@ -14,7 +14,6 @@
   background: $background-primary;
   color: $text-primary;
   font-size: 14px;
-  font-family: 'Noto Sans KR', sans-serif;
   cursor: pointer;
   outline: none;
   min-width: 160px;
@@ -27,7 +26,6 @@
   padding: 0 $spacing-16;
   border-radius: 8px;
   cursor: pointer;
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 13px;
   font-weight: 600;
   transition: opacity 0.15s ease;
@@ -40,7 +38,7 @@
 
 .buttonPrimary {
   background: $brand-primary;
-  color: #ffffff;
+  color: $background-primary;
 }
 
 .buttonOutline {
@@ -89,7 +87,7 @@
   width: 20px;
   height: 20px;
   border: 2px solid rgba(255,255,255,0.3);
-  border-top-color: #ffffff;
+  border-top-color: $background-primary;
   border-radius: 50%;
   animation: spin 0.7s linear infinite;
 }

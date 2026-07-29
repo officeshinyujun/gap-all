@@ -137,7 +137,7 @@ function renderCaseDiagnosticFrame(data: TPL_CASE_DIAGNOSTIC_FRAME) {
           <View key={pi}>
             {pi > 0 && <View style={{ height: 1, backgroundColor: '#ccc', marginVertical: 3 }} />}
             <Text style={styles.stimulusTitle}>{p.name ?? ''}</Text>
-            <Text style={styles.stimulusText}>{p.context ?? ''}</Text>
+            {p.context ? <Text style={styles.stimulusText}>{p.context}</Text> : null}
           </View>
         ))}
         <Text style={[styles.stimulusText, { marginTop: 3 }]}>{data.narrative ?? ''}</Text>
@@ -164,7 +164,7 @@ function renderSequentialWorkflow(data: TPL_SEQUENTIAL_WORKFLOW) {
         {steps.map((step, i) => (
           <React.Fragment key={i}>
             <View style={styles.stepRow}>
-              <Text style={styles.stepLabel}>{step.label ?? ''}</Text>
+              <Text style={styles.stepLabel}>{step.label?.trim() || String(step.idx)}</Text>
               <Text style={styles.stepDesc}>{step.is_missing ? '( ? )' : (step.desc ?? '')}</Text>
             </View>
             {i < steps.length - 1 && <Text style={styles.arrow}>{data.orientation === 'horizontal' ? '→' : '↓'}</Text>}
@@ -288,7 +288,7 @@ function renderPromotionalCanvas(data: TPL_PROMOTIONAL_CANVAS) {
 
 function renderArticle(data: TPL_ARTICLE) {
   return safe(() => {
-    const paragraphs = data.body_paragraphs ?? [];
+    const paragraphs = normalizePdfArticleParagraphs(data.body_paragraphs);
     return (
       <View style={styles.stimulusBox}>
         <Text style={styles.stimulusTitle}>{data.title ?? ''}</Text>
@@ -301,6 +301,23 @@ function renderArticle(data: TPL_ARTICLE) {
       </View>
     );
   }, null);
+}
+
+function normalizePdfArticleParagraphs(value: unknown): string[] {
+  if (typeof value === 'string') return [value];
+  if (!Array.isArray(value)) return [];
+  return value.flatMap((paragraph) => {
+    if (typeof paragraph === 'string') return [paragraph];
+    if (
+      paragraph &&
+      typeof paragraph === 'object' &&
+      'content' in paragraph &&
+      typeof paragraph.content === 'string'
+    ) {
+      return [paragraph.content];
+    }
+    return [];
+  });
 }
 
 function renderStatistics(data: TPL_STATISTICS) {

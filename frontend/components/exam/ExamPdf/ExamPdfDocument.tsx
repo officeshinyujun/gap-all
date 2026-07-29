@@ -6,6 +6,14 @@ import type { ExamItem } from '@/lib/examApi';
 
 const CIRCLED_NUMBERS = ['①', '②', '③', '④', '⑤'];
 
+function withoutQuestionNumber(text: string) {
+  return text.replace(/^\s*\d+\.\s*/, '');
+}
+
+function withoutOptionNumber(text: string) {
+  return text.replace(/^\s*(?:[①-⑤]|[1-5][.)])\s*/, '');
+}
+
 interface ExamPdfDocumentProps {
   title: string;
   subjectName: string;
@@ -18,20 +26,21 @@ function QuestionBlock({ item }: { item: ExamItem }) {
   const q = item.question;
   const template = q.metadata.recommended_template;
   const options = q.render_ready.options_list ?? q.render_ready.options?.map((o) => o.text) ?? [];
+  const questionStem = withoutQuestionNumber(q.render_ready.question_stem);
 
   return (
     <View style={styles.questionBlock} wrap={false}>
       <Text style={styles.questionStem}>
-        {item.orderIndex}. {q.render_ready.question_stem}
+        {item.orderIndex}. {questionStem}
       </Text>
       <PdfStimulusRenderer template={template} data={q.render_ready.stimulus_data} />
       {q.combo_block && q.combo_block.items.length > 0 && (
         <View style={{ marginTop: 3, marginBottom: 3, padding: 4, borderWidth: 0.5, borderColor: '#999', borderStyle: 'solid', backgroundColor: '#f8f8f8' }}>
-          <Text style={{ fontSize: 7, fontWeight: 700, textAlign: 'center', marginBottom: 2 }}>
+          <Text style={{ fontSize: 7.75, fontWeight: 700, textAlign: 'center', marginBottom: 2, letterSpacing: 0.08 }}>
             {q.combo_block.title}
           </Text>
           {q.combo_block.items.map((item) => (
-            <Text key={item.key} style={{ fontSize: 6.5, lineHeight: 1.4, marginBottom: 1 }}>
+            <Text key={item.key} style={{ fontSize: 7.25, lineHeight: 1.45, marginBottom: 1.5, letterSpacing: 0.08 }}>
               {item.key}. {item.text}
             </Text>
           ))}
@@ -41,7 +50,7 @@ function QuestionBlock({ item }: { item: ExamItem }) {
         <View style={{ marginTop: 4 }}>
           {options.map((opt, i) => (
             <Text key={i} style={styles.optionText}>
-              {CIRCLED_NUMBERS[i] ?? `${i + 1}`} {opt}
+              {CIRCLED_NUMBERS[i] ?? `${i + 1}`} {withoutOptionNumber(opt)}
             </Text>
           ))}
         </View>

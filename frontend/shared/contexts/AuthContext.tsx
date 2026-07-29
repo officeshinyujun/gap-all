@@ -3,6 +3,7 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router';
 import { API_BASE_URL } from '@/lib/auth';
+import { clearClientCache } from '@/lib/clientCache';
 
 interface User {
   id: string;
@@ -64,6 +65,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
 
     const data = await res.json();
+    clearClientCache();
     setUser(data.user);
     navigate('/', { replace: true });
   }, [navigate]);
@@ -82,6 +84,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
 
     const data = await res.json();
+    clearClientCache();
     setUser(data.user);
     navigate('/', { replace: true });
   }, [navigate]);
@@ -93,6 +96,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         credentials: 'include',
       });
     } catch {}
+    clearClientCache();
     setUser(null);
     navigate('/landing', { replace: true });
   }, [navigate]);

@@ -5,25 +5,26 @@ $medium: 500;
 $semi-bold: 600;
 $bold: 700;
 
-// Text Colors
-$text-primary: #101013;
-$text-strong: #3D4350;
-$text-secondary: #5C5C70;
-$text-correct: #89DA7F;
-$text-wrong: #DA7F7F;
+// Text Colors (CSS Variables for theme support)
+$text-primary: var(--text-primary);
+$text-strong: var(--text-strong);
+$text-secondary: var(--text-secondary);
+$text-correct: var(--text-correct);
+$text-wrong: var(--text-wrong);
 
 // Background Colors
-$background-primary: #F9F9FB;
-$background-secondary: #EEEEF2;
-$background-third: #E2E2E9;
-$background-fourth: #D7D7DF;
+$background-primary: var(--background-primary);
+$background-secondary: var(--background-secondary);
+$background-third: var(--background-third);
+$background-fourth: var(--background-fourth);
 
 // Brand Colors
-$brand-primary: #3333CC;
-$brand-secondary: #DCDCF5;
+$brand-primary: var(--brand-primary);
+$brand-secondary: var(--brand-secondary);
 
 // Border Colors
-$border-primary: #D9D9E2;
+$border-primary: var(--border-primary);
+
 // Spacing
 $spacing-4: 4px;
 $spacing-6: 6px;

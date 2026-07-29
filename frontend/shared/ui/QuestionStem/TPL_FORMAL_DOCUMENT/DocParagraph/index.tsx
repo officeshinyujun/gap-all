@@ -1,6 +1,6 @@
 import React from 'react';
 import cs from 'classnames';
-import { VStack } from '@/components/general/VStack';
+import { VStack } from '@shared/ui/VStack';
 import type { DocParagraphData } from '@/types/questionstem';
 import s from './index.module.scss';
 

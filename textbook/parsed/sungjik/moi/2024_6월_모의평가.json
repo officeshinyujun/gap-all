@@ -23,7 +23,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "생산 방식",
@@ -52,7 +52,7 @@
       "④ 생체 정보 인식 기술자",
       "⑤ 폐기물 에너지화 연구원"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "미래 사회 유망 직업",
@@ -85,7 +85,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "직업기초능력평가 결과 분석"
@@ -113,7 +113,7 @@
       "④ B씨가 희망하는 은퇴 시기의 발달 과업에는 '인생 철학 확립하기'가 있다.",
       "⑤ A, B 씨가 직업인으로 일하기 시작한 시기의 발달 과업에는 '직업 수행에 필요한 지식과 기술 학습'이 있다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "생애 발달 단계",
@@ -146,7 +146,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "진로 의사 결정 유형"
@@ -179,7 +179,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "창업 계획서"
@@ -211,7 +211,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "노사 관계",
@@ -246,7 +246,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "NCS 기반 채용 공고"
@@ -278,7 +278,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "고용보험",
@@ -312,7 +312,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "NCS 구성 요소",
@@ -346,7 +346,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "HIGH",
     "targetConcepts": [
       "직업의 의미와 가치관"
@@ -374,7 +374,7 @@
       "④ 장애인 윤리 - 법적 책임",
       "⑤ 장애인 윤리 - 자선적 책임"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "직업 윤리",
@@ -407,7 +407,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "산업 재해 분석"
@@ -435,7 +435,7 @@
       "④ 직업재활급여",
       "⑤ 장해보상일시금"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "산업 재해 보상 서비스"
@@ -463,7 +463,7 @@
       "④ 사용자는 학생 A에게 백화점 상품권으로 임금을 지급할 수 있다.",
       "⑤ 사용자는 영업을 중단할 경우 평균임금의 100분의 70에 해당하는 휴업수당을 학생 A에게 지급하여야 한다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "연소근로자 보호",
@@ -492,7 +492,7 @@
       "④ (가)와 (나) 시기의 특징은 '과정 지향적 직업관'을 보여 주고 있다.",
       "⑤ (나)와 (다) 시기에는 '애국'과 '봉사'의 가치를 중요시하고 있다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "HIGH",
     "targetConcepts": [
       "시대별 직업 가치관"
@@ -524,7 +524,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "HIGH",
     "targetConcepts": [
       "평생 학습 제도",
@@ -553,7 +553,7 @@
       "④ [변경 후] ○○기업의 유한책임사원은 회사의 재산으로 회사의 채무를 완제할 수 없는 때에는 연대하여 변제할 책임이 있다.",
       "⑤ [변경 전]과 [변경 후] ○○기업의 무한책임사원은 정관에 다른 규정이 없는 때에는 각자가 회사의 업무를 집행할 권리가 있다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "회사의 형태",
@@ -587,7 +587,7 @@
       "④ (가): ㄴ, (나): ㄷ",
       "⑤ (가): ㄷ, (나): ㄱ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "부당해고",
@@ -621,7 +621,7 @@
       "④ ㄴ, ㄹ",
       "⑤ ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "서비스 산업의 특징"

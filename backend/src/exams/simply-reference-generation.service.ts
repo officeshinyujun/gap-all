@@ -36,12 +36,19 @@ import {
 } from './reference-fact-grounding';
 import { validateSimplyReferenceStructuredTpl } from './simply-reference-generation-contract';
 import { StimulusNormalizer } from './stimulus-normalizer';
+import {
+  SOURCE_PRESERVING_ADAPTER_VERSION,
+  sourcePreservingRender,
+  sourceTemplate,
+} from './simply-reference-source-preserving.adapter';
 
 const MAX_SIMPLY_REFERENCE_BATCH_SIZE = 5;
 const MAX_SIMPLY_REFERENCE_ATTEMPTS = 2;
 const MAX_SIMPLY_REFERENCE_REPAIR_ATTEMPTS = 2;
 const SIMPLY_REFERENCE_PROVIDER_TIMEOUT_MS =
   Number(process.env.OPENAI_TIMEOUT_MS) || 180_000;
+
+export { SOURCE_PRESERVING_ADAPTER_VERSION } from './simply-reference-source-preserving.adapter';
 
 const normalizer = new StimulusNormalizer();
 
@@ -164,7 +171,9 @@ export class SimplyReferenceGenerationService {
         unitNumber: Between(startUnitNum, endUnitNum),
       },
     });
-    const parsedReferences = catalogRows.map(catalogReferencePayload);
+    const parsedReferences = propagateSharedPassageStimuli(
+      catalogRows.map(catalogReferencePayload),
+    );
     const eligibleParsedReferences = parsedReferences.filter((reference) => {
       const parsed = parseReference(reference, subject);
       return (
@@ -996,6 +1005,7 @@ function parseQuestion(
       source: ref.source,
       batchOrdinal,
       selectedTemplate,
+      adapterVersion: 0,
       validation: 'passed',
     },
   };
@@ -1100,6 +1110,38 @@ function catalogReferencePayload(
     source.unitNumber = row.unitNumber;
   }
   return { ...row.sourcePayload, source };
+}
+
+/**
+ * Shared-passage questions (e.g. "[16~17]" on an exam paper) can have an
+ * empty `stimulus` while the preceding question holds the shared passage.
+ * Without stimulus the question cannot be parsed, so propagate the
+ * preceding stimulus forward within the same source (filename + unitNumber).
+ */
+function propagateSharedPassageStimuli(
+  payloads: readonly Readonly<Record<string, unknown>>[],
+): readonly Readonly<Record<string, unknown>>[] {
+  // Propagate the most recent non-empty stimulus within each source file.
+  const prevStimulusBySource = new Map<string, string>();
+  return payloads.map((p) => {
+    const source = isRecord(p.source) ? p.source : null;
+    const fn =
+      source !== null && typeof source.filename === 'string'
+        ? source.filename
+        : null;
+    const s = typeof p.stimulus === 'string' ? p.stimulus.trim() : '';
+    if (s !== '' && fn !== null) {
+      prevStimulusBySource.set(fn, s);
+      return p;
+    }
+    if (s === '' && fn !== null) {
+      const inherited = prevStimulusBySource.get(fn);
+      if (inherited !== undefined && inherited !== '') {
+        return { ...p, stimulus: inherited };
+      }
+    }
+    return p;
+  });
 }
 
 function catalogSubjects(subjectSlug: string): readonly string[] {
@@ -1237,9 +1279,9 @@ function isSourcePreservingEligible(
 ): boolean {
   return (
     isAnswer(reference.correctAnswer) &&
-    reference.stimulus.trim() !== '' &&
     normalizeOfficialChoices(reference.choices) !== null &&
-    sourceComboBlock(reference) !== undefined
+    sourceComboBlock(reference) !== undefined &&
+    sourcePreservingRender(reference) !== null
   );
 }
 
@@ -1251,10 +1293,12 @@ function sourcePreservingDraft(
 ): SimplyReferenceGeneratedDraft {
   const options = normalizeOfficialChoices(reference.choices);
   const comboBlock = sourceComboBlock(reference);
+  const render = sourcePreservingRender(reference);
   if (
     !isAnswer(reference.correctAnswer) ||
     options === null ||
-    comboBlock === undefined
+    comboBlock === undefined ||
+    render === null
   ) {
     throw sourceReextractionRequired(1, 0);
   }
@@ -1265,12 +1309,11 @@ function sourcePreservingDraft(
         target_concept: reference.target.primaryConcept,
         item_type: 'simply_reference',
         difficulty,
-        // Render raw source text neutrally rather than inventing a visual schema.
-        recommended_template: 'TPL_ARTICLE',
+        recommended_template: render.template,
       },
       render_ready: {
         question_stem: reference.stem.replace(/^\d+\.\s*/, ''),
-        stimulus_data: sourceArticleStimulus(reference),
+        stimulus_data: render.stimulusData,
         options_list: options,
         combo_block: comboBlock,
       },
@@ -1284,25 +1327,10 @@ function sourcePreservingDraft(
       generationNonce,
       source: reference.source,
       batchOrdinal,
-      selectedTemplate: 'TPL_ARTICLE',
+      selectedTemplate: render.template,
+      adapterVersion: SOURCE_PRESERVING_ADAPTER_VERSION,
       validation: 'passed',
     },
-  };
-}
-
-function sourceArticleStimulus(
-  reference: NormalizedSourceReference,
-): Record<string, unknown> {
-  return {
-    title: '원문 자료',
-    source: reference.source.sourceId,
-    published_date: '',
-    body_paragraphs: reference.stimulus
-      .split(/\n+/u)
-      .map((content) => content.trim())
-      .filter((content) => content !== '')
-      .map((content) => ({ type: 'text', content })),
-    key_facts: [],
   };
 }
 
@@ -1358,13 +1386,6 @@ function normalizeComboItemText(value: string): string {
     .replace(/^[ㄱ-ㅎ][.．]?\s*/u, '')
     .replace(/\s+/gu, ' ')
     .trim();
-}
-
-function sourceTemplate(
-  reference: NormalizedSourceReference,
-): StructuredTplName | null {
-  const template = reference.archetype?.sourceTemplate;
-  return isStructuredTplName(template) ? template : null;
 }
 
 function pickBestTemplate(

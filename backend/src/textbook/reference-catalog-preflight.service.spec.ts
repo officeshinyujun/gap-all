@@ -190,4 +190,41 @@ Failures: 0
     ]);
     expect(referenceCatalogPreflightExitCode(report)).toBe(1);
   });
+
+  it('Given a valid legacy logical source ID, When preflighting, Then reports identity migration separately from invalid payloads', async () => {
+    const legacy = row('sungjik:suteck:1:unit-1.pdf:1', 1, [
+      'Career Values',
+    ]);
+    const report = await new ReferenceCatalogPreflightService(
+      new InMemoryReferenceCatalogReader([legacy]),
+      new InMemoryConceptCatalogReader([
+        { unitName: '1단원', concepts: ['Career Values'] },
+      ]),
+    ).preflight();
+
+    expect(report.rows).toEqual([
+      {
+        sourceId: 'sungjik:suteck:1:unit-1.pdf:1',
+        canonicalId: null,
+        result: 'LEGACY_LOGICAL_SOURCE_ID',
+      },
+    ]);
+  });
+
+  it('Given a legacy MOI source ID without year or exam fields, When preflighting, Then reports identity migration', async () => {
+    const legacy = row('sungjik:moi:2024-09-question.pdf:1', 1, [
+      'Career Values',
+    ]);
+    const report = await new ReferenceCatalogPreflightService(
+      new InMemoryReferenceCatalogReader([legacy]),
+      new InMemoryConceptCatalogReader([
+        { unitName: '1단원', concepts: ['Career Values'] },
+      ]),
+    ).preflight();
+
+    expect(report.rows[0]).toMatchObject({
+      sourceId: 'sungjik:moi:2024-09-question.pdf:1',
+      result: 'LEGACY_LOGICAL_SOURCE_ID',
+    });
+  });
 });

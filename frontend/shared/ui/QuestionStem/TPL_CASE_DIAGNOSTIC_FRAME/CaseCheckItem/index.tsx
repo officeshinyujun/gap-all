@@ -1,6 +1,6 @@
 import React from 'react';
 import cs from 'classnames';
-import { HStack } from '@/components/general/HStack';
+import { HStack } from '@shared/ui/HStack';
 import type { CaseCheckItemData } from '@/types/questionstem';
 import s from './index.module.scss';
 

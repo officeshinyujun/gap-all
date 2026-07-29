@@ -25,7 +25,6 @@
   background-color: $background-primary;
   border: 1px solid $border-primary;
   cursor: pointer;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
   transition: background-color 0.1s;
 
   &:hover:not(:disabled) {
@@ -42,7 +41,6 @@
   font-size: 13px;
   font-weight: $semi-bold;
   color: $text-primary;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
   min-width: 48px;
   text-align: center;
 }
@@ -81,7 +79,6 @@
   width: 100%;
   padding: $spacing-8 $spacing-10;
   font-size: 12px;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
   color: $text-primary;
   background-color: $background-primary;
   border: 1px solid $border-primary;
@@ -97,7 +94,6 @@
   width: 52px;
   padding: $spacing-8 $spacing-8;
   font-size: 12px;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
   color: $text-primary;
   background-color: $background-primary;
   border: 1px solid $border-primary;
@@ -114,7 +110,6 @@
   width: 100%;
   padding: $spacing-8 $spacing-10;
   font-size: 12px;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
   color: $text-primary;
   background-color: $background-primary;
   border: 1px solid $border-primary;
@@ -131,7 +126,6 @@
   width: 100%;
   padding: $spacing-8 $spacing-10;
   font-size: 12px;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
   color: $text-primary;
   background-color: $background-primary;
   border: 1px solid $border-primary;
@@ -150,7 +144,6 @@
   padding: $spacing-10 $spacing-16;
   font-size: 13px;
   font-weight: $semi-bold;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
   color: $background-primary;
   background-color: $brand-primary;
   border: none;
@@ -171,7 +164,6 @@
   padding: $spacing-6 $spacing-12;
   font-size: 12px;
   font-weight: $medium;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
   color: $brand-primary;
   background: none;
   border: 1px solid $brand-primary;
@@ -245,20 +237,17 @@
 .progressLogTime {
   font-size: 10px;
   color: $text-secondary;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
 }
 
 .progressLogMessage {
   font-size: 12px;
   color: $text-primary;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
   line-height: 1.4;
 }
 
 .progressLogDetail {
   font-size: 11px;
   color: $text-secondary;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
   line-height: 1.4;
   word-break: break-word;
 }
@@ -296,7 +285,6 @@
   font-size: 14px;
   font-weight: $semi-bold;
   color: $text-primary;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
   width: 20px;
   flex-shrink: 0;
 }
@@ -305,7 +293,6 @@
   font-size: 12px;
   font-weight: $medium;
   color: $text-primary;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
   line-height: 1.4;
   word-break: keep-all;
 }
@@ -372,7 +359,6 @@
   background-color: $background-primary;
   border: 1.5px solid $text-primary;
   cursor: pointer;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
   transition: background-color 0.1s;
 
   &:hover:not(:disabled) {
@@ -392,7 +378,6 @@
   padding: $spacing-8 $spacing-10;
   font-size: 12px;
   font-weight: $medium;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
   color: $brand-primary;
   background-color: $background-primary;
   border: 1px solid $brand-primary;
@@ -423,7 +408,6 @@
   font-size: 10px;
   font-weight: $semi-bold;
   color: $text-secondary;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
   letter-spacing: 0.05em;
   padding-top: $spacing-4;
   padding-bottom: $spacing-4;
@@ -455,7 +439,6 @@
   font-size: 11px;
   font-weight: $regular;
   color: $text-primary;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
   line-height: 1.4;
   word-break: keep-all;
 }
@@ -464,7 +447,6 @@
   font-size: 10px;
   font-weight: $regular;
   color: $text-secondary;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
   background: none;
   border: none;
   cursor: pointer;

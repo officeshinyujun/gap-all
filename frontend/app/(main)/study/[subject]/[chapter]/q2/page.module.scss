@@ -39,7 +39,6 @@
 
 .headerTitle {
   flex: 1;
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 15px;
   font-weight: 600;
   color: $text-primary;
@@ -91,14 +90,12 @@
 .loadingText {
   font-size: 13px;
   color: $text-secondary;
-  font-family: 'Noto Sans KR', sans-serif;
   text-align: center;
 }
 
 .errorText {
   font-size: 14px;
   color: $text-wrong;
-  font-family: 'Noto Sans KR', sans-serif;
 }
 
 .retryButton {
@@ -127,7 +124,6 @@
   padding: 2px $spacing-8;
   border-radius: 4px;
   margin-bottom: $spacing-8;
-  font-family: 'Noto Sans KR', sans-serif;
 }
 
 /* 힌트 카드 */
@@ -147,7 +143,6 @@
   font-size: 15px;
   color: $text-primary;
   line-height: 1.7;
-  font-family: 'Noto Sans KR', sans-serif;
   margin: 0;
   font-weight: 500;
 }
@@ -185,7 +180,6 @@
   border: none;
   outline: none;
   background: transparent;
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 14px;
   color: $text-primary;
   line-height: 1.7;
@@ -228,7 +222,6 @@
   font-size: 14px;
   font-weight: 700;
   color: $text-primary;
-  font-family: 'Noto Sans KR', sans-serif;
 }
 
 .correctAnswerRow {
@@ -248,7 +241,6 @@
   padding: 2px $spacing-6;
   border-radius: 4px;
   flex-shrink: 0;
-  font-family: 'Noto Sans KR', sans-serif;
 }
 
 .correctAnswerValue {
@@ -256,14 +248,12 @@
   color: $text-primary;
   font-weight: 600;
   line-height: 1.6;
-  font-family: 'Noto Sans KR', sans-serif;
 }
 
 .explanationText {
   font-size: 12px;
   color: $text-secondary;
   line-height: 1.7;
-  font-family: 'Noto Sans KR', sans-serif;
   margin: 0;
 }
 
@@ -295,7 +285,6 @@
   font-size: 16px;
   font-weight: 700;
   color: $text-primary;
-  font-family: 'Noto Sans KR', sans-serif;
   margin: 0;
 }
 
@@ -303,7 +292,6 @@
   font-size: 48px;
   font-weight: 700;
   color: $brand-primary;
-  font-family: 'Noto Sans KR', sans-serif;
   margin: 0;
   line-height: 1.2;
 }
@@ -311,7 +299,6 @@
 .resultSub {
   font-size: 13px;
   color: $text-secondary;
-  font-family: 'Noto Sans KR', sans-serif;
   margin: 0;
 }
 
@@ -334,7 +321,6 @@
   border: 1.5px solid $border-primary;
   border-radius: 10px;
   background: $background-primary;
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 14px;
   font-weight: 600;
   color: $text-primary;

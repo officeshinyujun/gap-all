@@ -1,9 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
-import { VStack } from '@/components/general/VStack';
-import { HStack } from '@/components/general/HStack';
-import Typo from '@/components/general/Typo';
+import { VStack } from '@shared/ui/VStack';
+import { HStack } from '@shared/ui/HStack';
+import Typo from '@shared/ui/Typo';
 import { SelectionChip } from '../_shared/SelectionChip';
 import {
   TPLComparativeMatrix,
@@ -103,27 +103,6 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
         const rows = raw.rows ?? [];
         const headers = raw.headers ?? [];
         if (!rows.length || !headers.length) return renderPlainTextFallback(stimulus_data);
-        const rowIds = rows.map((r) => String(r.id));
-        const chipsAreRowLabels = raw.selection_chips?.every((chip) =>
-          rowIds.includes(chip)
-        );
-
-        if (chipsAreRowLabels) {
-          const labeledRows = rows.map((row) => ({
-            ...row,
-            cells: [String(row.id), ...(row.cells ?? [])],
-          }));
-          const labeledHeaders = [
-            { id: '_label', label: '구분' },
-            ...headers,
-          ];
-          return (
-            <TPLComparativeMatrix
-              data={{ ...raw, headers: labeledHeaders, rows: labeledRows, selection_chips: [] }}
-            />
-          );
-        }
-
         return (
           <TPLComparativeMatrix
             data={{ ...raw, selection_chips: [] }}

@@ -25,7 +25,6 @@
   width: 100%;
   border-collapse: collapse;
   font-size: 12px;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
 }
 
 .th {
@@ -97,7 +96,6 @@
   padding: $spacing-4 $spacing-8;
   font-size: 11px;
   font-weight: $semi-bold;
-  font-family: 'Noto Sans KR', sans-serif;
   color: $text-wrong;
   border: 1px solid $text-wrong;
   background: transparent;
@@ -119,7 +117,6 @@
   padding: $spacing-8 $spacing-16;
   font-size: 12px;
   font-weight: $medium;
-  font-family: 'Noto Sans KR', sans-serif;
   color: $brand-primary;
   background-color: $background-primary;
   border: 1px solid $brand-primary;
@@ -168,7 +165,6 @@
 .btnCancel {
   padding: $spacing-8 $spacing-16;
   font-size: 13px;
-  font-family: 'Noto Sans KR', sans-serif;
   background: $background-secondary;
   border: 1px solid $border-primary;
   border-radius: 6px;
@@ -179,7 +175,6 @@
 .btnConfirmReset {
   padding: $spacing-8 $spacing-16;
   font-size: 13px;
-  font-family: 'Noto Sans KR', sans-serif;
   background: $text-wrong;
   color: $background-primary;
   border: none;

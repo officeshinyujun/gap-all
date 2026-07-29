@@ -199,7 +199,7 @@
       "④ B씨가 희망하는 은퇴 시기의 발달 과업에는 '인생 철학 확립하기'가 있다.",
       "⑤ A, B 씨가 직업인으로 일하기 시작한 시기의 발달 과업에는 '직업 수행에 필요한 지식과 기술 학습'이 있다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "생애 발달 단계",
@@ -327,7 +327,7 @@
       "④ D",
       "⑤ E"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 2,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "평생 학습 제도"
@@ -355,7 +355,7 @@
       "④ B도서 추천 대상자의 발달 과업에는 '중년기의 위기관리'가 있다.",
       "⑤ C도서 추천 대상자의 발달 과업에는 '역할 변화에 융통성 있게 대처하기'가 있다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "HIGH",
     "targetConcepts": [
       "생애 발달 단계",

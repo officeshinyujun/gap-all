@@ -17,7 +17,12 @@ import type { StructuredTplName } from './tpl-schemas';
 export const REFERENCE_ARCHETYPE_VERSION = 3 as const;
 
 export type ReferenceStimulusRole =
-  'table' | 'dialogue' | 'document' | 'case' | 'timeline' | 'prose';
+  | 'table'
+  | 'dialogue'
+  | 'document'
+  | 'case'
+  | 'timeline'
+  | 'prose';
 
 export type ReferenceArchetype = Readonly<{
   version: typeof REFERENCE_ARCHETYPE_VERSION;
@@ -67,6 +72,7 @@ const NEGATIVE_STEM_PATTERN = /옳지\s*않은|적절하지\s*않은|틀린\s*�
 const LETTER_KEY_PATTERN = /[ㄱ-ㅎ]/;
 const COMBINATION_CHOICE_PATTERN =
   /^\s*[①②③④⑤]\s*(?:[ㄱ-ㅎ](?:\s*,\s*[ㄱ-ㅎ])*(?:\s*모두\s*아님)?|해당\s*없음|모두\s*옳다|없음)\s*$/;
+const PARENTHESIZED_LABEL = /[(（][가-힣]+[)）]\s*/g;
 
 function viewKeys(viewItems: readonly string[]): readonly string[] | null {
   const keys = viewItems.map((item) => item.match(/^\s*([ㄱ-ㅎ])\./)?.[1]);
@@ -78,7 +84,9 @@ function viewKeys(viewItems: readonly string[]): readonly string[] | null {
 export function isReferenceCombinationChoiceSet(
   choices: readonly string[],
 ): boolean {
-  return choices.every((choice) => COMBINATION_CHOICE_PATTERN.test(choice));
+  return choices.every((choice) =>
+    COMBINATION_CHOICE_PATTERN.test(choice.replaceAll(PARENTHESIZED_LABEL, '')),
+  );
 }
 
 function hasLetterChoices(choices: readonly string[]): boolean {
@@ -204,7 +212,9 @@ function setStructureForSource(
   }
   if (
     source.stimulus.trim() === '' &&
-    /위\s*(?:보고서|자료|문서)/.test(source.stem)
+    /(?:위\s*(?:보고서|자료|문서|대화|수업|설문|인터뷰|글|내용|제시문|그림|표|도표|도식)|\[(?:그림|표|자료|사진|그래프|도표)\d*\])/u.test(
+      source.stem,
+    )
   ) {
     return { required: true, position: 'shared_pair', viewItemCount };
   }

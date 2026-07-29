@@ -1,6 +1,6 @@
 import React from 'react';
-import { VStack } from '@/components/general/VStack';
-import { HStack } from '@/components/general/HStack';
+import { VStack } from '@shared/ui/VStack';
+import { HStack } from '@shared/ui/HStack';
 import { StemBox } from '../_shared/StemBox';
 import { StemLabel } from '../_shared/StemLabel';
 import { CaseCheckItem } from './CaseCheckItem';
@@ -39,7 +39,9 @@ export const TPLCaseDiagnosticFrame: React.FC<TPLCaseDiagnosticFrameProps> = ({
                 </div>
                 <VStack gap={2}>
                   <span className={s.profileName}>{profile.name || '알 수 없음'}</span>
-                  <span className={s.profileContext}>{profile.context || ''}</span>
+                  {profile.context ? (
+                    <span className={s.profileContext}>{profile.context}</span>
+                  ) : null}
                 </VStack>
               </HStack>
             </div>

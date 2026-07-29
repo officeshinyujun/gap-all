@@ -213,7 +213,8 @@ describe('SimplyReferenceGenerationService', () => {
         'ㄷ. 세 번째 판단 내용',
       ]),
       stem: '다음 자료를 통해 알 수 있는 내용으로 옳은 것은?',
-      stimulus: '원문 자료의 수치와 조건이다.\n두 번째 원문 문단이다.',
+      stimulus:
+        'A씨가 원문 자료의 수치와 조건을 검토한다.\n두 번째 원문 문단이다.',
       choices: ['① ㄱ', '② ㄴ', '③ ㄱ, ㄴ', '④ ㄴ, ㄷ', '⑤ ㄱ, ㄴ, ㄷ'],
       correctAnswer: 3,
     };
@@ -253,11 +254,26 @@ describe('SimplyReferenceGenerationService', () => {
 
     expect(completeBatch).not.toHaveBeenCalled();
     expect(drafts).toHaveLength(1);
+    const stimulusData = drafts[0]?.result.render_ready.stimulus_data as {
+      case_profile: { name: string; context: string };
+      narrative: string;
+    };
+    const firstSourceLine = 'A씨가 원문 자료의 수치와 조건을 검토한다.';
+    expect(
+      [stimulusData.case_profile.context, stimulusData.narrative].filter((text) =>
+        text.includes(firstSourceLine),
+      ),
+    ).toHaveLength(1);
     expect(drafts[0]).toMatchObject({
       result: {
-        metadata: { recommended_template: 'TPL_ARTICLE' },
+        metadata: { recommended_template: 'TPL_CASE_DIAGNOSTIC_FRAME' },
         render_ready: {
           question_stem: officialSource.stem,
+          stimulus_data: {
+            case_profile: { name: 'A씨', context: '' },
+            narrative: officialSource.stimulus,
+            check_items: [],
+          },
           options_list: officialSource.choices,
           combo_block: {
             title: '<보기>',
@@ -272,7 +288,7 @@ describe('SimplyReferenceGenerationService', () => {
       },
       lineage: {
         generationPath: 'simply_reference',
-        selectedTemplate: 'TPL_ARTICLE',
+        selectedTemplate: 'TPL_CASE_DIAGNOSTIC_FRAME',
       },
     });
   });
@@ -318,6 +334,66 @@ describe('SimplyReferenceGenerationService', () => {
       }),
     });
     expect(completeBatch).not.toHaveBeenCalled();
+  });
+
+  it('Given a complete delimiter-separated source table, When source-preserving generation is enabled, Then retains every table cell', async () => {
+    const completeBatch = jest.fn();
+    const tableSource = {
+      ...sourcePayload(2),
+      stem: '다음 표를 보고 옳은 내용을 고르시오.',
+      stimulus: '구분 | A | B\n특징 | 원문 A | 원문 B',
+      correctAnswer: 1,
+    };
+    const service = {
+      textbookService: {
+        getConcepts: jest.fn().mockReturnValue([
+          { unitName: '1단원', concepts: ['Career values'] },
+        ]),
+      },
+      catalogReader: {
+        find: jest.fn().mockResolvedValue([
+          { unitNumber: 1, sourcePayload: tableSource },
+        ]),
+      },
+      dependencies: { completeBatch },
+    };
+
+    const drafts = await SimplyReferenceGenerationService.prototype.generate.call(
+      service,
+      'success',
+      1,
+      1,
+      Difficulty.MIDDLE,
+      1,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      { sourcePreserving: true },
+    );
+
+    expect(completeBatch).not.toHaveBeenCalled();
+    expect(drafts).toMatchObject([
+      {
+        result: {
+          metadata: { recommended_template: 'TPL_COMPARATIVE_MATRIX' },
+          render_ready: {
+            stimulus_data: {
+              headers: [
+                { id: 'column-1', label: '구분 ' },
+                { id: 'column-2', label: ' A ' },
+                { id: 'column-3', label: ' B' },
+              ],
+              rows: [
+                { id: 'row-1', cells: ['특징 ', ' 원문 A ', ' 원문 B'] },
+              ],
+              selection_chips: [],
+            },
+          },
+        },
+      },
+    ]);
   });
 
   it('Given a model response that omits a selected source, When generating a batch, Then repairs only that source', async () => {

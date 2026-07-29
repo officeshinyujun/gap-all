@@ -1,6 +1,44 @@
+.searchInput {
+  width: 100%;
+  min-height: 36px;
+  padding: 6px 10px;
+  color: var(--text-primary);
+  background: var(--surface-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: 8px;
+  font: inherit;
+  font-size: 14px;
+
+  &::placeholder {
+    color: var(--text-secondary);
+  }
+
+  &:focus {
+    outline: 2px solid var(--brand-primary);
+    outline-offset: 1px;
+  }
+}
+
+.subjectTitle,
+.unitTitle {
+  margin: 0;
+}
+
+.noResults {
+  padding: 24px 0;
+}
+
 .pageWrapper {
   height: 100%;
   overflow-y: auto;
+}
+
+.pageHeader {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: 4px 0 8px;
+  background: var(--background-primary);
 }
 
 .bookmarkCard {
@@ -13,7 +51,7 @@
   background: none;
   border: 1px solid var(--border-primary);
   border-radius: 8px;
-  padding: 6px 12px;
+  padding: 4px 8px;
   cursor: pointer;
   transition: background-color 0.15s;
 
@@ -25,4 +63,56 @@
 .detailSection {
   padding-top: 12px;
   border-top: 1px solid var(--border-primary);
+}
+
+.markdownContent {
+  overflow-x: auto;
+  color: var(--text-primary);
+  font-size: 12px;
+  line-height: 1.7;
+
+  p {
+    margin: 0 0 8px;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  ul,
+  ol {
+    margin: 0 0 8px;
+    padding-left: 16px;
+  }
+
+  li {
+    margin-bottom: 4px;
+  }
+
+  table {
+    width: 100%;
+    min-width: 420px;
+    border-collapse: collapse;
+    margin: 8px 0;
+  }
+
+  th,
+  td {
+    padding: 6px 8px;
+    border: 1px solid var(--border-primary);
+    text-align: left;
+    vertical-align: top;
+  }
+
+  th {
+    background: var(--background-secondary);
+    font-weight: 600;
+  }
+
+  blockquote {
+    margin: 8px 0;
+    padding-left: 12px;
+    color: var(--text-secondary);
+    border-left: 3px solid var(--brand-primary);
+  }
 }

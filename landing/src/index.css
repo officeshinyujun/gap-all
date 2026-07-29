@@ -1,9 +1,9 @@
 :root {
-  --brand-primary: #4338CA;
-  --brand-primary-hover: #3730A3;
-  --brand-primary-light: rgba(67, 56, 202, 0.06);
-  --brand-secondary: #E0E0F7;
-  --brand-secondary-hover: #c8c8f0;
+  --brand-primary: #3333CC;
+  --brand-primary-hover: #2929A3;
+  --brand-primary-light: rgba(51, 51, 204, 0.06);
+  --brand-secondary: #DCDCF5;
+  --brand-secondary-hover: #C4C4EE;
 
   --text-primary: #0F0F1A;
   --text-secondary: #5C5C70;

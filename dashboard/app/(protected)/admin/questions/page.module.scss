@@ -47,7 +47,6 @@
   border-radius: $spacing-8;
   background: $background-primary;
   font-size: 14px;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
   color: $text-primary;
 }
 
@@ -86,7 +85,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
 }
 
 .deleteBtn {
@@ -97,7 +95,6 @@
   color: $text-wrong;
   font-size: 12px;
   cursor: pointer;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
 
   &:hover {
     background: $background-secondary;
@@ -115,7 +112,6 @@
   background: none;
   cursor: pointer;
   font-size: 13px;
-  font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
   color: $text-primary;
 
   &:hover:not(:disabled) {

@@ -499,7 +499,7 @@
       "④ ㄴ, ㄷ",
       "⑤ ㄱ, ㄴ, ㄷ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "산업 재해 분석"
@@ -527,7 +527,7 @@
       "④ 직업재활급여",
       "⑤ 장해보상일시금"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "산업 재해 보상 서비스"
@@ -611,7 +611,7 @@
       "④ 상사의 폭언과 괴롭힘 등으로 정신적 스트레스를 받아 병원 진료 후 3개월의 요양이 필요하다는 진단을 받은 경우",
       "⑤ 퇴근 후 사업주의 지배관리를 벗어난 상태에서 회사 동료들과 식사를 한 후 귀가하던 중 교통사고를 당한 경우"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "업무상 재해의 종류"
@@ -639,7 +639,7 @@
       "④ ○○ 기업의 사용자는 A군에 대하여 근로기준법상 연장근로 규정을 준수하지 않았다.",
       "⑤ 상시 근로자가 5인 미만인 모든 사업장은 A군이 신청한 사회 보험이 적용되지 않는다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "산업 재해",

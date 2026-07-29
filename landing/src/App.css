@@ -116,12 +116,12 @@
 .btn-primary {
   background: var(--brand-primary);
   color: white;
-  box-shadow: 0 4px 20px rgba(67, 56, 202, 0.25);
+  box-shadow: 0 4px 20px rgba(51, 51, 204, 0.25);
 }
 
 .btn-primary:hover {
   background: var(--brand-primary-hover);
-  box-shadow: 0 8px 32px rgba(67, 56, 202, 0.35);
+  box-shadow: 0 8px 32px rgba(51, 51, 204, 0.35);
   transform: translateY(-2px);
 }
 
@@ -184,7 +184,7 @@
   gap: var(--space-2);
   padding: var(--space-2) var(--space-4);
   background: var(--brand-primary-light);
-  border: 1px solid rgba(67, 56, 202, 0.12);
+  border: 1px solid rgba(51, 51, 204, 0.12);
   border-radius: var(--radius-pill);
   font-size: var(--text-sm);
   font-weight: 500;

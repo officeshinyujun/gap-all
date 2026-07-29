@@ -99,7 +99,7 @@ function loadAnswerKeys(): ReadonlyMap<string, AnswerKey> {
           { encoding: 'utf8' },
         );
         keys.set(
-          answerKeyId(subject, Number(year), examType),
+          answerKeyId(subject, Number(year), examType.normalize('NFC')),
           parseOfficialAnswerKeyText(text),
         );
       }

@@ -22,6 +22,7 @@ export const REFERENCE_CATALOG_PREFLIGHT_RESULTS = [
   'CATALOG_UNIT_MISMATCH',
   'INVALID_LOGICAL_SOURCE_ID',
   'INVALID_SOURCE_PAYLOAD',
+  'LEGACY_LOGICAL_SOURCE_ID',
   'MISSING_OFFICIAL_ANSWER',
   'MISSING_PRIMARY_TARGET',
   'RESOLVED',
@@ -175,9 +176,17 @@ function validateCatalogRow(row: PersistedReferenceQuestion):
       kind: 'rejected';
       result: Exclude<ReferenceCatalogPreflightResult, 'RESOLVED'>;
     }> {
-  const logicalSource = parseLogicalSourceId(row.logicalSourceId);
+  const logicalSource = parseLogicalSourceId(
+    row.logicalSourceId,
+    row.unitNumber,
+  );
   if (logicalSource === null) {
     return { kind: 'rejected', result: 'INVALID_LOGICAL_SOURCE_ID' };
+  }
+  // Legacy IDs need a source-identity migration before their raw payload can
+  // be assessed against the canonical generation contract.
+  if (logicalSource.isLegacy) {
+    return { kind: 'rejected', result: 'LEGACY_LOGICAL_SOURCE_ID' };
   }
   if (row.subject !== logicalSource.subject) {
     return { kind: 'rejected', result: 'CATALOG_SUBJECT_MISMATCH' };
@@ -214,13 +223,29 @@ function validateCatalogRow(row: PersistedReferenceQuestion):
 
 function parseLogicalSourceId(
   value: string,
-): Readonly<{ subject: SubjectStyle; unitNumber: number }> | null {
+  catalogUnitNumber: number,
+): Readonly<{
+  subject: SubjectStyle;
+  unitNumber: number;
+  isLegacy: boolean;
+}> | null {
   const parts = value.split(':');
   if (parts.length < 4) return null;
   const subject = subjectStyle(parts[0]);
-  const unitNumber = canonicalPositiveInteger(parts[1]);
   const questionNumber = canonicalPositiveInteger(parts.at(-1));
-  const filename = parts.slice(2, -1).join(':');
+  const canonicalUnitNumber = canonicalPositiveInteger(parts[1]);
+  const isSuteckLegacy = parts[1] === 'suteck';
+  const isMoiLegacy = parts[1] === 'moi';
+  const unitNumber = isSuteckLegacy
+    ? catalogUnitNumber
+    : isMoiLegacy
+      ? catalogUnitNumber
+      : canonicalUnitNumber;
+  const filename = isSuteckLegacy
+    ? parts.slice(2, -1).join(':')
+    : isMoiLegacy
+      ? parts.slice(2, -1).join(':')
+      : parts.slice(2, -1).join(':');
   if (
     subject === null ||
     unitNumber === null ||
@@ -229,12 +254,14 @@ function parseLogicalSourceId(
   ) {
     return null;
   }
-  return { subject, unitNumber };
+  return { subject, unitNumber, isLegacy: isSuteckLegacy || isMoiLegacy || parts[0] === 'sungjik' };
 }
 
 function subjectStyle(value: string | undefined): SubjectStyle | null {
   switch (value) {
     case 'success':
+      return 'success';
+    case 'sungjik':
       return 'success';
     case 'kongil':
       return 'kongil';

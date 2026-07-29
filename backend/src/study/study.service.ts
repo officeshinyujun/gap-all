@@ -913,6 +913,8 @@ export class StudyService {
     for (const unitNumber of unitNumbers) {
       for (const type of types) {
         try {
+          // 먼저 기존 캐시를 삭제한 후 재생성
+          await this.quizGenerator.clearCache(subjectSlug, unitNumber, type, count);
           if (type === 'blank') {
             await this.quizGenerator.generateBlankQuestions(
               subjectSlug,

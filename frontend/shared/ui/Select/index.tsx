@@ -56,7 +56,7 @@ export function Select({ value, options, onChange }: SelectProps) {
                                 {option.label}
                             </Typo.MD>
                             {option.value === value && (
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#3E78F7">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--brand-primary)">
                                     <path d="M3.33334 8L6.66668 11.3333L13.3333 4.66667" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                                 </svg>
                             )}

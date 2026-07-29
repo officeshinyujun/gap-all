@@ -14,7 +14,6 @@
   background: $background-primary;
   color: $text-primary;
   font-size: 14px;
-  font-family: 'Noto Sans KR', sans-serif;
   cursor: pointer;
   outline: none;
   min-width: 160px;
@@ -27,7 +26,6 @@
   padding: 0 $spacing-16;
   border-radius: 8px;
   cursor: pointer;
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 13px;
   font-weight: 600;
   transition: opacity 0.15s ease;
@@ -40,7 +38,7 @@
 
 .buttonPrimary {
   background: $brand-primary;
-  color: #ffffff;
+  color: $background-primary;
 }
 
 .buttonOutline {
@@ -56,8 +54,8 @@
 }
 
 .buttonDanger {
-  background: #e53e3e;
-  color: #ffffff;
+  background: $text-wrong;
+  color: $background-primary;
 }
 
 .buttonSmall {
@@ -74,7 +72,7 @@
   width: 20px;
   height: 20px;
   border: 2px solid rgba(255,255,255,0.3);
-  border-top-color: #ffffff;
+  border-top-color: $background-primary;
   border-radius: 50%;
   animation: spin 0.7s linear infinite;
 }
@@ -94,18 +92,17 @@
   padding: $spacing-10 $spacing-14;
   border-radius: 8px;
   font-size: 13px;
-  font-family: 'Noto Sans KR', sans-serif;
 }
 
 .messageSuccess {
   background: rgba(56, 161, 105, 0.08);
-  color: #38a169;
+  color: $text-correct;
   border: 1px solid rgba(56, 161, 105, 0.2);
 }
 
 .messageError {
   background: rgba(229, 62, 62, 0.08);
-  color: #e53e3e;
+  color: $text-wrong;
   border: 1px solid rgba(229, 62, 62, 0.2);
 }
 
@@ -152,7 +149,6 @@
   color: $brand-primary;
   font-size: 11px;
   font-weight: 600;
-  font-family: 'Noto Sans KR', sans-serif;
 }
 
 .chevron {
@@ -181,7 +177,6 @@
   font-size: 12px;
   font-weight: 600;
   color: $text-secondary;
-  font-family: 'Noto Sans KR', sans-serif;
 }
 
 .input {
@@ -193,7 +188,6 @@
   background: $background-primary;
   color: $text-primary;
   font-size: 13px;
-  font-family: 'Noto Sans KR', sans-serif;
   outline: none;
 
   &:focus { border-color: $brand-primary; }
@@ -208,7 +202,6 @@
   background: $background-primary;
   color: $text-primary;
   font-size: 13px;
-  font-family: 'Noto Sans KR', sans-serif;
   outline: none;
   resize: vertical;
   line-height: 1.5;
@@ -237,7 +230,6 @@
   background: $background-primary;
   color: $text-primary;
   font-size: 12px;
-  font-family: 'Noto Sans KR', sans-serif;
   outline: none;
 
   &:focus { border-color: $brand-primary; }
@@ -248,12 +240,7 @@
   height: 24px;
   border: none;
   background: rgba(229, 62, 62, 0.08);
-  color: #e53e3e;
-  border-radius: 4px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  color: $text-wrong;
   font-size: 14px;
   line-height: 1;
 
@@ -269,7 +256,6 @@
   background: transparent;
   color: $text-secondary;
   font-size: 12px;
-  font-family: 'Noto Sans KR', sans-serif;
   cursor: pointer;
 
   &:hover {

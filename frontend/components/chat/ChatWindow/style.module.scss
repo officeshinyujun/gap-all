@@ -267,7 +267,6 @@
     background: $background-secondary;
     color: $text-primary;
     border: 1px solid $border-primary;
-    font-family: 'Noto Sans KR', sans-serif;
     font-size: 12px;
     font-weight: 500;
     line-height: 1.5;
@@ -325,7 +324,6 @@
 }
 
 .generatedQuestionLabel {
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 13px;
   font-weight: 600;
   color: $brand-primary;
@@ -346,7 +344,6 @@
 }
 
 .feedbackCorrect {
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 14px;
   font-weight: 600;
   color: $text-correct;
@@ -354,7 +351,6 @@
 }
 
 .feedbackWrong {
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 14px;
   font-weight: 600;
   color: $text-wrong;
@@ -362,7 +358,6 @@
 }
 
 .explanationBox {
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 13px;
   line-height: 1.7;
   color: $text-primary;
@@ -420,7 +415,6 @@
 }
 
 .similarTitle {
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 13px;
   font-weight: 600;
   color: $text-secondary;
@@ -455,14 +449,12 @@
 }
 
 .similarCardSource {
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 11px;
   color: $text-secondary;
   margin-bottom: 2px;
 }
 
 .similarCardConcept {
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 13px;
   font-weight: 600;
   color: $text-primary;
@@ -488,7 +480,6 @@
   background: $background-secondary;
   border: 1.5px solid $brand-primary;
   border-radius: 8px;
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 13px;
   font-weight: 600;
   color: $brand-primary;
@@ -504,7 +495,6 @@
   background: none;
   border: 1px dashed $border-primary;
   border-radius: 6px;
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 12px;
   font-weight: 500;
   color: $text-secondary;
@@ -528,7 +518,6 @@
 }
 
 .sectionTitle {
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 12px;
   font-weight: 600;
   color: $text-strong;
@@ -538,7 +527,6 @@
   display: flex;
   gap: $spacing-8;
   align-items: flex-start;
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 13px;
   line-height: 1.6;
   color: $text-primary;
@@ -558,7 +546,6 @@
   display: flex;
   gap: $spacing-6;
   align-items: flex-start;
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 13px;
   line-height: 1.6;
   padding: $spacing-6 $spacing-8;
@@ -595,7 +582,6 @@
 }
 
 .takeawayText {
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 13px;
   line-height: 1.6;
   color: $text-primary;
@@ -607,7 +593,6 @@
   display: flex;
   gap: $spacing-6;
   align-items: flex-start;
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 12px;
   line-height: 1.6;
   color: $text-primary;
@@ -628,7 +613,6 @@
   background: $background-primary;
   border: 1px solid $border-primary;
   border-radius: 8px;
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 12px;
   line-height: 1.8;
   color: $text-primary;
@@ -662,14 +646,12 @@
 }
 
 .clueQuote {
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 12px;
   line-height: 1.6;
   color: $text-primary;
 }
 
 .clueWhy {
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 11px;
   line-height: 1.5;
   color: $text-secondary;

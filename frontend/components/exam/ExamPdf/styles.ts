@@ -15,8 +15,9 @@ export const styles = StyleSheet.create({
     padding: 20,
     paddingBottom: 35,
     fontFamily: 'NotoSansKR',
-    fontSize: 7,
-    lineHeight: 1.4,
+    fontSize: 7.5,
+    lineHeight: 1.5,
+    letterSpacing: 0.1,
   },
   header: {
     textAlign: 'center',
@@ -32,7 +33,8 @@ export const styles = StyleSheet.create({
     marginBottom: 2,
   },
   headerInfo: {
-    fontSize: 6,
+    fontSize: 6.5,
+    letterSpacing: 0.08,
     color: '#555',
   },
   columnsContainer: {
@@ -56,9 +58,11 @@ export const styles = StyleSheet.create({
     borderBottomStyle: 'solid',
   },
   questionStem: {
-    fontSize: 7.5,
+    fontSize: 8.25,
     fontWeight: 700,
     marginBottom: 3,
+    lineHeight: 1.45,
+    letterSpacing: 0.1,
   },
   stimulusBox: {
     marginBottom: 4,
@@ -69,18 +73,21 @@ export const styles = StyleSheet.create({
     backgroundColor: '#fafafa',
   },
   stimulusTitle: {
-    fontSize: 6.5,
+    fontSize: 7.5,
     fontWeight: 700,
     marginBottom: 2,
   },
   stimulusText: {
-    fontSize: 6.5,
-    lineHeight: 1.3,
+    fontSize: 7.25,
+    lineHeight: 1.45,
+    letterSpacing: 0.08,
   },
   optionText: {
-    fontSize: 7,
-    marginBottom: 1.5,
+    fontSize: 7.75,
+    lineHeight: 1.45,
+    marginBottom: 2,
     paddingLeft: 3,
+    letterSpacing: 0.08,
   },
   tableRow: {
     flexDirection: 'row',
@@ -91,7 +98,9 @@ export const styles = StyleSheet.create({
   tableCell: {
     flex: 1,
     padding: 3,
-    fontSize: 7,
+    fontSize: 7.25,
+    lineHeight: 1.4,
+    letterSpacing: 0.05,
     borderRightWidth: 0.5,
     borderRightColor: '#999',
     borderRightStyle: 'solid',
@@ -99,8 +108,10 @@ export const styles = StyleSheet.create({
   tableCellHeader: {
     flex: 1,
     padding: 3,
-    fontSize: 7,
+    fontSize: 7.25,
     fontWeight: 700,
+    lineHeight: 1.4,
+    letterSpacing: 0.05,
     borderRightWidth: 0.5,
     borderRightColor: '#999',
     borderRightStyle: 'solid',
@@ -149,12 +160,13 @@ export const styles = StyleSheet.create({
     color: '#999',
   },
   speakerName: {
-    fontSize: 8,
+    fontSize: 8.25,
     fontWeight: 700,
     marginBottom: 1,
   },
   messageText: {
-    fontSize: 8,
+    fontSize: 8.25,
+    lineHeight: 1.45,
     marginBottom: 3,
     paddingLeft: 8,
   },
@@ -164,16 +176,17 @@ export const styles = StyleSheet.create({
     marginBottom: 2,
   },
   stepLabel: {
-    fontSize: 8,
+    fontSize: 8.25,
     fontWeight: 700,
     marginRight: 4,
   },
   stepDesc: {
-    fontSize: 8,
+    fontSize: 8.25,
+    lineHeight: 1.45,
     flex: 1,
   },
   arrow: {
-    fontSize: 8,
+    fontSize: 8.25,
     textAlign: 'center',
     marginVertical: 1,
   },

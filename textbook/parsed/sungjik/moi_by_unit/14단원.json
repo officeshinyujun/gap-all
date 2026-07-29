@@ -242,7 +242,7 @@
       "④ ㄱ, ㄴ, ㄷ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "창업 계획서"
@@ -359,7 +359,7 @@
       "④ 위험 감수성, 사회적 책임성",
       "⑤ 사회적 책임성, 혁신성"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 4,
     "difficulty": "HIGH",
     "targetConcepts": [
       "기업가 정신"
@@ -387,7 +387,7 @@
       "④ 갑의 창업 방법은 을의 창업 방법에 비해 창업 이후 기업 운영에 있어 창업자의 자율적인 의사 결정이 어렵다.",
       "⑤ 을의 창업 방법은 갑의 창업 방법에 비해 창업 준비 기간이 상대적으로 길다."
     ],
-    "correctAnswer": null,
+    "correctAnswer": 1,
     "difficulty": "INTERGRATE",
     "targetConcepts": [
       "창업 방법 (독립 창업, 프랜차이즈 창업)"

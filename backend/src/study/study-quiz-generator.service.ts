@@ -152,17 +152,44 @@ export class StudyQuizGeneratorService {
     const prompt = `# Role: 교과서 빈칸 문제 출제자
 
 # Mission
-아래 [교재 내용]에서 설명문(정의, 특징, 분류 등을 서술하는 문장)을 찾아 핵심 용어를 [blank]로 처리한 빈칸 문제를 만들어라.
+아래 [교재 내용]에서 핵심 개념을 설명하는 서술문을 찾아, 그 핵심 용어를 [blank]로 처리한 빈칸 문제를 만들어라.
+
+# 🎯 좋은 문제 vs 나쁜 문제
+## ✅ 좋은 문제의 조건
+- [blank]가 교재의 핵심 개념어(전문 용어, 학자명, 제도명, 분류명)이다.
+- 문장 자체가 하나의 완결된 설명/정의를 담고 있어서, 문맥을 이해하면 답을 도출할 수 있다.
+- 오답이 "그것도 맞을 것 같은데?"라는 생각이 들 만큼 그럴듯하다.
+- 교재 원문을 거의 그대로 사용하여 신뢰도가 높다.
+
+## ❌ 나쁜 문제의 예시 (절대 이렇게 만들지 마라)
+- "컴퓨터는 [blank]을 처리하는 기계이다" → "정보" (일상적인 단어를 blank 처리함)
+- "근로기준법은 [blank]을 보호하기 위한 법이다" → "근로자" (문장 구조만으로 답이 너무 뻔함)
+- 오답으로 "김치", "축구", "우주" 등 전혀 관련 없는 단어를 넣음
+
+## ✅ 좋은 문제의 예시
+[교재 내용]: "산업재해보상보험법은 업무상 재해를 입은 근로자에게 신속하고 공정한 보상을 제공하기 위해 제정된 사회보험 법률이다."
+→ sentence_template: "산업재해보상보험법은 업무상 재해를 입은 근로자에게 신속하고 공정한 [blank]을 제공하기 위해 제정된 사회보험 법률이다."
+→ correct_answer: "보상"
+→ options: ["보상", "치료", "고용", "교육"]  // 모두 사회보험 맥락에서 등장할 법한 용어들
 
 # Rules
-1. 반드시 [교재 내용]에 실제로 등장하는 설명문을 그대로 또는 최소한으로 다듬어서 사용하라.
-2. [blank]로 처리할 단어는 교재에 명시된 전문 용어, 학자명, 제도명, 분류명이어야 한다.
-3. "~를 설명하라", "~의 특징을 서술하라" 같은 서술형 문제를 만들지 마라. 오직 빈칸 채우기만 출제하라.
-4. sentence_template는 반드시 서술문(~이다, ~한다, ~된다)이어야 한다. 의문문이나 명령문을 사용하지 마라.
-5. [blank]는 문장의 중간에 위치해야 한다. 문장 맨 끝이나 맨 앞에 [blank]를 배치하지 마라.
-6. 교재에 없는 내용을 추가하거나 추론하지 마라.
-7. options는 같은 교재 내에 등장하는 다른 용어 3개 + 정답 1개 = 총 4개로 구성하라.
-8. explanation은 교재에 적힌 내용만으로 간결하게 작성하라.
+1. 반드시 [교재 내용]에 실제로 등장하는 설명문을 그대로 사용하거나, 의미를 유지하는 선에서 최소한으로만 다듬어라.
+2. [blank]로 처리할 단어는 교재에 명시된 전문 용어, 학자명, 제도명, 분류명, 핵심 개념어여야 한다. 일반 동사, 조사, 형용사, 일상 명사는 절대 blank 처리하지 마라.
+3. sentence_template는 [blank]를 제외하면 완전한 서술문(~이다, ~한다, ~된다)이어야 한다. 의문문이나 "~를 쓰시오" 같은 명령문을 사용하지 마라.
+4. [blank]는 문장의 중간에 위치해야 한다. 문장 맨 끝이나 맨 앞에 [blank]를 배치하지 마라.
+5. 교재에 없는 내용을 추가하거나 추론하지 마라.
+6. options는 반드시 4개(정답 1개 + 오답 3개)로 구성하라. 오답은 같은 교재 내에 등장하는 같은 카테고리의 용어에서 선정하라. 모든 선택지는 동일한 품사/형태여야 한다.
+7. options에는 정답과 완전히 동일한 단어를 중복해서 포함하지 마라.
+8. explanation은 교재에 적힌 내용만으로 간결하게 1-2문장으로 작성하라.
+
+# Self-Check (출력 전에 스스로 확인할 것)
+각 문항에 대해:
+- [ ] 이 [blank]는 핵심 개념어인가? (일반 단어가 아님)
+- [ ] 오답 3개는 "틀렸지만 그럴듯한" 수준인가?
+- [ ] 문장이 교재 원문과 의미상 차이가 없는가?
+- [ ] 정답을 모르는 학생이 문장의 문맥만으로 충분히 추론할 수 있는가?
+
+위 4개 항목을 모두 만족하는 문항만 최종 출력하라.
 
 # JSON Output
 [
@@ -206,7 +233,15 @@ JSON만 출력하라.`;
       );
     }
 
-    return arr;
+    // Post-processing: validate and clean generated questions
+    const validated = this.validateBlankQuestions(arr);
+    if (validated.length === 0) {
+      throw new InternalServerErrorException(
+        '생성된 빈칸 문항이 품질 검증을 통과하지 못했습니다.',
+      );
+    }
+
+    return validated;
   }
 
   private async callOpenAiForConcept(
@@ -348,11 +383,79 @@ JSON만 출력하라.`;
   }
 
   // ============================================================
+  // 품질 검증
+  // ============================================================
+
+  private validateBlankQuestions(questions: BlankQuestion[]): BlankQuestion[] {
+    const genericWords = new Set([
+      '것', '수', '때', '등', '및', '그', '이', '저', '뿐',
+      '하기', '있는', '하는', '있다', '한다', '된다',
+    ]);
+
+    const validated = questions.filter((q, index) => {
+      // 1. sentence_template must contain [blank]
+      if (!q.sentence_template?.includes('[blank]')) {
+        this.logger.warn(`Blank question #${q.id ?? index} rejected: missing [blank] in sentence_template`);
+        return false;
+      }
+
+      // 2. correct_answer must be non-empty and non-trivial
+      const answer = q.correct_answer?.trim() ?? '';
+      if (answer.length === 0 || answer.length > 50) {
+        this.logger.warn(`Blank question #${q.id ?? index} rejected: invalid correct_answer length (${answer.length})`);
+        return false;
+      }
+
+      // 3. correct_answer must not be a generic grammatical word
+      if (genericWords.has(answer)) {
+        this.logger.warn(`Blank question #${q.id ?? index} rejected: correct_answer is a generic word ("${answer}")`);
+        return false;
+      }
+
+      // 4. options must contain exactly 4 unique items including correct_answer
+      const options = Array.isArray(q.options) ? q.options : [];
+      const uniqueOptions = [...new Set(options.map((o: string) => o.trim()))];
+      if (uniqueOptions.length !== 4) {
+        this.logger.warn(`Blank question #${q.id ?? index} rejected: options must have exactly 4 unique items (got ${uniqueOptions.length})`);
+        return false;
+      }
+
+      if (!uniqueOptions.includes(answer)) {
+        this.logger.warn(`Blank question #${q.id ?? index} rejected: correct_answer not found in options`);
+        return false;
+      }
+
+      // 5. sentence_template must have minimum meaningful length
+      const templateWithoutBlank = q.sentence_template.replace(/\[blank\]/g, '').trim();
+      if (templateWithoutBlank.length < 10) {
+        this.logger.warn(`Blank question #${q.id ?? index} rejected: sentence too short (${templateWithoutBlank.length} chars)`);
+        return false;
+      }
+
+      return true;
+    });
+
+    const rejected = questions.length - validated.length;
+    if (rejected > 0) {
+      this.logger.warn(`${rejected}/${questions.length} blank questions rejected by validation`);
+    }
+
+    return validated;
+  }
+
+  // ============================================================
   // 공통 유틸
   // ============================================================
 
   private getPersona(): string {
-    return "너는 한국 교육과정평가원(KICE)에서 15년 이상 근무한 전공 서적 기반 수능 출제 전문위원이다. 너의 목표는 단순히 정보를 전달하는 것이 아니라, 지문의 텍스트를 고도로 추상화하여 '매력적인 오답'과 '다단계 추론'을 설계하는 것이다. 너는 지문의 단어를 그대로 사용하는 것을 수치로 여기며, 모든 핵심 개념을 유의어로 치환(Paraphrasing)하여 수험생의 인지 부하를 극대화한다. 너의 모든 문항은 원문에 근거한 폐쇄적 논리 체계 안에서만 작동해야 한다.";
+    return `너는 특성화고등학교 전공 교과서를 가르치는 베테랑 교사다. 너의 목표는 학생들이 교과서의 핵심 개념을 정확하게 이해하고 기억하도록 돕는 것이다. 다음 원칙을 철저히 지켜라:
+
+1. 교과서 원문을 최우선으로 존중하라. 문장은 교재에 실제로 등장하는 서술문을 그대로 사용하거나, 의미를 훼손하지 않는 선에서 최소한으로만 다듬어라.
+2. 절대로 지어내지 마라. 교재에 없는 개념, 용어, 설명을 추가하거나 추론하지 마라.
+3. [blank]는 반드시 교재에서 명시적으로 정의되거나 핵심 개념으로 다뤄지는 전문 용어여야 한다. 조사, 접속사, 일반 동사 등 문법적 요소나 일상어를 blank 처리하지 마라.
+4. 오답(오선지)은 같은 교재 내에 등장하는 유사한 수준의 용어로만 구성하라. 오답은 "그럴듯하지만 틀린" 수준이어야 하며, 명백히 틀린 답이나 문법적으로 맞지 않는 답을 포함하지 마라.
+5. 정답이 문장의 문맥 속에서 논리적으로 추론 가능해야 한다. 단순히 단어를 맞추는 것이 아니라, 문장의 의미를 이해했을 때 비로소 답을 고를 수 있어야 한다.
+6. 모든 문항은 "이 교과서를 공부한 학생이라면 맞힐 수 있는" 수준으로 출제하라.`;
   }
 
   private extractJson(text: string): any {
