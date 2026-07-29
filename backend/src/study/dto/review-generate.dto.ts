@@ -30,7 +30,7 @@ export class ReviewGenerateDto {
   @IsOptional()
   @IsInt()
   @Min(1)
-  @Max(30)
+  @Max(20)
   questionCount?: number;
 
   @IsOptional()

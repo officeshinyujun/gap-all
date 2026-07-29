@@ -122,6 +122,18 @@ export class ChatService {
     return { messageId, answer };
   }
 
+  async getImageUrl(userId: string, filename: string) {
+    const message = await this.messageRepo.findOne({
+      where: { message: `[IMAGE:${filename}]` },
+      relations: ['chatSession'],
+    });
+    if (!message || message.chatSession?.userId !== userId) {
+      throw new NotFoundException('이미지를 찾을 수 없습니다.');
+    }
+
+    return this.imageUploadService.createSignedUrl(filename);
+  }
+
   // ============================================================
   // 메시지 전송 + AI 응답
   // ============================================================
@@ -149,8 +161,6 @@ export class ChatService {
     let aiText: string;
     let generatedQuestion: any = undefined;
 
-    console.log('[ChatService] sendMessage mode:', dto.mode, 'message:', dto.message.slice(0, 50));
-
     if (dto.mode === 'generate') {
       // ── AI 문제 생성 모드 ──
       let rawJson: string;
@@ -163,7 +173,6 @@ export class ChatService {
           session.endUnit ?? undefined,
         );
       } catch (err: any) {
-        console.error('[ChatService] generateExamQuestion failed:', err);
         aiText = `문제 생성 중 오류가 발생했어요.\n\n(${err?.message ?? '알 수 없는 오류'})`;
         const aiMessage = await this.messageRepo.save(
           this.messageRepo.create({ chatSessionId: sessionId, sender: ChatSender.AI, message: aiText }),
@@ -293,14 +302,9 @@ export class ChatService {
     }
 
     // 4. 유사 문제 검색
-    console.log('[DEBUG] GPT extracted concepts:', extracted.target_concepts);
     const similarQuestions = this.studyService.findSimilarByConceptNames(
       extracted.target_concepts,
       5,
-    );
-    console.log(
-      '[DEBUG] Found similar questions count:',
-      similarQuestions.length,
     );
 
     // 5. 이미지 Supabase Storage 저장

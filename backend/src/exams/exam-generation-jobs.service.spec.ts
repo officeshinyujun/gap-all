@@ -1,3 +1,4 @@
+import { ConflictException } from '@nestjs/common';
 import { Difficulty } from '../entities/exam-record.entity';
 import {
   ExamGenerationJobsService,
@@ -5,6 +6,24 @@ import {
 } from './exam-generation-jobs.service';
 
 describe('ExamGenerationJobsService receipt contract', () => {
+  it('rejects a second pending or running job for the same user', () => {
+    const service = new ExamGenerationJobsService();
+    const request = {
+      subjectId: 'subject-1',
+      startUnitNum: 1,
+      endUnitNum: 1,
+      difficulty: Difficulty.MIDDLE,
+      questionCount: 1,
+      sourceType: 'ai' as const,
+    };
+    const job = service.create('user-1', request);
+
+    expect(() => service.create('user-1', request)).toThrow(ConflictException);
+
+    service.fail(job.id, 'user-1', { code: 'FAILED', message: 'failed' });
+    expect(() => service.create('user-1', request)).not.toThrow();
+  });
+
   it('characterizes the existing pending receipt as an allowlisted projection', () => {
     const service = new ExamGenerationJobsService();
     const job = service.create('user-1', {

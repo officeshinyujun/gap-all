@@ -6,6 +6,10 @@ import {
   IsString,
   IsArray,
   IsBoolean,
+  ArrayMaxSize,
+  IsIn,
+  IsNotEmpty,
+  MaxLength,
   Min,
   Max,
 } from 'class-validator';
@@ -19,10 +23,12 @@ export class CreateExamDto {
 
   @IsInt()
   @Min(1)
+  @Max(20)
   startUnitNum: number;
 
   @IsInt()
   @Min(1)
+  @Max(20)
   endUnitNum: number;
 
   @IsEnum(Difficulty)
@@ -35,15 +41,19 @@ export class CreateExamDto {
 
   @IsString()
   @IsOptional()
+  @MaxLength(4000)
   customPrompt?: string;
 
   @IsArray()
+  @ArrayMaxSize(20)
   @IsString({ each: true })
+  @IsNotEmpty({ each: true })
+  @MaxLength(100, { each: true })
   @IsOptional()
   targetConcepts?: string[];
 
-  @IsString()
   @IsOptional()
+  @IsIn(['ai', 'reference', 'simply_reference'])
   sourceType?: ExamSourceType;
 
   @IsBoolean()
@@ -51,7 +61,10 @@ export class CreateExamDto {
   excludePrevious?: boolean;
 
   @IsArray()
+  @ArrayMaxSize(100)
   @IsString({ each: true })
+  @IsNotEmpty({ each: true })
+  @MaxLength(200, { each: true })
   @IsOptional()
   referenceSourceIds?: string[];
 }

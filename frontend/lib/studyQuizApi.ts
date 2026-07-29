@@ -229,19 +229,43 @@ export async function submitReviewResult(
 // 오답 기반 새 문제 생성 요청
 export interface ReviewQuestion {
   id: string;
-  correctAnswer: number;
   metadata: ExamQuestion['metadata'];
-  render_ready: ExamQuestion['render_ready'];
+  render_ready: Omit<ExamQuestion['render_ready'], 'explanation'>;
 }
 
-export async function fetchQuestionsByIds(questionIds: string[]): Promise<ReviewQuestion[]> {
-  const res = await fetch(`${API_BASE_URL}/study/questions-by-ids`, {
+export interface ReviewAnswerFeedback {
+  correctAnswer: number;
+  explanation: ExamQuestion['explanation'];
+  isCorrect: boolean;
+}
+
+export async function fetchReviewQuestions(questionIds: string[]): Promise<ReviewQuestion[]> {
+  const res = await fetch(`${API_BASE_URL}/study/review-questions`, {
     method: 'POST',
     credentials: 'include',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({ questionIds }),
+  });
+  if (!res.ok) {
+    const error = await res.json().catch(() => ({ message: res.statusText }));
+    throw new Error(error.message ?? `API 오류: ${res.status}`);
+  }
+  return res.json();
+}
+
+export async function submitReviewAnswer(
+  questionId: string,
+  answer: number,
+): Promise<ReviewAnswerFeedback> {
+  const res = await fetch(`${API_BASE_URL}/study/review-questions/${questionId}/answer`, {
+    method: 'POST',
+    credentials: 'include',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ answer }),
   });
   if (!res.ok) {
     const error = await res.json().catch(() => ({ message: res.statusText }));

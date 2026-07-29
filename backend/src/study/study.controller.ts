@@ -21,6 +21,10 @@ import { UpdateSummationDto } from './dto/update-summation.dto';
 import { SubmitReviewResultDto } from './dto/submit-review-result.dto';
 import { CreateIncorrectRecordsDto } from './dto/create-incorrect-records.dto';
 import { ReviewGenerateDto } from './dto/review-generate.dto';
+import {
+  ReviewQuestionsDto,
+  SubmitReviewAnswerDto,
+} from './dto/review-question.dto';
 import { JwtAuthGuard } from '../common/guards/jwt-auth.guard';
 import { CurrentUser } from '../common/decorators/current-user.decorator';
 import type { CurrentUserPayload } from '../common/decorators/current-user.decorator';
@@ -33,6 +37,12 @@ export class StudyController {
     private readonly studyService: StudyService,
     private readonly embeddingService: TextbookEmbeddingService,
   ) {}
+
+  private checkAdmin(user: CurrentUserPayload) {
+    if (user.role !== 'admin') {
+      throw new ForbiddenException('관리자만 접근할 수 있습니다.');
+    }
+  }
 
   @Get('streak')
   async getStreak(@CurrentUser() user: CurrentUserPayload) {
@@ -76,12 +86,21 @@ export class StudyController {
     return this.studyService.createReviewExamJob(user.id, dto);
   }
 
-  @Post('questions-by-ids')
-  async getQuestionsByIds(
+  @Post('review-questions')
+  async getReviewQuestions(
     @CurrentUser() user: CurrentUserPayload,
-    @Body() body: { questionIds: string[] },
+    @Body() dto: ReviewQuestionsDto,
   ) {
-    return this.studyService.getQuestionsByIds(body.questionIds);
+    return this.studyService.getReviewQuestions(user.id, dto.questionIds);
+  }
+
+  @Post('review-questions/:questionId/answer')
+  async submitReviewAnswer(
+    @CurrentUser() user: CurrentUserPayload,
+    @Param('questionId') questionId: string,
+    @Body() dto: SubmitReviewAnswerDto,
+  ) {
+    return this.studyService.submitReviewAnswer(user.id, questionId, dto.answer);
   }
 
   @Get('concept-bookmarks')
@@ -113,9 +132,7 @@ export class StudyController {
 
   @Get('cache-status')
   getCacheStatus(@CurrentUser() user: CurrentUserPayload) {
-    if (user.role !== 'admin') {
-      throw new ForbiddenException('관리자만 접근할 수 있습니다.');
-    }
+    this.checkAdmin(user);
     return this.studyService.getCacheStatus();
   }
 
@@ -124,9 +141,7 @@ export class StudyController {
     @CurrentUser() user: CurrentUserPayload,
     @Body() dto: DeleteCacheBulkDto,
   ) {
-    if (user.role !== 'admin') {
-      throw new ForbiddenException('관리자만 캐시를 삭제할 수 있습니다.');
-    }
+    this.checkAdmin(user);
     return this.studyService.deleteCacheBulk(dto);
   }
 
@@ -135,17 +150,13 @@ export class StudyController {
     @CurrentUser() user: CurrentUserPayload,
     @Body() dto: RegenerateCacheDto,
   ) {
-    if (user.role !== 'admin') {
-      throw new ForbiddenException('관리자만 캐시를 재생성할 수 있습니다.');
-    }
+    this.checkAdmin(user);
     return this.studyService.regenerateCache(dto);
   }
 
   @Get('cache-regenerate-status')
   getRegenerationStatus(@CurrentUser() user: CurrentUserPayload) {
-    if (user.role !== 'admin') {
-      throw new ForbiddenException('관리자만 접근할 수 있습니다.');
-    }
+    this.checkAdmin(user);
     return this.studyService.getRegenerationStatus();
   }
 
@@ -167,10 +178,12 @@ export class StudyController {
 
   @Put(':subjectSlug/summation/:unitNumber')
   async updateSummationCards(
+    @CurrentUser() user: CurrentUserPayload,
     @Param('subjectSlug') subjectSlug: string,
     @Param('unitNumber', ParseIntPipe) unitNumber: number,
     @Body() dto: UpdateSummationDto,
   ) {
+    this.checkAdmin(user);
     return this.studyService.updateSummationCards(
       subjectSlug,
       unitNumber,
@@ -278,9 +291,7 @@ export class StudyController {
     @Query('type') type?: string,
     @Query('count') countStr?: string,
   ) {
-    if (user.role !== 'admin') {
-      throw new ForbiddenException('관리자만 캐시를 삭제할 수 있습니다.');
-    }
+    this.checkAdmin(user);
     const cacheType = type === 'blank' || type === 'concept' ? type : undefined;
     const count = countStr === '10' ? 10 : countStr === '20' ? 20 : undefined;
     this.studyService.clearCache(subjectSlug, unitNumber, cacheType, count);
@@ -296,9 +307,7 @@ export class StudyController {
     @CurrentUser() user: CurrentUserPayload,
     @Param('subjectSlug') subjectSlug: string,
   ) {
-    if (user.role !== 'admin') {
-      throw new ForbiddenException('관리자만 임베딩을 생성할 수 있습니다.');
-    }
+    this.checkAdmin(user);
     const results = await this.embeddingService.embedAllUnits(subjectSlug);
     return { message: '임베딩 생성 완료', results };
   }
@@ -309,9 +318,7 @@ export class StudyController {
     @Param('subjectSlug') subjectSlug: string,
     @Param('unitNumber', ParseIntPipe) unitNumber: number,
   ) {
-    if (user.role !== 'admin') {
-      throw new ForbiddenException('관리자만 임베딩을 생성할 수 있습니다.');
-    }
+    this.checkAdmin(user);
     const chunks = await this.embeddingService.embedUnit(
       subjectSlug,
       unitNumber,
@@ -324,9 +331,7 @@ export class StudyController {
     @CurrentUser() user: CurrentUserPayload,
     @Param('subjectSlug') subjectSlug: string,
   ) {
-    if (user.role !== 'admin') {
-      throw new ForbiddenException('관리자만 조회할 수 있습니다.');
-    }
+    this.checkAdmin(user);
     return this.embeddingService.getEmbeddingStatus(subjectSlug);
   }
 }

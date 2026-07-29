@@ -1,9 +1,12 @@
-import { IsString, Allow } from 'class-validator';
+import { IsIn, IsNotEmpty, IsOptional, IsString, MaxLength } from 'class-validator';
 
 export class SendMessageDto {
   @IsString()
+  @IsNotEmpty()
+  @MaxLength(4000)
   message: string;
 
-  @Allow()
-  mode?: string;
+  @IsOptional()
+  @IsIn(['chat', 'generate'])
+  mode?: 'chat' | 'generate';
 }

@@ -20,7 +20,8 @@ describe('StudyController', () => {
       saveIncorrectRecords: jest.fn(),
       submitReviewResult: jest.fn(),
       createReviewExamJob: jest.fn(),
-      getQuestionsByIds: jest.fn(),
+      getReviewQuestions: jest.fn(),
+      submitReviewAnswer: jest.fn(),
       getConceptBookmarks: jest.fn(),
       addConceptBookmark: jest.fn(),
       removeConceptBookmark: jest.fn(),
@@ -103,6 +104,42 @@ describe('StudyController', () => {
       studyService.getCacheStatus.mockReturnValue({ subjects: [] });
       const result = controller.getCacheStatus(adminUser as any);
       expect(result).toEqual({ subjects: [] });
+    });
+
+    it('관리자가 아닌 사용자는 shared content, cache, embedding 관리 불가', async () => {
+      expect(() => controller.deleteCacheBulk(studentUser as any, {})).toThrow(ForbiddenException);
+      expect(() => controller.regenerateCache(studentUser as any, { subjectSlug: 'success' })).toThrow(ForbiddenException);
+      expect(() => controller.getRegenerationStatus(studentUser as any)).toThrow(ForbiddenException);
+      expect(() => controller.clearCache(studentUser as any, 'success', 1)).toThrow(ForbiddenException);
+      await expect(controller.embedAllUnits(studentUser as any, 'success')).rejects.toThrow(ForbiddenException);
+      await expect(controller.embedUnit(studentUser as any, 'success', 1)).rejects.toThrow(ForbiddenException);
+      await expect(controller.getEmbeddingStatus(studentUser as any, 'success')).rejects.toThrow(ForbiddenException);
+      await expect(
+        controller.updateSummationCards(studentUser as any, 'success', 1, { cards: [] }),
+      ).rejects.toThrow(ForbiddenException);
+    });
+  });
+
+  describe('review questions', () => {
+    it('현재 사용자의 소유권 확인과 함께 복습 문제를 요청한다', async () => {
+      (studyService.getReviewQuestions as jest.Mock).mockResolvedValue([]);
+
+      await controller.getReviewQuestions(studentUser as any, { questionIds: ['question-1'] });
+
+      expect(studyService.getReviewQuestions).toHaveBeenCalledWith('user-1', ['question-1']);
+    });
+
+    it('답안을 제출한 후에만 정답 피드백을 요청한다', async () => {
+      (studyService.submitReviewAnswer as jest.Mock).mockResolvedValue({
+        correctAnswer: 2,
+        explanation: { judgment: '설명' },
+        isCorrect: true,
+      });
+
+      const result = await controller.submitReviewAnswer(studentUser as any, 'question-1', { answer: 2 });
+
+      expect(studyService.submitReviewAnswer).toHaveBeenCalledWith('user-1', 'question-1', 2);
+      expect(result.isCorrect).toBe(true);
     });
   });
 });

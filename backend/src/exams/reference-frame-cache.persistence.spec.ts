@@ -118,6 +118,7 @@ function makeService(drafts: readonly unknown[], failure?: Failure) {
     },
   );
   const service = {
+    examGenerationCooldownService: { reserve: jest.fn() },
     subjectRepo: {
       findOne: jest.fn().mockResolvedValue({
         id: 'subject-1',

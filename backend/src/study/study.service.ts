@@ -1,6 +1,11 @@
-import { Injectable, Logger, NotFoundException } from '@nestjs/common';
+import {
+  ForbiddenException,
+  Injectable,
+  Logger,
+  NotFoundException,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { DataSource, Repository } from 'typeorm';
+import { DataSource, IsNull, Not, Repository } from 'typeorm';
 import * as fs from 'fs';
 import * as path from 'path';
 import { TextbookEmbeddingService } from '../textbook/textbook-embedding.service';
@@ -10,6 +15,7 @@ import { Subject } from '../entities/subject.entity';
 import { User } from '../entities/user.entity';
 import { IncorrectRecord } from '../entities/incorrect-record.entity';
 import { Question } from '../entities/question.entity';
+import { ExamItem } from '../entities/exam-item.entity';
 import { ConceptBookmark } from '../entities/concept-bookmark.entity';
 import { Difficulty } from '../entities/exam-record.entity';
 import { UpdateProgressDto } from './dto/update-progress.dto';
@@ -110,6 +116,8 @@ export class StudyService {
     private readonly incorrectRecordRepo: Repository<IncorrectRecord>,
     @InjectRepository(Question)
     private readonly questionRepo: Repository<Question>,
+    @InjectRepository(ExamItem)
+    private readonly examItemRepo: Repository<ExamItem>,
     @InjectRepository(ConceptBookmark)
     private readonly conceptBookmarkRepo: Repository<ConceptBookmark>,
     private readonly quizGenerator: StudyQuizGeneratorService,
@@ -595,28 +603,88 @@ export class StudyService {
     };
   }
 
-  async getQuestionsByIds(questionIds: string[]) {
-    if (questionIds.length === 0) return [];
-    const questions = await this.questionRepo.find({
-      where: questionIds.map((id) => ({ id })),
+  private async assertReviewQuestionAccess(
+    userId: string,
+    questionIds: string[],
+  ) {
+    const requestedIds = [...new Set(questionIds)];
+    const records = await this.incorrectRecordRepo.find({
+      where: requestedIds.map((questionId) => ({
+        userId,
+        questionId,
+        isGraduated: false,
+      })),
     });
-    return questions.map((q) => ({
-      id: q.id,
-      correctAnswer: q.correctAnswer,
-      metadata: {
-        unit_name: '',
-        target_concept: q.targetConcept,
-        item_type: q.itemType,
-        difficulty: q.difficulty,
-        recommended_template: q.recommendedTemplate,
-      },
-      render_ready: {
-        question_stem: q.questionStem,
-        stimulus_data: q.stimulusData,
-        options_list: q.optionsList,
-        explanation: q.explanation,
-      },
-    }));
+    const ownedQuestionIds = new Set(
+      records.map((record) => record.questionId).filter((id): id is string => !!id),
+    );
+
+    if (ownedQuestionIds.size !== requestedIds.length) {
+      throw new NotFoundException('복습할 수 없는 문제입니다.');
+    }
+
+    // Incorrect records are user-writable, so they are not sufficient proof that
+    // the user was actually shown and answered a question.
+    const answeredItems = await this.examItemRepo.find({
+      where: requestedIds.map((questionId) => ({
+        questionId,
+        userAnswer: Not(IsNull()),
+        exam: { userId },
+      })),
+    });
+    const answeredQuestionIds = new Set(
+      answeredItems.map((item) => item.questionId),
+    );
+    if (answeredQuestionIds.size !== requestedIds.length) {
+      throw new NotFoundException('복습할 수 없는 문제입니다.');
+    }
+  }
+
+  async getReviewQuestions(userId: string, questionIds: string[]) {
+    const requestedIds = [...new Set(questionIds)];
+    await this.assertReviewQuestionAccess(userId, requestedIds);
+
+    const questions = await this.questionRepo.find({
+      where: requestedIds.map((id) => ({ id })),
+    });
+    const questionsById = new Map(questions.map((question) => [question.id, question]));
+    if (questionsById.size !== requestedIds.length) {
+      throw new NotFoundException('문제를 찾을 수 없습니다.');
+    }
+
+    return requestedIds.map((questionId) => {
+      const q = questionsById.get(questionId)!;
+      return {
+        id: q.id,
+        metadata: {
+          unit_name: '',
+          target_concept: q.targetConcept,
+          item_type: q.itemType,
+          difficulty: q.difficulty,
+          recommended_template: q.recommendedTemplate,
+        },
+        render_ready: {
+          question_stem: q.questionStem,
+          stimulus_data: q.stimulusData,
+          options_list: q.optionsList,
+        },
+      };
+    });
+  }
+
+  async submitReviewAnswer(userId: string, questionId: string, answer: number) {
+    await this.assertReviewQuestionAccess(userId, [questionId]);
+
+    const question = await this.questionRepo.findOne({ where: { id: questionId } });
+    if (!question) {
+      throw new NotFoundException('문제를 찾을 수 없습니다.');
+    }
+
+    return {
+      correctAnswer: question.correctAnswer,
+      explanation: question.explanation,
+      isCorrect: answer === question.correctAnswer,
+    };
   }
 
   async saveIncorrectRecords(userId: string, dto: CreateIncorrectRecordsDto) {
@@ -639,6 +707,27 @@ export class StudyService {
         throw new NotFoundException(
           `단원을 찾을 수 없습니다: ${record.subjectSlug} ${record.unitNumber}`,
         );
+      }
+
+      if (record.questionId) {
+        const question = await this.questionRepo.findOne({
+          where: {
+            id: record.questionId,
+            subjectId: subject.id,
+            unitId: unit.id,
+            targetConcept: record.targetConcept,
+          },
+        });
+        const answeredExamItem = await this.examItemRepo.findOne({
+          where: {
+            questionId: record.questionId,
+            userAnswer: Not(IsNull()),
+            exam: { userId },
+          },
+        });
+        if (!question || !answeredExamItem) {
+          throw new ForbiddenException('풀이한 문제만 오답으로 기록할 수 있습니다.');
+        }
       }
 
       const existing = await this.incorrectRecordRepo.findOne({

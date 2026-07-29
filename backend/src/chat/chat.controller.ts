@@ -17,21 +17,16 @@ import {
 import { FileInterceptor } from '@nestjs/platform-express';
 import type { Response } from 'express';
 import { ChatService } from './chat.service';
-import { ChatImageUploadService } from './chat-image-upload.service';
 import { CreateSessionDto } from './dto/create-session.dto';
 import { SendMessageDto } from './dto/send-message.dto';
 import { JwtAuthGuard } from '../common/guards/jwt-auth.guard';
 import { CurrentUser } from '../common/decorators/current-user.decorator';
 import type { CurrentUserPayload } from '../common/decorators/current-user.decorator';
-import { Public } from '../common/decorators/public.decorator';
 
 @Controller('chat')
 @UseGuards(JwtAuthGuard)
 export class ChatController {
-  constructor(
-    private readonly chatService: ChatService,
-    private readonly imageUploadService: ChatImageUploadService,
-  ) {}
+  constructor(private readonly chatService: ChatService) {}
 
   @Get('sessions')
   async findAllSessions(@CurrentUser() user: CurrentUserPayload) {
@@ -102,11 +97,13 @@ export class ChatController {
   }
 
   @Get('images/:filename')
-  @Public()
-  getImage(@Param('filename') filename: string, @Res() res: Response) {
-    const url = this.imageUploadService.getPublicUrl(filename);
-    // The image request starts on the frontend origin and redirects to Supabase.
-    // Override Helmet's default same-origin policy for this public image resource.
+  async getImage(
+    @CurrentUser() user: CurrentUserPayload,
+    @Param('filename') filename: string,
+    @Res() res: Response,
+  ) {
+    const url = await this.chatService.getImageUrl(user.id, filename);
+    // The browser follows this authenticated redirect to a short-lived signed URL.
     res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin');
     return res.redirect(url);
   }

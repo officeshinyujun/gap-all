@@ -16,6 +16,7 @@ import { ReferenceQuestion } from '../entities/reference-question.entity';
 import { ReferenceFrameCache } from '../entities/reference-frame-cache.entity';
 import { QuestionSeenRecord } from '../entities/question-seen-record.entity';
 import { ExamGenerationJobsService } from './exam-generation-jobs.service';
+import { ExamGenerationCooldownService } from './exam-generation-cooldown.service';
 import { SimilarityValidatorService } from './similarity-validator.service';
 import { ExamRegeneratorService } from './exam-regenerator.service';
 import { ReferenceFrameGenerationService } from './reference-frame-generation.service';
@@ -51,6 +52,7 @@ import { NotificationsModule } from '../notifications/notifications.module';
     ReferenceFrameGenerationService,
     SimplyReferenceGenerationService,
     ExamGenerationJobsService,
+    ExamGenerationCooldownService,
     PatternMatcherService,
     SimilarityValidatorService,
   ],

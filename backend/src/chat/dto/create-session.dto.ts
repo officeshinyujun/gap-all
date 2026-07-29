@@ -1,10 +1,21 @@
-import { IsString, IsUUID, IsInt, IsOptional, Min, Max } from 'class-validator';
+import {
+  IsString,
+  IsUUID,
+  IsInt,
+  IsOptional,
+  IsNotEmpty,
+  MaxLength,
+  Min,
+  Max,
+} from 'class-validator';
 
 export class CreateSessionDto {
   @IsUUID()
   subjectId: string;
 
   @IsString()
+  @IsNotEmpty()
+  @MaxLength(100)
   title: string;
 
   @IsOptional()

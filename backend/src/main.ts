@@ -6,6 +6,8 @@ import * as dotenv from 'dotenv';
 import { AppModule } from './app.module';
 import { HttpExceptionFilter } from './common/filters/http-exception.filter';
 import { validateEnv } from './config/env-validation';
+import { getAllowedOrigins } from './common/security/allowed-origins';
+import { csrfOriginMiddleware } from './common/middleware/csrf-origin.middleware';
 
 // .env 로드를 NestJS ConfigModule보다 먼저 실행 (validateEnv에서 필요)
 dotenv.config();
@@ -16,7 +18,12 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.use(helmet());
-  app.use(cookieParser());
+  app.use(
+    cookieParser(
+      process.env.OAUTH_STATE_SECRET ?? process.env.JWT_ACCESS_SECRET,
+    ),
+  );
+  app.use(csrfOriginMiddleware);
 
   // 전역 ValidationPipe
   app.useGlobalPipes(
@@ -31,16 +38,8 @@ async function bootstrap() {
   app.useGlobalFilters(new HttpExceptionFilter());
 
   // CORS
-  const corsOrigins = process.env.CORS_ORIGINS
-    ? process.env.CORS_ORIGINS.split(',')
-    : [
-        'http://localhost:3000',
-        'http://localhost:3002',
-        'http://localhost:5173',
-      ];
-
   app.enableCors({
-    origin: corsOrigins,
+    origin: getAllowedOrigins(),
     credentials: true,
   });
 

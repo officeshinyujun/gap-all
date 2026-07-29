@@ -15,10 +15,12 @@ import {
   fetchConceptByName,
   fetchUnitId,
   createReviewExamJob,
-  fetchQuestionsByIds,
+  fetchReviewQuestions,
+  submitReviewAnswer,
   addConceptBookmark,
   type ReviewRecommendation,
   type ReviewQuestion,
+  type ReviewAnswerFeedback,
   type ConceptExplanation,
 } from '@/lib/studyQuizApi';
 import { pollExamJob, fetchExam, type ExamData } from '@/lib/examApi';
@@ -85,6 +87,7 @@ export default function ReviewPage() {
   const [retakeIndex, setRetakeIndex] = useState(0);
   const [retakeAnswer, setRetakeAnswer] = useState<number | null>(null);
   const [retakeSubmitted, setRetakeSubmitted] = useState(false);
+  const [retakeFeedback, setRetakeFeedback] = useState<ReviewAnswerFeedback | null>(null);
 
   const [generating, setGenerating] = useState(false);
   const [genProgress, setGenProgress] = useState(0);
@@ -148,6 +151,7 @@ export default function ReviewPage() {
     setRetakeIndex(0);
     setRetakeAnswer(null);
     setRetakeSubmitted(false);
+    setRetakeFeedback(null);
     const unitId = await fetchUnitId(group.subjectSlug, group.unitNumber);
     setGroupUnitId(unitId ?? '');
 
@@ -158,7 +162,7 @@ export default function ReviewPage() {
       localStorage.removeItem('gap_review_progress');
       const firstItem = group.items[0];
       if (firstItem.questionIds.length > 0) {
-        const questions = await fetchQuestionsByIds(firstItem.questionIds);
+        const questions = await fetchReviewQuestions(firstItem.questionIds);
         setRetakeQuestions(questions);
         setPageState('retake');
       } else {
@@ -172,7 +176,7 @@ export default function ReviewPage() {
     }
 
     if (currentItem.questionIds.length > 0) {
-      const questions = await fetchQuestionsByIds(currentItem.questionIds);
+      const questions = await fetchReviewQuestions(currentItem.questionIds);
       setRetakeQuestions(questions);
       setPageState('retake');
     } else {
@@ -189,8 +193,12 @@ export default function ReviewPage() {
     setRetakeAnswer(answerIndex);
   }
 
-  function handleRetakeSubmit() {
+  async function handleRetakeSubmit() {
     if (retakeAnswer === null) return;
+    const question = retakeQuestions[retakeIndex];
+    if (!question) return;
+    const feedback = await submitReviewAnswer(question.id, retakeAnswer);
+    setRetakeFeedback(feedback);
     setRetakeSubmitted(true);
   }
 
@@ -199,6 +207,7 @@ export default function ReviewPage() {
       setRetakeIndex((i) => i + 1);
       setRetakeAnswer(null);
       setRetakeSubmitted(false);
+      setRetakeFeedback(null);
     } else {
       if (!selectedGroup) return;
       const currentItem = selectedGroup.items[quizIndex];
@@ -209,7 +218,7 @@ export default function ReviewPage() {
           targetConcept: currentItem.targetConcept,
           unitId: groupUnitId,
           source: currentItem.source as ReviewAnswer['source'],
-          isCorrect: retakeAnswer === retakeQuestions[retakeQuestions.length - 1]?.correctAnswer,
+          isCorrect: retakeFeedback?.isCorrect ?? false,
         },
       ]);
 
@@ -233,11 +242,12 @@ export default function ReviewPage() {
       setConceptData(null);
       setRetakeAnswer(null);
       setRetakeSubmitted(false);
+      setRetakeFeedback(null);
       setRetakeIndex(0);
 
       const nextItem = selectedGroup.items[nextIndex];
       if (nextItem.questionIds.length > 0) {
-        const questions = await fetchQuestionsByIds(nextItem.questionIds);
+        const questions = await fetchReviewQuestions(nextItem.questionIds);
         setRetakeQuestions(questions);
         setPageState('retake');
       } else {
@@ -468,12 +478,15 @@ export default function ReviewPage() {
           <QuestionRenderer
             question={{
               metadata: retakeQuestions[retakeIndex].metadata,
-              render_ready: retakeQuestions[retakeIndex].render_ready,
+              render_ready: {
+                ...retakeQuestions[retakeIndex].render_ready,
+                explanation: retakeFeedback?.explanation,
+              },
             }}
             questionNumber={retakeIndex + 1}
             onSelect={retakeSubmitted ? undefined : (num) => handleRetakeSelect(num)}
             selectedOption={retakeAnswer}
-            correctAnswer={retakeSubmitted ? retakeQuestions[retakeIndex].correctAnswer : null}
+            correctAnswer={retakeFeedback?.correctAnswer ?? null}
             showExplanation={retakeSubmitted}
           />
 

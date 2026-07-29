@@ -60,6 +60,7 @@ describe('ExamsService reference generation persistence', () => {
         .mockResolvedValueOnce(undefined),
     };
     const service = {
+      examGenerationCooldownService: { reserve: jest.fn() },
       subjectRepo: {
         findOne: jest.fn().mockResolvedValue({
           id: 'subject-1',
@@ -172,6 +173,7 @@ describe('ExamsService reference generation persistence', () => {
       validation: 'passed' as const,
     };
     const service = {
+      examGenerationCooldownService: { reserve: jest.fn() },
       subjectRepo: {
         findOne: jest.fn().mockResolvedValue({
           id: 'subject-1',
@@ -269,6 +271,7 @@ describe('ExamsService reference generation persistence', () => {
     };
     const transaction = jest.fn();
     const service = {
+      examGenerationCooldownService: { reserve: jest.fn() },
       subjectRepo: {
         findOne: jest.fn().mockResolvedValue({
           id: 'subject-1',
@@ -353,6 +356,7 @@ describe('ExamsService reference generation persistence', () => {
       save: jest.fn(),
     };
     const service = {
+      examGenerationCooldownService: { reserve: jest.fn() },
       subjectRepo: {
         findOne: jest.fn().mockResolvedValue({
           id: 'subject-1',

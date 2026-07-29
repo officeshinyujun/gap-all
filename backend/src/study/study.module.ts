@@ -10,6 +10,7 @@ import { User } from '../entities/user.entity';
 import { AiUsageLog } from '../entities/ai-usage-log.entity';
 import { IncorrectRecord } from '../entities/incorrect-record.entity';
 import { Question } from '../entities/question.entity';
+import { ExamItem } from '../entities/exam-item.entity';
 import { ConceptBookmark } from '../entities/concept-bookmark.entity';
 import { TextbookModule } from '../textbook/textbook.module';
 import { ExamsModule } from '../exams/exams.module';
@@ -24,6 +25,7 @@ import { ExamsModule } from '../exams/exams.module';
       AiUsageLog,
       IncorrectRecord,
       Question,
+      ExamItem,
       ConceptBookmark,
     ]),
     TextbookModule,

@@ -31,6 +31,7 @@ import {
   type ExamGenerationJobFailure,
   type ExamGenerationShortfall,
 } from './exam-generation-jobs.service';
+import { ExamGenerationCooldownService } from './exam-generation-cooldown.service';
 import { NotificationsService } from '../notifications/notifications.service';
 import { NotificationType } from '../entities/notification.entity';
 import type { ExamGenerationProgressReporter } from './exam-generation.utils';
@@ -209,6 +210,7 @@ export class ExamsService {
     private readonly simplyReferenceGenerationService: SimplyReferenceGenerationService,
     private readonly textbookService: TextbookService,
     private readonly examGenerationJobsService: ExamGenerationJobsService,
+    private readonly examGenerationCooldownService: ExamGenerationCooldownService,
     private readonly notificationsService: NotificationsService,
   ) {}
 
@@ -252,6 +254,8 @@ export class ExamsService {
       where: { id: dto.subjectId },
     });
     if (!subject) throw new NotFoundException('과목을 찾을 수 없습니다.');
+
+    this.examGenerationCooldownService.reserve(userId);
 
     if (dto.sourceType === 'simply_reference') {
       try {
@@ -327,6 +331,9 @@ export class ExamsService {
       where: { id: dto.subjectId },
     });
     if (!subject) throw new NotFoundException('과목을 찾을 수 없습니다.');
+
+    this.examGenerationJobsService.assertNoActiveJobForUser(userId);
+    this.examGenerationCooldownService.reserve(userId);
 
     const job = this.examGenerationJobsService.create(userId, dto);
 

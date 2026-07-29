@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
-import { NotFoundException } from '@nestjs/common';
-import { Repository } from 'typeorm';
+import { ForbiddenException, NotFoundException } from '@nestjs/common';
+import { DataSource, Repository } from 'typeorm';
 import { StudyService } from './study.service';
 import { StudyQuizGeneratorService } from './study-quiz-generator.service';
 import { ExamsService } from '../exams/exams.service';
@@ -12,7 +12,9 @@ import { Subject } from '../entities/subject.entity';
 import { User } from '../entities/user.entity';
 import { IncorrectRecord } from '../entities/incorrect-record.entity';
 import { Question } from '../entities/question.entity';
+import { ExamItem } from '../entities/exam-item.entity';
 import { ConceptBookmark } from '../entities/concept-bookmark.entity';
+import { SupabaseService } from '../supabase/supabase.service';
 
 describe('StudyService', () => {
   let service: StudyService;
@@ -22,6 +24,7 @@ describe('StudyService', () => {
   let userRepo: jest.Mocked<Repository<User>>;
   let incorrectRecordRepo: jest.Mocked<Repository<IncorrectRecord>>;
   let questionRepo: jest.Mocked<Repository<Question>>;
+  let examItemRepo: jest.Mocked<Repository<ExamItem>>;
   let conceptBookmarkRepo: jest.Mocked<Repository<ConceptBookmark>>;
   let quizGenerator: jest.Mocked<StudyQuizGeneratorService>;
   let examsService: jest.Mocked<ExamsService>;
@@ -81,7 +84,8 @@ describe('StudyService', () => {
       create: jest.fn(),
       save: jest.fn(),
     };
-    const mockQuestionRepo = { find: jest.fn() };
+    const mockQuestionRepo = { find: jest.fn(), findOne: jest.fn() };
+    const mockExamItemRepo = { find: jest.fn(), findOne: jest.fn() };
     const mockConceptBookmarkRepo = {
       find: jest.fn(),
       findOne: jest.fn(),
@@ -107,7 +111,10 @@ describe('StudyService', () => {
         { provide: getRepositoryToken(User), useValue: mockUserRepo },
         { provide: getRepositoryToken(IncorrectRecord), useValue: mockIncorrectRecordRepo },
         { provide: getRepositoryToken(Question), useValue: mockQuestionRepo },
+        { provide: getRepositoryToken(ExamItem), useValue: mockExamItemRepo },
         { provide: getRepositoryToken(ConceptBookmark), useValue: mockConceptBookmarkRepo },
+        { provide: SupabaseService, useValue: { client: {} } },
+        { provide: DataSource, useValue: {} },
         { provide: StudyQuizGeneratorService, useValue: mockQuizGenerator },
         { provide: ExamsService, useValue: mockExamsService },
         { provide: TextbookEmbeddingService, useValue: mockEmbeddingService },
@@ -121,6 +128,7 @@ describe('StudyService', () => {
     userRepo = module.get(getRepositoryToken(User));
     incorrectRecordRepo = module.get(getRepositoryToken(IncorrectRecord));
     questionRepo = module.get(getRepositoryToken(Question));
+    examItemRepo = module.get(getRepositoryToken(ExamItem));
     conceptBookmarkRepo = module.get(getRepositoryToken(ConceptBookmark));
     quizGenerator = module.get(StudyQuizGeneratorService);
     examsService = module.get(ExamsService);
@@ -305,6 +313,115 @@ describe('StudyService', () => {
       // 개념A(3*2=6점)가 개념B(1*2+5=7점)보다 점수가 높은지 확인
       const scores = result.recommendations.map((r) => r.score);
       expect(scores[0]).toBeGreaterThanOrEqual(scores[1] ?? Infinity);
+    });
+  });
+
+  describe('review questions', () => {
+    const reviewQuestion = {
+      id: 'question-1',
+      targetConcept: '개념A',
+      itemType: 'MULTIPLE_CHOICE',
+      difficulty: 'MEDIUM',
+      recommendedTemplate: 'TPL_ARTICLE',
+      questionStem: '문제',
+      stimulusData: {},
+      optionsList: ['1', '2'],
+      correctAnswer: 2,
+      explanation: { judgment: '해설' },
+    } as unknown as Question;
+
+    it('소유한 미졸업 오답 문제만 정답과 해설 없이 반환한다', async () => {
+      incorrectRecordRepo.find.mockResolvedValue([
+        { userId: 'user-1', questionId: 'question-1', isGraduated: false },
+      ] as IncorrectRecord[]);
+      examItemRepo.find.mockResolvedValue([
+        { questionId: 'question-1', userAnswer: 1 } as ExamItem,
+      ]);
+      questionRepo.find.mockResolvedValue([reviewQuestion]);
+
+      const result = await service.getReviewQuestions('user-1', ['question-1']);
+
+      expect(result).toEqual([
+        expect.objectContaining({ id: 'question-1' }),
+      ]);
+      expect(result[0]).not.toHaveProperty('correctAnswer');
+      expect(result[0].render_ready).not.toHaveProperty('explanation');
+    });
+
+    it('다른 사용자의 문제는 조회하지 않는다', async () => {
+      incorrectRecordRepo.find.mockResolvedValue([]);
+
+      await expect(service.getReviewQuestions('user-1', ['question-1'])).rejects.toThrow(
+        NotFoundException,
+      );
+      expect(questionRepo.find).not.toHaveBeenCalled();
+    });
+
+    it('소유한 문제에 답안을 제출한 후 정답과 해설을 반환한다', async () => {
+      incorrectRecordRepo.find.mockResolvedValue([{
+        userId: 'user-1', questionId: 'question-1', isGraduated: false,
+      } as IncorrectRecord]);
+      examItemRepo.find.mockResolvedValue([
+        { questionId: 'question-1', userAnswer: 1 } as ExamItem,
+      ]);
+      questionRepo.findOne.mockResolvedValue(reviewQuestion);
+
+      await expect(service.submitReviewAnswer('user-1', 'question-1', 2)).resolves.toEqual({
+        correctAnswer: 2,
+        explanation: { judgment: '해설' },
+        isCorrect: true,
+      });
+    });
+
+    it('does not reveal an arbitrary unsubmitted question from a forged incorrect record', async () => {
+      incorrectRecordRepo.find.mockResolvedValue([
+        { userId: 'user-1', questionId: 'known-question', isGraduated: false },
+      ] as IncorrectRecord[]);
+      examItemRepo.find.mockResolvedValue([]);
+
+      await expect(
+        service.getReviewQuestions('user-1', ['known-question']),
+      ).rejects.toThrow(NotFoundException);
+      expect(questionRepo.find).not.toHaveBeenCalled();
+    });
+
+    it('does not reveal the answer for an arbitrary unsubmitted question from a forged incorrect record', async () => {
+      incorrectRecordRepo.find.mockResolvedValue([
+        { userId: 'user-1', questionId: 'known-question', isGraduated: false },
+      ] as IncorrectRecord[]);
+      examItemRepo.find.mockResolvedValue([]);
+
+      await expect(
+        service.submitReviewAnswer('user-1', 'known-question', 1),
+      ).rejects.toThrow(NotFoundException);
+      expect(questionRepo.findOne).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('saveIncorrectRecords', () => {
+    it('rejects an unsubmitted question ID before creating an incorrect record', async () => {
+      subjectRepo.findOne.mockResolvedValue(mockSubject);
+      unitRepo.findOne.mockResolvedValue(mockUnit);
+      questionRepo.findOne.mockResolvedValue({
+        id: 'known-question',
+        subjectId: mockSubject.id,
+        unitId: mockUnit.id,
+        targetConcept: '개념A',
+      } as Question);
+      examItemRepo.findOne.mockResolvedValue(null);
+
+      await expect(
+        service.saveIncorrectRecords('user-1', {
+          records: [{
+            subjectSlug: 'success',
+            unitNumber: 1,
+            targetConcept: '개념A',
+            source: 'EXAM' as any,
+            questionId: 'known-question',
+          }],
+        }),
+      ).rejects.toThrow(ForbiddenException);
+      expect(incorrectRecordRepo.create).not.toHaveBeenCalled();
     });
   });
 

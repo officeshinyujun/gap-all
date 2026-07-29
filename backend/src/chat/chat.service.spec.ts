@@ -17,6 +17,7 @@ describe('ChatService', () => {
   let messageRepo: jest.Mocked<Repository<ChatMessage>>;
   let subjectRepo: jest.Mocked<Repository<Subject>>;
   let chatAiService: jest.Mocked<ChatAiService>;
+  let imageUploadService: { uploadImage: jest.Mock; createSignedUrl: jest.Mock };
 
   const mockSubject: Subject = {
     id: 'subj-1',
@@ -68,6 +69,7 @@ describe('ChatService', () => {
     };
     const mockMessageRepo = {
       find: jest.fn(),
+      findOne: jest.fn(),
       create: jest.fn(),
       save: jest.fn(),
     };
@@ -75,7 +77,10 @@ describe('ChatService', () => {
     const mockQuestionRepo = { find: jest.fn(), findOne: jest.fn() };
     const mockChatAiService = { getResponse: jest.fn(), extractQuestionFromImage: jest.fn(), generateQuestionExplanation: jest.fn() };
     const mockStudyService = { findQuestionBySourceAndNumber: jest.fn(), findSimilarByConceptNames: jest.fn() };
-    const mockImageUploadService = { uploadImage: jest.fn() };
+    const mockImageUploadService = {
+      uploadImage: jest.fn(),
+      createSignedUrl: jest.fn(),
+    };
 
     const module: TestingModule = await Test.createTestingModule({
       providers: [
@@ -95,6 +100,7 @@ describe('ChatService', () => {
     messageRepo = module.get(getRepositoryToken(ChatMessage));
     subjectRepo = module.get(getRepositoryToken(Subject));
     chatAiService = module.get(ChatAiService);
+    imageUploadService = module.get(ChatImageUploadService);
   });
 
   describe('findAllSessions', () => {
@@ -187,6 +193,36 @@ describe('ChatService', () => {
       await expect(
         service.sendMessage('user-1', 'session-1', { message: 'test' }),
       ).rejects.toThrow(ForbiddenException);
+    });
+  });
+
+  describe('getImageUrl', () => {
+    it('소유한 이미지에 대해서만 서명 URL을 발급한다', async () => {
+      messageRepo.findOne.mockResolvedValue({
+        message: '[IMAGE:image.png]',
+        chatSession: { userId: 'user-1' },
+      } as ChatMessage);
+      imageUploadService.createSignedUrl.mockResolvedValue('https://storage.example/signed/image.png');
+
+      await expect(service.getImageUrl('user-1', 'image.png')).resolves.toBe(
+        'https://storage.example/signed/image.png',
+      );
+      expect(messageRepo.findOne).toHaveBeenCalledWith({
+        where: { message: '[IMAGE:image.png]' },
+        relations: ['chatSession'],
+      });
+    });
+
+    it('다른 사용자의 이미지에는 접근할 수 없다', async () => {
+      messageRepo.findOne.mockResolvedValue({
+        message: '[IMAGE:image.png]',
+        chatSession: { userId: 'other-user' },
+      } as ChatMessage);
+
+      await expect(service.getImageUrl('user-1', 'image.png')).rejects.toThrow(
+        NotFoundException,
+      );
+      expect(imageUploadService.createSignedUrl).not.toHaveBeenCalled();
     });
   });
 });

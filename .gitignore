@@ -63,6 +63,11 @@ lerna-debug.log*
 
 # Keys / certificates
 *.pem
+*.key
+*.p12
+*.pfx
+credentials.*
+*.state.json
 
 # Question corpus PDFs (large binary files)
 /question/

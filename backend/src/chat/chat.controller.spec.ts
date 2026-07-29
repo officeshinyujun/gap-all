@@ -1,14 +1,12 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { ChatController } from './chat.controller';
 import { ChatService } from './chat.service';
-import { ChatImageUploadService } from './chat-image-upload.service';
 import { IS_PUBLIC_KEY } from '../common/decorators/public.decorator';
 import { ChatSender } from '../entities/chat-message.entity';
 
 describe('ChatController', () => {
   let controller: ChatController;
   let chatService: jest.Mocked<Partial<ChatService>>;
-  let imageUploadService: { getPublicUrl: jest.Mock };
 
   const currentUser = { id: 'user-1', email: 'test@example.com', role: 'user' };
 
@@ -20,14 +18,13 @@ describe('ChatController', () => {
       removeSession: jest.fn(),
       sendMessage: jest.fn(),
       processImageQuestion: jest.fn(),
+      getImageUrl: jest.fn(),
     };
-    imageUploadService = { getPublicUrl: jest.fn() };
 
     const module: TestingModule = await Test.createTestingModule({
       controllers: [ChatController],
       providers: [
         { provide: ChatService, useValue: chatService },
-        { provide: ChatImageUploadService, useValue: imageUploadService },
       ],
     }).compile();
 
@@ -97,18 +94,19 @@ describe('ChatController', () => {
   });
 
   describe('getImage', () => {
-    it('인증 없이 이미지 URL로 리다이렉트할 수 있다', () => {
-      imageUploadService.getPublicUrl.mockReturnValue('https://storage.example/chat-images/image.png');
+    it('소유권을 확인한 뒤 서명 URL로 리다이렉트한다', async () => {
+      chatService.getImageUrl.mockResolvedValue('https://storage.example/signed/image.png');
       const response = { setHeader: jest.fn(), redirect: jest.fn() } as any;
 
-      controller.getImage('image.png', response);
+      await controller.getImage(currentUser as any, 'image.png', response);
 
-      expect(Reflect.getMetadata(IS_PUBLIC_KEY, controller.getImage)).toBe(true);
+      expect(Reflect.getMetadata(IS_PUBLIC_KEY, controller.getImage)).toBeUndefined();
+      expect(chatService.getImageUrl).toHaveBeenCalledWith('user-1', 'image.png');
       expect(response.setHeader).toHaveBeenCalledWith(
         'Cross-Origin-Resource-Policy',
         'cross-origin',
       );
-      expect(response.redirect).toHaveBeenCalledWith('https://storage.example/chat-images/image.png');
+      expect(response.redirect).toHaveBeenCalledWith('https://storage.example/signed/image.png');
     });
   });
 });

@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { ConflictException, Injectable, NotFoundException } from '@nestjs/common';
 import { randomUUID } from 'crypto';
 import { CreateExamDto } from './dto/create-exam.dto';
 import type {
@@ -90,6 +90,7 @@ export class ExamGenerationJobsService {
     '참조 시험 생성 진행 중입니다.';
 
   create(userId: string, request: CreateExamDto): ExamGenerationJobState {
+    this.assertNoActiveJobForUser(userId);
     const now = new Date().toISOString();
     const referenceProgress =
       request.sourceType !== 'ai'
@@ -125,6 +126,17 @@ export class ExamGenerationJobsService {
 
     this.jobs.set(job.id, job);
     return job;
+  }
+
+  assertNoActiveJobForUser(userId: string): void {
+    const activeJob = [...this.jobs.values()].find(
+      (job) =>
+        job.userId === userId &&
+        (job.status === 'pending' || job.status === 'running'),
+    );
+    if (activeJob) {
+      throw new ConflictException('이미 시험 생성 작업이 진행 중입니다.');
+    }
   }
 
   getForUser(jobId: string, userId: string): ExamGenerationJobState {

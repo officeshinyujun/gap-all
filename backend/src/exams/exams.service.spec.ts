@@ -68,6 +68,7 @@ describe('ExamsService legacy AI compatibility', () => {
       save: jest.fn().mockResolvedValue(savedExam),
     };
     const service = {
+      examGenerationCooldownService: { reserve: jest.fn() },
       subjectRepo: {
         findOne: jest.fn().mockResolvedValue({
           id: 'subject-1',
@@ -100,6 +101,9 @@ describe('ExamsService legacy AI compatibility', () => {
     });
 
     expect(generate).toHaveBeenCalledTimes(1);
+    expect(service.examGenerationCooldownService.reserve).toHaveBeenCalledWith(
+      'user-1',
+    );
     expect(service.examRepo.create).toHaveBeenCalledWith(
       expect.objectContaining({ sourceType: ExamSourceType.AI }),
     );
@@ -116,6 +120,7 @@ describe('ExamsService legacy AI compatibility', () => {
         .fn()
         .mockResolvedValue({ id: 'reference-exam-1' });
       const service = {
+        examGenerationCooldownService: { reserve: jest.fn() },
         subjectRepo: {
           findOne: jest.fn().mockResolvedValue({
             id: 'subject-1',
@@ -157,6 +162,7 @@ describe('ExamsService legacy AI compatibility', () => {
       .fn()
       .mockResolvedValue({ id: 'simply-reference-exam-1' });
     const service = {
+      examGenerationCooldownService: { reserve: jest.fn() },
       subjectRepo: {
         findOne: jest.fn().mockResolvedValue({
           id: 'subject-1',
@@ -275,6 +281,7 @@ describe('ExamsService legacy AI compatibility', () => {
         },
       );
       const service = {
+        examGenerationCooldownService: { reserve: jest.fn() },
         subjectRepo: {
           findOne: jest.fn().mockResolvedValue({
             id: 'subject-1',
@@ -346,6 +353,7 @@ describe('ExamsService legacy AI compatibility', () => {
       });
     });
     const service = {
+      examGenerationCooldownService: { reserve: jest.fn() },
       subjectRepo: {
         findOne: jest.fn().mockResolvedValue({
           id: 'subject-1',
@@ -373,6 +381,10 @@ describe('ExamsService legacy AI compatibility', () => {
       },
     );
     await new Promise<void>((resolve) => setImmediate(resolve));
+
+    expect(service.examGenerationCooldownService.reserve).toHaveBeenCalledWith(
+      'user-1',
+    );
 
     const receipt = ExamsService.prototype.getJob.call(
       service,
@@ -410,6 +422,7 @@ describe('ExamsService legacy AI compatibility', () => {
       });
     });
     const service = {
+      examGenerationCooldownService: { reserve: jest.fn() },
       subjectRepo: {
         findOne: jest.fn().mockResolvedValue({
           id: 'subject-1',
@@ -454,6 +467,7 @@ describe('ExamsService legacy AI compatibility', () => {
 
   it('maps synchronous reference deadline failures to the same stable error code', async () => {
     const service = {
+      examGenerationCooldownService: { reserve: jest.fn() },
       subjectRepo: {
         findOne: jest.fn().mockResolvedValue({
           id: 'subject-1',
@@ -489,6 +503,7 @@ describe('ExamsService legacy AI compatibility', () => {
     async (notificationError) => {
       const jobs = new ExamGenerationJobsService();
       const service = {
+        examGenerationCooldownService: { reserve: jest.fn() },
         subjectRepo: {
           findOne: jest.fn().mockResolvedValue({
             id: 'subject-1',

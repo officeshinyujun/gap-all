@@ -52,8 +52,7 @@ export class ChatAiService {
     let conceptContext = '';
 
     if (isConcept && conceptCandidate) {
-      this.logger.debug(`개념 질문 감지: "${userMessage}"`);
-      this.logger.debug(`개념 후보 추출: "${conceptCandidate}"`);
+      this.logger.debug('개념 질문 감지');
       conceptContext = await this.lookupConceptContext(
         subjectSlug,
         effectiveStartUnit,
@@ -102,9 +101,6 @@ export class ChatAiService {
       if (chunks.length > 0) {
         const chunkContext = chunks.join('\n\n');
         this.logger.debug(`RAG 검색 완료: ${chunks.length}개 청크 사용`);
-        this.logger.debug(
-          `청크 미리보기:\n${chunks.map((c, i) => `[${i + 1}] ${c.slice(0, 80)}...`).join('\n')}`,
-        );
         textbookContext = conceptContext
           ? `${conceptContext}\n\n${chunkContext}`
           : chunkContext;
@@ -120,8 +116,8 @@ export class ChatAiService {
           effectiveEndUnit,
         );
       }
-    } catch (err) {
-      this.logger.warn(`RAG 검색 실패, fallback 사용: ${err}`);
+    } catch {
+      this.logger.warn('RAG 검색 실패, fallback 사용');
       textbookContext = conceptContext
         ? conceptContext
         : await this.loadSummationFallback(
@@ -418,7 +414,7 @@ ${extracted.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
       `}`,
     ].join('\n');
 
-    this.logger.log(`generateExamQuestion: calling OpenAI for "${topic}"`);
+    this.logger.log('generateExamQuestion: calling OpenAI');
 
     const response = await getOpenAIClient().chat.completions.create({
       model: this.model,
@@ -446,8 +442,8 @@ ${extracted.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
     }
 
     return content;
-    } catch (err: any) {
-      this.logger.error(`generateExamQuestion failed: ${err?.message}`, err?.stack);
+    } catch (err: unknown) {
+      this.logger.error('generateExamQuestion failed');
       throw err;
     }
   }
