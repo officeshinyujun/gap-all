@@ -1,5 +1,11 @@
 import { API_BASE_URL } from './auth';
+import {
+  fetchWithClientCache,
+  invalidateClientCache,
+} from './clientCache';
 import type { ExamQuestion } from '@/types/examQuestion';
+
+const EXAM_TTL_MS = 30_000;
 
 async function apiFetch<T>(path: string, options?: RequestInit): Promise<T> {
   const res = await fetch(`${API_BASE_URL}${path}`, {
@@ -59,7 +65,19 @@ export interface ExamListItem {
 // GET /exams?subject={slug} — 사용자 시험 목록
 export async function fetchExams(subjectSlug?: string): Promise<ExamListItem[]> {
   const query = subjectSlug ? `?subject=${subjectSlug}` : '';
-  return apiFetch<ExamListItem[]>(`/exams${query}`);
+  const cacheKey = subjectSlug ? `exam:list:${subjectSlug}` : 'exam:list:all';
+  return fetchWithClientCache(
+    cacheKey,
+    EXAM_TTL_MS,
+    () => apiFetch<ExamListItem[]>(`/exams${query}`),
+  );
+}
+
+export function invalidateExamListCache(subjectSlug?: string): void {
+  if (subjectSlug) {
+    invalidateClientCache(`exam:list:${subjectSlug}`);
+  }
+  invalidateClientCache('exam:list:all');
 }
 
 export interface SubjectInfo {

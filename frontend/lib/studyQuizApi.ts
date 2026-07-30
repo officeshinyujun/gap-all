@@ -54,12 +54,19 @@ export interface FrequencyConceptItem {
   conceptHighlightV2?: ConceptHighlightV2 | null;
 }
 
+const FREQ_CONCEPT_TTL_MS = 5 * 60 * 1_000; // 5분 — 개념 데이터는 자주 안 바뀜
+const BOOKMARK_TTL_MS = 30_000;
+
 export async function fetchFrequencyConcept(
   subjectSlug: string,
   unitNumber: number,
 ): Promise<FrequencyConcept> {
-  return apiFetch<FrequencyConcept>(
-    `/study/${subjectSlug}/${unitNumber}/frequency-concept`,
+  return fetchWithClientCache(
+    `concept:frequency:${subjectSlug}:${unitNumber}`,
+    FREQ_CONCEPT_TTL_MS,
+    () => apiFetch<FrequencyConcept>(
+      `/study/${subjectSlug}/${unitNumber}/frequency-concept`,
+    ),
   );
 }
 
@@ -323,7 +330,11 @@ export interface ConceptBookmark {
 }
 
 export async function fetchConceptBookmarks(): Promise<ConceptBookmark[]> {
-  return apiFetch<ConceptBookmark[]>('/study/concept-bookmarks');
+  return fetchWithClientCache(
+    'concept:bookmarks',
+    BOOKMARK_TTL_MS,
+    () => apiFetch<ConceptBookmark[]>('/study/concept-bookmarks'),
+  );
 }
 
 export async function addConceptBookmark(data: { subjectSlug: string; unitNumber: number; conceptName: string; description?: string }): Promise<ConceptBookmark> {
@@ -339,6 +350,7 @@ export async function addConceptBookmark(data: { subjectSlug: string; unitNumber
     const error = await res.json().catch(() => ({ message: res.statusText }));
     throw new Error(error.message ?? `API 오류: ${res.status}`);
   }
+  invalidateClientCache('concept:bookmarks');
   return res.json();
 }
 
@@ -351,6 +363,7 @@ export async function removeConceptBookmark(id: string): Promise<void> {
     const error = await res.json().catch(() => ({ message: res.statusText }));
     throw new Error(error.message ?? `API 오류: ${res.status}`);
   }
+  invalidateClientCache('concept:bookmarks');
 }
 
 export interface StructuredSubsection {

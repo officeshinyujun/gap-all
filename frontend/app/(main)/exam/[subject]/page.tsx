@@ -11,7 +11,8 @@ import { CreateExamModal } from '@/components/exam/CreateExamModal';
 import { HeaderActions } from '@shared/ui/HeaderActions';
 import { SPACING } from '@shared/constants/spacing';
 import { getSubjectName } from '@shared/utils/subject';
-import { fetchExams, type ExamListItem } from '@/lib/examApi';
+import { fetchExams, type ExamListItem, invalidateExamListCache } from '@/lib/examApi';
+import { getClientCache } from '@/lib/clientCache';
 import { markAllNotificationsRead } from '@/lib/notificationApi';
 import { useJobProgress } from '@features/exam-generation/model/JobProgressProvider';
 import s from './page.module.scss';
@@ -60,7 +61,7 @@ export default function ExamPage() {
   }
 
   const [items, setItems] = useState<ProblemItem[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(() => !getClientCache(`exam:list:${subject}`));
   const [selectedItem, setSelectedItem] = useState<ProblemItem | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
@@ -78,6 +79,7 @@ export default function ExamPage() {
 
   useEffect(() => {
     if (jobStatus?.status === 'completed') {
+      invalidateExamListCache(subject);
       loadExams();
     }
   }, [jobStatus?.status]);

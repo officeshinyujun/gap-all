@@ -9,8 +9,9 @@ import { SPACING } from "@/constants/spacing";
 import s from "./page.module.scss";
 import { HeaderActions } from "@/components/general/HeaderActions";
 import { fetchReviewRecommendations, type ReviewRecommendationsResponse } from '@/lib/studyQuizApi';
-import { fetchStreak, fetchUnitsWithProgress, type ApiUnit } from '@/lib/studyApi';
+import { fetchStreak, fetchUnitsWithProgress, type ApiUnit, type StreakResponse, type UnitsWithProgressResponse } from '@/lib/studyApi';
 import { useAuth } from '@shared/contexts/AuthContext';
+import { getClientCache } from '@/lib/clientCache';
 
 const SUBJECTS = [
   { slug: 'success', name: '성직 스터디' },
@@ -77,10 +78,44 @@ function getStudyAction(unit: ApiUnit, subjectSlug: string) {
 export default function Home() {
   const navigate = useNavigate();
   const { user, isLoading: isAuthLoading } = useAuth();
-  const [reviewData, setReviewData] = useState<ReviewRecommendationsResponse | null>(null);
-  const [streak, setStreak] = useState(0);
-  const [inProgressStudies, setInProgressStudies] = useState<InProgressStudy[]>([]);
-  const [isStudyLoading, setIsStudyLoading] = useState(true);
+  // 캐시에서 동기적으로 초기값 로딩 (로딩 플래시 방지)
+  const cachedReview = getClientCache<ReviewRecommendationsResponse>('study:review-recommendations');
+  const cachedStreak = getClientCache<StreakResponse>('study:streak')?.studyStreakDays;
+
+  const [reviewData, setReviewData] = useState<ReviewRecommendationsResponse | null>(
+    () => cachedReview ?? null,
+  );
+  const [streak, setStreak] = useState(
+    () => cachedStreak ?? user?.studyStreakDays ?? 0,
+  );
+  const [inProgressStudies, setInProgressStudies] = useState<InProgressStudy[]>(() => {
+    const cached: InProgressStudy[] = [];
+    for (const { slug, name } of SUBJECTS) {
+      const units = getClientCache<UnitsWithProgressResponse>(`study:units:${slug}`);
+      if (!units) continue;
+      const inProgress = units.units.filter((u) => u.progress > 0);
+      if (inProgress.length === 0) continue;
+      const latest = inProgress.reduce((prev, curr) => {
+        const prevTime = Math.max(...prev.subUnits.map((s) => s.lastStudiedAt ? new Date(s.lastStudiedAt).getTime() : 0));
+        const currTime = Math.max(...curr.subUnits.map((s) => s.lastStudiedAt ? new Date(s.lastStudiedAt).getTime() : 0));
+        return currTime > prevTime ? curr : prev;
+      });
+      const action = getStudyAction(latest, slug);
+      cached.push({
+        id: `${slug}-${latest.id}`,
+        category: name,
+        title: buildStudyTitle(latest),
+        progress: latest.progress,
+        actionText: action.actionText,
+        actionRoute: action.actionRoute,
+        subjectSlug: slug,
+      });
+    }
+    return cached;
+  });
+  const [isStudyLoading, setIsStudyLoading] = useState(
+    () => !cachedReview && cachedStreak == null && getClientCache<UnitsWithProgressResponse>('study:units:success') == null,
+  );
   const [reviewEnabled, setReviewEnabled] = useState(true);
 
   useEffect(() => {
@@ -108,7 +143,7 @@ export default function Home() {
       return;
     }
 
-    setIsStudyLoading(true);
+    setIsStudyLoading(!cachedReview && cachedStreak == null);
 
     Promise.allSettled([
       fetchStreak(),

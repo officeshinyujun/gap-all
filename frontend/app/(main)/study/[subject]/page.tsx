@@ -13,7 +13,8 @@ import { HeaderActions } from '@shared/ui/HeaderActions';
 import { StudyMode } from '@shared/types/study';
 import { getSubjectName } from '@shared/utils/subject';
 import { formatDaysAgo, getLatestDate } from '@shared/utils/date';
-import { fetchUnitsWithProgress, fetchUnitConcepts, type ApiUnit } from '@/lib/studyApi';
+import { fetchUnitsWithProgress, fetchUnitConcepts, type ApiUnit, type UnitsWithProgressResponse } from '@/lib/studyApi';
+import { getClientCache } from '@/lib/clientCache';
 import s from './page.module.scss';
 
 const STUDY_MODE_DEFS = [
@@ -44,8 +45,14 @@ export default function StudyPage() {
   const subjectName = getSubjectName(subject);
   const navigate = useNavigate();
 
-  const [units, setUnits] = useState<ApiUnit[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [units, setUnits] = useState<ApiUnit[]>(() => {
+    const cached = getClientCache<UnitsWithProgressResponse>(`study:units:${subject}`);
+    return cached?.units ?? [];
+  });
+  const [loading, setLoading] = useState(() => {
+    const cached = getClientCache<UnitsWithProgressResponse>(`study:units:${subject}`);
+    return !cached;
+  });
   const [selectedUnitId, setSelectedUnitId] = useState<string>('');
   const [tags, setTags] = useState<string[]>([]);
   const [showMobileDetail, setShowMobileDetail] = useState(false);

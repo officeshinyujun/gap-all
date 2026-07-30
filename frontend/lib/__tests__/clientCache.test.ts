@@ -2,6 +2,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 import {
   clearClientCache,
   fetchWithClientCache,
+  getClientCache,
   invalidateClientCache,
 } from '../clientCache';
 
@@ -39,5 +40,32 @@ describe('fetchWithClientCache', () => {
     await fetchWithClientCache('key', 1_000, load);
 
     expect(load).toHaveBeenCalledTimes(2);
+  });
+
+  it('getClientCache returns cached value synchronously', async () => {
+    const load = vi.fn().mockResolvedValue({ data: 42 });
+
+    // cold cache → undefined
+    expect(getClientCache('sync-key')).toBeUndefined();
+
+    // populate cache
+    await fetchWithClientCache('sync-key', 10_000, load);
+
+    // now should return the value
+    expect(getClientCache<{ data: number }>('sync-key')).toEqual({ data: 42 });
+
+    // after invalidation → undefined again
+    invalidateClientCache('sync-key');
+    expect(getClientCache('sync-key')).toBeUndefined();
+  });
+
+  it('getClientCache returns undefined for expired TTL', async () => {
+    const load = vi.fn().mockResolvedValue('stale');
+
+    // 1ms TTL → immediately expires
+    await fetchWithClientCache('exp-key', 1, load);
+    await new Promise(r => setTimeout(r, 5));
+
+    expect(getClientCache('exp-key')).toBeUndefined();
   });
 });

@@ -8,26 +8,22 @@ import { HStack } from '@shared/ui/HStack';
 import { Settings, ArrowUp, Menu, X } from 'lucide-react';
 import { SPACING } from '@shared/constants/spacing';
 import { API_BASE_URL } from '@shared/lib/auth';
+import { fetchChatSessions, invalidateChatSessionsCache } from '@shared/lib/chatApi';
+import type { ChatSession } from '@shared/types/chat';
+import { getClientCache } from '@/lib/clientCache';
 import { CreateChatModal } from '@/components/chat/CreateChatModal';
 import { ChatWindow } from '@/components/chat/ChatWindow';
 import s from './page.module.scss';
 
-interface ChatSession {
-  id: string;
-  title: string;
-  startUnit: number | null;
-  endUnit: number | null;
-  createdAt: string;
-  subject: { title: string } | null;
-}
-
 export default function ChatPage() {
   const [searchParams] = useSearchParams();
-  const [sessions, setSessions] = useState<ChatSession[]>([]);
+  const [sessions, setSessions] = useState<ChatSession[]>(
+    () => getClientCache<ChatSession[]>('chat:sessions') ?? [],
+  );
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [selectedTitle, setSelectedTitle] = useState<string>('');
   const [modalOpen, setModalOpen] = useState(false);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(() => !getClientCache('chat:sessions'));
   const [showSessionDrawer, setShowSessionDrawer] = useState(false);
   const [isDrawerClosing, setIsDrawerClosing] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -48,18 +44,16 @@ export default function ChatPage() {
   };
 
   const fetchSessions = async () => {
-    const res = await fetch(`${API_BASE_URL}/chat/sessions`, {
-      credentials: 'include',
-    });
-    if (res.ok) {
-      const data = await res.json();
-      const list = Array.isArray(data) ? data : data.sessions ?? [];
+    try {
+      const list = await fetchChatSessions();
       setSessions(list);
-      // 선택된 세션 타이틀 유지 (세션 리스트 갱신돼도 ChatWindow 안 꺼지게)
+      // 선택된 세션 타이틀 유지
       if (selectedId) {
         const current = list.find((s: ChatSession) => s.id === selectedId);
         if (current) setSelectedTitle(current.title);
       }
+    } catch {
+      // keep existing list
     }
     setLoading(false);
   };

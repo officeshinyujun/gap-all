@@ -13,7 +13,10 @@ export interface ChatSession {
   subjectId?: string | null;
   title: string;
   searchScope?: string | null;
+  startUnit?: number | null;
+  endUnit?: number | null;
   createdAt: Date | string;
+  subject?: { title: string } | null;
   messages?: ChatMessage[];
   user?: User;
 }

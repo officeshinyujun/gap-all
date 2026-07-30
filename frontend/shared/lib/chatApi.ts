@@ -1,5 +1,11 @@
 import { API_BASE_URL } from './auth';
+import {
+  fetchWithClientCache,
+  invalidateClientCache,
+} from '@/lib/clientCache';
 import type { ChatSession, ChatMessage, ImageQuestionResponse } from '@shared/types/chat';
+
+const CHAT_TTL_MS = 30_000;
 
 async function apiFetch<T>(path: string, options?: RequestInit): Promise<T> {
   const res = await fetch(`${API_BASE_URL}${path}`, {
@@ -15,7 +21,15 @@ async function apiFetch<T>(path: string, options?: RequestInit): Promise<T> {
 }
 
 export async function fetchChatSessions(): Promise<ChatSession[]> {
-  return apiFetch<ChatSession[]>('/chat/sessions');
+  return fetchWithClientCache(
+    'chat:sessions',
+    CHAT_TTL_MS,
+    () => apiFetch<ChatSession[]>('/chat/sessions'),
+  );
+}
+
+export function invalidateChatSessionsCache(): void {
+  invalidateClientCache('chat:sessions');
 }
 
 export async function createChatSession(data: {
@@ -24,11 +38,13 @@ export async function createChatSession(data: {
   startUnit?: number;
   endUnit?: number;
 }): Promise<{ session: ChatSession }> {
-  return apiFetch<{ session: ChatSession }>('/chat/sessions', {
+  const result = await apiFetch<{ session: ChatSession }>('/chat/sessions', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
   });
+  invalidateChatSessionsCache();
+  return result;
 }
 
 export async function fetchChatSession(sessionId: string): Promise<ChatSession> {
@@ -37,6 +53,7 @@ export async function fetchChatSession(sessionId: string): Promise<ChatSession> 
 
 export async function deleteChatSession(sessionId: string): Promise<void> {
   await apiFetch(`/chat/sessions/${sessionId}`, { method: 'DELETE' });
+  invalidateChatSessionsCache();
 }
 
 export async function sendChatMessage(

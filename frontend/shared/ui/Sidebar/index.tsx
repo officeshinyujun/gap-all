@@ -12,6 +12,7 @@ import { APP_CONFIG } from "../../../constants/app";
 import { API_BASE_URL } from "../../../lib/auth";
 import { useAuth } from "../../../contexts/AuthContext";
 import { fetchWithClientCache } from '@/lib/clientCache';
+import { fetchChatSessions } from '@shared/lib/chatApi';
 
 interface ChatSession {
   id: string;
@@ -161,14 +162,8 @@ export function Sidebar() {
 
   const fetchSessions = useCallback(async () => {
     try {
-      const data = await fetchWithClientCache('chat:sessions', 30_000, async () => {
-        const res = await fetch(`${API_BASE_URL}/chat/sessions`, {
-          credentials: 'include',
-        });
-        if (!res.ok) throw new Error('채팅 목록을 불러오지 못했습니다.');
-        return res.json() as Promise<ChatSession[] | { sessions?: ChatSession[] }>;
-      });
-      setSessions(Array.isArray(data) ? data : data.sessions ?? []);
+      const data = await fetchChatSessions();
+      setSessions(Array.isArray(data) ? data : (data as any).sessions ?? []);
     } catch { }
   }, []);
 
