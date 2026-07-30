@@ -1,8 +1,7 @@
 'use client';
 
 import { useState, useEffect, useMemo } from 'react';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
+import { MarkdownWithTable } from '@/shared/ui/markdown-with-table';
 import { VStack } from '@/components/general/VStack';
 import { HStack } from '@/components/general/HStack';
 import Typo from '@shared/ui/Typo';
@@ -152,7 +151,7 @@ export default function ConceptListPage() {
                               {!detailLoading && conceptDetail && conceptDetail.found && (
                                 <>
                                   <div className={s.markdownContent}>
-                                    <ReactMarkdown remarkPlugins={[remarkGfm]}>{conceptDetail.description}</ReactMarkdown>
+                                    <MarkdownWithTable className={s.markdownContent}>{conceptDetail.description}</MarkdownWithTable>
                                   </div>
                                   {conceptDetail.bulletPoints.length > 0 && (
                                     <ul style={{ margin: 0, paddingLeft: 20 }}>
@@ -176,7 +175,7 @@ export default function ConceptListPage() {
                               {!detailLoading && (!conceptDetail || !conceptDetail.found) && (
                                 savedDescription ? (
                                   <div className={s.markdownContent}>
-                                    <ReactMarkdown remarkPlugins={[remarkGfm]}>{savedDescription}</ReactMarkdown>
+                                    <MarkdownWithTable className={s.markdownContent}>{savedDescription}</MarkdownWithTable>
                                   </div>
                                 ) : (
                                   <Typo.MD size={12} color="secondary">상세 설명을 찾을 수 없습니다.</Typo.MD>

@@ -1293,7 +1293,19 @@ function sourcePreservingDraft(
 ): SimplyReferenceGeneratedDraft {
   const options = normalizeOfficialChoices(reference.choices);
   const comboBlock = sourceComboBlock(reference);
-  const render = sourcePreservingRender(reference);
+  // Prefer cached LLM-converted TPL data over adapter output.
+  const cachedData = reference.tplStimulusData;
+  const render =
+    cachedData !== undefined &&
+    validateSimplyReferenceStructuredTpl(
+      sourceTemplate(reference) ?? 'TPL_ARTICLE',
+      cachedData,
+    )
+      ? {
+          template: sourceTemplate(reference) ?? 'TPL_ARTICLE',
+          stimulusData: cachedData,
+        }
+      : sourcePreservingRender(reference);
   if (
     !isAnswer(reference.correctAnswer) ||
     options === null ||

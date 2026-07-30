@@ -27,7 +27,7 @@ describe('sourcePreservingRender', () => {
     ).toMatchObject({ template: 'TPL_ARTICLE' });
     expect(
       sourcePreservingRender(reference('TPL_QUANTITATIVE_CHART', '이미지 자료')),
-    ).toBeNull();
+    ).toMatchObject({ template: 'TPL_ARTICLE' });
   });
 
   it('preserves Article physical lines, including blanks and indentation', () => {
@@ -76,7 +76,15 @@ describe('sourcePreservingRender', () => {
       sourcePreservingRender(
         reference('TPL_COMPARATIVE_MATRIX', '설명 문장\n구분 | A\n특징 | 값'),
       ),
-    ).toBeNull();
+    ).toMatchObject({
+      stimulusData: {
+        headers: [
+          { id: 'column-1', label: '구분 ' },
+          { id: 'column-2', label: ' A' },
+        ],
+        rows: [{ id: 'row-1', cells: ['특징 ', ' 값'] }],
+      },
+    });
   });
 
   it('preserves workflow markers, continuations, and blank lines', () => {
@@ -96,7 +104,10 @@ describe('sourcePreservingRender', () => {
       sourcePreservingRender(
         reference('TPL_SEQUENTIAL_WORKFLOW', '도입\n1. 조사\n2. 실행'),
       ),
-    ).toBeNull();
+    ).toMatchObject({
+      template: 'TPL_ARTICLE',
+      stimulusData: { body_paragraphs: ['도입', '1. 조사', '2. 실행'] },
+    });
     expect(
       sourcePreservingRender(
         reference('TPL_SEQUENTIAL_WORKFLOW', '• 준비\n• 실행'),
@@ -132,6 +143,11 @@ describe('sourcePreservingRender', () => {
       sourcePreservingRender(
         reference('TPL_CONVERSATIONAL_FLOW', '상황 설명\n교사: 확인합니다.\n학생: 네.'),
       ),
-    ).toBeNull();
+    ).toMatchObject({
+      template: 'TPL_ARTICLE',
+      stimulusData: {
+        body_paragraphs: ['상황 설명', '교사: 확인합니다.', '학생: 네.'],
+      },
+    });
   });
 });

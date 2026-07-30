@@ -2,8 +2,7 @@
 
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
+import { MarkdownWithTable } from '@/shared/ui/markdown-with-table';
 import { VStack } from '@shared/ui/VStack';
 import { HStack } from '@shared/ui/HStack';
 import Typo from '@shared/ui/Typo';
@@ -134,9 +133,7 @@ export function ConceptStudyPage() {
                   {current.description && (
                     <VStack gap={8} fullWidth>
                       <span className={s.sectionTitle}>개념 정의</span>
-                      <div className={s.markdownContent}>
-                        <ReactMarkdown remarkPlugins={[remarkGfm]}>{current.description}</ReactMarkdown>
-                      </div>
+                      <MarkdownWithTable className={s.markdownContent}>{current.description}</MarkdownWithTable>
                     </VStack>
                   )}
 
@@ -245,7 +242,7 @@ export function ConceptStudyPage() {
                                   {v2.stimulusClues.map((clue, i) => (
                                     <div key={i} className={s.clueBox}>
                                       <p className={s.clueQuote}><mark className={s.stimulusHighlight}>{clue.quote}</mark></p>
-                                      <p className={s.clueWhy}>{clue.why}</p>
+                                      <MarkdownWithTable className={s.clueWhy}>{clue.why}</MarkdownWithTable>
                                     </div>
                                   ))}
                                 </VStack>
@@ -263,7 +260,7 @@ export function ConceptStudyPage() {
                                       <HStack gap={8} align="start">
                                         <span className={s.optionAnalysisNum}>{label}</span>
                                         <span className={`${s.verdict} ${opt.verdict === 'O' ? s.verdictO : s.verdictX}`}>{opt.verdict}</span>
-                                        <span className={s.optionReasoning}>{opt.reasoning}</span>
+                                        <MarkdownWithTable className={s.optionReasoning}>{opt.reasoning}</MarkdownWithTable>
                                       </HStack>
                                     </div>
                                   );
@@ -330,7 +327,7 @@ export function ConceptStudyPage() {
                             <VStack gap={12} fullWidth className={s.subAccordionBody}>
                               {sub.explanation && <p className={s.subText}>{sub.explanation}</p>}
                               {sub.keyPoints.length > 0 && <VStack gap={6} fullWidth><span className={s.sectionTitle}>핵심 포인트</span><ul className={s.bulletList}>{sub.keyPoints.map((p, i) => <li key={i}>{p}</li>)}</ul></VStack>}
-                              {sub.table && <div className={s.markdownContent}><ReactMarkdown remarkPlugins={[remarkGfm]}>{sub.table}</ReactMarkdown></div>}
+                              {sub.table && <MarkdownWithTable className={s.markdownContent}>{sub.table}</MarkdownWithTable>}
                               {sub.visualGuide && <div className={s.tipBox}>{sub.visualGuide}</div>}
                               {sub.examPoints.length > 0 && <VStack gap={6} fullWidth><span className={s.sectionTitle}>시험 포인트</span><ul className={s.bulletList}>{sub.examPoints.map((p, i) => <li key={i}>{p}</li>)}</ul></VStack>}
                               {sub.pitfalls.length > 0 && <VStack gap={6} fullWidth><span className={s.sectionTitle}>주의 사항</span><VStack gap={6} fullWidth>{sub.pitfalls.map((p, i) => <div key={i} className={s.trapBox}>{p}</div>)}</VStack></VStack>}

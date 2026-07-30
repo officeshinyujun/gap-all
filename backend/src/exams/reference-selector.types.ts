@@ -68,6 +68,8 @@ export type NormalizedSourceReference = SelectedParsedReference &
   Readonly<{
     target: NormalizedSourceTarget;
     targetConcepts: readonly [string];
+    /** Pre-computed TPL stimulus data from LLM conversion cache. */
+    tplStimulusData?: Record<string, unknown>;
   }>;
 
 export type ReferenceSelectorShortfall = Readonly<{

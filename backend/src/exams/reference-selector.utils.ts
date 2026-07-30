@@ -111,6 +111,9 @@ export function parseReference(
       targetConcepts: target.concepts,
       target,
       archetype: archetype.value,
+      tplStimulusData: isRecord(value.tplStimulusData)
+        ? value.tplStimulusData
+        : undefined,
     },
   };
 }

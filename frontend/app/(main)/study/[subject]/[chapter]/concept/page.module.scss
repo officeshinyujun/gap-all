@@ -282,6 +282,22 @@
   font-size: 12px;
   color: $text-secondary;
   line-height: 1.6;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: $spacing-4 0;
+    font-size: 11px;
+    th, td {
+      border: 1px solid $border-primary;
+      padding: $spacing-4 $spacing-6;
+      text-align: left;
+    }
+    th {
+      background: $background-secondary;
+      font-weight: 600;
+    }
+  }
 }
 
 .solvingStep {
@@ -351,6 +367,22 @@
   font-size: 12px;
   color: $text-secondary;
   line-height: 1.6;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: $spacing-4 0;
+    font-size: 11px;
+    th, td {
+      border: 1px solid $border-primary;
+      padding: $spacing-4 $spacing-6;
+      text-align: left;
+    }
+    th {
+      background: $background-secondary;
+      font-weight: 600;
+    }
+  }
 }
 
 .takeawayBox {
