@@ -15,11 +15,18 @@ $landing-error: #dc2626;
 $landing-white: #fff;
 
 // Alpha variants
-$landing-header-bg: rgba(17, 17, 24, 0.9);
-$landing-brand-alpha-25: rgba(108, 99, 255, 0.25);
-$landing-brand-subtle-alpha-04: rgba(67, 56, 202, 0.04);
-$landing-brand-subtle-alpha-06: rgba(67, 56, 202, 0.06);
-$landing-brand-subtle-alpha-08: rgba(67, 56, 202, 0.08);
+$landing-header-bg: rgba($landing-bg-primary, 0.9);
+$landing-brand-alpha-03: rgba($landing-brand, 0.03);
+$landing-brand-alpha-04: rgba($landing-brand, 0.04);
+$landing-brand-alpha-08: rgba($landing-brand, 0.08);
+$landing-brand-alpha-10: rgba($landing-brand, 0.10);
+$landing-brand-alpha-12: rgba($landing-brand, 0.12);
+$landing-brand-alpha-15: rgba($landing-brand, 0.15);
+$landing-brand-alpha-25: rgba($landing-brand, 0.25);
+$landing-brand-alpha-30: rgba($landing-brand, 0.30);
+$landing-brand-subtle-alpha-04: rgba($landing-brand-subtle, 0.04);
+$landing-brand-subtle-alpha-06: rgba($landing-brand-subtle, 0.06);
+$landing-brand-subtle-alpha-08: rgba($landing-brand-subtle, 0.08);
 
 .page {
   overflow-x: hidden;
@@ -80,59 +87,324 @@ $landing-brand-subtle-alpha-08: rgba(67, 56, 202, 0.08);
   align-items: center;
   justify-content: center;
   padding: 0 $spacing-24;
+  overflow: hidden;
 }
 
-.heroGlow {
+.heroBgDeco {
   position: absolute;
-  bottom: -100px; left: 50%; transform: translateX(-50%);
-  width: 1000px; height: 600px;
-  background: radial-gradient(ellipse, $landing-brand-alpha-25 0%, transparent 70%);
+  top: -20%;
+  right: -15%;
+  width: 900px;
+  height: 900px;
+  background: radial-gradient(circle at 55% 45%, $landing-brand-alpha-08 0%, $landing-brand-alpha-03 35%, transparent 70%);
   border-radius: 50%;
-  filter: blur(80px);
   pointer-events: none;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -15%;
+    left: -20%;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, $landing-brand-alpha-04 0%, transparent 60%);
+    border-radius: 50%;
+  }
 }
-.heroContent {
-  position: relative; z-index: 2;
-  display: flex; flex-direction: column; align-items: center;
-  text-align: center; gap: $spacing-20;
-  max-width: 680px;
-  transform: translateY(-110px);
-}
-.heroHeading {
-  font-size: 48px; font-weight: 500; color: $landing-text-primary;
-  line-height: 1.25; letter-spacing: -0.02em; margin: 0;
-}
-.heroKeyword {
-  font-weight: 700; color: $landing-brand;
-}
-.heroDesc {
-  font-size: 17px; color: $landing-text-secondary; line-height: 1.7; margin: 0;
-}
-.heroBtns {
-  display: flex; gap: $spacing-12; margin-top: $spacing-8;
-}
-.heroScreen {
-  position: absolute;
-  bottom: -100px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 0;
-  max-width: 900px;
+
+.heroGrid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  align-items: center;
+  gap: 64px;
+  max-width: calc($max-width + 60px);
   width: 100%;
-  padding: 0 $spacing-24;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: $spacing-20;
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 16px;
+  background: $landing-brand-alpha-08;
+  border: 1px solid $landing-brand-alpha-15;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  color: $landing-brand;
+  letter-spacing: -0.01em;
+}
+
+.heroHeading {
+  font-size: 48px;
+  font-weight: 700;
+  color: $landing-text-primary;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+
+.heroKeyword {
+  color: $landing-brand;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 3px;
+    left: 0;
+    right: 0;
+    height: 12px;
+    background: $landing-brand-alpha-12;
+    border-radius: 999px;
+    z-index: -1;
+  }
+}
+
+.heroDesc {
+  font-size: 17px;
+  color: $landing-text-secondary;
+  line-height: 1.75;
+  margin: 0;
+  max-width: 480px;
+}
+
+.heroBtns {
+  display: flex;
+  gap: $spacing-12;
+  margin-top: $spacing-8;
+}
+
+// ── Hero Image ──
+.heroScreen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heroImageWrap {
+  position: relative;
+  width: 100%;
+  max-width: 680px;
+}
+
+.heroImage {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.2),
+    0 10px 20px rgba(0, 0, 0, 0.25),
+    0 30px 60px $landing-brand-alpha-10;
+  transform: perspective(1200px) rotateY(-3deg) rotateX(2deg);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  display: block;
+  position: relative;
+  z-index: 2;
+
+  &:hover {
+    transform: perspective(1200px) rotateY(0deg) rotateX(0deg);
+    box-shadow:
+      0 8px 12px rgba(0, 0, 0, 0.3),
+      0 20px 30px rgba(0, 0, 0, 0.35),
+      0 40px 80px $landing-brand-alpha-15;
+  }
+}
+
+.heroImageShadow {
+  position: absolute;
+  bottom: -28px;
+  left: 8%;
+  right: 8%;
+  height: 48px;
+  background: $landing-brand-alpha-10;
+  border-radius: 50%;
+  filter: blur(28px);
+  z-index: 1;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.heroImageWrap:hover .heroImageShadow {
+  bottom: -36px;
+  left: 3%;
+  right: 3%;
+  filter: blur(36px);
+  opacity: 0.8;
 }
 
 // ── Flow ──
-.flow { position: relative; z-index: 1; background: $landing-bg-secondary; padding: 80px 0; }
-.flowCards { display: flex; flex-direction: column; gap: 60px; margin-top: $spacing-24; }
-.flowCard { display: grid; grid-template-columns: 360px 1fr; gap: $spacing-24; align-items: center; opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease;
-  &.visible { opacity: 1; transform: translateY(0); }
+.flow {
+  position: relative;
+  z-index: 1;
+  background: $landing-bg-primary;
+  padding: 100px 0 120px;
+  overflow: hidden;
 }
-.flowCardText { display: flex; flex-direction: column; 
-  p { font-size: 16px; color: $landing-text-secondary; margin: 0; line-height: 1.6; }
+
+// Section head
+.flowHead {
+  text-align: center;
+  margin-bottom: 80px;
 }
-.flowCardNum { font-size: 14px; font-weight: 700; color: $landing-brand; }
-.flowCardTitle { font-size: 22px; font-weight: 700; color: $landing-text-primary; margin: 0; }
+
+.flowLabel {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  color: $landing-brand;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: $spacing-16;
+}
+
+.flowTitle {
+  font-size: 44px;
+  font-weight: 700;
+  color: $landing-text-primary;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  margin: 0 0 $spacing-16;
+}
+
+.flowSub {
+  font-size: 18px;
+  color: $landing-text-secondary;
+  margin: 0;
+  line-height: 1.6;
+}
+
+// Timeline wrapper
+.flowTimeline {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+// Vertical timeline line
+.flowTimelineLine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    $landing-brand 0%,
+    $landing-brand 20%,
+    $landing-brand-alpha-30 50%,
+    $landing-brand 80%,
+    $landing-brand 100%
+  );
+  transform: translateX(-50%);
+}
+
+// Individual step card
+.flowCard {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  padding: 40px 0;
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  // Alternating layout: even steps have demo on left, odd on right
+  &:not(.reversed) {
+    .flowCardDemo { order: 0; }
+    .flowCardBody { order: 1; padding-right: 48px; }
+  }
+
+  &.reversed {
+    .flowCardDemo { order: 1; }
+    .flowCardBody { order: 0; padding-left: 48px; }
+  }
+}
+
+// Timeline dot on the center line
+.flowCard::before {
+  content: '';
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  background: $landing-brand;
+  border: 4px solid $landing-bg-primary;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  box-shadow: 0 0 0 4px $landing-brand-alpha-15;
+}
+
+.flowCardDemo {
+  display: flex;
+  justify-content: center;
+}
+
+// Step number badge
+.flowCardStep {
+  display: flex;
+  align-items: center;
+  gap: $spacing-10;
+  margin-bottom: $spacing-12;
+}
+
+.flowCardNum {
+  font-size: 48px;
+  font-weight: 800;
+  color: $landing-text-primary;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  opacity: 0.08;
+}
+
+.flowCardStepLabel {
+  font-size: 12px;
+  font-weight: 700;
+  color: $landing-brand;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0.6;
+}
+
+// Text content
+.flowCardBody {
+  display: flex;
+  flex-direction: column;
+}
+
+.flowCardTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: $landing-text-primary;
+  margin: 0 0 $spacing-10;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+.flowCardDesc {
+  font-size: 16px;
+  color: $landing-text-secondary;
+  line-height: 1.7;
+  margin: 0;
+}
 
 // ── Compare ──
 .compare { background: $landing-bg-primary; padding: 60px 0 80px; }
@@ -218,19 +490,184 @@ $landing-brand-subtle-alpha-08: rgba(67, 56, 202, 0.08);
 .footerBottom { max-width: $max-width; margin: $spacing-24 auto 0; padding: $spacing-20 $spacing-24 0; border-top: 1px solid $landing-border; font-size: 12px; color: $landing-text-secondary; }
 
 // ── Responsive ──
+@media (max-width: 1024px) {
+  .heroGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  .heroHeading {
+    font-size: 36px;
+  }
+
+  .flowTitle {
+    font-size: 36px;
+  }
+  .flowTimeline {
+    max-width: 720px;
+    padding: 0 $spacing-20;
+  }
+  .flowCard {
+    gap: 40px;
+  }
+  .flowCardNum {
+    font-size: 40px;
+  }
+}
+
 @media (max-width: 768px) {
-  .hero { min-height: 100vh; padding: 80px $spacing-20 32px; }
-  .heroHeading { font-size: 32px; }
-  .heroGlow { width: 600px; height: 400px; filter: blur(60px); }
-  .heroScreen { margin-top: 32px; }
+  .hero {
+    min-height: auto;
+    padding: 120px $spacing-20 48px;
+  }
+
+  .heroBgDeco {
+    top: -30%;
+    right: -40%;
+    width: 500px;
+    height: 500px;
+  }
+
+  .heroGrid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    text-align: center;
+  }
+
+  .heroContent {
+    align-items: center;
+    order: 1;
+  }
+
+  .heroDesc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .heroScreen {
+    order: 2;
+  }
+
+  .heroHeading {
+    font-size: 32px;
+    letter-spacing: -0.02em;
+  }
+
+  .heroBadge {
+    font-size: 13px;
+  }
+
+  .heroBtns {
+    flex-direction: column;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .heroBtns .btnPill,
+  .heroBtns .btnPillOutline {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .heroImageWrap {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .heroImage {
+    transform: none;
+    &:hover {
+      transform: none;
+    }
+  }
+
   .headerNav { display: none; }
   .sectionTitle { font-size: 28px; }
-  .flowCard { grid-template-columns: 1fr; gap: 24px; &:not(:last-child)::after { display: none; } }
-  .flowCards { gap: 48px; }
+  .flowTitle { font-size: 32px; }
+  .flowSub { font-size: 16px; }
+  .flowTimelineLine { left: 24px; }
+  .flowCard {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 32px 0 32px 56px;
+    &.reversed {
+      .flowCardDemo { order: 0; }
+      .flowCardBody { order: 1; padding-left: 0; padding-right: 0; }
+    }
+    &:not(.reversed) {
+      .flowCardBody { padding-right: 0; }
+    }
+  }
+  .flowCard::before {
+    left: 24px;
+    top: 56px;
+    width: 14px;
+    height: 14px;
+  }
+  .flowCardNum { font-size: 40px; }
+  .flowCardTitle { font-size: 20px; }
+  .headerNav { display: none; }
   .compareGrid { grid-template-columns: 1fr; .compareDivider { display: none; } }
   .chatGrid { grid-template-columns: 1fr; .chatScreen { max-width: 280px; margin: 0 auto; } }
   .extrasGrid { grid-template-columns: 1fr; }
   .subjectsGrid { grid-template-columns: 1fr; }
   .numbers .inner { flex-wrap: wrap; gap: $spacing-20; }
   .numberNum { font-size: 36px; }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 100px $spacing-16 40px;
+  }
+
+  .heroHeading {
+    font-size: 28px;
+  }
+
+  .heroDesc {
+    font-size: 15px;
+  }
+
+  .heroImageWrap {
+    max-width: 360px;
+  }
+
+  .heroBadge {
+    font-size: 12px;
+    padding: 5px 14px;
+  }
+
+  .flow {
+    padding: 64px 0 80px;
+  }
+  .flowHead {
+    margin-bottom: 48px;
+  }
+  .flowTitle {
+    font-size: 26px;
+  }
+  .flowSub {
+    font-size: 15px;
+  }
+  .flowTimelineLine {
+    left: 16px;
+  }
+  .flowCard {
+    padding: 24px 0 24px 44px;
+  }
+  .flowCard::before {
+    left: 16px;
+    top: 44px;
+    width: 12px;
+    height: 12px;
+  }
+  .flowCardNum {
+    font-size: 32px;
+  }
+  .flowCardTitle {
+    font-size: 18px;
+  }
+  .flowCardDesc {
+    font-size: 14px;
+  }
 }

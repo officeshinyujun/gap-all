@@ -7,11 +7,11 @@ import { ConceptCardDemo, BlankQuizDemo, ConceptMatchDemo, ExamPreviewDemo, Revi
 import s from './page.module.scss'
 
 const FLOW_STEPS = [
-  { n: 1, title: '개념 카드', desc: '120개 시험빈출 개념을 정의·키포인트·오답함정까지 한 장으로', screen: '04a-concept-card', wide: false },
-  { n: 2, title: '빈칸 채우기', desc: '시험지 스타일로 풀고 바로 해설을 확인합니다', screen: '02-blank-quiz', wide: false },
-  { n: 3, title: '개념 매칭', desc: '용어를 보고 직접 정의를 쓰며 이해도를 스스로 체크', screen: '03-concept-match', wide: false },
-  { n: 4, title: '실전 모의시험', desc: '단원 범위와 난이도를 설정해 진짜 시험처럼 응시', screen: '05-exam', wide: true },
-  { n: 5, title: '오답 복습', desc: '틀린 개념만 모아서 3회 연속 정답까지 반복 학습', screen: '06-review', wide: false },
+  { n: 1, title: '개념 카드로 빠르게 암기', desc: '120개 시험빈출 개념. 정의부터 키포인트, 오답 함정까지 한 장으로 끝냅니다. 외울 것만 딱!', screen: '04a-concept-card', wide: false },
+  { n: 2, title: '빈칸 문제로 바로 확인', desc: '방금 외운 개념, 시험지 스타일로 채워보고 즉시 채점·해설. 눈으로만 보면 착각합니다.', screen: '02-blank-quiz', wide: false },
+  { n: 3, title: '개념 매칭으로 진짜 이해', desc: '용어 뜻을 직접 타이핑하며 내가 진짜 아는 건지 스스로 체크합니다. 모르는 척 못 합니다.', screen: '03-concept-match', wide: false },
+  { n: 4, title: '실전 모의시험으로 감각 완성', desc: '원하는 단원과 난이도를 설정해 실제 시험처럼 응시. 시간 압박 속에서도 실수하지 않게.', screen: '05-exam', wide: true },
+  { n: 5, title: '오답만 골라 3번 반복', desc: '틀린 개념은 3회 연속 정답까지 자동 반복. 약점을 강점으로 바꾸는 마지막 단계.', screen: '06-review', wide: false },
 ]
 
 function HeroImg({ id, aspect }: { id: string; aspect: string }) {
@@ -20,11 +20,21 @@ function HeroImg({ id, aspect }: { id: string; aspect: string }) {
 
 function FlowCard({ step, index }: { step: typeof FLOW_STEPS[0]; index: number }) {
   const ref = useRef<HTMLDivElement>(null); const [visible, setVisible] = useState(false)
+  const isEven = index % 2 === 0
   useEffect(() => { const el = ref.current; if (!el) return; const obs = new IntersectionObserver(([e]) => setVisible(e.isIntersecting), { threshold: 0.15 }); obs.observe(el); return () => obs.disconnect() }, [])
   return (
-    <div ref={ref} className={`${s.flowCard}${visible ? ` ${s.visible}` : ''}`} style={{ transitionDelay: `${index * 80}ms` }}>
-      {step.n === 1 ? <ConceptCardDemo /> : step.n === 2 ? <BlankQuizDemo /> : step.n === 3 ? <ConceptMatchDemo /> : step.n === 4 ? <ExamPreviewDemo /> : <ReviewPreviewDemo />}
-      <div className={s.flowCardText}><span className={s.flowCardNum}>{String(step.n).padStart(2, '0')}</span><h3 className={s.flowCardTitle}>{step.title}</h3><p>{step.desc}</p></div>
+    <div ref={ref} className={`${s.flowCard}${visible ? ` ${s.visible}` : ''}${isEven ? '' : ` ${s.reversed}`}`} style={{ transitionDelay: `${index * 100}ms` }}>
+      <div className={s.flowCardDemo}>
+        {step.n === 1 ? <ConceptCardDemo /> : step.n === 2 ? <BlankQuizDemo /> : step.n === 3 ? <ConceptMatchDemo /> : step.n === 4 ? <ExamPreviewDemo /> : <ReviewPreviewDemo />}
+      </div>
+      <div className={s.flowCardBody}>
+        <div className={s.flowCardStep}>
+          <span className={s.flowCardNum}>{String(step.n).padStart(2, '0')}</span>
+          <span className={s.flowCardStepLabel}>STEP</span>
+        </div>
+        <h3 className={s.flowCardTitle}>{step.title}</h3>
+        <p className={s.flowCardDesc}>{step.desc}</p>
+      </div>
     </div>
   )
 }
@@ -52,37 +62,54 @@ export default function LandingPage() {
 
           </div>
           <div className={s.headerActions}>
-            <Link to="/login" className={s.headerCta}>회원가입</Link>
+            <Link to="/signup" className={s.headerCta}>회원가입</Link>
             <Link to="/login" className={s.headerOutline}>로그인</Link>
           </div>
         </div>
       </header>
 
       <section className={s.hero} style={{ opacity: 1 - heroProgress * 0.5 }}>
-        <div className={s.heroGlow} />
-        <div className={s.heroContent}>
-          <h1 className={s.heroHeading}>
-            여러분의 <span className={s.heroKeyword}>직업탐구</span>를<br/>
-            <span className={s.heroKeyword}>AI</span>와 함께, <span className={s.heroKeyword}>편하게</span>
-          </h1>
-          <p className={s.heroDesc}>
-            기출 기반 개념 요약, 빈칸 문제, 개념 매칭, 실전 시험, 오답 복습, AI 튜터까지.<br/>
-            직업탐구를 확실하게 배울 수 있습니다.
-          </p>
-          <div className={s.heroBtns}>
-            <Link to="/login" className={s.btnPill}>시작하기</Link>
-            <a href="#flow" className={s.btnPillOutline}>살펴보기</a>
+        <div className={s.heroBgDeco} />
+        <div className={s.heroGrid}>
+          <div className={s.heroContent}>
+            <span className={s.heroBadge}>성공적인 직업생활 · 공업일반</span>
+            <h1 className={s.heroHeading}>
+              <span className={s.heroKeyword}>직업탐구</span>, 한 플랫폼에서<br />
+              끝내세요
+            </h1>
+            <p className={s.heroDesc}>
+              40개 단원을 개념 카드부터 빈칸 문제, 실전 시험, 오답 복습까지
+              5단계로 빈틈없이 학습합니다.
+            </p>
+            <div className={s.heroBtns}>
+              <Link to="/login" className={s.btnPill}>지금 시작하기</Link>
+              <a href="#flow" className={s.btnPillOutline}>학습 과정 살펴보기</a>
+            </div>
           </div>
-        </div>
-        <div className={s.heroScreen}>
-          <HeroImg id="01-study-detail" aspect="16/10" />
+          <div className={s.heroScreen}>
+            <div className={s.heroImageWrap}>
+              <img
+                src="/screens/01-study-detail.png"
+                alt="2830 학습 화면 — 단원 목록, 진도율, 개념 태그"
+                className={s.heroImage}
+              />
+              <div className={s.heroImageShadow} />
+            </div>
+          </div>
         </div>
       </section>
 
       <section className={s.flow} id="flow">
         <div className={s.inner}>
-          <div className={s.sectionHead}><h2 className={s.sectionTitle}>하루 30분, 한 단원 끝내기</h2><p className={s.sectionSub}>기출 분석 → 개념 정리 → 실전 문제 → 오답까지 한 번에</p></div>
-          <div className={s.flowCards}>{FLOW_STEPS.map((st,i)=><FlowCard key={st.n} step={st} index={i}/>)}</div>
+          <div className={s.flowHead}>
+            <span className={s.flowLabel}>학습 시스템</span>
+            <h2 className={s.flowTitle}>개념 암기부터 실전까지<br />5단계면 충분합니다</h2>
+            <p className={s.flowSub}>외우고 → 확인하고 → 써보고 → 시험보고 → 복습. 이 순서만 지키면 됩니다.</p>
+          </div>
+          <div className={s.flowTimeline}>
+            <div className={s.flowTimelineLine} />
+            {FLOW_STEPS.map((st,i)=><FlowCard key={st.n} step={st} index={i}/>)}
+          </div>
         </div>
       </section>
 

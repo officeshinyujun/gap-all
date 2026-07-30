@@ -6,14 +6,9 @@
   align-items: center;
   justify-content: center;
   padding: $spacing-24;
-  background-color: color-mix(in srgb, var(--text-primary) 55%, transparent);
-  backdrop-filter: blur($spacing-4);
-}
-
-[data-theme="dark"] .overlay {
-  // Dark mode's primary text is light, so it cannot be used for the backdrop.
-  // Use the dark surface token to preserve a dimmed background instead.
-  background-color: color-mix(in srgb, var(--background-primary) 50%, transparent);
+  background: $background-secondary;
+  opacity: 0.92;
+  backdrop-filter: blur(4px);
 }
 
 .modal {
@@ -22,10 +17,22 @@
   max-height: 100%;
   padding: $spacing-32;
   overflow-y: auto;
-  background-color: $background-primary;
+  background: $background-primary;
   border: 1px solid $border-primary;
   border-radius: $spacing-16;
-  box-shadow: 0 $spacing-10 40px color-mix(in srgb, var(--text-primary) 20%, transparent);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+  animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .closeButton {
@@ -35,17 +42,20 @@
   width: $spacing-32;
   height: $spacing-32;
   color: $text-secondary;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 1;
   background: transparent;
   border: 0;
   border-radius: $spacing-8;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &:hover,
   &:focus-visible {
     color: $text-primary;
-    background-color: $background-third;
+    background: $background-third;
   }
 }
 
@@ -62,24 +72,24 @@
   padding: $spacing-12 $spacing-16;
   border-radius: $spacing-8;
   font-weight: $semi-bold;
-  font-size: $spacing-14;
+  font-size: 14px;
   cursor: pointer;
 }
 
 .closeAction {
   color: $text-primary;
-  background-color: $background-third;
+  background: $background-third;
   border: 0;
 
   &:hover,
   &:focus-visible {
-    background-color: $background-fourth;
+    background: $background-fourth;
   }
 }
 
 .hideAction {
   color: $background-primary;
-  background-color: $brand-primary;
+  background: $brand-primary;
   border: 0;
 
   &:hover,
@@ -88,13 +98,33 @@
   }
 }
 
+// Mobile: slide down from top
 @media (max-width: 768px) {
   .overlay {
-    padding: $spacing-16;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0;
+    background: $background-secondary;
+    opacity: 0.92;
   }
 
   .modal {
-    padding: $spacing-24;
-    border-radius: $spacing-12;
+    width: 100%;
+    max-height: 100%;
+    border-radius: 0 0 $spacing-16 $spacing-16;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    padding: $spacing-24 $spacing-20;
+    animation: slideDown 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }

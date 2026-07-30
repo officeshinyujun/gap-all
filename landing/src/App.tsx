@@ -53,21 +53,32 @@ function App() {
 
       {/* 2. Hero */}
       <section className="hero">
+        <div className="hero-bg-deco" />
         <div className="hero-grid">
           <div className="hero-text">
-            <p className="hero-subject">성공적인 직업생활 · 공업일반</p>
-            <h1 className="hero-heading">직업계고 시험,<br />단원별로 끝내는</h1>
+            <span className="hero-badge">성공적인 직업생활 · 공업일반</span>
+            <h1 className="hero-heading">
+              직업계고 시험,<br />
+              <span className="hero-highlight">단원별</span>로 끝내는
+            </h1>
             <p className="hero-desc">
-              40개 단원을 개념 카드부터 빈칸 문제, 실전 시험, 오답 복습까지<br />
+              40개 단원을 개념 카드부터 빈칸 문제, 실전 시험, 오답 복습까지
               5단계로 빈틈없이 학습합니다.
             </p>
             <div className="hero-btns">
               <a href="https://app.2830.kr" className="btn-primary">지금 시작하기</a>
-              <a href="#subjects" className="btn-ghost">과목 살펴보기 ↓</a>
+              <a href="#flow" className="btn-ghost">학습 과정 살펴보기</a>
             </div>
           </div>
           <div className="hero-screen">
-            <Screenshot id="01-study-detail" label="Study — 단원 목록 + 진도율 + 개념 태그" ratio="4/3" />
+            <div className="hero-image-wrap">
+              <img
+                src="/01-study-detail.png"
+                alt="2830 학습 화면 — 단원 목록, 진도율, 개념 태그"
+                className="hero-image"
+              />
+              <div className="hero-image-shadow" />
+            </div>
           </div>
         </div>
         <div className="hero-stats">

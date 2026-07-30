@@ -117,6 +117,23 @@ export default function Home() {
     () => !cachedReview && cachedStreak == null && getClientCache<UnitsWithProgressResponse>('study:units:success') == null,
   );
   const [reviewEnabled, setReviewEnabled] = useState(true);
+  const [donateDismissed, setDonateDismissed] = useState(() => localStorage.getItem('gap_donate_dismissed') === 'true');
+  const [copied, setCopied] = useState(false);
+
+  const handleDismissDonate = () => {
+    localStorage.setItem('gap_donate_dismissed', 'true');
+    setDonateDismissed(true);
+  };
+
+  const handleCopyAccount = async () => {
+    try {
+      await navigator.clipboard.writeText('토스뱅크 1002 4701 0355');
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // fallback
+    }
+  };
 
   useEffect(() => {
     fetchReviewRecommendations()
@@ -220,6 +237,22 @@ export default function Home() {
           </Typo.SM>
         </VStack>
       </HStack>
+
+      {/* Donation Banner */}
+      {!donateDismissed && (
+        <VStack gap={SPACING.s10} className={s.donateCard} fullWidth style={{ padding: SPACING.s14, position: 'relative' }}>
+          <button className={s.dismissButton} onClick={handleDismissDonate} aria-label="닫기" style={{ position: 'absolute', top: 10, right: 12 }}>✕</button>
+          <Typo.MD size={12} color="secondary">
+            서비스가 도움이 되셨다면 후원으로 응원해주세요. 더 나은 학습 경험을 만드는 데 사용됩니다.
+          </Typo.MD>
+          <HStack gap={SPACING.s8} align="center" fullWidth>
+            <span className={s.donateAccount} style={{ flex: 1 }}>토스뱅크 1002 4701 0355</span>
+            <button className={s.copyButton} onClick={handleCopyAccount}>
+              {copied ? '✓ 복사됨' : '복사'}
+            </button>
+          </HStack>
+        </VStack>
+      )}
 
       {/* Review Recommendations */}
       {reviewEnabled && reviewData && reviewData.recommendations.length > 0 && (

@@ -2,11 +2,12 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: $background-secondary;
+  background: $background-secondary;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  color: $text-primary;
 
   &:hover {
     opacity: 0.8;
@@ -17,12 +18,16 @@
   position: relative;
 }
 
+.backdrop {
+  display: none;
+}
+
 .badge {
   position: absolute;
   top: -2px;
   right: -2px;
-  background-color: $text-wrong;
-  color: white;
+  background: $text-wrong;
+  color: #fff;
   font-size: 10px;
   font-weight: $semi-bold;
   min-width: 16px;
@@ -38,19 +43,51 @@
   position: absolute;
   top: calc(100% + 8px);
   right: 0;
-  width: 320px;
-  max-height: 400px;
+  width: 340px;
+  max-height: 440px;
   background: $background-primary;
-  border-radius: 12px;
+  border-radius: $spacing-12;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
   border: 1px solid $border-primary;
   overflow: hidden;
   z-index: 1000;
+  animation: fadeIn 0.15s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .dropdownHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: $spacing-12 $spacing-16;
   border-bottom: 1px solid $border-primary;
+}
+
+.closeBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: $text-secondary;
+  cursor: pointer;
+  padding: $spacing-4;
+  border-radius: $spacing-4;
+
+  &:hover {
+    color: $text-primary;
+    background: $background-secondary;
+  }
 }
 
 .emptyState {
@@ -59,17 +96,19 @@
 }
 
 .notificationList {
-  max-height: 340px;
+  max-height: 380px;
   overflow-y: auto;
 }
 
 .notificationItem {
+  display: flex;
+  align-items: flex-start;
   padding: $spacing-12 $spacing-16;
   cursor: pointer;
   border-bottom: 1px solid $border-primary;
 
   &:hover {
-    background-color: $background-secondary;
+    background: $background-secondary;
   }
 
   &:last-child {
@@ -77,10 +116,73 @@
   }
 }
 
-.unread {
-  background-color: $brand-secondary;
+.notificationBody {
+  flex: 1;
+  min-width: 0;
+}
+
+.deleteBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  color: $text-secondary;
+  cursor: pointer;
+  padding: $spacing-4;
+  margin-left: $spacing-8;
+  margin-top: 2px;
+  border-radius: $spacing-4;
 
   &:hover {
-    background-color: var(--background-third);
+    color: $text-wrong;
+    background: $background-secondary;
+  }
+}
+
+.unread {
+  background: $brand-secondary;
+
+  &:hover {
+    background: $background-third;
+  }
+}
+
+// Mobile: slide-down panel with close button, not full-screen
+@media (max-width: 768px) {
+  .dropdown {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-height: 60%;
+    border-radius: 0 0 $spacing-16 $spacing-16;
+    z-index: 1200;
+    animation: slideDown 0.25s ease;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+  }
+
+  .backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(4px);
+    z-index: 1199;
+  }
+
+  @keyframes slideDown {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  .notificationList {
+    max-height: calc(60vh - 48px);
   }
 }

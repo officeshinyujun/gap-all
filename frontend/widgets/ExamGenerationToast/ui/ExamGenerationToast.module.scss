@@ -1,9 +1,9 @@
 .toast {
   position: fixed;
-  bottom: $spacing-24;
-  right: $spacing-24;
   z-index: 9999;
   transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  bottom: $spacing-24;
+  right: $spacing-24;
 }
 
 .toastVisible {
@@ -75,10 +75,10 @@
   padding: $spacing-4;
   flex-shrink: 0;
   font-family: 'Courier New', monospace;
-}
 
-.toggle:hover {
-  color: $text-primary;
+  &:hover {
+    color: $text-primary;
+  }
 }
 
 /* 우측 책갈피 탭 */
@@ -117,4 +117,61 @@
 .tabHidden {
   opacity: 0;
   pointer-events: none;
+}
+
+// Mobile: slide down from top as full-width banner
+@media (max-width: 768px) {
+  .toast {
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: auto;
+    padding: $spacing-16;
+    background: $background-primary;
+    border-bottom: 1px solid $border-primary;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    animation: slideDown 0.3s ease;
+    border-radius: 0;
+  }
+
+  @keyframes slideDown {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  .toastVisible {
+    transform: translateY(0);
+  }
+
+  .toastHidden {
+    transform: translateY(-100%);
+  }
+
+  .body {
+    background: transparent;
+    box-shadow: none;
+    min-width: 0;
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .tab {
+    top: 0;
+    bottom: auto;
+    right: 0;
+    height: 100%;
+    width: 24px;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tabVisible {
+    opacity: 1;
+  }
 }

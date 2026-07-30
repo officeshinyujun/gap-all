@@ -3,9 +3,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router';
 import { HStack } from '@shared/ui/HStack';
-import { Bell, Moon, User } from 'lucide-react';
+import { Bell, Moon, User, X } from 'lucide-react';
 import { SPACING } from '@/constants/spacing';
-import { fetchNotifications, markNotificationRead, type NotificationItem } from '@/lib/notificationApi';
+import { fetchNotifications, markNotificationRead, deleteNotification, type NotificationItem } from '@/lib/notificationApi';
 import { useTheme } from '@shared/contexts/ThemeContext';
 import { SM, MD } from '@shared/ui/Typo';
 import s from './style.module.scss';
@@ -63,19 +63,38 @@ export function HeaderActions({ showUser = false }: HeaderActionsProps) {
         }
     };
 
+    const handleDelete = async (e: React.MouseEvent, id: string) => {
+        e.stopPropagation();
+        try {
+            await deleteNotification(id);
+            setNotifications((prev) => {
+                const item = prev.find((n) => n.id === id);
+                if (item && !item.isRead) {
+                    setUnreadCount((c) => Math.max(0, c - 1));
+                }
+                return prev.filter((n) => n.id !== id);
+            });
+        } catch {}
+    };
+
     return (
         <HStack gap={SPACING.s16} align="center" style={{ padding: SPACING.s12 }}>
             <div className={s.bellWrapper} ref={dropdownRef}>
                 <div className={s.iconCircle} onClick={() => setShowDropdown(!showDropdown)}>
-                    <Bell size={20} color="var(--text-primary)" />
+                    <Bell size={20} />
                     {unreadCount > 0 && (
                         <span className={s.badge}>{unreadCount > 99 ? '99+' : unreadCount}</span>
                     )}
                 </div>
                 {showDropdown && (
-                    <div className={s.dropdown}>
+                    <>
+                        <div className={s.backdrop} onClick={() => setShowDropdown(false)} />
+                        <div className={s.dropdown}>
                         <div className={s.dropdownHeader}>
                             <SM size={14} color="primary">알림</SM>
+                            <button className={s.closeBtn} onClick={() => setShowDropdown(false)} aria-label="닫기">
+                                <X size={18} />
+                            </button>
                         </div>
                         {notifications.length === 0 ? (
                             <div className={s.emptyState}>
@@ -89,17 +108,27 @@ export function HeaderActions({ showUser = false }: HeaderActionsProps) {
                                         className={`${s.notificationItem} ${!n.isRead ? s.unread : ''}`}
                                         onClick={() => handleNotificationClick(n)}
                                     >
-                                        <SM size={14} color="primary">{n.title}</SM>
-                                        <MD size={12} color="secondary">{n.message}</MD>
+                                        <div className={s.notificationBody}>
+                                            <SM size={14} color="primary">{n.title}</SM>
+                                            <MD size={12} color="secondary">{n.message}</MD>
+                                        </div>
+                                        <button
+                                            className={s.deleteBtn}
+                                            onClick={(e) => handleDelete(e, n.id)}
+                                            aria-label="알림 삭제"
+                                        >
+                                            <X size={14} />
+                                        </button>
                                     </div>
                                 ))}
                             </div>
                         )}
-                    </div>
+                        </div>
+                    </>
                 )}
             </div>
             <div className={s.iconCircle} onClick={toggleTheme} style={{ cursor: 'pointer' }}>
-                <Moon size={20} color="var(--text-primary)" />
+                <Moon size={20} />
             </div>
         </HStack>
     );

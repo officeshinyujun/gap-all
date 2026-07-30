@@ -9,6 +9,7 @@ import { ExamGenerationToast } from '@widgets/ExamGenerationToast/ui/ExamGenerat
 import { ErrorReport } from '@widgets/ErrorReport';
 const LandingPage = lazy(() => import('@/app/(auth)/landing/page'));
 const LoginPage = lazy(() => import('@/app/(auth)/login/page'));
+const SignupPage = lazy(() => import('@/app/(auth)/signup/page'));
 const TermsPage = lazy(() => import('@/app/(auth)/terms/page'));
 const PrivacyPage = lazy(() => import('@/app/(auth)/privacy/page'));
 const MainLayout = lazy(() => import('@/app/(main)/layout'));
@@ -44,6 +45,7 @@ createRoot(root).render(
               <Routes>
                 <Route path="/landing" element={<LandingPage />} />
                 <Route path="/login" element={<LoginPage />} />
+                <Route path="/signup" element={<SignupPage />} />
                 <Route path="/terms" element={<TermsPage />} />
                 <Route path="/privacy" element={<PrivacyPage />} />
                 <Route path="/auth/google/callback" element={<GoogleCallbackPage />} />

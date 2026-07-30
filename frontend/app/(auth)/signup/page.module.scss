@@ -88,6 +88,129 @@
   &:focus {
     border-color: $brand-primary;
   }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+}
+
+// Password rules
+.passwordRules {
+  list-style: none;
+  padding: 0;
+  margin: $spacing-4 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.rulePass {
+  font-size: 12px;
+  color: $brand-primary;
+
+  &::before {
+    content: '✓ ';
+  }
+}
+
+.ruleFail {
+  font-size: 12px;
+  color: $text-wrong;
+
+  &::before {
+    content: '✗ ';
+  }
+}
+
+// Verification
+.verificationSection {
+  padding-top: $spacing-20;
+  border-top: 1px solid $border-primary;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-12;
+}
+
+.sendCodeButton {
+  width: 100%;
+  padding: $spacing-12;
+  background: $brand-primary;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  border-radius: $spacing-10;
+  cursor: pointer;
+  transition: opacity 0.15s;
+
+  &:hover:not(:disabled) {
+    opacity: 0.85;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+}
+
+.verifyRow {
+  display: flex;
+  gap: $spacing-8;
+  width: 100%;
+
+  input {
+    flex: 1;
+  }
+}
+
+.verifyButton {
+  white-space: nowrap;
+  padding: $spacing-12 18px;
+  background: $brand-primary;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  border-radius: $spacing-10;
+  cursor: pointer;
+  transition: opacity 0.15s;
+
+  &:hover:not(:disabled) {
+    opacity: 0.85;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+}
+
+.verifiedRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-8;
+  padding: $spacing-8 0;
+}
+
+.verifiedIcon {
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: $brand-primary;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.verifiedText {
+  font-size: 14px;
+  font-weight: 600;
+  color: $brand-primary;
 }
 
 // Error
@@ -119,48 +242,6 @@
   &:disabled {
     opacity: 0.5;
     cursor: default;
-  }
-}
-
-// Divider
-.divider {
-  display: flex;
-  align-items: center;
-  gap: $spacing-12;
-  width: 100%;
-  margin-bottom: 28px;
-}
-
-.dividerLine {
-  flex: 1;
-  height: 1px;
-  background: $border-primary;
-}
-
-.dividerText {
-  font-size: 13px;
-  color: $text-secondary;
-}
-
-// Google button
-.googleButton {
-  width: 100%;
-  padding: $spacing-12;
-  border: 1px solid $border-primary;
-  border-radius: $spacing-10;
-  background: $background-primary;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: $spacing-8;
-  font-size: 14px;
-  font-weight: 500;
-  color: $text-primary;
-  transition: background 0.15s;
-
-  &:hover {
-    background: $background-third;
   }
 }
 
