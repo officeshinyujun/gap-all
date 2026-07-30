@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { Outlet, useNavigate } from 'react-router';
+import { Outlet, useNavigate, useLocation } from 'react-router';
 import { HStack } from '@/components/general/HStack';
 import { VStack } from '@/components/general/VStack';
 import { Sidebar } from '@shared/ui/Sidebar';
@@ -13,6 +13,8 @@ import { SPACING } from '@/constants/spacing';
 export default function MainLayout() {
   const { user, isLoading } = useAuth();
   const navigate = useNavigate();
+  const { pathname } = useLocation();
+  const isChat = pathname === '/chat' || pathname.startsWith('/chat?');
 
   useEffect(() => {
     if (!isLoading && !user) {
@@ -26,7 +28,7 @@ export default function MainLayout() {
   return (
     <HStack gap={SPACING.s16} className={s.container} align="start" style={{ padding: SPACING.s16 }}>
       <Sidebar />
-      <VStack gap={SPACING.s16} className={s.mainContent} style={{ padding: SPACING.s24 }} fullHeight>
+      <VStack gap={SPACING.s16} className={`${s.mainContent} ${isChat ? s.noBottomBar : ''}`} style={{ padding: SPACING.s24 }} fullHeight>
         <Outlet />
       </VStack>
       <EntranceNoticeModal userId={user.id} />

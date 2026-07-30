@@ -1,4 +1,4 @@
-// ── 시작 화면 ──────────────────────────────────────────────
+/* ── 홈 화면 ── */
 .homeContainer {
   width: 100%;
   height: 100%;
@@ -14,40 +14,36 @@
   gap: $spacing-24;
   max-width: 612px;
   width: 100%;
-}
+  padding: 0 $spacing-16;
 
-.sessionCard {
-  padding: $spacing-12 $spacing-16;
-  background-color: $background-secondary;
-  border-radius: $spacing-12;
-  cursor: pointer;
-  transition: background-color 0.15s;
-
-  &:hover {
-    background-color: $background-third;
+  @media (max-width: 768px) {
+    gap: $spacing-16;
+    padding: 0 $spacing-12;
   }
 }
 
-.deleteButton {
+.heroTitle { font-weight: 600; }
+.heroSubtitle { font-weight: 500; }
+.settingHint { font-weight: 500; }
+
+.hamburgerBtn {
+  position: absolute;
+  top: 24px;
+  left: 24px;
   background: none;
   border: none;
   cursor: pointer;
-  padding: $spacing-4;
-  border-radius: $spacing-4;
+  padding: 8px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-  opacity: 0;
-  transition: opacity 0.15s;
+  z-index: 10;
+  color: $text-primary;
+  -webkit-appearance: none;
+  appearance: none;
 
-  .sessionCard:hover & {
-    opacity: 1;
-  }
-
-  &:hover {
-    background-color: $background-fourth;
-  }
+  &:hover { background-color: $background-secondary; }
 }
 
 .inputCard {
@@ -83,7 +79,7 @@
   cursor: pointer;
 }
 
-.iconButton {
+.iconBtn {
   width: 36px;
   height: 36px;
   border-radius: 50%;
@@ -94,60 +90,53 @@
   cursor: pointer;
   border: none;
   flex-shrink: 0;
+  color: $text-primary;
   transition: opacity 0.2s;
 
   &:hover { opacity: 0.8; }
 }
 
-.sendButton {
+.sendBtn {
   background-color: $brand-primary;
+  color: $background-primary;
 }
 
-// ── 채팅 화면 ──────────────────────────────────────────────
+/* ── 채팅 화면 ── */
 .chatContainer {
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  position: relative;
 }
 
-.chatTopBar {
-  padding: $spacing-16 $spacing-24;
-  border-bottom: 1px solid $border-primary;
-  flex-shrink: 0;
+.mobileNav {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  z-index: 20;
+  padding: 6px;
+  background: color-mix(in srgb, $background-primary 70%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid $border-primary;
+  border-radius: 14px;
 }
 
-.backButton {
-  width: 32px;
-  height: 32px;
-  border-radius: $spacing-8;
-  background-color: $background-secondary;
+.mobileNavBtn {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: transparent;
   border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
+  color: $text-primary;
 
-  &:hover { background-color: $background-third; }
-}
-
-.newChatButton {
-  display: flex;
-  align-items: center;
-  gap: $spacing-6;
-  padding: $spacing-8 $spacing-16;
-  background-color: $brand-primary;
-  color: $background-primary;
-  border: none;
-  border-radius: $spacing-8;
-  cursor: pointer;
-  font-size: $spacing-14;
-  font-weight: 600;
-  font-family: inherit;
-
-  &:hover { opacity: 0.9; }
+  &:hover { background-color: $background-secondary; }
 }
 
 .chatWindowWrapper {
@@ -155,141 +144,4 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-}
-
-/* 햄버거 버튼 */
-.hamburgerButton {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
-  -webkit-appearance: none;
-  appearance: none;
-
-  &:hover {
-    background-color: $background-secondary;
-  }
-}
-
-/* 세션 드로어 */
-.sessionDrawerOverlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.4);
-  z-index: 300;
-  animation: drawerFadeIn 0.2s ease;
-
-  &.closing {
-    animation: drawerFadeOut 0.2s ease forwards;
-  }
-}
-
-.sessionDrawerPanel {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 80%;
-  max-width: 320px;
-  height: 100%;
-  background-color: $background-primary;
-  padding: 24px;
-  padding-top: 24px;
-  padding-bottom: calc(64px + env(safe-area-inset-bottom));
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  animation: drawerSlideIn 0.25s ease;
-  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.08);
-
-  &.closing {
-    animation: drawerSlideOut 0.25s ease forwards;
-  }
-}
-
-.drawerClose {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: $text-secondary;
-  -webkit-appearance: none;
-  appearance: none;
-
-  &:hover {
-    background-color: $background-secondary;
-  }
-}
-
-.drawerSessionItem {
-  padding: 12px 14px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.15s ease;
-
-  &:hover {
-    background-color: $background-secondary;
-  }
-
-  &:active {
-    background-color: $background-third;
-  }
-}
-
-.drawerSessionActive {
-  background-color: $background-secondary;
-}
-
-.drawerDeleteButton {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 6px;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0.5;
-  transition: opacity 0.15s, background-color 0.15s;
-  -webkit-appearance: none;
-  appearance: none;
-  flex-shrink: 0;
-
-  &:hover {
-    opacity: 1;
-    background-color: $background-third;
-  }
-}
-
-@keyframes drawerFadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes drawerFadeOut {
-  from { opacity: 1; }
-  to { opacity: 0; }
-}
-
-@keyframes drawerSlideIn {
-  from { transform: translateX(-100%); }
-  to { transform: translateX(0); }
-}
-
-@keyframes drawerSlideOut {
-  from { transform: translateX(0); }
-  to { transform: translateX(-100%); }
 }

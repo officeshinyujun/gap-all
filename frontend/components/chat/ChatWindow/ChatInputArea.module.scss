@@ -1,0 +1,197 @@
+.inputArea {
+  padding: 12px;
+  flex-shrink: 0;
+
+  @media (max-width: 768px) {
+    padding: 0;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* Figma: rounded pill container wrapping the input row */
+.inputPill {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: $background-secondary;
+  border-radius: 24px;
+  padding: 12px;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
+}
+
+.inputInner {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.input {
+  flex: 1;
+  padding: 10px 0;
+  border: none;
+  background: transparent;
+  color: $text-primary;
+  outline: none;
+  font-family: inherit;
+  font-size: 14px;
+  resize: none;
+  line-height: 1.5;
+  max-height: 100px;
+  overflow-y: auto;
+
+  &::placeholder { color: $text-secondary; font-size: 14px; }
+  &:disabled { opacity: 0.6; }
+
+  @media (max-width: 768px) {
+    font-size: 15px;
+    max-height: 80px;
+  }
+}
+
+.sendButton {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: $brand-primary;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  &:hover { opacity: 0.9; }
+
+  &.disabled { background-color: $background-third; cursor: not-allowed; }
+
+  @media (max-width: 768px) {
+    position: relative;
+    z-index: 20;
+  }
+}
+
+/* ── + 버튼 (Figma: plus icon, 36x36, no background) ── */
+.plusButton {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: $text-primary;
+  transition: all 0.2s ease;
+
+  &:hover:not(:disabled) { background-color: $background-third; }
+  &:disabled { opacity: 0.5; cursor: not-allowed; }
+}
+
+.plusActive {
+  background-color: $background-third;
+  transform: rotate(45deg);
+}
+
+/* ── 툴 팝업 (Figma: tools appear above the pill) ── */
+.toolGroup {
+  position: relative;
+}
+
+.toolPopup {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  padding: 8px;
+  background: $background-secondary;
+  border: 1px solid $border-primary;
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 5;
+}
+
+.toolPopupOpen {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.toolBtn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: $background-primary;
+  border: 1px solid $border-primary;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: $text-secondary;
+  transition: all 0.15s;
+
+  &:hover:not(:disabled) { border-color: $brand-primary; color: $brand-primary; }
+  &:disabled { opacity: 0.5; cursor: not-allowed; }
+}
+
+.toolActive {
+  background: $brand-primary;
+  border-color: $brand-primary;
+  color: $background-primary;
+  &:hover:not(:disabled) { opacity: 0.85; color: $background-primary; }
+}
+
+/* ── 이미지 프리뷰 ── */
+.imagePreviewArea {
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+
+  @media (max-width: 768px) {
+    padding: 8px 10px;
+  }
+}
+
+.imagePreview {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid $border-primary;
+  }
+}
+
+.imageRemoveBtn {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: $text-secondary;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $background-primary;
+  &:hover { background: $text-wrong; }
+}

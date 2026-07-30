@@ -71,6 +71,11 @@
   &:disabled { opacity: 0.5; cursor: not-allowed; }
 }
 
+.error {
+  color: $text-wrong;
+  font-size: 12px;
+}
+
 @media (max-width: 768px) {
   .overlay {
     align-items: flex-end;

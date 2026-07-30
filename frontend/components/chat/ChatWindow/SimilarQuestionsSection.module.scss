@@ -1,0 +1,214 @@
+.section {
+  max-width: 700px;
+  width: 100%;
+  margin-top: $spacing-8;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
+}
+
+.title {
+  font-size: 13px;
+  font-weight: 600;
+  color: $text-secondary;
+  margin-bottom: $spacing-8;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-8;
+}
+
+.card {
+  border: 1px solid $border-primary;
+  border-radius: 10px;
+  overflow: hidden;
+  background: $background-primary;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: $spacing-12 $spacing-14;
+  background: $background-secondary;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s;
+  &:hover { background: $background-third; }
+}
+
+.source {
+  font-size: 11px;
+  color: $text-secondary;
+  margin-bottom: 2px;
+}
+
+.concept {
+  font-size: 13px;
+  font-weight: 600;
+  color: $text-primary;
+}
+
+.chevron {
+  font-size: 10px;
+  color: $text-secondary;
+  flex-shrink: 0;
+}
+
+.cardBody {
+  padding: $spacing-14;
+  border-top: 1px solid $border-primary;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-12;
+}
+
+/* ── 해설 ── */
+.explanationBtn {
+  width: 100%;
+  padding: $spacing-8;
+  background: none;
+  border: 1px dashed $border-primary;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: $text-secondary;
+  cursor: pointer;
+  transition: all 0.15s;
+  margin-top: $spacing-4;
+  &:hover { border-color: $brand-primary; color: $brand-primary; }
+}
+
+.explanationPanel {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-12;
+  padding: $spacing-12;
+  background: $background-secondary;
+  border-radius: 8px;
+  margin-top: $spacing-8;
+}
+
+.sectionTitle {
+  font-size: 12px;
+  font-weight: 600;
+  color: $text-strong;
+}
+
+.solvingStep {
+  display: flex;
+  gap: $spacing-8;
+  align-items: flex-start;
+  font-size: 13px;
+  line-height: 1.6;
+  color: $text-primary;
+}
+
+.stepNum {
+  flex-shrink: 0;
+  font-weight: 600;
+  color: $brand-primary;
+}
+
+.stepText { flex: 1; }
+
+.optionRow {
+  display: flex;
+  gap: $spacing-6;
+  align-items: flex-start;
+  font-size: 13px;
+  line-height: 1.6;
+  padding: $spacing-6 $spacing-8;
+  border-radius: 6px;
+}
+
+.optionCorrectRow { background: rgba(76, 175, 80, 0.08); }
+.optionWrongRow { background: rgba(244, 67, 54, 0.08); }
+
+.optionLabel {
+  flex-shrink: 0;
+  min-width: 24px;
+  font-weight: 600;
+}
+
+.verdictO { color: $text-correct; font-weight: 600; }
+.verdictX { color: $text-wrong; font-weight: 600; }
+
+.optionReasoning {
+  flex: 1;
+  color: $text-primary;
+}
+
+.takeawayText {
+  font-size: 13px;
+  line-height: 1.6;
+  color: $text-primary;
+  white-space: pre-wrap;
+}
+
+/* ── 유사점 ── */
+.similarityRow {
+  display: flex;
+  gap: $spacing-6;
+  align-items: flex-start;
+  font-size: 12px;
+  line-height: 1.6;
+  color: $text-primary;
+}
+
+.similarityIcon { flex-shrink: 0; font-size: 12px; }
+
+.similarityText {
+  strong { font-weight: 600; }
+}
+
+/* ── 지문 ── */
+.rawStimulusBox {
+  padding: $spacing-12;
+  background: $background-primary;
+  border: 1px solid $border-primary;
+  border-radius: 8px;
+  font-size: 12px;
+  line-height: 1.8;
+  color: $text-primary;
+  white-space: pre-wrap;
+  word-break: keep-all;
+  margin-bottom: $spacing-8;
+}
+
+.stimulusHighlight {
+  background: $brand-secondary;
+  color: $brand-primary;
+  border-radius: 3px;
+  padding: 0 2px;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.clueList { display: flex; flex-direction: column; gap: $spacing-6; }
+
+.clueBox {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-4;
+  padding: $spacing-8 $spacing-10;
+  background: $background-primary;
+  border-radius: 6px;
+}
+
+.clueQuote {
+  font-size: 12px;
+  line-height: 1.6;
+  color: $text-primary;
+}
+
+.clueWhy {
+  font-size: 11px;
+  line-height: 1.5;
+  color: $text-secondary;
+}

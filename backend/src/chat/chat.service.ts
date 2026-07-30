@@ -163,6 +163,14 @@ export class ChatService {
 
     if (dto.mode === 'generate') {
       // ── AI 문제 생성 모드 ──
+      // 대화 이력을 가져와서 컨텍스트로 전달 (사용자가 "이에 대한 문제"라고 했을 때 참조)
+      const history = await this.messageRepo.find({
+        where: { chatSessionId: sessionId },
+        order: { createdAt: 'DESC' },
+        take: 10,
+      });
+      history.reverse();
+
       let rawJson: string;
       try {
         rawJson = await this.chatAiService.generateExamQuestion(
@@ -171,6 +179,7 @@ export class ChatService {
           dto.message,
           session.startUnit ?? undefined,
           session.endUnit ?? undefined,
+          history,
         );
       } catch (err: any) {
         aiText = `문제 생성 중 오류가 발생했어요.\n\n(${err?.message ?? '알 수 없는 오류'})`;

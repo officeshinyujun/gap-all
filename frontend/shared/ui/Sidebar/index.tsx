@@ -88,6 +88,7 @@ function MobileStudySheet({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
 }
 
 function BottomBar({ pathname }: { pathname: string }) {
+  const [searchParams] = useSearchParams();
   const [showStudySheet, setShowStudySheet] = useState(false);
   const [reviewEnabled, setReviewEnabled] = useState(true);
 
@@ -104,6 +105,11 @@ function BottomBar({ pathname }: { pathname: string }) {
     window.addEventListener('storage', handleStorage);
     return () => window.removeEventListener('storage', handleStorage);
   }, []);
+
+  const isChatSession = pathname.startsWith('/chat') && !!searchParams.get('session');
+
+  // 채팅 세션 진입 시 바텀바 숨김 (모든 hooks 이후 early return)
+  if (isChatSession) return null;
 
   const isRouteActive = (href: string) => {
     if (href === '/') return pathname === '/';

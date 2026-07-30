@@ -31,4 +31,8 @@
         overflow: hidden;
         padding-bottom: calc(64px + env(safe-area-inset-bottom)) !important;
     }
+
+    .noBottomBar {
+        padding-bottom: 24px !important;
+    }
 }

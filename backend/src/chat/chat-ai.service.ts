@@ -352,19 +352,70 @@ ${extracted.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
     topic: string,
     startUnit?: number,
     endUnit?: number,
+    conversationHistory?: ChatMessage[],
   ): Promise<string> {
     try {
-    // 교과 컨텍스트 로드 (summation cards에서 텍스트 추출 — 개념 테이블 의존성 제거)
-    const from = startUnit ?? 1;
-    const to = endUnit ?? 20;
-    const textbookSections: string[] = [];
+    // ── 유닛 및 대화 컨텍스트 추출 ──
+    // 1) 현재 메시지에서 언급된 단원 추출
+    let mentionedUnit = this.extractUnitNumber(topic);
 
-    for (let u = from; u <= Math.min(to, from + 4); u++) {
-      try {
-        const raw = await this.textbookService.getSummationMd(subjectSlug, u);
-        const text = this.textbookService.extractTextFromSummation(raw);
-        textbookSections.push(`[${u}단원]\n${text.slice(0, 2000)}`);
-      } catch (e) { /* skip unit */ }
+    // 2) 현재 메시지에 없으면 대화 이력에서 마지막으로 언급된 단원 찾기
+    if (!mentionedUnit && conversationHistory) {
+      for (let i = conversationHistory.length - 1; i >= 0; i--) {
+        const u = this.extractUnitNumber(conversationHistory[i].message);
+        if (u) {
+          mentionedUnit = u;
+          break;
+        }
+      }
+    }
+
+    // 3) 모호한 지시어("이에 대한", "이걸로" 등)가 있으면 대화 컨텍스트 구성
+    const isVagueReference =
+      /이에\s*(대한|대해|관한|관해)|이걸로|이\s*문제|이\s*주제/.test(topic);
+    let conversationContext = '';
+    if (isVagueReference && conversationHistory && conversationHistory.length > 0) {
+      const lastMessages = conversationHistory.slice(-4);
+      conversationContext = [
+        `## 최근 대화 컨텍스트 (이 대화에서 다루던 주제를 참고하세요)`,
+        ...lastMessages.map(
+          (m) =>
+            `[${m.sender === 'USER' ? '학생' : '튜터'}]: ${m.message.slice(0, 300)}`,
+        ),
+      ].join('\n');
+    }
+
+    // 4) 단원 범위 결정: 특정 단원이 언급되었으면 그 주변으로 좁힘
+    const effectiveStart = mentionedUnit ?? (startUnit ?? 1);
+    const effectiveEnd = mentionedUnit ?? (endUnit ?? 20);
+    const rangeText =
+      effectiveStart === effectiveEnd
+        ? `${effectiveStart}단원`
+        : `${effectiveStart}단원 ~ ${effectiveEnd}단원`;
+
+    // 교과 컨텍스트 로드: 언급된 단원 중심으로 최대 5단원 로드
+    const textbookSections: string[] = [];
+    if (mentionedUnit && (effectiveEnd - effectiveStart) > 4) {
+      // 넓은 범위 + 특정 단원이 있으면, 그 단원 중심으로 ±2 단원 로드
+      const halfWindow = 2;
+      const loadStart = Math.max(startUnit ?? 1, mentionedUnit - halfWindow);
+      const loadEnd = Math.min(endUnit ?? 20, mentionedUnit + halfWindow);
+      for (let u = loadStart; u <= loadEnd; u++) {
+        try {
+          const raw = await this.textbookService.getSummationMd(subjectSlug, u);
+          const text = this.textbookService.extractTextFromSummation(raw);
+          textbookSections.push(`[${u}단원]\n${text.slice(0, 2000)}`);
+        } catch (e) { /* skip unit */ }
+      }
+    } else {
+      // 좁은 범위거나 특정 단원 없으면, start부터 최대 5단원
+      for (let u = effectiveStart; u <= Math.min(effectiveEnd, effectiveStart + 4); u++) {
+        try {
+          const raw = await this.textbookService.getSummationMd(subjectSlug, u);
+          const text = this.textbookService.extractTextFromSummation(raw);
+          textbookSections.push(`[${u}단원]\n${text.slice(0, 2000)}`);
+        } catch (e) { /* skip unit */ }
+      }
     }
 
     const textbookContext = textbookSections.length > 0
@@ -376,14 +427,17 @@ ${extracted.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
       `특성화고 학생들의 사고력을 측정하는 객관식 문제를 출제합니다.`,
       ``,
       `## 핵심 출제 원칙`,
-      `- 아래 [개념 목록]과 [교과 내용]을 바탕으로 문제를 출제하세요.`,
+      `- 아래 [교과 내용]을 바탕으로 문제를 출제하세요.`,
+      `- 문제 범위: ${rangeText} — 반드시 이 범위의 내용에서만 출제하세요.`,
       `- 사용자가 요청한 주제: "${topic}"`,
       ``,
+      ...(conversationContext ? [conversationContext, ``] : []),
       `## ⚠️ 절대 금지 사항`,
       `1. 문제 발문, 지문, 선택지 어디에도 "${topic}"이나 개념명을 직접 언급하지 마세요.`,
       `2. "근로기준법", "근로계약", "해고" 등의 개념 용어 자체를 문제에 쓰지 마세요.`,
       `3. 학생이 개념을 스스로 도출할 수 있도록, 상황/사례/판례를 통해 간접적으로 물어보세요.`,
       `4. 예: "근로기준법"을 묻고 싶으면 → "다음 중 근로자의 권리를 침해한 사례로 옳은 것은?"`,
+      `5. 위 [교과 내용]에 포함된 ${rangeText} 범위 밖의 내용은 절대 사용하지 마세요.`,
       ``,
       `## 문제 형식`,
       `- 수능 스타일: 발문 → 사례/지문 → 필요시 보기(ㄱㄴㄷ) → 5지선다`,
@@ -391,7 +445,7 @@ ${extracted.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
       `- 정답은 교과 내용에 근거`,
       `- 오답지는 학생들이 자주 헷갈리는 개념으로 구성`,
       ``,
-      `## 교과 내용`,
+      `## 교과 내용 (${rangeText})`,
       textbookContext,
       ``,
       ``,

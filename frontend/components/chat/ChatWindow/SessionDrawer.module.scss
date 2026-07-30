@@ -1,0 +1,103 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 300;
+  animation: fadeIn 0.2s ease;
+
+  &.closing { animation: fadeOut 0.2s ease forwards; }
+}
+
+.panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80%;
+  max-width: 320px;
+  height: 100%;
+  background-color: $background-primary;
+  padding: 24px;
+  padding-bottom: calc(64px + env(safe-area-inset-bottom));
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  animation: slideIn 0.25s ease;
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.08);
+
+  &.closing { animation: slideOut 0.25s ease forwards; }
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $text-secondary;
+  -webkit-appearance: none;
+  appearance: none;
+
+  &:hover { background-color: $background-secondary; }
+}
+
+.drawerHeader {
+  margin-bottom: 16px;
+}
+
+.newChatBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px 14px;
+  background: $background-secondary;
+  border: 1px solid $border-primary;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-bottom: 12px;
+  color: $text-primary;
+
+  p { color: $text-primary !important; }
+
+  &:hover { background: $background-third; }
+  &:active { opacity: 0.85; }
+}
+
+.item {
+  padding: 12px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+
+  &:hover { background-color: $background-secondary; }
+  &:active { background-color: $background-third; }
+}
+
+.active {
+  background-color: $background-secondary;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes slideOut {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
