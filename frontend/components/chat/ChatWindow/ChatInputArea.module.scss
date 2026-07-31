@@ -108,9 +108,9 @@
   bottom: calc(100% + 8px);
   left: 0;
   display: flex;
-  flex-direction: row;
-  gap: 8px;
-  padding: 8px;
+  flex-direction: column;
+  gap: $spacing-8;
+  padding: $spacing-8;
   background: $background-secondary;
   border: 1px solid $border-primary;
   border-radius: 14px;
@@ -139,9 +139,34 @@
   flex-shrink: 0;
   color: $text-secondary;
   transition: all 0.15s;
+  position: relative;
 
   &:hover:not(:disabled) { border-color: $brand-primary; color: $brand-primary; }
   &:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  /* 툴팁 — 버튼 우측에 표시 */
+  &::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    left: calc(100% + $spacing-10);
+    top: 50%;
+    transform: translateY(-50%);
+    padding: $spacing-6 $spacing-10;
+    background: $text-primary;
+    color: $background-primary;
+    font-size: 12px;
+    font-weight: $medium;
+    white-space: nowrap;
+    border-radius: $spacing-8;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+    z-index: 10;
+  }
+
+  &:hover::after {
+    opacity: 1;
+  }
 }
 
 .toolActive {

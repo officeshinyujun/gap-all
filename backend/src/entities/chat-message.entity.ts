@@ -18,7 +18,7 @@ export class ChatMessage {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ name: 'chat_session_id' })
+  @Column({ name: 'chat_session_id', type: 'uuid' })
   chatSessionId: string;
 
   @Column({ type: 'varchar', length: 10 })

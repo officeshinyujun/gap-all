@@ -1330,7 +1330,9 @@ function sourcePreservingDraft(
         combo_block: comboBlock,
       },
       explanation: {
-        judgment: `공식 정답: ${['①', '②', '③', '④', '⑤'][reference.correctAnswer - 1]}`,
+        judgment:
+          reference.explanation ??
+          `공식 정답: ${['①', '②', '③', '④', '⑤'][reference.correctAnswer - 1]}`,
       },
       correct_answer: reference.correctAnswer,
     },

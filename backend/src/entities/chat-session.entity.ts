@@ -16,10 +16,10 @@ export class ChatSession {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ name: 'user_id' })
+  @Column({ name: 'user_id', type: 'uuid' })
   userId: string;
 
-  @Column({ name: 'subject_id', type: 'varchar', nullable: true })
+  @Column({ name: 'subject_id', type: 'uuid', nullable: true })
   subjectId: string | null;
 
   @Column()

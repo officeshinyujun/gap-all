@@ -30,7 +30,7 @@ function convertToExamQuestion(raw: any): ExamQuestion {
       stimulus_data: raw.stimulus ?? '',
       options: (raw.options ?? []).map((opt: string, i: number) => ({
         id: i + 1,
-        text: opt.replace(/^[①②③④⑤]\s*/, ''),
+        text: opt.replace(/^(?:[①②③④⑤]|\(\d\)|\d[.)])\s*/, ''),
       })),
       explanation: raw.explanation ?? '',
     },
@@ -64,9 +64,9 @@ export function ChatWindow({ sessionId, sessionTitle }: ChatWindowProps) {
   const [generateMode, setGenerateMode] = useState(() => {
     try { return localStorage.getItem('chat_generate_mode') === 'true'; } catch { return false; }
   });
-  const [generatedQuestions, setGeneratedQuestions] = useState<Record<string, ExamQuestion>>({});
-  const [selectedAnswers, setSelectedAnswers] = useState<Record<string, number>>({});
-  const [showExplanations, setShowExplanations] = useState<Record<string, boolean>>({});
+  const [generatedQuestions, setGeneratedQuestions] = useState<Record<string, ExamQuestion[]>>({});
+  const [selectedAnswers, setSelectedAnswers] = useState<Record<string, Record<number, number>>>({});
+  const [showExplanations, setShowExplanations] = useState<Record<string, Record<number, boolean>>>({});
 
   // ── hooks ──
   useTypewriter(messages, typewriterEnabled, typingProgress, setTypingProgress);
@@ -85,27 +85,34 @@ export function ChatWindow({ sessionId, sessionTitle }: ChatWindowProps) {
         setMessages(msgs);
         const fullProgress: Record<string, number> = {};
         const simMap: Record<string, SimilarQuestion[]> = {};
-        const genMap: Record<string, ExamQuestion> = {};
-        const ansMap: Record<string, number> = {};
-        const expMap: Record<string, boolean> = {};
+        const genMap: Record<string, ExamQuestion[]> = {};
+        const ansMap: Record<string, Record<number, number>> = {};
+        const expMap: Record<string, Record<number, boolean>> = {};
         msgs.forEach((m) => {
           fullProgress[m.id] = m.message.length;
           if (m.similarQuestions) {
             if (Array.isArray(m.similarQuestions) && m.similarQuestions.length > 0) {
               if (m.similarQuestions[0]?.question_stem) {
-                genMap[m.id] = convertToExamQuestion(m.similarQuestions[0]);
-                if (m.similarQuestions[0]?.userAnswer) {
-                  ansMap[m.id] = m.similarQuestions[0].userAnswer;
-                  expMap[m.id] = true;
-                }
+                // 문제 생성 결과 배열
+                genMap[m.id] = m.similarQuestions.map((q: any) => convertToExamQuestion(q));
+                m.similarQuestions.forEach((q: any, i: number) => {
+                  if (q.userAnswer) {
+                    if (!ansMap[m.id]) ansMap[m.id] = {};
+                    if (!expMap[m.id]) expMap[m.id] = {};
+                    ansMap[m.id][i] = q.userAnswer;
+                    expMap[m.id][i] = true;
+                  }
+                });
               } else {
                 simMap[m.id] = m.similarQuestions;
               }
             } else if (!Array.isArray(m.similarQuestions) && m.similarQuestions.question_stem) {
-              genMap[m.id] = convertToExamQuestion(m.similarQuestions);
+              genMap[m.id] = [convertToExamQuestion(m.similarQuestions)];
               if (m.similarQuestions.userAnswer) {
-                ansMap[m.id] = m.similarQuestions.userAnswer;
-                expMap[m.id] = true;
+                if (!ansMap[m.id]) ansMap[m.id] = {};
+                if (!expMap[m.id]) expMap[m.id] = {};
+                ansMap[m.id][0] = m.similarQuestions.userAnswer;
+                expMap[m.id][0] = true;
               }
             }
           }
@@ -174,9 +181,13 @@ export function ChatWindow({ sessionId, sessionTitle }: ChatWindowProps) {
       ]);
       setTypingProgress((prev) => ({ ...prev, [data.aiMessage.id]: 0 }));
       if ((data as any).generatedQuestion) {
+        const raw = (data as any).generatedQuestion;
+        const questionList = Array.isArray(raw)
+          ? raw.map((q: any) => convertToExamQuestion(q))
+          : [convertToExamQuestion(raw)];
         setGeneratedQuestions((prev) => ({
           ...prev,
-          [data.aiMessage.id]: convertToExamQuestion((data as any).generatedQuestion),
+          [data.aiMessage.id]: questionList,
         }));
       }
     } catch (err: any) {
@@ -286,17 +297,26 @@ export function ChatWindow({ sessionId, sessionTitle }: ChatWindowProps) {
                 </HStack>
 
                 {msg.sender === 'AI' && generatedQuestions[msg.id] && (
-                  <GeneratedQuestionCard
-                    question={generatedQuestions[msg.id]}
-                    messageId={msg.id}
-                    selectedAnswer={selectedAnswers[msg.id]}
-                    showExplanation={showExplanations[msg.id]}
-                    onSelectAnswer={(optionNumber) => {
-                      setSelectedAnswers((prev) => ({ ...prev, [msg.id]: optionNumber }));
-                      setShowExplanations((prev) => ({ ...prev, [msg.id]: true }));
-                      saveAnswerToServer(msg.id, optionNumber);
-                    }}
-                  />
+                  generatedQuestions[msg.id].map((question, qIdx) => (
+                    <GeneratedQuestionCard
+                      key={`${msg.id}-q${qIdx}`}
+                      question={question}
+                      messageId={`${msg.id}-q${qIdx}`}
+                      selectedAnswer={selectedAnswers[msg.id]?.[qIdx]}
+                      showExplanation={showExplanations[msg.id]?.[qIdx]}
+                      onSelectAnswer={(optionNumber) => {
+                        setSelectedAnswers((prev) => ({
+                          ...prev,
+                          [msg.id]: { ...prev[msg.id], [qIdx]: optionNumber },
+                        }));
+                        setShowExplanations((prev) => ({
+                          ...prev,
+                          [msg.id]: { ...prev[msg.id], [qIdx]: true },
+                        }));
+                        saveAnswerToServer(msg.id, optionNumber);
+                      }}
+                    />
+                  ))
                 )}
 
                 {msg.sender === 'AI' && similarQuestionsMap[msg.id]?.length > 0 && (

@@ -353,6 +353,7 @@ ${extracted.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
     startUnit?: number,
     endUnit?: number,
     conversationHistory?: ChatMessage[],
+    count: number = 1,
   ): Promise<string> {
     try {
     // ── 유닛 및 대화 컨텍스트 추출 ──
@@ -454,18 +455,43 @@ ${extracted.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
       `- 왜 정답인지, 각 오답이 왜 틀렸는지 간결하게 설명하세요.`,
       `- "이 문제는 ~개념을 묻는 문제입니다"로 시작하세요.`,
       ``,
-      `## 출력 형식 (JSON ONLY, 코드블럭 없이 순수 JSON)`,
-      `{`,
-      `  "question_stem": "question text without mentioning the concept name",`,
-      `  "stimulus": "case study or passage, empty string if none",`,
-      `  "combo_title": "title for combo block, empty if none",`,
-      `  "combo_items": [{"key": "ㄱ", "text": "item text"}],`,
-      `  "options": ["(1) option1", "(2) option2", "(3) option3", "(4) option4", "(5) option5"],`,
-      `  "correct_answer": 3,`,
-      `  "explanation": "This question tests the concept of X. explain why correct, why each wrong answer is wrong",`,
-      `  "target_concept": "the core concept name being tested",`,
-      `  "difficulty": "하 or 중 or 상"`,
-      `}`,
+      ...(count > 1
+        ? [
+            `## 중요: ${count}개 문제 생성`,
+            `- 서로 다른 개념/주제를 테스트하는 ${count}개의 문제를 생성하세요.`,
+            `- 각 문제는 교과 내용의 다른 부분에서 출제해야 합니다.`,
+            `- 난이도(하/중/상)가 골고루 분포되도록 하세요.`,
+            `- 문제 유형도 다양하게(단순 지식, 사례 적용, 개념 비교 등) 구성하세요.`,
+            ``,
+            `## 출력 형식 (JSON ONLY, 코드블럭 없이 순수 JSON 배열)`,
+            `[`,
+            `  {`,
+            `    "question_stem": "question text without mentioning the concept name",`,
+            `    "stimulus": "case study or passage, empty string if none",`,
+            `    "combo_title": "title for combo block, empty if none",`,
+            `    "combo_items": [{"key": "ㄱ", "text": "item text"}],`,
+            `    "options": ["(1) option1", "(2) option2", "(3) option3", "(4) option4", "(5) option5"],`,
+            `    "correct_answer": 3,`,
+            `    "explanation": "This question tests the concept of X. ...",`,
+            `    "target_concept": "the core concept name being tested",`,
+            `    "difficulty": "하 or 중 or 상"`,
+            `  }`,
+            `]`,
+          ]
+        : [
+            `## 출력 형식 (JSON ONLY, 코드블럭 없이 순수 JSON)`,
+            `{`,
+            `  "question_stem": "question text without mentioning the concept name",`,
+            `  "stimulus": "case study or passage, empty string if none",`,
+            `  "combo_title": "title for combo block, empty if none",`,
+            `  "combo_items": [{"key": "ㄱ", "text": "item text"}],`,
+            `  "options": ["(1) option1", "(2) option2", "(3) option3", "(4) option4", "(5) option5"],`,
+            `  "correct_answer": 3,`,
+            `  "explanation": "This question tests the concept of X. explain why correct, why each wrong answer is wrong",`,
+            `  "target_concept": "the core concept name being tested",`,
+            `  "difficulty": "하 or 중 or 상"`,
+            `}`,
+          ]),
     ].join('\n');
 
     this.logger.log('generateExamQuestion: calling OpenAI');

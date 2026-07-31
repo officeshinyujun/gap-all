@@ -114,6 +114,7 @@ export function parseReference(
       tplStimulusData: isRecord(value.tplStimulusData)
         ? value.tplStimulusData
         : undefined,
+      explanation: nonEmptyText(value.explanation) ?? undefined,
     },
   };
 }

@@ -149,6 +149,14 @@ export class ChatService {
       throw new ForbiddenException('접근 권한이 없습니다.');
     }
 
+    // ── 이전 대화 히스토리 조회 (현재 메시지 저장 전에 — 이전 대화만 포함)
+    const history = await this.messageRepo.find({
+      where: { chatSessionId: sessionId },
+      order: { createdAt: 'DESC' },
+      take: 10,
+    });
+    history.reverse();
+
     // 유저 메시지 저장
     const userMessage = await this.messageRepo.save(
       this.messageRepo.create({
@@ -161,15 +169,23 @@ export class ChatService {
     let aiText: string;
     let generatedQuestion: any = undefined;
 
-    if (dto.mode === 'generate') {
+    // ── 문제 생성 의도 감지 (채팅 모드에서도 "N문제 생성/출제해줘" 감지)
+    const questionGenCountMatch = dto.message.match(
+      /(\d+)\s*(?:문제|개)\s*(?:만들|생성|출제|내줘|줘|내|풀어)/,
+    );
+    const isQuestionGenRequest =
+      questionGenCountMatch ||
+      /(?:문제|문제들?)\s*(?:여러|많이|몇\s*개|만들|생성|출제|내줘|줘|내|풀어|좀)/.test(
+        dto.message,
+      );
+    const effectiveMode =
+      isQuestionGenRequest ? 'generate' : (dto.mode ?? 'chat');
+    const questionCount = questionGenCountMatch
+      ? Math.min(parseInt(questionGenCountMatch[1], 10), 5)
+      : 1;
+
+    if (effectiveMode === 'generate') {
       // ── AI 문제 생성 모드 ──
-      // 대화 이력을 가져와서 컨텍스트로 전달 (사용자가 "이에 대한 문제"라고 했을 때 참조)
-      const history = await this.messageRepo.find({
-        where: { chatSessionId: sessionId },
-        order: { createdAt: 'DESC' },
-        take: 10,
-      });
-      history.reverse();
 
       let rawJson: string;
       try {
@@ -180,6 +196,7 @@ export class ChatService {
           session.startUnit ?? undefined,
           session.endUnit ?? undefined,
           history,
+          questionCount,
         );
       } catch (err: any) {
         aiText = `문제 생성 중 오류가 발생했어요.\n\n(${err?.message ?? '알 수 없는 오류'})`;
@@ -203,29 +220,55 @@ export class ChatService {
         return { userMessage, aiMessage };
       }
 
-      generatedQuestion = {
-        question_stem: parsed.question_stem ?? '',
-        stimulus: parsed.stimulus ?? '',
-        combo_title: parsed.combo_title ?? '',
-        combo_items: parsed.combo_items ?? [],
-        options: parsed.options ?? [],
-        correct_answer: parsed.correct_answer ?? null,
-        explanation: parsed.explanation ?? '',
-        target_concept: parsed.target_concept ?? '',
-        difficulty: parsed.difficulty ?? '중',
-      };
+      // 배열/단일 객체 모두 정규화
+      const questions = Array.isArray(parsed) ? parsed : [parsed];
 
-      // 개념명은 설명에만 노출, 텍스트 말풍선은 짧게
-      aiText = `📝 이 문제를 풀어보세요.\n\n(출제 의도와 해설은 정답 선택 후 확인할 수 있어요)`;
+      if (questions.length === 0) {
+        aiText = `문제를 생성하지 못했어요. 다시 시도해주세요.`;
+        const aiMessage = await this.messageRepo.save(
+          this.messageRepo.create({ chatSessionId: sessionId, sender: ChatSender.AI, message: aiText }),
+        );
+        return { userMessage, aiMessage };
+      }
+
+      if (questions.length === 1) {
+        const q = questions[0];
+        generatedQuestion = {
+          question_stem: q.question_stem ?? '',
+          stimulus: q.stimulus ?? '',
+          combo_title: q.combo_title ?? '',
+          combo_items: q.combo_items ?? [],
+          options: q.options ?? [],
+          correct_answer: q.correct_answer ?? null,
+          explanation: q.explanation ?? '',
+          target_concept: q.target_concept ?? '',
+          difficulty: q.difficulty ?? '중',
+        };
+        aiText = `📝 이 문제를 풀어보세요.\n\n(출제 의도와 해설은 정답 선택 후 확인할 수 있어요)`;
+      } else {
+        // 여러 문제: 정규화해서 배열로 저장
+        generatedQuestion = questions.map((q: any) => ({
+          question_stem: q.question_stem ?? '',
+          stimulus: q.stimulus ?? '',
+          combo_title: q.combo_title ?? '',
+          combo_items: q.combo_items ?? [],
+          options: q.options ?? [],
+          correct_answer: q.correct_answer ?? null,
+          explanation: q.explanation ?? '',
+          target_concept: q.target_concept ?? '',
+          difficulty: q.difficulty ?? '중',
+        }));
+        const concepts = generatedQuestion
+          .map((q: any) => q.target_concept)
+          .filter(Boolean);
+        const conceptLine =
+          concepts.length > 0
+            ? `\n다루는 개념: ${concepts.join(', ')}`
+            : '';
+        aiText = `📝 ${generatedQuestion.length}개의 문제를 생성했어요!${conceptLine}\n\n각 문제를 차례로 풀어보세요. 정답 선택 후 해설을 확인할 수 있어요.`;
+      }
     } else {
       // ── 일반 채팅 모드 ──
-      const history = await this.messageRepo.find({
-        where: { chatSessionId: sessionId },
-        order: { createdAt: 'DESC' },
-        take: 10,
-      });
-      history.reverse();
-
       aiText = await this.chatAiService.getResponse(
         session.subject!.slug,
         session.subject!.title,

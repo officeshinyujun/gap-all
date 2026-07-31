@@ -17,8 +17,6 @@ import {
   IncorrectSource,
 } from '../entities/incorrect-record.entity';
 import { FlaggedQuestion } from '../entities/flagged-question.entity';
-import { ExamGeneratorService } from './exam-generator.service';
-import { ReferenceFrameGenerationService } from './reference-frame-generation.service';
 import {
   SimplyReferenceGenerationService,
   simplyReferenceFingerprint,
@@ -36,7 +34,6 @@ import { NotificationsService } from '../notifications/notifications.service';
 import { NotificationType } from '../entities/notification.entity';
 import type { ExamGenerationProgressReporter } from './exam-generation.utils';
 import { Question } from '../entities/question.entity';
-import { ReferenceFrameCache } from '../entities/reference-frame-cache.entity';
 import { Unit } from '../entities/unit.entity';
 import {
   ReferenceJobDeadline,
@@ -229,8 +226,6 @@ export class ExamsService {
     private readonly incorrectRecordRepo: Repository<IncorrectRecord>,
     @InjectRepository(FlaggedQuestion)
     private readonly flaggedQuestionRepo: Repository<FlaggedQuestion>,
-    private readonly examGeneratorService: ExamGeneratorService,
-    private readonly referenceFrameGenerationService: ReferenceFrameGenerationService,
     private readonly simplyReferenceGenerationService: SimplyReferenceGenerationService,
     private readonly textbookService: TextbookService,
     private readonly examGenerationJobsService: ExamGenerationJobsService,
@@ -281,73 +276,18 @@ export class ExamsService {
 
     this.examGenerationCooldownService.reserve(userId);
 
-    if (dto.sourceType === 'simply_reference') {
-      try {
-        return await this.createSimplyReferenceExam(
-          userId,
-          dto,
-          subject.title,
-          subject.slug,
-        );
-      } catch (error) {
-        throw synchronousReferenceFailure(error);
-      }
-    }
-
-    if (dto.sourceType !== 'ai') {
-      try {
-        return await this.createReferenceFrameExam(
-          userId,
-          dto,
-          subject.title,
-          subject.slug,
-        );
-      } catch (error) {
-        throw synchronousReferenceFailure(error);
-      }
-    }
-
-    const questions = await this.examGeneratorService.generate(
-      dto.subjectId,
-      subject.slug,
-      dto.startUnitNum,
-      dto.endUnitNum,
-      dto.difficulty,
-      dto.questionCount,
-      dto.customPrompt,
-      dto.targetConcepts,
-      undefined,
-      userId,
-      dto.excludePrevious,
-    );
-
-    const title = `${subject.title} ${dto.startUnitNum}~${dto.endUnitNum}단원 (${dto.difficulty})`;
-    const exam = await this.examRepo.manager.transaction(async (manager) => {
-      const savedExam = await manager.save(
-        this.examRepo.create({
-          userId,
-          subjectId: dto.subjectId,
-          title,
-          startUnitNum: dto.startUnitNum,
-          endUnitNum: dto.endUnitNum,
-          difficulty: dto.difficulty,
-          questionCount: questions.length,
-          customPrompt: dto.customPrompt ?? null,
-          sourceType: ExamSourceType.AI,
-        }),
+    // All exam generation now goes through simply_reference (source-preserving).
+    // Legacy ai and reference_frame paths are retired.
+    try {
+      return await this.createSimplyReferenceExam(
+        userId,
+        dto,
+        subject.title,
+        subject.slug,
       );
-      const items = questions.map((q, idx) =>
-        this.examItemRepo.create({
-          examId: savedExam.id,
-          questionId: q.id,
-          orderIndex: idx + 1,
-        }),
-      );
-      await manager.save(items);
-      return savedExam;
-    });
-
-    return this.findOne(userId, exam.id);
+    } catch (error) {
+      throw synchronousReferenceFailure(error);
+    }
   }
 
   async createJob(userId: string, dto: CreateExamDto) {
@@ -678,129 +618,6 @@ export class ExamsService {
     }
   }
 
-  private async createReferenceFrameExam(
-    userId: string,
-    dto: CreateExamDto,
-    subjectTitle: string,
-    subjectSlug: string,
-    reportProgress?: ExamGenerationProgressReporter,
-    deadline?: ReferenceJobDeadline,
-  ) {
-    const drafts = await this.referenceFrameGenerationService.generate(
-      subjectSlug,
-      dto.startUnitNum,
-      dto.endUnitNum,
-      dto.difficulty,
-      dto.questionCount,
-      dto.targetConcepts,
-      dto.referenceSourceIds,
-      {
-        ...(deadline === undefined ? {} : { deadline }),
-        ...(reportProgress === undefined ? {} : { reportProgress }),
-      },
-    );
-    if (drafts.length !== dto.questionCount) {
-      throw new InternalServerErrorException({
-        code: 'REFERENCE_GENERATION_SHORTFALL',
-        requestedCount: dto.questionCount,
-        generatedCount: drafts.length,
-        stageCounts: { source: 0, planner: 0, fidelity: 0 },
-      });
-    }
-
-    const title = `${subjectTitle} ${dto.startUnitNum}~${dto.endUnitNum}단원 (${dto.difficulty})`;
-    const exam = await this.examRepo.manager.transaction(async (manager) => {
-      const questionRepo = manager.getRepository(Question);
-      const unitRepo = manager.getRepository(Unit);
-      const cacheMutations = drafts.flatMap((draft) =>
-        draft.cacheMutation === undefined ? [] : [draft.cacheMutation],
-      );
-      const questions: Question[] = [];
-      for (const draft of drafts) {
-        const unitNumber =
-          Number.parseInt(
-            draft.result.metadata.unit_name.replace(/[^0-9]/g, ''),
-            10,
-          ) || dto.startUnitNum;
-        let unit = await unitRepo.findOne({
-          where: { subjectId: dto.subjectId, unitNumber },
-        });
-        if (unit === null) {
-          unit = await unitRepo.save(
-            unitRepo.create({
-              subjectId: dto.subjectId,
-              unitNumber,
-              title: draft.result.metadata.unit_name,
-            }),
-          );
-        }
-        questions.push(
-          await questionRepo.save(
-            questionRepo.create({
-              subjectId: dto.subjectId,
-              unitId: unit.id,
-              targetConcept: draft.result.metadata.target_concept,
-              itemType: draft.result.metadata.item_type,
-              difficulty: draft.result.metadata.difficulty,
-              recommendedTemplate: draft.result.metadata.recommended_template,
-              questionStem: draft.result.render_ready.question_stem,
-              stimulusData: draft.result.render_ready.stimulus_data,
-              optionsList: [...draft.result.render_ready.options_list],
-              comboBlock:
-                draft.result.render_ready.combo_block === null
-                  ? null
-                  : {
-                      title: draft.result.render_ready.combo_block.title,
-                      items: [...draft.result.render_ready.combo_block.items],
-                    },
-              explanation: draft.result.explanation,
-              correctAnswer: draft.result.correct_answer,
-              setGroupId: null,
-              setPosition: null,
-              generationLineage: draft.lineage,
-            }),
-          ),
-        );
-      }
-      const savedExam = await manager.save(
-        this.examRepo.create({
-          userId,
-          subjectId: dto.subjectId,
-          title,
-          startUnitNum: dto.startUnitNum,
-          endUnitNum: dto.endUnitNum,
-          difficulty: dto.difficulty,
-          questionCount: questions.length,
-          customPrompt: dto.customPrompt ?? null,
-          sourceType: ExamSourceType.REFERENCE,
-        }),
-      );
-      if (cacheMutations.length > 0) {
-        const frameCacheRepo = manager.getRepository(ReferenceFrameCache);
-        for (const cacheMutation of cacheMutations) {
-          await frameCacheRepo.save(cacheMutation);
-        }
-      }
-      await manager.save(
-        questions.map((question, index) =>
-          this.examItemRepo.create({
-            examId: savedExam.id,
-            questionId: question.id,
-            orderIndex: index + 1,
-          }),
-        ),
-      );
-      return savedExam;
-    });
-    await reportProgress?.({
-      stage: 'saving',
-      progress: 100,
-      status: 'success',
-      message: '참조 프레임 문항 저장 완료',
-    });
-    return this.findOne(userId, exam.id);
-  }
-
   private async createSimplyReferenceExam(
     userId: string,
     dto: CreateExamDto,
@@ -987,69 +804,14 @@ export class ExamsService {
     });
     if (!subject) throw new NotFoundException('과목을 찾을 수 없습니다.');
 
-    if (dto.sourceType === 'simply_reference') {
-      return this.createSimplyReferenceExam(
-        userId,
-        dto,
-        subject.title,
-        subject.slug,
-        reportProgress,
-        deadline,
-      );
-    }
-
-    if (dto.sourceType !== 'ai') {
-      return this.createReferenceFrameExam(
-        userId,
-        dto,
-        subject.title,
-        subject.slug,
-        reportProgress,
-        deadline,
-      );
-    }
-
-    const questions = await this.examGeneratorService.generate(
-      dto.subjectId,
-      subject.slug,
-      dto.startUnitNum,
-      dto.endUnitNum,
-      dto.difficulty,
-      dto.questionCount,
-      dto.customPrompt,
-      dto.targetConcepts,
-      reportProgress,
+    return this.createSimplyReferenceExam(
       userId,
-      dto.excludePrevious,
+      dto,
+      subject.title,
+      subject.slug,
+      reportProgress,
+      deadline,
     );
-
-    const title = `${subject.title} ${dto.startUnitNum}~${dto.endUnitNum}단원 (${dto.difficulty})`;
-    const exam = await this.examRepo.manager.transaction(async (manager) => {
-      const savedExam = await manager.save(
-        this.examRepo.create({
-          userId,
-          subjectId: dto.subjectId,
-          title,
-          startUnitNum: dto.startUnitNum,
-          endUnitNum: dto.endUnitNum,
-          difficulty: dto.difficulty,
-          questionCount: questions.length,
-          customPrompt: dto.customPrompt ?? null,
-          sourceType: ExamSourceType.AI,
-        }),
-      );
-      const items = questions.map((q, idx) =>
-        this.examItemRepo.create({
-          examId: savedExam.id,
-          questionId: q.id,
-          orderIndex: idx + 1,
-        }),
-      );
-      await manager.save(items);
-      return savedExam;
-    });
-
-    return this.findOne(userId, exam.id);
   }
 
   async flagItem(

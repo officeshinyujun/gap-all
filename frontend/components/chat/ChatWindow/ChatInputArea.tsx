@@ -80,13 +80,14 @@ export function ChatInputArea({
             {/* + 버튼 + 툴 팝업 */}
             <div className={s.toolGroup}>
               <div className={`${s.toolPopup} ${mobileToolsOpen ? s.toolPopupOpen : ''}`}>
-                <button className={s.toolBtn} onClick={() => fileInputRef.current?.click()} disabled={loading}>
+                <button className={s.toolBtn} onClick={() => fileInputRef.current?.click()} disabled={loading} data-tooltip="이미지로 질문하기">
                   <Paperclip size={16} />
                 </button>
                 <button
                   className={`${s.toolBtn} ${typewriterEnabled ? s.toolActive : ''}`}
                   onClick={onToggleTypewriter}
                   disabled={loading}
+                  data-tooltip={typewriterEnabled ? '타자기 효과 끄기' : '타자기 효과 켜기'}
                 >
                   <Type size={16} />
                 </button>
@@ -94,6 +95,7 @@ export function ChatInputArea({
                   className={`${s.toolBtn} ${generateMode ? s.toolActive : ''}`}
                   onClick={onToggleGenerateMode}
                   disabled={loading}
+                  data-tooltip={generateMode ? '일반 채팅 모드' : '문제 생성 모드'}
                 >
                   <FileQuestion size={16} />
                 </button>

@@ -70,6 +70,8 @@ export type NormalizedSourceReference = SelectedParsedReference &
     targetConcepts: readonly [string];
     /** Pre-computed TPL stimulus data from LLM conversion cache. */
     tplStimulusData?: Record<string, unknown>;
+    /** Official explanation from answer key / 해설 PDF. */
+    explanation?: string;
   }>;
 
 export type ReferenceSelectorShortfall = Readonly<{

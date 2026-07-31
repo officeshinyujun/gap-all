@@ -84,9 +84,18 @@ function viewKeys(viewItems: readonly string[]): readonly string[] | null {
 export function isReferenceCombinationChoiceSet(
   choices: readonly string[],
 ): boolean {
-  return choices.every((choice) =>
-    COMBINATION_CHOICE_PATTERN.test(choice.replaceAll(PARENTHESIZED_LABEL, '')),
-  );
+  return choices.every((choice) => {
+    const stripped = choice.replaceAll(PARENTHESIZED_LABEL, '');
+    return (
+      COMBINATION_CHOICE_PATTERN.test(stripped) ||
+      // ordering/sequence format: ① ㄱ-ㄴ-ㄷ-ㄹ
+      /^\s*[①②③④⑤]\s*[ㄱ-ㅎ](?:\s*-\s*[ㄱ-ㅎ])+\s*$/.test(stripped) ||
+      // label-value pair format: ① (가): ㄱ, (나): ㄴ or ① (가) - ㄱ, (나) - ㄴ
+      /^\s*[①②③④⑤]\s*[(（][가-힣]+[）)]\s*[-:]\s*[ㄱ-ㅎ](?:\s*,\s*[(（][가-힣]+[）)]\s*[-:]\s*[ㄱ-ㅎ])*\s*$/.test(
+        choice,
+      )
+    );
+  });
 }
 
 function hasLetterChoices(choices: readonly string[]): boolean {
