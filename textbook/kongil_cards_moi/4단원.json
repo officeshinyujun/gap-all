@@ -33,7 +33,7 @@
         "questionData": {
           "number": 0,
           "source_exam": "수능특강",
-          "stimulus": "",
+          "stimulus": "첨단 신소재의 구조적 특징과 활용 분야에 대해 발표해 봅시다.\n\n신소재 | 구조적 특징\n그래핀 | 탄소 원자 6개가 육각형, 원자 1개 두께의 2차원 평면 구조\n탄소 나노 튜브 | 그래핀을 동그랗게 말아 놓은 원통형 구조\n형상 기억 합금 | 일정 온도에서 원래 형태로 복원\n초전도체 | 극저온에서 전기 저항이 0",
           "stem": "다음은 첨단 신소재에 대한 수업 장면이다. 교사의 질문에 대해 옳게 답한 학생만을 있는 대로 고른 것은?",
           "box_items": [],
           "options": [
@@ -108,7 +108,8 @@
             "recommended_template": "TPL_INSTRUCTIONAL_SCENE",
             "source_exam": "수능특강",
             "question_number": 0
-          }
+          },
+          "rawStimulus": "첨단 신소재의 구조적 특징과 활용 분야에 대해 발표해 봅시다.\n\n신소재 | 구조적 특징\n그래핀 | 탄소 원자 6개가 육각형, 원자 1개 두께의 2차원 평면 구조\n탄소 나노 튜브 | 그래핀을 동그랗게 말아 놓은 원통형 구조\n형상 기억 합금 | 일정 온도에서 원래 형태로 복원\n초전도체 | 극저온에서 전기 저항이 0"
         },
         "conceptUsage": "첨단 신소재의 구조적 특징과 활용 사례를 판단하는 문제",
         "conceptHighlight": {
@@ -139,7 +140,7 @@
             },
             {
               "optionNum": 2,
-              "verdict": "O",
+              "verdict": "X",
               "reasoning": "갑과 병의 발언은 각각 그래핀의 전도성 및 형상 기억 합금의 활용을 정확히 설명하였다."
             },
             {
@@ -233,7 +234,7 @@
         "questionData": {
           "number": 0,
           "source_exam": "수능특강",
-          "stimulus": "",
+          "stimulus": "다음 사례에 적용된 첨단 기술의 종류를 말해 봅시다.\n\n\n",
           "stem": "다음은 첨단 기술 분류에 대한 수업 장면이다. (가)~(다)에 해당하는 기술로 옳은 것은?",
           "box_items": [],
           "options": [
@@ -274,7 +275,8 @@
             "recommended_template": "TPL_INSTRUCTIONAL_SCENE",
             "source_exam": "수능특강",
             "question_number": 0
-          }
+          },
+          "rawStimulus": "다음 사례에 적용된 첨단 기술의 종류를 말해 봅시다.\n\n\n"
         },
         "conceptUsage": "6T 첨단 기술의 종류와 융합 사례를 판단하는 문제",
         "conceptHighlight": {
@@ -402,7 +404,7 @@
         "questionData": {
           "number": 0,
           "source_exam": "수능특강",
-          "stimulus": "",
+          "stimulus": "신에너지와 재생에너지를 구분하여 발표해 봅시다.\n\n구분 | 에너지원\n신에너지 | 수소 에너지, 연료 전지, 석탄 액화·가스화\n재생에너지 | 태양광, 태양열, 풍력, 수력, 지열, 바이오매스, 해양 에너지",
           "stem": "다음은 신·재생 에너지에 대한 수업 장면이다. 교사의 질문에 대해 옳게 답한 학생만을 있는 대로 고른 것은?",
           "box_items": [],
           "options": [
@@ -469,7 +471,8 @@
             "recommended_template": "TPL_INSTRUCTIONAL_SCENE",
             "source_exam": "수능특강",
             "question_number": 0
-          }
+          },
+          "rawStimulus": "신에너지와 재생에너지를 구분하여 발표해 봅시다.\n\n구분 | 에너지원\n신에너지 | 수소 에너지, 연료 전지, 석탄 액화·가스화\n재생에너지 | 태양광, 태양열, 풍력, 수력, 지열, 바이오매스, 해양 에너지"
         },
         "conceptUsage": "신에너지와 재생에너지를 구분하고 각 에너지원의 특성을 판단하는 문제",
         "conceptHighlight": {
@@ -595,7 +598,7 @@
         "questionData": {
           "number": 0,
           "source_exam": "수능특강",
-          "stimulus": "",
+          "stimulus": "국내 기술·제품 인증 제도에 대해 설명하겠습니다.\n\n\n",
           "stem": "다음은 인증 제도에 대한 수업 장면이다. (가), (나)에 해당하는 인증으로 옳은 것은?",
           "box_items": [],
           "options": [
@@ -636,7 +639,8 @@
             "recommended_template": "TPL_INSTRUCTIONAL_SCENE",
             "source_exam": "수능특강",
             "question_number": 0
-          }
+          },
+          "rawStimulus": "국내 기술·제품 인증 제도에 대해 설명하겠습니다.\n\n\n"
         },
         "conceptUsage": "NET(신기술 인증)과 NEP(신제품 인증)의 차이를 구분하는 문제",
         "conceptHighlight": {
@@ -758,7 +762,7 @@
         "questionData": {
           "number": 0,
           "source_exam": "수능특강",
-          "stimulus": "",
+          "stimulus": "실감 영상 기술의 종류와 차이점을 설명하겠습니다.\n\n기술 | 특징 | 활용 사례\n(가) | 컴퓨터를 통해 가상 공간에서 실제처럼 보이게 하는 기술 | VR 어트랙션, VR 패션쇼\n(나) | 현실 이미지에 3차원 가상 이미지를 겹쳐 보여주는 기술 | 포켓몬 GO, 가구 배치 앱",
           "stem": "다음은 실감 영상 기술에 대한 수업 장면이다. (가), (나)에 대한 설명으로 옳은 것은?",
           "box_items": [],
           "options": [
@@ -811,7 +815,8 @@
             "recommended_template": "TPL_INSTRUCTIONAL_SCENE",
             "source_exam": "수능특강",
             "question_number": 0
-          }
+          },
+          "rawStimulus": "실감 영상 기술의 종류와 차이점을 설명하겠습니다.\n\n기술 | 특징 | 활용 사례\n(가) | 컴퓨터를 통해 가상 공간에서 실제처럼 보이게 하는 기술 | VR 어트랙션, VR 패션쇼\n(나) | 현실 이미지에 3차원 가상 이미지를 겹쳐 보여주는 기술 | 포켓몬 GO, 가구 배치 앱"
         },
         "conceptUsage": "가상 현실(VR)과 증강 현실(AR)의 차이를 구분하고 활용 사례를 판단하는 문제",
         "conceptHighlight": {
@@ -933,7 +938,7 @@
         "questionData": {
           "number": 0,
           "source_exam": "수능특강",
-          "stimulus": "",
+          "stimulus": "4차 산업 혁명의 핵심인 스마트 팩토리에 대해 알아봅시다.\n\n\n\n",
           "stem": "다음은 스마트 팩토리에 대한 수업 장면이다. 이에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
           "box_items": [],
           "options": [
@@ -988,7 +993,8 @@
             "recommended_template": "TPL_INSTRUCTIONAL_SCENE",
             "source_exam": "수능특강",
             "question_number": 0
-          }
+          },
+          "rawStimulus": "4차 산업 혁명의 핵심인 스마트 팩토리에 대해 알아봅시다.\n\n\n\n"
         },
         "conceptUsage": "IoT 기술의 원리와 스마트 팩토리 적용 사례를 판단하는 문제",
         "conceptHighlight": {
@@ -999,60 +1005,56 @@
         "conceptHighlightV2": {
           "stimulusClues": [
             {
-              "quote": "IoT 센서로 설비 상태를 실시간 모니터링",
-              "why": "이 부분에서 IoT 기술이 스마트 팩토리에서 실시간 모니터링에 활용됨을 확인할 수 있기 때문"
-            },
-            {
-              "quote": "스마트 팩토리는 IoT, AI, 빅 데이터 등을 융합한 지능형 공장입니다.",
-              "why": "이 부분에서 스마트 팩토리가 IoT와 관련된 기술들을 융합하여 운영됨을 확인할 수 있기 때문"
+              "quote": "4차 산업 혁명의 핵심인 스마트 팩토리에 대해 알아봅시다.",
+              "why": "스마트 팩토리가 4차 산업 혁명의 핵심임을 확인할 수 있기 때문"
             }
           ],
           "optionAnalysis": [
             {
               "optionNum": 1,
               "verdict": "X",
-              "reasoning": "ㄴ은 '스마트 팩토리는 1차 산업 혁명의 핵심 기술입니다'로 잘못된 설명이므로 X이다."
+              "reasoning": "오답"
             },
             {
               "optionNum": 2,
               "verdict": "O",
-              "reasoning": "ㄱ은 IoT의 정의에 부합하고, ㄷ은 스마트 팩토리의 정의에 부합하므로 O이다."
+              "reasoning": "정답 2번"
             },
             {
               "optionNum": 3,
               "verdict": "X",
-              "reasoning": "ㄴ은 잘못된 설명이므로 X이다."
+              "reasoning": "오답"
             },
             {
               "optionNum": 4,
               "verdict": "X",
-              "reasoning": "ㄴ이 잘못된 설명이므로 X이다."
+              "reasoning": "오답"
             },
             {
               "optionNum": 5,
               "verdict": "X",
-              "reasoning": "ㄴ이 잘못된 설명이므로 X이다."
+              "reasoning": "오답"
             }
           ],
           "solvingFlow": [
             {
               "step": 1,
-              "action": "지문에서 IoT와 스마트 팩토리의 정의와 적용 사례를 확인한다."
+              "action": "지문에서 스마트 팩토리가 4차 산업 혁명의 핵심임을 확인한다"
             },
             {
               "step": 2,
-              "action": "각 학생의 발언에서 옳고 그름을 판단한다."
+              "action": "스마트 팩토리에 IoT 기술이 어떻게 적용되는지 떠올린다"
             },
             {
               "step": 3,
-              "action": "선지를 대조하여 옳은 조합을 찾는다."
+              "action": "각 선지의 설명이 스마트 팩토리의 정의와 일치하는지 판단한다"
             },
             {
               "step": 4,
-              "action": "정답을 확정한다."
+              "action": "선지를 대조하여 정답을 확정한다"
             }
           ],
-          "takeaway": "이 개념을 알면 IoT와 스마트 팩토리의 정의와 적용 사례를 정확히 구분할 수 있다."
+          "takeaway": "IoT와 스마트 팩토리의 관계를 이해하면 스마트 팩토리 관련 문제에서 적절한 설명을 구분할 수 있다."
         }
       },
       "caution": "센서로 실시간 모니터링 → IoT 기술 적용; 4차 산업 혁명의 핵심 기술; 스마트 팩토리 = IoT + AI + 빅 데이터 융합",

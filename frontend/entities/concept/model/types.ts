@@ -11,10 +11,15 @@ export interface FrequencyConcept {
 
 export interface ConceptHighlightV2 {
   stimulusClues: { quote: string; why: string }[];
-  optionAnalysis: { optionNum: number; verdict: string; reasoning: string }[];
+  optionAnalysis: OptionAnalysisItem[];
   solvingFlow: { step: number; action: string }[];
   takeaway: string;
 }
+
+/** 합답형(보기 ㄱㄴㄷ)은 optionKey, 일반형(①~⑤)은 optionNum 사용 */
+export type OptionAnalysisItem =
+  | { optionNum: number; verdict: string; reasoning: string }
+  | { optionKey: string; verdict: string; reasoning: string };
 
 export interface FrequencyConceptItem {
   rank: number;

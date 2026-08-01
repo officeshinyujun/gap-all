@@ -30,7 +30,7 @@ export interface FrequencyConcept {
 
 export interface ConceptHighlightV2 {
   stimulusClues: { quote: string; why: string }[];
-  optionAnalysis: { optionNum: number; verdict: string; reasoning: string }[];
+  optionAnalysis: ({ optionNum: number; verdict: string; reasoning: string } | { optionKey: string; verdict: string; reasoning: string })[];
   solvingFlow: { step: number; action: string }[];
   takeaway: string;
 }

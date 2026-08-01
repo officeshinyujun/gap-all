@@ -27,7 +27,17 @@ async function apiFetch<T>(path: string, options?: RequestInit): Promise<T> {
 
 // 백엔드 question 응답 → QuestionRenderer가 기대하는 ExamQuestion 형태로 변환
 function normalizeQuestion(raw: Record<string, unknown>): ExamQuestion {
-  if (raw.render_ready) return raw as unknown as ExamQuestion;
+  if (raw.render_ready) {
+    const result = { ...raw } as any;
+    // 백엔드는 camelCase(correctAnswer)로 내려주지만 ExamQuestion 타입은 snake_case(correct_answer) 사용
+    if (result.correctAnswer != null && result.correct_answer == null) {
+      result.correct_answer = result.correctAnswer;
+    }
+    if (result.comboBlock != null && result.combo_block == null) {
+      result.combo_block = result.comboBlock;
+    }
+    return result as ExamQuestion;
+  }
 
   return {
     metadata: {

@@ -487,29 +487,19 @@
           ],
           "optionAnalysis": [
             {
-              "optionNum": 1,
+              "optionKey": "ㄱ",
               "verdict": "O",
-              "reasoning": "A씨는 △△기업을 설립하고 운영하므로 최고 경영자에 해당한다."
+              "reasoning": "A씨는 자신이 전반적인 책임을 지고 경영하는 △△기업을 설립하였으므로, 해당 기업의 최고 경영자에 해당한다. 따라서 옳은 설명이다."
             },
             {
-              "optionNum": 2,
+              "optionKey": "ㄴ",
               "verdict": "O",
-              "reasoning": "B씨의 투자 심사는 자본 조달 및 관리로, 재무 관리 활동에 해당한다."
+              "reasoning": "B씨는 ○○기업의 최고 재무 책임자로서 A씨의 사업에 대해 투자 심사를 하고 자금을 투자하였으므로, 기업 경영 활동 중 재무 관리 활동에 해당한다. 따라서 옳은 설명이다."
             },
             {
-              "optionNum": 3,
-              "verdict": "X",
-              "reasoning": "ㄱ(O), ㄷ(X)이므로 → ③ ㄱ, ㄷ 은 X"
-            },
-            {
-              "optionNum": 4,
-              "verdict": "X",
-              "reasoning": "ㄴ(O), ㄷ(X)이므로 → ④ ㄴ, ㄷ 은 X"
-            },
-            {
-              "optionNum": 5,
+              "optionKey": "ㄷ",
               "verdict": "O",
-              "reasoning": "ㄱ(O), ㄴ(O), ㄷ(O)이므로 → ⑤ ㄱ, ㄴ, ㄷ 은 O"
+              "reasoning": "A씨는 에너지 효율이 높은 핵심 제품을 양산할 수 있는 단계적 생산 과정을 개발하여 상용화하였으므로, 다품종 소량 생산보다 소품종 대량 생산 방식이 적합하다. 따라서 옳은 설명이다."
             }
           ],
           "solvingFlow": [
@@ -662,9 +652,29 @@
           ],
           "optionAnalysis": [
             {
+              "optionNum": 1,
+              "verdict": "X",
+              "reasoning": "오답"
+            },
+            {
               "optionNum": 2,
               "verdict": "O",
               "reasoning": "재무 관리란 기업의 자금 조달, 투자 관리 등을 포함하며, 지문에서 언급된 '사업별 투자 관리 및 자금 조달'은 재무 관리의 주요 활동에 해당합니다."
+            },
+            {
+              "optionNum": 3,
+              "verdict": "X",
+              "reasoning": "오답"
+            },
+            {
+              "optionNum": 4,
+              "verdict": "X",
+              "reasoning": "오답"
+            },
+            {
+              "optionNum": 5,
+              "verdict": "X",
+              "reasoning": "오답"
             }
           ],
           "solvingFlow": [
@@ -787,6 +797,26 @@
               "optionNum": 1,
               "verdict": "O",
               "reasoning": "재무 관리는 자본 조달 및 기업 가치 극대화와 관련된 활동으로, 주식 공모를 통해 자본을 조달하는 것은 전형적인 재무 관리의 예이다."
+            },
+            {
+              "optionNum": 2,
+              "verdict": "X",
+              "reasoning": "오답"
+            },
+            {
+              "optionNum": 3,
+              "verdict": "X",
+              "reasoning": "오답"
+            },
+            {
+              "optionNum": 4,
+              "verdict": "X",
+              "reasoning": "오답"
+            },
+            {
+              "optionNum": 5,
+              "verdict": "X",
+              "reasoning": "오답"
             }
           ],
           "solvingFlow": [

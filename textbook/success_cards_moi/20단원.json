@@ -98,9 +98,29 @@
           ],
           "optionAnalysis": [
             {
+              "optionNum": 1,
+              "verdict": "X",
+              "reasoning": "오답"
+            },
+            {
+              "optionNum": 2,
+              "verdict": "X",
+              "reasoning": "오답"
+            },
+            {
+              "optionNum": 3,
+              "verdict": "X",
+              "reasoning": "오답"
+            },
+            {
               "optionNum": 4,
               "verdict": "O",
               "reasoning": "정도 경영은 본분과 약속을 지키는 것을 강조하므로, 정직과 신용이 직업 윤리의 핵심 원칙으로 적합하다."
+            },
+            {
+              "optionNum": 5,
+              "verdict": "X",
+              "reasoning": "오답"
             }
           ],
           "solvingFlow": [
@@ -402,29 +422,24 @@
           ],
           "optionAnalysis": [
             {
-              "optionNum": 1,
+              "optionKey": "ㄱ",
               "verdict": "X",
-              "reasoning": "성 윤리는 성적 행동과 관련된 윤리로, 지문 내용과 관련이 없음."
+              "reasoning": "뉴스에 성과 관련된 윤리적 문제가 등장하지 않으므로, 성 윤리는 해당하지 않는다. 따라서 틀린 설명이다."
             },
             {
-              "optionNum": 2,
+              "optionKey": "ㄴ",
               "verdict": "O",
-              "reasoning": "환경 윤리는 하천에 오·폐수를 방류한 사례와 관련이 있으며, 정보 윤리는 고객 정보 유출과 관련이 있음."
+              "reasoning": "○○기업이 하천에 오·폐수를 무단 방류한 사건은 환경 윤리 위반에 해당한다. 따라서 옳은 설명이다."
             },
             {
-              "optionNum": 3,
+              "optionKey": "ㄷ",
               "verdict": "O",
-              "reasoning": "환경 윤리는 하천 오·폐수 방류와 관련이 있고, 정보 윤리는 고객 정보 유출과 관련이 있음."
+              "reasoning": "△△은행 직원이 고객 정보를 무단 유출·판매한 사건은 정보 윤리 위반에 해당한다. 따라서 옳은 설명이다."
             },
             {
-              "optionNum": 4,
+              "optionKey": "ㄹ",
               "verdict": "X",
-              "reasoning": "장애인 윤리는 장애인에 대한 권리와 관련된 윤리로, 지문 내용과 관련이 없음."
-            },
-            {
-              "optionNum": 5,
-              "verdict": "X",
-              "reasoning": "ㄷ은 정보 윤리와 관련이 있지만, ㄹ은 지문과 관련이 없음."
+              "reasoning": "뉴스에 장애인과 관련된 윤리적 문제가 등장하지 않으므로, 장애인 윤리는 해당하지 않는다. 따라서 틀린 설명이다."
             }
           ],
           "solvingFlow": [
@@ -569,29 +584,19 @@
           ],
           "optionAnalysis": [
             {
-              "optionNum": 1,
+              "optionKey": "ㄱ",
               "verdict": "X",
-              "reasoning": "ㄱ은 A의 발달 과업과 관련이 없으므로 적절하지 않다."
+              "reasoning": "A는 17세로 청소년기에 속하며, 또래 친구들과 어울리기는 아동기의 발달 과업이지 청소년기의 과업이 아니다. 따라서 틀린 설명이다."
             },
             {
-              "optionNum": 2,
-              "verdict": "X",
-              "reasoning": "ㄷ은 A와 B의 직업 윤리 원칙이 정확히 매칭되므로 적절하다."
-            },
-            {
-              "optionNum": 3,
-              "verdict": "X",
-              "reasoning": "ㄱ과 ㄴ 중 ㄱ이 적절하지 않으므로 조합이 틀리다."
-            },
-            {
-              "optionNum": 4,
+              "optionKey": "ㄴ",
               "verdict": "O",
-              "reasoning": "ㄴ과 ㄷ이 적절하며, B의 발달 과업과 직업 윤리가 정확히 매칭된다."
+              "reasoning": "B는 26세로 성년기에 속하며, 이 시기의 발달 과업 중 하나가 성인 관점에서 사회적 가치 수용이다. 따라서 옳은 설명이다."
             },
             {
-              "optionNum": 5,
-              "verdict": "X",
-              "reasoning": "ㄱ이 적절하지 않으므로 조합이 틀리다."
+              "optionKey": "ㄷ",
+              "verdict": "O",
+              "reasoning": "A는 끊임없이 공부하며 프로그래밍 능력을 연마하므로 전문성의 원칙을, B는 정직하게 업무를 수행하여 고객 신뢰를 얻으므로 정직과 신용의 원칙을 따르고 있다. 따라서 옳은 설명이다."
             }
           ],
           "solvingFlow": [
@@ -725,9 +730,29 @@
           ],
           "optionAnalysis": [
             {
+              "optionNum": 1,
+              "verdict": "X",
+              "reasoning": "오답"
+            },
+            {
+              "optionNum": 2,
+              "verdict": "X",
+              "reasoning": "오답"
+            },
+            {
+              "optionNum": 3,
+              "verdict": "X",
+              "reasoning": "오답"
+            },
+            {
               "optionNum": 4,
               "verdict": "O",
               "reasoning": "사물인터넷 기술은 다양한 기기가 인터넷을 통해 연결되어 데이터를 주고받는 기술로, 지문에서 언급된 스마트 도어록, 조명 제어, 자동 환기 시스템이 이에 해당한다."
+            },
+            {
+              "optionNum": 5,
+              "verdict": "X",
+              "reasoning": "오답"
             }
           ],
           "solvingFlow": [
@@ -849,9 +874,29 @@
           ],
           "optionAnalysis": [
             {
+              "optionNum": 1,
+              "verdict": "X",
+              "reasoning": "오답"
+            },
+            {
+              "optionNum": 2,
+              "verdict": "X",
+              "reasoning": "오답"
+            },
+            {
+              "optionNum": 3,
+              "verdict": "X",
+              "reasoning": "오답"
+            },
+            {
               "optionNum": 4,
               "verdict": "O",
               "reasoning": "홍채 인식 기술은 생체 정보 인식 기술의 일종으로, 이와 관련된 직업인 생체 정보 인식 기술자가 유망 직업으로 적합하다."
+            },
+            {
+              "optionNum": 5,
+              "verdict": "X",
+              "reasoning": "오답"
             }
           ],
           "solvingFlow": [
@@ -1117,29 +1162,19 @@
           ],
           "optionAnalysis": [
             {
-              "optionNum": 1,
+              "optionKey": "ㄱ",
               "verdict": "X",
-              "reasoning": "허생의 행동은 공정 경쟁의 원칙을 위반하는 것으로 볼 수 있다."
+              "reasoning": "허생이 과일을 독점하여 가격을 폭등시키는 행위는 공정 경쟁 원칙에 위배되므로, 허생에게 공정 경쟁 원칙이 요구된다는 취지이나 지문에서는 오히려 이 원칙을 위반하는 행위를 보였다. 따라서 허생에게 요구되는 원칙은 오히려 다른 윤리 원칙이며, 공정 경쟁 원칙을 따라야 함에도 불구하고 지키지 않았기에 틀린 설명은 아니다. — 지문 검토 결과 독과점 행태를 보여 공정 경쟁 원칙에 위배되므로, 공정 경쟁의 원칙이 요구된다는 설명은 틀리다."
             },
             {
-              "optionNum": 2,
+              "optionKey": "ㄴ",
               "verdict": "X",
-              "reasoning": "변 부자의 활동은 인적 자원 관리와 관련이 없으며, 대부업에 해당한다."
+              "reasoning": "변 부자는 허생에게 돈을 빌려주는 대부업을 하였으므로, 이는 재무 관리 활동에 해당하지 인적 자원 관리 활동이 아니다. 따라서 틀린 설명이다."
             },
             {
-              "optionNum": 3,
+              "optionKey": "ㄷ",
               "verdict": "O",
-              "reasoning": "허생과 변 부자가 종사하는 업종은 과일 거래를 포함한 서비스업으로 적절하다."
-            },
-            {
-              "optionNum": 4,
-              "verdict": "X",
-              "reasoning": "ㄱ은 부적절하고, ㄷ만이 적절하다."
-            },
-            {
-              "optionNum": 5,
-              "verdict": "X",
-              "reasoning": "ㄱ과 ㄴ은 부적절하고, ㄷ만이 적절하다."
+              "reasoning": "허생의 상인 활동과 변 부자의 대부업은 모두 서비스업에 해당한다. 따라서 옳은 설명이다."
             }
           ],
           "solvingFlow": [

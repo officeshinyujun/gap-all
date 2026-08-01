@@ -110,29 +110,19 @@
           ],
           "optionAnalysis": [
             {
-              "optionNum": 1,
+              "optionKey": "ㄱ",
               "verdict": "X",
-              "reasoning": "ㄱ은 사고의 형태가 '부딪힘'이라고 했으나, 지문에 따르면 '추락'이므로 틀렸다."
+              "reasoning": "A씨는 안전 난간이 설치되지 않은 통로에서 3m 아래로 추락하여 부상을 입었으므로, 사고의 형태는 추락에 해당하며 부딪힘이 아니다. 따라서 틀린 설명이다."
             },
             {
-              "optionNum": 2,
-              "verdict": "X",
-              "reasoning": "ㄷ은 사고의 직접적인 원인이 '불안전한 상태 및 행동'이라고 했으므로 맞다."
-            },
-            {
-              "optionNum": 3,
-              "verdict": "X",
-              "reasoning": "ㄱ과 ㄴ은 모두 틀렸으므로 조합도 틀렸다."
-            },
-            {
-              "optionNum": 4,
+              "optionKey": "ㄴ",
               "verdict": "O",
-              "reasoning": "ㄴ과 ㄷ은 모두 맞으므로 조합이 옳다."
+              "reasoning": "A씨는 건조 중인 선박 내에서 자재 운반 작업 중 발생한 사고로, 이는 업무 수행 중 발생한 업무상 사고에 의한 업무상의 재해에 해당한다. 따라서 옳은 설명이다."
             },
             {
-              "optionNum": 5,
-              "verdict": "X",
-              "reasoning": "ㄱ이 틀렸으므로 조합도 틀렸다."
+              "optionKey": "ㄷ",
+              "verdict": "O",
+              "reasoning": "사고의 직접적 원인은 안전 난간 미설치와 작업자 통제 소홀 등 불안전한 상태 및 행동으로, 지문의 사고 원인 분석에 명시되어 있다. 따라서 옳은 설명이다."
             }
           ],
           "solvingFlow": [
@@ -286,29 +276,19 @@
           ],
           "optionAnalysis": [
             {
-              "optionNum": 1,
+              "optionKey": "ㄱ",
               "verdict": "O",
-              "reasoning": "사업영역에서 인공지능(AI) 기술을 바탕으로 한다는 내용이 명시되어 있어 적절하다."
+              "reasoning": "사업영역에 인간의 학습·추론·지각·이해 능력을 컴퓨터 프로그램으로 구현하는 기술이 명시되어 있으므로, 인공지능 기술을 바탕으로 한다. 따라서 옳은 설명이다."
             },
             {
-              "optionNum": 2,
+              "optionKey": "ㄴ",
               "verdict": "O",
-              "reasoning": "근로조건의 항목들이 표준근로계약서에 포함되는 항목임을 지문에서 확인할 수 있다."
+              "reasoning": "근로조건 항목에는 근로장소·휴일·임금이 포함되어 있으며, 이는 표준근로계약서에 반드시 포함되는 필수 기재 사항이다. 따라서 옳은 설명이다."
             },
             {
-              "optionNum": 3,
-              "verdict": "X",
-              "reasoning": "ㄱ(O), ㄷ(X)이므로 → ③ ㄱ, ㄷ 은 X"
-            },
-            {
-              "optionNum": 4,
-              "verdict": "X",
-              "reasoning": "ㄴ(O), ㄷ(X)이므로 → ④ ㄴ, ㄷ 은 X"
-            },
-            {
-              "optionNum": 5,
+              "optionKey": "ㄷ",
               "verdict": "O",
-              "reasoning": "ㄱ(O), ㄴ(O), ㄷ(X)이므로 → ⑤ ㄱ, ㄴ, ㄷ 은 O"
+              "reasoning": "기타 사항으로 4대 보험 적용이 포함되어 있으며, 4대 보험 중 국민연금은 연금 수령 연령 도달 시 납부한 보험료 기준으로 매월 지급되는 사회 보장 제도이다. 따라서 옳은 설명이다."
             }
           ],
           "solvingFlow": [

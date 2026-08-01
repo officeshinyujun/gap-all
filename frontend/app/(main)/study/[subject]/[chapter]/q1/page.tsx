@@ -97,7 +97,7 @@ export default function StudyQ1Page() {
             <path d="M10 12L6 8L10 4" stroke="#5C6370" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </button>
-        <span className={s.headerTitle}>{unitNumber}단원 · 빈칸 문제</span>
+        <span className={s.headerTitle}>{unitNumber}단원 · 개념 문제</span>
         {pageState === 'quiz' && total > 0 && (
           <span className={s.headerCount}>{currentIndex + 1} / {total}</span>
         )}
@@ -109,7 +109,7 @@ export default function StudyQ1Page() {
         {pageState === 'loading' && (
           <div className={s.center}>
             <div className={s.spinner} />
-            <p className={s.loadingText}>AI가 문제를 생성하는 중입니다... (최초 1회)</p>
+            <p className={s.loadingText}>개념 문제를 불러오는 중입니다...</p>
           </div>
         )}
 

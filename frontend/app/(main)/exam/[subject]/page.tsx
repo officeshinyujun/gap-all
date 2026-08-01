@@ -68,6 +68,7 @@ export default function ExamPage() {
   const [showMobileDetail, setShowMobileDetail] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [pdfLoading, setPdfLoading] = useState(false);
   const { activeJobId, jobStatus, startJob } = useJobProgress();
 
   useEffect(() => {
@@ -110,27 +111,34 @@ export default function ExamPage() {
   }, [subject]);
 
   const handlePdfExport = async () => {
-    if (!selectedItem?.id) return;
-    const React = await import('react');
-    const { pdf } = await import('@react-pdf/renderer');
-    const { ExamPdfDocument } = await import('@/components/exam/ExamPdf');
-    const { fetchExam } = await import('@/lib/examApi');
-    const examData = await fetchExam(selectedItem.id);
-    const blob = await pdf(
-      React.createElement(ExamPdfDocument, {
-        title: examData.title,
-        subjectName,
-        difficulty: selectedItem.diff,
-        unitRange: selectedItem.range,
-        items: examData.items,
-      })
-    ).toBlob();
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `${examData.title}.pdf`;
-    a.click();
-    URL.revokeObjectURL(url);
+    if (!selectedItem?.id || pdfLoading) return;
+    setPdfLoading(true);
+    try {
+      const React = await import('react');
+      const { pdf } = await import('@react-pdf/renderer');
+      const { ExamPdfDocument } = await import('@/components/exam/ExamPdf');
+      const { fetchExam } = await import('@/lib/examApi');
+      const examData = await fetchExam(selectedItem.id);
+      const blob = await pdf(
+        React.createElement(ExamPdfDocument, {
+          title: examData.title,
+          subjectName,
+          difficulty: selectedItem.diff,
+          unitRange: selectedItem.range,
+          items: examData.items,
+        })
+      ).toBlob();
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${examData.title}.pdf`;
+      a.click();
+      URL.revokeObjectURL(url);
+    } catch (err) {
+      console.error('PDF export failed', err);
+    } finally {
+      setPdfLoading(false);
+    }
   };
 
   const filteredItems = items.filter((item) => {
@@ -273,10 +281,18 @@ export default function ExamPage() {
                 <button
                   className={`${s.startButton} ${s.outlineButton}`}
                   onClick={handlePdfExport}
+                  disabled={pdfLoading}
+                  style={pdfLoading ? { opacity: 0.6, cursor: 'not-allowed' } : undefined}
                 >
                   <HStack gap={4} align="center">
-                    <FileText size={14} />
-                    <Typo.MD size={14} color="brand" style={{ fontWeight: 600 }}>PDF 내보내기</Typo.MD>
+                    {pdfLoading ? (
+                      <div className={s.spinner} style={{ width: 14, height: 14 }} />
+                    ) : (
+                      <FileText size={14} />
+                    )}
+                    <Typo.MD size={14} color="brand" style={{ fontWeight: 600 }}>
+                      {pdfLoading ? 'PDF 생성 중...' : 'PDF 내보내기'}
+                    </Typo.MD>
                   </HStack>
                 </button>
               </HStack>
@@ -358,11 +374,18 @@ export default function ExamPage() {
             <button
               className={`${s.startButton} ${s.outlineButton}`}
               onClick={handlePdfExport}
-              style={{ marginTop: 8 }}
+              disabled={pdfLoading}
+              style={{ marginTop: 8, ...(pdfLoading ? { opacity: 0.6 } : {}) }}
             >
               <HStack gap={4} align="center" justify="center" fullWidth>
-                <FileText size={14} />
-                <Typo.MD size={14} color="brand">PDF 내보내기</Typo.MD>
+                {pdfLoading ? (
+                  <div className={s.spinner} style={{ width: 14, height: 14 }} />
+                ) : (
+                  <FileText size={14} />
+                )}
+                <Typo.MD size={14} color="brand">
+                  {pdfLoading ? 'PDF 생성 중...' : 'PDF 내보내기'}
+                </Typo.MD>
               </HStack>
             </button>
           </VStack>

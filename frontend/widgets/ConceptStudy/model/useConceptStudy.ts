@@ -9,7 +9,7 @@ import { fetchUnitId, updateStudyProgress } from '@entities/study/api/studyApi';
 export type MainTab = 'concept' | 'overview';
 export type SlideView = 'learn' | 'question';
 
-const CACHE_VERSION = 'v14';
+const CACHE_VERSION = 'v15';
 
 function getCacheKey(subject: string, unitNumber: number) {
   return `concept-${CACHE_VERSION}-${subject}-${unitNumber}`;
@@ -53,7 +53,15 @@ export function useConceptStudy(subject: string, unitNumber: number, chapter: st
   // data fetch
   useEffect(() => {
     let cancelled = false;
-    const isCacheValid = (data?.concepts?.length ?? 0) > 0 && 'conceptHighlightV2' in (data?.concepts?.[0] ?? {});
+    const isCacheValid = (data?.concepts?.length ?? 0) > 0
+      && 'conceptHighlightV2' in (data?.concepts?.[0] ?? {})
+      && (() => {
+          // 추가 검증: 최소 하나의 concept에 optionAnalysis가 있고 O가 1개인지 확인
+          const firstV2 = data?.concepts?.[0]?.conceptHighlightV2;
+          if (!firstV2) return false;
+          const oa = firstV2.optionAnalysis || [];
+          return oa.length >= 3 && oa.filter((o: any) => o.verdict === 'O').length <= 2;
+        })();
     if (isCacheValid) { setLoading(false); }
     else {
       fetchFrequencyConcept(subject, unitNumber)

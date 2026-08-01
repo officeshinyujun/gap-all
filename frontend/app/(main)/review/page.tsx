@@ -2,8 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
+import { MarkdownWithTable } from '@/shared/ui/markdown-with-table';
 import { VStack } from '@shared/ui/VStack';
 import { HStack } from '@shared/ui/HStack';
 import Typo from '@shared/ui/Typo';
@@ -26,14 +25,6 @@ import {
 import { pollExamJob, fetchExam, type ExamData } from '@/lib/examApi';
 import { QuestionRenderer } from '@shared/ui/QuestionStem/QuestionRenderer';
 import s from './page.module.scss';
-
-const markdownComponents = {
-  a: ({ href, children, ...props }: any) => (
-    <a href={href} target="_blank" rel="noopener noreferrer" {...props}>
-      {children}
-    </a>
-  ),
-};
 
 type PageState = 'loading' | 'empty' | 'list' | 'retake' | 'concept' | 'result';
 
@@ -515,9 +506,7 @@ export default function ReviewPage() {
             </Typo.MD>
           </HStack>
           <VStack className={s.conceptMd} fullWidth style={{ padding: SPACING.s16 }} gap={SPACING.s12}>
-            <Typo.MD size={14} color="primary" style={{ lineHeight: 1.7 }}>
-              {conceptData.description}
-            </Typo.MD>
+            <MarkdownWithTable>{conceptData.description}</MarkdownWithTable>
             {conceptData.bulletPoints.length > 0 && (
               <VStack gap={SPACING.s6} fullWidth>
                 <Typo.SM size={12} color="secondary">핵심 포인트</Typo.SM>
@@ -541,9 +530,7 @@ export default function ReviewPage() {
             {conceptData.logicFlow && (
               <VStack gap={SPACING.s6} fullWidth>
                 <Typo.SM size={12} color="secondary">논리 흐름</Typo.SM>
-                <Typo.MD size={14} color="primary" style={{ lineHeight: 1.7 }}>
-                  {conceptData.logicFlow}
-                </Typo.MD>
+                <MarkdownWithTable>{conceptData.logicFlow}</MarkdownWithTable>
               </VStack>
             )}
             {!conceptData.found && (

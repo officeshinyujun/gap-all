@@ -101,9 +101,29 @@
           ],
           "optionAnalysis": [
             {
+              "optionNum": 1,
+              "verdict": "X",
+              "reasoning": "오답"
+            },
+            {
+              "optionNum": 2,
+              "verdict": "X",
+              "reasoning": "오답"
+            },
+            {
               "optionNum": 3,
               "verdict": "O",
               "reasoning": "학점은행제는 비학위 과정에서의 학습과 자격을 학점으로 인정하여 학위 취득을 가능하게 하는 제도로, A씨의 사례와 일치함"
+            },
+            {
+              "optionNum": 4,
+              "verdict": "X",
+              "reasoning": "오답"
+            },
+            {
+              "optionNum": 5,
+              "verdict": "X",
+              "reasoning": "오답"
             }
           ],
           "solvingFlow": [
@@ -244,6 +264,26 @@
               "optionNum": 1,
               "verdict": "O",
               "reasoning": "계약학과는 학자금 지원계약을 통해 특정 산업체와 연계되어 채용을 조건으로 교육과정을 운영하는 제도이므로, 지문에서 설명하는 채용조건형에 해당한다."
+            },
+            {
+              "optionNum": 2,
+              "verdict": "X",
+              "reasoning": "오답"
+            },
+            {
+              "optionNum": 3,
+              "verdict": "X",
+              "reasoning": "오답"
+            },
+            {
+              "optionNum": 4,
+              "verdict": "X",
+              "reasoning": "오답"
+            },
+            {
+              "optionNum": 5,
+              "verdict": "X",
+              "reasoning": "오답"
             }
           ],
           "solvingFlow": [
@@ -714,9 +754,29 @@
           ],
           "optionAnalysis": [
             {
+              "optionNum": 1,
+              "verdict": "X",
+              "reasoning": "오답"
+            },
+            {
+              "optionNum": 2,
+              "verdict": "X",
+              "reasoning": "오답"
+            },
+            {
               "optionNum": 3,
               "verdict": "O",
               "reasoning": "독학 학위제는 독학자가 학위 취득 시험에 합격하여 학사 학위를 받을 수 있는 제도로, 지문에서 설명하는 제도와 일치한다."
+            },
+            {
+              "optionNum": 4,
+              "verdict": "X",
+              "reasoning": "오답"
+            },
+            {
+              "optionNum": 5,
+              "verdict": "X",
+              "reasoning": "오답"
             }
           ],
           "solvingFlow": [
@@ -858,29 +918,19 @@
           ],
           "optionAnalysis": [
             {
-              "optionNum": 1,
+              "optionKey": "ㄱ",
               "verdict": "X",
-              "reasoning": "산업계 주도로 진행되는 현장 기반 훈련 제도는 평생 학습 제도의 설명과 일치하지 않으므로 부적절하다."
+              "reasoning": "지문의 (가)는 국가평생교육진흥원이 주관하는 학점은행제로, 산업계 주도의 현장 기반 훈련 제도인 일학습병행제와는 다른 제도이다. 따라서 틀린 설명이다."
             },
             {
-              "optionNum": 2,
+              "optionKey": "ㄴ",
+              "verdict": "X",
+              "reasoning": "학점은행제는 학교 밖 학습과 자격을 학점으로 인정하는 제도이지, 대학에 교육을 의뢰하는 위탁 교육 과정이 아니다. 따라서 틀린 설명이다."
+            },
+            {
+              "optionKey": "ㄷ",
               "verdict": "O",
-              "reasoning": "학점을 인정받기 위해 고등학교 졸업 이상의 학력이 필요하다는 점은 지문에서 학점 인정과 관련된 요건을 설명하는 부분과 일치한다."
-            },
-            {
-              "optionNum": 3,
-              "verdict": "X",
-              "reasoning": "국가·지방자치단체·산업체가 소속 직원의 직무 능력 향상을 위해 대학에 교육을 의뢰하는 과정은 지문에서 설명하는 제도와 관련이 없다."
-            },
-            {
-              "optionNum": 4,
-              "verdict": "X",
-              "reasoning": "국가·지방자치단체·산업체가 소속 직원의 직무 능력 향상을 위해 대학에 교육을 의뢰하는 과정은 지문에서 설명하는 제도와 관련이 없다."
-            },
-            {
-              "optionNum": 5,
-              "verdict": "X",
-              "reasoning": "산업계 주도로 진행되는 현장 기반 훈련 제도와 국가·지방자치단체·산업체가 소속 직원의 직무 능력 향상을 위해 대학에 교육을 의뢰하는 과정은 지문에서 설명하는 제도와 관련이 없다."
+              "reasoning": "학점은행제에서 학점을 인정받기 위해서는 학점 인정 신청 당시 고등학교 졸업 이상의 학력이 있어야 하며, 이는 지문에 명시된 법적 근거에 따른 요건이다. 따라서 옳은 설명이다."
             }
           ],
           "solvingFlow": [
@@ -1002,9 +1052,29 @@
           ],
           "optionAnalysis": [
             {
+              "optionNum": 1,
+              "verdict": "X",
+              "reasoning": "오답"
+            },
+            {
+              "optionNum": 2,
+              "verdict": "X",
+              "reasoning": "오답"
+            },
+            {
+              "optionNum": 3,
+              "verdict": "X",
+              "reasoning": "오답"
+            },
+            {
               "optionNum": 4,
               "verdict": "O",
               "reasoning": "'일학습 병행제'는 일하면서 동시에 학습할 수 있는 제도로, 기업의 신입 사원과 학생들에게 실무 경험을 제공하는 점에서 지문과 일치한다."
+            },
+            {
+              "optionNum": 5,
+              "verdict": "X",
+              "reasoning": "오답"
             }
           ],
           "solvingFlow": [

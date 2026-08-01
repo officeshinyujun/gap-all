@@ -32,6 +32,7 @@ const TEXTBOOK_BASE = path.resolve(__dirname, '..', '..', 'textbook');
 const PROMPT_PATH = path.resolve(__dirname, '..', '..', 'prompts', 'concept_highlight_v2.txt');
 const MODEL = 'gpt-4o';
 const CONCURRENCY = 2;
+const MAX_RETRIES = 5;
 
 // Supabase 클라이언트 (선택적)
 const supabaseUrl = process.env.SUPABASE_URL;
@@ -53,7 +54,7 @@ const SUBJECT_CONFIG: Record<string, { folder: string; dbSubject: string }> = {
 // ============================================================
 interface ConceptHighlightV2 {
   stimulusClues: { quote: string; why: string }[];
-  optionAnalysis: { optionNum: number; verdict: string; reasoning: string }[];
+  optionAnalysis: ({ optionNum: number; verdict: string; reasoning: string } | { optionKey: string; verdict: string; reasoning: string })[];
   solvingFlow: { step: number; action: string }[];
   takeaway: string;
 }
@@ -96,14 +97,51 @@ function validateHighlight(
   highlight: ConceptHighlightV2,
   questionStem: string,
   correctAnswer: number,
+  comboItems?: string[],
 ): ValidationResult {
   const totalOptions = highlight.optionAnalysis.length;
   const oCount = highlight.optionAnalysis.filter((o) => o.verdict === 'O').length;
   const xCount = highlight.optionAnalysis.filter((o) => o.verdict === 'X').length;
   const questionType = detectQuestionType(questionStem);
   const warnings: string[] = [];
+  const hasComboItems = comboItems && comboItems.length > 0;
 
   let valid = true;
+
+  // 조합형: optionKey 형식 검증
+  if (hasComboItems) {
+    const expectedKeys = comboItems!.map((_, i) => ['ㄱ', 'ㄴ', 'ㄷ', 'ㄹ', 'ㅁ', 'ㅂ'][i] || `${i + 1}`);
+    
+    // optionKey 사용 확인
+    const allHaveKey = highlight.optionAnalysis.every((o: any) => typeof o.optionKey === 'string');
+    const anyHaveNum = highlight.optionAnalysis.some((o: any) => typeof o.optionNum === 'number');
+    
+    if (anyHaveNum) {
+      warnings.push(`조합형인데 optionNum 사용됨 — optionKey로 변경 필요`);
+      valid = false;
+    }
+    if (!allHaveKey) {
+      warnings.push(`조합형 optionAnalysis에 optionKey 누락`);
+      valid = false;
+    }
+    if (totalOptions !== comboItems!.length) {
+      warnings.push(`조합형 optionAnalysis ${totalOptions}개 (보기 ${comboItems!.length}개와 불일치)`);
+      valid = false;
+    }
+    // 키 순서 확인
+    const actualKeys = highlight.optionAnalysis.map((o: any) => o.optionKey);
+    if (JSON.stringify(actualKeys) !== JSON.stringify(expectedKeys)) {
+      warnings.push(`조합형 optionKey 순서 불일치: ${actualKeys.join(',')} (예상: ${expectedKeys.join(',')})`);
+      valid = false;
+    }
+  } else {
+    // 일반형: optionNum 형식 검증
+    const allHaveNum = highlight.optionAnalysis.every((o: any) => typeof o.optionNum === 'number');
+    if (!allHaveNum) {
+      warnings.push(`일반형 optionAnalysis에 optionNum 누락`);
+      valid = false;
+    }
+  }
 
   switch (questionType) {
     case 'single_correct':
@@ -112,7 +150,7 @@ function validateHighlight(
         valid = false;
       }
       // 정답 선지가 O인지 확인
-      const correctVerdict = highlight.optionAnalysis.find((o) => o.optionNum === correctAnswer)?.verdict;
+      const correctVerdict = highlight.optionAnalysis.find((o: any) => o.optionNum === correctAnswer)?.verdict;
       if (correctVerdict !== 'O') {
         warnings.push(`정답(${correctAnswer}번)이 O가 아님 (현재: ${correctVerdict})`);
         valid = false;
@@ -125,7 +163,7 @@ function validateHighlight(
         valid = false;
       }
       // 정답 선지가 X인지 확인
-      const wrongVerdict = highlight.optionAnalysis.find((o) => o.optionNum === correctAnswer)?.verdict;
+      const wrongVerdict = highlight.optionAnalysis.find((o: any) => o.optionNum === correctAnswer)?.verdict;
       if (wrongVerdict !== 'X') {
         warnings.push(`정답(${correctAnswer}번)이 X가 아님 (현재: ${wrongVerdict})`);
         valid = false;
@@ -133,14 +171,30 @@ function validateHighlight(
       break;
 
     case 'combo':
-      // 합답형은 최종 선지 중 정답 조합만 O여야 함
-      // 보기 항목 수와 선지 수가 다를 수 있으므로 O 비율로만 체크하지 않음
-      const correctVerdict2 = highlight.optionAnalysis.find((o) => o.optionNum === correctAnswer)?.verdict;
-      if (correctVerdict2 !== 'O') {
-        warnings.push(`합답형 정답(${correctAnswer}번)이 O가 아님 (현재: ${correctVerdict2})`);
-        valid = false;
+      if (hasComboItems) {
+        // optionKey 형식: 각 보기 항목의 O/X만 검증
+        // correct_answer로부터 어떤 항목이 O여야 하는지 역산할 수 없으므로,
+        // 최소한 모든 O/X가 있고, 전부 X가 아니며, 전부 O도 아닌지 확인
+        if (oCount === 0) {
+          warnings.push(`조합형인데 O가 0개 (최소 1개는 O여야 함)`);
+          valid = false;
+        }
+        if (xCount === 0) {
+          warnings.push(`조합형인데 X가 0개 (최소 1개는 X여야 함)`);
+          valid = false;
+        }
+      } else {
+        // 구형식: optionNum + O=1 검증
+        const correctVerdict = highlight.optionAnalysis.find((o: any) => o.optionNum === correctAnswer)?.verdict;
+        if (correctVerdict !== 'O') {
+          warnings.push(`합답형 정답(${correctAnswer}번)이 O가 아님 (현재: ${correctVerdict})`);
+          valid = false;
+        }
+        if (oCount > 1) {
+          warnings.push(`합답형인데 O가 ${oCount}개 (1개만 O여야 함)`);
+          valid = false;
+        }
       }
-      // 모든 선지가 O면 비정상 (합답형은 최소한 몇 개는 틀린 조합)
       if (oCount === totalOptions && totalOptions >= 3) {
         warnings.push(`합답형인데 모든 선지(${totalOptions}개)가 O (비정상)`);
         valid = false;
@@ -157,7 +211,7 @@ function validateHighlight(
   // reasoning 길이 체크
   for (const opt of highlight.optionAnalysis) {
     if (!opt.reasoning || opt.reasoning.trim().length < 5) {
-      warnings.push(`${opt.optionNum}번 선지 reasoning이 너무 짧음`);
+      warnings.push(`${(opt as any).optionNum ?? (opt as any).optionKey}번 reasoning이 너무 짧음`);
       valid = false;
       break;
     }
@@ -177,6 +231,34 @@ function validateHighlight(
 // ============================================================
 // 유틸
 // ============================================================
+function stimulusDataToPlainText(sd: any): string {
+  if (!sd) return '';
+  if (typeof sd === 'string') return sd;
+  if (sd.content && typeof sd.content === 'string') return sd.content;
+  if (sd.instructor?.dialogue) {
+    const items = (sd.canvas_content?.items || []).map((it: any) => it.text || '').join('\n');
+    const rows = sd.canvas_content?.rows || [];
+    const headers = sd.canvas_content?.headers || [];
+    const rowText = rows.length > 0
+      ? '\n' + headers.join(' | ') + '\n' + rows.map((r: any) => (Array.isArray(r) ? r.join(' | ') : '')).join('\n')
+      : '';
+    return sd.instructor.dialogue + '\n' + items + rowText;
+  }
+  if (sd.messages) return sd.messages.map((m: any) => m.text || '').join('\n');
+  if (sd.paragraphs) return sd.paragraphs.map((p: any) => (typeof p === 'string' ? p : p.text || '')).join('\n');
+  if (sd.rows) {
+    const h = (sd.headers || []).join(' | ');
+    const r = (sd.rows || []).map((row: any) => (Array.isArray(row) ? row.join(' | ') : '')).join('\n');
+    return h + '\n' + r;
+  }
+  return '';
+}
+
+function getPlainStimulus(realQ: any): string {
+  return (realQ.stimulus || realQ.rawStimulus || '') ||
+    stimulusDataToPlainText(realQ.render_ready?.stimulus_data);
+}
+
 function parseCorrectAnswer(value: unknown): number {
   if (typeof value === 'number') {
     if (value === 0) return 1; // 0-based → 1-based
@@ -204,54 +286,74 @@ function extractJson(text: string): any {
 // ============================================================
 async function generateHighlight(task: Task): Promise<ConceptHighlightV2 | null> {
   const { concept, realQ } = task;
-  const client = getNextClient();
 
-  const userContent = JSON.stringify({
-    concept_name: concept.name,
-    concept_definition: concept.card?.definition || concept.definition || '',
-    question_stem: realQ.render_ready?.question_stem || realQ.stem || '',
-    stimulus: realQ.render_ready?.stimulus_data
-      ? JSON.stringify(realQ.render_ready.stimulus_data)
-      : realQ.stimulus || '',
-    options: realQ.render_ready?.options_list || realQ.options || [],
-    correct_answer: parseCorrectAnswer(realQ.correct_answer ?? realQ.answer),
-    combo_items: realQ.box_items || [],
-  });
+  const stem = realQ.render_ready?.question_stem || realQ.stem || '';
+  const answer = parseCorrectAnswer(realQ.correct_answer ?? realQ.answer);
+  const rawStimulus = getPlainStimulus(realQ);
 
-  try {
-    const response = await client.chat.completions.create({
-      model: MODEL,
-      messages: [
-        { role: 'system', content: systemPrompt },
-        { role: 'user', content: userContent },
-      ],
-      temperature: 0.3,
+  for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+    const client = getNextClient();
+
+    const userContent = JSON.stringify({
+      concept_name: concept.name,
+      concept_definition: concept.card?.definition || concept.definition || '',
+      question_stem: stem,
+      stimulus: rawStimulus,
+      options: realQ.render_ready?.options_list || realQ.options || [],
+      correct_answer: answer,
+      combo_items: realQ.box_items || [],
     });
 
-    const content = response.choices[0]?.message?.content ?? '';
-    const highlight = extractJson(content) as ConceptHighlightV2;
+    try {
+      const response = await client.chat.completions.create({
+        model: MODEL,
+        messages: [
+          { role: 'system', content: systemPrompt + (attempt > 1 ? `\n\n[재시도 ${attempt}/${MAX_RETRIES}] 이전 시도에서 O/X 패턴 또는 인용문 정합성 검증에 실패했습니다. 더 신중하게, 위 규칙을 엄격히 지켜 다시 작성하세요.` : '') },
+          { role: 'user', content: userContent },
+        ],
+        temperature: attempt <= 2 ? 0.3 : attempt === 3 ? 0.5 : attempt === 4 ? 0.7 : 1.0,
+      });
 
-    // 검증
-    const stem = realQ.render_ready?.question_stem || realQ.stem || '';
-    const answer = parseCorrectAnswer(realQ.correct_answer ?? realQ.answer);
-    const validation = validateHighlight(highlight, stem, answer);
+      const content = response.choices[0]?.message?.content ?? '';
+      const highlight = extractJson(content) as ConceptHighlightV2;
 
-    if (!validation.valid) {
-      console.warn(
-        `  ⚠️  [${concept.name}] 검증 실패 — ${validation.warnings.join(' | ')}`,
+      // 검증 1: O/X 패턴
+      const validation = validateHighlight(highlight, stem, answer, realQ.box_items);
+      if (!validation.valid) {
+        console.warn(
+          `  ⚠️  [${concept.name}] 시도 ${attempt}/${MAX_RETRIES} — 검증 실패: ${validation.warnings.join(' | ')}`,
+        );
+        continue; // 재시도
+      }
+
+      // 검증 2: stimulusClues quote가 rawStimulus에 정확히 존재하는지
+      const missingQuotes = (highlight.stimulusClues || []).filter(
+        (clue) => {
+          const q = clue.quote.replace(/\.{2,}$/, '').trim(); // trailing ... 제거
+          return !rawStimulus || rawStimulus.indexOf(q) === -1;
+        },
       );
-      // 검증 실패해도 일단 반환 (수동 확인용)
-    } else {
+      if (missingQuotes.length > 0) {
+        console.warn(
+          `  ⚠️  [${concept.name}] 시도 ${attempt}/${MAX_RETRIES} — stimulusClues ${missingQuotes.length}개 불일치: "${missingQuotes[0].quote.slice(0, 50)}"`,
+        );
+        continue; // 재시도
+      }
+
       console.log(
-        `  ✓  [${concept.name}] 검증 통과 (${validation.questionType}, O=${validation.actualO}, X=${validation.actualX})`,
+        `  ✓  [${concept.name}] 통과 (시도 ${attempt}, ${validation.questionType}, O=${validation.actualO}, X=${validation.actualX})`,
       );
+      return highlight;
+    } catch (e) {
+      console.error(
+        `  ✗  [${concept.name}] 시도 ${attempt}/${MAX_RETRIES} — API 오류: ${(e as Error).message}`,
+      );
+      if (attempt < MAX_RETRIES) continue;
     }
-
-    return highlight;
-  } catch (e) {
-    console.error(`  ✗ [${concept.name}] API 오류: ${(e as Error).message}`);
-    return null;
   }
+
+  console.error(`  ✗✗ [${concept.name}] ${MAX_RETRIES}회 시도 모두 실패`);
+  return null;
 }
 
 // ============================================================
@@ -543,13 +645,21 @@ async function main() {
       const stem = realQ?.render_ready?.question_stem || realQ?.stem || '';
       const answer = parseCorrectAnswer(realQ?.correct_answer ?? realQ?.answer);
 
-      // 최종 검증
-      const validation = validateHighlight(highlight, stem, answer);
-      if (!validation.valid) {
+      // 최종 검증 (재검증 — generateHighlight에서 이미 통과했어야 함)
+      const validation = validateHighlight(highlight, stem, answer, realQ.box_items);
+      const rawStimulus = getPlainStimulus(realQ);
+      const quoteOk = (highlight.stimulusClues || []).every(
+        (clue) => {
+          const q = clue.quote.replace(/\.{2,}$/, '').trim();
+          return rawStimulus && rawStimulus.indexOf(q) !== -1;
+        },
+      );
+      if (!validation.valid || !quoteOk) {
         validationWarnings++;
         console.warn(
-          `  ⚠️  [${concept.name}] 저장되었지만 검증 경고: ${validation.warnings.join(' | ')}`,
+          `  ⚠️  [${concept.name}] 최종 검증 실패 — 저장하지 않음: ${validation.warnings.join(' | ')}${!quoteOk ? ' | quote 불일치' : ''}`,
         );
+        continue; // 저장 건너뜀
       }
 
       // JSON 파일 저장

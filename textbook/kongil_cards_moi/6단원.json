@@ -254,7 +254,7 @@
         "questionData": {
           "number": 0,
           "source_exam": "수능특강",
-          "stimulus": "\n\n",
+          "stimulus": "인증 대상: 철근 콘크리트용 봉강\n적용 표준의 종류: 제품의 형상, 치수, 품질을 규정한 표준\n시험 방법: KS에 규정된 시험, 분석, 검사 및 측정 방법 적용",
           "stem": "다음은 한국산업표준(KS) 인증서의 일부이다. 이에 대한 설명으로 옳은 것은?",
           "box_items": [],
           "options": [
@@ -297,7 +297,8 @@
             "recommended_template": "TPL_FORMAL_DOCUMENT",
             "source_exam": "수능특강",
             "question_number": 0
-          }
+          },
+          "rawStimulus": "인증 대상: 철근 콘크리트용 봉강\n적용 표준의 종류: 제품의 형상, 치수, 품질을 규정한 표준\n시험 방법: KS에 규정된 시험, 분석, 검사 및 측정 방법 적용"
         },
         "conceptUsage": "한국산업표준의 대분류(KS A~X)와 표준의 종류(제품·방법·전달 표준)를 구분하는 문제",
         "conceptHighlight": {
@@ -803,7 +804,7 @@
         "questionData": {
           "number": 0,
           "source_exam": "수능특강",
-          "stimulus": "\n\n",
+          "stimulus": "(가): USB-C 규격 통일로 서로 다른 제조사의 충전기를 교환하여 사용 가능\n(나): 부품 규격 통일로 대량 생산이 가능해져 제조 원가 30% 절감\n(다): 제품 품질 균일화로 소비자 만족도 15% 향상",
           "stem": "다음은 표준화 효과 분석 보고서의 일부이다. (가)~(다)에 해당하는 표준화의 효과로 옳은 것은?",
           "box_items": [],
           "options": [
@@ -842,7 +843,8 @@
             "recommended_template": "TPL_FORMAL_DOCUMENT",
             "source_exam": "수능특강",
             "question_number": 0
-          }
+          },
+          "rawStimulus": "(가): USB-C 규격 통일로 서로 다른 제조사의 충전기를 교환하여 사용 가능\n(나): 부품 규격 통일로 대량 생산이 가능해져 제조 원가 30% 절감\n(다): 제품 품질 균일화로 소비자 만족도 15% 향상"
         },
         "conceptUsage": "표준화의 효과(호환성, 품질 향상, 원가 절감)와 특성을 판단하는 문제",
         "conceptHighlight": {

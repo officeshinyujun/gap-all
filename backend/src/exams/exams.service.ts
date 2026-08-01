@@ -390,9 +390,9 @@ export class ExamsService {
         comboBlock: item.question.comboBlock,
         setGroupId: item.question.setGroupId,
         setPosition: item.question.setPosition,
+        correctAnswer: item.question.correctAnswer,
         ...(item.userAnswer !== null
           ? {
-              correctAnswer: item.question.correctAnswer,
               explanation: item.question.explanation,
             }
           : {}),

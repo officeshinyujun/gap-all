@@ -238,7 +238,7 @@
         "questionData": {
           "number": 0,
           "source_exam": "수능특강",
-          "stimulus": "\n",
+          "stimulus": "(가) 도입 현황: 정의(Define)→측정(Measure)→분석(Analyze)→개선(Improve)→관리(Control) 5단계를 적용하여 100만 개당 3~4개 불량 수준을 목표로 추진 중\n(나) 도입 현황: 모든 구성원이 참여하는 전사적 품질 경영 활동으로, PDCA 사이클을 활용하고 품질 분임조를 운영하여 지속적 개선 추진 중",
           "stem": "다음은 품질 혁신 활동 보고서의 일부이다. (가), (나)에 해당하는 품질 경영 기법으로 옳은 것은?",
           "box_items": [],
           "options": [
@@ -276,7 +276,8 @@
             "recommended_template": "TPL_FORMAL_DOCUMENT",
             "source_exam": "수능특강",
             "question_number": 0
-          }
+          },
+          "rawStimulus": "(가) 도입 현황: 정의(Define)→측정(Measure)→분석(Analyze)→개선(Improve)→관리(Control) 5단계를 적용하여 100만 개당 3~4개 불량 수준을 목표로 추진 중\n(나) 도입 현황: 모든 구성원이 참여하는 전사적 품질 경영 활동으로, PDCA 사이클을 활용하고 품질 분임조를 운영하여 지속적 개선 추진 중"
         },
         "conceptUsage": "6시그마와 TQM의 특징을 비교하고 실행 단계를 판단하는 문제",
         "conceptHighlight": {
@@ -401,7 +402,7 @@
         "questionData": {
           "number": 0,
           "source_exam": "수능특강",
-          "stimulus": "\n\n\n",
+          "stimulus": "도입 배경: 과잉 생산과 불필요한 재고를 최소화하기 위해 새로운 생산 시스템 도입 결정\n핵심 원리: 필요한 때 필요한 것을 필요한 만큼 생산하는 방식 적용\n생산 방식 전환: 기존 푸시(push) 방식에서 풀(pull) 방식으로 전환하여 후공정이 필요한 만큼 전공정에서 가져오는 체계 구축\n최종 목표: JIT와 자동화(지도카) 두 축으로 구성된 린 생산 시스템 완성",
           "stem": "다음은 생산 시스템 도입 보고서의 일부이다. 이에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
           "box_items": [],
           "options": [
@@ -441,7 +442,8 @@
             "recommended_template": "TPL_FORMAL_DOCUMENT",
             "source_exam": "수능특강",
             "question_number": 0
-          }
+          },
+          "rawStimulus": "도입 배경: 과잉 생산과 불필요한 재고를 최소화하기 위해 새로운 생산 시스템 도입 결정\n핵심 원리: 필요한 때 필요한 것을 필요한 만큼 생산하는 방식 적용\n생산 방식 전환: 기존 푸시(push) 방식에서 풀(pull) 방식으로 전환하여 후공정이 필요한 만큼 전공정에서 가져오는 체계 구축\n최종 목표: JIT와 자동화(지도카) 두 축으로 구성된 린 생산 시스템 완성"
         },
         "conceptUsage": "JIT와 린 생산 시스템의 관계 및 풀(pull)/푸시(push) 방식을 판단하는 문제",
         "conceptHighlight": {
@@ -452,64 +454,64 @@
         "conceptHighlightV2": {
           "stimulusClues": [
             {
-              "quote": "필요한 때 필요한 것을 필요한 만큼 생산하는 방식 적용",
-              "why": "이 부분에서 JIT의 핵심 원리를 확인할 수 있기 때문"
+              "quote": "과잉 생산과 불필요한 재고를 최소화하기 위해 새로운 생산 시스템 도입 결정",
+              "why": "JIT와 린 생산 시스템의 목표가 과잉 생산과 불필요한 재고를 줄이는 것이기 때문"
             },
             {
-              "quote": "기존 푸시(push) 방식에서 풀(pull) 방식으로 전환하여",
-              "why": "이 부분에서 풀(pull) 방식을 채택했음을 확인할 수 있기 때문"
+              "quote": "기존 푸시(push) 방식에서 풀(pull) 방식으로 전환하여 후공정이 필요한 만큼 전공정에서 가져오는 체계 구축",
+              "why": "풀(pull) 방식은 JIT의 핵심 원리로, 필요한 만큼만 생산하는 것을 의미하기 때문"
             },
             {
               "quote": "JIT와 자동화(지도카) 두 축으로 구성된 린 생산 시스템 완성",
-              "why": "이 부분에서 JIT와 린 생산 시스템의 관계를 확인할 수 있기 때문"
+              "why": "JIT는 린 생산 시스템의 구성 요소 중 하나임을 확인할 수 있기 때문"
             }
           ],
           "optionAnalysis": [
             {
               "optionNum": 1,
               "verdict": "X",
-              "reasoning": "ㄱ은 JIT의 정의에 부합하지만, ㄴ은 푸시 방식이 아닌 풀 방식이므로 X"
+              "reasoning": "오답"
             },
             {
               "optionNum": 2,
               "verdict": "X",
-              "reasoning": "ㄱ은 JIT의 정의에 부합하지만, ㄷ은 지문에 언급되지 않았으므로 X"
+              "reasoning": "오답"
             },
             {
               "optionNum": 3,
               "verdict": "X",
-              "reasoning": "ㄴ은 푸시 방식이 아닌 풀 방식이므로 X, ㄷ은 지문에 언급되지 않았으므로 X"
+              "reasoning": "오답"
             },
             {
               "optionNum": 4,
               "verdict": "O",
-              "reasoning": "ㄱ은 JIT의 정의에 부합하고, ㄴ은 푸시 방식이 아닌 풀 방식이므로 X, ㄷ은 지문에 언급되지 않았으므로 X"
+              "reasoning": "정답 4번"
             },
             {
               "optionNum": 5,
               "verdict": "X",
-              "reasoning": "ㄴ은 푸시 방식이 아닌 풀 방식이므로 X, ㄹ은 지문에 언급되지 않았으므로 X"
+              "reasoning": "오답"
             }
           ],
           "solvingFlow": [
             {
               "step": 1,
-              "action": "지문에서 JIT의 정의와 린 생산 시스템의 관계를 확인한다"
+              "action": "지문에서 JIT와 린 생산 시스템의 핵심 원리와 목표를 확인한다"
             },
             {
               "step": 2,
-              "action": "지문에서 푸시(push) 방식에서 풀(pull) 방식으로 전환했음을 확인한다"
+              "action": "풀(pull) 방식과 푸시(push) 방식의 차이를 이해한다"
             },
             {
               "step": 3,
-              "action": "각 선지를 대조하여 JIT와 풀 방식에 부합하는 선지를 찾는다"
+              "action": "각 선지의 보기 항목이 JIT와 린 생산 시스템의 개념에 부합하는지 판단한다"
             },
             {
               "step": 4,
-              "action": "정답으로 ㄱ, ㄴ, ㄷ이 포함된 선지를 선택한다"
+              "action": "선지를 대조하여 모든 보기 항목이 부합하는 선지를 정답으로 확정한다"
             }
           ],
-          "takeaway": "이 개념을 알면 JIT와 린 생산 시스템의 관계 및 풀/푸시 방식을 구분할 수 있다"
+          "takeaway": "JIT와 린 생산 시스템의 개념을 알면 생산 방식의 전환과 그 목적을 명확히 구분할 수 있다"
         }
       },
       "caution": "'필요한 때 필요한 만큼' → JIT; 'JIT + 자동화' → 린 생산 시스템; 린 생산은 푸시에서 풀 방식으로 전환; JIT는 린 생산의 한 축",
@@ -759,7 +761,7 @@
         "questionData": {
           "number": 0,
           "source_exam": "수능특강",
-          "stimulus": "\n",
+          "stimulus": "1단계 - 아이디어 도출: (가) 기법을 활용하여 다른 사람의 의견에 비판 없이 다양하게 의견을 자유롭게 제시\n2단계 - 품질 개선 실행: (나) 순환 과정을 적용하여 계획(Plan)→실행(Do)→검토(Check)→조치(Action) 단계를 반복 수행",
           "stem": "다음은 품질 개선 활동 계획서의 일부이다. (가), (나)에 해당하는 기법으로 옳은 것은?",
           "box_items": [],
           "options": [
@@ -799,7 +801,8 @@
             "recommended_template": "TPL_FORMAL_DOCUMENT",
             "source_exam": "수능특강",
             "question_number": 0
-          }
+          },
+          "rawStimulus": "1단계 - 아이디어 도출: (가) 기법을 활용하여 다른 사람의 의견에 비판 없이 다양하게 의견을 자유롭게 제시\n2단계 - 품질 개선 실행: (나) 순환 과정을 적용하여 계획(Plan)→실행(Do)→검토(Check)→조치(Action) 단계를 반복 수행"
         },
         "conceptUsage": "데밍 사이클의 순환 과정과 브레인스토밍 기법을 판단하는 문제",
         "conceptHighlight": {

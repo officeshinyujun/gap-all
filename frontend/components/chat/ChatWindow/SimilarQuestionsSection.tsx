@@ -122,8 +122,7 @@ function ConceptExplanation({
   const hasSimilarity = (sq.matchedConcepts?.length ?? 0) > 0;
   if (!hasClues && !hasFlow && !hasOptions && !hasTakeaway && !hasSimilarity) return null;
 
-  const hasCombo = (sq.question?.combo_block?.items?.length ?? 0) > 0;
-  const markers = hasCombo ? ['ㄱ', 'ㄴ', 'ㄷ', 'ㄹ'] : ['①', '②', '③', '④', '⑤'];
+  const markers = ['①', '②', '③', '④', '⑤'];
 
   return (
     <>
@@ -183,16 +182,19 @@ function ConceptExplanation({
           {hasOptions && (
             <div>
               <div className={s.sectionTitle}>선택지 분석</div>
-              {v2.optionAnalysis.map((opt, i) => (
-                <div
-                  key={i}
-                  className={`${s.optionRow} ${opt.verdict === 'O' ? s.optionCorrectRow : s.optionWrongRow}`}
-                >
-                  <span className={s.optionLabel}>{markers[opt.optionNum - 1] ?? opt.optionNum}</span>
-                  <span className={opt.verdict === 'O' ? s.verdictO : s.verdictX}>{opt.verdict}</span>
-                  <span className={s.optionReasoning}>{opt.reasoning}</span>
-                </div>
-              ))}
+              {v2.optionAnalysis.map((opt: any, i: number) => {
+                  const label = opt.optionKey ?? (markers[(opt.optionNum ?? 1) - 1] ?? String(opt.optionNum));
+                  return (
+                    <div
+                      key={i}
+                      className={`${s.optionRow} ${opt.verdict === 'O' ? s.optionCorrectRow : s.optionWrongRow}`}
+                    >
+                      <span className={s.optionLabel}>{label}</span>
+                      <span className={opt.verdict === 'O' ? s.verdictO : s.verdictX}>{opt.verdict}</span>
+                      <span className={s.optionReasoning}>{opt.reasoning}</span>
+                    </div>
+                  );
+                })}
             </div>
           )}
           {hasTakeaway && (

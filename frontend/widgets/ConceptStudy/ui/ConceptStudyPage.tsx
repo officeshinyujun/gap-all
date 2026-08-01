@@ -65,7 +65,6 @@ export function ConceptStudyPage() {
   const v2 = current?.conceptHighlightV2;
   const sampleQuestion = current?.sampleQuestion;
   const questionSource = sampleQuestion?.questionSource ?? sampleQuestion?.metadata?.source_exam;
-  const analysisExplanation = v2?.takeaway ?? null;
 
   if (loading) return <div className={s.container}><div className={s.center}><div className={s.spinner} /></div></div>;
   if (error) return <div className={s.container}><div className={s.center}><span className={s.errorText}>{error}</span></div></div>;
@@ -201,7 +200,7 @@ export function ConceptStudyPage() {
                     </HStack>
                   )}
                   <QuestionRenderer
-                    question={{ ...sampleQuestion, explanation: sampleQuestion.explanation ?? sampleQuestion.render_ready?.explanation ?? (analysisExplanation || undefined) }}
+                    question={{ ...sampleQuestion, explanation: sampleQuestion.explanation ?? sampleQuestion.render_ready?.explanation ?? undefined }}
                     questionNumber={currentIndex + 1}
                     correctAnswer={sampleQuestion.correct_answer}
                     flat
@@ -250,11 +249,8 @@ export function ConceptStudyPage() {
                             )}
                             {key === 'optionAnalysis' && v2 && (
                               <VStack gap={6} fullWidth>
-                                {v2.optionAnalysis.map((opt, i) => {
-                                  const hasComboBlock = !!sampleQuestion.combo_block?.items?.length;
-                                  const label = hasComboBlock
-                                    ? (['ㄱ', 'ㄴ', 'ㄷ', 'ㄹ'][opt.optionNum - 1] ?? String(opt.optionNum))
-                                    : (['①', '②', '③', '④', '⑤'][opt.optionNum - 1] ?? String(opt.optionNum));
+                                {v2.optionAnalysis.map((opt: any, i: number) => {
+                                  const label = opt.optionKey ?? (['①', '②', '③', '④', '⑤'][(opt.optionNum ?? 1) - 1] ?? String(opt.optionNum));
                                   return (
                                     <div key={i} className={`${s.optionAnalysisRow} ${opt.verdict === 'O' ? s.optionCorrectRow : s.optionWrongRow}`}>
                                       <HStack gap={8} align="start">

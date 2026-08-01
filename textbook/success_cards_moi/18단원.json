@@ -94,7 +94,8 @@
             "recommended_template": "TPL_COMPARATIVE_MATRIX",
             "source_exam": "2023학년도 6월 모의평가 직업탐구 영역(성공적인 직업생활)",
             "question_number": 13
-          }
+          },
+          "correct_answer": 2
         },
         "conceptUsage": "'산업 재해는 일을 하다가 또는 일이 원인이 되어 근로자가 다치거나 병에 걸리는 경우를 의미...' 개념을 이해하고 있어야 지문의 상황을 분석하고 선지의 적절성을 판단할 수 있다.",
         "conceptHighlight": {
@@ -639,24 +640,24 @@
           ],
           "optionAnalysis": [
             {
-              "optionNum": 1,
+              "optionKey": "ㄱ",
               "verdict": "X",
-              "reasoning": "A씨는 갈비뼈 골절로 치료를 받았으나, 직업재활급여를 받을 수 있는 조건에 해당하지 않음"
+              "reasoning": "A씨는 장해 없이 완치 판정을 받았으므로, 장해가 있는 근로자에게 지급되는 직업재활급여를 받을 수 없다. 따라서 틀린 설명이다."
             },
             {
-              "optionNum": 2,
+              "optionKey": "ㄴ",
               "verdict": "O",
-              "reasoning": "산업 재해로 인정받은 A씨의 경우, 사회 보험의 보험료는 사업주가 전액 부담함"
+              "reasoning": "A씨에게 적용된 사회 보험은 산업재해보상보험으로, 보험료는 사업주가 전액 부담한다. 따라서 옳은 설명이다."
             },
             {
-              "optionNum": 3,
+              "optionKey": "ㄷ",
               "verdict": "O",
-              "reasoning": "A씨의 사고는 불안전한 행동(제한 중량 초과 및 안전띠 미착용)으로 발생하였으므로 해당됨"
+              "reasoning": "사고의 직접적 원인은 제한 중량 초과 적재와 안전띠 미착용 같은 불안전한 행동 및 상태이다. 따라서 옳은 설명이다."
             },
             {
-              "optionNum": 4,
+              "optionKey": "ㄹ",
               "verdict": "X",
-              "reasoning": "A씨는 요양급여를 수령하였으나, 1일당 임금의 전액을 휴업급여로 받을 수 있는 조건에 해당하지 않음"
+              "reasoning": "휴업급여는 1일당 평균임금의 70%를 지급하며, 1일당 임금의 전액이 아니다. 따라서 틀린 설명이다."
             }
           ],
           "solvingFlow": [

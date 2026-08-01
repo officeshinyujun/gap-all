@@ -29,7 +29,7 @@ const CONCURRENCY = 2;
 
 interface ConceptHighlightV2 {
   stimulusClues: { quote: string; why: string }[];
-  optionAnalysis: { optionNum: number; verdict: string; reasoning: string }[];
+  optionAnalysis: ({ optionNum: number; verdict: string; reasoning: string } | { optionKey: string; verdict: string; reasoning: string })[];
   solvingFlow: { step: number; action: string }[];
   takeaway: string;
 }
@@ -134,7 +134,7 @@ async function main() {
         // O/X 검증
         const answer = parseAnswer(qd?.correct_answer ?? qd?.answer);
         const oCount = h.optionAnalysis.filter(o => o.verdict === 'O').length;
-        const correctVerdict = h.optionAnalysis.find(o => o.optionNum === answer)?.verdict;
+        const correctVerdict = h.optionAnalysis.find((o: any) => o.optionNum === answer)?.verdict;
 
         let status = '✓';
         if (oCount !== 1) { status = '⚠️'; console.warn(`    O=${oCount}개 (1개만 O여야 함)`); }
