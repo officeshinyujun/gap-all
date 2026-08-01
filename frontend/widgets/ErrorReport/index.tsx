@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router';
 import { CircleHelp, X } from 'lucide-react';
 import { HStack } from '@/components/general/HStack';
 import { VStack } from '@/components/general/VStack';
@@ -8,6 +9,7 @@ import { API_BASE_URL } from '@shared/lib/auth';
 import s from './style.module.scss';
 
 export function ErrorReport() {
+  const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
@@ -31,6 +33,10 @@ export function ErrorReport() {
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen]);
+
+  if (location.pathname === '/landing') {
+    return null;
+  }
 
   const submit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
