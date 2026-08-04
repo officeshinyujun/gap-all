@@ -114,7 +114,12 @@ export function parseReference(
       tplStimulusData: isRecord(value.tplStimulusData)
         ? value.tplStimulusData
         : undefined,
-      explanation: nonEmptyText(value.explanation) ?? undefined,
+      // Official explanation wins; generated fallback is explicitly marked in
+      // source_payload and exists only when the official field is absent.
+      explanation:
+        nonEmptyText(value.explanation) ??
+        nonEmptyText(value.generatedExplanation) ??
+        undefined,
     },
   };
 }

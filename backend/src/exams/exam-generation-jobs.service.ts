@@ -51,6 +51,7 @@ export type ExamGenerationShortfall = Readonly<{
     generated: number;
     omittedEligibleCount: number;
   }>;
+  rejectionsByTemplate?: Readonly<Record<string, number>>;
 }>;
 
 export type ExamGenerationJobReceipt = Readonly<{
@@ -456,7 +457,13 @@ export class ExamGenerationJobsService implements OnModuleInit {
     void this.persist(job);
   }
 
-  complete(jobId: string, userId: string, examId: string) {
+  complete(
+    jobId: string,
+    userId: string,
+    examId: string,
+    completedCount?: number,
+    shortfall?: ExamGenerationShortfall,
+  ) {
     const job = this.getForUser(jobId, userId);
     if (job.status === 'canceled') return;
     const now = new Date().toISOString();
@@ -469,8 +476,8 @@ export class ExamGenerationJobsService implements OnModuleInit {
       job.aiProgress = {
         ...job.aiProgress,
         stage: 'completed',
-        completed: job.aiProgress.total,
-        accepted: job.aiProgress.total,
+        completed: completedCount ?? job.aiProgress.total,
+        accepted: completedCount ?? job.aiProgress.total,
       };
     } else if (job.referenceProgress !== undefined) {
       job.referenceProgress = {
@@ -479,6 +486,7 @@ export class ExamGenerationJobsService implements OnModuleInit {
         completed: job.referenceProgress.total,
       };
     }
+    if (shortfall !== undefined) job.shortfall = shortfall;
     job.updatedAt = now;
     job.logs.push({
       stage: 'completed',

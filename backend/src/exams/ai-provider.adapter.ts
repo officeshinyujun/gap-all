@@ -72,20 +72,21 @@ export class AiProviderAdapter {
   async generate(
     blueprint: AiQuestionBlueprint,
     attempt: number,
+    externalSignal?: AbortSignal,
   ): Promise<AiQuestionCandidate> {
     const startedAt = Date.now();
     const controller = new AbortController();
+    const abortFromCaller = () => controller.abort();
+    externalSignal?.addEventListener('abort', abortFromCaller, { once: true });
+    if (externalSignal?.aborted) controller.abort();
     const timeout = setTimeout(() => controller.abort(), this.timeoutMs);
     try {
       const prompt = buildAiCandidatePrompt(blueprint, attempt);
-      const completion =
-        blueprint.template === 'TPL_CONVERSATIONAL_FLOW'
-          ? await this.dependency.complete(
-              prompt,
-              controller.signal,
-              aiCandidateResponseFormat(blueprint),
-            )
-          : await this.dependency.complete(prompt, controller.signal);
+      const completion = await this.dependency.complete(
+        prompt,
+        controller.signal,
+        aiCandidateResponseFormat(blueprint),
+      );
       const content =
         typeof completion === 'string' ? completion : completion.content;
       const candidate = parseAiQuestionCandidate(content, blueprint);
@@ -123,6 +124,7 @@ export class AiProviderAdapter {
       );
     } finally {
       clearTimeout(timeout);
+      externalSignal?.removeEventListener('abort', abortFromCaller);
     }
   }
 }
@@ -131,20 +133,21 @@ export function buildAiCandidatePrompt(
   blueprint: AiQuestionBlueprint,
   attempt: number,
 ): string {
+  const slotField = providerSlotField(blueprint.template);
   return JSON.stringify({
     task: 'Write bounded prose for one question blueprint.',
     contractVersion: AI_BLUEPRINT_CONTRACT_VERSION,
     promptVersion: AI_BLUEPRINT_PROMPT_VERSION,
     attempt,
     outputRules: [
-      blueprint.template === 'TPL_CONVERSATIONAL_FLOW'
-        ? 'Return exactly one JSON object with exactly messages and explanationText.'
+       slotField !== undefined
+         ? `Return exactly one JSON object with exactly ${slotField} and explanationText.`
         : 'Return exactly one JSON object with exactly stemText and explanationText.',
       'Do not return choices, answer numbers, stimulus data, metadata, or lineage.',
       'Use only the blueprint concept, invariants, and permitted slots.',
       'Do not invent source facts, official answers, numbers, tables, or diagrams.',
-      blueprint.template === 'TPL_CONVERSATIONAL_FLOW'
-        ? `Keep every message text at most ${MAX_STEM_LENGTH} characters.`
+       slotField !== undefined
+         ? `Keep every ${slotField} item at most ${MAX_STEM_LENGTH} characters.`
         : `Keep stemText at most ${MAX_STEM_LENGTH} characters.`,
       `Keep explanationText at most ${MAX_EXPLANATION_LENGTH} characters.`,
     ],
@@ -215,26 +218,28 @@ export function parseAiQuestionCandidate(
     );
   }
   const keys = Object.keys(parsed).sort();
-  if (blueprint?.template === 'TPL_CONVERSATIONAL_FLOW') {
+  const slotField = providerSlotField(blueprint?.template);
+  if (slotField !== undefined) {
+    const slotValues = parsed[slotField];
     if (
       keys.length !== 2 ||
-      keys[0] !== 'explanationText' ||
-      keys[1] !== 'messages' ||
+      keys.join(',') !== [slotField, 'explanationText'].sort().join(',') ||
       !isBoundedText(parsed.explanationText, MAX_EXPLANATION_LENGTH) ||
-      !isConversationMessages(parsed.messages, blueprint)
+      !isBoundedTextArray(slotValues, blueprint)
     ) {
       throw new AiProviderError(
         'AI_CANDIDATE_SCHEMA_INVALID',
-        'AI 대화 후보가 blueprint의 발화자/순서 계약을 만족하지 않습니다.',
+        'AI 후보가 blueprint의 텍스트 슬롯 계약을 만족하지 않습니다.',
       );
     }
-    const messages = parsed.messages.map((message) => ({
-      speakerId: message.speakerId,
-      text: message.text.trim(),
-    }));
+    const values = slotValues.map((text) => text.trim());
     return {
-      stemText: messages.map((message) => message.text).join('\n'),
-      messages,
+      stemText: values.join('\n'),
+      ...(slotField === 'messageTexts' ? { messageTexts: values } : {}),
+      ...(slotField === 'cellTexts' ? { cellTexts: values } : {}),
+      ...(slotField === 'paragraphTexts' ? { paragraphTexts: values } : {}),
+      ...(slotField === 'detailTexts' ? { detailTexts: values } : {}),
+      ...(slotField === 'stepTexts' ? { stepTexts: values } : {}),
       explanationText: parsed.explanationText.trim(),
     };
   }
@@ -264,7 +269,21 @@ export function parseAiQuestionCandidate(
 }
 
 export function aiCandidateResponseFormat(blueprint?: AiQuestionBlueprint) {
-  const conversation = blueprint?.template === 'TPL_CONVERSATIONAL_FLOW';
+  const slotField = providerSlotField(blueprint?.template);
+  const conversation = slotField === 'messageTexts';
+  const expectedSlotCount = blueprint
+    ? expectedProviderSlotCount(blueprint)
+    : undefined;
+  const slotSchema = {
+    type: 'array',
+    minItems: expectedSlotCount ?? 1,
+    ...(expectedSlotCount === undefined ? {} : { maxItems: expectedSlotCount }),
+    items: {
+      type: 'string',
+      minLength: 1,
+      maxLength: MAX_STEM_LENGTH,
+    },
+  };
   return {
     type: 'json_schema' as const,
     json_schema: {
@@ -274,33 +293,9 @@ export function aiCandidateResponseFormat(blueprint?: AiQuestionBlueprint) {
       strict: true as const,
       schema: {
         type: 'object',
-        properties: conversation
+        properties: slotField !== undefined
           ? {
-              messages: {
-                type: 'array',
-                minItems:
-                  blueprint?.conversationContract?.speakerSequence.length ?? 1,
-                maxItems:
-                  blueprint?.conversationContract?.speakerSequence.length ?? 1,
-                items: {
-                  type: 'object',
-                  properties: {
-                    speakerId: {
-                      type: 'string',
-                      enum: (
-                        blueprint?.conversationContract?.participants ?? []
-                      ).map((participant) => participant.id),
-                    },
-                    text: {
-                      type: 'string',
-                      minLength: 1,
-                      maxLength: MAX_STEM_LENGTH,
-                    },
-                  },
-                  required: ['speakerId', 'text'],
-                  additionalProperties: false,
-                },
-              },
+              [slotField]: slotSchema,
               explanationText: {
                 type: 'string',
                 minLength: 1,
@@ -319,8 +314,8 @@ export function aiCandidateResponseFormat(blueprint?: AiQuestionBlueprint) {
                 maxLength: MAX_EXPLANATION_LENGTH,
               },
             },
-        required: conversation
-          ? ['messages', 'explanationText']
+        required: slotField !== undefined
+          ? [slotField, 'explanationText']
           : ['stemText', 'explanationText'],
         additionalProperties: false,
       },
@@ -328,10 +323,73 @@ export function aiCandidateResponseFormat(blueprint?: AiQuestionBlueprint) {
   };
 }
 
+function providerSlotField(
+  template: string | undefined,
+):
+  | 'messageTexts'
+  | 'cellTexts'
+  | 'paragraphTexts'
+  | 'detailTexts'
+  | 'stepTexts'
+  | undefined {
+  switch (template) {
+    case 'TPL_CONVERSATIONAL_FLOW':
+      return 'messageTexts';
+    case 'TPL_COMPARATIVE_MATRIX':
+      return 'cellTexts';
+    case 'TPL_FORMAL_DOCUMENT':
+    case 'TPL_ARTICLE':
+      return 'paragraphTexts';
+    case 'TPL_ANNOUNCEMENT':
+      return 'detailTexts';
+    case 'TPL_SEQUENTIAL_WORKFLOW':
+      return 'stepTexts';
+    default:
+      return undefined;
+  }
+}
+
+function isBoundedTextArray(
+  value: unknown,
+  blueprint: AiQuestionBlueprint | undefined,
+): value is readonly string[] {
+  if (!Array.isArray(value) || value.length === 0) return false;
+  const expected = blueprint
+    ? expectedProviderSlotCount(blueprint)
+    : undefined;
+  return (
+    (expected === undefined || value.length === expected) &&
+    value.every((text) => isBoundedText(text, MAX_STEM_LENGTH))
+  );
+}
+
+function expectedProviderSlotCount(blueprint: AiQuestionBlueprint): number | undefined {
+  if (blueprint.template === 'TPL_CONVERSATIONAL_FLOW') {
+    return blueprint.conversationContract?.speakerSequence.length;
+  }
+  const lines = (blueprint.caseContext ?? '')
+    .split(/\n+/u)
+    .map((line) => line.trim())
+    .filter(Boolean);
+  if (blueprint.template === 'TPL_COMPARATIVE_MATRIX') {
+    const rows = lines
+      .filter((line) => line.includes('|'))
+      .slice(1)
+      .filter((line) => !/^\|?\s*:?-+:?/u.test(line));
+    const count = rows.reduce(
+      (total, line) =>
+        total + line.split('|').map((cell) => cell.trim()).filter(Boolean).length,
+      0,
+    );
+    return count || undefined;
+  }
+  return lines.length || undefined;
+}
+
 function isConversationMessages(
   value: unknown,
   blueprint: AiQuestionBlueprint,
-): value is readonly { speakerId: string; text: string }[] {
+): value is readonly string[] {
   const expected = blueprint.conversationContract?.speakerSequence;
   if (
     expected === undefined ||
@@ -339,13 +397,7 @@ function isConversationMessages(
     value.length !== expected.length
   )
     return false;
-  return value.every((message, index) => {
-    if (!isRecord(message)) return false;
-    return (
-      message.speakerId === expected[index] &&
-      isBoundedText(message.text, MAX_STEM_LENGTH)
-    );
-  });
+  return value.every((message) => isBoundedText(message, MAX_STEM_LENGTH));
 }
 
 async function completeWithOpenAi(

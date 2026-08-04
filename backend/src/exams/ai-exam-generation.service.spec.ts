@@ -201,7 +201,7 @@ describe('AiExamGenerationService', () => {
     expect(fixture.blueprintService.preview).not.toHaveBeenCalled();
   });
 
-  it('marks the run failed and does not commit a partial exam on shortfall', async () => {
+  it('still fails when no candidate passes validation', async () => {
     const fixture = serviceFixture();
     fixture.questionGenerationService.generate.mockResolvedValue({
       requestedCount: 1,
@@ -228,6 +228,44 @@ describe('AiExamGenerationService', () => {
     expect(fixture.runRepo.save).toHaveBeenLastCalledWith(
       expect.objectContaining({
         status: 'failed',
+        failureCode: 'AI_RETRY_EXHAUSTED',
+      }),
+    );
+  });
+
+  it('saves a partial exam when at least one candidate passes validation', async () => {
+    const fixture = serviceFixture();
+    const item = accepted();
+    fixture.questionGenerationService.generate.mockResolvedValue({
+      requestedCount: 2,
+      accepted: [item],
+      rejected: [
+        {
+          blueprintId: 'blueprint-2',
+          attempt: 3,
+          code: 'AI_RETRY_EXHAUSTED',
+        },
+      ],
+      shortfall: {
+        requestedCount: 2,
+        generatedCount: 1,
+        reason: 'AI_RETRY_EXHAUSTED',
+      },
+    });
+
+    const result = await fixture.service.generate(
+      'user-1',
+      { ...request(), questionCount: 2 },
+      '성공적인 직업생활',
+      'success',
+      'job-partial',
+    );
+
+    expect(result).toBe('exam-1');
+    expect(fixture.runRepo.save).toHaveBeenLastCalledWith(
+      expect.objectContaining({
+        status: 'completed',
+        examId: 'exam-1',
         failureCode: 'AI_RETRY_EXHAUSTED',
       }),
     );

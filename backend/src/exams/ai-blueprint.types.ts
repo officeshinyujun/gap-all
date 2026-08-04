@@ -125,7 +125,13 @@ export type AiQuestionBlueprint = Readonly<{
 export type AiQuestionCandidate = Readonly<{
   stemText: string;
   explanationText: string;
-  messages?: readonly Readonly<{ speakerId: string; text: string }>[];
+  /** Conversation text only; speaker IDs and order are server-owned. */
+  messageTexts?: readonly string[];
+  /** Structured TPL slots; shape and order stay server-owned. */
+  cellTexts?: readonly string[];
+  paragraphTexts?: readonly string[];
+  detailTexts?: readonly string[];
+  stepTexts?: readonly string[];
   telemetry?: AiProviderTelemetry;
 }>;
 

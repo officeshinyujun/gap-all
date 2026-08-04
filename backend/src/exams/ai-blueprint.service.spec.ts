@@ -79,6 +79,19 @@ describe('compileAiBlueprints', () => {
     expect(first.blueprints[0]).not.toHaveProperty('correctAnswer');
   });
 
+  it('does not report shortfall when fallback blueprints exceed the request', () => {
+    const result = compileAiBlueprints(profile, evidence, {
+      subjectId: '5d0199c5-6bf6-4a92-a3f8-dbd8679bf9e7',
+      difficulty: Difficulty.MIDDLE,
+      questionCount: 1,
+      candidateCount: 2,
+      aiQuestionFamily: 'concept',
+    });
+
+    expect(result.blueprints).toHaveLength(2);
+    expect(result.shortfall).toBeUndefined();
+  });
+
   it('filters by requested family and returns a safe shortfall', () => {
     const result = compileAiBlueprints(profile, evidence, {
       subjectId: '5d0199c5-6bf6-4a92-a3f8-dbd8679bf9e7',

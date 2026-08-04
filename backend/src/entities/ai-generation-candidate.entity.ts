@@ -18,6 +18,9 @@ export class AiGenerationCandidate {
   @Column({ name: 'blueprint_id', type: 'varchar' })
   blueprintId: string;
 
+  @Column({ type: 'varchar', nullable: true })
+  template: string | null;
+
   @Column({ type: 'int' })
   attempt: number;
 

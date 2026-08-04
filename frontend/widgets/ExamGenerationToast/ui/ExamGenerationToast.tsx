@@ -32,11 +32,12 @@ export function ExamGenerationToast() {
     jobStatus.status === 'completed' ||
     jobStatus.status === 'failed' ||
     jobStatus.status === 'canceled';
-  const displayMessage = jobStatus.status === 'failed'
-    ? jobStatus.shortfall && jobStatus.shortfall.generatedCount < jobStatus.shortfall.requestedCount
-      ? `검증 가능한 문항이 부족합니다. ${jobStatus.shortfall.generatedCount}/${jobStatus.shortfall.requestedCount}문항 생성됨`
-      : jobStatus.errorMessage ?? jobStatus.message
-    : jobStatus.message;
+  const displayMessage = jobStatus.shortfall &&
+    jobStatus.shortfall.generatedCount < jobStatus.shortfall.requestedCount
+    ? `검증 가능한 문항이 부족해 ${jobStatus.shortfall.generatedCount}/${jobStatus.shortfall.requestedCount}문항만 생성됨`
+    : jobStatus.status === 'failed'
+      ? jobStatus.errorMessage ?? jobStatus.message
+      : jobStatus.message;
   const diagnosticLabel = jobStatus.status === 'failed' && jobStatus.errorCode
     ? [jobStatus.errorStage, jobStatus.errorCode].filter(Boolean).join(' · ')
     : '';

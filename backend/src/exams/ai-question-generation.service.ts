@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@nestjs/common';
+import { Inject, Injectable, InternalServerErrorException } from '@nestjs/common';
 import type {
   AiGenerationFailureCode,
   AiGenerationValidationResult,
@@ -35,6 +35,7 @@ export type AiAcceptedQuestion = Readonly<{
 
 export type AiRejectedCandidate = Readonly<{
   blueprintId: string;
+  template: string;
   attempt: number;
   code: AiGenerationFailureCode;
   message?: string;
@@ -49,6 +50,7 @@ export type AiQuestionGenerationResult = Readonly<{
     generatedCount: number;
     reason: 'AI_RETRY_EXHAUSTED' | 'AI_BLUEPRINT_SHORTFALL';
   }>;
+  rejectionsByTemplate?: Readonly<Record<string, number>>;
 }>;
 
 @Injectable()
@@ -61,6 +63,10 @@ export class AiQuestionGenerationService {
   async generate(
     blueprints: readonly AiQuestionBlueprint[],
     reportProgress?: ExamGenerationProgressReporter,
+    requestedCount = blueprints.length,
+    deadlineAtMs?: number,
+    shouldCancel?: () => boolean,
+    abortSignal?: AbortSignal,
   ): Promise<AiQuestionGenerationResult> {
     const accepted: AiAcceptedQuestion[] = [];
     const rejected: AiRejectedCandidate[] = [];
@@ -69,6 +75,18 @@ export class AiQuestionGenerationService {
     const total = blueprints.length;
 
     for (const [index, blueprint] of blueprints.entries()) {
+      if (shouldCancel?.()) {
+        throw new InternalServerErrorException({
+          code: 'AI_JOB_CANCELED',
+          message: 'AI 시험 생성 작업이 취소되었습니다.',
+        });
+      }
+      if (deadlineAtMs !== undefined && Date.now() >= deadlineAtMs) {
+        throw new InternalServerErrorException({
+          code: 'AI_JOB_TIMEOUT',
+          message: 'AI 시험 생성 시간이 초과되었습니다.',
+        });
+      }
       let admitted: AiAcceptedQuestion | undefined;
       for (
         let attempt = 1;
@@ -94,11 +112,16 @@ export class AiQuestionGenerationService {
           },
         });
         try {
-          const candidate = await this.provider.generate(blueprint, attempt);
+          const candidate = await this.provider.generate(
+            blueprint,
+            attempt,
+            abortSignal,
+          );
           const materialized = materializeAiQuestion(blueprint, candidate);
           if (materialized.kind === 'rejected') {
             rejected.push({
               blueprintId: blueprint.id,
+              template: blueprint.template,
               attempt,
               code: materialized.code,
               message: materialized.message,
@@ -113,6 +136,7 @@ export class AiQuestionGenerationService {
           if (!validation.passed) {
             rejected.push({
               blueprintId: blueprint.id,
+              template: blueprint.template,
               attempt,
               code: validation.failureCode ?? 'AI_INVARIANT_MISMATCH',
             });
@@ -126,6 +150,7 @@ export class AiQuestionGenerationService {
           if (fingerprints.has(fingerprint)) {
             rejected.push({
               blueprintId: blueprint.id,
+              template: blueprint.template,
               attempt,
               code: 'AI_DUPLICATE_REJECTED',
             });
@@ -134,6 +159,7 @@ export class AiQuestionGenerationService {
           if (structuralFingerprints.has(structuralFingerprint)) {
             rejected.push({
               blueprintId: blueprint.id,
+              template: blueprint.template,
               attempt,
               code: 'AI_DUPLICATE_REJECTED',
             });
@@ -158,6 +184,7 @@ export class AiQuestionGenerationService {
               : 'AI_PROVIDER_MALFORMED_OUTPUT';
           rejected.push({
             blueprintId: blueprint.id,
+            template: blueprint.template,
             attempt,
             code,
             message: error instanceof Error ? error.message : undefined,
@@ -192,21 +219,30 @@ export class AiQuestionGenerationService {
           rejected: rejected.length,
         },
       });
+      if (accepted.length >= requestedCount) break;
     }
 
+    const rejectionsByTemplate: Record<string, number> = {};
+    for (const rejection of rejected) {
+      rejectionsByTemplate[rejection.template] =
+        (rejectionsByTemplate[rejection.template] ?? 0) + 1;
+    }
     return {
-      requestedCount: total,
+      requestedCount,
       accepted,
       rejected,
-      ...(accepted.length === total
+      ...(accepted.length >= requestedCount
         ? {}
         : {
             shortfall: {
-              requestedCount: total,
+              requestedCount,
               generatedCount: accepted.length,
               reason: 'AI_RETRY_EXHAUSTED',
             },
           }),
+      ...(Object.keys(rejectionsByTemplate).length > 0
+        ? { rejectionsByTemplate }
+        : {}),
     };
   }
 }

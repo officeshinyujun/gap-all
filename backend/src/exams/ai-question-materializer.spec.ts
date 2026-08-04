@@ -102,10 +102,7 @@ describe('materializeAiQuestion', () => {
       },
       {
         stemText: '조건을 확인해 보자.\n네, 사례를 검토하겠습니다.',
-        messages: [
-          { speakerId: 'speaker-1', text: '조건을 확인해 보자.' },
-          { speakerId: 'speaker-2', text: '네, 사례를 검토하겠습니다.' },
-        ],
+        messageTexts: ['조건을 확인해 보자.', '네, 사례를 검토하겠습니다.'],
         explanationText: '직무 분석의 조건을 대화에서 확인한다.',
       },
     );
@@ -135,5 +132,32 @@ describe('materializeAiQuestion', () => {
       code: 'AI_DISTRACTOR_INVALID',
       message: '정확히 네 개의 검증된 오답 개념이 필요합니다.',
     });
+  });
+
+  it('materializes a source-backed matrix with server-owned shape', () => {
+    const result = materializeAiQuestion(
+      {
+        ...blueprint,
+        template: 'TPL_COMPARATIVE_MATRIX',
+        caseContext: '| 기준 | 값 |\n| --- | --- |\n| A | 원문 값 |',
+      },
+      {
+        stemText: '조건 A\n조건 B',
+        cellTexts: ['조건 A', '조건 B'],
+        explanationText: '직무 분석의 조건을 표에서 확인한다.',
+      },
+    );
+
+    if (result.kind === 'rejected') throw new Error(result.message);
+    expect(result.question.recommendedTemplate).toBe('TPL_COMPARATIVE_MATRIX');
+    expect(result.question.stimulusData).toEqual(
+      expect.objectContaining({
+        headers: [
+          { id: 'col-1', label: '기준' },
+          { id: 'col-2', label: '값' },
+        ],
+        rows: [{ id: 'row-1', cells: ['조건 A', '조건 B'] }],
+      }),
+    );
   });
 });

@@ -354,10 +354,11 @@ export class ChatService {
     }
 
     // 4. 유사 문제 검색
-    const similarQuestions = this.studyService.findSimilarByConceptNames(
-      extracted.target_concepts,
-      5,
-    );
+    const similarQuestions =
+      (await this.studyService.findSimilarByConceptNames(
+        extracted.target_concepts,
+        5,
+      )) ?? [];
 
     // 5. 이미지 Supabase Storage 저장
     const imageFilename = await this.imageUploadService.uploadImage(

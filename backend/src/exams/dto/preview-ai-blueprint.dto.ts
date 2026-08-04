@@ -57,6 +57,7 @@ export class PreviewAiBlueprintDto {
   @IsIn(AI_QUESTION_FAMILIES)
   aiQuestionFamily?: AiQuestionFamily;
 
+
   @IsOptional()
   @IsString()
   @MaxLength(128)

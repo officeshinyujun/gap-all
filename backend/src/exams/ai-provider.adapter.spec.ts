@@ -43,7 +43,7 @@ describe('AiProviderAdapter', () => {
     });
   });
 
-  it('accepts only server-fixed conversational speakers and turn order', () => {
+  it('accepts conversation text while keeping speakers and order server-owned', () => {
     const conversationBlueprint: AiQuestionBlueprint = {
       ...blueprint,
       template: 'TPL_CONVERSATIONAL_FLOW',
@@ -60,21 +60,53 @@ describe('AiProviderAdapter', () => {
     expect(
       parseAiQuestionCandidate(
         JSON.stringify({
-          messages: [
-            { speakerId: 'speaker-1', text: '조건을 확인해 보자.' },
-            { speakerId: 'speaker-2', text: '네, 사례를 검토하겠습니다.' },
-          ],
+          messageTexts: ['조건을 확인해 보자.', '네, 사례를 검토하겠습니다.'],
           explanationText: '대화의 조건을 기준으로 판단한다.',
         }),
         conversationBlueprint,
       ),
     ).toEqual({
       stemText: '조건을 확인해 보자.\n네, 사례를 검토하겠습니다.',
-      messages: [
-        { speakerId: 'speaker-1', text: '조건을 확인해 보자.' },
-        { speakerId: 'speaker-2', text: '네, 사례를 검토하겠습니다.' },
-      ],
+      messageTexts: ['조건을 확인해 보자.', '네, 사례를 검토하겠습니다.'],
       explanationText: '대화의 조건을 기준으로 판단한다.',
+    });
+  });
+
+  it('rejects the legacy speaker-bearing conversation shape', () => {
+    const conversationBlueprint: AiQuestionBlueprint = {
+      ...blueprint,
+      template: 'TPL_CONVERSATIONAL_FLOW',
+      conversationContract: {
+        participants: [{ id: 'speaker-1', name: '교사', role: '교사' }],
+        speakerSequence: ['speaker-1'],
+        sceneKind: 'dialogue',
+      },
+    };
+
+    expect(() =>
+      parseAiQuestionCandidate(
+        JSON.stringify({
+          messages: [{ speakerId: 'speaker-1', text: '조건을 확인하자.' }],
+          explanationText: '설명',
+        }),
+        conversationBlueprint,
+      ),
+    ).toThrow(AiProviderError);
+  });
+
+  it('uses a template-specific slot contract for matrix candidates', () => {
+    expect(
+      parseAiQuestionCandidate(
+        JSON.stringify({
+          cellTexts: ['조건 A', '조건 B'],
+          explanationText: '표의 각 셀은 원문 조건을 보존한다.',
+        }),
+        { ...blueprint, template: 'TPL_COMPARATIVE_MATRIX' },
+      ),
+    ).toEqual({
+      stemText: '조건 A\n조건 B',
+      cellTexts: ['조건 A', '조건 B'],
+      explanationText: '표의 각 셀은 원문 조건을 보존한다.',
     });
   });
 
@@ -106,6 +138,7 @@ describe('AiProviderAdapter', () => {
     expect(complete).toHaveBeenCalledWith(
       expect.stringContaining('"promptVersion":"v2"'),
       expect.any(AbortSignal),
+      expect.objectContaining({ type: 'json_schema' }),
     );
     expect(buildAiCandidatePrompt(blueprint, 2)).not.toContain('correctAnswer');
   });

@@ -118,10 +118,7 @@ describe('validateAiQuestion', () => {
     };
     const candidate = {
       stemText: '조건을 확인해 보자.\n네, 사례를 검토하겠습니다.',
-      messages: [
-        { speakerId: 'speaker-1', text: '조건을 확인해 보자.' },
-        { speakerId: 'speaker-2', text: '네, 사례를 검토하겠습니다.' },
-      ],
+      messageTexts: ['조건을 확인해 보자.', '네, 사례를 검토하겠습니다.'],
       explanationText: '직무 분석은 직무에 필요한 조건을 파악하는 것이다.',
     };
     const materialized = materializeAiQuestion(

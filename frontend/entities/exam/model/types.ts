@@ -89,6 +89,7 @@ export interface ExamJobStatus {
       fidelity: number;
       admission?: number;
     };
+    rejectionsByTemplate?: Record<string, number>;
   };
   sourceType?: ExamSourceType;
   aiProgress?: {

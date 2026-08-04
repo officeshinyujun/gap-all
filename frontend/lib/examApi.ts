@@ -112,6 +112,7 @@ export interface ExamJobStatus {
       fidelity: number;
       admission?: number;
     };
+    rejectionsByTemplate?: Record<string, number>;
   };
   sourceType?: 'ai' | 'reference' | 'simply_reference' | 'ai_blueprint';
   aiProgress?: {

@@ -230,6 +230,13 @@ function aiGenerationShortfall(
   }
   const admission = response.stageCounts.admission;
   if (admission !== undefined && !isCount(admission)) return undefined;
+  const rejectionsByTemplate = response.rejectionsByTemplate;
+  if (
+    rejectionsByTemplate !== undefined &&
+    !isCountRecord(rejectionsByTemplate)
+  ) {
+    return undefined;
+  }
   return {
     requestedCount: response.requestedCount,
     generatedCount: response.generatedCount,
@@ -239,6 +246,7 @@ function aiGenerationShortfall(
       fidelity: response.stageCounts.fidelity,
       ...(admission === undefined ? {} : { admission }),
     },
+    ...(rejectionsByTemplate === undefined ? {} : { rejectionsByTemplate }),
   };
 }
 
@@ -248,6 +256,12 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 
 function isCount(value: unknown): value is number {
   return typeof value === 'number' && Number.isInteger(value) && value >= 0;
+}
+
+function isCountRecord(value: unknown): value is Record<string, number> {
+  return (
+    isRecord(value) && Object.values(value).every((count) => isCount(count))
+  );
 }
 
 function isReferenceCandidateCounts(
@@ -685,7 +699,24 @@ export class ExamsService {
     )
       return;
 
-    this.examGenerationJobsService.complete(userIdJobId, userId, exam.id);
+    this.examGenerationJobsService.complete(
+      userIdJobId,
+      userId,
+      exam.id,
+      exam.questionCount,
+      exam.questionCount < dto.questionCount
+        ? {
+            requestedCount: dto.questionCount,
+            generatedCount: exam.questionCount,
+            stageCounts: {
+              source: 0,
+              planner: 0,
+              fidelity: 0,
+              admission: exam.questionCount,
+            },
+          }
+        : undefined,
+    );
 
     const subjectSlug = exam.subject?.slug ?? '';
     try {
@@ -899,6 +930,12 @@ export class ExamsService {
         subject.slug,
         idempotencyKey ?? randomUUID(),
         reportProgress,
+        () =>
+          idempotencyKey !== undefined &&
+          this.examGenerationJobsService.isCanceled?.(
+            idempotencyKey,
+            userId,
+          ) === true,
       );
       return this.findOne(userId, examId);
     }

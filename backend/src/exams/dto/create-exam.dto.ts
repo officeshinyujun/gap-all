@@ -68,6 +68,7 @@ export class CreateExamDto {
   @IsIn(AI_QUESTION_FAMILIES)
   aiQuestionFamily?: AiQuestionFamily;
 
+
   @IsBoolean()
   @IsOptional()
   excludePrevious?: boolean;

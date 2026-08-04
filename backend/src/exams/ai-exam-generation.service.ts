@@ -3,8 +3,9 @@ import {
   Injectable,
   InternalServerErrorException,
 } from '@nestjs/common';
+import { randomUUID } from 'crypto';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { LessThanOrEqual, MoreThanOrEqual, Repository } from 'typeorm';
 import { AiGenerationCandidate } from '../entities/ai-generation-candidate.entity';
 import { AiGenerationRun } from '../entities/ai-generation-run.entity';
 import { ExamItem } from '../entities/exam-item.entity';
@@ -28,6 +29,7 @@ import { AiQuestionGenerationService } from './ai-question-generation.service';
 
 const AI_MODEL =
   process.env.OPENAI_AI_BLUEPRINT_MODEL ?? process.env.OPENAI_MODEL ?? 'gpt-4o';
+const AI_JOB_TIMEOUT_MS = Number(process.env.AI_JOB_TIMEOUT_MS) || 900_000;
 
 @Injectable()
 export class AiExamGenerationService {
@@ -55,12 +57,14 @@ export class AiExamGenerationService {
     subjectSlug: string,
     idempotencyKey: string,
     reportProgress?: ExamGenerationProgressReporter,
+    isCanceled?: () => boolean,
   ): Promise<string> {
     if (!isAiSubjectEnabled(subjectSlug)) {
       throw new ConflictException(
         '해당 과목의 AI 문항 생성이 비활성화되어 있습니다.',
       );
     }
+    await this.assertAiTelemetrySchema();
     if (dto.aiQuestionFamily !== undefined) {
       assertAiQuestionFamilyEnabled(dto.aiQuestionFamily);
     }
@@ -87,7 +91,15 @@ export class AiExamGenerationService {
         targetConcepts: dto.targetConcepts,
         aiQuestionFamily: dto.aiQuestionFamily,
         seed: idempotencyKey,
-        excludeSourceIds: await this.previousAiSourceIds(dto.subjectId),
+        excludeSourceIds:
+          dto.excludePrevious === false
+            ? []
+            : await this.previousAiSourceIds(
+                userId,
+                dto.subjectId,
+                dto.startUnitNum,
+                dto.endUnitNum,
+              ),
       });
       await this.report(run, reportProgress, {
         stage: 'blueprint',
@@ -99,25 +111,41 @@ export class AiExamGenerationService {
         maxAttempts: 0,
       });
       if (preview.shortfall !== undefined) {
-        throw new InternalServerErrorException({
-          code: 'AI_BLUEPRINT_SHORTFALL',
-          requestedCount: dto.questionCount,
-          generatedCount: preview.blueprints.length,
-          stageCounts: {
-            source: preview.availableCount,
-            planner: preview.blueprints.length,
-            fidelity: 0,
-            admission: 0,
-          },
-        });
+        if (preview.blueprints.length === 0) {
+          throw new InternalServerErrorException({
+            code: 'AI_BLUEPRINT_SHORTFALL',
+            requestedCount: dto.questionCount,
+            generatedCount: 0,
+            stageCounts: {
+              source: preview.availableCount,
+              planner: 0,
+              fidelity: 0,
+              admission: 0,
+            },
+          });
+        }
       }
 
-      const generated = await this.questionGenerationService.generate(
-        preview.blueprints,
-        (update) => this.report(run, reportProgress, update),
-      );
+      const abortController = new AbortController();
+      const cancellationPoll = setInterval(() => {
+        if (isCanceled?.()) abortController.abort();
+      }, 250);
+      let generated;
+      try {
+        generated = await this.questionGenerationService.generate(
+          preview.blueprints,
+          (update) => this.report(run, reportProgress, update),
+          dto.questionCount,
+          Date.now() + AI_JOB_TIMEOUT_MS,
+          isCanceled,
+          abortController.signal,
+        );
+      } finally {
+        clearInterval(cancellationPoll);
+      }
       run.acceptedCount = generated.accepted.length;
       run.rejectedCount = generated.rejected.length;
+      run.rejectionsByTemplate = generated.rejectionsByTemplate ?? null;
       for (const accepted of generated.accepted) {
         const telemetry = accepted.candidate.telemetry;
         if (telemetry === undefined) continue;
@@ -136,6 +164,7 @@ export class AiExamGenerationService {
           this.candidateRepo.create({
             runId: run.id,
             blueprintId: candidate.blueprintId,
+            template: candidate.template,
             attempt: candidate.attempt,
             status: 'rejected',
             failureCode: candidate.code,
@@ -155,6 +184,7 @@ export class AiExamGenerationService {
           this.candidateRepo.create({
             runId: run.id,
             blueprintId: candidate.blueprint.id,
+            template: candidate.blueprint.template,
             attempt: candidate.attempt,
             status: 'accepted',
             failureCode: null,
@@ -169,26 +199,26 @@ export class AiExamGenerationService {
         ),
       ]);
       if (generated.shortfall !== undefined) {
-        throw new InternalServerErrorException({
-          code: 'AI_RETRY_EXHAUSTED',
-          requestedCount: generated.shortfall.requestedCount,
-          generatedCount: generated.shortfall.generatedCount,
-          stageCounts: {
-            source: preview.availableCount,
-            planner: preview.blueprints.length,
-            fidelity: 0,
-            admission: generated.accepted.length,
-          },
-          candidateCounts: {
-            attempted: generated.rejected.length + generated.accepted.length,
-            eligible: preview.blueprints.length,
-            generated: generated.accepted.length,
-            omittedEligibleCount: Math.max(
-              0,
-              preview.blueprints.length - generated.accepted.length,
-            ),
-          },
-        });
+        if (generated.accepted.length === 0) {
+          throw new InternalServerErrorException({
+            code: 'AI_RETRY_EXHAUSTED',
+            requestedCount: generated.shortfall.requestedCount,
+            generatedCount: 0,
+            stageCounts: {
+              source: preview.availableCount,
+              planner: preview.blueprints.length,
+              fidelity: 0,
+              admission: 0,
+            },
+            candidateCounts: {
+              attempted: generated.rejected.length,
+              eligible: preview.blueprints.length,
+              generated: 0,
+              omittedEligibleCount: preview.blueprints.length,
+            },
+            rejectionsByTemplate: generated.rejectionsByTemplate,
+          });
+        }
       }
 
       await this.report(run, reportProgress, {
@@ -200,6 +230,12 @@ export class AiExamGenerationService {
         attempt: 1,
         maxAttempts: 1,
       });
+      if (isCanceled?.()) {
+        throw new InternalServerErrorException({
+          code: 'AI_JOB_CANCELED',
+          message: 'AI 시험 생성 작업이 취소되었습니다.',
+        });
+      }
       const examId = await this.saveExam(
         userId,
         dto,
@@ -211,12 +247,19 @@ export class AiExamGenerationService {
       run.stage = 'completed';
       run.progress = 100;
       run.examId = examId;
+      if (generated.shortfall !== undefined) {
+        run.failureCode = 'AI_RETRY_EXHAUSTED';
+        run.failureReason = `검증 통과 문항 ${generated.accepted.length}/${dto.questionCount}개로 부분 생성되었습니다.`;
+      }
       await this.runRepo.save(run);
       await reportProgress?.({
         stage: 'saving',
         progress: 100,
         status: 'success',
-        message: 'AI 생성 문항을 저장했습니다.',
+        message:
+          generated.shortfall === undefined
+            ? 'AI 생성 문항을 저장했습니다.'
+            : `검증 통과 문항 ${generated.accepted.length}/${dto.questionCount}개를 부분 저장했습니다.`,
         completed: dto.questionCount,
         total: dto.questionCount,
         attempt: 1,
@@ -233,12 +276,25 @@ export class AiExamGenerationService {
     }
   }
 
-  private async previousAiSourceIds(subjectId: string): Promise<string[]> {
-    const questionRepo = this.questionRepo as unknown as {
-      find?: (options: { where: { subjectId: string } }) => Promise<Question[]>;
-    };
-    if (questionRepo.find === undefined) return [];
-    const questions = await questionRepo.find({ where: { subjectId } });
+  private async previousAiSourceIds(
+    userId: string,
+    subjectId: string,
+    startUnitNum: number,
+    endUnitNum: number,
+  ): Promise<string[]> {
+    if (typeof this.examRepo.find !== 'function') return [];
+    const exams = await this.examRepo.find({
+      where: {
+        userId,
+        subjectId,
+        startUnitNum: LessThanOrEqual(endUnitNum),
+        endUnitNum: MoreThanOrEqual(startUnitNum),
+      },
+      relations: ['items', 'items.question'],
+    });
+    const questions = exams.flatMap((exam) =>
+      exam.items.map((item) => item.question),
+    );
     const ids = new Set<string>();
     for (const question of questions) {
       const lineage = question.generationLineage;
@@ -248,13 +304,32 @@ export class AiExamGenerationService {
     return [...ids];
   }
 
+  private async assertAiTelemetrySchema(): Promise<void> {
+    const manager = this.runRepo.manager as
+      | { query?: (sql: string) => Promise<readonly { count: string }[]> }
+      | undefined;
+    if (manager?.query === undefined) return;
+    const rows = await manager.query(
+      `SELECT COUNT(*)::text AS count FROM information_schema.columns WHERE table_name IN ('ai_generation_runs', 'ai_generation_candidates') AND column_name IN ('rejections_by_template', 'template')`,
+    );
+    if (rows[0]?.count !== '2') {
+      throw new InternalServerErrorException({
+        code: 'AI_SCHEMA_UNAVAILABLE',
+        message: 'AI 생성 telemetry migration이 적용되지 않았습니다.',
+      });
+    }
+  }
+
   private async getOrCreateRun(
     userId: string,
     dto: CreateExamDto,
     idempotencyKey: string,
   ): Promise<AiGenerationRun> {
     const existing = await this.runRepo.findOne({ where: { idempotencyKey } });
-    if (existing !== null) return existing;
+    if (existing !== null && existing.status !== 'failed') return existing;
+    if (existing !== null) {
+      idempotencyKey = `${idempotencyKey}:retry:${randomUUID()}`;
+    }
     return this.runRepo.save(
       this.runRepo.create({
         idempotencyKey,

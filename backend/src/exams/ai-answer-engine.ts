@@ -33,7 +33,9 @@ export function deriveAiAnswer(
   const subject =
     blueprint.template === 'TPL_CONVERSATIONAL_FLOW'
       ? '이 대화는'
-      : '이 사례는';
+      : blueprint.template === 'TPL_CASE_DIAGNOSTIC_FRAME'
+        ? '이 사례는'
+        : '이 자료는';
   const polarity = blueprint.sourceArchetype?.polarity ?? 'positive';
   return {
     optionsList: orderedConcepts.map(

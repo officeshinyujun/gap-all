@@ -20,6 +20,7 @@ import type { ReferenceArchetype } from './reference-archetype';
 import { parseReference, stableHash } from './reference-selector.utils';
 import type { SubjectStyle } from './reference-frame.types';
 import type { PreviewAiBlueprintDto } from './dto/preview-ai-blueprint.dto';
+import { canGenerateAiTemplate } from './ai-tpl-capabilities';
 
 export type AiBlueprintPreview = Readonly<{
   subjectSlug: string;
@@ -69,7 +70,10 @@ export class AiBlueprintService {
       },
     });
     const evidence = collectEvidence(sources, request.subjectSlug);
-    return compileAiBlueprints(profile, evidence, request);
+    return compileAiBlueprints(profile, evidence, {
+      ...request,
+      candidateCount: request.questionCount * 2,
+    });
   }
 }
 
@@ -85,7 +89,7 @@ export function compileAiBlueprints(
     | 'aiQuestionFamily'
     | 'seed'
     | 'excludeSourceIds'
-  >,
+  > & { candidateCount?: number },
 ): AiBlueprintPreview {
   const seed =
     request.seed?.trim() || `${profile.subjectSlug}:${AI_BLUEPRINT_VERSION}`;
@@ -127,8 +131,13 @@ export function compileAiBlueprints(
   const familyEvidence = eligibleEvidence.filter(
     (item) => item.family === preferredFamily,
   );
+  const fallbackEvidence = eligibleEvidence.filter(
+    (item) => item.family !== preferredFamily,
+  );
   const uniqueEvidence = uniqueBySource(
-    familyEvidence.length > 0 ? familyEvidence : eligibleEvidence,
+    request.aiQuestionFamily === undefined
+      ? [...familyEvidence, ...fallbackEvidence]
+      : familyEvidence,
   );
   const conceptPool = unique([
     ...evidence.map((item) => item.concept),
@@ -147,7 +156,7 @@ export function compileAiBlueprints(
   );
   const selected = selectBalancedEvidence(
     materializableEvidence,
-    request.questionCount,
+    request.candidateCount ?? request.questionCount,
   );
   const blueprints = selected.map((item, index) =>
     createBlueprint(
@@ -170,7 +179,7 @@ export function compileAiBlueprints(
     requestedCount: request.questionCount,
     availableCount: materializableEvidence.length,
     blueprints,
-    ...(selected.length === request.questionCount
+    ...(selected.length >= request.questionCount
       ? {}
       : {
           shortfall: {
@@ -270,6 +279,7 @@ function collectEvidence(
     if (
       template === undefined ||
       !isSupportedTemplate(template) ||
+      !canGenerateAiTemplate(template, parsed.value.stimulus) ||
       !isSupportedCaseArchetype(parsed.value.archetype)
     )
       return [];
@@ -315,7 +325,12 @@ function inferFamily(
 function isSupportedTemplate(template: string): boolean {
   return (
     template === 'TPL_CASE_DIAGNOSTIC_FRAME' ||
-    template === 'TPL_CONVERSATIONAL_FLOW'
+    template === 'TPL_CONVERSATIONAL_FLOW' ||
+    template === 'TPL_COMPARATIVE_MATRIX' ||
+    template === 'TPL_FORMAL_DOCUMENT' ||
+    template === 'TPL_ARTICLE' ||
+    template === 'TPL_ANNOUNCEMENT' ||
+    template === 'TPL_SEQUENTIAL_WORKFLOW'
   );
 }
 
@@ -324,8 +339,7 @@ function isSupportedCaseArchetype(
 ): boolean {
   return (
     archetype === undefined ||
-    ((archetype.sourceTemplate === 'TPL_CASE_DIAGNOSTIC_FRAME' ||
-      archetype.sourceTemplate === 'TPL_CONVERSATIONAL_FLOW') &&
+    (isSupportedTemplate(archetype.sourceTemplate) &&
       archetype.responseMode === 'single_selection' &&
       archetype.choiceTopology === 'single_choice' &&
       (archetype.stemIntent === 'positive_single_selection' ||

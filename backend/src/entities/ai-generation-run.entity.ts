@@ -79,6 +79,9 @@ export class AiGenerationRun {
   @Column({ name: 'failure_reason', type: 'text', nullable: true })
   failureReason: string | null;
 
+  @Column({ name: 'rejections_by_template', type: 'jsonb', nullable: true })
+  rejectionsByTemplate: Record<string, number> | null;
+
   @Column({ name: 'exam_id', type: 'uuid', nullable: true })
   examId: string | null;
 

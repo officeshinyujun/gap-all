@@ -19,11 +19,11 @@ async function main(): Promise<void> {
     synchronize: false,
   });
   try {
-    await dataSource.initialize();
-    const report = await new ReferenceCatalogPreflightService(
-      dataSource.getRepository(ReferenceQuestion),
-      new TextbookService(),
-    ).preflight();
+      await dataSource.initialize();
+      const report = await new ReferenceCatalogPreflightService(
+        dataSource.getRepository(ReferenceQuestion),
+        new TextbookService(undefined, dataSource),
+      ).preflight();
     process.stdout.write(render(report, outputFormat(process.argv.slice(2))));
     process.exitCode = referenceCatalogPreflightExitCode(report);
   } finally {
@@ -32,7 +32,7 @@ async function main(): Promise<void> {
 }
 
 function requiredDatabaseUrl(): string {
-  const databaseUrl = process.env.DATABASE_URL;
+  const databaseUrl = process.env.DATABASE_URL ?? process.env.DATABASE_SUPABASE_URL;
   if (databaseUrl === undefined || databaseUrl.trim() === '') {
     throw new Error('DATABASE_URL is required.');
   }

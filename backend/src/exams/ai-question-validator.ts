@@ -62,10 +62,14 @@ export function validateAiQuestion(
   }
   if (
     archetype !== undefined &&
-    question.questionStem !==
+      question.questionStem !==
       (archetype.stemIntent === 'negative_single_selection'
-        ? '다음 사례에 대한 설명으로 옳지 않은 것은?'
-        : '다음 사례에 대한 설명으로 옳은 것은?')
+        ? question.recommendedTemplate === 'TPL_CASE_DIAGNOSTIC_FRAME'
+          ? '다음 사례에 대한 설명으로 옳지 않은 것은?'
+          : '다음 자료에 대한 설명으로 옳지 않은 것은?'
+        : question.recommendedTemplate === 'TPL_CASE_DIAGNOSTIC_FRAME'
+          ? '다음 사례에 대한 설명으로 옳은 것은?'
+          : '다음 자료에 대한 설명으로 옳은 것은?')
   ) {
     return failed('AI_INVARIANT_MISMATCH');
   }
@@ -76,7 +80,9 @@ export function validateAiQuestion(
         !option.includes(
           question.recommendedTemplate === 'TPL_CONVERSATIONAL_FLOW'
             ? '이 대화는'
-            : '이 사례는',
+            : question.recommendedTemplate === 'TPL_CASE_DIAGNOSTIC_FRAME'
+              ? '이 사례는'
+              : '이 자료는',
         ),
     )
   ) {
@@ -101,21 +107,18 @@ export function validateAiQuestion(
     return failed('AI_RENDER_REJECTED');
   }
   const conversationMessages = question.stimulusData.messages;
-  const candidateMessages = candidate.messages;
+  const candidateMessageTexts = candidate.messageTexts;
   if (
     question.recommendedTemplate === 'TPL_CONVERSATIONAL_FLOW'
       ? !Array.isArray(conversationMessages) ||
-        candidateMessages === undefined ||
-        conversationMessages.length !== candidateMessages.length ||
+        candidateMessageTexts === undefined ||
+        conversationMessages.length !== candidateMessageTexts.length ||
         conversationMessages.some((message, index) => {
           if (typeof message !== 'object' || message === null) return true;
           const record = message as Record<string, unknown>;
-          return (
-            record.p_id !== candidateMessages[index]?.speakerId ||
-            record.text !== candidateMessages[index]?.text
-          );
+          return record.text !== candidateMessageTexts[index];
         })
-      : question.stimulusData.narrative !== candidate.stemText ||
+      : !candidateMatchesStimulus(question.stimulusData, candidate) ||
         question.explanation.judgment !== candidate.explanationText
   ) {
     return failed('AI_INVARIANT_MISMATCH');
@@ -135,6 +138,63 @@ export function validateAiQuestion(
   };
 }
 
+function candidateMatchesStimulus(
+  stimulus: Record<string, unknown>,
+  candidate: AiQuestionCandidate,
+): boolean {
+  if (typeof stimulus.narrative === 'string') return stimulus.narrative === candidate.stemText;
+  if (Array.isArray(stimulus.rows)) {
+    const cells = stimulus.rows.flatMap((row) =>
+      isRecord(row) && Array.isArray(row.cells) ? row.cells : [],
+    );
+    return (
+      candidate.cellTexts !== undefined &&
+      cells.length === candidate.cellTexts.length &&
+      cells.every((cell, index) => cell === candidate.cellTexts?.[index])
+    );
+  }
+  if (Array.isArray(stimulus.paragraphs)) {
+    const contents = stimulus.paragraphs.map((paragraph) =>
+      isRecord(paragraph) ? paragraph.content : undefined,
+    );
+    return (
+      candidate.paragraphTexts !== undefined &&
+      contents.length === candidate.paragraphTexts.length &&
+      contents.every((content, index) => content === candidate.paragraphTexts?.[index])
+    );
+  }
+  if (Array.isArray(stimulus.body_paragraphs)) {
+    return (
+      candidate.paragraphTexts !== undefined &&
+      stimulus.body_paragraphs.length === candidate.paragraphTexts.length &&
+      stimulus.body_paragraphs.every(
+        (content, index) => content === candidate.paragraphTexts?.[index],
+      )
+    );
+  }
+  if (Array.isArray(stimulus.details)) {
+    const contents = stimulus.details.map((detail) =>
+      isRecord(detail) ? detail.content : undefined,
+    );
+    return (
+      candidate.detailTexts !== undefined &&
+      contents.length === candidate.detailTexts.length &&
+      contents.every((content, index) => content === candidate.detailTexts?.[index])
+    );
+  }
+  if (Array.isArray(stimulus.steps)) {
+    const descriptions = stimulus.steps.map((step) =>
+      isRecord(step) ? step.desc : undefined,
+    );
+    return (
+      candidate.stepTexts !== undefined &&
+      descriptions.length === candidate.stepTexts.length &&
+      descriptions.every((desc, index) => desc === candidate.stepTexts?.[index])
+    );
+  }
+  return false;
+}
+
 function failed(
   failureCode: Extract<
     NonNullable<AiGenerationValidationResult['failureCode']>,
@@ -151,4 +211,8 @@ function failed(
     validatorVersion: AI_QUESTION_VALIDATOR_VERSION,
     failureCode,
   };
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null && !Array.isArray(value);
 }

@@ -43,7 +43,8 @@ export class TextbookService {
   ) {}
 
   private get isLocal(): boolean {
-    return process.env.DB_PROVIDER === 'local';
+    // ponytail: a supplied DataSource is the script's explicit local reader; no second DB client needed.
+    return this.dataSource !== undefined || process.env.DB_PROVIDER === 'local';
   }
 
   /**

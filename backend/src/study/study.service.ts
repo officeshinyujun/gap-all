@@ -1489,64 +1489,58 @@ export class StudyService {
   // ============================================================
   // 유사 문제 검색: 개념명 기준으로 cards_moi에서 검색
   // ============================================================
-  findSimilarByConceptNames(conceptNames: string[], limit = 5): any[] {
+  async findSimilarByConceptNames(
+    conceptNames: string[],
+    limit = 5,
+  ): Promise<any[]> {
     if (!conceptNames || conceptNames.length === 0) return [];
-    const results: any[] = [];
-    const folders = ['success_cards_moi', 'kongil_cards_moi'];
-    for (const folder of folders) {
-      const base = path.join(this.getTextbookBase(), folder);
-      if (!fs.existsSync(base)) continue;
-      const files = fs
-        .readdirSync(base)
-        .filter((f) => /^\d+단원\.json$/.test(f));
-      for (const file of files) {
-        if (results.length >= limit) break;
-        try {
-          const d = JSON.parse(fs.readFileSync(path.join(base, file), 'utf-8'));
-          for (const concept of d.concepts ?? []) {
-            if (results.length >= limit) break;
-            const matchedNames = conceptNames.filter((name) => {
-              const nameWords = name.split(/\s+/).filter((w) => w.length > 1);
-              const conceptWords = concept.name
-                .split(/\s+/)
-                .filter((w) => w.length > 1);
+    const { data, error } = await this.supabase.client
+      .from('reference_questions')
+      .select('subject, unit_number, source_payload')
+      .limit(1000);
+    if (error || !data) return [];
 
-              // 1. 완전 일치 또는 부분 문자열 일치
-              if (concept.name.includes(name) || name.includes(concept.name))
-                return true;
-
-              // 2. 단어 단위 교집합 확인
-              return (
-                nameWords.some((nw) => concept.name.includes(nw)) ||
-                conceptWords.some((cw) => name.includes(cw))
-              );
-            });
-            if (matchedNames.length === 0) continue;
-            const qd = concept.realQuestion?.questionData;
-            if (!qd?.render_ready) continue;
-            results.push({
-              conceptName: concept.name,
-              matchedConcepts: matchedNames,
-              unitNumber: parseInt(file.replace('단원.json', ''), 10),
-              sourceExam: qd.source_exam ?? '',
-              questionNumber: qd.number ?? null,
-              question: {
-                metadata: qd.metadata ?? {},
-                render_ready: qd.render_ready,
-                combo_block: qd.combo_block ?? buildComboBlock(qd.box_items),
-                correct_answer: parseAnswer(qd.correct_answer ?? qd.answer),
-                rawStimulus: qd.stimulus ?? '',
-              },
-              conceptHighlightV2:
-                concept.realQuestion?.conceptHighlightV2 ?? null,
-            });
-          }
-        } catch {
-          continue;
-        }
-      }
-    }
-    return results;
+    const normalized = conceptNames.map((name) => name.trim()).filter(Boolean);
+    return data
+      .flatMap((row: any) => {
+        const payload = row.source_payload ?? {};
+        const targets = Array.isArray(payload.targetConcepts)
+          ? payload.targetConcepts.filter((value: unknown): value is string => typeof value === 'string')
+          : [];
+        const matchedNames = normalized.filter((name) =>
+          targets.some((target) => target.includes(name) || name.includes(target)),
+        );
+        if (matchedNames.length === 0 || !Array.isArray(payload.choices) || payload.choices.length !== 5) return [];
+        const source = payload.source ?? {};
+        const explanation = payload.explanation || payload.generatedExplanation || '';
+        return [{
+          conceptName: targets[0] ?? matchedNames[0],
+          matchedConcepts: matchedNames,
+          unitNumber: row.unit_number,
+          sourceExam: source.filename ?? '',
+          questionNumber: payload.questionNumber ?? null,
+          question: {
+            metadata: {
+              source_exam: source.filename ?? '',
+              question_number: payload.questionNumber ?? 0,
+              unit_name: `${row.unit_number}단원`,
+              target_concept: targets[0] ?? matchedNames[0],
+              item_type: '실제 기출문제',
+            },
+            render_ready: {
+              question_stem: payload.stem ?? '',
+              stimulus_data: payload.stimulus ? { content: payload.stimulus } : null,
+              options_list: payload.choices,
+              explanation,
+            },
+            combo_block: buildComboBlock(payload.viewItems),
+            correct_answer: Number(payload.correctAnswer),
+            rawStimulus: payload.stimulus ?? '',
+          },
+          conceptHighlightV2: null,
+        }];
+      })
+      .slice(0, limit);
   }
 }
 

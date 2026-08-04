@@ -5,12 +5,13 @@ import type {
   AiQuestionBlueprint,
   AiQuestionCandidate,
 } from './ai-blueprint.types';
+import type { StructuredTplName } from './tpl-schemas';
 
 export type AiMaterializedQuestion = Readonly<{
   targetConcept: string;
   itemType: string;
   difficulty: Difficulty;
-  recommendedTemplate: 'TPL_CASE_DIAGNOSTIC_FRAME' | 'TPL_CONVERSATIONAL_FLOW';
+  recommendedTemplate: StructuredTplName;
   questionStem: string;
   stimulusData: Record<string, unknown>;
   optionsList: readonly string[];
@@ -41,10 +42,7 @@ export function materializeAiQuestion(
       message: '정확히 네 개의 검증된 오답 개념이 필요합니다.',
     };
   }
-  if (
-    blueprint.template !== 'TPL_CASE_DIAGNOSTIC_FRAME' &&
-    blueprint.template !== 'TPL_CONVERSATIONAL_FLOW'
-  ) {
+  if (!isMaterializableTemplate(blueprint.template)) {
     return {
       kind: 'rejected',
       code: 'AI_CANDIDATE_SCHEMA_INVALID',
@@ -79,25 +77,19 @@ export function materializeAiQuestion(
   }
   const questionStem =
     archetype?.stemIntent === 'negative_single_selection'
-      ? '다음 사례에 대한 설명으로 옳지 않은 것은?'
-      : '다음 사례에 대한 설명으로 옳은 것은?';
+      ? blueprint.template === 'TPL_CASE_DIAGNOSTIC_FRAME'
+        ? '다음 사례에 대한 설명으로 옳지 않은 것은?'
+        : '다음 자료에 대한 설명으로 옳지 않은 것은?'
+      : blueprint.template === 'TPL_CASE_DIAGNOSTIC_FRAME'
+        ? '다음 사례에 대한 설명으로 옳은 것은?'
+        : '다음 자료에 대한 설명으로 옳은 것은?';
   const optionsList =
     blueprint.sourceArchetype === undefined
       ? [blueprint.targetConcept, ...blueprint.distractorConcepts].map(
           (concept, index) => `${['①', '②', '③', '④', '⑤'][index]} ${concept}`,
         )
       : derivedAnswer.optionsList;
-  const stimulusData =
-    blueprint.template === 'TPL_CONVERSATIONAL_FLOW'
-      ? conversationStimulusData(blueprint, candidate)
-      : {
-          case_profile: {
-            name: 'AI 생성 사례',
-            context: '제시된 상황을 개념과 연결하여 판단한다.',
-          },
-          narrative: candidate.stemText,
-          check_items: [],
-        };
+  const stimulusData = materializeStimulus(blueprint, candidate);
   if (stimulusData === null) {
     return {
       kind: 'rejected',
@@ -111,10 +103,7 @@ export function materializeAiQuestion(
       targetConcept: blueprint.targetConcept,
       itemType: `ai_blueprint_${blueprint.family}`,
       difficulty: asDifficulty(blueprint.difficulty),
-      recommendedTemplate:
-        blueprint.template === 'TPL_CONVERSATIONAL_FLOW'
-          ? 'TPL_CONVERSATIONAL_FLOW'
-          : 'TPL_CASE_DIAGNOSTIC_FRAME',
+      recommendedTemplate: blueprint.template as StructuredTplName,
       questionStem:
         archetype === undefined && blueprint.family === 'calculation'
           ? '다음 상황에 대한 계산 결과로 가장 적절한 것은?'
@@ -131,26 +120,148 @@ export function materializeAiQuestion(
   };
 }
 
+function isMaterializableTemplate(template: string): template is StructuredTplName {
+  return [
+    'TPL_CASE_DIAGNOSTIC_FRAME',
+    'TPL_CONVERSATIONAL_FLOW',
+    'TPL_COMPARATIVE_MATRIX',
+    'TPL_FORMAL_DOCUMENT',
+    'TPL_ARTICLE',
+    'TPL_ANNOUNCEMENT',
+    'TPL_SEQUENTIAL_WORKFLOW',
+  ].includes(template as StructuredTplName);
+}
+
+function materializeStimulus(
+  blueprint: AiQuestionBlueprint,
+  candidate: AiQuestionCandidate,
+): Record<string, unknown> | null {
+  switch (blueprint.template) {
+    case 'TPL_CONVERSATIONAL_FLOW':
+      return conversationStimulusData(blueprint, candidate);
+    case 'TPL_CASE_DIAGNOSTIC_FRAME':
+      return {
+        case_profile: {
+          name: 'AI 생성 사례',
+          context: '제시된 상황을 개념과 연결하여 판단한다.',
+        },
+        narrative: candidate.stemText,
+        check_items: [],
+      };
+    case 'TPL_COMPARATIVE_MATRIX':
+      return matrixStimulusData(blueprint, candidate);
+    case 'TPL_FORMAL_DOCUMENT':
+      return documentStimulusData(blueprint, candidate);
+    case 'TPL_ARTICLE':
+      return articleStimulusData(blueprint, candidate);
+    case 'TPL_ANNOUNCEMENT':
+      return announcementStimulusData(blueprint, candidate);
+    case 'TPL_SEQUENTIAL_WORKFLOW':
+      return workflowStimulusData(blueprint, candidate);
+    default:
+      return null;
+  }
+}
+
+function sourceLines(blueprint: AiQuestionBlueprint): string[] {
+  return (blueprint.caseContext ?? '')
+    .split(/\n+/u)
+    .map((line) => line.trim())
+    .filter(Boolean);
+}
+
+function matrixStimulusData(
+  blueprint: AiQuestionBlueprint,
+  candidate: AiQuestionCandidate,
+): Record<string, unknown> | null {
+  const lines = sourceLines(blueprint).filter((line) => line.includes('|'));
+  if (lines.length < 2 || candidate.cellTexts === undefined) return null;
+  const split = (line: string) =>
+    line.split('|').map((cell) => cell.trim()).filter(Boolean);
+  const headers = split(lines[0] ?? '');
+  const sourceRows = lines.slice(1).filter((line) => !/^\|?\s*:?-+:?/u.test(line));
+  const rows = sourceRows.map((line, rowIndex) => ({
+    id: `row-${rowIndex + 1}`,
+    cells: split(line),
+  }));
+  const cellCount = rows.reduce((count, row) => count + row.cells.length, 0);
+  if (headers.length === 0 || rows.length === 0 || cellCount !== candidate.cellTexts.length) {
+    return null;
+  }
+  let index = 0;
+  return {
+    headers: headers.map((label, headerIndex) => ({ id: `col-${headerIndex + 1}`, label })),
+    rows: rows.map((row) => ({ ...row, cells: row.cells.map(() => candidate.cellTexts![index++]) })),
+    selection_chips: [],
+  };
+}
+
+function documentStimulusData(
+  blueprint: AiQuestionBlueprint,
+  candidate: AiQuestionCandidate,
+): Record<string, unknown> | null {
+  const paragraphs = sourceLines(blueprint);
+  if (paragraphs.length === 0 || candidate.paragraphTexts?.length !== paragraphs.length) return null;
+  return {
+    doc_type: '공식 문서',
+    header_info: { title: blueprint.targetConcept, date: '', author: '' },
+    paragraphs: paragraphs.map((_, index) => ({ sub_title: `문단 ${index + 1}`, content: candidate.paragraphTexts![index] })),
+    footnotes: [],
+  };
+}
+
+function articleStimulusData(
+  blueprint: AiQuestionBlueprint,
+  candidate: AiQuestionCandidate,
+): Record<string, unknown> | null {
+  const paragraphs = sourceLines(blueprint);
+  if (paragraphs.length === 0 || candidate.paragraphTexts?.length !== paragraphs.length) return null;
+  return { title: blueprint.targetConcept, body_paragraphs: candidate.paragraphTexts };
+}
+
+function announcementStimulusData(
+  blueprint: AiQuestionBlueprint,
+  candidate: AiQuestionCandidate,
+): Record<string, unknown> | null {
+  const details = sourceLines(blueprint);
+  if (details.length === 0 || candidate.detailTexts?.length !== details.length) return null;
+  return {
+    title: blueprint.targetConcept,
+    organizer: '원문 주최 기관',
+    schedule: { start: '', end: '' },
+    location: '',
+    target: '',
+    details: details.map((_, index) => ({ label: `안내 ${index + 1}`, content: candidate.detailTexts![index] })),
+    contact: '',
+  };
+}
+
+function workflowStimulusData(
+  blueprint: AiQuestionBlueprint,
+  candidate: AiQuestionCandidate,
+): Record<string, unknown> | null {
+  const steps = sourceLines(blueprint);
+  if (steps.length === 0 || candidate.stepTexts?.length !== steps.length) return null;
+  return {
+    orientation: 'vertical',
+    steps: steps.map((_, index) => ({ idx: index, label: `단계 ${index + 1}`, desc: candidate.stepTexts![index], is_missing: false })),
+  };
+}
+
 function conversationStimulusData(
   blueprint: AiQuestionBlueprint,
   candidate: AiQuestionCandidate,
 ): Record<string, unknown> | null {
   const contract = blueprint.conversationContract;
-  const messages = candidate.messages;
+  const messageTexts = candidate.messageTexts;
   if (
     contract === undefined ||
-    messages === undefined ||
-    messages.length !== contract.speakerSequence.length
+    messageTexts === undefined ||
+    messageTexts.length !== contract.speakerSequence.length
   ) {
     return null;
   }
-  if (
-    messages.some(
-      (message, index) =>
-        message.speakerId !== contract.speakerSequence[index] ||
-        message.text.trim() === '',
-    )
-  ) {
+  if (messageTexts.some((text) => text.trim() === '')) {
     return null;
   }
   return {
@@ -158,9 +269,9 @@ function conversationStimulusData(
       ...participant,
       icon_key: defaultConversationIconKey(participant.role),
     })),
-    messages: messages.map((message, index) => ({
-      p_id: message.speakerId,
-      text: message.text.trim(),
+    messages: messageTexts.map((text, index) => ({
+      p_id: contract.speakerSequence[index],
+      text: text.trim(),
       timestamp: String(index + 1),
     })),
     scene_kind: contract.sceneKind,

@@ -44,6 +44,7 @@ describe('AiQuestionGenerationService', () => {
     expect(result.rejected).toEqual([
       {
         blueprintId: 'blueprint-1',
+        template: 'TPL_CASE_DIAGNOSTIC_FRAME',
         attempt: 1,
         code: 'AI_PROVIDER_MALFORMED_OUTPUT',
         message: 'malformed',
@@ -66,6 +67,9 @@ describe('AiQuestionGenerationService', () => {
       generatedCount: 0,
       reason: 'AI_RETRY_EXHAUSTED',
     });
+    expect(result.rejectionsByTemplate).toEqual({
+      TPL_CASE_DIAGNOSTIC_FRAME: 3,
+    });
   });
 
   it('rejects duplicate admitted questions instead of reusing them', async () => {
@@ -82,5 +86,26 @@ describe('AiQuestionGenerationService', () => {
     expect(
       result.rejected.filter((item) => item.code === 'AI_DUPLICATE_REJECTED'),
     ).toHaveLength(3);
+  });
+
+  it('uses a later certified blueprint when the first source is exhausted', async () => {
+    const generate = jest
+      .fn()
+      .mockRejectedValueOnce(new Error('source-1 unavailable'))
+      .mockRejectedValueOnce(new Error('source-1 unavailable'))
+      .mockRejectedValueOnce(new Error('source-1 unavailable'))
+      .mockResolvedValueOnce(candidate('직무 분석'));
+    const service = new AiQuestionGenerationService({ generate });
+
+    const result = await service.generate(
+      [blueprint('source-1'), blueprint('source-2', '직무 분석')],
+      undefined,
+      1,
+    );
+
+    expect(result.accepted).toHaveLength(1);
+    expect(result.accepted[0]?.blueprint.id).toBe('source-2');
+    expect(result.requestedCount).toBe(1);
+    expect(generate).toHaveBeenCalledTimes(4);
   });
 });
