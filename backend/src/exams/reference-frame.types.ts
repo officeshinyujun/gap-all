@@ -1,3 +1,5 @@
+import type { AiGenerationSourceEvidence } from './ai-blueprint.types';
+
 export const INFORMATION_SHAPES = [
   'comparison',
   'condition_flow',
@@ -214,7 +216,11 @@ export type ReferenceReasoningPattern =
   | 'document_rules';
 
 export type ReferenceChoiceTopology =
-  'combo_sets' | 'single_choice' | 'label_key' | 'pair_key' | 'blank_key';
+  | 'combo_sets'
+  | 'single_choice'
+  | 'label_key'
+  | 'pair_key'
+  | 'blank_key';
 
 export type ReferenceDocumentShell = Readonly<{
   kind: ReferenceMaterialKind;
@@ -241,7 +247,10 @@ export type EvidenceBlock = Readonly<{
 export type MultiConceptRole = ItemRoleKind;
 
 export type DistractorTransformation =
-  'omission' | 'reversal' | 'exception_omission' | 'irrelevant';
+  | 'omission'
+  | 'reversal'
+  | 'exception_omission'
+  | 'irrelevant';
 
 export type CombinationPlan = Readonly<{
   expectedAnswerCount: number;
@@ -427,8 +436,23 @@ export type SimplyReferenceGenerationLineage = Readonly<{
   validation: 'passed';
 }>;
 
+export type AiBlueprintGenerationLineage = Readonly<{
+  generationPath: 'ai_blueprint';
+  generationNonce: string;
+  sourceEvidence: readonly AiGenerationSourceEvidence[];
+  blueprintVersion: string;
+  selectedTemplate: string;
+  promptVersion: string;
+  model: string;
+  validatorVersion: string;
+  answerRuleId: string;
+  validation: 'passed';
+}>;
+
 export type QuestionGenerationLineage =
-  ReferenceFrameGenerationLineage | SimplyReferenceGenerationLineage;
+  | ReferenceFrameGenerationLineage
+  | SimplyReferenceGenerationLineage
+  | AiBlueprintGenerationLineage;
 
 export type ContractValidationResult<T> =
   | Readonly<{ ok: true; value: T }>

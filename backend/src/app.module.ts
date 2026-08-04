@@ -41,6 +41,10 @@ import { PushSubscription } from './entities/push-subscription.entity';
 import { ConceptBookmark } from './entities/concept-bookmark.entity';
 import { FlaggedQuestion } from './entities/flagged-question.entity';
 import { QuestionSeenRecord } from './entities/question-seen-record.entity';
+import { UnitExamProfile } from './entities/unit-exam-profile.entity';
+import { AiGenerationRun } from './entities/ai-generation-run.entity';
+import { AiGenerationCandidate } from './entities/ai-generation-candidate.entity';
+import { GenerationJob } from './entities/generation-job.entity';
 
 @Module({
   imports: [
@@ -62,42 +66,46 @@ import { QuestionSeenRecord } from './entities/question-seen-record.entity';
           ? config.get<string>('DATABASE_SUPABASE_URL')
           : config.get<string>('DATABASE_LOCAL_URL');
         return {
-        type: 'postgres',
-        url: databaseUrl,
-        ssl: isSupabase ? { rejectUnauthorized: false } : false,
-        entities: [
-          User,
-          RefreshToken,
-          Subject,
-          Unit,
-          StudyProgress,
-          ExamRecord,
-          ExamTag,
-          ExamItem,
-          Question,
-          ReferenceQuestion,
-          ReferenceFrameCache,
-          GenerationRun,
-          GeneratedQuestion,
-          GenerationExamSession,
-          GenerationExamItem,
-          ChatSession,
-          ChatMessage,
-          AiUsageLog,
-          IncorrectRecord,
-          Notification,
-          NotificationSetting,
-          PushSubscription,
-          ConceptBookmark,
-          FlaggedQuestion,
-          QuestionSeenRecord,
-        ],
-        synchronize: config.get<string>('NODE_ENV') !== 'production',
-        logging:
-          config.get<string>('NODE_ENV') === 'development' &&
-          process.env.TYPEORM_LOGGING !== 'false',
-      };
-    },
+          type: 'postgres',
+          url: databaseUrl,
+          ssl: isSupabase ? { rejectUnauthorized: false } : false,
+          entities: [
+            User,
+            RefreshToken,
+            Subject,
+            Unit,
+            StudyProgress,
+            ExamRecord,
+            ExamTag,
+            ExamItem,
+            Question,
+            ReferenceQuestion,
+            ReferenceFrameCache,
+            GenerationRun,
+            GeneratedQuestion,
+            GenerationExamSession,
+            GenerationExamItem,
+            ChatSession,
+            ChatMessage,
+            AiUsageLog,
+            IncorrectRecord,
+            Notification,
+            NotificationSetting,
+            PushSubscription,
+            ConceptBookmark,
+            FlaggedQuestion,
+            QuestionSeenRecord,
+            UnitExamProfile,
+            AiGenerationRun,
+            AiGenerationCandidate,
+            GenerationJob,
+          ],
+          synchronize: config.get<string>('NODE_ENV') !== 'production',
+          logging:
+            config.get<string>('NODE_ENV') === 'development' &&
+            process.env.TYPEORM_LOGGING !== 'false',
+        };
+      },
     }),
     AuthModule,
     UsersModule,

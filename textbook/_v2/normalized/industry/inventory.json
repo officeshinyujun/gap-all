@@ -1,0 +1,10 @@
+{
+  "subject": "industry",
+  "subjectKor": "공업 일반",
+  "units": 20,
+  "totalSections": 220,
+  "structuredSubsections": 191,
+  "existingConceptNames": 121,
+  "totalQuestions": 300,
+  "hasRiaSec": false
+}

@@ -11,6 +11,8 @@ import {
   HttpCode,
   HttpStatus,
   Header,
+  InternalServerErrorException,
+  Optional,
 } from '@nestjs/common';
 import { Throttle } from '@nestjs/throttler';
 import { ExamsService } from './exams.service';
@@ -19,11 +21,19 @@ import { JwtAuthGuard } from '../common/guards/jwt-auth.guard';
 import { CurrentUser } from '../common/decorators/current-user.decorator';
 import type { CurrentUserPayload } from '../common/decorators/current-user.decorator';
 import { Public } from '../common/decorators/public.decorator';
+import { AiUnitProfileService } from './ai-unit-profile.service';
+import { AiBlueprintService } from './ai-blueprint.service';
+import { PreviewAiBlueprintDto } from './dto/preview-ai-blueprint.dto';
+import { assertAiBlueprintGenerationEnabled } from './ai-generation-feature';
 
 @Controller('exams')
 @UseGuards(JwtAuthGuard)
 export class ExamsController {
-  constructor(private readonly examsService: ExamsService) {}
+  constructor(
+    private readonly examsService: ExamsService,
+    @Optional() private readonly aiUnitProfileService?: AiUnitProfileService,
+    @Optional() private readonly aiBlueprintService?: AiBlueprintService,
+  ) {}
 
   @Post()
   async create(
@@ -43,11 +53,11 @@ export class ExamsController {
 
   @Get('jobs/:jobId')
   @Throttle({ default: { ttl: 60000, limit: 120 } })
-  getJob(
+  async getJob(
     @CurrentUser() user: CurrentUserPayload,
     @Param('jobId') jobId: string,
   ) {
-    return this.examsService.getJob(user.id, jobId);
+    return this.examsService.getJobAsync(user.id, jobId);
   }
 
   @Delete('jobs/:jobId')
@@ -57,6 +67,15 @@ export class ExamsController {
     @Param('jobId') jobId: string,
   ) {
     return this.examsService.removeJob(user.id, jobId);
+  }
+
+  @Post('jobs/:jobId/cancel')
+  @HttpCode(HttpStatus.OK)
+  cancelJob(
+    @CurrentUser() user: CurrentUserPayload,
+    @Param('jobId') jobId: string,
+  ) {
+    return this.examsService.cancelJob(user.id, jobId);
   }
 
   @Get('concepts')
@@ -72,6 +91,37 @@ export class ExamsController {
       Number(startUnitNum),
       Number(endUnitNum),
     );
+  }
+
+  @Get('generation-profile')
+  @Throttle({ default: { ttl: 60000, limit: 30 } })
+  getGenerationProfile(
+    @Query('subjectSlug') subjectSlug: string,
+    @Query('startUnitNum') startUnitNum: string,
+    @Query('endUnitNum') endUnitNum: string,
+  ) {
+    if (this.aiUnitProfileService === undefined) {
+      throw new InternalServerErrorException(
+        '생성 프로파일 서비스를 사용할 수 없습니다.',
+      );
+    }
+    return this.aiUnitProfileService.getProfile(
+      subjectSlug,
+      Number(startUnitNum),
+      Number(endUnitNum),
+    );
+  }
+
+  @Post('ai-blueprints/preview')
+  @Throttle({ default: { ttl: 60000, limit: 20 } })
+  previewAiBlueprints(@Body() dto: PreviewAiBlueprintDto) {
+    assertAiBlueprintGenerationEnabled();
+    if (this.aiBlueprintService === undefined) {
+      throw new InternalServerErrorException(
+        'AI 블루프린트 서비스를 사용할 수 없습니다.',
+      );
+    }
+    return this.aiBlueprintService.preview(dto);
   }
 
   @Get()

@@ -9,7 +9,8 @@ import { fetchUnitId, updateStudyProgress } from '@entities/study/api/studyApi';
 export type MainTab = 'concept' | 'overview';
 export type SlideView = 'learn' | 'question';
 
-const CACHE_VERSION = 'v15';
+// 1단원 활성 카드 제목·대표 문제가 변경되어 기존 응답 캐시 폐기
+const CACHE_VERSION = 'v20';
 
 function getCacheKey(subject: string, unitNumber: number) {
   return `concept-${CACHE_VERSION}-${subject}-${unitNumber}`;
@@ -61,7 +62,15 @@ export function useConceptStudy(subject: string, unitNumber: number, chapter: st
           if (!firstV2) return false;
           const oa = firstV2.optionAnalysis || [];
           return oa.length >= 3 && oa.filter((o: any) => o.verdict === 'O').length <= 2;
-        })();
+        })()
+      // v16+: conceptContent가 실제 문자열인지 확인
+      && (() => {
+          const first = data?.concepts?.[0];
+          if (!first) return false;
+          return typeof first.conceptContent === 'string' && first.conceptContent.length > 0;
+        })()
+      // v16+: 관련 문제가 있는 concept도 확인
+      && (data?.concepts?.some((c) => c.sampleQuestion != null) ?? false);
     if (isCacheValid) { setLoading(false); }
     else {
       fetchFrequencyConcept(subject, unitNumber)

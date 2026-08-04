@@ -1,14 +1,15 @@
 'use client';
 
 import React, { createContext, useContext, useState, useEffect, useRef, useCallback } from 'react';
-import type { ExamJobStatus } from '@entities/exam/model/types';
-import { pollExamJob } from '@entities/exam/api/examApi';
+import type { ExamGenerationMode, ExamJobStatus } from '@entities/exam/model/types';
+import { cancelExamJob, pollExamJob } from '@entities/exam/api/examApi';
 
 interface JobProgressContextValue {
   activeJobId: string | null;
   jobStatus: ExamJobStatus | null;
-  startJob: (jobId: string) => void;
+  startJob: (jobId: string, sourceType?: ExamGenerationMode) => void;
   dismissJob: () => void;
+  cancelJob: () => Promise<void>;
 }
 
 const JobProgressContext = createContext<JobProgressContextValue>({
@@ -16,6 +17,7 @@ const JobProgressContext = createContext<JobProgressContextValue>({
   jobStatus: null,
   startJob: () => {},
   dismissJob: () => {},
+  cancelJob: async () => {},
 });
 
 export function useJobProgress() {
@@ -30,39 +32,58 @@ export function JobProgressProvider({ children }: { children: React.ReactNode })
     return sessionStorage.getItem(STORAGE_KEY);
   });
   const [jobStatus, setJobStatus] = useState<ExamJobStatus | null>(null);
-  const pollingRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const pollingRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const retryCountRef = useRef(0);
 
   useEffect(() => {
     if (!activeJobId) return;
 
+    let cancelled = false;
+
+    const schedule = (delay: number, poll: () => void) => {
+      if (!cancelled) pollingRef.current = setTimeout(poll, delay);
+    };
+
     const poll = async () => {
       try {
         const status = await pollExamJob(activeJobId);
+        if (cancelled) return;
+        retryCountRef.current = 0;
         setJobStatus(status);
-        if (status.status === 'completed' || status.status === 'failed') {
-          if (pollingRef.current) clearInterval(pollingRef.current);
+        if (
+          status.status === 'completed' ||
+          status.status === 'failed' ||
+          status.status === 'canceled'
+        ) {
+          if (pollingRef.current) clearTimeout(pollingRef.current);
           pollingRef.current = null;
           sessionStorage.removeItem(STORAGE_KEY);
           setActiveJobId(null);
+        } else {
+          schedule(2500, poll);
         }
       } catch {
+        if (cancelled) return;
+        retryCountRef.current += 1;
         setJobStatus((prev) =>
-          prev ? { ...prev, status: 'failed', message: '오류 발생', errorMessage: '오류 발생' } : null,
+          prev
+            ? {
+                ...prev,
+                message: '생성 상태를 다시 확인하고 있습니다...',
+                errorMessage: undefined,
+              }
+            : null,
         );
-        if (pollingRef.current) clearInterval(pollingRef.current);
-        pollingRef.current = null;
-        // 오류 발생 시에도 jobId 제거
-        sessionStorage.removeItem(STORAGE_KEY);
-        setActiveJobId(null);
+        schedule(Math.min(1000 * 2 ** retryCountRef.current, 10000), poll);
       }
     };
 
     poll();
-    pollingRef.current = setInterval(poll, 2500);
 
     return () => {
+      cancelled = true;
       if (pollingRef.current) {
-        clearInterval(pollingRef.current);
+        clearTimeout(pollingRef.current);
         pollingRef.current = null;
       }
     };
@@ -76,7 +97,7 @@ export function JobProgressProvider({ children }: { children: React.ReactNode })
     }
   }, []);
 
-  const startJob = useCallback((jobId: string) => {
+  const startJob = useCallback((jobId: string, sourceType?: ExamGenerationMode) => {
     saveActiveJobId(jobId);
     setJobStatus({
       jobId,
@@ -84,6 +105,7 @@ export function JobProgressProvider({ children }: { children: React.ReactNode })
       progress: 0,
       stage: 'starting',
       message: '문제 생성을 시작합니다...',
+      sourceType,
     });
   }, [saveActiveJobId]);
 
@@ -92,8 +114,17 @@ export function JobProgressProvider({ children }: { children: React.ReactNode })
     setJobStatus(null);
   }, [saveActiveJobId]);
 
+  const cancelJob = useCallback(async () => {
+    if (!activeJobId) return;
+    const status = await cancelExamJob(activeJobId);
+    setJobStatus(status);
+    saveActiveJobId(null);
+  }, [activeJobId, saveActiveJobId]);
+
   return (
-    <JobProgressContext.Provider value={{ activeJobId, jobStatus, startJob, dismissJob }}>
+    <JobProgressContext.Provider
+      value={{ activeJobId, jobStatus, startJob, dismissJob, cancelJob }}
+    >
       {children}
     </JobProgressContext.Provider>
   );

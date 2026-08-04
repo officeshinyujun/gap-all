@@ -70,7 +70,7 @@ export interface SubjectInfo {
 
 export interface ExamJobStatus {
   jobId: string;
-  status: 'pending' | 'running' | 'completed' | 'failed';
+  status: 'pending' | 'running' | 'completed' | 'failed' | 'canceled';
   progress: number;
   stage: string;
   message: string;

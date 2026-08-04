@@ -131,6 +131,15 @@
   margin: $spacing-20 auto;
 }
 
+.tagLoadingSpinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid $background-third;
+  border-top-color: $brand-primary;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
 @keyframes spin {
   to {
     transform: rotate(360deg);

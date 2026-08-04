@@ -2,15 +2,98 @@ import { InternalServerErrorException } from '@nestjs/common';
 import { Difficulty, ExamSourceType } from '../entities/exam-record.entity';
 import { ExamGenerationJobsService } from './exam-generation-jobs.service';
 import { ExamsService } from './exams.service';
-import {
-  ReferenceJobDeadline,
-  ReferenceJobDeadlineExceededError,
-} from './reference-job-deadline';
+import { ReferenceJobDeadlineExceededError } from './reference-job-deadline';
 import { ReferenceFidelitySpecError } from './reference-fidelity-spec';
 
 describe('ExamsService legacy AI compatibility', () => {
+  it('rejects the gated ai_blueprint mode before starting a job while disabled', async () => {
+    const subjectLookup = jest.fn();
+    const service = {
+      subjectRepo: { findOne: subjectLookup },
+    };
+    const previousFlag = process.env.ENABLE_AI_BLUEPRINT_GENERATION;
+    delete process.env.ENABLE_AI_BLUEPRINT_GENERATION;
 
+    try {
+      await expect(
+        ExamsService.prototype.createJob.call(service, 'user-1', {
+          subjectId: 'subject-1',
+          startUnitNum: 1,
+          endUnitNum: 1,
+          difficulty: Difficulty.MIDDLE,
+          questionCount: 1,
+          sourceType: 'ai_blueprint',
+        }),
+      ).rejects.toMatchObject({
+        response: {
+          code: 'AI_FEATURE_DISABLED',
+        },
+      });
+      expect(subjectLookup).not.toHaveBeenCalled();
+    } finally {
+      if (previousFlag === undefined) {
+        delete process.env.ENABLE_AI_BLUEPRINT_GENERATION;
+      } else {
+        process.env.ENABLE_AI_BLUEPRINT_GENERATION = previousFlag;
+      }
+    }
+  });
 
+  it('starts an ai_blueprint job instead of falling back to simply_reference when enabled', async () => {
+    const job = { id: 'job-ai-1' };
+    const jobs = {
+      assertNoActiveJobForUser: jest.fn(),
+      create: jest.fn().mockReturnValue(job),
+      toReceipt: jest.fn().mockReturnValue({
+        jobId: job.id,
+        status: 'pending',
+        sourceType: 'ai_blueprint',
+      }),
+    };
+    const runJob = jest.fn().mockResolvedValue(undefined);
+    const service = {
+      subjectRepo: {
+        findOne: jest.fn().mockResolvedValue({
+          id: 'subject-1',
+          slug: 'success',
+          title: 'Success',
+        }),
+      },
+      examGenerationJobsService: jobs,
+      examGenerationCooldownService: { reserve: jest.fn() },
+      runJob,
+    };
+    const previousFlag = process.env.ENABLE_AI_BLUEPRINT_GENERATION;
+    process.env.ENABLE_AI_BLUEPRINT_GENERATION = 'true';
+
+    try {
+      await expect(
+        ExamsService.prototype.createJob.call(service, 'user-1', {
+          subjectId: 'subject-1',
+          startUnitNum: 1,
+          endUnitNum: 1,
+          difficulty: Difficulty.MIDDLE,
+          questionCount: 1,
+          sourceType: 'ai_blueprint',
+        }),
+      ).resolves.toEqual(expect.objectContaining({ jobId: job.id }));
+      expect(jobs.create).toHaveBeenCalledWith(
+        'user-1',
+        expect.objectContaining({ sourceType: 'ai_blueprint' }),
+      );
+      expect(runJob).toHaveBeenCalledWith(
+        job.id,
+        'user-1',
+        expect.objectContaining({ sourceType: 'ai_blueprint' }),
+      );
+    } finally {
+      if (previousFlag === undefined) {
+        delete process.env.ENABLE_AI_BLUEPRINT_GENERATION;
+      } else {
+        process.env.ENABLE_AI_BLUEPRINT_GENERATION = previousFlag;
+      }
+    }
+  });
 
   it('routes simply_reference requests to the lightweight reference path', async () => {
     const createReferenceFrameExam = jest.fn();
@@ -321,7 +404,6 @@ describe('ExamsService legacy AI compatibility', () => {
     );
     expect(JSON.stringify(receipt)).not.toContain(sourceSecret);
   });
-
 
   it.each(['notification row creation failed', 'push delivery failed'])(
     'keeps a completed job terminal when %s',

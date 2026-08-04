@@ -311,8 +311,8 @@ export default function ExamPage() {
         subjectName={subjectName}
         defaultStartUnit={defaultStart}
         defaultEndUnit={defaultEnd}
-        onCreated={(jobId) => {
-          startJob(jobId);
+        onCreated={(jobId, sourceType) => {
+          startJob(jobId, sourceType);
         }}
       />
 

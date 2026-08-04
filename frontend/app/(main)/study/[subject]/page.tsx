@@ -55,6 +55,7 @@ export default function StudyPage() {
   });
   const [selectedUnitId, setSelectedUnitId] = useState<string>('');
   const [tags, setTags] = useState<string[]>([]);
+  const [tagsLoading, setTagsLoading] = useState(true);
   const [showMobileDetail, setShowMobileDetail] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -98,9 +99,11 @@ export default function StudyPage() {
 
   useEffect(() => {
     if (!selectedUnit) return;
+    setTagsLoading(true);
     fetchUnitConcepts(subject, selectedUnit.unitNumber)
       .then((concepts) => setTags(concepts.slice(0, 7)))
-      .catch(() => setTags([]));
+      .catch(() => setTags([]))
+      .finally(() => setTagsLoading(false));
   }, [subject, selectedUnit?.unitNumber]);
 
   function getSubUnitHref(subId: number): string {
@@ -193,13 +196,17 @@ export default function StudyPage() {
 
                 <VStack gap={SPACING.s10}>
                   <Typo.MD size={12} color="secondary">대표 태그</Typo.MD>
-                  <HStack gap={SPACING.s8} style={{ flexWrap: 'wrap' }}>
-                    {tags.length > 0 ? tags.map((tag, idx) => (
-                      <Tag key={idx}>{tag}</Tag>
-                    )) : (
-                      <Typo.MD size={12} color="secondary">태그 없음</Typo.MD>
-                    )}
-                  </HStack>
+                  {tagsLoading ? (
+                    <div className={s.tagLoadingSpinner} />
+                  ) : (
+                    <HStack gap={SPACING.s8} style={{ flexWrap: 'wrap' }}>
+                      {tags.length > 0 ? tags.map((tag, idx) => (
+                        <Tag key={idx}>{tag}</Tag>
+                      )) : (
+                        <Typo.MD size={12} color="secondary">태그 없음</Typo.MD>
+                      )}
+                    </HStack>
+                  )}
                 </VStack>
               </VStack>
 
@@ -235,13 +242,17 @@ export default function StudyPage() {
 
               <VStack gap={SPACING.s10}>
                 <Typo.MD size={12} color="secondary">대표 태그</Typo.MD>
-                <HStack gap={SPACING.s8} style={{ flexWrap: 'wrap' }}>
-                  {tags.length > 0 ? tags.map((tag, idx) => (
-                    <Tag key={idx}>{tag}</Tag>
-                  )) : (
-                    <Typo.MD size={12} color="secondary">태그 없음</Typo.MD>
-                  )}
-                </HStack>
+                {tagsLoading ? (
+                  <div className={s.tagLoadingSpinner} />
+                ) : (
+                  <HStack gap={SPACING.s8} style={{ flexWrap: 'wrap' }}>
+                    {tags.length > 0 ? tags.map((tag, idx) => (
+                      <Tag key={idx}>{tag}</Tag>
+                    )) : (
+                      <Typo.MD size={12} color="secondary">태그 없음</Typo.MD>
+                    )}
+                  </HStack>
+                )}
               </VStack>
             </VStack>
 

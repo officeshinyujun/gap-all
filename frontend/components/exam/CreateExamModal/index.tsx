@@ -8,12 +8,15 @@ import s from './style.module.scss';
 import Typo from '@shared/ui/Typo';
 import { API_BASE_URL } from '@shared/lib/auth';
 import { fetchSubjectBySlug } from '@/lib/examApi';
+import type { ExamSourceType } from '@entities/exam/model/types';
+
+type GenerationMode = Extract<ExamSourceType, 'simply_reference'>;
 
 interface CreateExamModalProps {
     isOpen: boolean;
     onClose: () => void;
     subjectName: string;
-    onCreated?: (jobId: string) => void;
+    onCreated?: (jobId: string, sourceType: GenerationMode) => void;
     defaultStartUnit?: number;
     defaultEndUnit?: number;
 }
@@ -58,7 +61,6 @@ export function CreateExamModal({ isOpen, onClose, subjectName, onCreated, defau
         try {
             const slug = SUBJECT_SLUG_MAP[selectedSubjectName];
             if (!slug) throw new Error('지원하지 않는 과목입니다.');
-
             const subject = await fetchSubjectBySlug(slug);
 
             const res = await fetch(`${API_BASE_URL}/exams/jobs`, {
@@ -80,12 +82,18 @@ export function CreateExamModal({ isOpen, onClose, subjectName, onCreated, defau
 
             if (!res.ok) {
                 const err = await res.json().catch(() => ({ message: '생성 실패' }));
-                throw new Error(err.message);
+                throw new Error(
+                    err.code === 'AI_FEATURE_DISABLED'
+                        ? 'AI 신규 문항 생성이 아직 활성화되지 않았습니다.'
+                        : err.code === 'AI_PROFILE_UNAVAILABLE'
+                            ? 'AI 출제 프로파일을 준비하는 중입니다. 잠시 후 다시 시도해주세요.'
+                            : err.message ?? '시험 생성에 실패했습니다.',
+                );
             }
 
             const data = await res.json();
             onClose();
-            onCreated?.(data.jobId);
+            onCreated?.(data.jobId, 'simply_reference');
         } catch (err: unknown) {
             setError(err instanceof Error ? err.message : '생성 중 오류가 발생했습니다.');
         } finally {
@@ -167,7 +175,9 @@ export function CreateExamModal({ isOpen, onClose, subjectName, onCreated, defau
 
                         {/* Custom Prompt */}
                         <VStack gap={SPACING.s8} fullWidth>
-                            <Typo.MD size={14} color="primary">추가 프롬프트 (선택)</Typo.MD>
+                            <Typo.MD size={14} color="primary">
+                                추가 프롬프트 (선택)
+                            </Typo.MD>
                             <textarea
                                 className={s.textarea}
                                 placeholder="예: 수능 기출 스타일로 출제해줘, 혹은 특정 개념 위주로 내줘"

@@ -510,21 +510,21 @@ export default function ReviewPage() {
             {conceptData.bulletPoints.length > 0 && (
               <VStack gap={SPACING.s6} fullWidth>
                 <Typo.SM size={12} color="secondary">핵심 포인트</Typo.SM>
-                <ul style={{ margin: 0, paddingLeft: 20 }}>
+                <VStack gap={SPACING.s4} fullWidth>
                   {conceptData.bulletPoints.map((bp, i) => (
-                    <li key={i} style={{ fontSize: 14, color: 'var(--text-primary)', lineHeight: 1.7 }}>{bp}</li>
+                    <MarkdownWithTable key={i}>{bp}</MarkdownWithTable>
                   ))}
-                </ul>
+                </VStack>
               </VStack>
             )}
             {conceptData.trapPoints.length > 0 && (
               <VStack gap={SPACING.s6} fullWidth>
                 <Typo.SM size={12} color="wrong">주의할 점</Typo.SM>
-                <ul style={{ margin: 0, paddingLeft: 20 }}>
+                <VStack gap={SPACING.s4} fullWidth>
                   {conceptData.trapPoints.map((tp, i) => (
-                    <li key={i} style={{ fontSize: 14, color: 'var(--text-wrong)', lineHeight: 1.7 }}>{tp}</li>
+                    <MarkdownWithTable key={i}>{tp}</MarkdownWithTable>
                   ))}
-                </ul>
+                </VStack>
               </VStack>
             )}
             {conceptData.logicFlow && (

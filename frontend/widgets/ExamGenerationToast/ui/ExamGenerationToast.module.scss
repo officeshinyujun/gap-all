@@ -81,6 +81,27 @@
   }
 }
 
+.actions {
+  display: flex;
+  align-items: center;
+  gap: $spacing-4;
+  flex-shrink: 0;
+}
+
+.cancel {
+  background: none;
+  border: 1px solid $border-primary;
+  color: $text-secondary;
+  border-radius: $spacing-4;
+  cursor: pointer;
+  padding: $spacing-4 $spacing-8;
+  font-size: 12px;
+
+  &:hover {
+    color: $text-primary;
+  }
+}
+
 /* 우측 책갈피 탭 */
 .tab {
   position: fixed;

@@ -21,6 +21,29 @@ export type OptionAnalysisItem =
   | { optionNum: number; verdict: string; reasoning: string }
   | { optionKey: string; verdict: string; reasoning: string };
 
+export interface ConceptDefinitionSection {
+  title: string;
+  description: string;
+  examples?: string[];
+}
+
+export interface ConceptDefinition {
+  summary: string;
+  sections: ConceptDefinitionSection[];
+  comparison?: { headers: string[]; rows: string[][] };
+  commonConfusions: string[];
+}
+
+export interface RelatedConceptQuestion {
+  id?: string;
+  questionSource?: string;
+  questionNumber?: number | null;
+  correct_answer: number;
+  question: ExamQuestion;
+  rawStimulus?: string;
+  conceptHighlightV2?: ConceptHighlightV2 | null;
+}
+
 export interface FrequencyConceptItem {
   rank: number;
   name: string;
@@ -28,11 +51,19 @@ export interface FrequencyConceptItem {
   sources: string[];
   questionFormats: string[];
   description: string;
+  conceptDefinition?: ConceptDefinition | null;
   keyPoints: string[];
   examTips: string[];
   conceptContent: string;
+  subtopics?: {
+    name: string;
+    evidence?: string;
+    examRelevance?: string;
+  }[];
   sampleQuestion: ExamQuestion & { correct_answer: number; questionSource?: string; questionNumber?: number; rawStimulus?: string };
   conceptHighlightV2?: ConceptHighlightV2 | null;
+  /** v16+: 동일 개념에 연결된 실제 문제들. sampleQuestion은 하위 호환용. */
+  relatedQuestions?: RelatedConceptQuestion[];
 }
 
 export interface ConceptExplanation {
@@ -77,6 +108,29 @@ export interface StructuredConcept {
   learningObjectives: string[];
   sections: StructuredSection[];
   closingSummary: string[];
+}
+
+export interface SummationCardContent {
+  title: string;
+  description: string;
+  bullet_points: string[];
+  trap_points: string[];
+  integrated_data?: {
+    table?: string;
+    logic_flow?: string;
+    visual_analysis?: string;
+  };
+  tags: string[];
+}
+
+export interface SummationCard {
+  content: SummationCardContent;
+}
+
+export interface SummationData {
+  subject: string;
+  totalCards: number;
+  cards: SummationCard[];
 }
 
 export interface SummationV2KeyConcept {

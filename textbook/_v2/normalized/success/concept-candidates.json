@@ -1,0 +1,3049 @@
+[
+  {
+    "subject": "sungjik",
+    "unitNumber": 10,
+    "concepts": [
+      {
+        "canonicalName": "전공별 직무 수행 능력 탐색",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [],
+        "subtopics": [
+          "국가직무능력표준(NCS)을 통한 탐색",
+          "직무 기술서를 통한 탐색",
+          "소속 전공 교육과정을 통한 탐색",
+          "직업인 특강이나 직업 체험을 통한 탐색"
+        ]
+      },
+      {
+        "canonicalName": "국가직무능력표준(NCS)을 통한 탐색",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "구조화 개념 데이터",
+            "quote": "NCS는 산업 현장에서 직무를 수행하기 위해 필요한 지식, 기술, 태도를 체계화한 표준으로, 직무 수행에 필요한 능력을 체계적으로 이해하는 데 필수적이다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "직무 기술서를 통한 탐색",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "구조화 개념 데이터",
+            "quote": "직무 기술서는 특정 직무의 목적, 업무 내용, 방법, 필요한 자격 등을 체계적으로 정리한 문서로, 희망 직무에서 요구하는 능력을 이해하고 자신의 역량을 파악하는 데 도움을 준다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "소속 전공 교육과정을 통한 탐색",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "구조화 개념 데이터",
+            "quote": "특성화고와 마이스터고의 NCS 기반 교육과정은 보통 교과와 전문 공통 과목으로 구성되며, 실무 과목에서는 NCS 학습모듈을 활용하여 산업체 직무를 현장감 있게 학습할 수 있다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "직업인 특강이나 직업 체험을 통한 탐색",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "구조화 개념 데이터",
+            "quote": "직업인 특강이나 직업 체험은 직무를 간접적으로 경험할 수 있는 기회를 제공하며, 이를 통해 직무에 대한 이해를 높이고 실제 업무 환경을 미리 체험할 수 있다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "전공별 직무 수행 능력 향상 방법",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [],
+        "subtopics": [
+          "구직자 취업 역량 강화 프로그램",
+          "자격증 취득을 통한 방법",
+          "국민내일배움카드 발급을 통한 방법",
+          "국가 기간·전략 산업 직종 훈련 참여",
+          "이러닝(E-learning)을 통한 방법"
+        ]
+      },
+      {
+        "canonicalName": "구직자 취업 역량 강화 프로그램",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "구조화 개념 데이터",
+            "quote": "고용24에서 제공하는 다양한 프로그램은 구직자의 취업 역량을 강화하는 데 도움을 주며, 실습 중심으로 구성되어 있어 실질적인 구직 기술을 습득할 수 있다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "자격증 취득을 통한 방법",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "구조화 개념 데이터",
+            "quote": "자격증은 직무 능력을 객관적으로 증명하는 자료로, 필수 자격증과 가산점 자격증을 통해 자신의 능력을 향상시킬 수 있다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "국민내일배움카드 발급을 통한 방법",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "구조화 개념 데이터",
+            "quote": "국민내일배움카드는 생애 걸친 역량 개발을 위해 훈련비를 지원하는 제도로, 이를 통해 다양한 훈련 프로그램에 참여하여 직무 능력을 지속적으로 개발할 수 있다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "국가 기간·전략 산업 직종 훈련 참여",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "구조화 개념 데이터",
+            "quote": "국가 기간·전략 산업 직종 훈련은 인력이 부족한 주요 산업 분야의 기능 인력을 양성하기 위해 훈련비 전액을 지원받을 수 있으며, 해당 분야의 직무 능력을 집중적으로 개발할 수 있다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "이러닝(E-learning)을 통한 방법",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "구조화 개념 데이터",
+            "quote": "K-MOOC와 KOCW 등의 이러닝 플랫폼을 활용하면 시공간 제약 없이 전공 지식을 함양할 수 있으며, 이를 통해 지속적인 학습이 가능하고 직무 수행 능력을 향상시킬 수 있다."
+          }
+        ],
+        "subtopics": []
+      }
+    ],
+    "existingGap": [],
+    "model": "gpt-4o-mini",
+    "usage": {
+      "prompt_tokens": 3248,
+      "completion_tokens": 1314
+    }
+  },
+  {
+    "subject": "sungjik",
+    "unitNumber": 11,
+    "concepts": [
+      {
+        "canonicalName": "경력 개발의 의미와 필요성",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "경력 개발의 의미와 필요성",
+            "quote": "경력 개발은 개인이 경력 계획을 수립하고 이를 통해 목표에 도달하는 과정이다."
+          }
+        ],
+        "subtopics": [
+          "경력 개발의 정의",
+          "경력 개발 모형"
+        ]
+      },
+      {
+        "canonicalName": "경력 개발 경로 탐색",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "경력 개발 경로 탐색",
+            "quote": "경력 개발 경로는 직무 정보 탐색, 자신과 환경 이해, 경력 목표 설정, 경력 개발 전략 수립, 실행 및 평가의 단계를 포함한다."
+          }
+        ],
+        "subtopics": [
+          "경력 개발 경로의 단계"
+        ]
+      },
+      {
+        "canonicalName": "평생 학습의 의미와 중요성",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "평생 학습의 의미와 중요성",
+            "quote": "평생 학습은 전 생애에 걸쳐 이루어지는 형식적 또는 비형식적 교육을 통해 자신의 경험을 구성해 나가는 과정이다."
+          }
+        ],
+        "subtopics": [
+          "평생 학습의 정의"
+        ]
+      },
+      {
+        "canonicalName": "평생 학습 제도",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "평생 학습 제도",
+            "quote": "평생 학습 제도는 개인의 다양한 학습 경험을 인정하고 활용할 수 있도록 지원하는 제도이다."
+          }
+        ],
+        "subtopics": [
+          "주요 평생 학습 제도"
+        ]
+      },
+      {
+        "canonicalName": "일학습 병행제",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "일학습 병행제",
+            "quote": "일학습 병행제는 기업이 근로자를 채용하여 NCS 기반의 체계적 교육 훈련을 제공하는 제도이다."
+          }
+        ],
+        "subtopics": [
+          "일학습 병행제의 개념",
+          "일학습 병행 프로세스"
+        ]
+      },
+      {
+        "canonicalName": "계약학과",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "계약학과",
+            "quote": "계약학과는 대학이 국가·지방 자치 단체 또는 산업체와 협약을 맺어 운영하는 학과이다."
+          }
+        ],
+        "subtopics": [
+          "계약학과의 정의"
+        ]
+      }
+    ],
+    "existingGap": [
+      "일학습 병행제",
+      "계약학과"
+    ],
+    "model": "gpt-4o-mini",
+    "usage": {
+      "prompt_tokens": 3041,
+      "completion_tokens": 678
+    }
+  },
+  {
+    "subject": "sungjik",
+    "unitNumber": 12,
+    "concepts": [
+      {
+        "canonicalName": "의사소통 능력의 중요성",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "의사소통 능력의 중요성",
+            "quote": "의사소통은 정보, 생각, 감정을 주고받는 과정으로, 직장에서는 목표 달성을 위한 중요한 상호작용이다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "의사소통의 정의",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "의사소통 능력의 중요성",
+            "quote": "의사소통은 정보, 생각, 감정을 주고받는 과정으로, 직장에서는 목표 달성을 위한 중요한 상호작용이다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "의사소통 능력의 구성 요소",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "의사소통 능력의 구성 요소",
+            "quote": "의사소통 능력은 문서 이해, 문서 작성, 경청, 의사 표현, 기초 외국어 능력으로 나뉜다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "문서 이해 및 작성 능력",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "의사소통 능력의 구성 요소",
+            "quote": "각 요소는 업무 상황에 맞춰 정보를 정확히 전달하고 이해하는 데 필수적이다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "경청 및 의사 표현 능력",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "의사소통 능력의 구성 요소",
+            "quote": "경청과 의사 표현 능력의 차이를 이해해야 한다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "직무 문서의 이해와 작성",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "직무 문서의 이해와 작성",
+            "quote": "직무 문서는 공문서, 기획서, 보고서 등 다양한 종류가 있으며, 문서 작성의 원칙은 목적성, 정확성, 간결성, 신속성, 가독성이다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "문서 작성 원칙",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "직무 문서의 이해와 작성",
+            "quote": "문서의 종류에 따라 작성 원칙이 다르다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "경청의 중요성",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "경청과 의사 표현",
+            "quote": "경청은 상대방의 메시지를 깊이 이해하는 태도로, 주의 집중, 반응, 해석, 기억, 피드백의 5단계 과정을 거친다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "비언어적 의사소통",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "비언어적 의사소통",
+            "quote": "비언어적 의사소통은 신체적 동작, 표정, 시선, 목소리, 공간 활용 등을 통해 이루어진다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "비언어적 요소",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "비언어적 의사소통",
+            "quote": "비언어적 요소는 의사소통의 효과를 좌우한다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "갈등 관리와 의사소통",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "갈등 관리와 의사소통",
+            "quote": "갈등 관리는 정보 부족, 목표 차이, 가치관 대립 등에서 발생하는 갈등을 해결하는 과정이다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "갈등 해결의 유형",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "갈등 관리와 의사소통",
+            "quote": "경쟁, 회피, 수용, 타협, 협력 중 최적의 전략을 선택하여 대응한다."
+          }
+        ],
+        "subtopics": []
+      }
+    ],
+    "existingGap": [],
+    "model": "gpt-4o-mini",
+    "usage": {
+      "prompt_tokens": 2992,
+      "completion_tokens": 1078
+    }
+  },
+  {
+    "subject": "sungjik",
+    "unitNumber": 13,
+    "concepts": [
+      {
+        "canonicalName": "채용 정보",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "채용 정보",
+            "quote": "채용 정보는 기업 정보, 직무 정보, 전형 정보로 나뉘며, 다양한 경로를 통해 수집됩니다."
+          }
+        ],
+        "subtopics": [
+          "채용 정보 구성 요소"
+        ]
+      },
+      {
+        "canonicalName": "채용 정보 구성 요소",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "채용 정보",
+            "quote": "채용 정보는 기업 정보, 직무 정보, 전형 정보로 나뉘며, 다양한 경로를 통해 수집됩니다."
+          }
+        ],
+        "subtopics": [
+          "기업 정보",
+          "직무 정보",
+          "전형 정보"
+        ]
+      },
+      {
+        "canonicalName": "채용 전형",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "채용 전형",
+            "quote": "채용 전형은 서류 전형, 필기 전형, 면접 전형으로 나뉘며, 각 단계는 지원자의 직무 적합성과 역량을 평가합니다."
+          }
+        ],
+        "subtopics": [
+          "채용 전형의 단계"
+        ]
+      },
+      {
+        "canonicalName": "채용 전형의 단계",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "채용 전형",
+            "quote": "채용 전형은 서류 전형, 필기 전형, 면접 전형으로 나뉘며, 각 단계는 지원자의 직무 적합성과 역량을 평가합니다."
+          }
+        ],
+        "subtopics": [
+          "서류 전형",
+          "필기 전형",
+          "면접 전형"
+        ]
+      },
+      {
+        "canonicalName": "NCS 기반 입사 서류",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "NCS 기반 입사 서류",
+            "quote": "NCS 기반 입사 서류는 직무 관련 교육, 자격, 경력 등을 중심으로 작성하며, 기업의 요구에 맞춰 간결하고 일관성 있게 작성해야 합니다."
+          }
+        ],
+        "subtopics": [
+          "입사 서류 작성법"
+        ]
+      },
+      {
+        "canonicalName": "면접 유형 및 준비",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "면접 유형 및 준비",
+            "quote": "면접은 개별, 집단, 토론, 발표, AI 면접 등 다양한 유형으로 진행됩니다."
+          }
+        ],
+        "subtopics": [
+          "면접 준비 방법"
+        ]
+      },
+      {
+        "canonicalName": "면접 준비 방법",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "면접 유형 및 준비",
+            "quote": "면접 준비는 기업 정보 수집, 예상 질문 작성, 예행 연습 등을 포함하여 지원자의 역량을 효과적으로 보여주는 것이 중요합니다."
+          }
+        ],
+        "subtopics": []
+      }
+    ],
+    "existingGap": [
+      "채용 정보",
+      "채용 정보 구성 요소",
+      "채용 전형",
+      "채용 전형의 단계",
+      "NCS 기반 입사 서류",
+      "면접 유형 및 준비",
+      "면접 준비 방법"
+    ],
+    "model": "gpt-4o-mini",
+    "usage": {
+      "prompt_tokens": 2792,
+      "completion_tokens": 741
+    }
+  },
+  {
+    "subject": "sungjik",
+    "unitNumber": 14,
+    "concepts": [
+      {
+        "canonicalName": "창업의 의미와 목적",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "창업의 의미와 목적",
+            "quote": "창업은 개인이나 법인이 새로운 기업을 설립하여 비전과 목표를 실현하는 행위입니다."
+          }
+        ],
+        "subtopics": [
+          "창업의 정의"
+        ]
+      },
+      {
+        "canonicalName": "창업의 방법",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "창업의 방법",
+            "quote": "창업 방법은 신규 기업 창업, 프랜차이즈 창업, 기존 사업체 인수로 구분됩니다."
+          }
+        ],
+        "subtopics": [
+          "창업 방법의 종류"
+        ]
+      },
+      {
+        "canonicalName": "창업의 요소",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "창업의 요소",
+            "quote": "창업의 요소는 창업자, 창업 아이템, 창업 자본, 시장으로 구성됩니다."
+          }
+        ],
+        "subtopics": [
+          "창업 요소의 중요성"
+        ]
+      },
+      {
+        "canonicalName": "기업가 정신",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "기업가 정신",
+            "quote": "기업가 정신은 위험을 감수하고 혁신과 도전을 통해 새로운 가치를 창출하려는 창조적 태도입니다."
+          }
+        ],
+        "subtopics": [
+          "기업가 정신의 구성 요소"
+        ]
+      },
+      {
+        "canonicalName": "창업 아이템",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "창업의 요소",
+            "quote": "창업 아이템: 수익성 및 시장성 고려"
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "창업 자본",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "창업의 요소",
+            "quote": "창업 자본: 필요한 자금 확보"
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "시장",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "창업의 요소",
+            "quote": "시장으로 구성됩니다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "위험 감수성",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "기업가 정신의 구성 요소",
+            "quote": "위험 감수성: 손실을 받아들이는 자세"
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "진취성",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "기업가 정신의 구성 요소",
+            "quote": "진취성: 미래 지향적인 자세"
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "자율성",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "기업가 정신의 구성 요소",
+            "quote": "자율성: 독립적인 행동 자세"
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "창업 과정",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "창업의 과정과 절차",
+            "quote": "창업 과정과 절차"
+          }
+        ],
+        "subtopics": []
+      }
+    ],
+    "existingGap": [
+      "창업 아이템",
+      "창업 자본",
+      "시장",
+      "위험 감수성",
+      "진취성",
+      "자율성",
+      "창업 과정"
+    ],
+    "model": "gpt-4o-mini",
+    "usage": {
+      "prompt_tokens": 2843,
+      "completion_tokens": 841
+    }
+  },
+  {
+    "subject": "sungjik",
+    "unitNumber": 15,
+    "concepts": [
+      {
+        "canonicalName": "근로관계법",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "근로관계법",
+            "quote": "근로관계법은 근로자와 사용자 간의 권익 침해를 방지하기 위해 제정된 법규이다."
+          }
+        ],
+        "subtopics": [
+          "근로관계법의 정의"
+        ]
+      },
+      {
+        "canonicalName": "근로기준법",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "근로기준법",
+            "quote": "근로기준법은 근로 조건의 최소 기준을 설정하여 근로자의 권리를 보호한다."
+          }
+        ],
+        "subtopics": [
+          "근로기준법의 역할"
+        ]
+      },
+      {
+        "canonicalName": "노동조합 및 노동관계조정법",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "노동조합 및 노동관계조정법",
+            "quote": "노동조합은 근로자가 자주적으로 조직하여 근로 조건의 개선과 권익 향상을 도모하는 단체이다."
+          }
+        ],
+        "subtopics": [
+          "노동조합의 기능"
+        ]
+      },
+      {
+        "canonicalName": "근로기준법과 노동조합법의 비교",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "근로기준법과 노동조합법의 비교",
+            "quote": "근로기준법은 개별 근로자와 사용자 간의 관계를 규율하며, 최소한의 근로 조건을 보장한다."
+          }
+        ],
+        "subtopics": [
+          "법의 차이점"
+        ]
+      },
+      {
+        "canonicalName": "근로 계약",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "교재 원문 일부",
+            "quote": "근로자와 사용자 간의 근로 계약 관계를 규정한 개별 계약법으로, 개개 근로자와 사용자 사이의 근로 계약에 적용됨."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "노사관계",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "교재 원문 일부",
+            "quote": "근로자 단체와 사용자 또는 사용자 단체에 관한 법률로, 대등한 노사관계 형성을 위한 근로자들의 단결권을 보장함."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "근로시간",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "근로기준법",
+            "quote": "1주 간의 근로시간은 휴게시간을 제외하고 40시간을 초과할 수 없다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "휴식",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "근로기준법",
+            "quote": "1일의 근로시간은 휴게시간을 제외하고 8시간을 초과할 수 없다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "해고",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "근로기준법",
+            "quote": "사용자는 근로자를 해고하려면 적어도 30일 전에 예고를 하여야 하고, 30일 전에 예고를 하지 아니하였을 때에는 30일분 이상의 통상 임금을 지급하여야 한다."
+          }
+        ],
+        "subtopics": []
+      }
+    ],
+    "existingGap": [
+      "근로 계약",
+      "노사관계",
+      "근로시간",
+      "휴식",
+      "해고"
+    ],
+    "model": "gpt-4o-mini",
+    "usage": {
+      "prompt_tokens": 2819,
+      "completion_tokens": 868
+    }
+  },
+  {
+    "subject": "sungjik",
+    "unitNumber": 16,
+    "concepts": [
+      {
+        "canonicalName": "근로 계약",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "근로 계약",
+            "quote": "근로 계약은 근로자가 사용자에게 근로를 제공하고, 사용자는 이에 대해 임금을 지급하는 계약입니다."
+          }
+        ],
+        "subtopics": [
+          "근로 계약의 서면 작성 의무"
+        ]
+      },
+      {
+        "canonicalName": "근로 계약의 서면 작성 의무",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "근로 계약",
+            "quote": "이 계약은 반드시 서면으로 작성되어야 하며, 근로 조건이 명시되어야 합니다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "근로자 권익의 침해와 시정 방법",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "근로자 권익의 침해와 시정 방법",
+            "quote": "근로자의 권익 침해는 부당 해고, 임금 체불, 부당 노동 행위, 직장 내 성희롱 등으로 나타납니다."
+          }
+        ],
+        "subtopics": [
+          "권익 침해 유형과 시정 방법"
+        ]
+      },
+      {
+        "canonicalName": "권익 침해 유형과 시정 방법",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "근로자 권익의 침해와 시정 방법",
+            "quote": "각 유형에 맞는 시정 방법이 존재하며, 이를 정확히 이해하는 것이 중요합니다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "근로자의 차별과 시정 방법",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "근로자의 차별과 시정 방법",
+            "quote": "근로자의 차별은 성별, 국적, 신앙, 연령, 사회적 신분 등을 이유로 발생하며, 모든 근로 조건에서 차별적 대우를 금지합니다."
+          }
+        ],
+        "subtopics": [
+          "차별의 정의와 시정 요건"
+        ]
+      },
+      {
+        "canonicalName": "차별의 정의와 시정 요건",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "근로자의 차별과 시정 방법",
+            "quote": "차별적 처우는 다양한 영역에서 발생할 수 있으며, 비정규직 근로자는 차별적 처우의 종료일로부터 6개월 이내에 시정 신청을 해야 합니다."
+          }
+        ],
+        "subtopics": []
+      }
+    ],
+    "existingGap": [],
+    "model": "gpt-4o-mini",
+    "usage": {
+      "prompt_tokens": 2921,
+      "completion_tokens": 610
+    }
+  },
+  {
+    "subject": "sungjik",
+    "unitNumber": 17,
+    "concepts": [
+      {
+        "canonicalName": "고용 서비스",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "고용 서비스",
+            "quote": "고용 서비스는 구인자와 구직자 간의 연결을 지원하며, 직업소개 및 직업 지도를 통해 고용을 촉진한다."
+          }
+        ],
+        "subtopics": [
+          "고용 서비스의 역할"
+        ]
+      },
+      {
+        "canonicalName": "고용보험 제도",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "고용보험 제도",
+            "quote": "고용보험은 실업 급여, 고용 안정 사업, 직업 능력 개발 사업으로 구성된다."
+          }
+        ],
+        "subtopics": [
+          "고용보험의 구성"
+        ]
+      },
+      {
+        "canonicalName": "실업급여 수급 절차",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "실업급여 수급 절차",
+            "quote": "실업급여는 실직 전 18개월 중 180일 이상 근무한 근로자가 불가피한 사유로 실직했을 때 지급된다."
+          }
+        ],
+        "subtopics": [
+          "수급 절차"
+        ]
+      },
+      {
+        "canonicalName": "고용보험 신청 및 가입 절차",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "고용보험 제도의 목적과 적용 대상",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "고용보험 제도의 종류별 특징",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "고용보험 실업 급여 신청 절차",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "실업 급여의 구분 및 구직 급여 일수",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "고용 서비스의 의미와 중요성",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "고용 서비스의 유형",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [],
+        "subtopics": []
+      }
+    ],
+    "existingGap": [],
+    "model": "gpt-4o-mini",
+    "usage": {
+      "prompt_tokens": 2672,
+      "completion_tokens": 604
+    }
+  },
+  {
+    "subject": "sungjik",
+    "unitNumber": 18,
+    "concepts": [
+      {
+        "canonicalName": "안전사고",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "안전사고",
+            "quote": "안전사고는 직접 원인과 간접 원인으로 나뉜다."
+          }
+        ],
+        "subtopics": [
+          "안전사고의 원인"
+        ]
+      },
+      {
+        "canonicalName": "안전사고의 원인",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "안전사고",
+            "quote": "직접 원인은 불안전한 행동과 상태이며, 간접 원인은 기술적, 교육적, 관리적 결함이다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "산업 재해",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "산업 재해",
+            "quote": "산업 재해는 작업자, 작업 환경, 작업 방법, 기계 설비, 원재료 등의 복합적 연계로 발생한다."
+          }
+        ],
+        "subtopics": [
+          "산업 재해의 정의 및 처리"
+        ]
+      },
+      {
+        "canonicalName": "산업 재해의 정의 및 처리",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "산업 재해",
+            "quote": "하인리히의 재해 예방 4원칙이 적용되며, 다양한 보상 서비스가 제공된다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "하인리히의 재해 예방 원칙",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "하인리히의 재해 예방 원칙",
+            "quote": "하인리히의 재해 예방 원칙은 손실 우연의 원칙, 원인 연계의 원칙, 예방 가능의 원칙, 대책 선정의 원칙으로 구성된다."
+          }
+        ],
+        "subtopics": [
+          "재해 예방 원칙"
+        ]
+      },
+      {
+        "canonicalName": "재해 예방 원칙",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "하인리히의 재해 예방 원칙",
+            "quote": "손실 우연의 원칙: 손실과 재해의 정도는 예측할 수 없이 우연히 결정됨"
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "도미노 이론",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "하인리히의 재해 예방 원칙",
+            "quote": "도미노 이론을 통해 재해 발생 과정을 설명한다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "산재 보상 서비스",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "산업 재해",
+            "quote": "다양한 보상 서비스가 제공된다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "사고 예방 대책 5단계",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "하인리히의 재해 예방 원칙",
+            "quote": "하인리히 재해 예방 5단계를 현장에 철저히 적용하려고 합니다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "안전 보건 표지",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "안전 보건 표지",
+            "quote": "안전 보건 표지 컨설팅 결과"
+          }
+        ],
+        "subtopics": []
+      }
+    ],
+    "existingGap": [
+      "안전사고의 원인",
+      "산업 재해의 정의 및 처리",
+      "재해 예방 원칙",
+      "도미노 이론",
+      "산재 보상 서비스",
+      "사고 예방 대책 5단계",
+      "안전 보건 표지"
+    ],
+    "model": "gpt-4o-mini",
+    "usage": {
+      "prompt_tokens": 2871,
+      "completion_tokens": 911
+    }
+  },
+  {
+    "subject": "sungjik",
+    "unitNumber": 19,
+    "concepts": [
+      {
+        "canonicalName": "협력적인 노사 관계",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "협력적인 노사 관계",
+            "quote": "노사 관계는 정부, 근로자, 사용자로 구성되며, 이들 간의 상호작용이 중요하다."
+          }
+        ],
+        "subtopics": [
+          "노사 관계의 주체",
+          "노사 관계의 기본 구조",
+          "노사 관계의 원칙",
+          "상생의 노사 문화"
+        ]
+      },
+      {
+        "canonicalName": "노사 관계의 주체",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "협력적인 노사 관계",
+            "quote": "정부, 근로자, 사용자 간의 상호작용 | 기업 경쟁력 확보"
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "노사 관계의 기본 구조",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "노사 관계의 기본 구조",
+            "quote": "노사 관계는 정부가 정책을 조정하고, 근로자가 사용자에게 근로를 제공하며, 사용자가 근로자에게 임금을 제공하는 구조로 이루어진다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "노동조합의 종류 및 설립",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "노동조합의 역할과 설립",
+            "quote": "노동조합은 직업별, 산업별, 기업별, 일반으로 나뉘며, 설립 시 신고주의를 채택하여 행정 관청에 신고해야 한다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "노사 관계의 원칙",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "노사 관계의 원칙",
+            "quote": "노사 대등의 원칙은 평등적 관계를 보장하고, 상호 불개입의 원칙은 독립된 운영을 보장한다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "상생의 노사 문화",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "상생의 노사 문화",
+            "quote": "상생의 노사 문화는 생산적, 협력적, 합법적, 소통의, 윤리적 노사 관계를 통해 미래 가치를 창출하는 것을 목표로 한다."
+          }
+        ],
+        "subtopics": []
+      }
+    ],
+    "existingGap": [],
+    "model": "gpt-4o-mini",
+    "usage": {
+      "prompt_tokens": 2947,
+      "completion_tokens": 599
+    }
+  },
+  {
+    "subject": "sungjik",
+    "unitNumber": 1,
+    "concepts": [
+      {
+        "canonicalName": "일과 직업",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [],
+        "subtopics": [
+          "일의 의미",
+          "직업의 의미",
+          "직업의 특징",
+          "직업의 요건"
+        ]
+      },
+      {
+        "canonicalName": "일의 의미",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "일과 직업",
+            "quote": "일은 어떠한 목적을 달성하기 위한 육체적, 정신적 활동을 의미하며, 이는 단순히 생계를 위한 활동뿐만 아니라 개인의 성취와 만족을 위한 활동도 포함한다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "직업의 의미",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "직업의 의미",
+            "quote": "직업은 사회 구성원으로서 생계유지를 위해 자신의 적성과 능력에 따라 일정 기간 지속적으로 종사하여 보수를 얻는 일을 의미하며, 이는 개인의 사회적 역할과 경제적 자립을 위한 중요한 수단이다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "직업의 특징",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "직업의 특징",
+            "quote": "직업은 윤리성, 생계유지, 개성 발휘 및 자아실현, 노동 행위의 수반, 사회적 역할 분담, 계속적인 활동 등의 특징을 가지며, 이러한 특징들은 직업을 단순한 일과 구분짓는 중요한 요소들이다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "직업의 요건",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "직업의 요건",
+            "quote": "직업은 계속성, 경제성, 사회성, 윤리성을 갖추어야 하며, 이는 직업이 단순한 일과 구분되는 중요한 기준이다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "직업의 가치와 가치관",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [],
+        "subtopics": [
+          "직업의 가치",
+          "직업 가치관"
+        ]
+      },
+      {
+        "canonicalName": "직업의 가치",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "직업의 가치",
+            "quote": "직업 가치는 직업을 선택할 때 자신이 중요하게 여기는 기준을 말하며, 이는 개인의 직업 만족도와 직결되기 때문에 진로를 정할 때 먼저 파악해두는 것이 좋다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "직업 가치관",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "직업 가치관",
+            "quote": "직업 가치관은 직업을 선택할 때 영향을 미치는 자신만의 믿음과 신념으로, 이는 직업 생활 중 어려운 상황에서도 포기하지 않게 하는 동기로 작용한다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "직업 생활의 의미와 중요성",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [],
+        "subtopics": [
+          "직업 생활의 의미",
+          "직업 생활의 중요성"
+        ]
+      },
+      {
+        "canonicalName": "직업 생활의 의미",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "직업 생활의 의미",
+            "quote": "직업 생활은 한 사람의 일과 관련된 경험에 영향을 미치는 사회적 환경으로, 직업, 근무 형태, 조직 형태, 경력 유형, 삶에서 일이 가지는 가치 등을 아우른다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "직업 생활의 중요성",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "직업 생활의 중요성",
+            "quote": "직업 생활은 개인적 차원과 사회적 차원에서 중요한 역할을 하며, 개인적으로는 생계 유지와 자아실현의 수단이고, 사회적으로는 사회적 역할 분담과 발전에 기여한다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "직업 생활의 다양성",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [],
+        "subtopics": [
+          "내용에 따른 다양성",
+          "성격에 따른 다양성",
+          "장소 및 방식에 따른 다양성"
+        ]
+      },
+      {
+        "canonicalName": "내용에 따른 다양성",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "내용에 따른 다양성",
+            "quote": "직업 생활은 직무와 직무 능력을 고려하여 분류되며, 한국표준직업분류와 한국고용직업분류가 있다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "성격에 따른 다양성",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "성격에 따른 다양성",
+            "quote": "홀랜드의 6가지 성격 유형은 현실형, 탐구형, 예술형, 사회형, 진취형, 관습형으로 나뉘며, 각 유형은 관련 직업과 연결된다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "장소 및 방식에 따른 다양성",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "장소 및 방식에 따른 다양성",
+            "quote": "유연근무제는 업무 특성에 따라 시간제, 재택, 원격, 탄력적·선택적 근로시간제 등 다양한 방식으로 일하는 제도이며, 이는 근로자의 삶의 질을 높이고 업무 효율성을 증대시킬 수 있다."
+          }
+        ],
+        "subtopics": []
+      }
+    ],
+    "existingGap": [],
+    "model": "gpt-4o-mini",
+    "usage": {
+      "prompt_tokens": 3265,
+      "completion_tokens": 1398
+    }
+  },
+  {
+    "subject": "sungjik",
+    "unitNumber": 20,
+    "concepts": [
+      {
+        "canonicalName": "현대 사회의 변화",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "현대 사회의 변화",
+            "quote": "정보 통신 기술과 과학 기술의 발전은 사회 전반에 걸쳐 큰 변화를 가져오고 있다."
+          }
+        ],
+        "subtopics": [
+          "정보 기술과 과학 기술의 발전"
+        ]
+      },
+      {
+        "canonicalName": "직업 윤리의 구분",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "직업 윤리의 구분",
+            "quote": "직업 윤리는 사회 전체의 질서와 발전에 기여하는 행동 규범으로, 일반 직업 윤리는 근로 윤리와 공동체 윤리로 나뉜다."
+          }
+        ],
+        "subtopics": [
+          "일반 직업 윤리",
+          "특수 직업 윤리"
+        ]
+      },
+      {
+        "canonicalName": "미래 사회의 특징",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "미래 사회와 직업 사회의 변화",
+            "quote": "미래 사회는 지식 노동자의 증가와 정보화의 가속화, 다원주의의 심화, 녹색 성장의 중요성 등으로 특징지어진다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "미래 직업 사회의 변화 전망",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "미래 직업 사회의 변화 전망",
+            "quote": "미래 직업 사회는 평생 직업 개념으로 대체되며, 다양한 경력을 체계적으로 개발하는 것이 중요하다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "정보화의 가속화",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "미래 사회와 직업 사회의 변화",
+            "quote": "정보화의 가속화는 직업 선택과 직업 사회의 구조에 큰 영향을 미친다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "근로 윤리",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "직업 윤리의 구분",
+            "quote": "근로 윤리는 근면, 성실, 정직으로 나뉜다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "공동체 윤리",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "직업 윤리의 구분",
+            "quote": "공동체 윤리는 봉사, 책임, 준법, 예절로 나뉜다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "평생 직업 개념",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "미래 직업 사회의 변화 전망",
+            "quote": "미래 직업 사회는 평생 직업 개념으로 대체된다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "복수 직업 사회",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "미래 직업 사회의 변화 전망",
+            "quote": "복수 직업 사회의 등장"
+          }
+        ],
+        "subtopics": []
+      }
+    ],
+    "existingGap": [
+      "정보화의 가속화",
+      "평생 직업 개념",
+      "복수 직업 사회"
+    ],
+    "model": "gpt-4o-mini",
+    "usage": {
+      "prompt_tokens": 2671,
+      "completion_tokens": 810
+    }
+  },
+  {
+    "subject": "sungjik",
+    "unitNumber": 2,
+    "concepts": [
+      {
+        "canonicalName": "생애 발달",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "생애 발달의 개념",
+            "quote": "생애 발달은 사람이 태어나서 죽을 때까지 거치는 끊임없는 신체적·정신적 변화의 과정으로, 각 단계에서 요구되는 역할과 기대가 다르다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "발달 과업",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "발달 과업의 개념",
+            "quote": "발달 과업은 생애 발달의 각 단계에서 수행해야 할 중요한 역할이나 성취해야 할 일을 말하며, 이는 사회적 요구와 개인의 노력으로 이루어진다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "해비거스트의 생애 발달 단계",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "해비거스트의 생애 발달 단계별 특징 및 발달 과업",
+            "quote": "해비거스트는 생애 발달을 영아기부터 노년기까지 7단계로 구분하고, 각 단계에서의 발달 과업을 제시하였다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "해비거스트",
+        "aliases": [
+          "Havighurst"
+        ],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "해비거스트(Havighurst, R. J.)",
+            "quote": "해비거스트는 발달 과업을 잘 성취할 때 이후 단계에서도 성공적인 발달이 가능하다고 보았다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "에릭슨",
+        "aliases": [
+          "Erikson"
+        ],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "에릭슨(Erikson, E. H.)",
+            "quote": "에릭슨은 생애 발달 단계에 따른 정체성 발달을 연구하며, 사회적 관계와 문화의 영향을 중시하였다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "레빈슨",
+        "aliases": [
+          "Levinson"
+        ],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "레빈슨(D. Levinson)",
+            "quote": "레빈슨은 인생 주기를 계절의 개념으로 접근하여 아동·청소년기, 성년기, 중년기, 노년기로 구분하였다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "긴즈버그",
+        "aliases": [
+          "Ginzberg"
+        ],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "긴즈버그(E. Ginzberg)",
+            "quote": "긴즈버그는 진로 선택을 일회성 사건이 아닌 지속적인 의사 결정 과정으로 보았다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "마샤의 자아 정체감 유형",
+        "aliases": [
+          "Marcia"
+        ],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "마샤(J. Marcia)의 자아 정체감 유형",
+            "quote": "마샤는 자아 정체감의 변화 양상에 따른 구성 요소로 위기와 전념의 두 가지 차원을 제시하였다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "슈퍼의 진로 발달 이론",
+        "aliases": [
+          "Super"
+        ],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "슈퍼의 진로 발달 단계",
+            "quote": "슈퍼는 진로 발달을 성장기, 탐색기, 확립기, 유지기, 쇠퇴기의 5단계로 제시하였다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "디지털 전환",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "디지털 전환의 필요성과 직업 교육",
+            "quote": "디지털 전환은 디지털 기술을 사회의 전 영역에 접목하여 새로운 가치를 창출하는 활동으로, 현대 직업 교육의 방향성을 제시한다."
+          }
+        ],
+        "subtopics": []
+      }
+    ],
+    "existingGap": [],
+    "model": "gpt-4o-mini",
+    "usage": {
+      "prompt_tokens": 3620,
+      "completion_tokens": 999
+    }
+  },
+  {
+    "subject": "sungjik",
+    "unitNumber": 3,
+    "concepts": [
+      {
+        "canonicalName": "직업적 성공",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [],
+        "subtopics": [
+          "직업적 성공의 의미",
+          "필요 요소"
+        ]
+      },
+      {
+        "canonicalName": "직업적 성공의 의미",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "직업적 성공",
+            "quote": "직업적 성공은 자신이 하고 싶은 일을 하면서 그 분야의 전문가로 인정받고, 자아실현을 이루며 사회 발전에 기여하는 상태를 의미한다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "필요 요소",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "직업적 성공",
+            "quote": "직업적 성공을 위해서는 개인적 측면과 사회적 측면에서 다양한 요소들이 필요하다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "성공한 직업인",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [],
+        "subtopics": [
+          "성공한 직업인의 의미",
+          "성공한 직업인의 공통점"
+        ]
+      },
+      {
+        "canonicalName": "성공한 직업인의 의미",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "성공한 직업인",
+            "quote": "성공한 직업인은 자신이 좋아하고 잘하는 진로를 선택하여 꾸준히 준비하고 노력하는 사람이다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "성공한 직업인의 공통점",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "성공한 직업인",
+            "quote": "성공한 직업인은 긍정적인 마음과 성실성, 전문가 정신, 창의성과 도전 정신, 장인 정신과 소명 의식을 갖춘다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "생애 발달 단계별 직업적 성공을 위한 요건",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [],
+        "subtopics": [
+          "발달 단계별 요건"
+        ]
+      },
+      {
+        "canonicalName": "발달 단계별 요건",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "생애 발달 단계별 직업적 성공을 위한 요건",
+            "quote": "청소년기에는 직업적 성공의 의미를 이해하고 준비하는 것이 중요하며, 성년기에는 창의성과 전문가 정신을 발휘해야 한다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "성공적인 직업 생활을 위한 개인 특성",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [],
+        "subtopics": [
+          "자기 이해",
+          "개인 특성 영역"
+        ]
+      },
+      {
+        "canonicalName": "자기 이해",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "성공적인 직업 생활을 위한 개인 특성",
+            "quote": "자기 이해는 자신의 능력과 특성을 파악하여 바람직한 진로 선택과 직업 생활을 가능하게 한다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "개인 특성 영역",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "성공적인 직업 생활을 위한 개인 특성",
+            "quote": "자아 정체감은 일관된 자아 인식을 의미하며, 자아 존중감은 자신이 가치 있는 존재라는 믿음을 갖는 것이다."
+          }
+        ],
+        "subtopics": []
+      }
+    ],
+    "existingGap": [],
+    "model": "gpt-4o-mini",
+    "usage": {
+      "prompt_tokens": 2905,
+      "completion_tokens": 894
+    }
+  },
+  {
+    "subject": "sungjik",
+    "unitNumber": 4,
+    "concepts": [
+      {
+        "canonicalName": "기업의 의미와 특징",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "기업의 의미",
+            "quote": "기업은 국민 경제를 구성하는 경제 주체로서, 인간이 경제생활을 하는 데 필요한 재화 또는 서비스를 생산하고 공급하여 이윤을 창출하는 조직입니다."
+          }
+        ],
+        "subtopics": [
+          "기업의 의미",
+          "기업의 목적",
+          "경제 주체로서의 기업",
+          "기업의 역할"
+        ]
+      },
+      {
+        "canonicalName": "기업의 목적",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "기업의 목적",
+            "quote": "기업은 경제적 목적과 비경제적 목적을 동시에 추구하며, 경제적 목적은 이윤 극대화이고 비경제적 목적은 사회적 책임을 수행하는 것입니다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "경제 주체로서의 기업",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "경제 주체로서의 기업",
+            "quote": "기업은 생산의 주체로서 이윤 획득을 목적으로 재화 및 서비스를 생산하여 가계와 정부에 제공하고 그에 대한 대가를 받습니다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "기업의 역할",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "기업의 역할",
+            "quote": "기업은 생산 경제 단위로서 소비자의 욕구를 충족시키고, 고용 창출, 수요 창출, 국가 발전에 기여하며 사회적 책임을 이행합니다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "출자 형태에 따른 기업의 분류",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "출자 형태에 따른 기업의 분류",
+            "quote": "사기업은 경영에 필요한 자본을 민간인이 출자하여 설립되는 기업으로, 개인 기업과 공동 기업으로 나뉩니다."
+          }
+        ],
+        "subtopics": [
+          "사기업",
+          "공기업",
+          "공사 합동 기업"
+        ]
+      },
+      {
+        "canonicalName": "사기업",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "사기업",
+            "quote": "사기업은 경영에 필요한 자본을 민간인이 출자하여 설립되는 기업으로, 개인 기업과 공동 기업으로 나뉩니다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "공기업",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "공기업",
+            "quote": "공기업은 국가 또는 지방 자치 단체가 공공의 이익을 목적으로 출자하여 경영하는 기업입니다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "공사 합동 기업",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "공사 합동 기업",
+            "quote": "공사 합동 기업은 국가 또는 지방 자치 단체의 공적인 자본과 민간의 사회적 자본을 공동 출자하여 공동으로 경영하는 기업입니다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "규모에 따른 기업의 분류",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "규모에 따른 기업의 분류",
+            "quote": "대기업은 대규모의 생산 자본과 조직을 갖추어 경제, 정치, 사회적으로 영향력을 행사하는 기업입니다."
+          }
+        ],
+        "subtopics": [
+          "대기업",
+          "중견기업",
+          "중소기업"
+        ]
+      },
+      {
+        "canonicalName": "대기업",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "대기업",
+            "quote": "대기업은 대규모의 생산 자본과 조직을 갖추어 경제, 정치, 사회적으로 영향력을 행사하는 기업입니다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "중견기업",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "중견기업",
+            "quote": "중견기업은 중소기업 범위를 벗어나고 상호 출자 제한 기업 집단에 속하지 않는 기업입니다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "중소기업",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "중소기업",
+            "quote": "중소기업은 중소기업기본법상 규모 요건과 독립성 기준을 모두 충족하는 기업입니다."
+          }
+        ],
+        "subtopics": []
+      }
+    ],
+    "existingGap": [],
+    "model": "gpt-4o-mini",
+    "usage": {
+      "prompt_tokens": 2986,
+      "completion_tokens": 1112
+    }
+  },
+  {
+    "subject": "sungjik",
+    "unitNumber": 5,
+    "concepts": [
+      {
+        "canonicalName": "기업 경영의 의미",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "기업의 경영 활동",
+            "quote": "기업 경영은 조직이나 기업의 목표를 달성하기 위해 자본과 인적 자원 및 물적 자원을 효율적으로 배분하여 운영하는 과정으로, 이는 기업의 목표를 수립하고 자원을 적절하게 배분하여 최적의 기업 활동을 수행하는 것을 포함한다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "기업 경영의 구성 요소",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "기업의 경영 활동",
+            "quote": "경영 목적은 기업의 방향성과 목표를 설정하며, 인적 자원은 기업의 핵심 자산으로서 기업 경영의 기반이 된다. | 자금은 경영 활동의 범위와 방향을 결정하며, 전략은 자원의 체계적 활용을 통해 목표 달성을 지원한다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "경영자의 분류",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "기업의 경영 활동",
+            "quote": "소유 경영자는 기업의 소유와 경영을 모두 책임지며, 고용 경영자는 소유 경영자의 일부 권한을 위임받아 경영을 수행한다. | 전문 경영자는 전문 지식을 바탕으로 경영을 수행하며, 이는 경영자의 역할과 책임을 명확히 하는 데 중요하다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "경영 관리의 의미",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "기업의 경영 활동",
+            "quote": "경영 관리는 기업의 목표를 효율적으로 달성하기 위한 계획, 조직, 지휘, 통제의 과정으로, 이는 기업의 자원을 최적화하여 목표를 달성하는 데 필수적이다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "경영 관리 순환 과정",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "기업의 경영 활동",
+            "quote": "계획 단계에서는 목표 달성을 위한 방향과 세부적인 절차를 수립하며, 조직 단계에서는 조직 구성, 업무 분담, 책임과 권한을 확정한다. | 지휘 단계에서는 동기 부여와 갈등 조정 및 리더십을 발휘하고, 통제 단계에서는 계획과 실적 비교 차이에 대한 평가와 개선책을 강구한다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "인적 자원 관리 활동",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "기업의 경영 활동",
+            "quote": "인적 자원의 확보는 인적 자원 계획, 모집, 선발, 배치를 포함하며, 인적 자원의 개발은 교육 훈련, 경력 개발, 인사고과를 포함한다. | 인적 자원의 보상은 임금, 승진, 복리 후생을 포함하며, 인적 자원의 유지는 인간관계 관리, 노사 관계 관리, 노동조합과의 협력을 포함한다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "생산 관리 활동",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "기업의 경영 활동",
+            "quote": "생산 관리 활동은 제품이나 서비스의 효율적 생산을 위한 설계 및 운영에 관한 경영 활동으로, 생산 계획, 공정 관리, 재고 관리, 작업 인력 관리, 품질 관리를 포함한다. | 3S 원칙은 표준화, 전문화, 단순화를 통해 생산 효율성을 높이는 데 기여한다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "마케팅 관리 활동",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "기업의 경영 활동",
+            "quote": "마케팅 관리 활동은 고객의 욕구를 충족시키고 기업의 목표를 달성하기 위한 전략 수립 및 실행 활동으로, 마케팅 전략 수립, STP 전략 수립, 마케팅 믹스(4P)를 포함한다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "재무 관리 활동",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "기업의 경영 활동",
+            "quote": "재무 관리 활동은 기업이 필요로 하는 자금을 조달하고, 이를 효율적으로 운용하여 목표를 달성하는 과정으로, 자금 조달, 투자 결정, 배당 결정, 재무 분석을 포함한다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "회계 정보 관리 활동",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "기업의 경영 활동",
+            "quote": "회계 정보 관리 활동은 회계 정보를 요약한 재무제표 등을 통해 의사 결정에 필요한 정보를 제공하는 과정으로, 재무 상태표, 포괄손익 계산서, 자본 변동표, 현금 흐름표, 주석을 포함한다."
+          }
+        ],
+        "subtopics": []
+      }
+    ],
+    "existingGap": [],
+    "model": "gpt-4o-mini",
+    "usage": {
+      "prompt_tokens": 3105,
+      "completion_tokens": 1239
+    }
+  },
+  {
+    "subject": "sungjik",
+    "unitNumber": 6,
+    "concepts": [
+      {
+        "canonicalName": "제조업의 개념",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "제조업의 정의와 분류",
+            "quote": "제조업은 물질 또는 구성 요소에 물리·화학적 작용을 가하여 새로운 제품으로 전환하는 산업으로, 제2차 산업에 속한다."
+          }
+        ],
+        "subtopics": [
+          "제조업의 정의와 분류",
+          "제조업의 발달",
+          "제품 생산 방식",
+          "제품 생산 체제"
+        ]
+      },
+      {
+        "canonicalName": "제조업의 정의와 분류",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "제조업의 정의와 분류",
+            "quote": "생산재는 기업 간 거래 중심이며 기술력 의존도가 높고, 소비재는 개인 소비자 대상이며 마케팅 중요성이 크다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "생산재 제조업",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "제조업의 정의와 분류",
+            "quote": "생산재 제조업은 반도체, LED, 철강 등 기업 간 거래를 위한 제품을 생산한다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "소비재 제조업",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "제조업의 정의와 분류",
+            "quote": "소비재 제조업은 식음료, 의류, 가전 등 개인 소비자를 위한 제품을 생산한다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "제조업의 발달",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "제조업의 발달 단계",
+            "quote": "재래 공업은 가내 수공업 형태로, 가족 단위의 소규모 제품 생산 활동을 특징으로 한다."
+          }
+        ],
+        "subtopics": [
+          "재래 공업",
+          "경공업",
+          "중화학 공업",
+          "첨단 공업"
+        ]
+      },
+      {
+        "canonicalName": "재래 공업",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "제조업의 발달 단계",
+            "quote": "재래 공업은 가내 수공업 형태로, 가족 단위의 소규모 제품 생산 활동을 특징으로 한다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "경공업",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "제조업의 발달 단계",
+            "quote": "경공업은 노동 집약적이며, 주로 제품의 부피와 중량이 작고 시설이나 자본이 적게 드는 산업이다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "중화학 공업",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "제조업의 발달 단계",
+            "quote": "중화학 공업은 대규모 생산 시설과 자본, 첨단 기술을 기반으로 발전하며, 고부가 가치를 창출한다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "첨단 공업",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "제조업의 발달 단계",
+            "quote": "첨단 공업은 미래 지향적인 지식 집약 산업으로, 제품과 생산 공정의 혁신 비율이 높은 산업이다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "제품 생산 방식",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "작업 공정별 생산 방식",
+            "quote": "개별 생산 방식은 소비자의 요구에 따라 제품을 개별적으로 생산하며, 주로 고가의 제품에 이용된다."
+          }
+        ],
+        "subtopics": [
+          "작업 공정별 생산 방식",
+          "시장 수요별 생산 방식"
+        ]
+      },
+      {
+        "canonicalName": "작업 공정별 생산 방식",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "작업 공정별 생산 방식",
+            "quote": "로트 생산 방식은 제품을 일정한 수량만큼 모아서 생산하는 중간 형태로, 가구나 의류 생산에 적합하다."
+          }
+        ],
+        "subtopics": [
+          "개별 생산 방식",
+          "로트 생산 방식",
+          "연속 생산 방식",
+          "프로젝트 생산 방식"
+        ]
+      },
+      {
+        "canonicalName": "개별 생산 방식",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "작업 공정별 생산 방식",
+            "quote": "개별 생산 방식은 소비자의 요구에 따라 제품을 개별적으로 생산하며, 주로 고가의 제품에 이용된다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "로트 생산 방식",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "작업 공정별 생산 방식",
+            "quote": "로트 생산 방식은 제품을 일정한 수량만큼 모아서 생산하는 중간 형태로, 가구나 의류 생산에 적합하다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "연속 생산 방식",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "작업 공정별 생산 방식",
+            "quote": "연속 생산 방식은 표준 제품을 대량으로 연속 생산하며, 자동차나 시멘트와 같은 대량 생산에 적합하다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "프로젝트 생산 방식",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "작업 공정별 생산 방식",
+            "quote": "프로젝트 생산 방식은 대규모로 제한된 기간 내에 생산하며, 대형 건물이나 댐 건설에 사용된다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "시장 수요별 생산 방식",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "시장 수요별 생산 방식",
+            "quote": "시장 생산 방식은 수요 예측에 따라 생산 계획을 수립하며, 재고 관리와 직결된다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "제품 생산 체제",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "제품 생산 체제의 구축",
+            "quote": "제품 설계는 소비자의 요구와 시장 조사 결과를 반영하여 제품 모델을 설계하는 첫 번째 단계이다."
+          }
+        ],
+        "subtopics": [
+          "제품 생산 체제의 구축"
+        ]
+      },
+      {
+        "canonicalName": "제품 생산 체제의 구축",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "제품 생산 체제의 구축",
+            "quote": "공정 설계는 원재료를 투입하여 제품을 생산하기까지의 전체 과정을 설계하여 자원 낭비를 최소화한다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "CIM",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "제품 생산 체제의 구축",
+            "quote": "CIM, SCM, FMS, ERP, JIT 시스템의 특징과 활용"
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "SCM",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "제품 생산 체제의 구축",
+            "quote": "CIM, SCM, FMS, ERP, JIT 시스템의 특징과 활용"
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "FMS",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "제품 생산 체제의 구축",
+            "quote": "CIM, SCM, FMS, ERP, JIT 시스템의 특징과 활용"
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "ERP",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "제품 생산 체제의 구축",
+            "quote": "CIM, SCM, FMS, ERP, JIT 시스템의 특징과 활용"
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "JIT",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "제품 생산 체제의 구축",
+            "quote": "CIM, SCM, FMS, ERP, JIT 시스템의 특징과 활용"
+          }
+        ],
+        "subtopics": []
+      }
+    ],
+    "existingGap": [],
+    "model": "gpt-4o-mini",
+    "usage": {
+      "prompt_tokens": 3048,
+      "completion_tokens": 2038
+    }
+  },
+  {
+    "subject": "sungjik",
+    "unitNumber": 7,
+    "concepts": [
+      {
+        "canonicalName": "서비스의 의미",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "서비스의 이해",
+            "quote": "서비스는 시장에서 판매를 목적으로 제공되거나 상품 판매와 연계하여 고객에게 제공되는 무형적 성격을 띤 일련의 활동으로, 이는 생산된 재화를 운반하거나 생산·소비에 필요한 노무를 제공하는 것을 뜻하며, 서비스 제공자와 고객의 상호 작용을 통해 발생한다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "서비스의 특징",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "서비스의 이해",
+            "quote": "서비스는 무형성, 동시성, 이질성, 소멸성의 4대 특징을 가지며, 이는 서비스가 제품과 달리 구매 전까지 형태가 없고, 생산과 소비가 동시에 이루어지며, 전달 과정에서 품질이 달라지고, 제공이 끝나면 사라지는 특성을 의미한다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "서비스업의 개념",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "서비스업의 개념",
+            "quote": "서비스업은 유형의 상품을 제공하는 제조업과는 다르게 무형의 상품을 제공하는 산업으로, 생활의 편의와 삶의 질 향상을 위해 무형의 노무를 제공하며, 경제 발전에 따라 그 범위와 중요성이 커지고 있다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "대한민국 서비스업",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "대한민국 서비스업",
+            "quote": "우리나라 국민 소득 계정에서는 서비스업 부문을 '사회 간접 자본 및 기타 서비스'로 구분하며, 한국표준산업분류에서 서비스업은 농림어업이나 제조업 등 유형의 재화를 생산하는 산업을 제외한 모든 산업이 포함된다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "서비스업의 특징",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "서비스업의 개념",
+            "quote": "서비스업은 서비스 제공자의 개별적 경험과 시간, 장소마다 서비스의 품질이 달라질 수 있으므로 품질에 대한 통제가 어려우며, 표준화와 대량 생산이 어렵다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "서비스업의 유형",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "서비스업의 유형",
+            "quote": "서비스업은 공공 서비스업과 민간 서비스업으로 나뉘며, 공공 서비스업은 공공의 이익을 목적으로 국가 및 지방 행정 조직 등이 공급하고, 민간 서비스업은 이윤을 창출하기 위해 기업이나 민간단체가 공급한다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "서비스 설계의 의미",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "서비스 설계의 이해",
+            "quote": "서비스 설계는 서비스 제공자와 고객 사이에서 서비스의 품질과 상호 작용을 향상하기 위해 사람, 인프라, 커뮤니케이션, 서비스 구성 요소 등을 계획하고 이를 조직하는 활동이다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "서비스 설계 요소",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "서비스 설계의 이해",
+            "quote": "서비스 설계는 서비스 제품, 시설, 운영, 고객 경험을 중심으로 구조를 기획하며, 이는 서비스의 물적 속성, 시설 배치, 운영 체계, 고객 경험을 시각화하여 설계하는 것을 포함한다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "서비스 생산 방식",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "서비스 생산 방식",
+            "quote": "서비스는 개별 생산 방식과 대량 생산 방식으로 나뉘며, 개별 생산 방식은 고객별로 개별적인 서비스를 제공하거나 특정 고객 관리를 위한 맞춤형 서비스를 제공하는 방식이다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "서비스 접근 유형에 따른 생산 방식",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "서비스 접근 유형에 따른 생산 방식",
+            "quote": "서비스 접근 유형에 따라 생산 라인 접근 방식, 고객 참여 접근 방식, 고객 접촉 접근 방식, 고객 응대 접근 방식으로 나뉘며, 각각의 방식은 서비스 제공의 효율성과 고객 만족도에 직접적인 영향을 미친다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "서비스 생산 체제",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "서비스 생산 체제",
+            "quote": "서비스 제공을 위한 인원, 설비의 규모, 서비스 제공 원가 및 서비스 가격 등 서비스 생산 요소를 결정하며, 기업의 역량에 따라 서비스의 내용과 범위를 적정하게 결정한다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "서비스 산출",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "서비스 산출",
+            "quote": "서비스 투입과 서비스 제공 과정에서 서비스를 받고 욕구가 충족된 고객, 형태가 변경되고 가치가 증가한 제품, 서비스에 대한 정보 등을 산출한다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "슈메너의 매트릭스",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "슈메너의 매트릭스",
+            "quote": "슈메너의 매트릭스는 상호 작용/맞춤화 정도와 노동 집중도에 따라 서비스 공장, 점포, 대량 서비스, 전문 서비스로 분류하며, 이는 서비스 경영의 개념을 이해하고 적용하는 데 중요한 도구이다."
+          }
+        ],
+        "subtopics": []
+      }
+    ],
+    "existingGap": [],
+    "model": "gpt-4o-mini",
+    "usage": {
+      "prompt_tokens": 3422,
+      "completion_tokens": 1442
+    }
+  },
+  {
+    "subject": "sungjik",
+    "unitNumber": 8,
+    "concepts": [
+      {
+        "canonicalName": "직업 능력의 개념",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "직업 기초 능력의 종류와 향상",
+            "quote": "직업 능력은 근로자가 직업에서 맡고 있는 업무를 수행하기 위해 필요한 능력으로, 직무 수행 능력과 직업 기초 능력으로 구분된다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "직업 기초 능력의 종류",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "직업 기초 능력의 종류와 향상",
+            "quote": "직업 기초 능력은 국가직무능력표준(NCS)에 따라 10개의 영역과 34개의 하위 영역으로 체계화되어 있으며, 기초 능력군, 업무 처리 능력군, 직장 적응 능력군으로 구분된다."
+          }
+        ],
+        "subtopics": [
+          "기초 능력군",
+          "업무 처리 능력군",
+          "직장 적응 능력군"
+        ]
+      },
+      {
+        "canonicalName": "기초 능력군",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "직업 기초 능력의 종류",
+            "quote": "기초 능력군에는 의사소통 능력과 수리 능력이 포함된다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "업무 처리 능력군",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "직업 기초 능력의 종류",
+            "quote": "업무 처리 능력군은 문제 해결 능력, 정보 능력, 기술 능력, 자원 관리 능력, 조직 이해 능력으로 구성되어 있다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "직장 적응 능력군",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "직업 기초 능력의 종류",
+            "quote": "직장 적응 능력군은 대인 관계 능력, 자기 개발 능력, 직업 윤리를 포함한다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "직업 기초 능력의 향상 방법",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [
+          {
+            "sectionId": "직업 기초 능력의 향상 방법",
+            "quote": "의사소통 능력은 문서 이해, 작성, 경청, 의사 표현, 기초 외국어 능력 향상을 통해 발전시킬 수 있다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "의사소통 능력",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "직업 기초 능력의 향상 방법",
+            "quote": "의사소통 능력은 문서 이해, 작성, 경청, 의사 표현, 기초 외국어 능력 향상을 통해 발전시킬 수 있다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "수리 능력",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "직업 기초 능력의 향상 방법",
+            "quote": "수리 능력은 기초 연산, 통계, 도표 분석 및 작성 능력을 향상시킴으로써 강화할 수 있다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "문제 해결 능력",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "직업 기초 능력의 향상 방법",
+            "quote": "문제 해결 능력은 창의적이고 논리적인 사고 능력을 통해 발전시키며."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "정보 능력",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "직업 기초 능력의 향상 방법",
+            "quote": "정보 능력은 컴퓨터 활용 및 정보 처리 능력을 통해 향상시킬 수 있다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "기술 능력",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "직업 기초 능력의 향상 방법",
+            "quote": "기술 능력은 기술 이해, 선택, 적용 능력을 향상시켜야 한다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "자원 관리 능력",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "조직 이해 능력",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "대인 관계 능력",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "자기 개발 능력",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "직업 윤리",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [],
+        "subtopics": []
+      }
+    ],
+    "existingGap": [
+      "직업 기초 능력의 향상 방법",
+      "기초 능력군",
+      "업무 처리 능력군",
+      "직장 적응 능력군",
+      "의사소통 능력",
+      "수리 능력",
+      "문제 해결 능력",
+      "정보 능력",
+      "기술 능력",
+      "자원 관리 능력",
+      "조직 이해 능력",
+      "대인 관계 능력",
+      "자기 개발 능력",
+      "직업 윤리"
+    ],
+    "model": "gpt-4o-mini",
+    "usage": {
+      "prompt_tokens": 2704,
+      "completion_tokens": 1353
+    }
+  },
+  {
+    "subject": "sungjik",
+    "unitNumber": 9,
+    "concepts": [
+      {
+        "canonicalName": "근로 계약의 이해",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [],
+        "subtopics": [
+          "근로 계약의 의미",
+          "근로 계약의 체결",
+          "근로 계약서 작성의 중요성"
+        ]
+      },
+      {
+        "canonicalName": "근로 계약의 의미",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "근로 계약의 이해",
+            "quote": "근로 계약은 근로자가 노동력을 제공하고 사용자가 그에 상응하는 임금을 지급하기로 약속하는 법적인 계약이다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "근로 계약의 체결",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "근로 계약의 체결",
+            "quote": "근로 계약 체결 시 사용자는 근로자에게 임금, 근로 시간, 휴일, 유급 휴가 등의 근로 조건을 명시해야 한다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "근로 계약서 작성의 중요성",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "근로 계약서 작성의 중요성",
+            "quote": "근로 계약서는 근로자와 사용자 간의 권리와 의무를 명확히 하여 근로 분쟁을 예방하는 법적 근거가 된다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "근로 시간과 휴식",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [],
+        "subtopics": [
+          "근로 시간의 개념",
+          "휴게 시간 및 휴일",
+          "탄력적 근로 시간제"
+        ]
+      },
+      {
+        "canonicalName": "근로 시간의 개념",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "근로 시간의 개념",
+            "quote": "법정 근로 시간은 법으로 정한 1일 및 1주일의 최장 근로 시간이다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "휴게 시간 및 휴일",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "휴게 시간 및 휴일",
+            "quote": "휴게 시간은 근로 시간이 4시간인 경우 30분 이상, 8시간인 경우 1시간 이상의 휴게 시간을 주어야 한다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "탄력적 근로 시간제",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "탄력적 근로 시간제",
+            "quote": "탄력적 근로 시간제는 어떤 주의 근로 시간은 늘리고 다른 주의 근로 시간은 줄여 평균 근로 시간을 법정 근로 시간 이내로 맞추는 제도이다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "임금과 최저 임금 제도",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [],
+        "subtopics": [
+          "임금의 의미와 지급 원칙",
+          "최저 임금 제도"
+        ]
+      },
+      {
+        "canonicalName": "임금의 의미와 지급 원칙",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "임금의 의미와 지급 원칙",
+            "quote": "임금은 사용자가 근로의 대가로 근로자에게 지급하는 일체의 금품을 말한다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "최저 임금 제도",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "최저 임금 제도",
+            "quote": "최저 임금 제도는 국가가 임금의 최저 수준을 정하고 사용자에게 그 이상의 임금을 지급하도록 법으로 강제하는 제도이다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "근로자의 권리 구제",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [],
+        "subtopics": [
+          "부당 해고의 구제",
+          "부당 노동 행위"
+        ]
+      },
+      {
+        "canonicalName": "부당 해고의 구제",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "부당 해고의 구제",
+            "quote": "부당 해고란 사용자가 근로자와의 근로 계약 관계를 일방적으로 종료시키는 것을 말한다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "부당 노동 행위",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "부당 노동 행위",
+            "quote": "부당 노동 행위란 사용자가 근로자의 노동 3권 행사를 방해하는 행위를 말한다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "산업 안전과 재해 보상",
+        "aliases": [],
+        "isPrimary": true,
+        "evidence": [],
+        "subtopics": [
+          "산업 안전 및 보건",
+          "산업 재해 보상 보험(산재 보험)",
+          "4대 사회 보험"
+        ]
+      },
+      {
+        "canonicalName": "산업 안전 및 보건",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "산업 안전 및 보건",
+            "quote": "사용자는 근로자가 안전하고 쾌적한 환경에서 일할 수 있도록 산업 안전 및 보건에 관한 조치를 취해야 한다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "산업 재해 보상 보험(산재 보험)",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "산업 재해 보상 보험(산재 보험)",
+            "quote": "산재 보험은 사용자의 과실 여부와 상관없이 업무상 재해를 당한 근로자에게 신속하고 공정하게 보상하기 위해 운영되는 사회 보험이다."
+          }
+        ],
+        "subtopics": []
+      },
+      {
+        "canonicalName": "4대 사회 보험",
+        "aliases": [],
+        "isPrimary": false,
+        "evidence": [
+          {
+            "sectionId": "4대 사회 보험",
+            "quote": "4대 사회 보험은 국민의 생활 안정과 복지 증진을 위해 국가가 운영하는 보험 제도이다."
+          }
+        ],
+        "subtopics": []
+      }
+    ],
+    "existingGap": [
+      "근로 계약의 이해",
+      "근로 계약서 작성의 중요성",
+      "근로 시간과 휴식",
+      "탄력적 근로 시간제",
+      "임금과 최저 임금 제도",
+      "근로자의 권리 구제",
+      "부당 노동 행위",
+      "산업 안전과 재해 보상",
+      "산업 안전 및 보건",
+      "산업 재해 보상 보험(산재 보험)",
+      "4대 사회 보험"
+    ],
+    "model": "gpt-4o-mini",
+    "usage": {
+      "prompt_tokens": 3524,
+      "completion_tokens": 1748
+    }
+  }
+]

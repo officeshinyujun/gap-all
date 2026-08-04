@@ -1,6 +1,6 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 
-export const EXAM_GENERATION_COOLDOWN_MS = 5 * 60 * 1000;
+export const EXAM_GENERATION_COOLDOWN_MS = 1 * 60 * 1000;
 
 @Injectable()
 export class ExamGenerationCooldownService {
@@ -13,7 +13,7 @@ export class ExamGenerationCooldownService {
       const retryAfterSeconds = Math.ceil((availableAt - now) / 1000);
       throw new HttpException(
         {
-          message: '문제 생성은 5분에 한 번만 가능합니다.',
+          message: '문제 생성은 1분에 한 번만 가능합니다.',
           retryAfterSeconds,
         },
         HttpStatus.TOO_MANY_REQUESTS,

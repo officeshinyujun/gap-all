@@ -14,8 +14,16 @@ import {
   Max,
 } from 'class-validator';
 import { Difficulty } from '../../entities/exam-record.entity';
+import {
+  AI_QUESTION_FAMILIES,
+  type AiQuestionFamily,
+} from '../ai-blueprint.types';
 
-export type ExamSourceType = 'ai' | 'reference' | 'simply_reference';
+export type ExamSourceType =
+  | 'ai'
+  | 'reference'
+  | 'simply_reference'
+  | 'ai_blueprint';
 
 export class CreateExamDto {
   @IsUUID()
@@ -53,8 +61,12 @@ export class CreateExamDto {
   targetConcepts?: string[];
 
   @IsOptional()
-  @IsIn(['ai', 'reference', 'simply_reference'])
+  @IsIn(['ai', 'reference', 'simply_reference', 'ai_blueprint'])
   sourceType?: ExamSourceType;
+
+  @IsOptional()
+  @IsIn(AI_QUESTION_FAMILIES)
+  aiQuestionFamily?: AiQuestionFamily;
 
   @IsBoolean()
   @IsOptional()

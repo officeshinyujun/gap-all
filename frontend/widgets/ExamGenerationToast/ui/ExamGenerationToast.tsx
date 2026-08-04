@@ -5,7 +5,7 @@ import { useJobProgress } from '@features/exam-generation/model/JobProgressProvi
 import s from './ExamGenerationToast.module.scss';
 
 export function ExamGenerationToast() {
-  const { jobStatus } = useJobProgress();
+  const { jobStatus, cancelJob } = useJobProgress();
   const [collapsed, setCollapsed] = useState(false);
   const [hasShown, setHasShown] = useState(false);
 
@@ -16,7 +16,11 @@ export function ExamGenerationToast() {
   }, [jobStatus]);
 
   useEffect(() => {
-    if (jobStatus?.status === 'completed' || jobStatus?.status === 'failed') {
+    if (
+      jobStatus?.status === 'completed' ||
+      jobStatus?.status === 'failed' ||
+      jobStatus?.status === 'canceled'
+    ) {
       const timer = setTimeout(() => setHasShown(false), 10000);
       return () => clearTimeout(timer);
     }
@@ -24,12 +28,20 @@ export function ExamGenerationToast() {
 
   if (!hasShown || !jobStatus) return null;
 
-  const isDone = jobStatus.status === 'completed' || jobStatus.status === 'failed';
+  const isDone =
+    jobStatus.status === 'completed' ||
+    jobStatus.status === 'failed' ||
+    jobStatus.status === 'canceled';
   const displayMessage = jobStatus.status === 'failed'
-    ? jobStatus.errorMessage ?? jobStatus.message
+    ? jobStatus.shortfall && jobStatus.shortfall.generatedCount < jobStatus.shortfall.requestedCount
+      ? `검증 가능한 문항이 부족합니다. ${jobStatus.shortfall.generatedCount}/${jobStatus.shortfall.requestedCount}문항 생성됨`
+      : jobStatus.errorMessage ?? jobStatus.message
     : jobStatus.message;
   const diagnosticLabel = jobStatus.status === 'failed' && jobStatus.errorCode
     ? [jobStatus.errorStage, jobStatus.errorCode].filter(Boolean).join(' · ')
+    : '';
+  const aiProgressLabel = jobStatus.aiProgress
+    ? `${jobStatus.aiProgress.accepted}/${jobStatus.aiProgress.total}문항 검증 완료`
     : '';
 
   return (
@@ -55,13 +67,23 @@ export function ExamGenerationToast() {
             {diagnosticLabel && (
               <div className={s.progress}>{diagnosticLabel}</div>
             )}
+            {aiProgressLabel && !isDone && (
+              <div className={s.progress}>{aiProgressLabel}</div>
+            )}
             {!isDone && (
               <div className={s.progress}>{jobStatus.progress}%</div>
             )}
           </div>
-          <button className={s.toggle} onClick={() => setCollapsed(true)}>
-            &gt;
-          </button>
+          <div className={s.actions}>
+            {!isDone && (
+              <button className={s.cancel} onClick={() => void cancelJob()}>
+                취소
+              </button>
+            )}
+            <button className={s.toggle} onClick={() => setCollapsed(true)}>
+              &gt;
+            </button>
+          </div>
         </div>
       </div>
     </>

@@ -22,6 +22,7 @@ export enum Difficulty {
 export enum ExamSourceType {
   AI = 'ai',
   REFERENCE = 'reference',
+  AI_BLUEPRINT = 'ai_blueprint',
 }
 
 @Entity('exam_records')

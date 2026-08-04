@@ -154,20 +154,18 @@ export default function ConceptListPage() {
                                     <MarkdownWithTable className={s.markdownContent}>{conceptDetail.description}</MarkdownWithTable>
                                   </div>
                                   {conceptDetail.bulletPoints.length > 0 && (
-                                    <ul style={{ margin: 0, paddingLeft: 20 }}>
+                                    <VStack gap={SPACING.s4} fullWidth>
                                       {conceptDetail.bulletPoints.map((bp, i) => (
-                                        <li key={i} style={{ fontSize: 12, color: 'var(--text-primary)', lineHeight: 1.7 }}>{bp}</li>
+                                        <MarkdownWithTable key={i} className={s.markdownContent}>{bp}</MarkdownWithTable>
                                       ))}
-                                    </ul>
+                                    </VStack>
                                   )}
                                   {conceptDetail.trapPoints.length > 0 && (
-                                    <VStack gap={SPACING.s4}>
+                                    <VStack gap={SPACING.s4} fullWidth>
                                       <Typo.SM size={12} color="wrong">주의</Typo.SM>
-                                      <ul style={{ margin: 0, paddingLeft: 20 }}>
-                                        {conceptDetail.trapPoints.map((tp, i) => (
-                                          <li key={i} style={{ fontSize: 12, color: 'var(--text-wrong)', lineHeight: 1.7 }}>{tp}</li>
-                                        ))}
-                                      </ul>
+                                      {conceptDetail.trapPoints.map((tp, i) => (
+                                        <MarkdownWithTable key={i} className={s.markdownContent}>{tp}</MarkdownWithTable>
+                                      ))}
                                     </VStack>
                                   )}
                                 </>

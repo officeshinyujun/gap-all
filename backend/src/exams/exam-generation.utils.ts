@@ -1,5 +1,6 @@
 import * as path from 'path';
 import { Difficulty } from '../entities/exam-record.entity';
+import type { AiGenerationProgress } from './ai-blueprint.types';
 
 // ============================================================
 // Types
@@ -31,6 +32,7 @@ export interface ExamGenerationProgressUpdate {
   status?: 'info' | 'success' | 'warning' | 'error';
   detail?: string;
   referenceProgress?: ExamGenerationReferenceProgress;
+  aiProgress?: AiGenerationProgress;
   completed?: number;
   total?: number;
   attempt?: number;

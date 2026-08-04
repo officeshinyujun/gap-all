@@ -5,7 +5,7 @@ import {
 } from './exam-generation-cooldown.service';
 
 describe('ExamGenerationCooldownService', () => {
-  it('allows one generation per user every five minutes', () => {
+  it('allows one generation per user every minute', () => {
     const service = new ExamGenerationCooldownService();
     const startedAt = 1_000_000;
 

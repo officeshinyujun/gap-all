@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import { MarkdownWithTable } from '@/shared/ui/markdown-with-table';
 import { VStack } from '@shared/ui/VStack';
@@ -15,36 +14,6 @@ function parseUnitNumber(chapter: string): number {
   return match ? parseInt(match[0], 10) : 1;
 }
 
-function highlightStimulus(text: string, quotes: string[]): React.ReactNode {
-  if (!text || quotes.length === 0) return <span>{text}</span>;
-
-  const sortedQuotes = [...quotes].sort((a, b) => b.length - a.length);
-  const parts: { text: string; highlight: boolean }[] = [{ text, highlight: false }];
-
-  for (const quote of sortedQuotes) {
-    const newParts: { text: string; highlight: boolean }[] = [];
-    for (const part of parts) {
-      if (part.highlight) { newParts.push(part); continue; }
-      const idx = part.text.indexOf(quote);
-      if (idx === -1) { newParts.push(part); continue; }
-      if (idx > 0) newParts.push({ text: part.text.slice(0, idx), highlight: false });
-      newParts.push({ text: quote, highlight: true });
-      if (idx + quote.length < part.text.length) newParts.push({ text: part.text.slice(idx + quote.length), highlight: false });
-    }
-    parts.splice(0, parts.length, ...newParts);
-  }
-
-  return (
-    <>
-      {parts.map((p, i) =>
-        p.highlight
-          ? <mark key={i} className={s.stimulusHighlight}>{p.text}</mark>
-          : <span key={i}>{p.text}</span>
-      )}
-    </>
-  );
-}
-
 export function ConceptStudyPage() {
   const { subject = '', chapter = '' } = useParams();
   const unitNumber = parseUnitNumber(chapter);
@@ -53,18 +22,18 @@ export function ConceptStudyPage() {
   const {
     mainTab, setMainTab, slideView, setSlideView,
     loading, error, data, concepts, current, total, currentIndex,
-    deepLoading, deep,
     structured, structuredLoading, openSections, toggleSection,
     bookmarks, bookmarkLoading, isBookmarked, handleBookmark,
     openAnalysis, toggleAnalysis,
     handlePrev, handleNext, handleComplete, isFirst, isLast,
   } = useConceptStudy(subject, unitNumber, chapter);
 
-  const [keyPointsOpen, setKeyPointsOpen] = useState(false);
-
   const v2 = current?.conceptHighlightV2;
   const sampleQuestion = current?.sampleQuestion;
-  const questionSource = sampleQuestion?.questionSource ?? sampleQuestion?.metadata?.source_exam;
+  const questionSource = sampleQuestion
+    ? (sampleQuestion.questionSource ?? sampleQuestion.metadata?.source_exam ?? '수능특강')
+    : '';
+  const questionExplanation = String(sampleQuestion?.explanation ?? sampleQuestion?.render_ready?.explanation ?? '');
 
   if (loading) return <div className={s.container}><div className={s.center}><div className={s.spinner} /></div></div>;
   if (error) return <div className={s.container}><div className={s.center}><span className={s.errorText}>{error}</span></div></div>;
@@ -129,56 +98,49 @@ export function ConceptStudyPage() {
                   </HStack>
 
                   {/* 섹션 1 — 개념 정의 */}
-                  {current.description && (
+                  {(current.description || current.conceptDefinition) && (
                     <VStack gap={8} fullWidth>
                       <span className={s.sectionTitle}>개념 정의</span>
-                      <MarkdownWithTable className={s.markdownContent}>{current.description}</MarkdownWithTable>
-                    </VStack>
-                  )}
-
-                  {/* 섹션 2 — 핵심 포인트 (토글, 기본 닫힘) */}
-                  {current.keyPoints.length > 0 && (
-                    <VStack gap={8} fullWidth>
-                      <button
-                        className={s.keyPointsToggle}
-                        onClick={() => setKeyPointsOpen((prev) => !prev)}
-                      >
-                        <span className={s.sectionTitle}>핵심 포인트 ({current.keyPoints.length})</span>
-                        <span className={s.accordionChevron}>{keyPointsOpen ? '▲' : '▼'}</span>
-                      </button>
-                      {keyPointsOpen && (
-                        <div className={s.keyPointsGrid}>
-                          {current.keyPoints.map((point, i) => (
-                            <div key={i} className={s.keyPointCard}>
-                              <p>{point}</p>
+                      {current.conceptDefinition ? (
+                        <VStack gap={14} fullWidth>
+                          <div className={s.definitionSummary}>
+                            <MarkdownWithTable className={s.markdownContent}>{current.conceptDefinition.summary}</MarkdownWithTable>
+                          </div>
+                          <div className={s.definitionSectionGrid}>
+                            {current.conceptDefinition.sections.map((section, i) => (
+                              <div key={i} className={s.definitionSectionCard}>
+                                <span className={s.definitionCardTitle}>{section.title}</span>
+                                <MarkdownWithTable className={s.markdownContent}>{section.description}</MarkdownWithTable>
+                                {section.examples && section.examples.length > 0 && (
+                                  <div className={s.definitionExamples}>
+                                    {section.examples.map((example, j) => <span key={j} className={s.definitionExample}>{example}</span>)}
+                                  </div>
+                                )}
+                              </div>
+                            ))}
+                          </div>
+                          {current.conceptDefinition.comparison && (
+                            <div className={s.definitionComparison}>
+                              <table>
+                                <thead><tr>{current.conceptDefinition.comparison.headers.map((header, i) => <th key={i}>{header}</th>)}</tr></thead>
+                                <tbody>{current.conceptDefinition.comparison.rows.map((row, i) => <tr key={i}>{row.map((cell, j) => <td key={j}>{cell}</td>)}</tr>)}</tbody>
+                              </table>
                             </div>
-                          ))}
-                        </div>
+                          )}
+                          {current.conceptDefinition.commonConfusions.length > 0 && (
+                            <div className={s.definitionConfusion}>
+                              <span className={s.definitionCardTitle}>헷갈리기 쉬운 구분</span>
+                              {current.conceptDefinition.commonConfusions.map((item, i) => <MarkdownWithTable key={i} className={s.markdownContent}>{item}</MarkdownWithTable>)}
+                            </div>
+                          )}
+                        </VStack>
+                      ) : (
+                        <MarkdownWithTable className={s.markdownContent}>{current.description}</MarkdownWithTable>
                       )}
                     </VStack>
                   )}
 
-                  {/* 섹션 3 — 오답 주의 및 실제 출제 포인트 */}
-                  {(() => {
-                    const items = [
-                      ...current.examTips,
-                      ...(deep?.found ? deep.trapPoints : []),
-                      ...(v2?.takeaway ? [v2.takeaway] : []),
-                    ];
-                    if (items.length === 0) return null;
-                    return (
-                      <VStack gap={8} fullWidth>
-                        <span className={s.sectionTitle}>⚠️ 오답 주의 및 실제 출제 포인트</span>
-                        <VStack gap={6} fullWidth>
-                          {items.map((item, i) => (
-                            <div key={i} className={s.trapBox}>{item}</div>
-                          ))}
-                        </VStack>
-                      </VStack>
-                    );
-                  })()}
-
-                  {/* 섹션 4 — 출처 태그 */}
+                  {/* 섹션 2 — 출처 태그 */}
                   {current.sources.length > 0 && (
                     <div className={s.tagsRow}>
                       {current.sources.map((src, i) => <span key={i} className={s.examTag}>{src}</span>)}
@@ -200,8 +162,13 @@ export function ConceptStudyPage() {
                     </HStack>
                   )}
                   <QuestionRenderer
-                    question={{ ...sampleQuestion, explanation: sampleQuestion.explanation ?? sampleQuestion.render_ready?.explanation ?? undefined }}
-                    questionNumber={currentIndex + 1}
+                    question={{
+                      ...sampleQuestion,
+                      // 문제 해설은 오른쪽 분석 패널에서 표시하므로 중복 렌더링하지 않는다.
+                      explanation: '',
+                      render_ready: { ...sampleQuestion.render_ready, explanation: '' },
+                    }}
+                    questionNumber={sampleQuestion.questionNumber ?? currentIndex + 1}
                     correctAnswer={sampleQuestion.correct_answer}
                     flat
                   />
@@ -227,16 +194,6 @@ export function ConceptStudyPage() {
                             )}
                             {key === 'stimulusClues' && v2 && (
                               <VStack gap={12} fullWidth>
-                                {/* 원본 지문 + 하이라이팅 */}
-                                {sampleQuestion.rawStimulus && (
-                                  <div className={s.rawStimulusBox}>
-                                    {highlightStimulus(
-                                      sampleQuestion.rawStimulus,
-                                      v2.stimulusClues.map(c => c.quote)
-                                    )}
-                                  </div>
-                                )}
-                                {/* 단서 분석 */}
                                 <VStack gap={8} fullWidth>
                                   {v2.stimulusClues.map((clue, i) => (
                                     <div key={i} className={s.clueBox}>
@@ -263,13 +220,38 @@ export function ConceptStudyPage() {
                                 })}
                               </VStack>
                             )}
-                            {key === 'takeaway' && v2 && <p className={s.takeawayText}>{v2.takeaway}</p>}
+                            {key === 'takeaway' && v2 && <MarkdownWithTable className={s.markdownContent}>{v2.takeaway}</MarkdownWithTable>}
                           </div>
                         )}
                       </div>
                     );
                   })}
-                  {!v2 && <p className={s.noAnalysisText}>분석 데이터가 없습니다.</p>}
+                  {!v2 && (
+                    <VStack gap={12} fullWidth>
+                      <div className={s.analysisFallbackBox}>
+                        <span className={s.analysisFallbackTitle}>이 개념이 문제에서 어떻게 나왔나</span>
+                        <MarkdownWithTable className={s.markdownContent}>
+                          {`${current.name}은(는) 이 대표 문제의 지문·보기·선택지를 판단하는 기준으로 출제되었습니다.`}
+                        </MarkdownWithTable>
+                      </div>
+                      {questionExplanation && (
+                        <div className={s.analysisFallbackBox}>
+                          <span className={s.analysisFallbackTitle}>문제 해설</span>
+                          <MarkdownWithTable className={s.markdownContent}>{questionExplanation}</MarkdownWithTable>
+                        </div>
+                      )}
+                      {current.examTips.length > 0 && (
+                        <div className={s.analysisFallbackBox}>
+                          <span className={s.analysisFallbackTitle}>이 문제의 출제 포인트</span>
+                          <VStack gap={6} fullWidth>
+                            {current.examTips.map((tip, i) => (
+                              <MarkdownWithTable key={i} className={s.markdownContent}>{tip}</MarkdownWithTable>
+                            ))}
+                          </VStack>
+                        </div>
+                      )}
+                    </VStack>
+                  )}
                 </div>
               </div>
             )}
@@ -312,7 +294,7 @@ export function ConceptStudyPage() {
                   </button>
                   {openSections[`s-${si}`] && (
                     <VStack gap={0} fullWidth>
-                      {section.summary && <p className={s.sectionSummary}>{section.summary}</p>}
+                      {section.summary && <MarkdownWithTable className={s.markdownContent}>{section.summary}</MarkdownWithTable>}
                       {section.subsections.map((sub, ssi) => (
                         <VStack key={ssi} gap={0} fullWidth className={s.subAccordionGroup}>
                           <button className={s.subAccordionHeader} onClick={() => toggleSection(`s-${si}-${ssi}`)}>
@@ -321,13 +303,13 @@ export function ConceptStudyPage() {
                           </button>
                           {openSections[`s-${si}-${ssi}`] && (
                             <VStack gap={12} fullWidth className={s.subAccordionBody}>
-                              {sub.explanation && <p className={s.subText}>{sub.explanation}</p>}
+                              {sub.explanation && <MarkdownWithTable className={s.markdownContent}>{sub.explanation}</MarkdownWithTable>}
                               {sub.keyPoints.length > 0 && <VStack gap={6} fullWidth><span className={s.sectionTitle}>핵심 포인트</span><ul className={s.bulletList}>{sub.keyPoints.map((p, i) => <li key={i}>{p}</li>)}</ul></VStack>}
                               {sub.table && <MarkdownWithTable className={s.markdownContent}>{sub.table}</MarkdownWithTable>}
-                              {sub.visualGuide && <div className={s.tipBox}>{sub.visualGuide}</div>}
-                              {sub.examPoints.length > 0 && <VStack gap={6} fullWidth><span className={s.sectionTitle}>시험 포인트</span><ul className={s.bulletList}>{sub.examPoints.map((p, i) => <li key={i}>{p}</li>)}</ul></VStack>}
-                              {sub.pitfalls.length > 0 && <VStack gap={6} fullWidth><span className={s.sectionTitle}>주의 사항</span><VStack gap={6} fullWidth>{sub.pitfalls.map((p, i) => <div key={i} className={s.trapBox}>{p}</div>)}</VStack></VStack>}
-                              {sub.supplementNote && <div className={s.logicBox}>{sub.supplementNote}</div>}
+                              {sub.visualGuide && <div className={s.tipBox}><MarkdownWithTable className={s.markdownContent}>{sub.visualGuide}</MarkdownWithTable></div>}
+                              {sub.examPoints.length > 0 && <VStack gap={6} fullWidth><span className={s.sectionTitle}>시험 포인트</span><VStack gap={4} fullWidth>{sub.examPoints.map((p, i) => <div key={i} className={s.tipBox}><MarkdownWithTable className={s.markdownContent}>{p}</MarkdownWithTable></div>)}</VStack></VStack>}
+                              {sub.pitfalls.length > 0 && <VStack gap={6} fullWidth><span className={s.sectionTitle}>주의 사항</span><VStack gap={6} fullWidth>{sub.pitfalls.map((p, i) => <div key={i} className={s.trapBox}><MarkdownWithTable className={s.markdownContent}>{p}</MarkdownWithTable></div>)}</VStack></VStack>}
+                              {sub.supplementNote && <div className={s.logicBox}><MarkdownWithTable className={s.markdownContent}>{sub.supplementNote}</MarkdownWithTable></div>}
                             </VStack>
                           )}
                         </VStack>
@@ -339,7 +321,7 @@ export function ConceptStudyPage() {
               {structured.closingSummary.length > 0 && (
                 <VStack gap={10} fullWidth>
                   <span className={s.overviewSectionTitle}>마무리 정리</span>
-                  <VStack gap={6} fullWidth>{structured.closingSummary.map((summary, i) => <div key={i} className={s.tipBox}>{summary}</div>)}</VStack>
+                  <VStack gap={6} fullWidth>{structured.closingSummary.map((summary, i) => <div key={i} className={s.tipBox}><MarkdownWithTable className={s.markdownContent}>{summary}</MarkdownWithTable></div>)}</VStack>
                 </VStack>
               )}
             </VStack>

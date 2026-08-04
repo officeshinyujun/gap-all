@@ -68,6 +68,12 @@ export async function pollExamJob(jobId: string): Promise<ExamJobStatus> {
   return apiFetch<ExamJobStatus>(`/exams/jobs/${jobId}`);
 }
 
+export async function cancelExamJob(jobId: string): Promise<ExamJobStatus> {
+  return apiFetch<ExamJobStatus>(`/exams/jobs/${jobId}/cancel`, {
+    method: 'POST',
+  });
+}
+
 export async function fetchExam(examId: string): Promise<ExamData> {
   const data = await apiFetch<ExamData>(`/exams/${examId}`);
   return {

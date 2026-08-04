@@ -33,6 +33,7 @@ import { IsOptional, IsString, IsArray, IsIn, IsNumber } from 'class-validator';
 import { Type } from 'class-transformer';
 import type { BlankQuestion, ConceptPair } from '../textbook/textbook.service';
 import { SupabaseService } from '../supabase/supabase.service';
+import { getUnit1ConceptDefinition } from './unit1-concept-definition';
 
 export class DeleteCacheBulkDto {
   @IsOptional()
@@ -1086,6 +1087,25 @@ export class StudyService {
     return match?.[1].trim() || null;
   }
 
+  private normalizeStringArray(value: unknown): string[] {
+    if (Array.isArray(value)) {
+      return value.filter((item): item is string => typeof item === 'string');
+    }
+    if (typeof value === 'string') {
+      try {
+        const parsed = JSON.parse(value);
+        if (Array.isArray(parsed)) {
+          return parsed.filter(
+            (item): item is string => typeof item === 'string',
+          );
+        }
+      } catch {
+        return value.trim() ? [value] : [];
+      }
+    }
+    return [];
+  }
+
   async getMindmap(subjectSlug: string, unitNumber: number): Promise<any> {
     const subject = this.SUBJECT_MAP[subjectSlug];
     if (!subject) {
@@ -1120,6 +1140,56 @@ export class StudyService {
     return mindmap.mindmap_data;
   }
 
+  private buildRelatedQuestion(realQ: any, raw: any, conceptName: string): any | null {
+    if (!realQ) return null;
+
+    return {
+      id: realQ.id || null,
+      questionSource: realQ.questionSource || realQ.source_exam || '',
+      questionNumber: realQ.number || realQ.metadata?.question_number || null,
+      correct_answer: this.parseCorrectAnswer(
+        realQ.correct_answer ?? realQ.answer,
+      ),
+      rawStimulus: realQ.stimulus ?? '',
+      conceptHighlightV2: realQ.conceptHighlightV2 || null,
+      question: {
+        metadata: realQ.metadata || {
+          source_exam: realQ.source_exam || '',
+          question_number: realQ.number || 0,
+          unit_name: raw.unitTitle || '',
+          target_concept: conceptName,
+          item_type: '실전 모의고사',
+          recommended_template:
+            realQ.metadata?.recommended_template ?? undefined,
+        },
+        render_ready: {
+          question_stem: this.stripQuestionNumber(
+            realQ.render_ready?.question_stem || realQ.stem || '',
+          ),
+          stimulus_data:
+            this.normalizeRealStimulus(
+              realQ.render_ready?.stimulus_data,
+              realQ.metadata?.recommended_template,
+            ) ?? (realQ.stimulus ? { content: realQ.stimulus } : null),
+          options_list:
+            realQ.render_ready?.options_list || realQ.options || [],
+          explanation: realQ.render_ready?.explanation || '',
+        },
+        combo_block:
+          realQ.combo_block ||
+          (realQ.box_items && realQ.box_items.length > 0
+            ? {
+                title: '<보기>',
+                items: realQ.box_items.map((text: string, i: number) => ({
+                  key: ['ㄱ', 'ㄴ', 'ㄷ', 'ㄹ'][i] || `${i + 1}`,
+                  text,
+                })),
+              }
+            : null),
+      },
+    };
+  }
+
   private transformCardsToFrequency(raw: any): any {
     const concepts = (raw.concepts || []).map((c: any) => {
       // TypeORM aliases this as realQuestion; Supabase returns the DB column name.
@@ -1127,11 +1197,23 @@ export class StudyService {
       const realQ = realQuestion?.questionData;
       const textbookExcerpt = c.textbook_excerpt ?? c.card?.textbookExcerpt ?? '';
       const definition = c.definition ?? c.card?.definition ?? '';
-      const keyPoints = c.key_points ?? c.card?.keyPoints ?? [];
+      const keyPoints = this.normalizeStringArray(
+        c.key_points ?? c.card?.keyPoints,
+      );
       const description =
         c.enriched_definition ?? c.card?.enrichedDefinition ?? definition;
       const caution = c.caution || '';
       const conceptUsage = realQuestion?.conceptUsage || '';
+      const conceptSubtopics = Array.isArray(realQuestion?.conceptSubtopics)
+        ? realQuestion.conceptSubtopics
+        : [];
+      const conceptExamPatterns = Array.isArray(realQuestion?.conceptExamPatterns)
+        ? realQuestion.conceptExamPatterns
+        : [];
+      const storedConceptContent =
+        typeof realQuestion?.conceptContent === 'string'
+          ? realQuestion.conceptContent
+          : '';
 
       const conceptContentParts: string[] = [];
       if (definition) conceptContentParts.push(`## 개념 정의\n${definition}`);
@@ -1187,9 +1269,16 @@ export class StudyService {
         sources: c.sources || [],
         questionFormats: [],
         description,
+        conceptDefinition:
+          realQuestion?.conceptDefinition ?? getUnit1ConceptDefinition(c.name),
         keyPoints,
-        examTips: caution ? [caution] : [],
-        conceptContent: conceptContentParts.join('\n\n'),
+         examTips: conceptExamPatterns.length > 0
+           ? conceptExamPatterns
+           : caution
+             ? [caution]
+             : [],
+         conceptContent: storedConceptContent || conceptContentParts.join('\n\n'),
+         subtopics: conceptSubtopics,
         sampleQuestion: realQ
           ? {
               metadata: realQ.metadata || {
@@ -1274,6 +1363,9 @@ export class StudyService {
           reason: '',
         },
         conceptHighlightV2: realQuestion?.conceptHighlightV2 || null,
+        relatedQuestions: realQ
+          ? [this.buildRelatedQuestion(realQ, raw, c.name)]
+          : [],
       };
     });
 

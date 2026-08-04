@@ -57,6 +57,37 @@ describe('ExamGenerationJobsService receipt contract', () => {
     expect(JSON.stringify(receipt)).not.toContain('private-source-id');
   });
 
+  it('cancels a running job and keeps it terminal against later progress', () => {
+    const service = new ExamGenerationJobsService();
+    const job = service.create('user-1', {
+      subjectId: 'subject-1',
+      startUnitNum: 1,
+      endUnitNum: 1,
+      difficulty: Difficulty.MIDDLE,
+      questionCount: 2,
+      sourceType: 'ai_blueprint',
+    });
+    service.start(job.id, 'user-1');
+    const canceled = service.cancel(job.id, 'user-1');
+
+    expect(service.toReceipt(canceled)).toEqual(
+      expect.objectContaining({
+        status: 'canceled',
+        stage: 'canceled',
+        message: '시험 생성이 취소되었습니다.',
+      }),
+    );
+    service.push(job.id, 'user-1', {
+      stage: 'saving',
+      progress: 99,
+      message: 'late update',
+    });
+    service.complete(job.id, 'user-1', 'exam-1');
+    const receipt = service.toReceipt(service.getForUser(job.id, 'user-1'));
+    expect(receipt).toEqual(expect.objectContaining({ status: 'canceled' }));
+    expect(receipt).not.toHaveProperty('examId');
+  });
+
   it('characterizes the legacy shortfall receipt before bounded recovery counters', () => {
     const service = new ExamGenerationJobsService();
     const job = service.create('user-1', {
@@ -247,5 +278,74 @@ describe('ExamGenerationJobsService receipt contract', () => {
         examId: 'exam-1',
       }),
     );
+  });
+
+  it('keeps gated AI stages monotonic and exposes only safe progress counters', () => {
+    const service = new ExamGenerationJobsService();
+    const job = service.create('user-1', {
+      subjectId: 'subject-1',
+      startUnitNum: 1,
+      endUnitNum: 1,
+      difficulty: Difficulty.MIDDLE,
+      questionCount: 2,
+      sourceType: 'ai_blueprint',
+      aiQuestionFamily: 'concept',
+      customPrompt: 'private prompt',
+    });
+
+    service.start(job.id, 'user-1');
+    service.push(job.id, 'user-1', {
+      stage: 'validation',
+      progress: 70,
+      message: 'private provider output',
+      aiProgress: {
+        stage: 'validation',
+        completed: 1,
+        total: 2,
+        attempt: 2,
+        maxAttempts: 3,
+        accepted: 1,
+        rejected: 1,
+      },
+    });
+    service.push(job.id, 'user-1', {
+      stage: 'candidate',
+      progress: 30,
+      message: 'stale provider output',
+      aiProgress: {
+        stage: 'candidate',
+        completed: 0,
+        total: 1,
+        attempt: 1,
+        maxAttempts: 1,
+        accepted: 0,
+        rejected: 0,
+      },
+    });
+
+    const receipt = service.toReceipt(service.getForUser(job.id, 'user-1'));
+
+    expect(receipt).toEqual(
+      expect.objectContaining({
+        sourceType: 'ai_blueprint',
+        stage: 'validation',
+        progress: 70,
+        completed: 1,
+        total: 2,
+        attempt: 2,
+        maxAttempts: 3,
+        aiProgress: {
+          stage: 'validation',
+          completed: 1,
+          total: 2,
+          attempt: 2,
+          maxAttempts: 3,
+          accepted: 1,
+          rejected: 1,
+        },
+      }),
+    );
+    expect(JSON.stringify(receipt)).not.toContain('private prompt');
+    expect(JSON.stringify(receipt)).not.toContain('provider output');
   });
 });

@@ -15,6 +15,10 @@ import { FlaggedQuestion } from '../entities/flagged-question.entity';
 import { ReferenceQuestion } from '../entities/reference-question.entity';
 import { ReferenceFrameCache } from '../entities/reference-frame-cache.entity';
 import { QuestionSeenRecord } from '../entities/question-seen-record.entity';
+import { UnitExamProfile } from '../entities/unit-exam-profile.entity';
+import { AiGenerationRun } from '../entities/ai-generation-run.entity';
+import { AiGenerationCandidate } from '../entities/ai-generation-candidate.entity';
+import { GenerationJob } from '../entities/generation-job.entity';
 import { ExamGenerationJobsService } from './exam-generation-jobs.service';
 import { ExamGenerationCooldownService } from './exam-generation-cooldown.service';
 import { SimilarityValidatorService } from './similarity-validator.service';
@@ -24,6 +28,14 @@ import { SimplyReferenceGenerationService } from './simply-reference-generation.
 import { TextbookModule } from '../textbook/textbook.module';
 import { PromptsModule } from '../prompts/prompts.module';
 import { NotificationsModule } from '../notifications/notifications.module';
+import { AiUnitProfileService } from './ai-unit-profile.service';
+import { AiBlueprintService } from './ai-blueprint.service';
+import { AiProviderAdapter } from './ai-provider.adapter';
+import {
+  AI_QUESTION_CANDIDATE_PROVIDER,
+  AiQuestionGenerationService,
+} from './ai-question-generation.service';
+import { AiExamGenerationService } from './ai-exam-generation.service';
 
 @Module({
   imports: [
@@ -39,6 +51,10 @@ import { NotificationsModule } from '../notifications/notifications.module';
       ReferenceQuestion,
       ReferenceFrameCache,
       QuestionSeenRecord,
+      UnitExamProfile,
+      AiGenerationRun,
+      AiGenerationCandidate,
+      GenerationJob,
     ]),
     TextbookModule,
     PromptsModule,
@@ -55,6 +71,15 @@ import { NotificationsModule } from '../notifications/notifications.module';
     ExamGenerationCooldownService,
     PatternMatcherService,
     SimilarityValidatorService,
+    AiUnitProfileService,
+    AiBlueprintService,
+    AiProviderAdapter,
+    {
+      provide: AI_QUESTION_CANDIDATE_PROVIDER,
+      useExisting: AiProviderAdapter,
+    },
+    AiQuestionGenerationService,
+    AiExamGenerationService,
   ],
   exports: [ExamsService],
 })

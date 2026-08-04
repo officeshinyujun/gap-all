@@ -1,4 +1,5 @@
 import {
+  BadRequestException,
   HttpException,
   InternalServerErrorException,
   Injectable,
@@ -40,6 +41,8 @@ import {
   ReferenceJobDeadlineExceededError,
 } from './reference-job-deadline';
 import { ReferenceFidelitySpecError } from './reference-fidelity-spec';
+import { assertAiBlueprintGenerationEnabled } from './ai-generation-feature';
+import { AiExamGenerationService } from './ai-exam-generation.service';
 
 const REFERENCE_JOB_TIMEOUT_MS =
   Number(process.env.REFERENCE_JOB_TIMEOUT_MS) || 360_000;
@@ -78,6 +81,19 @@ function jobFailure(error: unknown): ExamGenerationJobFailure {
       code: 'REFERENCE_GENERATION_SHORTFALL',
       message: '참조 문항 생성에 실패했습니다.',
       shortfall,
+    };
+  }
+  const aiShortfall = aiGenerationShortfall(error);
+  if (aiShortfall !== undefined) {
+    const response = error instanceof HttpException ? error.getResponse() : {};
+    const code =
+      isRecord(response) && typeof response.code === 'string'
+        ? response.code
+        : 'AI_GENERATION_FAILED';
+    return {
+      code,
+      message: 'AI 시험 생성에 실패했습니다.',
+      shortfall: aiShortfall,
     };
   }
   if (!(error instanceof HttpException)) {
@@ -190,6 +206,42 @@ function referenceGenerationShortfall(
   };
 }
 
+function aiGenerationShortfall(
+  error: unknown,
+): ExamGenerationShortfall | undefined {
+  if (!(error instanceof HttpException)) return undefined;
+  const response = error.getResponse();
+  if (
+    !isRecord(response) ||
+    typeof response.code !== 'string' ||
+    !response.code.startsWith('AI_')
+  ) {
+    return undefined;
+  }
+  if (
+    !isCount(response.requestedCount) ||
+    !isCount(response.generatedCount) ||
+    !isRecord(response.stageCounts) ||
+    !isCount(response.stageCounts.source) ||
+    !isCount(response.stageCounts.planner) ||
+    !isCount(response.stageCounts.fidelity)
+  ) {
+    return undefined;
+  }
+  const admission = response.stageCounts.admission;
+  if (admission !== undefined && !isCount(admission)) return undefined;
+  return {
+    requestedCount: response.requestedCount,
+    generatedCount: response.generatedCount,
+    stageCounts: {
+      source: response.stageCounts.source,
+      planner: response.stageCounts.planner,
+      fidelity: response.stageCounts.fidelity,
+      ...(admission === undefined ? {} : { admission }),
+    },
+  };
+}
+
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
 }
@@ -231,6 +283,7 @@ export class ExamsService {
     private readonly examGenerationJobsService: ExamGenerationJobsService,
     private readonly examGenerationCooldownService: ExamGenerationCooldownService,
     private readonly notificationsService: NotificationsService,
+    private readonly aiExamGenerationService: AiExamGenerationService,
   ) {}
 
   // ============================================================
@@ -269,6 +322,13 @@ export class ExamsService {
   // 시험 생성
   // ============================================================
   async create(userId: string, dto: CreateExamDto) {
+    if (dto.sourceType === 'ai_blueprint') {
+      assertAiBlueprintGenerationEnabled();
+      throw new BadRequestException({
+        code: 'AI_PROFILE_UNAVAILABLE',
+        message: 'AI 기반 신규 문항 생성이 아직 준비되지 않았습니다.',
+      });
+    }
     const subject = await this.subjectRepo.findOne({
       where: { id: dto.subjectId },
     });
@@ -291,6 +351,9 @@ export class ExamsService {
   }
 
   async createJob(userId: string, dto: CreateExamDto) {
+    if (dto.sourceType === 'ai_blueprint') {
+      assertAiBlueprintGenerationEnabled();
+    }
     const subject = await this.subjectRepo.findOne({
       where: { id: dto.subjectId },
     });
@@ -300,6 +363,7 @@ export class ExamsService {
     this.examGenerationCooldownService.reserve(userId);
 
     const job = this.examGenerationJobsService.create(userId, dto);
+    await this.examGenerationJobsService.persistNow?.(job);
 
     void this.runJob(job.id, userId, dto).catch((error: unknown) => {
       const stack = error instanceof Error ? error.stack : undefined;
@@ -317,9 +381,21 @@ export class ExamsService {
     );
   }
 
+  async getJobAsync(userId: string, jobId: string) {
+    return this.examGenerationJobsService.toReceipt(
+      await this.examGenerationJobsService.getForUserAsync(jobId, userId),
+    );
+  }
+
   removeJob(userId: string, jobId: string) {
     this.examGenerationJobsService.removeForUser(jobId, userId);
     return { removed: true };
+  }
+
+  async cancelJob(userId: string, jobId: string) {
+    return this.examGenerationJobsService.toReceipt(
+      await this.examGenerationJobsService.cancelAsync(jobId, userId),
+    );
   }
 
   // ============================================================
@@ -583,9 +659,13 @@ export class ExamsService {
     userId: string,
     dto: CreateExamDto,
   ) {
+    if (
+      this.examGenerationJobsService.isCanceled?.(userIdJobId, userId) === true
+    )
+      return;
     this.examGenerationJobsService.start(userIdJobId, userId);
     const deadline =
-      dto.sourceType === 'ai'
+      dto.sourceType === 'ai' || dto.sourceType === 'ai_blueprint'
         ? undefined
         : new ReferenceJobDeadline({
             deadlineAtMs: Date.now() + REFERENCE_JOB_TIMEOUT_MS,
@@ -597,7 +677,13 @@ export class ExamsService {
       (update) =>
         this.examGenerationJobsService.push(userIdJobId, userId, update),
       deadline,
+      userIdJobId,
     );
+
+    if (
+      this.examGenerationJobsService.isCanceled?.(userIdJobId, userId) === true
+    )
+      return;
 
     this.examGenerationJobsService.complete(userIdJobId, userId, exam.id);
 
@@ -798,11 +884,24 @@ export class ExamsService {
     dto: CreateExamDto,
     reportProgress?: ExamGenerationProgressReporter,
     deadline?: ReferenceJobDeadline,
+    idempotencyKey?: string,
   ) {
     const subject = await this.subjectRepo.findOne({
       where: { id: dto.subjectId },
     });
     if (!subject) throw new NotFoundException('과목을 찾을 수 없습니다.');
+
+    if (dto.sourceType === 'ai_blueprint') {
+      const examId = await this.aiExamGenerationService.generate(
+        userId,
+        dto,
+        subject.title,
+        subject.slug,
+        idempotencyKey ?? randomUUID(),
+        reportProgress,
+      );
+      return this.findOne(userId, examId);
+    }
 
     return this.createSimplyReferenceExam(
       userId,
