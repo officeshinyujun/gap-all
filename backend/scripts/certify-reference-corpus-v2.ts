@@ -160,13 +160,23 @@ function tableData(
   const headers = Array.isArray(value.headers) ? value.headers : [];
   const rows = Array.isArray(value.rows) ? value.rows : [];
   if (headers.length === 0 || rows.length === 0) return null;
-  const headerData = headers.map((header) => {
+  const headerData = headers.map((header, index) => {
     const item = recordValue(header);
-    return { id: stringValue(item?.id), label: stringValue(item?.label) };
+    return {
+      id: stringValue(item?.id) || (typeof header === 'string' ? `h${index + 1}` : ''),
+      label: stringValue(item?.label) || (typeof header === 'string' ? header : ''),
+    };
   });
-  const rowData = rows.map((row) => {
+  const rowData = rows.map((row, index) => {
     const item = recordValue(row);
-    return { id: stringValue(item?.id), cells: arrayOfStrings(item?.cells) };
+    return {
+      id: stringValue(item?.id) || (Array.isArray(row) ? `r${index + 1}` : ''),
+      cells: arrayOfStrings(item?.cells).length > 0
+        ? arrayOfStrings(item?.cells)
+        : Array.isArray(row)
+          ? arrayOfStrings(row)
+          : [],
+    };
   });
   if (headerData.some((header) => header.id === '' || header.label === ''))
     return null;

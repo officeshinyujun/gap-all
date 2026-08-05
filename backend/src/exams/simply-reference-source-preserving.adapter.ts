@@ -20,6 +20,13 @@ export function sourceTemplate(
 export function sourcePreservingRender(
   reference: NormalizedSourceReference,
 ): SourcePreservingRender | null {
+  const explicitMatrix = reference.tplStimulusData;
+  if (
+    explicitMatrix !== undefined &&
+    validateSimplyReferenceStructuredTpl('TPL_COMPARATIVE_MATRIX', explicitMatrix)
+  ) {
+    return { template: 'TPL_COMPARATIVE_MATRIX', stimulusData: explicitMatrix };
+  }
   const template = sourceTemplate(reference);
   if (template === null) return null;
   const stimulusData = sourceStimulusData(template, reference.stimulus);
