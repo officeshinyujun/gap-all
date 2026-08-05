@@ -52,6 +52,7 @@ export type ExamGenerationShortfall = Readonly<{
     omittedEligibleCount: number;
   }>;
   rejectionsByTemplate?: Readonly<Record<string, number>>;
+  rejectionsByCode?: Readonly<Record<string, number>>;
 }>;
 
 export type ExamGenerationJobReceipt = Readonly<{
@@ -66,6 +67,8 @@ export type ExamGenerationJobReceipt = Readonly<{
   maxAttempts?: number;
   aiProgress?: AiGenerationProgress;
   errorCode?: string;
+  errorMessage?: string;
+  errorStage?: string;
   shortfall?: ExamGenerationShortfall;
   examId?: string;
   sourceType?: CreateExamDto['sourceType'];
@@ -82,6 +85,8 @@ export interface ExamGenerationJobState {
   message: string;
   error?: string;
   errorCode?: string;
+  errorMessage?: string;
+  errorStage?: string;
   shortfall?: ExamGenerationShortfall;
   examId?: string;
   request: CreateExamDto;
@@ -276,6 +281,8 @@ export class ExamGenerationJobsService implements OnModuleInit {
             maxAttempts: referenceProgress.maxAttempts,
           }),
       ...(job.errorCode === undefined ? {} : { errorCode: job.errorCode }),
+      ...(job.error === undefined ? {} : { errorMessage: job.error }),
+      ...(job.status === 'failed' ? { errorStage: receiptStage } : {}),
       ...(job.shortfall === undefined ? {} : { shortfall: job.shortfall }),
       ...(job.examId === undefined ? {} : { examId: job.examId }),
       createdAt: job.createdAt,

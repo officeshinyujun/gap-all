@@ -44,6 +44,11 @@ export function ExamGenerationToast() {
   const aiProgressLabel = jobStatus.aiProgress
     ? `${jobStatus.aiProgress.accepted}/${jobStatus.aiProgress.total}문항 검증 완료`
     : '';
+  const rejectionLabel = jobStatus.shortfall?.rejectionsByCode
+    ? Object.entries(jobStatus.shortfall.rejectionsByCode)
+        .map(([code, count]) => `${code}: ${count}`)
+        .join(', ')
+    : '';
 
   return (
     <>
@@ -67,6 +72,9 @@ export function ExamGenerationToast() {
             <div className={s.title}>{displayMessage}</div>
             {diagnosticLabel && (
               <div className={s.progress}>{diagnosticLabel}</div>
+            )}
+            {rejectionLabel && isDone && (
+              <div className={s.progress}>{rejectionLabel}</div>
             )}
             {aiProgressLabel && !isDone && (
               <div className={s.progress}>{aiProgressLabel}</div>

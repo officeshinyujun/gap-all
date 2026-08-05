@@ -54,6 +54,32 @@ describe('AiQuestionGenerationService', () => {
     expect(progress).toHaveBeenCalled();
   });
 
+  it('keeps the stimulus when provider choices violate the answer rule', async () => {
+    const generate = jest.fn().mockResolvedValue({
+      ...candidate(),
+      choiceTexts: [
+        '첫 번째 판단 문장입니다.',
+        '둘째 판단 문장입니다.',
+        '셋째 판단 문장입니다.',
+        '넷째 판단 문장입니다.',
+        '다섯째 판단 문장입니다.',
+      ],
+    });
+    const service = new AiQuestionGenerationService({ generate });
+
+    const result = await service.generate([blueprint('blueprint-1')]);
+
+    expect(result.accepted).toHaveLength(1);
+    expect(result.accepted[0]?.question.optionsList).toEqual([
+      '① 이 사례는 직무 분석의 핵심 조건에 부합한다.',
+      '② 이 사례는 직업 윤리의 핵심 조건에 부합한다.',
+      '③ 이 사례는 직업 훈련의 핵심 조건에 부합한다.',
+      '④ 이 사례는 인사 평가의 핵심 조건에 부합한다.',
+      '⑤ 이 사례는 경력 개발의 핵심 조건에 부합한다.',
+    ]);
+    expect(result.rejected[0]?.code).toBe('AI_ANSWER_RULE_MISMATCH');
+  });
+
   it('returns a shortfall after the bounded retry budget', async () => {
     const generate = jest.fn().mockRejectedValue(new Error('provider down'));
     const service = new AiQuestionGenerationService({ generate });
@@ -66,9 +92,31 @@ describe('AiQuestionGenerationService', () => {
       requestedCount: 1,
       generatedCount: 0,
       reason: 'AI_RETRY_EXHAUSTED',
+      rejectionsByCode: {
+        AI_PROVIDER_MALFORMED_OUTPUT: 3,
+      },
     });
     expect(result.rejectionsByTemplate).toEqual({
       TPL_CASE_DIAGNOSTIC_FRAME: 3,
+    });
+  });
+
+  it('passes source-anchor validation failures into the next repair attempt', async () => {
+    const anchored = { ...blueprint('blueprint-1'), sourceFactAnchors: ['42%'] };
+    const generate = jest.fn()
+      .mockResolvedValueOnce(candidate())
+      .mockResolvedValueOnce({
+        stemText: '기업의 취업률은 42%로 조사되었다.',
+        explanationText: '직무 분석은 직무에 필요한 능력을 파악하는 것이다.',
+      });
+    const service = new AiQuestionGenerationService({ generate });
+
+    const result = await service.generate([anchored]);
+
+    expect(result.accepted).toHaveLength(1);
+    expect(generate.mock.calls[1]?.[3]).toEqual({
+      failureReason: 'source fact anchor missing: 42%',
+      requiredAnchors: ['42%'],
     });
   });
 

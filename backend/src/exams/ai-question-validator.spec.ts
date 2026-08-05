@@ -60,20 +60,21 @@ describe('validateAiQuestion', () => {
       passed: false,
       validatorVersion: 'v2',
       failureCode: 'AI_INVARIANT_MISMATCH',
+      message: 'source fact anchor missing: 42%',
     });
   });
 
-  it('rejects a candidate that gives away the target concept in the situation', () => {
-    const { question } = questionAndCandidate();
+  it('keeps a valid candidate even when the target term appears in the situation', () => {
     const candidate = {
       stemText: '직무 분석을 실시하였다.',
       explanationText: '직무 분석은 직무에 필요한 능력을 파악하는 것이다.',
     };
+    const materialized = materializeAiQuestion(blueprint, candidate);
+    if (materialized.kind === 'rejected') throw new Error(materialized.message);
 
-    expect(validateAiQuestion(blueprint, candidate, question)).toEqual({
-      passed: false,
+    expect(validateAiQuestion(blueprint, candidate, materialized.question)).toEqual({
+      passed: true,
       validatorVersion: 'v2',
-      failureCode: 'AI_INVARIANT_MISMATCH',
     });
   });
 
@@ -91,6 +92,7 @@ describe('validateAiQuestion', () => {
       passed: false,
       validatorVersion: 'v2',
       failureCode: 'AI_EXPLANATION_MISMATCH',
+      message: 'explanation does not mention target concept',
     });
   });
 
@@ -115,6 +117,7 @@ describe('validateAiQuestion', () => {
         speakerSequence: ['speaker-1', 'speaker-2'],
         sceneKind: 'dialogue',
       },
+      providerSlotCount: 2,
     };
     const candidate = {
       stemText: '조건을 확인해 보자.\n네, 사례를 검토하겠습니다.',
@@ -134,5 +137,45 @@ describe('validateAiQuestion', () => {
         materialized.question,
       ),
     ).toEqual({ passed: true, validatorVersion: 'v2' });
+  });
+
+  it('rejects provider choices that cannot satisfy the server answer rule', () => {
+    const providerBlueprint = { ...blueprint, providerSlotCount: undefined };
+    const candidate = {
+      stemText: '기업이 직무에 필요한 능력을 조사하였다.',
+      choiceTexts: ['첫 번째 판단 문장입니다.', '둘째 판단 문장입니다.', '셋째 판단 문장입니다.', '넷째 판단 문장입니다.', '다섯째 판단 문장입니다.'],
+      explanationText: '직무 분석은 직무에 필요한 능력을 파악하는 것이다.',
+    };
+    const materialized = materializeAiQuestion(providerBlueprint, candidate);
+    if (materialized.kind === 'rejected') throw new Error(materialized.message);
+
+    expect(validateAiQuestion(providerBlueprint, candidate, materialized.question)).toEqual({
+      passed: false,
+      validatorVersion: 'v2',
+      failureCode: 'AI_ANSWER_RULE_MISMATCH',
+      message: 'provider answer choice does not satisfy target concept',
+    });
+  });
+
+  it('rejects structured blueprints with missing slot metadata', () => {
+    const structuredBlueprint = {
+      ...blueprint,
+      template: 'TPL_ARTICLE' as const,
+      caseContext: '첫째 사실\n둘째 사실',
+    };
+    const candidate = {
+      stemText: '자료의 조건을 분석한다.',
+      paragraphTexts: ['첫째 사실', '둘째 사실'],
+      explanationText: '직무 분석은 자료의 조건을 파악하는 것이다.',
+    };
+    const materialized = materializeAiQuestion(structuredBlueprint, candidate);
+    if (materialized.kind === 'rejected') throw new Error(materialized.message);
+
+    expect(validateAiQuestion(structuredBlueprint, candidate, materialized.question)).toEqual({
+      passed: false,
+      validatorVersion: 'v2',
+      failureCode: 'AI_CANDIDATE_SCHEMA_INVALID',
+      message: 'provider slot metadata does not match certified source shape',
+    });
   });
 });

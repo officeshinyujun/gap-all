@@ -1,8 +1,9 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Between, In, type Repository } from 'typeorm';
 import { Difficulty } from '../entities/exam-record.entity';
 import { ReferenceQuestion } from '../entities/reference-question.entity';
+import { AiReferenceAnalysis as AiReferenceAnalysisEntity } from '../entities/ai-reference-analysis.entity';
 import {
   AI_BLUEPRINT_VERSION,
   type AiConversationContract,
@@ -21,6 +22,9 @@ import { parseReference, stableHash } from './reference-selector.utils';
 import type { SubjectStyle } from './reference-frame.types';
 import type { PreviewAiBlueprintDto } from './dto/preview-ai-blueprint.dto';
 import { canGenerateAiTemplate } from './ai-tpl-capabilities';
+import { getTplGenerationSpec } from './ai-tpl-capabilities';
+import { AiProviderAdapter } from './ai-provider.adapter';
+import type { AiReferenceAnalysis } from './ai-blueprint.types';
 
 export type AiBlueprintPreview = Readonly<{
   subjectSlug: string;
@@ -28,6 +32,9 @@ export type AiBlueprintPreview = Readonly<{
   blueprintVersion: string;
   requestedCount: number;
   availableCount: number;
+  reserveCount: number;
+  plannedByTpl: Readonly<Record<string, number>>;
+  reserveByTpl: Readonly<Record<string, number>>;
   blueprints: readonly AiQuestionBlueprint[];
   shortfall?: Readonly<{
     requestedCount: number;
@@ -43,18 +50,31 @@ type BlueprintEvidence = AiGenerationSourceEvidence &
     family: AiQuestionFamily;
     template: string;
     sourceArchetype?: ReferenceArchetype;
+    sourceChoiceTexts?: readonly string[];
     caseContext?: string;
     variantOrdinal?: number;
+    analysis?: AiReferenceAnalysis;
+    sourcePayload?: Record<string, unknown>;
+    sourceAnswerIndex?: 1 | 2 | 3 | 4 | 5;
   }>;
 
 const CASE_VARIANTS_PER_SOURCE = 3;
+export const AI_REPLACEMENT_RESERVE_MINIMUM = 5;
 
 @Injectable()
 export class AiBlueprintService {
+  private readonly logger = new Logger(AiBlueprintService.name);
+
   constructor(
     private readonly profileService: AiUnitProfileService,
     @InjectRepository(ReferenceQuestion)
     private readonly referenceRepo: Pick<Repository<ReferenceQuestion>, 'find'>,
+    @InjectRepository(AiReferenceAnalysisEntity)
+    private readonly analysisRepo: Pick<
+      Repository<AiReferenceAnalysisEntity>,
+      'find' | 'upsert'
+    >,
+    private readonly provider: AiProviderAdapter,
   ) {}
 
   async preview(request: PreviewAiBlueprintDto): Promise<AiBlueprintPreview> {
@@ -70,11 +90,120 @@ export class AiBlueprintService {
       },
     });
     const evidence = collectEvidence(sources, request.subjectSlug);
-    return compileAiBlueprints(profile, evidence, {
+    const analyzedEvidence = await this.loadOrSaveAnalyses(evidence);
+    return compileAiBlueprints(profile, analyzedEvidence, {
       ...request,
-      candidateCount: request.questionCount * 2,
+      candidateCount:
+        request.questionCount +
+        Math.max(request.questionCount, AI_REPLACEMENT_RESERVE_MINIMUM),
     });
   }
+
+  private async loadOrSaveAnalyses(
+    evidence: readonly BlueprintEvidence[],
+  ): Promise<readonly BlueprintEvidence[]> {
+    if (evidence.length === 0) return evidence;
+
+    const cached = await this.analysisRepo.find({
+      where: {
+        analysisVersion: AI_BLUEPRINT_VERSION,
+        sourceId: In(evidence.map((item) => item.sourceId)),
+      },
+    });
+    const bySourceId = new Map(cached.map((row) => [row.sourceId, row]));
+
+    const analyzed: BlueprintEvidence[] = [];
+    for (const item of evidence) {
+      const cachedRow = bySourceId.get(item.sourceId);
+      if (cachedRow !== undefined) {
+        analyzed.push(mergeAnalysis(item, cachedRow.analysis));
+        continue;
+      }
+      try {
+        const analysis = await this.provider.analyzeReference({
+          sourceId: item.sourceId,
+          sourceHash: item.sourceHash,
+          unitNumber: item.unitNumber,
+          targetConcept: item.concept,
+          template: item.template,
+          sourceArchetype: item.sourceArchetype ?? null,
+          sourceContext: item.caseContext ?? null,
+          sourcePayload: item.sourcePayload ?? null,
+        });
+        await this.analysisRepo.upsert(
+          {
+            sourceId: item.sourceId,
+            sourceHash: item.sourceHash,
+            analysisVersion: AI_BLUEPRINT_VERSION,
+            providerModel: process.env.OPENAI_AI_ANALYSIS_MODEL ??
+              process.env.OPENAI_AI_BLUEPRINT_MODEL ?? process.env.OPENAI_MODEL ?? 'gpt-4o-mini',
+            promptHash: null,
+            analysis: analysis as unknown as any,
+          },
+          ['sourceId', 'analysisVersion'],
+        );
+        analyzed.push(mergeAnalysis(item, analysis));
+      } catch (error: unknown) {
+        // Keep blueprint generation available when analysis is temporarily unavailable;
+        // the later candidate/schema/fidelity gates still reject unsafe output.
+        const fallback = deterministicAnalysis(item);
+        this.logger.warn(
+          `Reference analysis fallback for ${item.sourceId}: ${error instanceof Error ? error.message : 'unknown error'}`,
+        );
+        analyzed.push(mergeAnalysis(item, fallback));
+      }
+    }
+
+    return analyzed;
+  }
+}
+
+function deterministicAnalysis(evidence: BlueprintEvidence): AiReferenceAnalysis {
+  const sourceFactAnchors = extractSourceFactAnchors(evidence.caseContext);
+  return {
+    stemIntent: evidence.sourceArchetype?.stemIntent ?? '사례의 조건을 비교해 판단한다.',
+    reasoningPattern: evidence.sourceArchetype?.reasoningPattern ?? '핵심 조건 비교',
+    invariantFacts: [
+      { id: 'target-concept', description: `정답 판단은 ${evidence.concept}의 필수 조건에 근거한다.` },
+      ...sourceFactAnchors.map((anchor, index) => ({
+        id: `source-fact-${index + 1}`,
+        description: `원문 근거 ${anchor}를 보존한다.`,
+      })),
+    ],
+    mutableSlots: evidence.family === 'case'
+      ? [
+          { name: 'actor', kind: 'text' },
+          { name: 'context', kind: 'text' },
+          { name: 'action', kind: 'text' },
+        ]
+      : [{ name: 'situation', kind: 'text' }],
+    answerRule: {
+      id: 'concept-match-v1',
+      description: '원본 정답 위치와 정답 판정 규칙을 유지한다.',
+    },
+    distractorRules: [
+      '인접 개념의 경계를 혼동하지만 원본 정답 조건과 겹치지 않는 오답을 사용한다.',
+    ],
+    stimulusRequired: true,
+  };
+}
+
+function mergeAnalysis(
+  evidence: BlueprintEvidence,
+  analysis: Record<string, unknown>,
+): BlueprintEvidence {
+  if (!isReferenceAnalysis(analysis)) return evidence;
+  return { ...evidence, analysis };
+}
+
+function isReferenceAnalysis(value: Record<string, unknown>): value is AiReferenceAnalysis {
+  return value.stimulusRequired === true &&
+    typeof value.stemIntent === 'string' &&
+    typeof value.reasoningPattern === 'string' &&
+    Array.isArray(value.invariantFacts) &&
+    Array.isArray(value.mutableSlots) &&
+    typeof value.answerRule === 'object' && value.answerRule !== null &&
+    Array.isArray(value.distractorRules);
 }
 
 export function compileAiBlueprints(
@@ -123,22 +252,6 @@ export function compileAiBlueprints(
         stableHash(`${seed}:${right.sourceId}`),
       ),
     );
-  const preferredFamily =
-    request.aiQuestionFamily ??
-    (eligibleEvidence.some((item) => item.family === 'case')
-      ? 'case'
-      : 'concept');
-  const familyEvidence = eligibleEvidence.filter(
-    (item) => item.family === preferredFamily,
-  );
-  const fallbackEvidence = eligibleEvidence.filter(
-    (item) => item.family !== preferredFamily,
-  );
-  const uniqueEvidence = uniqueBySource(
-    request.aiQuestionFamily === undefined
-      ? [...familyEvidence, ...fallbackEvidence]
-      : familyEvidence,
-  );
   const conceptPool = unique([
     ...evidence.map((item) => item.concept),
     ...profile.units.flatMap((unit) =>
@@ -150,7 +263,7 @@ export function compileAiBlueprints(
       stableHash(`${seed}:concept:${right}`),
     ),
   );
-  const materializableEvidence = uniqueEvidence.filter(
+  const materializableEvidence = eligibleEvidence.filter(
     (item) =>
       conceptPool.filter((concept) => concept !== item.concept).length >= 4,
   );
@@ -168,6 +281,9 @@ export function compileAiBlueprints(
       conceptPool.filter((concept) => concept !== item.concept).slice(0, 4),
     ),
   );
+  const reserveCount = Math.max(0, selected.length - request.questionCount);
+  const plannedByTpl = countByTemplate(blueprints);
+  const reserveByTpl = countByTemplate(blueprints.slice(request.questionCount));
   const reason =
     selected.length === 0 && request.aiQuestionFamily !== undefined
       ? 'UNSUPPORTED_FAMILY'
@@ -177,14 +293,17 @@ export function compileAiBlueprints(
     profileVersion: AI_UNIT_PROFILE_VERSION,
     blueprintVersion: AI_BLUEPRINT_VERSION,
     requestedCount: request.questionCount,
-    availableCount: materializableEvidence.length,
+    availableCount: uniqueByBaseSource(materializableEvidence).length,
+    reserveCount,
+    plannedByTpl,
+    reserveByTpl,
     blueprints,
     ...(selected.length >= request.questionCount
       ? {}
       : {
           shortfall: {
             requestedCount: request.questionCount,
-            availableCount: materializableEvidence.length,
+            availableCount: uniqueByBaseSource(materializableEvidence).length,
             reason,
           },
         }),
@@ -202,6 +321,8 @@ function createBlueprint(
   const id = `ai-blueprint:${stableHash(`${seed}:${evidence.sourceId}:${ordinal}`)}`;
   const familyText = evidence.family === 'case' ? '사례' : '개념';
   const sourceFactAnchors = extractSourceFactAnchors(evidence.caseContext);
+  const providerSlotField = getTplGenerationSpec(evidence.template)?.providerSlotField;
+  const sourceSlotTexts = sourceSlotsFor(evidence.template, evidence.caseContext);
   return {
     id,
     family: evidence.family,
@@ -209,46 +330,38 @@ function createBlueprint(
     unitNumber: evidence.unitNumber,
     targetConcept: evidence.concept,
     template: evidence.template,
+    ...(providerSlotField === undefined ? {} : { providerSlotField }),
+    providerSlotCount: providerSlotCountFor(evidence.template, evidence.caseContext),
+    ...(sourceSlotTexts === undefined ? {} : { sourceSlotTexts }),
     ...(evidence.sourceArchetype === undefined
       ? {}
       : { sourceArchetype: evidence.sourceArchetype }),
+    ...(evidence.sourceChoiceTexts === undefined
+      ? {}
+      : { sourceChoiceTexts: evidence.sourceChoiceTexts }),
     ...(evidence.template === 'TPL_CONVERSATIONAL_FLOW'
       ? { conversationContract: conversationContractFor(evidence.caseContext) }
       : {}),
     sourceFactAnchors,
     caseContext: evidence.caseContext ?? '',
     variantOrdinal: evidence.variantOrdinal ?? 1,
-    invariantFacts: [
-      {
-        id: 'target-concept',
-        description: `정답 판단은 ${evidence.concept} 개념의 필수 조건에 근거해야 한다.`,
-      },
-      ...sourceFactAnchors.map((anchor, index) => ({
-        id: `source-fact-${index + 1}`,
-        description: `원문에서 확인된 결정적 수치/단위 ${anchor}를 보존해야 한다.`,
-      })),
+    invariantFacts: evidence.analysis?.invariantFacts ?? [
+      { id: 'target-concept', description: `정답 판단은 ${evidence.concept} 개념의 필수 조건에 근거해야 한다.` },
+      ...sourceFactAnchors.map((anchor, index) => ({ id: `source-fact-${index + 1}`, description: `원문에서 확인된 결정적 수치/단위 ${anchor}를 보존해야 한다.` })),
     ],
-    mutableSlots:
-      evidence.family === 'case'
-        ? [
-            { name: 'actor', kind: 'text' },
-            { name: 'context', kind: 'text' },
-            { name: 'action', kind: 'text' },
-          ]
-        : [{ name: 'situation', kind: 'text' }],
-    answerRule: {
+    mutableSlots: evidence.analysis?.mutableSlots ??
+      (evidence.family === 'case'
+        ? [{ name: 'actor', kind: 'text' }, { name: 'context', kind: 'text' }, { name: 'action', kind: 'text' }]
+        : [{ name: 'situation', kind: 'text' }]),
+    answerRule: evidence.analysis?.answerRule ?? {
       id: 'concept-match-v1',
       description: `${familyText}의 필수 조건을 만족하는 선택지만 정답으로 인정한다.`,
     },
-    answerIndex: ((parseInt(
-      stableHash(`${seed}:answer:${evidence.sourceId}`),
-      16,
-    ) %
-      5) +
-      1) as 1 | 2 | 3 | 4 | 5,
+    answerIndex: evidence.sourceAnswerIndex ??
+      (((parseInt(stableHash(`${seed}:answer:${evidence.sourceId}`), 16) % 5) + 1) as 1 | 2 | 3 | 4 | 5),
     distractorRule: {
       id: 'concept-boundary-v1',
-      description:
+      description: evidence.analysis?.distractorRules.join(' ') ??
         '인접 개념의 범위를 혼동하지만 정답 조건과 겹치지 않는 오답을 사용한다.',
     },
     distractorConcepts,
@@ -266,6 +379,24 @@ function createBlueprint(
   };
 }
 
+function sourceSlotsFor(
+  template: string,
+  stimulus: string | undefined,
+): readonly string[] | undefined {
+  const field = getTplGenerationSpec(template)?.providerSlotField;
+  if (field === undefined) return undefined;
+  if (field === 'messageTexts') {
+    return (stimulus ?? '').split('\n')
+      .map((line) => /^\s*[^:：]{1,20}?\s*[:：](.+)$/u.exec(line)?.[1]?.trim())
+      .filter((text): text is string => text !== undefined && text !== '');
+  }
+  const lines = (stimulus ?? '').split(/\n+/u).map((line) => line.trim()).filter(Boolean);
+  if (field !== 'cellTexts') return lines;
+  return lines.filter((line) => line.includes('|')).slice(1)
+    .filter((line) => !/^\|?\s*:?-+:?/u.test(line))
+    .flatMap((line) => line.split('|').map((cell) => cell.trim()).filter(Boolean));
+}
+
 function collectEvidence(
   sources: readonly AiProfileSource[],
   subjectSlug: string,
@@ -273,7 +404,11 @@ function collectEvidence(
   const subject = subjectStyle(subjectSlug);
   return sources.flatMap((source) => {
     const parsed = parseReference(catalogReferencePayload(source), subject);
-    if (!parsed.ok || parsed.value.correctAnswer == null) return [];
+    if (
+      !parsed.ok ||
+      !isSingleAnswerIndex(parsed.value.correctAnswer)
+    )
+      return [];
     const family = inferFamily(source, parsed.value.archetype?.stimulusRole);
     const template = parsed.value.archetype?.sourceTemplate;
     if (
@@ -303,8 +438,11 @@ function collectEvidence(
       family,
       template,
       sourceArchetype: parsed.value.archetype,
+      sourceChoiceTexts: parsed.value.choices,
       caseContext: parsed.value.stimulus,
       variantOrdinal: index + 1,
+      sourcePayload: source.sourcePayload,
+      sourceAnswerIndex: parsed.value.correctAnswer as 1 | 2 | 3 | 4 | 5,
     }));
   });
 }
@@ -322,16 +460,12 @@ function inferFamily(
     : 'concept';
 }
 
+function isSingleAnswerIndex(value: unknown): value is 1 | 2 | 3 | 4 | 5 {
+  return value === 1 || value === 2 || value === 3 || value === 4 || value === 5;
+}
+
 function isSupportedTemplate(template: string): boolean {
-  return (
-    template === 'TPL_CASE_DIAGNOSTIC_FRAME' ||
-    template === 'TPL_CONVERSATIONAL_FLOW' ||
-    template === 'TPL_COMPARATIVE_MATRIX' ||
-    template === 'TPL_FORMAL_DOCUMENT' ||
-    template === 'TPL_ARTICLE' ||
-    template === 'TPL_ANNOUNCEMENT' ||
-    template === 'TPL_SEQUENTIAL_WORKFLOW'
-  );
+  return getTplGenerationSpec(template)?.enabled === true;
 }
 
 function isSupportedCaseArchetype(
@@ -376,6 +510,21 @@ function conversationContractFor(
   };
 }
 
+function providerSlotCountFor(template: string, stimulus: string | undefined): number | undefined {
+  const spec = getTplGenerationSpec(template);
+  if (spec?.providerSlotField === 'messageTexts') {
+    return conversationContractFor(stimulus).speakerSequence.length;
+  }
+  if (spec?.providerSlotField === undefined) return undefined;
+  const lines = (stimulus ?? '').split(/\n+/u).map((line) => line.trim()).filter(Boolean);
+  if (spec.providerSlotField === 'cellTexts') {
+    const rows = lines.filter((line) => line.includes('|')).slice(1).filter((line) => !/^\|?\s*:?-+:?/u.test(line));
+    const count = rows.reduce((total, line) => total + line.split('|').map((cell) => cell.trim()).filter(Boolean).length, 0);
+    return count || undefined;
+  }
+  return lines.length || undefined;
+}
+
 function extractSourceFactAnchors(
   stimulus: string | undefined,
 ): readonly string[] {
@@ -391,50 +540,50 @@ function selectBalancedEvidence(
   evidence: readonly BlueprintEvidence[],
   count: number,
 ): readonly BlueprintEvidence[] {
-  const byUnit = new Map<number, BlueprintEvidence[]>();
+  const primary = uniqueByBaseSource(evidence);
+  const variants = new Map<string, BlueprintEvidence[]>();
   for (const item of evidence) {
-    const current = byUnit.get(item.unitNumber) ?? [];
-    current.push(item);
-    byUnit.set(item.unitNumber, current);
+    const baseId = item.baseSourceId ?? item.sourceId;
+    if (item.sourceId !== baseId) {
+      variants.set(baseId, [...(variants.get(baseId) ?? []), item]);
+    }
   }
-  const units = [...byUnit.keys()].sort((left, right) => left - right);
+  const byUnitAndTpl = new Map<string, BlueprintEvidence[]>();
+  for (const item of primary) {
+    const key = `${item.unitNumber}:${item.template}`;
+    byUnitAndTpl.set(key, [...(byUnitAndTpl.get(key) ?? []), item]);
+  }
+  const units = [...new Set(primary.map((item) => item.unitNumber))].sort(
+    (left, right) => left - right,
+  );
+  const templatesByUnit = new Map(
+    units.map((unit) => [
+      unit,
+      [...new Set(primary.filter((item) => item.unitNumber === unit).map((item) => item.template))].sort(),
+    ]),
+  );
   const ordered: BlueprintEvidence[] = [];
   let cursor = 0;
-  while (units.length > 0) {
+  while (ordered.length < primary.length && units.length > 0) {
     const unit = units[cursor % units.length];
-    const bucket = byUnit.get(unit);
-    const next = bucket?.shift();
-    if (next !== undefined) ordered.push(next);
-    if (bucket?.length === 0) {
-      units.splice(cursor % units.length, 1);
-      cursor = units.length === 0 ? 0 : cursor % units.length;
-    } else {
-      cursor = (cursor + 1) % units.length;
+    const templates = templatesByUnit.get(unit) ?? [];
+    const template = templates.shift();
+    if (template !== undefined) {
+      const bucket = byUnitAndTpl.get(`${unit}:${template}`);
+      const next = bucket?.shift();
+      if (next !== undefined) ordered.push(next);
+      if (bucket !== undefined && bucket.length > 0) templates.push(template);
     }
+    if (templates.length === 0) units.splice(cursor % units.length, 1);
+    else cursor = (cursor + 1) % units.length;
   }
-  const selected: BlueprintEvidence[] = [];
-  const selectedIds = new Set<string>();
-  const conceptCounts = new Map<string, number>();
-  const distinctConceptCount = new Set(evidence.map((item) => item.concept))
-    .size;
-  const conceptCap = Math.max(
-    1,
-    Math.ceil(count / Math.min(4, Math.max(1, distinctConceptCount))),
-  );
-  for (const next of ordered) {
-    if (selected.length >= count) break;
-    const currentConceptCount = conceptCounts.get(next.concept) ?? 0;
-    if (currentConceptCount < conceptCap || selected.length === 0) {
-      selected.push(next);
-      selectedIds.add(next.sourceId);
-      conceptCounts.set(next.concept, currentConceptCount + 1);
-    }
-  }
-  if (selected.length < count) {
-    for (const next of ordered) {
-      if (selected.length >= count) break;
-      if (selectedIds.has(next.sourceId)) continue;
-      selected.push(next);
+
+  const selected = ordered.slice(0, count);
+  if (selected.length >= count) return selected;
+  for (const source of selected.slice()) {
+    for (const variant of variants.get(source.baseSourceId ?? source.sourceId) ?? []) {
+      if (selected.length >= count) return selected;
+      selected.push(variant);
     }
   }
   return selected;
@@ -461,15 +610,25 @@ function catalogSubjects(subjectSlug: string): readonly string[] {
   return [subjectSlug];
 }
 
-function uniqueBySource(
+function uniqueByBaseSource(
   values: readonly BlueprintEvidence[],
 ): readonly BlueprintEvidence[] {
   const seen = new Set<string>();
   return values.filter((value) => {
-    if (seen.has(value.sourceId)) return false;
-    seen.add(value.sourceId);
+    const baseId = value.baseSourceId ?? value.sourceId;
+    if (seen.has(baseId)) return false;
+    seen.add(baseId);
     return true;
   });
+}
+
+function countByTemplate(
+  values: readonly AiQuestionBlueprint[],
+): Readonly<Record<string, number>> {
+  return values.reduce<Record<string, number>>((counts, value) => {
+    counts[value.template] = (counts[value.template] ?? 0) + 1;
+    return counts;
+  }, {});
 }
 
 function compareText(left: string, right: string): number {

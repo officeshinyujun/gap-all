@@ -18,6 +18,7 @@ import { QuestionSeenRecord } from '../entities/question-seen-record.entity';
 import { UnitExamProfile } from '../entities/unit-exam-profile.entity';
 import { AiGenerationRun } from '../entities/ai-generation-run.entity';
 import { AiGenerationCandidate } from '../entities/ai-generation-candidate.entity';
+import { AiReferenceAnalysis } from '../entities/ai-reference-analysis.entity';
 import { GenerationJob } from '../entities/generation-job.entity';
 import { ExamGenerationJobsService } from './exam-generation-jobs.service';
 import { ExamGenerationCooldownService } from './exam-generation-cooldown.service';
@@ -54,6 +55,7 @@ import { AiExamGenerationService } from './ai-exam-generation.service';
       UnitExamProfile,
       AiGenerationRun,
       AiGenerationCandidate,
+      AiReferenceAnalysis,
       GenerationJob,
     ]),
     TextbookModule,

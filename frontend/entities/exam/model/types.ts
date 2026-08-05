@@ -90,6 +90,7 @@ export interface ExamJobStatus {
       admission?: number;
     };
     rejectionsByTemplate?: Record<string, number>;
+    rejectionsByCode?: Record<string, number>;
   };
   sourceType?: ExamSourceType;
   aiProgress?: {

@@ -6,6 +6,7 @@ import type {
   AiQuestionCandidate,
 } from './ai-blueprint.types';
 import type { StructuredTplName } from './tpl-schemas';
+import { materializeSourcePreservingTpl } from './source-preserving-tpl-adapter';
 
 export type AiMaterializedQuestion = Readonly<{
   targetConcept: string;
@@ -83,12 +84,9 @@ export function materializeAiQuestion(
       : blueprint.template === 'TPL_CASE_DIAGNOSTIC_FRAME'
         ? '다음 사례에 대한 설명으로 옳은 것은?'
         : '다음 자료에 대한 설명으로 옳은 것은?';
-  const optionsList =
-    blueprint.sourceArchetype === undefined
-      ? [blueprint.targetConcept, ...blueprint.distractorConcepts].map(
-          (concept, index) => `${['①', '②', '③', '④', '⑤'][index]} ${concept}`,
-        )
-      : derivedAnswer.optionsList;
+  // ponytail: the server answer engine owns choices; provider prose is validated
+  // separately and never becomes the persisted answer surface.
+  const optionsList = derivedAnswer.optionsList;
   const stimulusData = materializeStimulus(blueprint, candidate);
   if (stimulusData === null) {
     return {
@@ -120,6 +118,32 @@ export function materializeAiQuestion(
   };
 }
 
+export function materializeSourcePreservingFallback(
+  blueprint: AiQuestionBlueprint,
+  candidate: AiQuestionCandidate,
+): AiMaterializationResult {
+  if (!isSourcePreservingTemplate(blueprint.template)) {
+    return { kind: 'rejected', code: 'AI_CANDIDATE_SCHEMA_INVALID', message: 'source-preserving fallback is not safe for this TPL' };
+  }
+  const source = materializeSourcePreservingTpl(
+    blueprint.template,
+    blueprint.caseContext,
+  );
+  if (source === null) {
+    return { kind: 'rejected', code: 'AI_CANDIDATE_SCHEMA_INVALID', message: 'certified source is not renderer-valid' };
+  }
+  return materializeAiQuestion(blueprint, {
+    ...candidate,
+    stemText: blueprint.caseContext ?? candidate.stemText,
+    choiceTexts: undefined,
+    messageTexts: undefined,
+    cellTexts: undefined,
+    paragraphTexts: undefined,
+    detailTexts: undefined,
+    stepTexts: undefined,
+  });
+}
+
 function isMaterializableTemplate(template: string): template is StructuredTplName {
   return [
     'TPL_CASE_DIAGNOSTIC_FRAME',
@@ -129,6 +153,13 @@ function isMaterializableTemplate(template: string): template is StructuredTplNa
     'TPL_ARTICLE',
     'TPL_ANNOUNCEMENT',
     'TPL_SEQUENTIAL_WORKFLOW',
+    'TPL_DIGITAL_FORUM_INTERFACE',
+    'TPL_INSTRUCTIONAL_SCENE',
+    'TPL_PROMOTIONAL_CANVAS',
+    'TPL_INCIDENT_REPORT',
+    'TPL_REPORT',
+    'TPL_QUANTITATIVE_CHART',
+    'TPL_STATISTICS',
   ].includes(template as StructuredTplName);
 }
 
@@ -158,14 +189,21 @@ function materializeStimulus(
       return announcementStimulusData(blueprint, candidate);
     case 'TPL_SEQUENTIAL_WORKFLOW':
       return workflowStimulusData(blueprint, candidate);
+    case 'TPL_DIGITAL_FORUM_INTERFACE':
+    case 'TPL_INSTRUCTIONAL_SCENE':
+    case 'TPL_PROMOTIONAL_CANVAS':
+    case 'TPL_INCIDENT_REPORT':
+    case 'TPL_REPORT':
+    case 'TPL_QUANTITATIVE_CHART':
+    case 'TPL_STATISTICS':
+      return materializeSourcePreservingTpl(blueprint.template, blueprint.caseContext);
     default:
       return null;
   }
 }
 
 function sourceLines(blueprint: AiQuestionBlueprint): string[] {
-  return (blueprint.caseContext ?? '')
-    .split(/\n+/u)
+  return (blueprint.sourceSlotTexts ?? (blueprint.caseContext ?? '').split(/\n+/u))
     .map((line) => line.trim())
     .filter(Boolean);
 }
@@ -185,7 +223,7 @@ function matrixStimulusData(
     cells: split(line),
   }));
   const cellCount = rows.reduce((count, row) => count + row.cells.length, 0);
-  if (headers.length === 0 || rows.length === 0 || cellCount !== candidate.cellTexts.length) {
+  if (headers.length === 0 || rows.length === 0 || (blueprint.providerSlotCount !== undefined && cellCount !== blueprint.providerSlotCount) || cellCount !== candidate.cellTexts.length) {
     return null;
   }
   let index = 0;
@@ -201,10 +239,14 @@ function documentStimulusData(
   candidate: AiQuestionCandidate,
 ): Record<string, unknown> | null {
   const paragraphs = sourceLines(blueprint);
-  if (paragraphs.length === 0 || candidate.paragraphTexts?.length !== paragraphs.length) return null;
+  if (paragraphs.length === 0 || (blueprint.providerSlotCount !== undefined && paragraphs.length !== blueprint.providerSlotCount) || candidate.paragraphTexts?.length !== paragraphs.length) return null;
   return {
     doc_type: '공식 문서',
-    header_info: { title: blueprint.targetConcept, date: '', author: '' },
+    header_info: {
+      title: blueprint.targetConcept,
+      date: paragraphs[0]!,
+      author: paragraphs[1] ?? paragraphs[0]!,
+    },
     paragraphs: paragraphs.map((_, index) => ({ sub_title: `문단 ${index + 1}`, content: candidate.paragraphTexts![index] })),
     footnotes: [],
   };
@@ -215,7 +257,7 @@ function articleStimulusData(
   candidate: AiQuestionCandidate,
 ): Record<string, unknown> | null {
   const paragraphs = sourceLines(blueprint);
-  if (paragraphs.length === 0 || candidate.paragraphTexts?.length !== paragraphs.length) return null;
+  if (paragraphs.length === 0 || (blueprint.providerSlotCount !== undefined && paragraphs.length !== blueprint.providerSlotCount) || candidate.paragraphTexts?.length !== paragraphs.length) return null;
   return { title: blueprint.targetConcept, body_paragraphs: candidate.paragraphTexts };
 }
 
@@ -224,15 +266,15 @@ function announcementStimulusData(
   candidate: AiQuestionCandidate,
 ): Record<string, unknown> | null {
   const details = sourceLines(blueprint);
-  if (details.length === 0 || candidate.detailTexts?.length !== details.length) return null;
+  if (details.length === 0 || (blueprint.providerSlotCount !== undefined && details.length !== blueprint.providerSlotCount) || candidate.detailTexts?.length !== details.length) return null;
   return {
     title: blueprint.targetConcept,
-    organizer: '원문 주최 기관',
-    schedule: { start: '', end: '' },
-    location: '',
-    target: '',
+    organizer: details[0]!,
+    schedule: { start: details[0]!, end: details[details.length - 1]! },
+    location: details[0]!,
+    target: details[0]!,
     details: details.map((_, index) => ({ label: `안내 ${index + 1}`, content: candidate.detailTexts![index] })),
-    contact: '',
+    contact: details[details.length - 1]!,
   };
 }
 
@@ -241,7 +283,7 @@ function workflowStimulusData(
   candidate: AiQuestionCandidate,
 ): Record<string, unknown> | null {
   const steps = sourceLines(blueprint);
-  if (steps.length === 0 || candidate.stepTexts?.length !== steps.length) return null;
+  if (steps.length === 0 || (blueprint.providerSlotCount !== undefined && steps.length !== blueprint.providerSlotCount) || candidate.stepTexts?.length !== steps.length) return null;
   return {
     orientation: 'vertical',
     steps: steps.map((_, index) => ({ idx: index, label: `단계 ${index + 1}`, desc: candidate.stepTexts![index], is_missing: false })),
@@ -253,11 +295,11 @@ function conversationStimulusData(
   candidate: AiQuestionCandidate,
 ): Record<string, unknown> | null {
   const contract = blueprint.conversationContract;
-  const messageTexts = candidate.messageTexts;
+  const messageTexts = candidate.messageTexts ?? sourceConversationTexts(blueprint);
   if (
     contract === undefined ||
     messageTexts === undefined ||
-    messageTexts.length !== contract.speakerSequence.length
+    (blueprint.providerSlotCount !== undefined && messageTexts.length !== blueprint.providerSlotCount) || messageTexts.length !== contract.speakerSequence.length
   ) {
     return null;
   }
@@ -281,6 +323,35 @@ function conversationStimulusData(
       relations: [],
     },
   };
+}
+
+function sourceConversationTexts(
+  blueprint: AiQuestionBlueprint,
+): readonly string[] | undefined {
+  const contract = blueprint.conversationContract;
+  if (contract === undefined) return undefined;
+  const values = (blueprint.caseContext ?? '').split('\n')
+    .map((line) => /^\s*([^:：]{1,20}?)\s*[:：](.+)$/u.exec(line))
+    .filter((match): match is RegExpExecArray => match !== null)
+    .map((match) => ({ name: match[1]!.trim(), text: match[2]!.trim() }))
+    .filter(({ name, text }) => name !== '' && text !== '');
+  if (values.length !== contract.speakerSequence.length) return undefined;
+  const participantByName = new Map(
+    contract.participants.map((participant) => [participant.name, participant.id]),
+  );
+  const speakerSequence = values.map(({ name }) => participantByName.get(name));
+  if (speakerSequence.some((id, index) => id !== contract.speakerSequence[index])) {
+    return undefined;
+  }
+  return values.map(({ text }) => text);
+}
+
+function isSourcePreservingTemplate(template: string): template is StructuredTplName {
+  return [
+    'TPL_DIGITAL_FORUM_INTERFACE', 'TPL_INSTRUCTIONAL_SCENE',
+    'TPL_PROMOTIONAL_CANVAS', 'TPL_INCIDENT_REPORT', 'TPL_REPORT',
+    'TPL_QUANTITATIVE_CHART', 'TPL_STATISTICS',
+  ].includes(template as StructuredTplName);
 }
 
 function asDifficulty(value: string): Difficulty {

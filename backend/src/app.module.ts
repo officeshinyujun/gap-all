@@ -44,6 +44,7 @@ import { QuestionSeenRecord } from './entities/question-seen-record.entity';
 import { UnitExamProfile } from './entities/unit-exam-profile.entity';
 import { AiGenerationRun } from './entities/ai-generation-run.entity';
 import { AiGenerationCandidate } from './entities/ai-generation-candidate.entity';
+import { AiReferenceAnalysis } from './entities/ai-reference-analysis.entity';
 import { GenerationJob } from './entities/generation-job.entity';
 
 @Module({
@@ -98,6 +99,7 @@ import { GenerationJob } from './entities/generation-job.entity';
             UnitExamProfile,
             AiGenerationRun,
             AiGenerationCandidate,
+            AiReferenceAnalysis,
             GenerationJob,
           ],
           synchronize: config.get<string>('NODE_ENV') !== 'production',

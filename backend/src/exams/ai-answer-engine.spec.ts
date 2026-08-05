@@ -1,6 +1,7 @@
 import { Difficulty } from '../entities/exam-record.entity';
 import type { AiQuestionBlueprint } from './ai-blueprint.types';
 import { deriveAiAnswer } from './ai-answer-engine';
+import { classifyReferenceArchetype } from './reference-archetype';
 
 const blueprint: AiQuestionBlueprint = {
   id: 'blueprint-answer-engine',
@@ -38,5 +39,33 @@ describe('deriveAiAnswer', () => {
     expect(
       deriveAiAnswer({ ...blueprint, distractorConcepts: ['직업 윤리'] }),
     ).toBeNull();
+  });
+
+  it('preserves certified ㄱㄴㄷ choice encoding for combination TPLs', () => {
+    const classified = classifyReferenceArchetype({
+      stem: '다음 자료에 대한 설명으로 옳은 것은?',
+      stimulus: 'ㄱ. 첫째 조건\nㄴ. 둘째 조건\nㄷ. 셋째 조건',
+      viewItems: ['ㄱ. 첫째 조건', 'ㄴ. 둘째 조건', 'ㄷ. 셋째 조건'],
+      choices: ['① ㄱ', '② ㄴ', '③ ㄱ, ㄴ', '④ ㄴ, ㄷ', '⑤ ㄱ, ㄴ, ㄷ'],
+      targetConcepts: ['직무 분석'],
+    });
+    if (classified.kind !== 'classified') throw new Error('invalid fixture');
+
+    expect(
+      deriveAiAnswer({
+        ...blueprint,
+        sourceArchetype: classified.value,
+        sourceChoiceTexts: [
+          '① ㄱ',
+          '② ㄴ',
+          '③ ㄱ, ㄴ',
+          '④ ㄴ, ㄷ',
+          '⑤ ㄱ, ㄴ, ㄷ',
+        ],
+      }),
+    ).toEqual({
+      correctAnswer: 3,
+      optionsList: ['① ㄱ', '② ㄴ', '③ ㄱ, ㄴ', '④ ㄴ, ㄷ', '⑤ ㄱ, ㄴ, ㄷ'],
+    });
   });
 });

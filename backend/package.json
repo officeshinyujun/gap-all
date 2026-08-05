@@ -48,6 +48,7 @@
     "rebuild:ai-unit-profiles": "node -r ts-node/register scripts/rebuild-ai-unit-profiles.ts",
     "shadow:ai": "node -r ts-node/register scripts/ai-shadow-evaluation.ts",
     "export:ai-baseline": "node -r ts-node/register scripts/export-ai-baseline-corpus.ts",
+    "inventory:ai-catalog": "node -r ts-node/register scripts/inventory-ai-catalog.ts",
     "plan:reference-catalog-legacy-migration": "node -r ts-node/register scripts/plan-reference-catalog-legacy-migration.ts",
     "seed:textbook:local": "node -r ts-node/register scripts/seed-local-textbook.ts",
     "migrate:sungjik-summations": "node -r ts-node/register scripts/migrate-missing-sungjik-summations.ts",

@@ -103,6 +103,9 @@ export interface ExamJobStatus {
   stage: string;
   message: string;
   examId?: string;
+  errorCode?: string;
+  errorMessage?: string;
+  errorStage?: string;
   shortfall?: {
     requestedCount: number;
     generatedCount: number;
@@ -113,6 +116,7 @@ export interface ExamJobStatus {
       admission?: number;
     };
     rejectionsByTemplate?: Record<string, number>;
+    rejectionsByCode?: Record<string, number>;
   };
   sourceType?: 'ai' | 'reference' | 'simply_reference' | 'ai_blueprint';
   aiProgress?: {

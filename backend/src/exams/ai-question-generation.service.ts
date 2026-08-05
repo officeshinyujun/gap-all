@@ -1,7 +1,8 @@
-import { Inject, Injectable, InternalServerErrorException } from '@nestjs/common';
+import { Inject, Injectable, InternalServerErrorException, Logger } from '@nestjs/common';
 import type {
   AiGenerationFailureCode,
   AiGenerationValidationResult,
+  AiCandidateRepairContext,
   AiQuestionBlueprint,
   AiQuestionCandidate,
 } from './ai-blueprint.types';
@@ -9,6 +10,7 @@ import type { ExamGenerationProgressReporter } from './exam-generation.utils';
 import { AiProviderError, AiProviderAdapter } from './ai-provider.adapter';
 import {
   materializeAiQuestion,
+  materializeSourcePreservingFallback,
   type AiMaterializedQuestion,
 } from './ai-question-materializer';
 import {
@@ -49,12 +51,16 @@ export type AiQuestionGenerationResult = Readonly<{
     requestedCount: number;
     generatedCount: number;
     reason: 'AI_RETRY_EXHAUSTED' | 'AI_BLUEPRINT_SHORTFALL';
+    rejectionsByCode?: Readonly<Record<string, number>>;
   }>;
   rejectionsByTemplate?: Readonly<Record<string, number>>;
+  rejectionsByCode?: Readonly<Record<string, number>>;
 }>;
 
 @Injectable()
 export class AiQuestionGenerationService {
+  private readonly logger = new Logger(AiQuestionGenerationService.name);
+
   constructor(
     @Inject(AI_QUESTION_CANDIDATE_PROVIDER)
     private readonly provider: AiQuestionCandidateProvider,
@@ -88,6 +94,7 @@ export class AiQuestionGenerationService {
         });
       }
       let admitted: AiAcceptedQuestion | undefined;
+      let repair: AiCandidateRepairContext | undefined;
       for (
         let attempt = 1;
         attempt <= AI_MAX_CANDIDATE_ATTEMPTS;
@@ -116,9 +123,13 @@ export class AiQuestionGenerationService {
             blueprint,
             attempt,
             abortSignal,
+            repair,
           );
           const materialized = materializeAiQuestion(blueprint, candidate);
           if (materialized.kind === 'rejected') {
+            this.logger.warn(
+              `AI candidate rejected before validation: blueprint=${blueprint.id} attempt=${attempt} code=${materialized.code} message=${materialized.message}`,
+            );
             rejected.push({
               blueprintId: blueprint.id,
               template: blueprint.template,
@@ -126,6 +137,10 @@ export class AiQuestionGenerationService {
               code: materialized.code,
               message: materialized.message,
             });
+            repair = {
+              failureReason: materialized.message,
+              requiredAnchors: blueprint.sourceFactAnchors ?? [],
+            };
             continue;
           }
           const validation = validateAiQuestion(
@@ -134,12 +149,81 @@ export class AiQuestionGenerationService {
             materialized.question,
           );
           if (!validation.passed) {
+            this.logger.warn(
+              `AI candidate failed validation: blueprint=${blueprint.id} attempt=${attempt} code=${validation.failureCode ?? 'unknown'}`,
+            );
             rejected.push({
               blueprintId: blueprint.id,
               template: blueprint.template,
               attempt,
               code: validation.failureCode ?? 'AI_INVARIANT_MISMATCH',
+              message: validation.message,
             });
+            repair = {
+              failureReason:
+                validation.message ?? validation.failureCode ?? 'candidate validation failed',
+              requiredAnchors: blueprint.sourceFactAnchors ?? [],
+            };
+            if (
+              candidate.choiceTexts !== undefined &&
+              (validation.failureCode === 'AI_ANSWER_RULE_MISMATCH' ||
+                validation.failureCode === 'AI_DISTRACTOR_INVALID')
+            ) {
+              // The provider's prose choices are optional; the server's answer
+              // engine is authoritative. Keep the valid stimulus and rebuild choices.
+              const serverChoiceCandidate = { ...candidate, choiceTexts: undefined };
+              const serverChoiceMaterialized = materializeAiQuestion(
+                blueprint,
+                serverChoiceCandidate,
+              );
+              if (serverChoiceMaterialized.kind === 'accepted') {
+                const serverChoiceValidation = validateAiQuestion(
+                  blueprint,
+                  serverChoiceCandidate,
+                  serverChoiceMaterialized.question,
+                );
+                if (serverChoiceValidation.passed) {
+                  admitted = {
+                    blueprint,
+                    candidate: serverChoiceCandidate,
+                    question: serverChoiceMaterialized.question,
+                    validation: serverChoiceValidation,
+                    fingerprint: aiQuestionFingerprint(serverChoiceMaterialized.question),
+                    attempt,
+                  };
+                  break;
+                }
+              }
+            }
+            if (
+              attempt === AI_MAX_CANDIDATE_ATTEMPTS &&
+              validation.failureCode === 'AI_INVARIANT_MISMATCH' &&
+              validation.message?.startsWith('source fact anchor missing')
+            ) {
+              const fallback = materializeSourcePreservingFallback(blueprint, candidate);
+              if (fallback.kind === 'accepted') {
+                const fallbackCandidate = {
+                  ...candidate,
+                  stemText: blueprint.caseContext ?? candidate.stemText,
+                  choiceTexts: undefined,
+                };
+                const fallbackValidation = validateAiQuestion(
+                  blueprint,
+                  fallbackCandidate,
+                  fallback.question,
+                );
+                if (fallbackValidation.passed) {
+                  admitted = {
+                    blueprint,
+                    candidate: fallbackCandidate,
+                    question: fallback.question,
+                    validation: fallbackValidation,
+                    fingerprint: aiQuestionFingerprint(fallback.question),
+                    attempt,
+                  };
+                }
+              }
+            }
             continue;
           }
           const fingerprint = aiQuestionFingerprint(materialized.question);
@@ -189,6 +273,9 @@ export class AiQuestionGenerationService {
             code,
             message: error instanceof Error ? error.message : undefined,
           });
+          this.logger.warn(
+            `AI provider candidate failed: blueprint=${blueprint.id} attempt=${attempt} code=${code} message=${error instanceof Error ? error.message : 'unknown'}`,
+          );
         }
       }
       if (admitted !== undefined) {
@@ -223,9 +310,11 @@ export class AiQuestionGenerationService {
     }
 
     const rejectionsByTemplate: Record<string, number> = {};
+    const rejectionsByCode: Record<string, number> = {};
     for (const rejection of rejected) {
       rejectionsByTemplate[rejection.template] =
         (rejectionsByTemplate[rejection.template] ?? 0) + 1;
+      rejectionsByCode[rejection.code] = (rejectionsByCode[rejection.code] ?? 0) + 1;
     }
     return {
       requestedCount,
@@ -236,13 +325,15 @@ export class AiQuestionGenerationService {
         : {
             shortfall: {
               requestedCount,
-              generatedCount: accepted.length,
-              reason: 'AI_RETRY_EXHAUSTED',
+            generatedCount: accepted.length,
+            reason: 'AI_RETRY_EXHAUSTED',
+            rejectionsByCode,
             },
           }),
       ...(Object.keys(rejectionsByTemplate).length > 0
         ? { rejectionsByTemplate }
         : {}),
+      ...(Object.keys(rejectionsByCode).length > 0 ? { rejectionsByCode } : {}),
     };
   }
 }

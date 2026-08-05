@@ -67,7 +67,7 @@ describe('compileAiBlueprints', () => {
     expect(first.blueprints[0]).toEqual(
       expect.objectContaining({
         subjectId: request.subjectId,
-        blueprintVersion: 'v2',
+        blueprintVersion: 'v3',
         sourceEvidence: [
           expect.objectContaining({
             sourceId: expect.stringContaining('success:1:'),
@@ -77,6 +77,7 @@ describe('compileAiBlueprints', () => {
       }),
     );
     expect(first.blueprints[0]).not.toHaveProperty('correctAnswer');
+    expect(first.reserveCount).toBe(0);
   });
 
   it('does not report shortfall when fallback blueprints exceed the request', () => {
@@ -174,4 +175,69 @@ describe('compileAiBlueprints', () => {
       ),
     )).toBe(true);
   });
+
+  it('allocates clustered sources by unit and TPL before using variants', () => {
+    const clustered = [
+      ...['a', 'b', 'c'].map((id, index) => ({
+        ...evidence[0],
+        sourceId: `source-${id}`,
+        baseSourceId: `source-${id}`,
+        concept: evidence[index]?.concept ?? evidence[0].concept,
+        template: 'TPL_ARTICLE',
+        unitNumber: 1,
+      })),
+      {
+        ...evidence[0],
+        sourceId: 'source-d',
+        baseSourceId: 'source-d',
+        concept: evidence[3].concept,
+        template: 'TPL_COMPARATIVE_MATRIX',
+        unitNumber: 2,
+      },
+      {
+        ...evidence[0],
+        sourceId: 'source-e',
+        baseSourceId: 'source-e',
+        concept: evidence[4].concept,
+        template: 'TPL_ARTICLE',
+        unitNumber: 1,
+      },
+    ];
+    const result = compileAiBlueprints(profile, clustered, {
+      subjectId: '5d0199c5-6bf6-4a92-a3f8-dbd8679bf9e7',
+      difficulty: Difficulty.MIDDLE,
+      questionCount: 3,
+      candidateCount: 3,
+      seed: 'tpl-round-robin',
+    });
+
+    expect(result.blueprints.map((item) => item.template)).toEqual([
+      'TPL_ARTICLE',
+      'TPL_COMPARATIVE_MATRIX',
+      'TPL_ARTICLE',
+    ]);
+  });
+
+  it('keeps a replacement reserve after the primary allocation', () => {
+    const result = compileAiBlueprints(profile, [
+      ...evidence.map((item, index) => ({
+        ...item,
+        sourceId: `reserve-${index}`,
+        baseSourceId: `reserve-${index}`,
+        template: index % 2 === 0 ? 'TPL_ARTICLE' : 'TPL_FORMAL_DOCUMENT',
+        caseContext: '원문 사실',
+      })),
+    ], {
+      subjectId: 'subject-1',
+      difficulty: Difficulty.MIDDLE,
+      questionCount: 2,
+      candidateCount: 7,
+      seed: 'reserve',
+    });
+
+    expect(result.blueprints).toHaveLength(5);
+    expect(result.blueprints.slice(2)).toHaveLength(3);
+    expect(Object.values(result.reserveByTpl).reduce((sum, count) => sum + count, 0)).toBe(3);
+  });
+
 });

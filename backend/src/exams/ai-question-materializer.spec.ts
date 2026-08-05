@@ -34,11 +34,11 @@ describe('materializeAiQuestion', () => {
         question: expect.objectContaining({
           correctAnswer: 1,
           optionsList: [
-            '① 직무 분석',
-            '② 직업 윤리',
-            '③ 직업 훈련',
-            '④ 인사 평가',
-            '⑤ 경력 개발',
+            '① 이 사례는 직무 분석의 핵심 조건에 부합한다.',
+            '② 이 사례는 직업 윤리의 핵심 조건에 부합한다.',
+            '③ 이 사례는 직업 훈련의 핵심 조건에 부합한다.',
+            '④ 이 사례는 인사 평가의 핵심 조건에 부합한다.',
+            '⑤ 이 사례는 경력 개발의 핵심 조건에 부합한다.',
           ],
         }),
       }),
@@ -121,6 +121,55 @@ describe('materializeAiQuestion', () => {
     expect(result.question.optionsList?.[0]).toContain('이 대화는');
   });
 
+  it('reconstructs legacy conversation fields from the certified source sequence', () => {
+    const result = materializeAiQuestion(
+      {
+        ...blueprint,
+        template: 'TPL_CONVERSATIONAL_FLOW',
+        caseContext: '교사: 원문 첫 발화\n학생: 원문 둘째 발화',
+        conversationContract: {
+          participants: [
+            { id: 'speaker-1', name: '교사', role: '교사' },
+            { id: 'speaker-2', name: '학생', role: '학생' },
+          ],
+          speakerSequence: ['speaker-1', 'speaker-2'],
+          sceneKind: 'dialogue',
+        },
+      },
+      {
+        stemText: 'legacy stem',
+        explanationText: '직무 분석의 조건을 대화에서 확인한다.',
+      },
+    );
+
+    if (result.kind === 'rejected') throw new Error(result.message);
+    expect(result.question.stimulusData.messages).toEqual([
+      expect.objectContaining({ p_id: 'speaker-1', text: '원문 첫 발화' }),
+      expect.objectContaining({ p_id: 'speaker-2', text: '원문 둘째 발화' }),
+    ]);
+  });
+
+  it('rejects legacy conversation reconstruction when source speaker order mismatches', () => {
+    const result = materializeAiQuestion(
+      {
+        ...blueprint,
+        template: 'TPL_CONVERSATIONAL_FLOW',
+        caseContext: '학생: 원문 첫 발화\n교사: 원문 둘째 발화',
+        conversationContract: {
+          participants: [
+            { id: 'speaker-1', name: '교사', role: '교사' },
+            { id: 'speaker-2', name: '학생', role: '학생' },
+          ],
+          speakerSequence: ['speaker-1', 'speaker-2'],
+          sceneKind: 'dialogue',
+        },
+      },
+      { stemText: 'legacy stem', explanationText: '직무 분석의 조건을 확인한다.' },
+    );
+
+    expect(result).toEqual(expect.objectContaining({ kind: 'rejected' }));
+  });
+
   it('rejects an incomplete distractor plan instead of inventing options', () => {
     const result = materializeAiQuestion(
       { ...blueprint, distractorConcepts: ['직업 윤리'] },
@@ -144,12 +193,20 @@ describe('materializeAiQuestion', () => {
       {
         stemText: '조건 A\n조건 B',
         cellTexts: ['조건 A', '조건 B'],
+        choiceTexts: ['첫 번째 표 해석이다.', '두 번째 표 해석이다.', '세 번째 표 해석이다.', '네 번째 표 해석이다.', '다섯 번째 표 해석이다.'],
         explanationText: '직무 분석의 조건을 표에서 확인한다.',
       },
     );
 
     if (result.kind === 'rejected') throw new Error(result.message);
     expect(result.question.recommendedTemplate).toBe('TPL_COMPARATIVE_MATRIX');
+    expect(result.question.optionsList).toEqual([
+      '① 이 자료는 직무 분석의 핵심 조건에 부합한다.',
+      '② 이 자료는 직업 윤리의 핵심 조건에 부합한다.',
+      '③ 이 자료는 직업 훈련의 핵심 조건에 부합한다.',
+      '④ 이 자료는 인사 평가의 핵심 조건에 부합한다.',
+      '⑤ 이 자료는 경력 개발의 핵심 조건에 부합한다.',
+    ]);
     expect(result.question.stimulusData).toEqual(
       expect.objectContaining({
         headers: [

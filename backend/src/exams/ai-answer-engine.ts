@@ -1,4 +1,5 @@
 import type { AiQuestionBlueprint } from './ai-blueprint.types';
+import { isReferenceCombinationChoiceSet } from './reference-archetype';
 
 export type AiDerivedAnswer = Readonly<{
   optionsList: readonly string[];
@@ -23,6 +24,21 @@ export function deriveAiAnswer(
   }
   const concepts = [blueprint.targetConcept, ...blueprint.distractorConcepts];
   if (new Set(concepts).size !== 5) return null;
+
+  if (blueprint.sourceArchetype?.choiceEncoding === 'truth_combination') {
+    const sourceChoices = blueprint.sourceChoiceTexts;
+    if (
+      sourceChoices === undefined ||
+      sourceChoices.length !== 5 ||
+      !isReferenceCombinationChoiceSet(sourceChoices)
+    ) {
+      return null;
+    }
+    return {
+      optionsList: sourceChoices,
+      correctAnswer: blueprint.answerIndex,
+    };
+  }
 
   const answerOffset = blueprint.answerIndex - 1;
   const orderedConcepts = [

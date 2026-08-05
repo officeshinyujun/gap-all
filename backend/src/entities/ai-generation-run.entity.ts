@@ -82,6 +82,9 @@ export class AiGenerationRun {
   @Column({ name: 'rejections_by_template', type: 'jsonb', nullable: true })
   rejectionsByTemplate: Record<string, number> | null;
 
+  @Column({ name: 'rejections_by_code', type: 'jsonb', nullable: true })
+  rejectionsByCode: Record<string, number> | null;
+
   @Column({ name: 'exam_id', type: 'uuid', nullable: true })
   examId: string | null;
 

@@ -2,6 +2,7 @@ import {
   ConflictException,
   Injectable,
   InternalServerErrorException,
+  Logger,
 } from '@nestjs/common';
 import { randomUUID } from 'crypto';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -16,6 +17,7 @@ import { CreateExamDto } from './dto/create-exam.dto';
 import {
   AI_BLUEPRINT_PROMPT_VERSION,
   AI_BLUEPRINT_VALIDATOR_VERSION,
+  aiModelForRole,
 } from './ai-provider.adapter';
 import { AiBlueprintService } from './ai-blueprint.service';
 import {
@@ -27,12 +29,13 @@ import { AI_UNIT_PROFILE_VERSION } from './ai-unit-profile.service';
 import type { ExamGenerationProgressReporter } from './exam-generation.utils';
 import { AiQuestionGenerationService } from './ai-question-generation.service';
 
-const AI_MODEL =
-  process.env.OPENAI_AI_BLUEPRINT_MODEL ?? process.env.OPENAI_MODEL ?? 'gpt-4o';
+const AI_MODEL = aiModelForRole('candidate');
 const AI_JOB_TIMEOUT_MS = Number(process.env.AI_JOB_TIMEOUT_MS) || 900_000;
 
 @Injectable()
 export class AiExamGenerationService {
+  private readonly logger = new Logger(AiExamGenerationService.name);
+
   constructor(
     @InjectRepository(AiGenerationRun)
     private readonly runRepo: Repository<AiGenerationRun>,
@@ -146,6 +149,7 @@ export class AiExamGenerationService {
       run.acceptedCount = generated.accepted.length;
       run.rejectedCount = generated.rejected.length;
       run.rejectionsByTemplate = generated.rejectionsByTemplate ?? null;
+      run.rejectionsByCode = generated.rejectionsByCode ?? null;
       for (const accepted of generated.accepted) {
         const telemetry = accepted.candidate.telemetry;
         if (telemetry === undefined) continue;
@@ -160,26 +164,35 @@ export class AiExamGenerationService {
           (run.totalTokens ?? 0) + (telemetry.usage?.totalTokens ?? 0);
       }
       await this.candidateRepo.save([
-        ...generated.rejected.map((candidate) =>
-          this.candidateRepo.create({
-            runId: run.id,
-            blueprintId: candidate.blueprintId,
-            template: candidate.template,
-            attempt: candidate.attempt,
-            status: 'rejected',
-            failureCode: candidate.code,
-            fingerprint: null,
-            candidate: null,
-            validation:
-              candidate.message === undefined
-                ? null
-                : { failureCode: candidate.code, message: candidate.message },
-            providerModel: null,
-            promptHash: null,
-            latencyMs: null,
-            providerUsage: null,
-          }),
-        ),
+        ...generated.rejected
+          .filter(
+            (candidate) =>
+              !generated.accepted.some(
+                (accepted) =>
+                  accepted.blueprint.id === candidate.blueprintId &&
+                  accepted.attempt === candidate.attempt,
+              ),
+          )
+          .map((candidate) =>
+            this.candidateRepo.create({
+              runId: run.id,
+              blueprintId: candidate.blueprintId,
+              template: candidate.template,
+              attempt: candidate.attempt,
+              status: 'rejected',
+              failureCode: candidate.code,
+              fingerprint: null,
+              candidate: null,
+              validation:
+                candidate.message === undefined
+                  ? null
+                  : { failureCode: candidate.code, message: candidate.message },
+              providerModel: null,
+              promptHash: null,
+              latencyMs: null,
+              providerUsage: null,
+            }),
+          ),
         ...generated.accepted.map((candidate) =>
           this.candidateRepo.create({
             runId: run.id,
@@ -217,6 +230,7 @@ export class AiExamGenerationService {
               omittedEligibleCount: preview.blueprints.length,
             },
             rejectionsByTemplate: generated.rejectionsByTemplate,
+            rejectionsByCode: generated.rejectionsByCode,
           });
         }
       }
@@ -236,30 +250,57 @@ export class AiExamGenerationService {
           message: 'AI 시험 생성 작업이 취소되었습니다.',
         });
       }
-      const examId = await this.saveExam(
-        userId,
-        dto,
-        subjectTitle,
-        generated.accepted,
-        idempotencyKey,
-      );
+      if (generated.accepted.length === 0) {
+        throw new InternalServerErrorException({
+          code: 'AI_RETRY_EXHAUSTED',
+          message: '검증을 통과한 AI 문항이 없어 시험을 저장하지 않았습니다.',
+          requestedCount: dto.questionCount,
+          generatedCount: generated.accepted.length,
+          stageCounts: {
+            source: preview.availableCount,
+            planner: preview.blueprints.length,
+            fidelity: 0,
+            admission: 0,
+          },
+          rejectionsByTemplate: generated.rejectionsByTemplate,
+          rejectionsByCode: generated.rejectionsByCode,
+        });
+      }
+      let examId: string;
+      try {
+        examId = await this.saveExam(
+          userId,
+          dto,
+          subjectTitle,
+          generated.accepted,
+          idempotencyKey,
+        );
+      } catch (error: unknown) {
+        this.logger.error(
+          `AI exam persistence failed: ${persistenceErrorSummary(error)}`,
+        );
+        throw new InternalServerErrorException({
+          code: 'AI_PERSISTENCE_FAILED',
+          message: '검증된 AI 문항은 생성됐지만 시험 저장에 실패했습니다.',
+        });
+      }
       run.status = 'completed';
       run.stage = 'completed';
       run.progress = 100;
       run.examId = examId;
-      if (generated.shortfall !== undefined) {
+      const isPartial = generated.accepted.length < dto.questionCount;
+      if (isPartial) {
         run.failureCode = 'AI_RETRY_EXHAUSTED';
-        run.failureReason = `검증 통과 문항 ${generated.accepted.length}/${dto.questionCount}개로 부분 생성되었습니다.`;
+        run.failureReason = `검증 통과 문항 ${generated.accepted.length}/${dto.questionCount}개만 저장했습니다.`;
       }
       await this.runRepo.save(run);
       await reportProgress?.({
         stage: 'saving',
         progress: 100,
         status: 'success',
-        message:
-          generated.shortfall === undefined
-            ? 'AI 생성 문항을 저장했습니다.'
-            : `검증 통과 문항 ${generated.accepted.length}/${dto.questionCount}개를 부분 저장했습니다.`,
+        message: isPartial
+          ? `검증 통과 문항 ${generated.accepted.length}/${dto.questionCount}개를 저장했습니다.`
+          : 'AI 생성 문항을 저장했습니다.',
         completed: dto.questionCount,
         total: dto.questionCount,
         attempt: 1,
@@ -479,4 +520,16 @@ function failureCode(error: unknown): string {
     }
   }
   return 'AI_GENERATION_FAILED';
+}
+
+function persistenceErrorSummary(error: unknown): string {
+  if (!(error instanceof Error)) return 'unknown error';
+  const code =
+    typeof error === 'object' &&
+    error !== null &&
+    'code' in error &&
+    typeof error.code === 'string'
+      ? ` code=${error.code}`
+      : '';
+  return `${error.name}: ${error.message}${code}`;
 }

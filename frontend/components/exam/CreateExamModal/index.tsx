@@ -8,9 +8,8 @@ import s from './style.module.scss';
 import Typo from '@shared/ui/Typo';
 import { API_BASE_URL } from '@shared/lib/auth';
 import { fetchSubjectBySlug } from '@/lib/examApi';
-import type { ExamSourceType } from '@entities/exam/model/types';
 
-type GenerationMode = Extract<ExamSourceType, 'simply_reference' | 'ai_blueprint'>;
+type GenerationMode = 'simply_reference';
 
 interface CreateExamModalProps {
     isOpen: boolean;
@@ -45,7 +44,6 @@ export function CreateExamModal({ isOpen, onClose, subjectName, onCreated, defau
     const [endUnit, setEndUnit] = useState(defaultEndUnit);
     const [difficulty, setDifficulty] = useState<Difficulty>(Difficulty.MIDDLE);
     const [questionCount, setQuestionCount] = useState(20);
-    const [generationMode, setGenerationMode] = useState<GenerationMode>('simply_reference');
     const [prompt, setPrompt] = useState('');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
@@ -77,7 +75,7 @@ export function CreateExamModal({ isOpen, onClose, subjectName, onCreated, defau
                     difficulty: DIFFICULTY_MAP[difficulty],
                     questionCount,
                     customPrompt: prompt || undefined,
-                    sourceType: generationMode,
+                    sourceType: 'simply_reference',
                 }),
             });
 
@@ -94,7 +92,7 @@ export function CreateExamModal({ isOpen, onClose, subjectName, onCreated, defau
 
             const data = await res.json();
             onClose();
-            onCreated?.(data.jobId, generationMode);
+            onCreated?.(data.jobId, 'simply_reference');
         } catch (err: unknown) {
             setError(err instanceof Error ? err.message : '생성 중 오류가 발생했습니다.');
         } finally {
@@ -111,18 +109,7 @@ export function CreateExamModal({ isOpen, onClose, subjectName, onCreated, defau
                         <Typo.MD size={14} color="secondary">{selectedSubjectName} 과목의 맞춤형 시험을 생성합니다.</Typo.MD>
                     </VStack>
 
-                    <VStack gap={SPACING.s16} fullWidth>
-                        <VStack gap={SPACING.s8} fullWidth>
-                            <Typo.MD size={14} color="primary">생성 방식</Typo.MD>
-                            <Select
-                                value={generationMode}
-                                onChange={(val) => setGenerationMode(val as GenerationMode)}
-                                options={[
-                                    { label: '기출 기반', value: 'simply_reference' },
-                                    { label: 'AI 신규 문항 (준비 중)', value: 'ai_blueprint', disabled: true },
-                                ]}
-                            />
-                        </VStack>
+                        <VStack gap={SPACING.s16} fullWidth>
 
                         <VStack gap={SPACING.s8} fullWidth>
                             <Typo.MD size={14} color="primary">과목</Typo.MD>

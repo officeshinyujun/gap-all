@@ -119,7 +119,7 @@ function serviceFixture() {
     preview: jest.fn().mockResolvedValue({
       subjectSlug: 'success',
       profileVersion: 'v2',
-      blueprintVersion: 'v2',
+      blueprintVersion: 'v3',
       requestedCount: 1,
       availableCount: 1,
       blueprints: [accepted().blueprint],
@@ -145,6 +145,7 @@ function serviceFixture() {
     ),
     runRepo,
     candidateRepo,
+    examRepo,
     blueprintService,
     questionGenerationService,
   };
@@ -269,5 +270,61 @@ describe('AiExamGenerationService', () => {
         failureCode: 'AI_RETRY_EXHAUSTED',
       }),
     );
+  });
+
+  it('reports persistence failures separately after candidates pass validation', async () => {
+    const fixture = serviceFixture();
+    fixture.examRepo.manager.transaction.mockRejectedValue(
+      new Error('database constraint'),
+    );
+
+    await expect(
+      fixture.service.generate(
+        'user-1',
+        request(),
+        '성공적인 직업생활',
+        'success',
+        'job-persistence-failure',
+      ),
+    ).rejects.toMatchObject({
+      response: expect.objectContaining({ code: 'AI_PERSISTENCE_FAILED' }),
+    });
+    expect(fixture.runRepo.save).toHaveBeenLastCalledWith(
+      expect.objectContaining({
+        status: 'failed',
+        failureCode: 'AI_PERSISTENCE_FAILED',
+      }),
+    );
+  });
+
+  it('does not persist a rejected row that shares the accepted fallback attempt', async () => {
+    const fixture = serviceFixture();
+    fixture.questionGenerationService.generate.mockResolvedValue({
+      requestedCount: 1,
+      accepted: [accepted()],
+      rejected: [
+        {
+          blueprintId: 'blueprint-1',
+          template: 'TPL_CASE_DIAGNOSTIC_FRAME',
+          attempt: 1,
+          code: 'AI_ANSWER_RULE_MISMATCH',
+        },
+      ],
+    });
+
+    await fixture.service.generate(
+      'user-1',
+      request(),
+      '성공적인 직업생활',
+      'success',
+      'job-fallback-attempt',
+    );
+
+    expect(fixture.candidateRepo.save).toHaveBeenCalledWith(
+      expect.arrayContaining([
+        expect.objectContaining({ status: 'accepted', attempt: 1 }),
+      ]),
+    );
+    expect(fixture.candidateRepo.save.mock.calls[0][0]).toHaveLength(1);
   });
 });
