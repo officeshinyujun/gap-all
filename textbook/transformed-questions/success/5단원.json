@@ -224,7 +224,7 @@
           "source_exam": "GAP 유사 변형문제",
           "target_concept": "경영 관리의 의미 및 순환 과정 (PODC)",
           "item_type": "실전 모의고사",
-          "recommended_template": "TPL_기사"
+          "recommended_template": "TPL_CASE_DIAGNOSTIC_FRAME"
         },
         "render_ready": {
           "question_stem": "다음 기사에 나타난 △△주식회사의 경영 활동 종류로 가장 적절한 것은?",

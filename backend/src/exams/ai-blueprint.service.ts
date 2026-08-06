@@ -51,6 +51,7 @@ type BlueprintEvidence = AiGenerationSourceEvidence &
     template: string;
     sourceArchetype?: ReferenceArchetype;
     sourceChoiceTexts?: readonly string[];
+    sourceViewItems?: readonly string[];
     caseContext?: string;
     variantOrdinal?: number;
     analysis?: AiReferenceAnalysis;
@@ -90,12 +91,27 @@ export class AiBlueprintService {
       },
     });
     const evidence = collectEvidence(sources, request.subjectSlug);
-    const analyzedEvidence = await this.loadOrSaveAnalyses(evidence);
-    return compileAiBlueprints(profile, analyzedEvidence, {
+    const candidateCount =
+      request.questionCount +
+      Math.max(request.questionCount, AI_REPLACEMENT_RESERVE_MINIMUM);
+
+    // ponytail: select blueprints FIRST (deterministic, no LLM), then only
+    // analyze the selected subset. Merge analyzed back into full evidence so
+    // compileAiBlueprints has the complete concept pool for distractor selection.
+    const preSelected = preSelectForAnalysis(profile, evidence, {
       ...request,
-      candidateCount:
-        request.questionCount +
-        Math.max(request.questionCount, AI_REPLACEMENT_RESERVE_MINIMUM),
+      candidateCount,
+    });
+    const analyzed = await this.loadOrSaveAnalyses(preSelected);
+    const merged = evidence.map((item) => {
+      const analyzedItem = analyzed.find(
+        (a) => (a.baseSourceId ?? a.sourceId) === (item.baseSourceId ?? item.sourceId),
+      );
+      return analyzedItem ?? item;
+    });
+    return compileAiBlueprints(profile, merged, {
+      ...request,
+      candidateCount,
     });
   }
 
@@ -271,16 +287,28 @@ export function compileAiBlueprints(
     materializableEvidence,
     request.candidateCount ?? request.questionCount,
   );
-  const blueprints = selected.map((item, index) =>
-    createBlueprint(
+  const blueprints = selected.map((item, index) => {
+    // 같은 단원 개념 우선 → 다른 단원 개념 fallback (채용면접 vs 공기업 같은 엉뚱한 오답 방지)
+    const sameUnitConcepts =
+      profile.units
+        .find((u) => u.unitNumber === item.unitNumber)
+        ?.concepts.map((c) => c.name) ?? [];
+    const otherConcepts = conceptPool.filter(
+      (c) => !sameUnitConcepts.includes(c),
+    );
+    const distractorPool = [...sameUnitConcepts, ...otherConcepts].filter(
+      (c) => c !== item.concept,
+    );
+    const distractorConcepts = distractorPool.slice(0, 4);
+    return createBlueprint(
       item,
       request.subjectId,
       request.difficulty,
       seed,
       index + 1,
-      conceptPool.filter((concept) => concept !== item.concept).slice(0, 4),
-    ),
-  );
+      distractorConcepts,
+    );
+  });
   const reserveCount = Math.max(0, selected.length - request.questionCount);
   const plannedByTpl = countByTemplate(blueprints);
   const reserveByTpl = countByTemplate(blueprints.slice(request.questionCount));
@@ -308,6 +336,49 @@ export function compileAiBlueprints(
           },
         }),
   };
+}
+
+// ponytail: select which evidence items to LLM-analyze before expensive analysis.
+// Uses the same filtering/sorting/selection as compileAiBlueprints but skips analysis.
+function preSelectForAnalysis(
+  profile: AiGenerationProfile,
+  evidence: readonly BlueprintEvidence[],
+  request: Parameters<typeof compileAiBlueprints>[2],
+): readonly BlueprintEvidence[] {
+  const seed =
+    request.seed?.trim() || `${profile.subjectSlug}:${AI_BLUEPRINT_VERSION}`;
+  const requestedConcepts = new Set(request.targetConcepts ?? []);
+  const excludedSourceIds = new Set(request.excludeSourceIds ?? []);
+  const eligible = evidence
+    .filter((item) => !excludedSourceIds.has(item.baseSourceId ?? item.sourceId))
+    .filter((item) =>
+      request.aiQuestionFamily !== undefined
+        ? item.family === request.aiQuestionFamily
+        : true,
+    )
+    .filter((item) =>
+      requestedConcepts.size === 0 || requestedConcepts.has(item.concept),
+    )
+    .sort((left, right) =>
+      compareText(
+        stableHash(`${seed}:${left.sourceId}`),
+        stableHash(`${seed}:${right.sourceId}`),
+      ),
+    );
+  const conceptPool = unique([
+    ...evidence.map((item) => item.concept),
+    ...profile.units.flatMap((unit) =>
+      unit.concepts.map((concept) => concept.name),
+    ),
+  ]);
+  const materializable = eligible.filter(
+    (item) =>
+      conceptPool.filter((concept) => concept !== item.concept).length >= 4,
+  );
+  return selectBalancedEvidence(
+    materializable,
+    request.candidateCount ?? request.questionCount,
+  );
 }
 
 function createBlueprint(
@@ -339,6 +410,9 @@ function createBlueprint(
     ...(evidence.sourceChoiceTexts === undefined
       ? {}
       : { sourceChoiceTexts: evidence.sourceChoiceTexts }),
+    ...(evidence.sourceViewItems === undefined || evidence.sourceViewItems.length === 0
+      ? {}
+      : { sourceViewItems: evidence.sourceViewItems }),
     ...(evidence.template === 'TPL_CONVERSATIONAL_FLOW'
       ? { conversationContract: conversationContractFor(evidence.caseContext) }
       : {}),
@@ -410,7 +484,13 @@ function collectEvidence(
     )
       return [];
     const family = inferFamily(source, parsed.value.archetype?.stimulusRole);
-    const template = parsed.value.archetype?.sourceTemplate;
+    const archetypeTemplate = parsed.value.archetype?.sourceTemplate;
+    // ponytail: CONVERSATIONAL_FLOW는 messages 구조라 보기(comboBlock) 렌더링과 충돌.
+    // truth_combination일 때만 CASE_DIAGNOSTIC_FRAME으로 override. 다른 TPL은 그대로.
+    const isTc = parsed.value.archetype?.stemIntent === 'truth_combination';
+    const template = isTc && archetypeTemplate === 'TPL_CONVERSATIONAL_FLOW'
+      ? 'TPL_CASE_DIAGNOSTIC_FRAME'
+      : archetypeTemplate;
     if (
       template === undefined ||
       !isSupportedTemplate(template) ||
@@ -439,6 +519,7 @@ function collectEvidence(
       template,
       sourceArchetype: parsed.value.archetype,
       sourceChoiceTexts: parsed.value.choices,
+      sourceViewItems: parsed.value.viewItems,
       caseContext: parsed.value.stimulus,
       variantOrdinal: index + 1,
       sourcePayload: source.sourcePayload,
@@ -471,13 +552,19 @@ function isSupportedTemplate(template: string): boolean {
 function isSupportedCaseArchetype(
   archetype: BlueprintEvidence['sourceArchetype'],
 ): boolean {
+  // ponytail: COMPARATIVE_MATRIX, SEQUENTIAL_WORKFLOW 등은 structured output
+  // 프롬프트가 아직 미비해 reject율 100%. FORMAL_DOCUMENT와 CASE_DIAG만 허용.
+  // 모든 문제를 ㄱㄴㄷㄹ truth_combination으로 통일.
+  const WORKING_TPLS = new Set([
+    'TPL_CASE_DIAGNOSTIC_FRAME',
+    'TPL_FORMAL_DOCUMENT',
+  ]);
   return (
-    archetype === undefined ||
-    (isSupportedTemplate(archetype.sourceTemplate) &&
-      archetype.responseMode === 'single_selection' &&
-      archetype.choiceTopology === 'single_choice' &&
-      (archetype.stemIntent === 'positive_single_selection' ||
-        archetype.stemIntent === 'negative_single_selection'))
+    archetype !== undefined &&
+    WORKING_TPLS.has(archetype.sourceTemplate) &&
+    archetype.responseMode === 'truth_combination' &&
+    archetype.choiceTopology === 'combo_sets' &&
+    archetype.stemIntent === 'truth_combination'
   );
 }
 
@@ -536,6 +623,8 @@ function extractSourceFactAnchors(
   return [...new Set(matches.map((value) => value.trim()).filter(Boolean))];
 }
 
+// 모의고사형 선별: TPL 비율 기반 할당 → 단원 가중치 분배.
+// 실제 수능/모의고사처럼 TPL 다양성과 단원 커버리지를 동시에 확보한다.
 function selectBalancedEvidence(
   evidence: readonly BlueprintEvidence[],
   count: number,
@@ -548,38 +637,104 @@ function selectBalancedEvidence(
       variants.set(baseId, [...(variants.get(baseId) ?? []), item]);
     }
   }
-  const byUnitAndTpl = new Map<string, BlueprintEvidence[]>();
+
+  // ① TPL별 목표 개수: 레퍼런스 분포 비율로 계산
+  const tplCounts = new Map<string, number>();
   for (const item of primary) {
-    const key = `${item.unitNumber}:${item.template}`;
-    byUnitAndTpl.set(key, [...(byUnitAndTpl.get(key) ?? []), item]);
+    tplCounts.set(item.template, (tplCounts.get(item.template) ?? 0) + 1);
   }
-  const units = [...new Set(primary.map((item) => item.unitNumber))].sort(
-    (left, right) => left - right,
-  );
-  const templatesByUnit = new Map(
-    units.map((unit) => [
-      unit,
-      [...new Set(primary.filter((item) => item.unitNumber === unit).map((item) => item.template))].sort(),
-    ]),
-  );
-  const ordered: BlueprintEvidence[] = [];
-  let cursor = 0;
-  while (ordered.length < primary.length && units.length > 0) {
-    const unit = units[cursor % units.length];
-    const templates = templatesByUnit.get(unit) ?? [];
-    const template = templates.shift();
-    if (template !== undefined) {
-      const bucket = byUnitAndTpl.get(`${unit}:${template}`);
-      const next = bucket?.shift();
-      if (next !== undefined) ordered.push(next);
-      if (bucket !== undefined && bucket.length > 0) templates.push(template);
-    }
-    if (templates.length === 0) units.splice(cursor % units.length, 1);
-    else cursor = (cursor + 1) % units.length;
+  const totalAvailable = [...tplCounts.values()].reduce((a, b) => a + b, 0);
+  const tplTargets = new Map<string, number>();
+  let allocated = 0;
+  const tplEntries = [...tplCounts.entries()].sort((a, b) => b[1] - a[1]);
+  for (const [tpl, available] of tplEntries) {
+    const target = Math.min(
+      available,
+      Math.max(1, Math.round((available / totalAvailable) * count)),
+    );
+    tplTargets.set(tpl, target);
+    allocated += target;
+  }
+  // 보정: 목표 합계가 count와 다르면 가장 큰 TPL에 차이 반영
+  const diff = count - allocated;
+  if (diff !== 0 && tplEntries.length > 0) {
+    const largest = tplEntries[0]![0];
+    tplTargets.set(largest, Math.max(1, (tplTargets.get(largest) ?? 1) + diff));
   }
 
-  const selected = ordered.slice(0, count);
-  if (selected.length >= count) return selected;
+  // ② 단원별 가중치: 실제 출제 빈도 (등장한 시험 수).
+  const unitExamSets = new Map<number, Set<string>>();
+  for (const item of primary) {
+    const parts = item.sourceId.split(':');
+    const examKey = parts.length >= 3 ? parts[2]!.replace(/:\d+$/, '') : item.sourceId;
+    if (!unitExamSets.has(item.unitNumber)) {
+      unitExamSets.set(item.unitNumber, new Set<string>());
+    }
+    unitExamSets.get(item.unitNumber)!.add(examKey);
+  }
+  const unitWeights = new Map<number, number>();
+  for (const [unit, exams] of unitExamSets) {
+    unitWeights.set(unit, exams.size);
+  }
+
+  // ③ TPL별로 가중치 기반 단원 선택 (round-robin으로 단원 중복 방지)
+  const selected: BlueprintEvidence[] = [];
+  const usedUnits = new Set<number>();
+  const usedSources = new Set<string>();
+
+  for (const [tpl, target] of tplTargets) {
+    const pool = primary.filter(
+      (item) =>
+        item.template === tpl && !usedSources.has(item.baseSourceId ?? item.sourceId),
+    );
+    // 단원 가중치로 정렬 (많은 레퍼런스 = 앞쪽)
+    const sorted = [...pool].sort(
+      (a, b) =>
+        (unitWeights.get(b.unitNumber) ?? 0) - (unitWeights.get(a.unitNumber) ?? 0) ||
+        a.unitNumber - b.unitNumber,
+    );
+
+    // truth_combination / single_selection 섞기 위해 인터리브
+    const tcItems = sorted.filter(
+      (item) => item.sourceArchetype?.stemIntent === 'truth_combination',
+    );
+    const singleItems = sorted.filter(
+      (item) => item.sourceArchetype?.stemIntent !== 'truth_combination',
+    );
+    const interleaved: BlueprintEvidence[] = [];
+    let ti = 0, si = 0;
+    while (interleaved.length < sorted.length) {
+      if (ti < tcItems.length) interleaved.push(tcItems[ti++]!);
+      if (si < singleItems.length) interleaved.push(singleItems[si++]!);
+    }
+
+    let picked = 0;
+    // round-robin으로 단원이 겹치지 않게 선택
+    const rounds = [...interleaved];
+    while (picked < target && rounds.length > 0) {
+      const next = rounds.shift()!;
+      const baseId = next.baseSourceId ?? next.sourceId;
+      if (usedSources.has(baseId)) continue;
+      selected.push(next);
+      usedUnits.add(next.unitNumber);
+      usedSources.add(baseId);
+      picked++;
+    }
+    // 단원 겹쳐도 되면 남은 것 중 선택
+    if (picked < target) {
+      for (const item of interleaved) {
+        if (picked >= target) break;
+        const baseId = item.baseSourceId ?? item.sourceId;
+        if (usedSources.has(baseId)) continue;
+        selected.push(item);
+        usedSources.add(baseId);
+        picked++;
+      }
+    }
+  }
+
+  // ④ 부족하면 variant로 채움
+  if (selected.length >= count) return selected.slice(0, count);
   for (const source of selected.slice()) {
     for (const variant of variants.get(source.baseSourceId ?? source.sourceId) ?? []) {
       if (selected.length >= count) return selected;

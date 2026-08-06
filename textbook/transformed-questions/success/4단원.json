@@ -481,7 +481,7 @@
           "source_exam": "GAP 유사 변형문제",
           "target_concept": "사기업의 정의 및 특징",
           "item_type": "실전 모의고사",
-          "recommended_template": "TPL_FORUM"
+          "recommended_template": "TPL_DIGITAL_FORUM_INTERFACE"
         },
         "render_ready": {
           "question_stem": "다음은 한 기업의 조직 개편에 대한 질의응답이다. 현재 기업의 형태(가)와 제안된 변경 형태(나)에 대한 설명으로 옳은 것은?",

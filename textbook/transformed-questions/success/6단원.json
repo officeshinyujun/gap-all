@@ -242,7 +242,7 @@
           "source_exam": "GAP 유사 변형문제",
           "target_concept": "제조업의 발달 및 전자상거래",
           "item_type": "실전 모의고사",
-          "recommended_template": "TPL_..."
+          "recommended_template": "TPL_CASE_DIAGNOSTIC_FRAME"
         },
         "render_ready": {
           "question_stem": "다음 기사의 B 공방에 대해 분석한 내용으로 적절한 것만을 <보기>에서 고른 것은?",
@@ -697,7 +697,7 @@
           "source_exam": "GAP 유사 변형문제",
           "target_concept": "기업 분석 및 업종 이해",
           "item_type": "실전 모의고사",
-          "recommended_template": "TPL_기업분석"
+          "recommended_template": "TPL_CASE_DIAGNOSTIC_FRAME"
         },
         "render_ready": {
           "question_stem": "위 사례를 통해 알 수 있는 C, D기업에 대한 분석 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",

@@ -104,7 +104,7 @@
           "source_exam": "GAP 유사 변형문제",
           "target_concept": "직업 세계의 변화",
           "item_type": "실전 모의고사",
-          "recommended_template": "TPL_기사형"
+          "recommended_template": "TPL_CASE_DIAGNOSTIC_FRAME"
         },
         "render_ready": {
           "question_stem": "다음 기사에서 (가)에 들어갈 평생 학습 제도로 옳은 것은?",
@@ -402,7 +402,7 @@
           "source_exam": "GAP 유사 변형문제",
           "target_concept": "전공별 경력 개발 경로",
           "item_type": "실전 모의고사",
-          "recommended_template": "TPL_리포트형"
+          "recommended_template": "TPL_CASE_DIAGNOSTIC_FRAME"
         },
         "render_ready": {
           "question_stem": "다음 글에서 설명하고 있는 평생 학습 제도로 옳은 것은?",

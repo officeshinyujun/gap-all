@@ -12,7 +12,7 @@
           "source_exam": "GAP 유사 변형문제",
           "target_concept": "고용 서비스의 의미와 중요성",
           "item_type": "실전 모의고사",
-          "recommended_template": "TPL..."
+          "recommended_template": "TPL_CASE_DIAGNOSTIC_FRAME"
         },
         "render_ready": {
           "question_stem": "다음 고용지원 서비스 관련 게시판의 (가)에 들어갈 수 있는 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은? [3점]",
@@ -99,7 +99,7 @@
           "source_exam": "GAP 유사 변형문제",
           "target_concept": "고용 서비스의 유형",
           "item_type": "실전 모의고사",
-          "recommended_template": "TPL..."
+          "recommended_template": "TPL_CASE_DIAGNOSTIC_FRAME"
         },
         "render_ready": {
           "question_stem": "다음 사례 분석을 통해 A씨와 B씨가 신청한 보험의 적합성을 판단할 때 옳은 것은 무엇인가? [3점]",
@@ -203,7 +203,7 @@
           "source_exam": "GAP 유사 변형문제",
           "target_concept": "고용보험 제도의 목적과 적용 대상",
           "item_type": "실전 모의고사",
-          "recommended_template": "TPL-001"
+          "recommended_template": "TPL_CASE_DIAGNOSTIC_FRAME"
         },
         "render_ready": {
           "question_stem": "다음은 고용보험에 대한 질의응답 내용이다. (가)에 들어갈 내용으로 적절한 것만을 <보기>에서 선택하시오. [3점]",
@@ -298,7 +298,7 @@
           "source_exam": "GAP 유사 변형문제",
           "target_concept": "고용보험 제도의 종류별 특징",
           "item_type": "실전 모의고사",
-          "recommended_template": "TPL..."
+          "recommended_template": "TPL_CASE_DIAGNOSTIC_FRAME"
         },
         "render_ready": {
           "question_stem": "다음은 구직급여에 대한 설명이다. (가)에 해당하는 내용을 <보기>에서 선택하시오. (단, 구직급여 수급자격자에 한함.) [3점]",
@@ -398,7 +398,7 @@
           "source_exam": "GAP 유사 변형문제",
           "target_concept": "고용보험 신청 및 가입 절차",
           "item_type": "실전 모의고사",
-          "recommended_template": "TPL..."
+          "recommended_template": "TPL_CASE_DIAGNOSTIC_FRAME"
         },
         "render_ready": {
           "question_stem": "다음 사례의 C, D씨에게 적용될 수 있는 사회 보험에 대한 내용으로 가장 적절한 것은? [3점]",
@@ -505,7 +505,7 @@
           "source_exam": "GAP 유사 변형문제",
           "target_concept": "고용보험 실업 급여 신청 절차",
           "item_type": "실전 모의고사",
-          "recommended_template": "TPL..."
+          "recommended_template": "TPL_CASE_DIAGNOSTIC_FRAME"
         },
         "render_ready": {
           "question_stem": "다음의 고용보험 관련 기사를 분석한 후, 이를 [(주)○○ 기업 사례]에 적용한 내용으로 옳은 것만을 <보기>에서 고른 것은? [3점]",

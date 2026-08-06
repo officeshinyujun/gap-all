@@ -12,7 +12,7 @@
           "source_exam": "GAP 유사 변형문제",
           "target_concept": "노사 관계의 의미 및 중요성",
           "item_type": "실전 모의고사",
-          "recommended_template": "TPL..."
+          "recommended_template": "TPL_CASE_DIAGNOSTIC_FRAME"
         },
         "render_ready": {
           "question_stem": "다음의 노사 관계 사례에 대한 (가), (나) 단체의 설명으로 옳은 것은?",
@@ -80,7 +80,7 @@
           "source_exam": "GAP 유사 변형문제",
           "target_concept": "노사 관계의 기본 구조 및 원칙",
           "item_type": "실전 모의고사",
-          "recommended_template": "TPL..."
+          "recommended_template": "TPL_CASE_DIAGNOSTIC_FRAME"
         },
         "render_ready": {
           "question_stem": "다음 글에 나타난 근로 관계 사례에 대한 설명으로 옳은 것을 <보기>에서 고른 것은? [3점]",
@@ -186,7 +186,7 @@
           "source_exam": "GAP 유사 변형문제",
           "target_concept": "노사 관계의 양면성 및 주체",
           "item_type": "실전 모의고사",
-          "recommended_template": "TPL..."
+          "recommended_template": "TPL_CASE_DIAGNOSTIC_FRAME"
         },
         "render_ready": {
           "question_stem": "다음은 노동 관계의 조정 절차에 대한 수업 장면이다. (가)~(라)에 대한 설명 중 올바른 내용을 <보기>에서 선택하시오. (단, 「노동관계법」에 따르며, 제시된 절차 외의 것은 고려하지 않는다.) [3점]",
@@ -304,7 +304,7 @@
           "source_exam": "GAP 유사 변형문제",
           "target_concept": "노동조합의 종류 및 역할",
           "item_type": "실전 모의고사",
-          "recommended_template": "TPL..."
+          "recommended_template": "TPL_CASE_DIAGNOSTIC_FRAME"
         },
         "render_ready": {
           "question_stem": "7. 다음 노사 관계 관련 대화에서 (가)~(다)에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은? [3점]",
@@ -445,7 +445,7 @@
           "source_exam": "GAP 유사 변형문제",
           "target_concept": "노사 문화의 의미 및 상생 문화 형성",
           "item_type": "실전 모의고사",
-          "recommended_template": "TPL..."
+          "recommended_template": "TPL_CASE_DIAGNOSTIC_FRAME"
         },
         "render_ready": {
           "question_stem": "다음은 △△(주)에 근무하는 B씨의 2024년 업무 기록 일부이다. 이를 통해 알 수 있는 내용으로 가장 적절한 것은? [3점]",
@@ -529,7 +529,7 @@
           "source_exam": "GAP 유사 변형문제",
           "target_concept": "사용자 단체 및 정부의 역할",
           "item_type": "실전 모의고사",
-          "recommended_template": "TPL..."
+          "recommended_template": "TPL_CASE_DIAGNOSTIC_FRAME"
         },
         "render_ready": {
           "question_stem": "다음의 노사 분쟁 경과를 통해 유추할 수 있는 가장 적절한 내용은 무엇인가? [3점]",

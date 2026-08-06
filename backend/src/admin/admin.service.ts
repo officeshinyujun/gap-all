@@ -51,6 +51,7 @@ export class AdminService {
       difficulty: exam.difficulty,
       questionCount: exam.questionCount,
       totalScore: exam.totalScore,
+      sourceType: exam.sourceType ?? null,
       createdAt: exam.createdAt,
       subject: exam.subject
         ? { slug: exam.subject.slug, title: exam.subject.title }

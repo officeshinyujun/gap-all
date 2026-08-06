@@ -245,7 +245,7 @@
           "source_exam": "GAP 유사 변형문제",
           "target_concept": "서비스업의 분류 및 이론적 적용",
           "item_type": "실전 모의고사",
-          "recommended_template": "TPL_직업탐구"
+          "recommended_template": "TPL_CASE_DIAGNOSTIC_FRAME"
         },
         "render_ready": {
           "question_stem": "다음 서비스 사례에서 B기업을 분석한 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
@@ -564,7 +564,7 @@
           "source_exam": "GAP 유사 변형문제",
           "target_concept": "미래 산업 사회의 변화 이해",
           "item_type": "실전 모의고사",
-          "recommended_template": "TPL_..."
+          "recommended_template": "TPL_CASE_DIAGNOSTIC_FRAME"
         },
         "render_ready": {
           "question_stem": "다음 뉴스 내용을 통해 알 수 있는 미래 산업 사회의 모습에 대한 설명으로 가장 적절한 것은?",

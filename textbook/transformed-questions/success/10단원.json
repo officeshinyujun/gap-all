@@ -653,7 +653,7 @@
           "source_exam": "GAP 유사 변형문제",
           "target_concept": "전공별 직무 수행 능력 향상 방법",
           "item_type": "실전 모의고사",
-          "recommended_template": "TPL_GENERAL_DOCUMENT"
+          "recommended_template": "TPL_FORMAL_DOCUMENT"
         },
         "render_ready": {
           "question_stem": "다음은 [학생 B의 진로 탐색 보고서]이다. 이를 통해 알 수 있는 NCS에 대한 내용으로 옳은 것만을 <보기>에서 고른 것은?",
@@ -897,7 +897,7 @@
           "source_exam": "GAP 유사 변형문제",
           "target_concept": "직업훈련 카드 발급 및 온라인 교육 활용 방법",
           "item_type": "실전 모의고사",
-          "recommended_template": "TPL_OFFICIAL_DOCUMENT"
+          "recommended_template": "TPL_FORMAL_DOCUMENT"
         },
         "render_ready": {
           "question_stem": "다음 직무 설명서에 대한 분석 내용으로 적절한 것만을 <보기>에서 선택하시오.",

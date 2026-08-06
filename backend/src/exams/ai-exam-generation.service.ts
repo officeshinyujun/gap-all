@@ -453,7 +453,7 @@ export class AiExamGenerationService {
               questionStem: item.question.questionStem,
               stimulusData: item.question.stimulusData,
               optionsList: [...item.question.optionsList],
-              comboBlock: null,
+              comboBlock: item.question.comboBlock as any,
               explanation: item.question.explanation,
               correctAnswer: item.question.correctAnswer,
               setGroupId: null,

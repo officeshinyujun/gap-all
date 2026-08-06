@@ -99,8 +99,12 @@ export function validateAiQuestion(
     return failed('AI_DISTRACTOR_INVALID', 'duplicate choices');
   }
   const archetype = blueprint.sourceArchetype;
+  const isTruthCombination =
+    archetype?.stemIntent === 'truth_combination' ||
+    archetype?.responseMode === 'truth_combination';
   if (
     archetype !== undefined &&
+    !isTruthCombination &&
       candidate.choiceTexts === undefined &&
     (question.recommendedTemplate !== archetype.sourceTemplate ||
       archetype.responseMode !== 'single_selection' ||
@@ -110,6 +114,7 @@ export function validateAiQuestion(
   }
   if (
     archetype !== undefined &&
+    !isTruthCombination &&
     candidate.choiceTexts === undefined &&
       question.questionStem !==
       (archetype.stemIntent === 'negative_single_selection'
@@ -124,6 +129,7 @@ export function validateAiQuestion(
   }
   if (
     archetype !== undefined &&
+    !isTruthCombination &&
     question.optionsList.some(
       (option) =>
         !option.includes(
@@ -140,7 +146,9 @@ export function validateAiQuestion(
   if (question.correctAnswer !== blueprint.answerIndex) {
     return failed('AI_ANSWER_RULE_MISMATCH', 'answer index mismatch');
   }
-  if (!question.optionsList[blueprint.answerIndex - 1]?.includes(blueprint.targetConcept)) {
+  // ponytail: truth_combination choices are set labels (① ㄱ,ㄴ), not concept sentences.
+  // The answer engine validates correctness; we skip the concept-name-in-choice check.
+  if (!isTruthCombination && !question.optionsList[blueprint.answerIndex - 1]?.includes(blueprint.targetConcept)) {
     return failed('AI_ANSWER_RULE_MISMATCH', 'answer choice does not contain target concept');
   }
   if (

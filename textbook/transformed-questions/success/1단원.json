@@ -109,7 +109,7 @@
           "source_exam": "GAP 유사 변형문제",
           "target_concept": "직업의 가치와 가치관",
           "item_type": "실전 모의고사",
-          "recommended_template": "TPL_기출"
+          "recommended_template": "TPL_CASE_DIAGNOSTIC_FRAME"
         },
         "render_ready": {
           "question_stem": "다음 내용에서 (가) 직업관이 중시하는 가치를 <보기>에서 선택하시오.",

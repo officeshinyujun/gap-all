@@ -120,6 +120,8 @@ export type AiQuestionBlueprint = Readonly<{
   sourceArchetype?: ReferenceArchetype;
   /** Certified source choices for structural encodings such as ㄱㄴㄷ. */
   sourceChoiceTexts?: readonly string[];
+  /** Source view items (보기) for truth_combination archetype. */
+  sourceViewItems?: readonly string[];
   conversationContract?: AiConversationContract;
   sourceFactAnchors?: readonly string[];
   caseContext?: string;

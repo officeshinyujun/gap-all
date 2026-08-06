@@ -16,7 +16,7 @@ export type AiMaterializedQuestion = Readonly<{
   questionStem: string;
   stimulusData: Record<string, unknown>;
   optionsList: readonly string[];
-  comboBlock: null;
+  comboBlock: Readonly<{ title: string; items: readonly Readonly<{ key: string; text: string }>[] }> | null;
   explanation: Readonly<{ judgment: string }>;
   correctAnswer: 1 | 2 | 3 | 4 | 5;
   unitName: string;
@@ -51,8 +51,12 @@ export function materializeAiQuestion(
     };
   }
   const archetype = blueprint.sourceArchetype;
+  const isTruthCombination =
+    archetype?.stemIntent === 'truth_combination' ||
+    archetype?.responseMode === 'truth_combination';
   if (
     archetype !== undefined &&
+    !isTruthCombination &&
     (archetype.sourceTemplate !== blueprint.template ||
       archetype.responseMode !== 'single_selection' ||
       archetype.choiceTopology !== 'single_choice' ||
@@ -76,8 +80,9 @@ export function materializeAiQuestion(
         '서버 answer engine이 유효한 다섯 개 선택지를 만들지 못했습니다.',
     };
   }
-  const questionStem =
-    archetype?.stemIntent === 'negative_single_selection'
+  const questionStem = isTruthCombination
+    ? '다음 자료에 대한 분석으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?'
+    : archetype?.stemIntent === 'negative_single_selection'
       ? blueprint.template === 'TPL_CASE_DIAGNOSTIC_FRAME'
         ? '다음 사례에 대한 설명으로 옳지 않은 것은?'
         : '다음 자료에 대한 설명으로 옳지 않은 것은?'
@@ -108,7 +113,9 @@ export function materializeAiQuestion(
           : questionStem,
       stimulusData,
       optionsList,
-      comboBlock: null,
+      comboBlock: isTruthCombination
+        ? sourceViewComboBlock(blueprint.sourceViewItems)
+        : null,
       explanation: { judgment: candidate.explanationText },
       correctAnswer: derivedAnswer.correctAnswer,
       unitName: `${blueprint.unitNumber}단원`,
@@ -171,11 +178,9 @@ function materializeStimulus(
     case 'TPL_CONVERSATIONAL_FLOW':
       return conversationStimulusData(blueprint, candidate);
     case 'TPL_CASE_DIAGNOSTIC_FRAME':
+      // ponytail: isRecord({}) 통과 위해 빈 객체 필수. 빈 이름이면 렌더러가 아바타를 거의 안 보이게 함.
       return {
-        case_profile: {
-          name: 'AI 생성 사례',
-          context: '제시된 상황을 개념과 연결하여 판단한다.',
-        },
+        case_profile: { name: ' ', context: '' },
         narrative: candidate.stemText,
         check_items: [],
       };
@@ -359,4 +364,37 @@ function asDifficulty(value: string): Difficulty {
   return allowed.includes(value as Difficulty)
     ? (value as Difficulty)
     : Difficulty.MIDDLE;
+}
+
+function sourceViewComboBlock(
+  viewItems: readonly string[] | undefined,
+): AiMaterializedQuestion['comboBlock'] {
+  if (viewItems === undefined || viewItems.length === 0) return null;
+  const items = viewItems
+    .map((item) => {
+      const match = /^([ㄱ-ㅎ])\s*[\.\)]\s*(.+)$/u.exec(item.trim());
+      return match ? { key: match[1]!, text: match[2]!.trim() } : null;
+    })
+    .filter((item): item is { key: string; text: string } => item !== null);
+  if (items.length === 0) return null;
+  return { title: '<보기>', items };
+}
+
+// ponytail: truth_combination 보기 항목(ㄱ.조건1, ㄴ.조건2 ...)을 caseContext(stimulus)에서 추출.
+// 원본 stimulus 텍스트에서 <보기> 섹션이나 ㄱ./ㄴ./ㄷ./ㄹ. 패턴으로 파싱.
+function extractViewItems(caseContext: string): string[] {
+  const text = caseContext ?? '';
+  // 보기 패턴: ㄱ. 텍스트, ㄴ. 텍스트 등
+  const viewPattern = /^[ㄱ-ㅎ]\s*[\.\)]\s*(.+)$/gm;
+  const matches = [...text.matchAll(viewPattern)];
+  if (matches.length >= 2) {
+    return matches.map((m) => m[1]?.trim() ?? '').filter(Boolean);
+  }
+  // 넘버링 패턴: 1. 텍스트, (1) 텍스트 등
+  const numPattern = /^(?:\d+|[①-⑳])\s*[\.\)]\s*(.+)$/gm;
+  const numMatches = [...text.matchAll(numPattern)];
+  if (numMatches.length >= 2) {
+    return numMatches.map((m) => m[1]?.trim() ?? '').filter(Boolean);
+  }
+  return [];
 }
