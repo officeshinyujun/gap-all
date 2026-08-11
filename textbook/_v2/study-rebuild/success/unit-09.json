@@ -1,0 +1,232 @@
+{
+  "artifact": "success-study-rebuild",
+  "version": 3,
+  "subject": "success",
+  "subjectSource": "sungjik",
+  "unitRange": [
+    9,
+    9
+  ],
+  "unit": 9,
+  "unitName": "9단원",
+  "canonicalTags": [
+    "국가직무능력표준(NCS) 분류 체계",
+    "능력단위와 능력단위요소",
+    "NCS 학습모듈",
+    "직업기초능력과 직무수행능력의 구분",
+    "공정 채용과 NCS 기반 능력 중심 채용",
+    "NCS 능력단위 분류번호 체계 해석"
+  ],
+  "tagCount": 6,
+  "cards": [
+    {
+      "name": "국가직무능력표준(NCS) 분류 체계",
+      "rank": 1,
+      "description": null,
+      "keyPoints": [],
+      "examTips": [],
+      "subtopics": [],
+      "conceptContent": {
+        "definition": null,
+        "enrichedDefinition": null,
+        "textbookExcerpt": null,
+        "structuredEvidence": [],
+        "rawEvidence": [],
+        "comparisonTable": ""
+      },
+      "sampleQuestion": null,
+      "relatedQuestions": [],
+      "problemApplication": null,
+      "sourceEvidence": {
+        "sourceCard": null,
+        "structured": 0,
+        "raw": 0
+      },
+      "contentStatus": "needs_review",
+      "validationErrors": [
+        "현재 9단원 원문·구조화·카드·parsed 자료는 근로 계약과 근로자 권리 주제임",
+        "이 카드의 NCS 주제와 연결되는 정의·핵심 포인트·표를 확인할 수 없음",
+        "실제 문제·정답 근거가 없어 새 내용을 만들지 않음"
+      ]
+    },
+    {
+      "name": "능력단위와 능력단위요소",
+      "rank": 2,
+      "description": null,
+      "keyPoints": [],
+      "examTips": [],
+      "subtopics": [],
+      "conceptContent": {
+        "definition": null,
+        "enrichedDefinition": null,
+        "textbookExcerpt": null,
+        "structuredEvidence": [],
+        "rawEvidence": [],
+        "comparisonTable": ""
+      },
+      "sampleQuestion": null,
+      "relatedQuestions": [],
+      "problemApplication": null,
+      "sourceEvidence": {
+        "sourceCard": null,
+        "structured": 0,
+        "raw": 0
+      },
+      "contentStatus": "needs_review",
+      "validationErrors": [
+        "현재 9단원 원문·구조화·카드·parsed 자료는 근로 계약과 근로자 권리 주제임",
+        "이 카드의 NCS 주제와 연결되는 정의·핵심 포인트·표를 확인할 수 없음",
+        "실제 문제·정답 근거가 없어 새 내용을 만들지 않음"
+      ]
+    },
+    {
+      "name": "NCS 학습모듈",
+      "rank": 3,
+      "description": null,
+      "keyPoints": [],
+      "examTips": [],
+      "subtopics": [],
+      "conceptContent": {
+        "definition": null,
+        "enrichedDefinition": null,
+        "textbookExcerpt": null,
+        "structuredEvidence": [],
+        "rawEvidence": [],
+        "comparisonTable": ""
+      },
+      "sampleQuestion": {
+        "number": 5,
+        "source_exam": "성공적인 직업생활",
+        "stimulus": "학생: 선생님, 국가직무능력표준을 검색하다 보니 산업 현장과 교육 현장에서 연계하여 활용할 수 있는 NCS 학습모듈이라는 것이 있는데 이게 무엇인가요?\n교사: (가)",
+        "stem": "다음은 국가직무능력표준 관련 대화 장면이다. (가)에 들어갈\n답변으로 적절한 것만을 <보기>에서 고른 것은?",
+        "box_items": [
+          "ㄱ. 산업 현장과 교육 현장에 필요한 직무 요구서예요.",
+          "ㄴ. 직무의 유형을 중심으로 국가직무능력표준의 단계적 구성을 나타내는 것이에요.",
+          "ㄷ. NCS의 능력단위를 교육훈련에서 학습할 수 있도록 구성한 교수·학습 자료예요.",
+          "ㄹ. 직무를 구체적으로 학습할 수 있도록 이론 및 실습과 관련된 내용을 상세하게 제시한 것이에요."
+        ],
+        "options": [
+          "① ㄱ, ㄴ",
+          "② ㄱ, ㄷ",
+          "③ ㄴ, ㄷ",
+          "④ ㄴ, ㄹ",
+          "⑤ ㄷ, ㄹ"
+        ],
+        "answer": null,
+        "full_text": "다음은 국가직무능력표준 관련 대화 장면이다. (가)에 들어갈\n답변으로 적절한 것만을 <보기>에서 고른 것은?\n학생: 선생님, 국가직무능력표준을 검색하다 보니 산업 현장과 교육 현장에서 연계하여 활용할 수 있는 NCS 학습모듈이라는 것이 있는데 이게 무엇인가요?\n교사: (가)\nㄱ. 산업 현장과 교육 현장에 필요한 직무 요구서예요.\nㄴ. 직무의 유형을 중심으로 국가직무능력표준의 단계적 구성을 나타내는 것이에요.\nㄷ. NCS의 능력단위를 교육훈련에서 학습할 수 있도록 구성한 교수·학습 자료예요.\nㄹ. 직무를 구체적으로 학습할 수 있도록 이론 및 실습과 관련된 내용을 상세하게 제시한 것이에요.\n① ㄱ, ㄴ\n② ㄱ, ㄷ\n③ ㄴ, ㄷ\n④ ㄴ, ㄹ\n⑤ ㄷ, ㄹ"
+      },
+      "relatedQuestions": [],
+      "problemApplication": {
+        "questionNumber": 5,
+        "reason": "실제 문제의 관련 개념과 대표 태그를 연결했다.",
+        "solvingFlow": [
+          "문제의 핵심 단서를 확인한다.",
+          "대표 태그의 개념 기준과 대조한다.",
+          "선지 또는 보기와 근거를 비교한다."
+        ]
+      },
+      "sourceEvidence": {
+        "sourceCard": null,
+        "structured": 0,
+        "raw": 0
+      },
+      "contentStatus": "needs_review",
+      "validationErrors": [
+        "현재 9단원 원문·구조화·카드·parsed 자료는 근로 계약과 근로자 권리 주제임",
+        "이 카드의 NCS 주제와 연결되는 정의·핵심 포인트·표를 확인할 수 없음",
+        "실제 문제·정답 근거가 없어 새 내용을 만들지 않음",
+        "문제 원본의 정답 필드가 비어 있어 정답 검수 필요"
+      ]
+    },
+    {
+      "name": "직업기초능력과 직무수행능력의 구분",
+      "rank": 4,
+      "description": null,
+      "keyPoints": [],
+      "examTips": [],
+      "subtopics": [],
+      "conceptContent": {
+        "definition": null,
+        "enrichedDefinition": null,
+        "textbookExcerpt": null,
+        "structuredEvidence": [],
+        "rawEvidence": [],
+        "comparisonTable": ""
+      },
+      "sampleQuestion": null,
+      "relatedQuestions": [],
+      "problemApplication": null,
+      "sourceEvidence": {
+        "sourceCard": null,
+        "structured": 0,
+        "raw": 0
+      },
+      "contentStatus": "needs_review",
+      "validationErrors": [
+        "현재 9단원 원문·구조화·카드·parsed 자료는 근로 계약과 근로자 권리 주제임",
+        "이 카드의 NCS 주제와 연결되는 정의·핵심 포인트·표를 확인할 수 없음",
+        "실제 문제·정답 근거가 없어 새 내용을 만들지 않음"
+      ]
+    },
+    {
+      "name": "공정 채용과 NCS 기반 능력 중심 채용",
+      "rank": 5,
+      "description": null,
+      "keyPoints": [],
+      "examTips": [],
+      "subtopics": [],
+      "conceptContent": {
+        "definition": null,
+        "enrichedDefinition": null,
+        "textbookExcerpt": null,
+        "structuredEvidence": [],
+        "rawEvidence": [],
+        "comparisonTable": ""
+      },
+      "sampleQuestion": null,
+      "relatedQuestions": [],
+      "problemApplication": null,
+      "sourceEvidence": {
+        "sourceCard": null,
+        "structured": 0,
+        "raw": 0
+      },
+      "contentStatus": "needs_review",
+      "validationErrors": [
+        "현재 9단원 원문·구조화·카드·parsed 자료는 근로 계약과 근로자 권리 주제임",
+        "이 카드의 NCS 주제와 연결되는 정의·핵심 포인트·표를 확인할 수 없음",
+        "실제 문제·정답 근거가 없어 새 내용을 만들지 않음"
+      ]
+    },
+    {
+      "name": "NCS 능력단위 분류번호 체계 해석",
+      "rank": 6,
+      "description": null,
+      "keyPoints": [],
+      "examTips": [],
+      "subtopics": [],
+      "conceptContent": {
+        "definition": null,
+        "enrichedDefinition": null,
+        "textbookExcerpt": null,
+        "structuredEvidence": [],
+        "rawEvidence": [],
+        "comparisonTable": ""
+      },
+      "sampleQuestion": null,
+      "relatedQuestions": [],
+      "problemApplication": null,
+      "sourceEvidence": {
+        "sourceCard": null,
+        "structured": 0,
+        "raw": 0
+      },
+      "contentStatus": "needs_review",
+      "validationErrors": [
+        "현재 9단원 원문·구조화·카드·parsed 자료는 근로 계약과 근로자 권리 주제임",
+        "이 카드의 NCS 주제와 연결되는 정의·핵심 포인트·표를 확인할 수 없음",
+        "실제 문제·정답 근거가 없어 새 내용을 만들지 않음"
+      ]
+    }
+  ]
+}

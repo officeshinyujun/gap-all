@@ -211,6 +211,16 @@ export type AiQuestionCandidate = Readonly<{
   telemetry?: AiProviderTelemetry;
 }>;
 
+export type AiChoiceVerification = Readonly<{
+  passed: boolean;
+  answerIndex: 1 | 2 | 3 | 4 | 5;
+  choices: readonly Readonly<{
+    index: 1 | 2 | 3 | 4 | 5;
+    correct: boolean;
+    reason: string;
+  }>[];
+}>;
+
 export type AiCandidateRepairContext = Readonly<{
   failureReason: string;
   requiredAnchors: readonly string[];

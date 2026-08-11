@@ -10,7 +10,7 @@ export type MainTab = 'concept' | 'overview';
 export type SlideView = 'learn' | 'question';
 
 // 출제 포인트 중요도 순위 표시가 추가되어 기존 응답 캐시 폐기
-const CACHE_VERSION = 'v24';
+const CACHE_VERSION = 'v25';
 
 function getCacheKey(subject: string, unitNumber: number) {
   return `concept-${CACHE_VERSION}-${subject}-${unitNumber}`;

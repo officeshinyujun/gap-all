@@ -126,7 +126,7 @@ export function ConceptStudyPage() {
                   </HStack>
 
                   {/* 섹션 1 — 개념 정의 */}
-                  {(current.description || current.conceptDefinition) && (
+                   {(current.description || current.conceptDefinition) && (
                     <VStack gap={8} fullWidth>
                       <span className={s.sectionTitle}>개념 정의</span>
                       {current.conceptDefinition ? (
@@ -165,6 +165,15 @@ export function ConceptStudyPage() {
                       ) : (
                         <MarkdownWithTable className={s.markdownContent}>{current.description}</MarkdownWithTable>
                       )}
+                    </VStack>
+                   )}
+
+                  {current.subtopics && current.subtopics.length > 0 && (
+                    <VStack gap={8} fullWidth>
+                      <span className={s.sectionTitle}>세부 개념</span>
+                      <ul className={s.bulletList}>
+                        {current.subtopics.map((subtopic) => <li key={subtopic.name}>{subtopic.name}</li>)}
+                      </ul>
                     </VStack>
                   )}
 

@@ -40,6 +40,20 @@ export function deriveAiAnswer(
     };
   }
 
+  // Certified single-selection choices already contain the reference's tested
+  // distractor logic; prefer them over generic concept-only replacements.
+  const sourceChoices = blueprint.sourceChoiceTexts;
+  if (
+    sourceChoices !== undefined &&
+    sourceChoices.length === 5 &&
+    new Set(sourceChoices.map((choice) => choice.normalize('NFKC').trim())).size === 5 &&
+    // ponytail: the reference parser already certifies choice shape; don't discard
+    // concise but valid choices and replace them with generic AI-looking prose.
+    sourceChoices.every((choice) => choice.trim().length > 0)
+  ) {
+    return { optionsList: sourceChoices, correctAnswer: blueprint.answerIndex };
+  }
+
   const answerOffset = blueprint.answerIndex - 1;
   const orderedConcepts = [
     ...blueprint.distractorConcepts.slice(0, answerOffset),

@@ -12,6 +12,7 @@ import {
 } from './ai-blueprint.types';
 import { stableHash } from './reference-selector.utils';
 import { getTplGenerationSpec, type ProviderSlotField } from './ai-tpl-capabilities';
+import type { AiChoiceVerification } from './ai-blueprint.types';
 
 export const AI_BLUEPRINT_PROVIDER = 'AI_BLUEPRINT_PROVIDER';
 export const AI_BLUEPRINT_PROMPT_VERSION = 'v3' as const;
@@ -31,7 +32,8 @@ export type AiProviderDependency = Readonly<{
     signal: AbortSignal,
     responseFormat?:
       | ReturnType<typeof aiCandidateResponseFormat>
-      | ReturnType<typeof aiReferenceAnalysisResponseFormat>,
+      | ReturnType<typeof aiReferenceAnalysisResponseFormat>
+      | ReturnType<typeof aiChoiceVerificationResponseFormat>,
   ) => Promise<string | AiProviderCompletion>;
 }>;
 
@@ -135,6 +137,55 @@ export class AiProviderAdapter {
         'AI_PROVIDER_MALFORMED_OUTPUT',
         'AI 후보 생성 응답을 처리할 수 없습니다.',
       );
+    } finally {
+      clearTimeout(timeout);
+      externalSignal?.removeEventListener('abort', abortFromCaller);
+    }
+  }
+
+  async verifyChoices(
+    blueprint: AiQuestionBlueprint,
+    candidate: AiQuestionCandidate,
+    externalSignal?: AbortSignal,
+  ): Promise<AiChoiceVerification> {
+    if (candidate.choiceTexts === undefined) {
+      throw new AiProviderError('AI_CANDIDATE_SCHEMA_INVALID', '선지 검증 대상이 없습니다.');
+    }
+    const controller = new AbortController();
+    const abortFromCaller = () => controller.abort();
+    externalSignal?.addEventListener('abort', abortFromCaller, { once: true });
+    if (externalSignal?.aborted) controller.abort();
+    const timeout = setTimeout(() => controller.abort(), this.timeoutMs);
+    try {
+      const prompt = JSON.stringify({
+        task: 'Verify the logical correctness of generated choices for a Korean exam question.',
+        targetConcept: blueprint.targetConcept,
+        polarity: blueprint.sourceArchetype?.polarity ?? 'positive',
+        answerRule: blueprint.answerRule,
+        stemText: candidate.stemText,
+        choices: candidate.choiceTexts,
+        sourceContext: blueprint.caseContext ?? null,
+        sourceFactAnchors: blueprint.sourceFactAnchors ?? [],
+        instructions: [
+          'Determine independently which single choice satisfies the answer rule.',
+          'For negative questions, exactly one choice must violate the rule.',
+          'Reject choices that contradict the source facts or cannot be decided from the stem.',
+          'Return only the requested JSON object.',
+        ],
+      });
+      const completion = await this.dependency.complete(
+        prompt,
+        controller.signal,
+        aiChoiceVerificationResponseFormat(),
+      );
+      const content = typeof completion === 'string' ? completion : completion.content;
+      return parseAiChoiceVerification(content);
+    } catch (error: unknown) {
+      if (error instanceof AiProviderError) throw error;
+      if (controller.signal.aborted) {
+        throw new AiProviderError('AI_PROVIDER_TIMEOUT', '선지 의미 검증 시간이 초과되었습니다.');
+      }
+      throw new AiProviderError('AI_PROVIDER_MALFORMED_OUTPUT', '선지 의미 검증 응답을 처리할 수 없습니다.');
     } finally {
       clearTimeout(timeout);
       externalSignal?.removeEventListener('abort', abortFromCaller);
@@ -257,25 +308,17 @@ function templateExample(
   "explanationText": "자료의 조건을 기준으로 정답 개념과 판단 근거를 설명한다."
 }`;
   }
-  // --- single_selection (일반 선택형): LLM이 사례 + 선택지 + 해설 생성 ---
+  // --- single_selection (일반 선택형): LLM이 사례 + 해설만 생성 ---
   if (tpl === 'TPL_CASE_DIAGNOSTIC_FRAME') {
     const polarityHint = mode === 'negative_single_selection'
       ? '(옳지 않은 것 고르기 — negative)'
       : '(옳은 것 고르기 — positive)';
-    return `[예시: single_selection 사례+선택지 생성 ${polarityHint} — 노동 관련 법률]
+    return `[예시: single_selection 사례 생성 ${polarityHint} — 노동 관련 법률]
 개념(targetConcept) = "노동조합", 사례 맥락(caseContext) = "근로자들의 단체교섭과 쟁의행위".
 줄거리(stemText)는 개념명("노동조합")을 직접 노출하지 않고 구체적인 행위(임금 인상 요구, 단체교섭, 파업)만으로 묘사해야 한다.
-선택지(choiceTexts) 5개는 blueprint.choiceFocuses의 cue를 각각 반영해야 한다. 개념명만 바꾼 generic 문장을 반복하지 말고, 사례의 서로 다른 행위·조건·수치를 판단하게 하라.
 올바른 출력 예:
 {
   "stemText": "A기업의 근로자 30명이 임금 인상을 요구하며 노동위원회에 조정을 신청하였다. 사용자는 경영상의 어려움을 이유로 임금 인상을 거부하였고, 근로자들은 단체교섭을 요구하였으나 사용자가 응하지 않았다. 이에 근로자들은 조합원 과반수의 찬성으로 파업을 결의하였다.",
-  "choiceTexts": [
-    "근로자 30명이 임금 인상을 요구하며 단체교섭을 신청한 행위는 노동조합 활동의 판단 단서가 된다.",
-    "근로자들이 조합원 과반수의 찬성으로 파업을 결의한 사실은 직무 분석의 판단 근거가 아니다.",
-    "사용자가 단체교섭에 응하지 않은 상황은 인사 평가의 실시 여부를 보여 주는 단서가 아니다.",
-    "노동위원회에 조정을 신청한 행위는 경력 개발을 위한 교육 활동으로 볼 수 없다.",
-    "임금 인상 요구와 쟁의행위의 목적은 직업 훈련의 내용과 구별된다."
-  ],
   "explanationText": "노동조합은 근로자가 주체가 되어 근로 조건의 유지·개선을 목적으로 조직하는 단체이다. 사례에서 근로자들이 임금 인상을 요구하며 단체교섭과 쟁의행위(파업)를 추진한 것은 노동조합의 전형적인 활동에 해당한다. 한편 직무 분석, 인사 평가, 경력 개발, 직업 훈련은 인사 관리의 개별 활동이므로 이 사례와 관련이 없다."
 }`;
   }
@@ -381,6 +424,7 @@ export function buildAiCandidatePrompt(
                 blueprint.sourceArchetype.conceptRoleCardinality,
             },
       sourceContext: blueprint.caseContext ?? null,
+      sourceChoiceTexts: blueprint.sourceChoiceTexts ?? null,
       conversationContract: blueprint.conversationContract ?? null,
       variantOrdinal: blueprint.variantOrdinal ?? 1,
       invariantFacts: blueprint.invariantFacts,
@@ -400,6 +444,9 @@ export function buildAiCandidatePrompt(
               'stemText is ONLY the case narrative (pure descriptive prose).',
               'The server prepends the question stem like "다음 사례에 대한 설명으로 옳은 것은?". Do NOT write question sentences yourself.',
               'Never include: "무엇입니까?", "고르시오", "답하시오", "가장 적절한 것은?", "옳은 것은?", or any question mark at end.',
+              ...(blueprint.sourceChoiceTexts === undefined
+                ? []
+                : ['The certified reference choices remain unchanged; preserve every fact and condition needed to judge them in stemText.']),
               `Difficulty: ${blueprint.difficulty}. ${
                 blueprint.difficulty === 'LOW'
                   ? 'Use straightforward scenarios with clear, obvious distinctions.'
@@ -566,6 +613,41 @@ export function parseAiQuestionCandidate(
   };
 }
 
+function parseAiChoiceVerification(content: string): AiChoiceVerification {
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(content);
+  } catch {
+    throw new AiProviderError('AI_PROVIDER_MALFORMED_OUTPUT', '선지 검증 응답이 유효한 JSON이 아닙니다.');
+  }
+  if (!isRecord(parsed) || typeof parsed.passed !== 'boolean' ||
+      !Number.isInteger(parsed.answerIndex) ||
+      ![1, 2, 3, 4, 5].includes(parsed.answerIndex as number) ||
+      !Array.isArray(parsed.choices) || parsed.choices.length !== 5) {
+    throw new AiProviderError('AI_CANDIDATE_SCHEMA_INVALID', '선지 검증 응답 형식이 올바르지 않습니다.');
+  }
+  const choices = parsed.choices;
+  if (!choices.every((choice) => isRecord(choice) &&
+      Number.isInteger(choice.index) && [1, 2, 3, 4, 5].includes(choice.index as number) &&
+      typeof choice.correct === 'boolean' && typeof choice.reason === 'string' &&
+      choice.reason.trim() !== '')) {
+    throw new AiProviderError('AI_CANDIDATE_SCHEMA_INVALID', '선지별 검증 결과가 올바르지 않습니다.');
+  }
+  const indexes = choices.map((choice) => (choice as Record<string, unknown>).index);
+  if (new Set(indexes).size !== 5) {
+    throw new AiProviderError('AI_CANDIDATE_SCHEMA_INVALID', '선지 검증 결과에 중복 번호가 있습니다.');
+  }
+  return {
+    passed: parsed.passed,
+    answerIndex: parsed.answerIndex as 1 | 2 | 3 | 4 | 5,
+    choices: choices.map((choice) => ({
+      index: (choice as Record<string, unknown>).index as 1 | 2 | 3 | 4 | 5,
+      correct: (choice as Record<string, unknown>).correct as boolean,
+      reason: ((choice as Record<string, unknown>).reason as string).trim(),
+    })),
+  };
+}
+
 function canRecoverLegacyConversation(blueprint: AiQuestionBlueprint): boolean {
   const contract = blueprint.conversationContract;
   const lines = (blueprint.caseContext ?? '').split('\n')
@@ -655,6 +737,40 @@ export function aiCandidateResponseFormat(
   };
 }
 
+function aiChoiceVerificationResponseFormat() {
+  return {
+    type: 'json_schema',
+    json_schema: {
+      name: 'ai_choice_verification',
+      strict: true,
+      schema: {
+        type: 'object',
+        additionalProperties: false,
+        properties: {
+          passed: { type: 'boolean' },
+          answerIndex: { type: 'integer', enum: [1, 2, 3, 4, 5] },
+          choices: {
+            type: 'array',
+            minItems: 5,
+            maxItems: 5,
+            items: {
+              type: 'object',
+              additionalProperties: false,
+              properties: {
+                index: { type: 'integer', enum: [1, 2, 3, 4, 5] },
+                correct: { type: 'boolean' },
+                reason: { type: 'string', minLength: 1, maxLength: 300 },
+              },
+              required: ['index', 'correct', 'reason'],
+            },
+          },
+        },
+        required: ['passed', 'answerIndex', 'choices'],
+      },
+    },
+  } as const;
+}
+
 function providerSlotField(
   template: string | undefined,
 ): ProviderSlotField | undefined {
@@ -666,18 +782,10 @@ function providerSlotField(
 function supportsGeneratedChoices(
   blueprint: AiQuestionBlueprint | undefined,
 ): boolean {
-  if (blueprint?.sourceArchetype === undefined) return false;
-  // ponytail: truth_combination choices are server-owned set combinations (ㄱㄴㄷㄹ).
-  if (
-    blueprint.sourceArchetype.stemIntent === 'truth_combination' ||
-    blueprint.sourceArchetype.responseMode === 'truth_combination'
-  ) {
-    return false;
-  }
-  return (
-    blueprint.template === 'TPL_CASE_DIAGNOSTIC_FRAME' ||
-    providerSlotField(blueprint.template) !== undefined
-  );
+  return blueprint?.template === 'TPL_CASE_DIAGNOSTIC_FRAME' &&
+    blueprint.sourceArchetype !== undefined &&
+    !isTruthCombinationBlueprint(blueprint) &&
+    blueprint.sourceChoiceTexts === undefined;
 }
 
 function isTruthCombinationBlueprint(

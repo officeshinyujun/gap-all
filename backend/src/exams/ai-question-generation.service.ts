@@ -24,6 +24,7 @@ export const AI_QUESTION_CANDIDATE_PROVIDER = 'AI_QUESTION_CANDIDATE_PROVIDER';
 
 export type AiQuestionCandidateProvider = Readonly<{
   generate: AiProviderAdapter['generate'];
+  verifyChoices?: AiProviderAdapter['verifyChoices'];
 }>;
 
 export type AiAcceptedQuestion = Readonly<{
@@ -144,6 +145,70 @@ export class AiQuestionGenerationService {
               requiredAnchors: blueprint.sourceFactAnchors ?? [],
             };
             continue;
+          }
+          if (candidate.choiceTexts !== undefined) {
+            const verification = await this.provider.verifyChoices?.(
+              blueprint,
+              candidate,
+              abortSignal,
+            );
+            if (verification === undefined) {
+              // Generated choices are never admitted without the semantic gate.
+              // Fall back to the server-owned answer engine for custom providers.
+              rejected.push({
+                blueprintId: blueprint.id,
+                template: blueprint.template,
+                attempt,
+                code: 'AI_ANSWER_RULE_MISMATCH',
+                message: 'generated choices require semantic verification',
+              });
+              const serverChoiceCandidate = { ...candidate, choiceTexts: undefined };
+              const serverChoiceMaterialized = materializeAiQuestion(
+                blueprint,
+                serverChoiceCandidate,
+              );
+              if (serverChoiceMaterialized.kind === 'accepted') {
+                const serverChoiceValidation = validateAiQuestion(
+                  blueprint,
+                  serverChoiceCandidate,
+                  serverChoiceMaterialized.question,
+                );
+                if (serverChoiceValidation.passed) {
+                  admitted = {
+                    blueprint,
+                    candidate: serverChoiceCandidate,
+                    question: serverChoiceMaterialized.question,
+                    validation: serverChoiceValidation,
+                    fingerprint: aiQuestionFingerprint(serverChoiceMaterialized.question),
+                    attempt,
+                  };
+                  break;
+                }
+              }
+              continue;
+            }
+            if (verification !== undefined &&
+              !verification.passed ||
+              (verification !== undefined && verification.answerIndex !== blueprint.answerIndex) ||
+              (verification !== undefined && verification.choices.length !== 5) ||
+              (verification !== undefined && verification.choices.filter((choice) => choice.correct).length !== 1) ||
+              (verification !== undefined && !verification.choices.every((choice) =>
+                choice.correct === (choice.index === blueprint.answerIndex),
+              ))) {
+              const message = 'semantic choice verification failed';
+              rejected.push({
+                blueprintId: blueprint.id,
+                template: blueprint.template,
+                attempt,
+                code: 'AI_ANSWER_RULE_MISMATCH',
+                message,
+              });
+              repair = {
+                failureReason: message,
+                requiredAnchors: blueprint.sourceFactAnchors ?? [],
+              };
+              continue;
+            }
           }
           const validation = validateAiQuestion(
             blueprint,

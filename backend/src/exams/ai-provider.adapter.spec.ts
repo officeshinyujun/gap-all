@@ -93,7 +93,7 @@ describe('AiProviderAdapter', () => {
     });
   });
 
-  it('accepts source-backed conversation choices as bounded prose', () => {
+  it('keeps source-backed conversation choices server-owned', () => {
     const classified = classifyReferenceArchetype({
       stem: '다음 대화에 대한 설명으로 옳은 것은?',
       stimulus: '교사: 조건을 확인하자.\n학생: 사례를 검토하겠습니다.',
@@ -119,12 +119,14 @@ describe('AiProviderAdapter', () => {
       parseAiQuestionCandidate(
         JSON.stringify({
           messageTexts: ['조건을 확인하자.', '사례를 검토하겠습니다.'],
-          choiceTexts: ['첫 번째 판단 문장입니다.', '두 번째 판단 문장입니다.', '세 번째 판단 문장입니다.', '네 번째 판단 문장입니다.', '다섯 번째 판단 문장입니다.'],
           explanationText: '대화의 조건을 기준으로 판단한다.',
         }),
         conversationBlueprint,
       ),
-    ).toEqual(expect.objectContaining({ choiceTexts: expect.any(Array) }));
+    ).toEqual(expect.objectContaining({
+      stemText: '조건을 확인하자.\n사례를 검토하겠습니다.',
+      explanationText: '대화의 조건을 기준으로 판단한다.',
+    }));
   });
 
   it('falls back to server-owned choices when a source-backed provider omits choice prose', () => {
@@ -273,7 +275,8 @@ describe('AiProviderAdapter', () => {
     const prompt = buildAiCandidatePrompt(focusedBlueprint, 1);
 
     expect(prompt).toContain('choiceFocuses');
-    expect(prompt).toContain('개념명만 바꾼 generic 문장');
+    expect(prompt).toContain('stemText');
+    expect(prompt).toContain('choiceTexts');
     expect(prompt).toContain('만 18세');
   });
 

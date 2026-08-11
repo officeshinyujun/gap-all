@@ -1,0 +1,1192 @@
+{
+  "subject": "success",
+  "generatedAt": "2026-08-11T13:23:19.606Z",
+  "units": [
+    {
+      "subject": "success",
+      "unit": 1,
+      "unitName": "1단원",
+      "tagCount": 6,
+      "cardCount": 6,
+      "completeCards": 2,
+      "needsReviewCards": 4,
+      "issues": [
+        {
+          "card": "홀랜드(Holland) 직업 흥미 유형",
+          "error": "missing realQuestion: 지정된 최신 자료에 이 태그의 정답 문제 근거가 없음"
+        },
+        {
+          "card": "홀랜드(Holland) 직업 흥미 유형",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        },
+        {
+          "card": "직업의 요건(계속성, 경제성, 사회성,",
+          "error": "missing realQuestion: 지정된 최신 자료에 이 태그의 정답 문제 근거가 없음"
+        },
+        {
+          "card": "직업의 요건(계속성, 경제성, 사회성,",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        },
+        {
+          "card": "근무 방식(유연근로시간제, 교대근무,",
+          "error": "missing realQuestion: 지정된 최신 자료에 이 태그의 정답 문제 근거가 없음"
+        },
+        {
+          "card": "근무 방식(유연근로시간제, 교대근무,",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        },
+        {
+          "card": "하렌(Harren)의 진로 의사 결정 유형",
+          "error": "missing realQuestion: 지정된 최신 자료에 하렌 진로 의사 결정 유형의 정의와 정답 문제 근거가 없음"
+        },
+        {
+          "card": "하렌(Harren)의 진로 의사 결정 유형",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        }
+      ]
+    },
+    {
+      "subject": "success",
+      "unit": 2,
+      "unitName": "2단원",
+      "tagCount": 5,
+      "cardCount": 5,
+      "completeCards": 5,
+      "needsReviewCards": 0,
+      "issues": []
+    },
+    {
+      "subject": "success",
+      "unit": 3,
+      "unitName": "3단원",
+      "tagCount": 7,
+      "cardCount": 7,
+      "completeCards": 3,
+      "needsReviewCards": 4,
+      "issues": [
+        {
+          "card": "성공한 직업인의 특성(장인 정신, 소명 의식",
+          "error": "missing realQuestion: 지정된 최신 자료에 이 세부 태그의 정답 문제 근거가 없음"
+        },
+        {
+          "card": "성공한 직업인의 특성(장인 정신, 소명 의식",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        },
+        {
+          "card": "진로 결정의 요인(개인적·환경적 요인)",
+          "error": "missing realQuestion: 지정된 최신 자료에 이 태그의 정답 문제 근거가 없음"
+        },
+        {
+          "card": "진로 결정의 요인(개인적·환경적 요인)",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        },
+        {
+          "card": "개인 특성(흥미, 적성, 성격, 자아 정체감)",
+          "error": "missing realQuestion: 지정된 최신 자료에 이 태그의 정답 문제 근거가 없음"
+        },
+        {
+          "card": "개인 특성(흥미, 적성, 성격, 자아 정체감)",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        },
+        {
+          "card": "조하리의 창(Johari's Window)",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        },
+        {
+          "card": "조하리의 창(Johari's Window)",
+          "error": "문제 원본의 정답 필드가 비어 있어 정답 검수 필요"
+        }
+      ]
+    },
+    {
+      "subject": "success",
+      "unit": 4,
+      "unitName": "4단원",
+      "tagCount": 6,
+      "cardCount": 6,
+      "completeCards": 2,
+      "needsReviewCards": 4,
+      "issues": [
+        {
+          "card": "사회적 기업",
+          "error": "문제 원본의 정답 필드가 비어 있어 정답 검수 필요"
+        },
+        {
+          "card": "캐럴(Carroll)의 기업의 사회적 책임",
+          "error": "문제 원본의 정답 필드가 비어 있어 정답 검수 필요"
+        },
+        {
+          "card": "협동조합",
+          "error": "문제 원본의 정답 필드가 비어 있어 정답 검수 필요"
+        },
+        {
+          "card": "공기업(공공 기업)",
+          "error": "문제 원본의 정답 필드가 비어 있어 정답 검수 필요"
+        }
+      ]
+    },
+    {
+      "subject": "success",
+      "unit": 5,
+      "unitName": "5단원",
+      "tagCount": 7,
+      "cardCount": 7,
+      "completeCards": 2,
+      "needsReviewCards": 5,
+      "issues": [
+        {
+          "card": "마케팅 믹스(4P) 전략",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        },
+        {
+          "card": "마케팅 믹스(4P) 전략",
+          "error": "문제 원본의 정답 필드가 비어 있어 정답 검수 필요"
+        },
+        {
+          "card": "기업의 부문별 경영 활동(인적자원·생산",
+          "error": "missing realQuestion: 지정된 최신 자료에 해당 세부 태그의 정답 문제 근거가 없음"
+        },
+        {
+          "card": "기업의 부문별 경영 활동(인적자원·생산",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        },
+        {
+          "card": "STP 전략(세분화-타겟팅-포지셔닝)",
+          "error": "missing realQuestion: 지정된 최신 자료에 STP 전략의 정답 문제 근거가 없음"
+        },
+        {
+          "card": "STP 전략(세분화-타겟팅-포지셔닝)",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        },
+        {
+          "card": "경영 참가 제도(스톡옵션, 이윤분배제,",
+          "error": "missing realQuestion: 지정된 최신 자료에 경영 참가 제도의 정답 문제 근거가 없음"
+        },
+        {
+          "card": "경영 참가 제도(스톡옵션, 이윤분배제,",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        },
+        {
+          "card": "조직 형태",
+          "error": "missing realQuestion: 지정된 최신 자료에 조직 형태의 정답 문제 근거가 없음"
+        },
+        {
+          "card": "조직 형태",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        }
+      ]
+    },
+    {
+      "subject": "success",
+      "unit": 6,
+      "unitName": "6단원",
+      "tagCount": 7,
+      "cardCount": 7,
+      "completeCards": 6,
+      "needsReviewCards": 1,
+      "issues": [
+        {
+          "card": "전자 상거래 유형(B2B, B2C, B2G)",
+          "error": "현재 카드·구조화 자료에서 이 개념에 연결된 실제 문제·정답을 확인할 수 없음"
+        },
+        {
+          "card": "전자 상거래 유형(B2B, B2C, B2G)",
+          "error": "정의·핵심 포인트·표·원문 발췌만 보완함"
+        },
+        {
+          "card": "전자 상거래 유형(B2B, B2C, B2G)",
+          "error": "새 문제·정답은 생성하지 않음"
+        },
+        {
+          "card": "전자 상거래 유형(B2B, B2C, B2G)",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        }
+      ]
+    },
+    {
+      "subject": "success",
+      "unit": 7,
+      "unitName": "7단원",
+      "tagCount": 7,
+      "cardCount": 7,
+      "completeCards": 6,
+      "needsReviewCards": 1,
+      "issues": [
+        {
+          "card": "(대량생산/개별생산/생산라인방식/고객참여방식)",
+          "error": "현재 카드 원본에서 이 대표 태그에 직접 연결된 실제 문제·정답을 확인할 수 없음"
+        },
+        {
+          "card": "(대량생산/개별생산/생산라인방식/고객참여방식)",
+          "error": "구조화된 서비스 생산 방식 근거로 정의·핵심 포인트를 보완함"
+        },
+        {
+          "card": "(대량생산/개별생산/생산라인방식/고객참여방식)",
+          "error": "새 문제·정답은 생성하지 않음"
+        },
+        {
+          "card": "(대량생산/개별생산/생산라인방식/고객참여방식)",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        }
+      ]
+    },
+    {
+      "subject": "success",
+      "unit": 8,
+      "unitName": "8단원",
+      "tagCount": 6,
+      "cardCount": 6,
+      "completeCards": 6,
+      "needsReviewCards": 0,
+      "issues": []
+    },
+    {
+      "subject": "success",
+      "unit": 9,
+      "unitName": "9단원",
+      "tagCount": 6,
+      "cardCount": 6,
+      "completeCards": 0,
+      "needsReviewCards": 6,
+      "issues": [
+        {
+          "card": "국가직무능력표준(NCS) 분류 체계",
+          "error": "현재 9단원 원문·구조화·카드·parsed 자료는 근로 계약과 근로자 권리 주제임"
+        },
+        {
+          "card": "국가직무능력표준(NCS) 분류 체계",
+          "error": "이 카드의 NCS 주제와 연결되는 정의·핵심 포인트·표를 확인할 수 없음"
+        },
+        {
+          "card": "국가직무능력표준(NCS) 분류 체계",
+          "error": "실제 문제·정답 근거가 없어 새 내용을 만들지 않음"
+        },
+        {
+          "card": "능력단위와 능력단위요소",
+          "error": "현재 9단원 원문·구조화·카드·parsed 자료는 근로 계약과 근로자 권리 주제임"
+        },
+        {
+          "card": "능력단위와 능력단위요소",
+          "error": "이 카드의 NCS 주제와 연결되는 정의·핵심 포인트·표를 확인할 수 없음"
+        },
+        {
+          "card": "능력단위와 능력단위요소",
+          "error": "실제 문제·정답 근거가 없어 새 내용을 만들지 않음"
+        },
+        {
+          "card": "NCS 학습모듈",
+          "error": "현재 9단원 원문·구조화·카드·parsed 자료는 근로 계약과 근로자 권리 주제임"
+        },
+        {
+          "card": "NCS 학습모듈",
+          "error": "이 카드의 NCS 주제와 연결되는 정의·핵심 포인트·표를 확인할 수 없음"
+        },
+        {
+          "card": "NCS 학습모듈",
+          "error": "실제 문제·정답 근거가 없어 새 내용을 만들지 않음"
+        },
+        {
+          "card": "NCS 학습모듈",
+          "error": "문제 원본의 정답 필드가 비어 있어 정답 검수 필요"
+        },
+        {
+          "card": "직업기초능력과 직무수행능력의 구분",
+          "error": "현재 9단원 원문·구조화·카드·parsed 자료는 근로 계약과 근로자 권리 주제임"
+        },
+        {
+          "card": "직업기초능력과 직무수행능력의 구분",
+          "error": "이 카드의 NCS 주제와 연결되는 정의·핵심 포인트·표를 확인할 수 없음"
+        },
+        {
+          "card": "직업기초능력과 직무수행능력의 구분",
+          "error": "실제 문제·정답 근거가 없어 새 내용을 만들지 않음"
+        },
+        {
+          "card": "공정 채용과 NCS 기반 능력 중심 채용",
+          "error": "현재 9단원 원문·구조화·카드·parsed 자료는 근로 계약과 근로자 권리 주제임"
+        },
+        {
+          "card": "공정 채용과 NCS 기반 능력 중심 채용",
+          "error": "이 카드의 NCS 주제와 연결되는 정의·핵심 포인트·표를 확인할 수 없음"
+        },
+        {
+          "card": "공정 채용과 NCS 기반 능력 중심 채용",
+          "error": "실제 문제·정답 근거가 없어 새 내용을 만들지 않음"
+        },
+        {
+          "card": "NCS 능력단위 분류번호 체계 해석",
+          "error": "현재 9단원 원문·구조화·카드·parsed 자료는 근로 계약과 근로자 권리 주제임"
+        },
+        {
+          "card": "NCS 능력단위 분류번호 체계 해석",
+          "error": "이 카드의 NCS 주제와 연결되는 정의·핵심 포인트·표를 확인할 수 없음"
+        },
+        {
+          "card": "NCS 능력단위 분류번호 체계 해석",
+          "error": "실제 문제·정답 근거가 없어 새 내용을 만들지 않음"
+        }
+      ]
+    },
+    {
+      "subject": "success",
+      "unit": 10,
+      "unitName": "10단원",
+      "tagCount": 6,
+      "cardCount": 6,
+      "completeCards": 5,
+      "needsReviewCards": 1,
+      "issues": [
+        {
+          "card": "취업 계획 수립 절차",
+          "error": "현재 자료에는 보건·의료 직무기술서의 계획 수립 사례만 있고 취업 계획의 일반 절차는 확인되지 않음"
+        },
+        {
+          "card": "취업 계획 수립 절차",
+          "error": "실제 문제·정답 연결 자료가 없어 정의·핵심 포인트·표를 새로 만들지 않음"
+        },
+        {
+          "card": "취업 계획 수립 절차",
+          "error": "새 문제·정답은 생성하지 않음"
+        },
+        {
+          "card": "취업 계획 수립 절차",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        }
+      ]
+    },
+    {
+      "subject": "success",
+      "unit": 11,
+      "unitName": "11단원",
+      "tagCount": 6,
+      "cardCount": 6,
+      "completeCards": 3,
+      "needsReviewCards": 3,
+      "issues": [
+        {
+          "card": "경력 개발 단계(직업 선택~경력 말기)",
+          "error": "missing source card"
+        },
+        {
+          "card": "경력 개발 단계(직업 선택~경력 말기)",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        },
+        {
+          "card": "경력 개발 단계(직업 선택~경력 말기)",
+          "error": "문제 원본의 정답 필드가 비어 있어 정답 검수 필요"
+        },
+        {
+          "card": "일학습병행제(산학일체형 도제학교)",
+          "error": "missing source card"
+        },
+        {
+          "card": "일학습병행제(산학일체형 도제학교)",
+          "error": "missing realQuestion"
+        },
+        {
+          "card": "일학습병행제(산학일체형 도제학교)",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        },
+        {
+          "card": "평생학습계좌제",
+          "error": "missing source card"
+        },
+        {
+          "card": "평생학습계좌제",
+          "error": "missing source definition"
+        },
+        {
+          "card": "평생학습계좌제",
+          "error": "missing source keyPoints"
+        },
+        {
+          "card": "평생학습계좌제",
+          "error": "missing source excerpt"
+        },
+        {
+          "card": "평생학습계좌제",
+          "error": "missing matched structured/raw evidence"
+        },
+        {
+          "card": "평생학습계좌제",
+          "error": "문제 원본의 정답 필드가 비어 있어 정답 검수 필요"
+        }
+      ]
+    },
+    {
+      "subject": "success",
+      "unit": 12,
+      "unitName": "12단원",
+      "tagCount": 6,
+      "cardCount": 6,
+      "completeCards": 0,
+      "needsReviewCards": 6,
+      "issues": [
+        {
+          "card": "진로 의사 결정 과정(문제 인식~실행)",
+          "error": "missing source card"
+        },
+        {
+          "card": "진로 의사 결정 과정(문제 인식~실행)",
+          "error": "missing source definition"
+        },
+        {
+          "card": "진로 의사 결정 과정(문제 인식~실행)",
+          "error": "missing source keyPoints"
+        },
+        {
+          "card": "진로 의사 결정 과정(문제 인식~실행)",
+          "error": "missing source excerpt"
+        },
+        {
+          "card": "진로 의사 결정 과정(문제 인식~실행)",
+          "error": "missing matched structured/raw evidence"
+        },
+        {
+          "card": "진로 의사 결정 과정(문제 인식~실행)",
+          "error": "missing realQuestion"
+        },
+        {
+          "card": "취업 계획 수립 절차",
+          "error": "missing source card"
+        },
+        {
+          "card": "취업 계획 수립 절차",
+          "error": "missing source definition"
+        },
+        {
+          "card": "취업 계획 수립 절차",
+          "error": "missing source keyPoints"
+        },
+        {
+          "card": "취업 계획 수립 절차",
+          "error": "missing source excerpt"
+        },
+        {
+          "card": "취업 계획 수립 절차",
+          "error": "missing matched structured/raw evidence"
+        },
+        {
+          "card": "취업 계획 수립 절차",
+          "error": "문제 원본의 정답 필드가 비어 있어 정답 검수 필요"
+        },
+        {
+          "card": "하렌(Harren)의 진로 의사 결정 유형",
+          "error": "missing source card"
+        },
+        {
+          "card": "하렌(Harren)의 진로 의사 결정 유형",
+          "error": "missing source definition"
+        },
+        {
+          "card": "하렌(Harren)의 진로 의사 결정 유형",
+          "error": "missing source keyPoints"
+        },
+        {
+          "card": "하렌(Harren)의 진로 의사 결정 유형",
+          "error": "missing source excerpt"
+        },
+        {
+          "card": "하렌(Harren)의 진로 의사 결정 유형",
+          "error": "missing matched structured/raw evidence"
+        },
+        {
+          "card": "하렌(Harren)의 진로 의사 결정 유형",
+          "error": "문제 원본의 정답 필드가 비어 있어 정답 검수 필요"
+        },
+        {
+          "card": "취업의 의미(개인·기업·정부 측면)",
+          "error": "missing source card"
+        },
+        {
+          "card": "취업의 의미(개인·기업·정부 측면)",
+          "error": "missing source definition"
+        },
+        {
+          "card": "취업의 의미(개인·기업·정부 측면)",
+          "error": "missing source keyPoints"
+        },
+        {
+          "card": "취업의 의미(개인·기업·정부 측면)",
+          "error": "missing source excerpt"
+        },
+        {
+          "card": "취업의 의미(개인·기업·정부 측면)",
+          "error": "missing matched structured/raw evidence"
+        },
+        {
+          "card": "취업의 의미(개인·기업·정부 측면)",
+          "error": "missing realQuestion"
+        },
+        {
+          "card": "기업의 인재상과 채용 환경 변화",
+          "error": "missing source card"
+        },
+        {
+          "card": "기업의 인재상과 채용 환경 변화",
+          "error": "missing source definition"
+        },
+        {
+          "card": "기업의 인재상과 채용 환경 변화",
+          "error": "missing source keyPoints"
+        },
+        {
+          "card": "기업의 인재상과 채용 환경 변화",
+          "error": "missing source excerpt"
+        },
+        {
+          "card": "기업의 인재상과 채용 환경 변화",
+          "error": "missing matched structured/raw evidence"
+        },
+        {
+          "card": "기업의 인재상과 채용 환경 변화",
+          "error": "missing realQuestion"
+        },
+        {
+          "card": "해비거스트(Havighurst) 생애 발달",
+          "error": "missing source card"
+        },
+        {
+          "card": "해비거스트(Havighurst) 생애 발달",
+          "error": "missing source definition"
+        },
+        {
+          "card": "해비거스트(Havighurst) 생애 발달",
+          "error": "missing source keyPoints"
+        },
+        {
+          "card": "해비거스트(Havighurst) 생애 발달",
+          "error": "missing source excerpt"
+        },
+        {
+          "card": "해비거스트(Havighurst) 생애 발달",
+          "error": "missing matched structured/raw evidence"
+        },
+        {
+          "card": "해비거스트(Havighurst) 생애 발달",
+          "error": "missing realQuestion"
+        }
+      ]
+    },
+    {
+      "subject": "success",
+      "unit": 13,
+      "unitName": "13단원",
+      "tagCount": 8,
+      "cardCount": 8,
+      "completeCards": 2,
+      "needsReviewCards": 6,
+      "issues": [
+        {
+          "card": "NCS 기반 능력 중심 채용(블라인드 채용)",
+          "error": "missing source card"
+        },
+        {
+          "card": "NCS 기반 능력 중심 채용(블라인드 채용)",
+          "error": "missing realQuestion"
+        },
+        {
+          "card": "NCS 기반 능력 중심 채용(블라인드 채용)",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        },
+        {
+          "card": "면접 유형(경험면접, 상황면접, 토론면접,",
+          "error": "missing source card"
+        },
+        {
+          "card": "면접 유형(경험면접, 상황면접, 토론면접,",
+          "error": "missing realQuestion"
+        },
+        {
+          "card": "면접 유형(경험면접, 상황면접, 토론면접,",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        },
+        {
+          "card": "직업 기초 능력(NCS 10개 영역)",
+          "error": "missing source card"
+        },
+        {
+          "card": "직업 기초 능력(NCS 10개 영역)",
+          "error": "missing realQuestion"
+        },
+        {
+          "card": "직업 기초 능력(NCS 10개 영역)",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        },
+        {
+          "card": "산업 분류(클라크, 호프만)",
+          "error": "missing source card"
+        },
+        {
+          "card": "산업 분류(클라크, 호프만)",
+          "error": "missing source definition"
+        },
+        {
+          "card": "산업 분류(클라크, 호프만)",
+          "error": "missing source keyPoints"
+        },
+        {
+          "card": "산업 분류(클라크, 호프만)",
+          "error": "missing source excerpt"
+        },
+        {
+          "card": "산업 분류(클라크, 호프만)",
+          "error": "missing matched structured/raw evidence"
+        },
+        {
+          "card": "산업 분류(클라크, 호프만)",
+          "error": "missing realQuestion"
+        },
+        {
+          "card": "채용 설계표와 평가 도구 매칭",
+          "error": "missing source card"
+        },
+        {
+          "card": "채용 설계표와 평가 도구 매칭",
+          "error": "missing realQuestion"
+        },
+        {
+          "card": "채용 설계표와 평가 도구 매칭",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        },
+        {
+          "card": "자기소개서 스토리텔링",
+          "error": "missing source card"
+        },
+        {
+          "card": "자기소개서 스토리텔링",
+          "error": "missing realQuestion"
+        },
+        {
+          "card": "자기소개서 스토리텔링",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        }
+      ]
+    },
+    {
+      "subject": "success",
+      "unit": 14,
+      "unitName": "14단원",
+      "tagCount": 6,
+      "cardCount": 6,
+      "completeCards": 2,
+      "needsReviewCards": 4,
+      "issues": [
+        {
+          "card": "기업가 정신(자율성, 진취성, 혁신성, 위험",
+          "error": "missing source card"
+        },
+        {
+          "card": "기업가 정신(자율성, 진취성, 혁신성, 위험",
+          "error": "missing realQuestion"
+        },
+        {
+          "card": "기업가 정신(자율성, 진취성, 혁신성, 위험",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        },
+        {
+          "card": "창업 자금(시설 자금/운전 자금, 자기",
+          "error": "missing source card"
+        },
+        {
+          "card": "창업 자금(시설 자금/운전 자금, 자기",
+          "error": "missing source definition"
+        },
+        {
+          "card": "창업 자금(시설 자금/운전 자금, 자기",
+          "error": "missing source keyPoints"
+        },
+        {
+          "card": "창업 자금(시설 자금/운전 자금, 자기",
+          "error": "missing source excerpt"
+        },
+        {
+          "card": "창업 자금(시설 자금/운전 자금, 자기",
+          "error": "missing realQuestion"
+        },
+        {
+          "card": "사업 타당성 분석(상품성, 기술성, 경제성)",
+          "error": "missing source card"
+        },
+        {
+          "card": "사업 타당성 분석(상품성, 기술성, 경제성)",
+          "error": "missing realQuestion"
+        },
+        {
+          "card": "사업 타당성 분석(상품성, 기술성, 경제성)",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        },
+        {
+          "card": "기업 형태(개인기업, 법인기업-주식회사,",
+          "error": "missing source card"
+        },
+        {
+          "card": "기업 형태(개인기업, 법인기업-주식회사,",
+          "error": "missing realQuestion"
+        },
+        {
+          "card": "기업 형태(개인기업, 법인기업-주식회사,",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        }
+      ]
+    },
+    {
+      "subject": "success",
+      "unit": 15,
+      "unitName": "15단원",
+      "tagCount": 7,
+      "cardCount": 7,
+      "completeCards": 2,
+      "needsReviewCards": 5,
+      "issues": [
+        {
+          "card": "연소 근로자(미성년자) 근로 보호",
+          "error": "missing source card"
+        },
+        {
+          "card": "연소 근로자(미성년자) 근로 보호",
+          "error": "missing source definition"
+        },
+        {
+          "card": "연소 근로자(미성년자) 근로 보호",
+          "error": "missing source keyPoints"
+        },
+        {
+          "card": "연소 근로자(미성년자) 근로 보호",
+          "error": "missing source excerpt"
+        },
+        {
+          "card": "연소 근로자(미성년자) 근로 보호",
+          "error": "missing realQuestion"
+        },
+        {
+          "card": "임금 지급 4대 원칙",
+          "error": "missing source card"
+        },
+        {
+          "card": "임금 지급 4대 원칙",
+          "error": "missing realQuestion"
+        },
+        {
+          "card": "임금 지급 4대 원칙",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        },
+        {
+          "card": "해고 예고와 해고 제한",
+          "error": "missing source card"
+        },
+        {
+          "card": "해고 예고와 해고 제한",
+          "error": "missing realQuestion"
+        },
+        {
+          "card": "해고 예고와 해고 제한",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        },
+        {
+          "card": "5인 미만 사업장 적용 특례",
+          "error": "missing source card"
+        },
+        {
+          "card": "5인 미만 사업장 적용 특례",
+          "error": "missing realQuestion"
+        },
+        {
+          "card": "5인 미만 사업장 적용 특례",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        },
+        {
+          "card": "근로관계(개별적 근로관계법/집단적 노사관계법)",
+          "error": "missing source card"
+        },
+        {
+          "card": "근로관계(개별적 근로관계법/집단적 노사관계법)",
+          "error": "missing realQuestion"
+        },
+        {
+          "card": "근로관계(개별적 근로관계법/집단적 노사관계법)",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        }
+      ]
+    },
+    {
+      "subject": "success",
+      "unit": 16,
+      "unitName": "16단원",
+      "tagCount": 8,
+      "cardCount": 8,
+      "completeCards": 0,
+      "needsReviewCards": 8,
+      "issues": [
+        {
+          "card": "근로 계약 시 금지 사항(위약 예정, 전차금",
+          "error": "missing realQuestion"
+        },
+        {
+          "card": "근로 계약 시 금지 사항(위약 예정, 전차금",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        },
+        {
+          "card": "부당해고 구제 절차(노동위원회, 소송)",
+          "error": "missing source card"
+        },
+        {
+          "card": "부당해고 구제 절차(노동위원회, 소송)",
+          "error": "missing realQuestion"
+        },
+        {
+          "card": "부당해고 구제 절차(노동위원회, 소송)",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        },
+        {
+          "card": "근로자 차별 금지와 시정 제도",
+          "error": "missing realQuestion"
+        },
+        {
+          "card": "근로자 차별 금지와 시정 제도",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        },
+        {
+          "card": "직장 내 성희롱 금지",
+          "error": "missing realQuestion"
+        },
+        {
+          "card": "직장 내 성희롱 금지",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        },
+        {
+          "card": "현장실습생 보호(직업교육훈련촉진법)",
+          "error": "missing source card"
+        },
+        {
+          "card": "현장실습생 보호(직업교육훈련촉진법)",
+          "error": "missing source definition"
+        },
+        {
+          "card": "현장실습생 보호(직업교육훈련촉진법)",
+          "error": "missing source keyPoints"
+        },
+        {
+          "card": "현장실습생 보호(직업교육훈련촉진법)",
+          "error": "missing source excerpt"
+        },
+        {
+          "card": "현장실습생 보호(직업교육훈련촉진법)",
+          "error": "missing matched structured/raw evidence"
+        },
+        {
+          "card": "현장실습생 보호(직업교육훈련촉진법)",
+          "error": "missing realQuestion"
+        },
+        {
+          "card": "모성 보호와 일·가정 양립(출산휴가,",
+          "error": "missing source card"
+        },
+        {
+          "card": "모성 보호와 일·가정 양립(출산휴가,",
+          "error": "missing source definition"
+        },
+        {
+          "card": "모성 보호와 일·가정 양립(출산휴가,",
+          "error": "missing source keyPoints"
+        },
+        {
+          "card": "모성 보호와 일·가정 양립(출산휴가,",
+          "error": "missing source excerpt"
+        },
+        {
+          "card": "모성 보호와 일·가정 양립(출산휴가,",
+          "error": "missing matched structured/raw evidence"
+        },
+        {
+          "card": "모성 보호와 일·가정 양립(출산휴가,",
+          "error": "missing realQuestion"
+        },
+        {
+          "card": "현장 실습 표준 협약",
+          "error": "missing source card"
+        },
+        {
+          "card": "현장 실습 표준 협약",
+          "error": "missing realQuestion"
+        },
+        {
+          "card": "현장 실습 표준 협약",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        },
+        {
+          "card": "권익 침해 유형",
+          "error": "missing source card"
+        },
+        {
+          "card": "권익 침해 유형",
+          "error": "missing realQuestion"
+        },
+        {
+          "card": "권익 침해 유형",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        }
+      ]
+    },
+    {
+      "subject": "success",
+      "unit": 17,
+      "unitName": "17단원",
+      "tagCount": 6,
+      "cardCount": 6,
+      "completeCards": 1,
+      "needsReviewCards": 5,
+      "issues": [
+        {
+          "card": "고용보험 구직급여 수급 요건",
+          "error": "missing source card"
+        },
+        {
+          "card": "고용보험 구직급여 수급 요건",
+          "error": "missing realQuestion"
+        },
+        {
+          "card": "고용보험 구직급여 수급 요건",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        },
+        {
+          "card": "실업급여의 종류(구직급여, 취업촉진수당)",
+          "error": "missing source card"
+        },
+        {
+          "card": "실업급여의 종류(구직급여, 취업촉진수당)",
+          "error": "missing realQuestion"
+        },
+        {
+          "card": "실업급여의 종류(구직급여, 취업촉진수당)",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        },
+        {
+          "card": "고용보험료 부담(실업급여, 고용안정",
+          "error": "missing source card"
+        },
+        {
+          "card": "고용보험료 부담(실업급여, 고용안정",
+          "error": "missing realQuestion"
+        },
+        {
+          "card": "고용보험료 부담(실업급여, 고용안정",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        },
+        {
+          "card": "고용 서비스의 정의와 종류",
+          "error": "missing source card"
+        },
+        {
+          "card": "고용 서비스의 정의와 종류",
+          "error": "missing realQuestion"
+        },
+        {
+          "card": "고용 서비스의 정의와 종류",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        },
+        {
+          "card": "소정급여일수 계산",
+          "error": "missing source card"
+        },
+        {
+          "card": "소정급여일수 계산",
+          "error": "missing source definition"
+        },
+        {
+          "card": "소정급여일수 계산",
+          "error": "missing source keyPoints"
+        },
+        {
+          "card": "소정급여일수 계산",
+          "error": "missing source excerpt"
+        },
+        {
+          "card": "소정급여일수 계산",
+          "error": "missing matched structured/raw evidence"
+        },
+        {
+          "card": "소정급여일수 계산",
+          "error": "문제 원본의 정답 필드가 비어 있어 정답 검수 필요"
+        }
+      ]
+    },
+    {
+      "subject": "success",
+      "unit": 18,
+      "unitName": "18단원",
+      "tagCount": 6,
+      "cardCount": 6,
+      "completeCards": 3,
+      "needsReviewCards": 3,
+      "issues": [
+        {
+          "card": "산업 재해 인정 기준(업무상 사고, 업무상",
+          "error": "missing source card"
+        },
+        {
+          "card": "산업 재해 인정 기준(업무상 사고, 업무상",
+          "error": "missing realQuestion"
+        },
+        {
+          "card": "산업 재해 인정 기준(업무상 사고, 업무상",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        },
+        {
+          "card": "하인리히 재해 예방 4원칙과 사고 예방 5단계",
+          "error": "missing source card"
+        },
+        {
+          "card": "하인리히 재해 예방 4원칙과 사고 예방 5단계",
+          "error": "missing realQuestion"
+        },
+        {
+          "card": "하인리히 재해 예방 4원칙과 사고 예방 5단계",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        },
+        {
+          "card": "산업 재해 사고 유형(추락, 끼임, 감전,",
+          "error": "missing source card"
+        },
+        {
+          "card": "산업 재해 사고 유형(추락, 끼임, 감전,",
+          "error": "missing realQuestion"
+        },
+        {
+          "card": "산업 재해 사고 유형(추락, 끼임, 감전,",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        }
+      ]
+    },
+    {
+      "subject": "success",
+      "unit": 19,
+      "unitName": "19단원",
+      "tagCount": 6,
+      "cardCount": 6,
+      "completeCards": 2,
+      "needsReviewCards": 4,
+      "issues": [
+        {
+          "card": "노동 3권(단결권, 단체교섭권, 단체행동권)",
+          "error": "missing source card"
+        },
+        {
+          "card": "노동 3권(단결권, 단체교섭권, 단체행동권)",
+          "error": "missing realQuestion"
+        },
+        {
+          "card": "노동 3권(단결권, 단체교섭권, 단체행동권)",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        },
+        {
+          "card": "노사협의회",
+          "error": "missing source card"
+        },
+        {
+          "card": "노사협의회",
+          "error": "missing source definition"
+        },
+        {
+          "card": "노사협의회",
+          "error": "missing source keyPoints"
+        },
+        {
+          "card": "노사협의회",
+          "error": "missing source excerpt"
+        },
+        {
+          "card": "노사협의회",
+          "error": "missing matched structured/raw evidence"
+        },
+        {
+          "card": "노사협의회",
+          "error": "문제 원본의 정답 필드가 비어 있어 정답 검수 필요"
+        },
+        {
+          "card": "노동쟁의 조정 제도(조정, 중재)",
+          "error": "missing source card"
+        },
+        {
+          "card": "노동쟁의 조정 제도(조정, 중재)",
+          "error": "missing realQuestion"
+        },
+        {
+          "card": "노동쟁의 조정 제도(조정, 중재)",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        },
+        {
+          "card": "사용자 단체(경총, 전경련, 대한상의,",
+          "error": "missing source card"
+        },
+        {
+          "card": "사용자 단체(경총, 전경련, 대한상의,",
+          "error": "missing realQuestion"
+        },
+        {
+          "card": "사용자 단체(경총, 전경련, 대한상의,",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        }
+      ]
+    },
+    {
+      "subject": "success",
+      "unit": 20,
+      "unitName": "20단원",
+      "tagCount": 7,
+      "cardCount": 7,
+      "completeCards": 3,
+      "needsReviewCards": 4,
+      "issues": [
+        {
+          "card": "직업 윤리의 종류(정보 윤리, 환경 윤리,",
+          "error": "missing source card"
+        },
+        {
+          "card": "직업 윤리의 종류(정보 윤리, 환경 윤리,",
+          "error": "missing realQuestion"
+        },
+        {
+          "card": "직업 윤리의 종류(정보 윤리, 환경 윤리,",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        },
+        {
+          "card": "직업 윤리 원칙(객관성, 전문성, 고객 중심",
+          "error": "missing source card"
+        },
+        {
+          "card": "직업 윤리 원칙(객관성, 전문성, 고객 중심",
+          "error": "missing realQuestion"
+        },
+        {
+          "card": "직업 윤리 원칙(객관성, 전문성, 고객 중심",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        },
+        {
+          "card": "미래 사회의 첨단 기술(나노, 바이오, AI",
+          "error": "missing source card"
+        },
+        {
+          "card": "미래 사회의 첨단 기술(나노, 바이오, AI",
+          "error": "missing realQuestion"
+        },
+        {
+          "card": "미래 사회의 첨단 기술(나노, 바이오, AI",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        },
+        {
+          "card": "비윤리적 행위",
+          "error": "missing source card"
+        },
+        {
+          "card": "비윤리적 행위",
+          "error": "missing realQuestion"
+        },
+        {
+          "card": "비윤리적 행위",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        }
+      ]
+    }
+  ]
+}

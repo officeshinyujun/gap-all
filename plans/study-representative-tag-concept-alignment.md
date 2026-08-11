@@ -22,11 +22,54 @@
 1. `textbook_concepts`를 단원 대표 태그의 canonical source로 사용한다.
 2. `textbook_concept_cards`의 기존 설명·핵심 포인트·문제 데이터를 최대한 재사용한다.
 3. 카드가 여러 개면 하나의 대표 태그 아래에 세부 개념으로 묶는다.
-4. 카드가 없는 대표 태그만 구조화 교재 데이터와 원문으로 보강한다.
+4. 카드가 없는 대표 태그도 결과에서 누락하지 않고 구조화 교재 데이터와 원문으로 보강한다.
 5. 기존 데이터가 있는데 전체를 AI로 다시 생성하지 않는다.
 6. 대표 태그와 관계없는 카드를 자동으로 억지 연결하지 않는다.
 
 > ponytail: 새 콘텐츠 파이프라인이나 새 매핑 테이블을 먼저 만들지 않는다. 기존 대표 태그·카드·구조화 교재·기출 문제를 연결하는 최소 변경부터 검증한다.
+
+## 1.1 이번 AI 생성의 완료 수준
+
+이번 작업은 대표 태그 이름과 짧은 설명만 만드는 작업이 아니다. 대표 태그 하나가 현재 Study의 한 개념 카드처럼 **개념 학습과 문제 적용을 모두 완료한 학습 단위**가 되어야 한다.
+
+대표 태그별 필수 결과:
+
+```text
+개념 학습
+  - 개념 정의
+  - 세부 개념
+  - 핵심 포인트
+  - 비교표·분류표·절차 정리
+  - 시험 출제 포인트
+  - 오답 주의
+  - 시험 전 꼭 외울 것
+
+문제 적용
+  - 기존 실제 문제 1개 이상
+  - 관련 실제 문제 목록
+  - 문제 해설
+  - 지문 단서
+  - 선택지 분석
+  - 풀이 흐름
+  - 핵심 교훈
+```
+
+실제 문제 본문·선지·정답·출처는 기존 데이터에서 가져오고, AI는 그 문제에 대한 개념 연결·풀이 분석을 작성한다. AI가 새로운 문제나 정답을 만들어 `sampleQuestion`으로 저장하지 않는다.
+
+`contentStatus: 'needs_review'` 또는 `sampleQuestion: null`인 대표 태그는 생성 완료로 간주하지 않으며 운영 API에 게시하지 않는다.
+
+이번 파일럿은 성직(`success`) 4단원의 현재 대표 태그 6개로 고정한다.
+
+```text
+기업 형태별 특징(합명·합자·유한·유한책임
+경제 주체(가계, 기업, 정부)
+사회적 기업
+캐럴(Carroll)의 기업의 사회적 책임
+협동조합
+공기업(공공 기업)
+```
+
+위 문자열은 `textbook_concepts`의 실제 값을 먼저 출력해 확인한다. 괄호가 잘려 있거나 태그가 불완전하면 자동 수정하지 않고 원본 정정 여부를 검수한 뒤 생성한다.
 
 ---
 
@@ -424,7 +467,7 @@ manual_verified
 unmatched
 ```
 
-`ambiguous` 상태가 남아 있으면 해당 단원은 자동 반영하지 않는다.
+`ambiguous` 상태가 남아 있으면 해당 카드를 대표 태그에 연결하지 않는다. 대표 태그 자체는 결과에 남기고 콘텐츠 보강 대상으로 표시한다.
 
 ---
 
@@ -958,10 +1001,10 @@ GET /study/success/1/frequency-concept
 
 ### 데이터 게이트
 
-- 대표 태그의 100%가 `exact`, `canonical`, `alias`, `manual_verified` 중 하나임
+- 대표 태그의 100%가 `exact`, `canonical`, `alias`, `manual_verified`, `unmatched` 중 하나임
 - `ambiguous` 자동 매칭 0건
-- 카드 없는 태그 목록이 확정됨
-- 삭제 없이 원본 카드 데이터가 보존됨
+- 카드 없는 태그도 API 결과에서 대표 태그 카드로 생성됨
+- 원본 카드 데이터는 삭제하지 않되, 대표 태그에 연결되지 않은 카드는 기초 개념 순서에 노출하지 않음
 - 대표 태그 순서가 API 응답에 반영됨
 
 ### 콘텐츠 게이트
@@ -1179,11 +1222,314 @@ Frontend에서 `includes()`로 임시 연결하면 다음 문제가 생긴다.
 2. 명시적 alias 매핑 작성
 3. getFrequencyConcept()을 textbook_concepts 순서로 반환
 4. 여러 카드를 대표 태그 하나로 병합
-5. 카드 없는 대표 태그는 우선 노출하지 말고 리포트로 분리
+5. 카드 없는 대표 태그는 구조화 교재 기반 카드로 생성
 6. Frontend 캐시 버전 증가
 7. success 1개·industry 1개 단원 검증
 ```
 
-카드 없는 대표 태그의 AI 보강은 이 최소 경로가 정상 동작한 뒤 진행한다.
+구조화 교재에도 없는 대표 태그의 AI 보강은 이 최소 경로가 정상 동작한 뒤 진행한다.
 
 > ponytail: 먼저 태그와 카드의 이름·순서·그룹만 맞춘다. 콘텐츠 품질 개선은 실제 누락 목록이 확인된 뒤 필요한 항목에만 적용한다.
+
+---
+
+## 22. 대표 태그 완성형 AI 생성 파이프라인
+
+### 22.1 기존 보강 스크립트와의 차이
+
+기존 `backend/scripts/enrich-concept-cards.ts`는 기존 `textbook_concept_cards` 하나를 입력으로 받아 설명·핵심 포인트를 보강한다.
+
+이번 작업은 카드가 없는 대표 태그도 생성해야 하므로 다음 흐름을 별도로 둔다.
+
+```text
+대표 태그
+  → 기존 카드 후보 수집
+  → 구조화 교재 수집
+  → 교과서 원문 수집
+  → 실제 기출 문제 수집
+  → AI 근거 분석
+  → 사람 검수
+  → AI Study 카드 생성
+  → 자동 검증
+  → 사람 검수
+  → Supabase 반영
+```
+
+기존 보강 스크립트를 `--force`로 전체 재실행하지 않는다. 그러면 현재 카드와 대표 태그의 관계가 해결되지 않고 기존 콘텐츠가 불필요하게 바뀐다.
+
+### 22.2 새 스크립트
+
+권장 파일:
+
+```text
+backend/scripts/generate-representative-study-cards.ts
+```
+
+실행 모드:
+
+```bash
+npx ts-node --project tsconfig.json scripts/generate-representative-study-cards.ts \
+  --subject success --unit 4 --dry-run
+
+npx ts-node --project tsconfig.json scripts/generate-representative-study-cards.ts \
+  --subject success --unit 4 --analyze-only
+
+npx ts-node --project tsconfig.json scripts/generate-representative-study-cards.ts \
+  --subject success --unit 4 --generate
+
+npx ts-node --project tsconfig.json scripts/generate-representative-study-cards.ts \
+  --subject success --unit 4 --generate --write-supabase
+```
+
+기본 동작은 파일 생성이며, `--write-supabase` 없이는 DB를 변경하지 않는다.
+
+### 22.3 입력 패키지
+
+대표 태그 하나마다 다음 입력 패키지를 만든다.
+
+```json
+{
+  "canonicalTag": {
+    "name": "공기업(공공 기업)",
+    "sortOrder": 5,
+    "subjectSlug": "success",
+    "unitNumber": 4
+  },
+  "existingCards": [],
+  "structuredSections": [],
+  "textbookEvidence": [],
+  "referenceQuestions": [],
+  "sourceFingerprint": "sha256:..."
+}
+```
+
+`sourceFingerprint`는 입력이 바뀌었을 때만 재생성하도록 한다. API key나 사용자 정보는 fingerprint에 포함하지 않는다.
+
+### 22.4 후보 수집 규칙
+
+후보 수집은 넓게 하고, AI가 최종 포함 여부를 결정하게 한다. 단, AI에 전달할 후보에는 반드시 출처를 붙인다.
+
+```text
+textbook_concept_cards
+  - 같은 단원 전체 카드
+  - 이름·definition·key_points·textbook_excerpt·real_question
+
+structured concept
+  - section/subsection 제목
+  - keyPoints/table/examPoints/pitfalls
+
+교과서 원문
+  - 대표 태그·alias가 포함된 문단
+  - 후보 카드의 핵심어가 포함된 문단
+
+reference_questions
+  - 같은 subject/unit
+  - targetConcepts 일치·부분 일치
+  - 발문·지문·선지에 대표 태그의 핵심어 포함
+```
+
+### 22.5 1차 AI: 근거 분석 출력
+
+1차 AI는 설명을 생성하지 않고, 어떤 데이터를 대표 태그에 포함할지 분류한다.
+
+```json
+{
+  "canonicalTag": "캐럴(Carroll)의 기업의 사회적 책임",
+  "matchedCards": [
+    {
+      "cardName": "기업의 목적과 역할",
+      "reason": "기업의 비경제적 목적과 사회적 책임을 설명함",
+      "confidence": "high"
+    }
+  ],
+  "textbookSections": [
+    {
+      "title": "기업의 역할",
+      "subsection": "기업의 사회적 책임"
+    }
+  ],
+  "subtopics": [
+    "경제적 책임",
+    "법적 책임",
+    "윤리적 책임",
+    "자선적 책임"
+  ],
+  "referenceQuestionIds": ["..."],
+  "representativeQuestionId": "...",
+  "missingEvidence": [],
+  "reviewStatus": "pending"
+}
+```
+
+규칙:
+
+- `matchedCards`는 입력에 실제로 있는 카드만 선택한다.
+- `textbookSections`는 입력에 실제로 있는 섹션만 선택한다.
+- `referenceQuestionIds`는 입력에 실제로 있는 문제 ID만 선택한다.
+- `missingEvidence`가 비어 있지 않으면 자동 게시하지 않는다.
+- 대표 태그의 범위를 넓히거나 다른 태그와 합치지 않는다.
+
+### 22.6 1차 분석 검수
+
+6개 태그의 분석 결과를 먼저 검수한다. 최종 콘텐츠를 생성하기 전에 다음을 확인한다.
+
+```text
+[ ] 모든 태그가 정확히 1개씩 존재함
+[ ] 태그명과 sort_order가 원본과 동일함
+[ ] 관련 카드가 실제로 관련 있음
+[ ] 세부 개념이 교재에 존재함
+[ ] 대표 문제가 해당 태그를 직접 적용함
+[ ] missingEvidence가 있는 태그를 확인함
+```
+
+특히 다음 매핑은 수동 확정한다.
+
+```text
+기업 형태별 특징 → 출자 형태에 따른 기업 분류 + 회사 형태 관련 실제 문제
+경제 주체 → 경제 주체로서의 기업 + 가계·정부 비교 근거
+사회적 기업 → 기업 목적·사회적 책임·사회적 기업 직접 근거
+캐럴의 책임 → 기업의 역할 중 경제·법·윤리·자선 책임 근거
+협동조합 → 공동 기업·조합 기업·협동조합 직접 근거
+공기업 → 공기업 및 공사 합동 기업의 정의
+```
+
+### 22.7 2차 AI: 완성형 Study 카드 생성
+
+2차 AI 출력은 현재 `FrequencyConceptItem`과 화면이 소비하는 필드를 모두 채운다.
+
+```json
+{
+  "description": "...",
+  "conceptDefinition": {
+    "summary": "...",
+    "sections": [
+      {
+        "title": "...",
+        "description": "...",
+        "examples": ["..."]
+      }
+    ],
+    "comparison": {
+      "headers": ["구분", "..."],
+      "rows": [["...", "..."]]
+    },
+    "commonConfusions": ["..."]
+  },
+  "keyPoints": ["...", "...", "..."],
+  "examTips": ["...", "..."],
+  "subtopics": [
+    {
+      "name": "...",
+      "evidence": "입력 교재 근거",
+      "examRelevance": "..."
+    }
+  ],
+  "examMustKnow": {
+    "title": "...",
+    "type": "comparison",
+    "summary": "...",
+    "headers": ["..."],
+    "rows": [["..."]],
+    "mustRemember": ["..."],
+    "commonTraps": ["..."],
+    "reviewStatus": "review"
+  },
+  "examTips": ["..."],
+  "problemApplication": {
+    "representativeQuestionId": "기존 문제 ID",
+    "conceptHighlightV2": {
+      "stimulusClues": [
+        { "quote": "입력 문제의 실제 문장", "why": "..." }
+      ],
+      "optionAnalysis": [
+        { "optionNum": 1, "verdict": "O", "reasoning": "..." }
+      ],
+      "solvingFlow": [
+        { "step": 1, "action": "..." }
+      ],
+      "takeaway": "..."
+    }
+  }
+}
+```
+
+문제 적용 데이터의 `quote`는 실제 문제 원문에서만 가져온다. AI가 지문처럼 보이는 문장을 새로 만들지 않는다.
+
+### 22.8 완성도 검증
+
+생성 결과는 다음을 모두 통과해야 한다.
+
+```text
+구조
+  - 6개 태그 모두 결과에 있음
+  - 카드 이름과 원본 태그가 동일함
+  - rank가 sort_order와 일치함
+
+개념 학습
+  - description 존재
+  - conceptDefinition.summary 존재
+  - sections 2개 이상 또는 충분한 근거가 있는 단일 구조
+  - keyPoints 3개 이상
+  - examTips 1개 이상
+  - subtopics 2개 이상
+  - examMustKnow 존재
+
+문제 적용
+  - 실제 representativeQuestionId 존재
+  - sampleQuestion이 기존 문제에서 만들어짐
+  - relatedQuestions 1개 이상
+  - stimulusClues 1개 이상
+  - optionAnalysis가 실제 선지 수와 일치
+  - solvingFlow 2단계 이상
+  - takeaway 존재
+
+근거
+  - 모든 수치가 입력 자료에 존재함
+  - 모든 문제 출처·번호가 검증됨
+  - AI 생성 설명의 근거 source가 기록됨
+```
+
+하나라도 실패하면 `generated.json`에는 남기되 Supabase에는 쓰지 않는다.
+
+### 22.9 저장 형식
+
+중간 산출물은 다음 위치에 저장한다.
+
+```text
+textbook/_v2/study-rebuild/success/unit-04/
+├── input.json
+├── analysis.json
+├── generated.json
+├── validation.json
+└── review.md
+```
+
+DB 반영 시에는 기존 카드를 삭제하지 않고 대표 태그명으로 canonical 카드를 upsert한다.
+
+```text
+concept_id: study_success_4_tag_001
+name: textbook_concepts.concept_name
+rank: textbook_concepts.sort_order + 1
+```
+
+기존 레거시 카드는 원본 보존용으로 남기되, 대표 태그 canonical 카드가 Study API의 우선 데이터가 되게 한다.
+
+### 22.10 게시 기준
+
+6개 태그가 모두 아래 상태여야 운영 API에 게시한다.
+
+```text
+contentStatus: complete
+reviewStatus: verified
+sampleQuestion: non-null
+problemApplication: complete
+```
+
+한 태그라도 문제 적용 데이터가 부족하면 전체 4단원 게시를 보류한다. 일부 카드만 게시하면 사용자는 같은 단원에서 품질이 서로 다른 학습 카드를 보게 된다.
+
+### 22.11 롤백
+
+- `generated.json`만 수정하고 DB에는 쓰지 않은 단계에서는 파일 삭제로 롤백한다.
+- DB 반영 후에는 새 canonical card만 삭제하거나 이전 snapshot을 재upsert한다.
+- 기존 레거시 카드와 문제 데이터는 삭제하지 않는다.
+- Frontend 캐시 버전은 canonical 카드 반영 후에만 올린다.

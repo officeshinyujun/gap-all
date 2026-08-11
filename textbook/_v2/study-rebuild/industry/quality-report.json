@@ -1,0 +1,306 @@
+{
+  "subject": "industry",
+  "generatedAt": "2026-08-11T13:23:19.623Z",
+  "units": [
+    {
+      "subject": "industry",
+      "unit": 1,
+      "unitName": "1단원",
+      "tagCount": 6,
+      "cardCount": 6,
+      "completeCards": 6,
+      "needsReviewCards": 0,
+      "issues": []
+    },
+    {
+      "subject": "industry",
+      "unit": 2,
+      "unitName": "2단원",
+      "tagCount": 7,
+      "cardCount": 7,
+      "completeCards": 6,
+      "needsReviewCards": 1,
+      "issues": [
+        {
+          "card": "경공업의 개요",
+          "error": "missing source card"
+        },
+        {
+          "card": "경공업의 개요",
+          "error": "missing realQuestion"
+        },
+        {
+          "card": "경공업의 개요",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        }
+      ]
+    },
+    {
+      "subject": "industry",
+      "unit": 3,
+      "unitName": "3단원",
+      "tagCount": 7,
+      "cardCount": 7,
+      "completeCards": 6,
+      "needsReviewCards": 1,
+      "issues": [
+        {
+          "card": "중화학 공업의 개요",
+          "error": "missing source card"
+        },
+        {
+          "card": "중화학 공업의 개요",
+          "error": "missing realQuestion"
+        },
+        {
+          "card": "중화학 공업의 개요",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        }
+      ]
+    },
+    {
+      "subject": "industry",
+      "unit": 4,
+      "unitName": "4단원",
+      "tagCount": 6,
+      "cardCount": 6,
+      "completeCards": 6,
+      "needsReviewCards": 0,
+      "issues": []
+    },
+    {
+      "subject": "industry",
+      "unit": 5,
+      "unitName": "5단원",
+      "tagCount": 7,
+      "cardCount": 7,
+      "completeCards": 6,
+      "needsReviewCards": 1,
+      "issues": [
+        {
+          "card": "제조의 의미 (경제적, 기술적 행위)",
+          "error": "missing source card"
+        },
+        {
+          "card": "제조의 의미 (경제적, 기술적 행위)",
+          "error": "missing realQuestion"
+        },
+        {
+          "card": "제조의 의미 (경제적, 기술적 행위)",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        }
+      ]
+    },
+    {
+      "subject": "industry",
+      "unit": 6,
+      "unitName": "6단원",
+      "tagCount": 6,
+      "cardCount": 6,
+      "completeCards": 6,
+      "needsReviewCards": 0,
+      "issues": []
+    },
+    {
+      "subject": "industry",
+      "unit": 7,
+      "unitName": "7단원",
+      "tagCount": 7,
+      "cardCount": 7,
+      "completeCards": 6,
+      "needsReviewCards": 1,
+      "issues": [
+        {
+          "card": "최종 설계의 3요소 (기능 설계, 형태 설계, 생산 설계)",
+          "error": "missing source card"
+        },
+        {
+          "card": "최종 설계의 3요소 (기능 설계, 형태 설계, 생산 설계)",
+          "error": "missing realQuestion"
+        },
+        {
+          "card": "최종 설계의 3요소 (기능 설계, 형태 설계, 생산 설계)",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        }
+      ]
+    },
+    {
+      "subject": "industry",
+      "unit": 8,
+      "unitName": "8단원",
+      "tagCount": 6,
+      "cardCount": 6,
+      "completeCards": 6,
+      "needsReviewCards": 0,
+      "issues": []
+    },
+    {
+      "subject": "industry",
+      "unit": 9,
+      "unitName": "9단원",
+      "tagCount": 6,
+      "cardCount": 6,
+      "completeCards": 6,
+      "needsReviewCards": 0,
+      "issues": []
+    },
+    {
+      "subject": "industry",
+      "unit": 10,
+      "unitName": "10단원",
+      "tagCount": 8,
+      "cardCount": 8,
+      "completeCards": 6,
+      "needsReviewCards": 2,
+      "issues": [
+        {
+          "card": "(단순화법·표준화법·가치 분석법·구매 조사법)",
+          "error": "missing source card"
+        },
+        {
+          "card": "(단순화법·표준화법·가치 분석법·구매 조사법)",
+          "error": "missing realQuestion"
+        },
+        {
+          "card": "(단순화법·표준화법·가치 분석법·구매 조사법)",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        },
+        {
+          "card": "구매·자재 관리의 개념과 역할",
+          "error": "missing source card"
+        },
+        {
+          "card": "구매·자재 관리의 개념과 역할",
+          "error": "missing realQuestion"
+        },
+        {
+          "card": "구매·자재 관리의 개념과 역할",
+          "error": "실제 문제 적용 데이터 검수 필요"
+        }
+      ]
+    },
+    {
+      "subject": "industry",
+      "unit": 11,
+      "unitName": "11단원",
+      "tagCount": 7,
+      "cardCount": 7,
+      "completeCards": 7,
+      "needsReviewCards": 0,
+      "issues": []
+    },
+    {
+      "subject": "industry",
+      "unit": 12,
+      "unitName": "12단원",
+      "tagCount": 8,
+      "cardCount": 8,
+      "completeCards": 8,
+      "needsReviewCards": 0,
+      "issues": []
+    },
+    {
+      "subject": "industry",
+      "unit": 13,
+      "unitName": "13단원",
+      "tagCount": 6,
+      "cardCount": 6,
+      "completeCards": 4,
+      "needsReviewCards": 2,
+      "issues": [
+        {
+          "card": "수출 인증(CE, UL, CCC, PSE,",
+          "error": "missing matched structured/raw evidence"
+        },
+        {
+          "card": "MES(제조 실행 시스템)와 아웃소싱",
+          "error": "missing matched structured/raw evidence"
+        }
+      ]
+    },
+    {
+      "subject": "industry",
+      "unit": 14,
+      "unitName": "14단원",
+      "tagCount": 7,
+      "cardCount": 7,
+      "completeCards": 7,
+      "needsReviewCards": 0,
+      "issues": []
+    },
+    {
+      "subject": "industry",
+      "unit": 15,
+      "unitName": "15단원",
+      "tagCount": 6,
+      "cardCount": 6,
+      "completeCards": 5,
+      "needsReviewCards": 1,
+      "issues": [
+        {
+          "card": "화재과 소화 방법(A~D급, 질식소화법)",
+          "error": "missing matched structured/raw evidence"
+        }
+      ]
+    },
+    {
+      "subject": "industry",
+      "unit": 16,
+      "unitName": "16단원",
+      "tagCount": 7,
+      "cardCount": 7,
+      "completeCards": 7,
+      "needsReviewCards": 0,
+      "issues": []
+    },
+    {
+      "subject": "industry",
+      "unit": 17,
+      "unitName": "17단원",
+      "tagCount": 6,
+      "cardCount": 6,
+      "completeCards": 6,
+      "needsReviewCards": 0,
+      "issues": []
+    },
+    {
+      "subject": "industry",
+      "unit": 18,
+      "unitName": "18단원",
+      "tagCount": 6,
+      "cardCount": 6,
+      "completeCards": 4,
+      "needsReviewCards": 2,
+      "issues": [
+        {
+          "card": "자연환경 보전과 재생 에너지",
+          "error": "missing matched structured/raw evidence"
+        },
+        {
+          "card": "기계 설비 안전화와 자동화(AGV, 국소",
+          "error": "missing matched structured/raw evidence"
+        }
+      ]
+    },
+    {
+      "subject": "industry",
+      "unit": 19,
+      "unitName": "19단원",
+      "tagCount": 6,
+      "cardCount": 6,
+      "completeCards": 6,
+      "needsReviewCards": 0,
+      "issues": []
+    },
+    {
+      "subject": "industry",
+      "unit": 20,
+      "unitName": "20단원",
+      "tagCount": 6,
+      "cardCount": 6,
+      "completeCards": 6,
+      "needsReviewCards": 0,
+      "issues": []
+    }
+  ]
+}

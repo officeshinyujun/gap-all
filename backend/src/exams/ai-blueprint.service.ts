@@ -1,4 +1,4 @@
-import { Injectable, Logger } from '@nestjs/common';
+import { Injectable, InternalServerErrorException, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Between, In, type Repository } from 'typeorm';
 import { Difficulty } from '../entities/exam-record.entity';
@@ -80,6 +80,15 @@ type EvidenceCollectionResult = Readonly<{
 
 const CASE_VARIANTS_PER_SOURCE = 3;
 export const AI_REPLACEMENT_RESERVE_MINIMUM = 5;
+// ponytail: four concurrent analyses; raise only after provider rate limits are measured.
+const AI_ANALYSIS_CONCURRENCY = 4;
+
+type AiBlueprintPreviewOptions = Readonly<{
+  signal?: AbortSignal;
+  deadlineAtMs?: number;
+  shouldCancel?: () => boolean;
+  reportAnalysisProgress?: (completed: number, total: number) => Promise<void> | void;
+}>;
 
 @Injectable()
 export class AiBlueprintService {
@@ -97,7 +106,10 @@ export class AiBlueprintService {
     private readonly provider: AiProviderAdapter,
   ) {}
 
-  async preview(request: PreviewAiBlueprintDto): Promise<AiBlueprintPreview> {
+  async preview(
+    request: PreviewAiBlueprintDto,
+    options: AiBlueprintPreviewOptions = {},
+  ): Promise<AiBlueprintPreview> {
     const profile = await this.profileService.getProfile(
       request.subjectSlug,
       request.startUnitNum,
@@ -122,7 +134,7 @@ export class AiBlueprintService {
       ...request,
       candidateCount,
     });
-    const analyzed = await this.loadOrSaveAnalyses(preSelected);
+    const analyzed = await this.loadOrSaveAnalyses(preSelected, options);
     const merged = evidence.map((item) => {
       const analyzedItem = analyzed.find(
         (a) => (a.baseSourceId ?? a.sourceId) === (item.baseSourceId ?? item.sourceId),
@@ -149,6 +161,7 @@ export class AiBlueprintService {
 
   private async loadOrSaveAnalyses(
     evidence: readonly BlueprintEvidence[],
+    options: AiBlueprintPreviewOptions = {},
   ): Promise<readonly BlueprintEvidence[]> {
     if (evidence.length === 0) return evidence;
 
@@ -160,49 +173,83 @@ export class AiBlueprintService {
     });
     const bySourceId = new Map(cached.map((row) => [row.sourceId, row]));
 
-    const analyzed: BlueprintEvidence[] = [];
-    for (const item of evidence) {
-      const cachedRow = bySourceId.get(item.sourceId);
-      if (cachedRow !== undefined) {
-        analyzed.push(mergeAnalysis(item, cachedRow.analysis));
-        continue;
-      }
-      try {
-        const analysis = await this.provider.analyzeReference({
-          sourceId: item.sourceId,
-          sourceHash: item.sourceHash,
-          unitNumber: item.unitNumber,
-          targetConcept: item.concept,
-          template: item.template,
-          sourceArchetype: item.sourceArchetype ?? null,
-          sourceContext: item.caseContext ?? null,
-          sourcePayload: item.sourcePayload ?? null,
-        });
-        await this.analysisRepo.upsert(
-          {
+    const analyzed: Array<BlueprintEvidence | undefined> = new Array(evidence.length);
+    let completed = 0;
+    let nextIndex = 0;
+    const worker = async (): Promise<void> => {
+      while (true) {
+        const index = nextIndex++;
+        if (index >= evidence.length) return;
+        const item = evidence[index];
+        this.assertAnalysisAvailable(options);
+        const cachedRow = bySourceId.get(item.sourceId);
+        if (cachedRow !== undefined) {
+          analyzed[index] = mergeAnalysis(item, cachedRow.analysis);
+          completed += 1;
+          await options.reportAnalysisProgress?.(completed, evidence.length);
+          continue;
+        }
+        try {
+          const analysis = await this.provider.analyzeReference({
             sourceId: item.sourceId,
             sourceHash: item.sourceHash,
-            analysisVersion: AI_BLUEPRINT_VERSION,
-            providerModel: process.env.OPENAI_AI_ANALYSIS_MODEL ??
-              process.env.OPENAI_AI_BLUEPRINT_MODEL ?? process.env.OPENAI_MODEL ?? 'gpt-4o-mini',
-            promptHash: null,
-            analysis: analysis as unknown as any,
-          },
-          ['sourceId', 'analysisVersion'],
-        );
-        analyzed.push(mergeAnalysis(item, analysis));
-      } catch (error: unknown) {
-        // Keep blueprint generation available when analysis is temporarily unavailable;
-        // the later candidate/schema/fidelity gates still reject unsafe output.
-        const fallback = deterministicAnalysis(item);
-        this.logger.warn(
-          `Reference analysis fallback for ${item.sourceId}: ${error instanceof Error ? error.message : 'unknown error'}`,
-        );
-        analyzed.push(mergeAnalysis(item, fallback));
+            unitNumber: item.unitNumber,
+            targetConcept: item.concept,
+            template: item.template,
+            sourceArchetype: item.sourceArchetype ?? null,
+            sourceContext: item.caseContext ?? null,
+            sourcePayload: item.sourcePayload ?? null,
+          });
+          await this.analysisRepo.upsert(
+            {
+              sourceId: item.sourceId,
+              sourceHash: item.sourceHash,
+              analysisVersion: AI_BLUEPRINT_VERSION,
+              providerModel: process.env.OPENAI_AI_ANALYSIS_MODEL ??
+                process.env.OPENAI_AI_BLUEPRINT_MODEL ?? process.env.OPENAI_MODEL ?? 'gpt-4o-mini',
+              promptHash: null,
+              analysis: analysis as unknown as any,
+            },
+            ['sourceId', 'analysisVersion'],
+          );
+          analyzed[index] = mergeAnalysis(item, analysis);
+        } catch (error: unknown) {
+          this.assertAnalysisAvailable(options);
+          // Keep blueprint generation available when analysis is temporarily unavailable;
+          // the later candidate/schema/fidelity gates still reject unsafe output.
+          const fallback = deterministicAnalysis(item);
+          this.logger.warn(
+            `Reference analysis fallback for ${item.sourceId}: ${error instanceof Error ? error.message : 'unknown error'}`,
+          );
+          analyzed[index] = mergeAnalysis(item, fallback);
+        }
+        completed += 1;
+        await options.reportAnalysisProgress?.(completed, evidence.length);
       }
-    }
+    };
+    await Promise.all(
+      Array.from(
+        { length: Math.min(AI_ANALYSIS_CONCURRENCY, evidence.length) },
+        () => worker(),
+      ),
+    );
 
-    return analyzed;
+    return analyzed.filter((item): item is BlueprintEvidence => item !== undefined);
+  }
+
+  private assertAnalysisAvailable(options: AiBlueprintPreviewOptions): void {
+    if (options.shouldCancel?.()) {
+      throw new InternalServerErrorException({
+        code: 'AI_JOB_CANCELED',
+        message: 'AI 시험 생성 작업이 취소되었습니다.',
+      });
+    }
+    if (options.signal?.aborted || (options.deadlineAtMs !== undefined && Date.now() >= options.deadlineAtMs)) {
+      throw new InternalServerErrorException({
+        code: 'AI_JOB_TIMEOUT',
+        message: 'AI 시험 생성 시간이 초과되었습니다.',
+      });
+    }
   }
 }
 
@@ -542,7 +589,12 @@ function collectEvidence(
       !isSupportedTemplate(template) ||
       !canGenerateAiTemplate(template, parsed.value.stimulus) ||
       !isSupportedCaseArchetype(parsed.value.archetype) ||
-      !hasCertifiedSourceShape(template, parsed.value.stimulus)
+      !hasCertifiedSourceShape(template, parsed.value.stimulus) ||
+      hasUnresolvedPlaceholder([
+        parsed.value.stimulus,
+        ...parsed.value.choices,
+        ...(parsed.value.viewItems ?? []),
+      ])
     ) {
       unsupportedTemplateCount += 1;
       return [];
@@ -619,6 +671,10 @@ function hasCertifiedSourceShape(template: string, stimulus: string | undefined)
     .filter((line) => !/^\|?\s*:?-+:?/u.test(line))
     .map(split);
   return headers.length > 0 && rows.length > 0 && rows.every((row) => row.length === headers.length);
+}
+
+function hasUnresolvedPlaceholder(values: readonly (string | undefined)[]): boolean {
+  return values.some((value) => /<\s*주제\s*\d+\s*>/u.test(value ?? ''));
 }
 
 export function isSupportedCaseArchetype(
@@ -826,12 +882,24 @@ function selectBalancedEvidence(
     }
   }
 
-  // ④ 부족하면 variant로 채움
+  // ④ TPL 목표를 못 채웠으면 다른 primary source로 수량을 먼저 보충
+  for (const item of primary) {
+    if (selected.length >= count) return selected.slice(0, count);
+    const baseId = item.baseSourceId ?? item.sourceId;
+    if (usedSources.has(baseId)) continue;
+    selected.push(item);
+    usedSources.add(baseId);
+  }
+
+  // ⑤ 부족하면 선택되지 않은 source의 variant까지 사용
   if (selected.length >= count) return selected.slice(0, count);
-  for (const source of selected.slice()) {
+  const selectedIds = new Set(selected.map((item) => item.sourceId));
+  for (const source of primary) {
     for (const variant of variants.get(source.baseSourceId ?? source.sourceId) ?? []) {
       if (selected.length >= count) return selected;
+      if (selectedIds.has(variant.sourceId)) continue;
       selected.push(variant);
+      selectedIds.add(variant.sourceId);
     }
   }
   return selected;

@@ -71,17 +71,6 @@ export function materializeAiQuestion(
         '현재 AI case materializer와 archetype 계약이 일치하지 않습니다.',
     };
   }
-  const requiresGroundedChoices =
-    !isTruthCombination &&
-    archetype?.responseMode === 'single_selection' &&
-    blueprint.choiceFocuses !== undefined;
-  if (requiresGroundedChoices && !validProviderChoices(candidate.choiceTexts)) {
-    return {
-      kind: 'rejected',
-      code: 'AI_DISTRACTOR_INVALID',
-      message: '단서 기반 선택지 5개가 필요합니다.',
-    };
-  }
   const derivedAnswer = deriveAiAnswer(blueprint);
   if (derivedAnswer === null) {
     return {
@@ -100,12 +89,12 @@ export function materializeAiQuestion(
       : blueprint.template === 'TPL_CASE_DIAGNOSTIC_FRAME'
         ? '다음 사례에 대한 설명으로 옳은 것은?'
         : '다음 자료에 대한 설명으로 옳은 것은?';
-  // Keep provider-written choices when a certified single-selection blueprint
-  // has them; the validator still owns the answer index and rejects bad prose.
   const optionsList =
+    blueprint.template === 'TPL_CASE_DIAGNOSTIC_FRAME' &&
+    archetype !== undefined &&
     !isTruthCombination &&
-    blueprint.sourceArchetype !== undefined &&
-    validProviderChoices(candidate.choiceTexts)
+    blueprint.sourceChoiceTexts === undefined &&
+    candidate.choiceTexts !== undefined
       ? candidate.choiceTexts
       : derivedAnswer.optionsList;
   const stimulusData = materializeStimulus(
@@ -169,17 +158,6 @@ export function materializeSourcePreservingFallback(
     detailTexts: undefined,
     stepTexts: undefined,
   });
-}
-
-function validProviderChoices(
-  choices: readonly string[] | undefined,
-): choices is readonly string[] {
-  return (
-    choices !== undefined &&
-    choices.length === 5 &&
-    new Set(choices.map((choice) => choice.normalize('NFKC').trim())).size === 5 &&
-    choices.every((choice) => choice.trim().length >= 8)
-  );
 }
 
 function caseProfileName(narrative: string): string {

@@ -3,6 +3,7 @@ import {
   AiQuestionGenerationService,
   aiQuestionStructuralFingerprint,
 } from './ai-question-generation.service';
+import { classifyReferenceArchetype } from './reference-archetype';
 
 function blueprint(id: string, concept = '직무 분석'): AiQuestionBlueprint {
   return {
@@ -81,6 +82,45 @@ describe('AiQuestionGenerationService', () => {
       '⑤ 이 사례는 경력 개발의 핵심 조건에 부합한다.',
     ]);
     expect(result.rejected[0]?.code).toBe('AI_ANSWER_RULE_MISMATCH');
+  });
+
+  it('keeps generated choices only after semantic verification', async () => {
+    const choices = [
+      '① 직무 분석에 해당한다.',
+      '② 직업 윤리에 해당한다.',
+      '③ 직업 훈련에 해당한다.',
+      '④ 인사 평가에 해당한다.',
+      '⑤ 경력 개발에 해당한다.',
+    ];
+    const generate = jest.fn().mockResolvedValue({
+      ...candidate(),
+      stemText: '근로자 3명이 기업과 계약을 체결하였다.',
+      choiceTexts: choices,
+    });
+    const verifyChoices = jest.fn().mockResolvedValue({
+      passed: true,
+      answerIndex: 1,
+      choices: choices.map((_, index) => ({
+        index: (index + 1) as 1 | 2 | 3 | 4 | 5,
+        correct: index === 0,
+        reason: index === 0 ? 'target condition matches' : 'distractor condition',
+      })),
+    });
+
+    const classified = classifyReferenceArchetype({
+      stem: '다음 사례에 대한 설명으로 옳은 것은?',
+      stimulus: 'A씨는 직무에 필요한 능력을 분석하였다.',
+      viewItems: [],
+      choices: ['① 하나', '② 둘', '③ 셋', '④ 넷', '⑤ 다섯'],
+      targetConcepts: ['직무 분석'],
+    });
+    if (classified.kind !== 'classified') throw new Error('invalid fixture');
+    const result = await new AiQuestionGenerationService({ generate, verifyChoices })
+      .generate([{ ...blueprint('blueprint-verified'), sourceArchetype: { ...classified.value, stimulusRole: 'prose' } }]);
+
+    expect(result.accepted).toHaveLength(1);
+    expect(result.accepted[0]?.question.optionsList).toEqual(choices);
+    expect(verifyChoices).toHaveBeenCalledTimes(1);
   });
 
   it('returns a shortfall after the bounded retry budget', async () => {

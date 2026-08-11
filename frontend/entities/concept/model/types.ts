@@ -113,6 +113,8 @@ export interface FrequencyConceptItem {
     evidence?: string;
     examRelevance?: string;
   }[];
+  sourceTag?: string;
+  contentStatus?: 'complete' | 'needs_review' | 'missing';
   sampleQuestion: ExamQuestion & { correct_answer: number; questionSource?: string; questionNumber?: number; rawStimulus?: string };
   conceptHighlightV2?: ConceptHighlightV2 | null;
   /** v16+: 동일 개념에 연결된 실제 문제들. sampleQuestion은 하위 호환용. */

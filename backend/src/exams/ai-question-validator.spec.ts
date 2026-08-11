@@ -200,7 +200,7 @@ describe('validateAiQuestion', () => {
     });
   });
 
-  it('does not materialize generic fallback choices for grounded blueprints', () => {
+  it('uses server-owned choices for grounded blueprints', () => {
     const classified = classifyReferenceArchetype({
       stem: '다음 사례에 대한 설명으로 옳은 것은?',
       stimulus: 'A씨는 만 18세에 직무에 필요한 능력을 분석하였다.',
@@ -221,16 +221,13 @@ describe('validateAiQuestion', () => {
       ),
     };
 
-    expect(
+    const result =
       materializeAiQuestion(focusedBlueprint, {
         stemText: 'A씨는 만 18세에 직무에 필요한 능력을 분석하였다.',
         explanationText: '직무 분석은 직무 수행 조건을 파악하는 것이다.',
-      }),
-    ).toEqual({
-      kind: 'rejected',
-      code: 'AI_DISTRACTOR_INVALID',
-      message: '단서 기반 선택지 5개가 필요합니다.',
-    });
+      });
+    if (result.kind === 'rejected') throw new Error(result.message);
+    expect(result.question.optionsList[0]).toContain('직무 분석');
   });
 
   it('accepts choices that bind each concept to a concrete source cue', () => {

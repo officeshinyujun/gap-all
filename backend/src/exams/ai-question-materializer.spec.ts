@@ -76,7 +76,7 @@ describe('materializeAiQuestion', () => {
     ]);
   });
 
-  it('keeps valid provider-written choices for certified single-selection items', () => {
+  it('keeps server-owned choices for certified single-selection items', () => {
     const classified = classifyReferenceArchetype({
       stem: '다음 사례에 대한 설명으로 옳은 것은?',
       stimulus: 'A씨는 직무에 필요한 능력을 분석하였다.',

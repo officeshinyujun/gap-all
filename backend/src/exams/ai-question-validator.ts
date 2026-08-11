@@ -72,13 +72,6 @@ export function validateAiQuestion(
   if (question.optionsList.length !== 5) {
     return failed('AI_DISTRACTOR_INVALID', 'choice count is not five');
   }
-  const requiresGroundedChoices =
-    !isTruthCombination &&
-    archetype?.responseMode === 'single_selection' &&
-    blueprint.choiceFocuses !== undefined;
-  if (requiresGroundedChoices && candidate.choiceTexts === undefined) {
-    return failed('AI_DISTRACTOR_INVALID', 'grounded provider choices are required');
-  }
   if (
     candidate.choiceTexts !== undefined &&
     (new Set(candidate.choiceTexts.map((choice) => choice.normalize('NFKC').trim())).size !== 5 ||
@@ -158,6 +151,7 @@ export function validateAiQuestion(
   if (
     archetype !== undefined &&
     !isTruthCombination &&
+    candidate.choiceTexts === undefined &&
     question.optionsList.some(
       (option) =>
         !option.includes(

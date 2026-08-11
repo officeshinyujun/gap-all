@@ -86,6 +86,12 @@ export class AiExamGenerationService {
     run.stage = 'profile';
     run.progress = 10;
     await this.runRepo.save(run);
+    const abortController = new AbortController();
+    const deadlineAtMs = Date.now() + AI_JOB_TIMEOUT_MS;
+    const timeout = setTimeout(() => abortController.abort(), AI_JOB_TIMEOUT_MS);
+    const cancellationPoll = setInterval(() => {
+      if (isCanceled?.()) abortController.abort();
+    }, 250);
     try {
       const preview = await this.blueprintService.preview({
         subjectId: dto.subjectId,
@@ -101,6 +107,20 @@ export class AiExamGenerationService {
         // intentionally allowed here. Reference-only generation owns source
         // deduplication in ExamsService.
         excludeSourceIds: [],
+      }, {
+        signal: abortController.signal,
+        deadlineAtMs,
+        shouldCancel: isCanceled,
+        reportAnalysisProgress: (completed, total) =>
+          this.report(run, reportProgress, {
+            stage: 'blueprint',
+            progress: 10 + Math.floor((completed / Math.max(1, total)) * 10),
+            message: 'AI 원본 문항을 분석하고 있습니다.',
+            completed,
+            total,
+            attempt: 1,
+            maxAttempts: 1,
+          }),
       });
       await this.report(run, reportProgress, {
         stage: 'blueprint',
@@ -128,7 +148,6 @@ export class AiExamGenerationService {
         }
       }
 
-      const abortController = new AbortController();
       const previousFingerprints =
         await this.previousAiQuestionFingerprints(
           userId,
@@ -136,24 +155,16 @@ export class AiExamGenerationService {
           dto.startUnitNum,
           dto.endUnitNum,
         );
-      const cancellationPoll = setInterval(() => {
-        if (isCanceled?.()) abortController.abort();
-      }, 250);
-      let generated;
-      try {
-        generated = await this.questionGenerationService.generate(
-          preview.blueprints,
-          (update) => this.report(run, reportProgress, update),
-          dto.questionCount,
-          Date.now() + AI_JOB_TIMEOUT_MS,
-          isCanceled,
-          abortController.signal,
-          previousFingerprints.exact,
-          previousFingerprints.structural,
-        );
-      } finally {
-        clearInterval(cancellationPoll);
-      }
+      const generated = await this.questionGenerationService.generate(
+        preview.blueprints,
+        (update) => this.report(run, reportProgress, update),
+        dto.questionCount,
+        deadlineAtMs,
+        isCanceled,
+        abortController.signal,
+        previousFingerprints.exact,
+        previousFingerprints.structural,
+      );
       run.acceptedCount = generated.accepted.length;
       run.rejectedCount = generated.rejected.length;
       run.rejectionsByTemplate = generated.rejectionsByTemplate ?? null;
@@ -328,6 +339,9 @@ export class AiExamGenerationService {
       run.failureReason = 'AI 시험 생성에 실패했습니다.';
       await this.runRepo.save(run);
       throw error;
+    } finally {
+      clearInterval(cancellationPoll);
+      clearTimeout(timeout);
     }
   }
 

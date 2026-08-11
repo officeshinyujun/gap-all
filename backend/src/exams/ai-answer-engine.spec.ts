@@ -41,6 +41,37 @@ describe('deriveAiAnswer', () => {
     ).toBeNull();
   });
 
+  it('prefers certified reference choices for single-selection blueprints', () => {
+    expect(
+      deriveAiAnswer({
+        ...blueprint,
+        sourceChoiceTexts: [
+          '① 원문 정답 선택지입니다.',
+          '② 원문 오답 선택지입니다.',
+          '③ 다른 오답 선택지입니다.',
+          '④ 또 다른 오답 선택지입니다.',
+          '⑤ 마지막 오답 선택지입니다.',
+        ],
+      }),
+    ).toEqual({
+      correctAnswer: 3,
+      optionsList: [
+        '① 원문 정답 선택지입니다.',
+        '② 원문 오답 선택지입니다.',
+        '③ 다른 오답 선택지입니다.',
+        '④ 또 다른 오답 선택지입니다.',
+        '⑤ 마지막 오답 선택지입니다.',
+      ],
+    });
+  });
+
+  it('keeps concise certified choices instead of generic replacements', () => {
+    const choices = ['① A', '② B', '③ C', '④ D', '⑤ E'];
+    expect(
+      deriveAiAnswer({ ...blueprint, sourceChoiceTexts: choices }),
+    ).toEqual({ correctAnswer: 3, optionsList: choices });
+  });
+
   it('preserves certified ㄱㄴㄷ choice encoding for combination TPLs', () => {
     const classified = classifyReferenceArchetype({
       stem: '다음 자료에 대한 설명으로 옳은 것은?',

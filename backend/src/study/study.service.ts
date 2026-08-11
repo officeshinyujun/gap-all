@@ -1013,6 +1013,7 @@ export class StudyService {
       }
 
       const representativeTags = await this.getRepresentativeTags(unit.id);
+      const structuredConcept = this.readStructuredConceptSafely(subjectSlug, unitNumber);
 
       const cards = (await this.dataSource.query(
         `SELECT rank, name, frequency, sources, definition, key_points,
@@ -1031,6 +1032,7 @@ export class StudyService {
           this.alignFrequencyConcepts(
             this.transformCardsToFrequency({ concepts: cards }),
             representativeTags,
+            structuredConcept,
           ),
         );
       }
@@ -1046,6 +1048,7 @@ export class StudyService {
           this.alignFrequencyConcepts(
             this.normalizeFrequencyConcepts(frequencies[0].frequency_data),
             representativeTags,
+            structuredConcept,
           ),
         );
       }
@@ -1067,6 +1070,7 @@ export class StudyService {
 
     if (unit) {
       const representativeTags = await this.getRepresentativeTags(unit.id);
+      const structuredConcept = this.readStructuredConceptSafely(subjectSlug, unitNumber);
       const { data: cards } = await this.supabase.client
         .from('textbook_concept_cards')
         .select('*')
@@ -1080,6 +1084,7 @@ export class StudyService {
           this.alignFrequencyConcepts(
             this.transformCardsToFrequency({ concepts: cards }),
             representativeTags,
+            structuredConcept,
           ),
         );
       }
@@ -1098,6 +1103,7 @@ export class StudyService {
             this.alignFrequencyConcepts(
               this.normalizeFrequencyConcepts(freq.frequency_data),
               representativeTags,
+              structuredConcept,
             ),
           );
        }
@@ -1146,20 +1152,18 @@ export class StudyService {
   private alignFrequencyConcepts(
     data: Record<string, any>,
     representativeTags: Array<{ name: string; sortOrder: number }>,
+    structuredConcept?: any,
   ): Record<string, any> {
     if (!representativeTags.length || !Array.isArray(data.concepts)) return data;
 
     const concepts = data.concepts as Array<Record<string, any>>;
     const assignments = new Map<string, Array<Record<string, any>>>();
-    const unmatched: Array<Record<string, any>> = [];
-
     for (const concept of concepts) {
       const match = representativeTags
         .map((tag) => ({ tag, score: this.representativeTagScore(tag.name, concept.name) }))
         .filter(({ score }) => score > 0)
         .sort((left, right) => right.score - left.score)[0];
       if (!match) {
-        unmatched.push(concept);
         continue;
       }
       const group = assignments.get(match.tag.name) ?? [];
@@ -1170,30 +1174,15 @@ export class StudyService {
     const aligned = representativeTags.map((tag, index) => {
       const group = assignments.get(tag.name) ?? [];
       if (group.length === 0) {
-        return {
-          name: tag.name,
-          rank: index + 1,
-          frequency: 0,
-          sources: [],
-          questionFormats: [],
-          description: '',
-          keyPoints: [],
-          examTips: [],
-          conceptContent: '',
-          subtopics: [],
-          sampleQuestion: null,
-          relatedQuestions: [],
-          sourceTag: tag.name,
-          contentStatus: 'missing',
-        };
+        return this.buildStructuredConcept(tag.name, index + 1, structuredConcept);
       }
       return this.mergeRepresentativeConcept(tag.name, index + 1, group);
     });
 
-    // ponytail: keep unmatched legacy cards at the end instead of silently deleting study content.
+    // ponytail: representative tags are the product contract; legacy-only cards stay out of the study sequence.
     return {
       ...data,
-      concepts: [...aligned, ...unmatched],
+      concepts: aligned,
     };
   }
 
@@ -1204,6 +1193,19 @@ export class StudyService {
     if (tag === concept) return 100;
     if (concept.startsWith(tag)) return 80;
     if (tag.startsWith(concept)) return 70;
+    const tagTokens = this.conceptTokens(tagName);
+    const conceptTokens = this.conceptTokens(conceptName);
+    const shared = tagTokens.filter((token) =>
+      conceptTokens.some(
+        (candidate) =>
+          !this.isGenericConceptToken(token) &&
+          !this.isGenericConceptToken(candidate) &&
+          (token.includes(candidate) || candidate.includes(token)),
+      ),
+    );
+    if (shared.length >= 2 || (shared.length === 1 && shared[0].length >= 4)) {
+      return 40 + shared.length;
+    }
     return 0;
   }
 
@@ -1212,6 +1214,95 @@ export class StudyService {
       .toLowerCase()
       .replace(/[\s·()（）\-_/]+/gu, '')
       .trim();
+  }
+
+  private conceptTokens(value: unknown): string[] {
+    return String(value ?? '')
+      .toLowerCase()
+      .replace(/[()（）/·,，:：]+/gu, ' ')
+      .split(/\s+/u)
+      .map((token) => token.trim())
+      .filter((token) => token.length >= 2);
+  }
+
+  private isGenericConceptToken(token: string): boolean {
+    return new Set(['직업', '생활', '의미', '중요성', '유형', '방식', '근무', '다양성']).has(token);
+  }
+
+  private readStructuredConceptSafely(subjectSlug: string, unitNumber: number): any | undefined {
+    try {
+      return this.getStructuredConcept(subjectSlug, unitNumber);
+    } catch {
+      return undefined;
+    }
+  }
+
+  private buildStructuredConcept(
+    tagName: string,
+    rank: number,
+    structuredConcept: any,
+  ): Record<string, any> {
+    const candidates = (structuredConcept?.sections ?? []).flatMap((section: any) =>
+      (section.subsections ?? []).map((subsection: any) => ({ section, subsection })),
+    );
+    const match = candidates
+      .map(({ section, subsection }: any) => ({
+        section,
+        subsection,
+        score: this.representativeTagScore(
+          tagName,
+          `${section.title} ${subsection.title} ${subsection.explanation ?? ''}`,
+        ),
+      }))
+      .sort((left: any, right: any) => right.score - left.score)[0];
+
+    if (!match || match.score === 0) {
+      return {
+        name: tagName,
+        rank,
+        frequency: 0,
+        sources: [],
+        questionFormats: [],
+        description: '',
+        keyPoints: [],
+        examTips: [],
+        conceptContent: '',
+        subtopics: [],
+        sampleQuestion: null,
+        relatedQuestions: [],
+        sourceTag: tagName,
+        contentStatus: 'missing',
+      };
+    }
+
+    const { section, subsection } = match;
+    const keyPoints = Array.isArray(subsection.keyPoints) ? subsection.keyPoints : [];
+    const examTips = Array.isArray(subsection.examPoints) ? subsection.examPoints : [];
+    const pitfalls = Array.isArray(subsection.pitfalls) ? subsection.pitfalls : [];
+    const parts = [
+      `## 개념 정의\n${subsection.explanation || section.summary || ''}`,
+      keyPoints.length ? `## 핵심 포인트\n${keyPoints.map((point: string) => `- ${point}`).join('\n')}` : '',
+      subsection.table ? `## 비교·정리\n${subsection.table}` : '',
+      examTips.length ? `## 시험 출제 포인트\n${examTips.map((point: string) => `- ${point}`).join('\n')}` : '',
+      pitfalls.length ? `## 오답 주의\n${pitfalls.map((point: string) => `- ${point}`).join('\n')}` : '',
+    ].filter(Boolean);
+
+    return {
+      name: tagName,
+      rank,
+      frequency: 0,
+      sources: [],
+      questionFormats: [],
+      description: subsection.explanation || section.summary || '',
+      keyPoints,
+      examTips,
+      conceptContent: parts.join('\n\n'),
+      subtopics: [{ name: subsection.title }],
+      sampleQuestion: null,
+      relatedQuestions: [],
+      sourceTag: tagName,
+      contentStatus: 'complete',
+    };
   }
 
   private mergeRepresentativeConcept(
@@ -1223,7 +1314,7 @@ export class StudyService {
       (left, right) => Number(right.frequency ?? 0) - Number(left.frequency ?? 0),
     )[0];
     const uniqueStrings = (values: unknown[]) => [
-      ...new Set(values.filter((value): value is string => typeof value === 'string' && value.trim())),
+      ...new Set(values.filter((value): value is string => typeof value === 'string' && !!value.trim())),
     ];
     const subtopics = uniqueStrings(concepts.map((concept) => concept.name))
       .filter((name) => name !== tagName)

@@ -80,7 +80,13 @@ describe('local study data access', () => {
       },
     }));
     const dataSource = {
-      query: jest.fn().mockResolvedValueOnce([{ id: 'unit-1' }]).mockResolvedValueOnce(cards),
+      query: jest
+        .fn()
+        .mockResolvedValueOnce([{ id: 'unit-1' }])
+        .mockResolvedValueOnce(
+          cards.map((card) => ({ concept_name: card.name, sort_order: card.rank - 1 })),
+        )
+        .mockResolvedValueOnce(cards),
     } as unknown as DataSource;
     const service = new StudyService(
       {} as Repository<any>,
@@ -95,7 +101,7 @@ describe('local study data access', () => {
       {} as never,
       {} as never,
       {} as never,
-      undefined,
+      {} as never,
     );
 
     const result = await service.getFrequencyConcept('success', 1);
@@ -139,6 +145,7 @@ describe('local study data access', () => {
       query: jest
         .fn()
         .mockResolvedValueOnce([{ id: 'unit-1' }])
+        .mockResolvedValueOnce([])
         .mockResolvedValueOnce(cards)
         .mockResolvedValueOnce([{ frequency_data: frequencyData }]),
     } as unknown as DataSource;
@@ -155,7 +162,7 @@ describe('local study data access', () => {
       {} as never,
       {} as never,
       {} as never,
-      undefined,
+      {} as never,
     );
 
     await expect(service.getFrequencyConcept('success', 1)).resolves.toEqual({
@@ -167,6 +174,49 @@ describe('local study data access', () => {
         }),
       ],
     });
+  });
+
+  it('rebuilds the study sequence from representative tags and hides legacy-only cards', async () => {
+    const cards = [
+      { rank: 1, name: '대표 태그 1의 정의', definition: '정의 1', key_points: ['핵심 1'] },
+      { rank: 2, name: '레거시 전용 카드', definition: '노출하지 않을 내용' },
+      { rank: 3, name: '대표 태그 2', definition: '정의 2', key_points: ['핵심 2'] },
+      { rank: 4, name: '기타 카드 A' },
+      { rank: 5, name: '기타 카드 B' },
+    ];
+    const dataSource = {
+      query: jest
+        .fn()
+        .mockResolvedValueOnce([{ id: 'unit-1' }])
+        .mockResolvedValueOnce([
+          { concept_name: '대표 태그 1', sort_order: 0 },
+          { concept_name: '대표 태그 2', sort_order: 1 },
+        ])
+        .mockResolvedValueOnce(cards),
+    } as unknown as DataSource;
+    const service = new StudyService(
+      {} as Repository<any>,
+      {} as Repository<any>,
+      {} as Repository<any>,
+      {} as Repository<any>,
+      {} as never,
+      dataSource,
+      {} as Repository<any>,
+      {} as Repository<any>,
+      {} as Repository<any>,
+      {} as never,
+      {} as never,
+      {} as never,
+      {} as never,
+    );
+
+    const result = await service.getFrequencyConcept('success', 1);
+
+    expect(result.concepts.map((concept: any) => concept.name)).toEqual([
+      '대표 태그 1',
+      '대표 태그 2',
+    ]);
+    expect(result.concepts[0].subtopics).toEqual([{ name: '대표 태그 1의 정의' }]);
   });
 
   it('returns and writes quiz cache through the local database', async () => {
