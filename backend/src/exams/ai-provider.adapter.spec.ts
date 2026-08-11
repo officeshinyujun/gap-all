@@ -4,9 +4,11 @@ import {
   buildAiCandidatePrompt,
   parseAiReferenceAnalysis,
   parseAiQuestionCandidate,
+  aiCandidateResponseFormat,
   aiModelForRole,
 } from './ai-provider.adapter';
 import type { AiQuestionBlueprint } from './ai-blueprint.types';
+import { createAiChoiceFocuses } from './ai-blueprint.types';
 import { classifyReferenceArchetype } from './reference-archetype';
 
 const blueprint: AiQuestionBlueprint = {
@@ -209,7 +211,7 @@ describe('AiProviderAdapter', () => {
 
     expect(candidate.stemText).toContain('직무');
     expect(complete).toHaveBeenCalledWith(
-      expect.stringContaining('"promptVersion":"v2"'),
+       expect.stringContaining('"promptVersion":"v3"'),
       expect.any(AbortSignal),
       expect.objectContaining({ type: 'json_schema' }),
     );
@@ -245,6 +247,65 @@ describe('AiProviderAdapter', () => {
 
     expect(prompt).toContain('source fact anchor missing: 42%');
     expect(prompt).toContain('42%');
+  });
+
+  it('includes source-grounded choice focuses in the candidate prompt', () => {
+    const classified = classifyReferenceArchetype({
+      stem: '다음 사례에 대한 설명으로 옳은 것은?',
+      stimulus: 'A씨는 만 18세에 직무에 필요한 능력을 분석하였다.',
+      viewItems: [],
+      choices: ['① 하나', '② 둘', '③ 셋', '④ 넷', '⑤ 다섯'],
+      targetConcepts: ['직무 분석'],
+    });
+    if (classified.kind !== 'classified') throw new Error('invalid fixture');
+    const focusedBlueprint = {
+      ...blueprint,
+      sourceArchetype: classified.value,
+      choiceFocuses: createAiChoiceFocuses(
+        blueprint.targetConcept,
+        blueprint.distractorConcepts,
+        1,
+        ['만 18세'],
+        'A씨는 만 18세에 직무에 필요한 능력을 분석하였다.',
+      ),
+    };
+
+    const prompt = buildAiCandidatePrompt(focusedBlueprint, 1);
+
+    expect(prompt).toContain('choiceFocuses');
+    expect(prompt).toContain('개념명만 바꾼 generic 문장');
+    expect(prompt).toContain('만 18세');
+  });
+
+  it('keeps truth-combination structured slots server-owned', () => {
+    const truthBlueprint: AiQuestionBlueprint = {
+      ...blueprint,
+      template: 'TPL_COMPARATIVE_MATRIX',
+      providerSlotCount: 2,
+      sourceArchetype: {
+        sourceTemplate: 'TPL_COMPARATIVE_MATRIX',
+        responseMode: 'truth_combination',
+        choiceTopology: 'combo_sets',
+        stemIntent: 'truth_combination',
+        choiceEncoding: 'truth_combination',
+      } as never,
+    };
+
+    expect(
+      parseAiQuestionCandidate(
+        JSON.stringify({
+          stemText: '원문 조건을 보존한 자료다.',
+          explanationText: '자료의 조건을 기준으로 판단한다.',
+        }),
+        truthBlueprint,
+      ),
+    ).toEqual({
+      stemText: '원문 조건을 보존한 자료다.',
+      explanationText: '자료의 조건을 기준으로 판단한다.',
+    });
+    expect(
+      aiCandidateResponseFormat(truthBlueprint).json_schema.schema.properties,
+    ).not.toHaveProperty('cellTexts');
   });
 
   it('analyzes a reference with a strict shared contract', async () => {

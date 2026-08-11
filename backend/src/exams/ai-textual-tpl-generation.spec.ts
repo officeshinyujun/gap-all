@@ -64,7 +64,7 @@ describe('textual AI TPL generation', () => {
     expect(materialized.question.stimulusData).toBeTruthy();
     expect(validateAiQuestion(blueprint, provided, materialized.question)).toEqual({
       passed: true,
-      validatorVersion: 'v2',
+      validatorVersion: 'v3',
     });
   });
 });

@@ -6,6 +6,7 @@ import {
   NotFoundException,
   ForbiddenException,
   Logger,
+  Optional,
 } from '@nestjs/common';
 import { randomUUID } from 'node:crypto';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -43,6 +44,7 @@ import {
 import { ReferenceFidelitySpecError } from './reference-fidelity-spec';
 import { assertAiBlueprintGenerationEnabled } from './ai-generation-feature';
 import { AiExamGenerationService } from './ai-exam-generation.service';
+import { AiUnitProfileService } from './ai-unit-profile.service';
 
 const REFERENCE_JOB_TIMEOUT_MS =
   Number(process.env.REFERENCE_JOB_TIMEOUT_MS) || 360_000;
@@ -298,6 +300,8 @@ export class ExamsService {
     private readonly examGenerationCooldownService: ExamGenerationCooldownService,
     private readonly notificationsService: NotificationsService,
     private readonly aiExamGenerationService: AiExamGenerationService,
+    @Optional()
+    private readonly aiUnitProfileService?: AiUnitProfileService,
   ) {}
 
   // ============================================================
@@ -752,6 +756,14 @@ export class ExamsService {
             dto.startUnitNum,
             dto.endUnitNum,
           );
+    const studyPatternOptions =
+      dto.referenceSourceIds !== undefined && dto.referenceSourceIds.length > 0
+        ? {}
+        : await this.getStudyPatternOptions(
+            subjectSlug,
+            dto.startUnitNum,
+            dto.endUnitNum,
+          );
     const drafts = await this.simplyReferenceGenerationService.generate(
       subjectSlug,
       dto.startUnitNum,
@@ -769,6 +781,7 @@ export class ExamsService {
         previousFingerprints: history?.fingerprints,
         previousSourceIds: history?.sourceIds,
         sourcePreserving: true,
+        ...studyPatternOptions,
       },
     );
     if (drafts.length !== dto.questionCount) {
@@ -867,6 +880,43 @@ export class ExamsService {
       maxAttempts: 1,
     });
     return this.findOne(userId, exam.id);
+  }
+
+  private async getStudyPatternOptions(
+    subjectSlug: string,
+    startUnitNum: number,
+    endUnitNum: number,
+  ) {
+    if (this.aiUnitProfileService === undefined) return {};
+    try {
+      const profile = await this.aiUnitProfileService.getProfile(
+        subjectSlug,
+        startUnitNum,
+        endUnitNum,
+      );
+      const patterns = profile.units.flatMap((unit) =>
+        (unit.studyInsights?.patterns ?? []).map((pattern) => ({
+          pattern,
+        })),
+      );
+      const groups = patterns.map(({ pattern }) => pattern.referenceQuestionIds);
+      const tags = Object.fromEntries(
+        patterns.flatMap(({ pattern }) =>
+          pattern.referenceQuestionIds.map((sourceId) => [sourceId, {
+            examPatternId: pattern.id,
+            questionFormat: pattern.questionFormats[0] ?? '기타',
+          }] as const),
+        ),
+      );
+      return groups.length > 0
+        ? { studyPatternGroups: groups, studyPatternTags: tags }
+        : {};
+    } catch (error) {
+      this.logger.warn(
+        `Study pattern constraints unavailable: ${error instanceof Error ? error.message : String(error)}`,
+      );
+      return {};
+    }
   }
 
   private async getSimplyReferenceHistory(

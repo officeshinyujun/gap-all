@@ -83,6 +83,6 @@ import { AiExamGenerationService } from './ai-exam-generation.service';
     AiQuestionGenerationService,
     AiExamGenerationService,
   ],
-  exports: [ExamsService],
+  exports: [ExamsService, AiUnitProfileService],
 })
 export class ExamsModule {}

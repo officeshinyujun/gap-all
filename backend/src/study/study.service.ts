@@ -3,6 +3,7 @@ import {
   Injectable,
   Logger,
   NotFoundException,
+  Optional,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DataSource, IsNull, Not, Repository } from 'typeorm';
@@ -17,6 +18,7 @@ import { IncorrectRecord } from '../entities/incorrect-record.entity';
 import { Question } from '../entities/question.entity';
 import { ExamItem } from '../entities/exam-item.entity';
 import { ConceptBookmark } from '../entities/concept-bookmark.entity';
+import { UnitExamProfile } from '../entities/unit-exam-profile.entity';
 import { Difficulty } from '../entities/exam-record.entity';
 import { UpdateProgressDto } from './dto/update-progress.dto';
 import { SubmitReviewResultDto } from './dto/submit-review-result.dto';
@@ -34,6 +36,8 @@ import { Type } from 'class-transformer';
 import type { BlankQuestion, ConceptPair } from '../textbook/textbook.service';
 import { SupabaseService } from '../supabase/supabase.service';
 import { getUnit1ConceptDefinition } from './unit1-concept-definition';
+import { AiUnitProfileService } from '../exams/ai-unit-profile.service';
+import type { StudyInsights, StudyMustKnowBlock } from './study-insights';
 
 export class DeleteCacheBulkDto {
   @IsOptional()
@@ -124,6 +128,11 @@ export class StudyService {
     private readonly quizGenerator: StudyQuizGeneratorService,
     private readonly examsService: ExamsService,
     private readonly embeddingService: TextbookEmbeddingService,
+    @Optional()
+    @InjectRepository(UnitExamProfile)
+    private readonly unitExamProfileRepo?: Repository<UnitExamProfile>,
+    @Optional()
+    private readonly aiUnitProfileService?: AiUnitProfileService,
   ) {}
 
   async getProgressBySubject(userId: string, subjectSlug: string) {
@@ -1003,6 +1012,8 @@ export class StudyService {
         return this.emptyFrequencyConcept(subjectSlug, unitNumber);
       }
 
+      const representativeTags = await this.getRepresentativeTags(unit.id);
+
       const cards = (await this.dataSource.query(
         `SELECT rank, name, frequency, sources, definition, key_points,
                 textbook_excerpt, enriched_definition, caution, quiz,
@@ -1014,7 +1025,14 @@ export class StudyService {
       )) as any[];
 
       if (cards.length >= 5) {
-        return this.transformCardsToFrequency({ concepts: cards });
+        return this.withStudyInsights(
+          subjectSlug,
+          unitNumber,
+          this.alignFrequencyConcepts(
+            this.transformCardsToFrequency({ concepts: cards }),
+            representativeTags,
+          ),
+        );
       }
 
       const frequencies = (await this.dataSource.query(
@@ -1022,10 +1040,21 @@ export class StudyService {
         [unit.id],
       )) as Array<{ frequency_data: any }>;
       if (frequencies[0]) {
-        return this.normalizeFrequencyConcepts(frequencies[0].frequency_data);
+        return this.withStudyInsights(
+          subjectSlug,
+          unitNumber,
+          this.alignFrequencyConcepts(
+            this.normalizeFrequencyConcepts(frequencies[0].frequency_data),
+            representativeTags,
+          ),
+        );
       }
 
-      return this.emptyFrequencyConcept(subjectSlug, unitNumber);
+      return this.withStudyInsights(
+        subjectSlug,
+        unitNumber,
+        this.emptyFrequencyConcept(subjectSlug, unitNumber),
+      );
     }
 
     // concept_cards 먼저 시도
@@ -1037,6 +1066,7 @@ export class StudyService {
       .single();
 
     if (unit) {
+      const representativeTags = await this.getRepresentativeTags(unit.id);
       const { data: cards } = await this.supabase.client
         .from('textbook_concept_cards')
         .select('*')
@@ -1044,7 +1074,14 @@ export class StudyService {
         .order('rank');
 
       if (cards && cards.length >= 5) {
-        return this.transformCardsToFrequency({ concepts: cards });
+        return this.withStudyInsights(
+          subjectSlug,
+          unitNumber,
+          this.alignFrequencyConcepts(
+            this.transformCardsToFrequency({ concepts: cards }),
+            representativeTags,
+          ),
+        );
       }
 
       // frequency 테이블 fallback
@@ -1054,11 +1091,290 @@ export class StudyService {
         .eq('unit_id', unit.id)
         .single();
 
-      if (freq) return this.normalizeFrequencyConcepts(freq.frequency_data);
+       if (freq) {
+          return this.withStudyInsights(
+            subjectSlug,
+            unitNumber,
+            this.alignFrequencyConcepts(
+              this.normalizeFrequencyConcepts(freq.frequency_data),
+              representativeTags,
+            ),
+          );
+       }
     }
 
     // 데이터 없으면 빈 배열 반환 (500 대신)
-    return this.emptyFrequencyConcept(subjectSlug, unitNumber);
+    return this.withStudyInsights(
+      subjectSlug,
+      unitNumber,
+      this.emptyFrequencyConcept(subjectSlug, unitNumber),
+    );
+  }
+
+  private async getRepresentativeTags(
+    unitId: string,
+  ): Promise<Array<{ name: string; sortOrder: number }>> {
+    if (process.env.DB_PROVIDER === 'local') {
+      const rows = (await this.dataSource.query(
+        `SELECT concept_name, sort_order
+         FROM textbook_concepts
+         WHERE unit_id = $1
+         ORDER BY sort_order, concept_name`,
+        [unitId],
+      )) as Array<{ concept_name: string; sort_order: number }>;
+      return rows.map((row) => ({
+        name: row.concept_name,
+        sortOrder: row.sort_order,
+      }));
+    }
+
+    const { data, error } = await this.supabase.client
+      .from('textbook_concepts')
+      .select('concept_name, sort_order')
+      .eq('unit_id', unitId)
+      .order('sort_order');
+    if (error || !data) {
+      this.logger.warn(`Representative Study tags unavailable for unit ${unitId}`);
+      return [];
+    }
+    return data.map((row) => ({
+      name: row.concept_name,
+      sortOrder: row.sort_order,
+    }));
+  }
+
+  private alignFrequencyConcepts(
+    data: Record<string, any>,
+    representativeTags: Array<{ name: string; sortOrder: number }>,
+  ): Record<string, any> {
+    if (!representativeTags.length || !Array.isArray(data.concepts)) return data;
+
+    const concepts = data.concepts as Array<Record<string, any>>;
+    const assignments = new Map<string, Array<Record<string, any>>>();
+    const unmatched: Array<Record<string, any>> = [];
+
+    for (const concept of concepts) {
+      const match = representativeTags
+        .map((tag) => ({ tag, score: this.representativeTagScore(tag.name, concept.name) }))
+        .filter(({ score }) => score > 0)
+        .sort((left, right) => right.score - left.score)[0];
+      if (!match) {
+        unmatched.push(concept);
+        continue;
+      }
+      const group = assignments.get(match.tag.name) ?? [];
+      group.push(concept);
+      assignments.set(match.tag.name, group);
+    }
+
+    const aligned = representativeTags.map((tag, index) => {
+      const group = assignments.get(tag.name) ?? [];
+      if (group.length === 0) {
+        return {
+          name: tag.name,
+          rank: index + 1,
+          frequency: 0,
+          sources: [],
+          questionFormats: [],
+          description: '',
+          keyPoints: [],
+          examTips: [],
+          conceptContent: '',
+          subtopics: [],
+          sampleQuestion: null,
+          relatedQuestions: [],
+          sourceTag: tag.name,
+          contentStatus: 'missing',
+        };
+      }
+      return this.mergeRepresentativeConcept(tag.name, index + 1, group);
+    });
+
+    // ponytail: keep unmatched legacy cards at the end instead of silently deleting study content.
+    return {
+      ...data,
+      concepts: [...aligned, ...unmatched],
+    };
+  }
+
+  private representativeTagScore(tagName: unknown, conceptName: unknown): number {
+    const tag = this.normalizeConceptName(tagName);
+    const concept = this.normalizeConceptName(conceptName);
+    if (!tag || !concept) return 0;
+    if (tag === concept) return 100;
+    if (concept.startsWith(tag)) return 80;
+    if (tag.startsWith(concept)) return 70;
+    return 0;
+  }
+
+  private normalizeConceptName(value: unknown): string {
+    return String(value ?? '')
+      .toLowerCase()
+      .replace(/[\s·()（）\-_/]+/gu, '')
+      .trim();
+  }
+
+  private mergeRepresentativeConcept(
+    tagName: string,
+    rank: number,
+    concepts: Array<Record<string, any>>,
+  ): Record<string, any> {
+    const primary = [...concepts].sort(
+      (left, right) => Number(right.frequency ?? 0) - Number(left.frequency ?? 0),
+    )[0];
+    const uniqueStrings = (values: unknown[]) => [
+      ...new Set(values.filter((value): value is string => typeof value === 'string' && value.trim())),
+    ];
+    const subtopics = uniqueStrings(concepts.map((concept) => concept.name))
+      .filter((name) => name !== tagName)
+      .map((name) => ({ name }));
+
+    return {
+      ...primary,
+      name: tagName,
+      rank,
+      frequency: Math.max(...concepts.map((concept) => Number(concept.frequency ?? 0)), 0),
+      sources: uniqueStrings(concepts.flatMap((concept) => concept.sources ?? [])),
+      questionFormats: uniqueStrings(concepts.flatMap((concept) => concept.questionFormats ?? [])),
+      keyPoints: uniqueStrings(concepts.flatMap((concept) => concept.keyPoints ?? [])).slice(0, 5),
+      examTips: uniqueStrings(concepts.flatMap((concept) => concept.examTips ?? [])).slice(0, 5),
+      subtopics,
+      relatedQuestions: concepts.flatMap((concept) => concept.relatedQuestions ?? []).slice(0, 5),
+      sourceTag: tagName,
+      contentStatus: 'complete',
+    };
+  }
+
+  async getStudyExamPatterns(subjectSlug: string, unitNumber: number) {
+    const subject = this.SUBJECT_MAP[subjectSlug];
+    if (!subject) {
+      throw new NotFoundException(`지원하지 않는 과목입니다: ${subjectSlug}`);
+    }
+    return {
+      subjectSlug,
+      unitNumber,
+      ...(await this.readStudyInsights(subjectSlug, unitNumber)),
+    };
+  }
+
+  private async withStudyInsights(
+    subjectSlug: string,
+    unitNumber: number,
+    data: Record<string, unknown>,
+  ) {
+    const enrichedData = await this.withRelatedQuestions(data);
+    const studyInsights = await this.readStudyInsights(subjectSlug, unitNumber);
+    const withMustKnow = this.withStudyMustKnow(enrichedData, studyInsights);
+    return studyInsights.patterns.length > 0 || (studyInsights.mustKnowBlocks?.length ?? 0) > 0
+      ? { ...withMustKnow, studyInsights }
+      : withMustKnow;
+  }
+
+  private withStudyMustKnow(
+    data: Record<string, unknown>,
+    studyInsights: Pick<StudyInsights, 'mustKnowBlocks'>,
+  ) {
+    if (!Array.isArray(data.concepts)) return data;
+    const blocks = studyInsights.mustKnowBlocks ?? [];
+    const concepts = data.concepts.map((concept: any) => {
+      const block = blocks.find((candidate) =>
+        candidate.conceptAliases.some((alias) =>
+          concept.name?.includes(alias) || alias.includes(concept.name ?? ''),
+        ),
+      );
+      if (block !== undefined) return { ...concept, examMustKnow: block };
+      const keyPoints = Array.isArray(concept.keyPoints) ? concept.keyPoints : [];
+      const importantNumbers = Array.isArray(concept.importantNumbers)
+        ? concept.importantNumbers.filter((value: unknown) => value !== null && value !== undefined).map(String)
+        : [];
+      const comparisonTable = typeof concept.comparisonTable === 'string'
+        ? concept.comparisonTable.trim()
+        : '';
+      if (keyPoints.length === 0 && importantNumbers.length === 0 && comparisonTable === '') return concept;
+      const fallback: StudyMustKnowBlock = {
+        id: `card-${slugForMustKnow(concept.name)}`,
+        conceptAliases: [concept.name],
+        title: '핵심 암기',
+        type: comparisonTable === '' ? 'checklist' : 'comparison',
+        ...(comparisonTable === '' ? {} : { summary: comparisonTable }),
+        mustRemember: [
+          ...keyPoints,
+          ...importantNumbers.map((value) => `중요 수치: ${value}`),
+        ].slice(0, 5),
+        commonTraps: concept.caution ? [concept.caution] : [],
+        referenceQuestionIds: [],
+        confidence: 'related',
+        reviewStatus: 'textbook_only',
+      };
+      return { ...concept, examMustKnow: fallback };
+    });
+    return { ...data, concepts };
+  }
+
+  private async withRelatedQuestions(data: Record<string, unknown>) {
+    if (process.env.DB_PROVIDER === 'local') return data;
+    const concepts = Array.isArray(data.concepts) ? data.concepts : [];
+    const names = concepts
+      .map((concept: any) => concept?.name)
+      .filter((name): name is string => typeof name === 'string' && name.trim() !== '');
+    if (names.length === 0) return data;
+
+    try {
+      const related = await this.findSimilarByConceptNames(names, names.length * 5);
+      const enrichedConcepts = concepts.map((concept: any) => {
+        const matches = related.filter((question: any) =>
+          question.matchedConcepts?.some(
+            (name: string) => name.includes(concept.name) || concept.name.includes(name),
+          ),
+        );
+        const seen = new Set<string>();
+        const questions = matches.filter((question) => {
+          const key = question.questionSource && question.questionNumber != null
+            ? `${question.questionSource}:${question.questionNumber}`
+            : question.id ?? JSON.stringify(question.question);
+          if (seen.has(key)) return false;
+          seen.add(key);
+          return true;
+        }).slice(0, 5);
+        return questions.length > 0
+          ? { ...concept, relatedQuestions: questions, sampleQuestion: questions[0].question }
+          : { ...concept, relatedQuestions: [], sampleQuestion: null };
+      });
+      return { ...data, concepts: enrichedConcepts };
+    } catch (error) {
+      this.logger.warn(
+        `Related Study questions unavailable: ${error instanceof Error ? error.message : String(error)}`,
+      );
+      return data;
+    }
+  }
+
+  private async readStudyInsights(subjectSlug: string, unitNumber: number) {
+    const profile = this.unitExamProfileRepo?.findOne
+      ? await this.unitExamProfileRepo.findOne({
+          where: { subjectSlug, unitNumber },
+        })
+      : null;
+    const studyInsights = profile?.profile?.studyInsights;
+    if (!isStudyInsights(studyInsights)) {
+      if (this.aiUnitProfileService) {
+        const generated = await this.aiUnitProfileService.getProfile(
+          subjectSlug,
+          unitNumber,
+          unitNumber,
+        );
+        const generatedInsights = generated.units[0]?.studyInsights;
+        if (generatedInsights !== undefined) return normalizeStudyInsights(generatedInsights);
+      }
+      return {
+        version: 'v2' as const,
+        sourceQuestionCount: 0,
+        verifiedQuestionCount: 0,
+        patterns: [],
+        mustKnowBlocks: [],
+      };
+    }
+    return normalizeStudyInsights(studyInsights);
   }
 
   private emptyFrequencyConcept(subjectSlug: string, unitNumber: number) {
@@ -1200,6 +1516,16 @@ export class StudyService {
       const keyPoints = this.normalizeStringArray(
         c.key_points ?? c.card?.keyPoints,
       );
+      const importantNumbers = Array.isArray(
+        c.important_numbers ?? c.importantNumbers ?? c.card?.importantNumbers,
+      )
+        ? (c.important_numbers ?? c.importantNumbers ?? c.card?.importantNumbers)
+            .filter((value: unknown) => value !== null && value !== undefined)
+            .map(String)
+        : [];
+      const comparisonTable = String(
+        c.comparison_table ?? c.comparisonTable ?? c.card?.comparisonTable ?? '',
+      ).trim();
       const description =
         c.enriched_definition ?? c.card?.enrichedDefinition ?? definition;
       const caution = c.caution || '';
@@ -1267,7 +1593,12 @@ export class StudyService {
         name: c.name,
         frequency: c.frequency,
         sources: c.sources || [],
-        questionFormats: [],
+        questionFormats: this.normalizeStringArray(
+          c.question_formats ??
+            c.questionFormats ??
+            realQuestion?.questionFormats ??
+            realQuestion?.question_formats,
+        ),
         description,
         conceptDefinition:
           realQuestion?.conceptDefinition ?? getUnit1ConceptDefinition(c.name),
@@ -1278,6 +1609,8 @@ export class StudyService {
              ? [caution]
              : [],
          conceptContent: storedConceptContent || conceptContentParts.join('\n\n'),
+          importantNumbers,
+          comparisonTable,
          subtopics: conceptSubtopics,
         sampleQuestion: realQ
           ? {
@@ -1363,9 +1696,9 @@ export class StudyService {
           reason: '',
         },
         conceptHighlightV2: realQuestion?.conceptHighlightV2 || null,
-        relatedQuestions: realQ
-          ? [this.buildRelatedQuestion(realQ, raw, c.name)]
-          : [],
+         relatedQuestions: realQ
+           ? [this.buildRelatedQuestion(realQ, raw, c.name)].filter(Boolean)
+           : [],
       };
     });
 
@@ -1496,7 +1829,7 @@ export class StudyService {
     if (!conceptNames || conceptNames.length === 0) return [];
     const { data, error } = await this.supabase.client
       .from('reference_questions')
-      .select('subject, unit_number, source_payload')
+      .select('id, logical_source_id, subject, unit_number, source_payload')
       .limit(1000);
     if (error || !data) return [];
 
@@ -1514,6 +1847,7 @@ export class StudyService {
         const source = payload.source ?? {};
         const explanation = payload.explanation || payload.generatedExplanation || '';
         return [{
+          id: row.logical_source_id ?? row.id ?? undefined,
           conceptName: targets[0] ?? matchedNames[0],
           matchedConcepts: matchedNames,
           unitNumber: row.unit_number,
@@ -1569,4 +1903,35 @@ function parseAnswer(ans: string | number | undefined): number | null {
   const num = parseInt(trimmed, 10);
   if (!isNaN(num) && num >= 1 && num <= 5) return num;
   return null;
+}
+
+function isStudyInsights(value: unknown): value is StudyInsights {
+  if (typeof value !== 'object' || value === null) return false;
+  const record = value as Record<string, unknown>;
+  return (
+    (record.version === 'v1' || record.version === 'v2') &&
+    typeof record.sourceQuestionCount === 'number' &&
+    typeof record.verifiedQuestionCount === 'number' &&
+    Array.isArray(record.patterns) &&
+    (record.version === 'v1' || Array.isArray(record.mustKnowBlocks))
+  );
+}
+
+function normalizeStudyInsights(studyInsights: StudyInsights): StudyInsights {
+  const patterns = studyInsights.patterns
+    .map((pattern) => {
+      const referenceQuestionIds = [...new Set(pattern.referenceQuestionIds)];
+      return { ...pattern, referenceQuestionIds, frequency: referenceQuestionIds.length };
+    })
+    .sort((left, right) =>
+      right.frequency - left.frequency || left.title.localeCompare(right.title, 'ko'),
+    );
+  return { ...studyInsights, patterns };
+}
+
+function slugForMustKnow(value: unknown): string {
+  return String(value ?? 'concept')
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}]+/gu, '-')
+    .replace(/^-|-$/g, '') || 'concept';
 }

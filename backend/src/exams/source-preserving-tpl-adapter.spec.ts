@@ -79,7 +79,7 @@ describe('source-preserving adapters for disabled TPLs', () => {
     expect(materialized.question.correctAnswer).toBe(1);
     expect(validateAiQuestion(blueprint(template, source), candidate, materialized.question)).toEqual({
       passed: true,
-      validatorVersion: 'v2',
+      validatorVersion: 'v3',
     });
   });
 

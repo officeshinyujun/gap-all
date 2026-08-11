@@ -23,7 +23,7 @@
       "④ ㄱ, ㄷ, ㄹ",
       "⑤ ㄴ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 3,
     "difficulty": "MIDDLE",
     "targetConcepts": [
       "표준화와 인증",
@@ -55,7 +55,7 @@
       "④ ㄴ, ㄷ, ㄹ",
       "⑤ ㄱ, ㄷ, ㄹ"
     ],
-    "correctAnswer": null,
+    "correctAnswer": 5,
     "difficulty": "MIDDLE",
     "targetConcepts": [
       "제품의 가치",

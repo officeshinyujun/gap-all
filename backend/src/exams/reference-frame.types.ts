@@ -430,6 +430,10 @@ export type SimplyReferenceGenerationLineage = Readonly<{
   source: SourceIdentity;
   batchOrdinal: number;
   selectedTemplate: string;
+  /** Optional Study-derived classification used for internal Q3 auditing. */
+  examPatternId?: string;
+  questionFormat?: string;
+  sourceReferenceIds?: readonly string[];
   /** Version of the source-preserving adapter used for generation.
    *  0 = legacy LLM rewrite path, 1 = initial source-preserving adapter. */
   adapterVersion: number;

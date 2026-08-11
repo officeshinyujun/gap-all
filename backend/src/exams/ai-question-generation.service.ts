@@ -73,11 +73,13 @@ export class AiQuestionGenerationService {
     deadlineAtMs?: number,
     shouldCancel?: () => boolean,
     abortSignal?: AbortSignal,
+    previousFingerprints: readonly string[] = [],
+    previousStructuralFingerprints: readonly string[] = [],
   ): Promise<AiQuestionGenerationResult> {
     const accepted: AiAcceptedQuestion[] = [];
     const rejected: AiRejectedCandidate[] = [];
-    const fingerprints = new Set<string>();
-    const structuralFingerprints = new Set<string>();
+    const fingerprints = new Set(previousFingerprints);
+    const structuralFingerprints = new Set(previousStructuralFingerprints);
     const total = blueprints.length;
 
     for (const [index, blueprint] of blueprints.entries()) {

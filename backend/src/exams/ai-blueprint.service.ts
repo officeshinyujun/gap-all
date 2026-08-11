@@ -6,6 +6,7 @@ import { ReferenceQuestion } from '../entities/reference-question.entity';
 import { AiReferenceAnalysis as AiReferenceAnalysisEntity } from '../entities/ai-reference-analysis.entity';
 import {
   AI_BLUEPRINT_VERSION,
+  createAiChoiceFocuses,
   type AiConversationContract,
   type AiGenerationSourceEvidence,
   type AiQuestionBlueprint,
@@ -36,6 +37,16 @@ export type AiBlueprintPreview = Readonly<{
   plannedByTpl: Readonly<Record<string, number>>;
   reserveByTpl: Readonly<Record<string, number>>;
   blueprints: readonly AiQuestionBlueprint[];
+  diagnostics?: Readonly<{
+    rawReferenceCount: number;
+    parsedReferenceCount: number;
+    evidenceCount: number;
+    invalidReferenceCount: number;
+    unsupportedTemplateCount: number;
+    excludedPreviousSourceCount: number;
+    availableReferenceCount: number;
+    blueprintCount: number;
+  }>;
   shortfall?: Readonly<{
     requestedCount: number;
     availableCount: number;
@@ -58,6 +69,14 @@ type BlueprintEvidence = AiGenerationSourceEvidence &
     sourcePayload?: Record<string, unknown>;
     sourceAnswerIndex?: 1 | 2 | 3 | 4 | 5;
   }>;
+
+type EvidenceCollectionResult = Readonly<{
+  evidence: readonly BlueprintEvidence[];
+  rawReferenceCount: number;
+  parsedReferenceCount: number;
+  invalidReferenceCount: number;
+  unsupportedTemplateCount: number;
+}>;
 
 const CASE_VARIANTS_PER_SOURCE = 3;
 export const AI_REPLACEMENT_RESERVE_MINIMUM = 5;
@@ -90,7 +109,8 @@ export class AiBlueprintService {
         unitNumber: Between(request.startUnitNum, request.endUnitNum),
       },
     });
-    const evidence = collectEvidence(sources, request.subjectSlug);
+    const collected = collectEvidence(sources, request.subjectSlug);
+    const evidence = collected.evidence;
     const candidateCount =
       request.questionCount +
       Math.max(request.questionCount, AI_REPLACEMENT_RESERVE_MINIMUM);
@@ -109,10 +129,22 @@ export class AiBlueprintService {
       );
       return analyzedItem ?? item;
     });
-    return compileAiBlueprints(profile, merged, {
+    const preview = compileAiBlueprints(profile, merged, {
       ...request,
       candidateCount,
     });
+    const diagnostics = {
+      rawReferenceCount: collected.rawReferenceCount,
+      parsedReferenceCount: collected.parsedReferenceCount,
+      evidenceCount: collected.evidence.length,
+      invalidReferenceCount: collected.invalidReferenceCount,
+      unsupportedTemplateCount: collected.unsupportedTemplateCount,
+      excludedPreviousSourceCount: new Set(request.excludeSourceIds ?? []).size,
+      availableReferenceCount: preview.availableCount,
+      blueprintCount: preview.blueprints.length,
+    };
+    this.logger.log(`AI blueprint diagnostics: ${JSON.stringify(diagnostics)}`);
+    return { ...preview, diagnostics };
   }
 
   private async loadOrSaveAnalyses(
@@ -392,6 +424,8 @@ function createBlueprint(
   const id = `ai-blueprint:${stableHash(`${seed}:${evidence.sourceId}:${ordinal}`)}`;
   const familyText = evidence.family === 'case' ? '사례' : '개념';
   const sourceFactAnchors = extractSourceFactAnchors(evidence.caseContext);
+  const answerIndex = evidence.sourceAnswerIndex ??
+    (((parseInt(stableHash(`${seed}:answer:${evidence.sourceId}`), 16) % 5) + 1) as 1 | 2 | 3 | 4 | 5);
   const providerSlotField = getTplGenerationSpec(evidence.template)?.providerSlotField;
   const sourceSlotTexts = sourceSlotsFor(evidence.template, evidence.caseContext);
   return {
@@ -417,6 +451,17 @@ function createBlueprint(
       ? { conversationContract: conversationContractFor(evidence.caseContext) }
       : {}),
     sourceFactAnchors,
+    ...(evidence.sourceArchetype?.responseMode === 'single_selection'
+      ? {
+          choiceFocuses: createAiChoiceFocuses(
+            evidence.concept,
+            distractorConcepts,
+            answerIndex,
+            sourceFactAnchors,
+            evidence.caseContext ?? '',
+          ),
+        }
+      : {}),
     caseContext: evidence.caseContext ?? '',
     variantOrdinal: evidence.variantOrdinal ?? 1,
     invariantFacts: evidence.analysis?.invariantFacts ?? [
@@ -431,8 +476,7 @@ function createBlueprint(
       id: 'concept-match-v1',
       description: `${familyText}의 필수 조건을 만족하는 선택지만 정답으로 인정한다.`,
     },
-    answerIndex: evidence.sourceAnswerIndex ??
-      (((parseInt(stableHash(`${seed}:answer:${evidence.sourceId}`), 16) % 5) + 1) as 1 | 2 | 3 | 4 | 5),
+    answerIndex,
     distractorRule: {
       id: 'concept-boundary-v1',
       description: evidence.analysis?.distractorRules.join(' ') ??
@@ -474,34 +518,40 @@ function sourceSlotsFor(
 function collectEvidence(
   sources: readonly AiProfileSource[],
   subjectSlug: string,
-): BlueprintEvidence[] {
+): EvidenceCollectionResult {
   const subject = subjectStyle(subjectSlug);
-  return sources.flatMap((source) => {
+  let parsedReferenceCount = 0;
+  let invalidReferenceCount = 0;
+  let unsupportedTemplateCount = 0;
+  const evidence = sources.flatMap((source) => {
     const parsed = parseReference(catalogReferencePayload(source), subject);
     if (
       !parsed.ok ||
       !isSingleAnswerIndex(parsed.value.correctAnswer)
-    )
+    ) {
+      invalidReferenceCount += 1;
       return [];
+    }
+    parsedReferenceCount += 1;
     const family = inferFamily(source, parsed.value.archetype?.stimulusRole);
-    const archetypeTemplate = parsed.value.archetype?.sourceTemplate;
-    // ponytail: CONVERSATIONAL_FLOW는 messages 구조라 보기(comboBlock) 렌더링과 충돌.
-    // truth_combination일 때만 CASE_DIAGNOSTIC_FRAME으로 override. 다른 TPL은 그대로.
-    const isTc = parsed.value.archetype?.stemIntent === 'truth_combination';
-    const template = isTc && archetypeTemplate === 'TPL_CONVERSATIONAL_FLOW'
-      ? 'TPL_CASE_DIAGNOSTIC_FRAME'
-      : archetypeTemplate;
+    // Preserve the certified source shape. The materializer handles the
+    // truth-combination source-preserving contract per template.
+    const template = parsed.value.archetype?.sourceTemplate;
     if (
       template === undefined ||
       !isSupportedTemplate(template) ||
       !canGenerateAiTemplate(template, parsed.value.stimulus) ||
-      !isSupportedCaseArchetype(parsed.value.archetype)
-    )
+      !isSupportedCaseArchetype(parsed.value.archetype) ||
+      !hasCertifiedSourceShape(template, parsed.value.stimulus)
+    ) {
+      unsupportedTemplateCount += 1;
       return [];
+    }
     if (
       template === 'TPL_CONVERSATIONAL_FLOW' &&
       conversationContractFor(parsed.value.stimulus).speakerSequence.length < 2
     ) {
+      unsupportedTemplateCount += 1;
       return [];
     }
     const baseSourceId = parsed.value.source.sourceId;
@@ -526,6 +576,13 @@ function collectEvidence(
       sourceAnswerIndex: parsed.value.correctAnswer as 1 | 2 | 3 | 4 | 5,
     }));
   });
+  return {
+    evidence,
+    rawReferenceCount: sources.length,
+    parsedReferenceCount,
+    invalidReferenceCount,
+    unsupportedTemplateCount,
+  };
 }
 
 function inferFamily(
@@ -549,19 +606,49 @@ function isSupportedTemplate(template: string): boolean {
   return getTplGenerationSpec(template)?.enabled === true;
 }
 
-function isSupportedCaseArchetype(
+function hasCertifiedSourceShape(template: string, stimulus: string | undefined): boolean {
+  if (template !== 'TPL_COMPARATIVE_MATRIX') return true;
+  const lines = (stimulus ?? '')
+    .split(/\n+/u)
+    .map((line) => line.trim())
+    .filter((line) => line.includes('|'));
+  if (lines.length < 2) return false;
+  const split = (line: string) => line.split('|').map((cell) => cell.trim()).filter(Boolean);
+  const headers = split(lines[0] ?? '');
+  const rows = lines.slice(1)
+    .filter((line) => !/^\|?\s*:?-+:?/u.test(line))
+    .map(split);
+  return headers.length > 0 && rows.length > 0 && rows.every((row) => row.length === headers.length);
+}
+
+export function isSupportedCaseArchetype(
   archetype: BlueprintEvidence['sourceArchetype'],
 ): boolean {
-  // ponytail: COMPARATIVE_MATRIX, SEQUENTIAL_WORKFLOW 등은 structured output
-  // 프롬프트가 아직 미비해 reject율 100%. FORMAL_DOCUMENT와 CASE_DIAG만 허용.
-  // 모든 문제를 ㄱㄴㄷㄹ truth_combination으로 통일.
-  const WORKING_TPLS = new Set([
+  if (
+    archetype === undefined ||
+    !isSupportedTemplate(archetype.sourceTemplate)
+  ) {
+    return archetype === undefined;
+  }
+
+  // Keep the existing single-selection reference corpus usable. Truth
+  // combination is allowed only for templates with a verified AI path.
+  const singleSelection =
+    archetype.responseMode === 'single_selection' &&
+    archetype.choiceTopology === 'single_choice' &&
+    (archetype.stemIntent === 'positive_single_selection' ||
+      archetype.stemIntent === 'negative_single_selection');
+  if (singleSelection) return true;
+
+  const truthCombinationTemplates = new Set([
     'TPL_CASE_DIAGNOSTIC_FRAME',
     'TPL_FORMAL_DOCUMENT',
+    'TPL_COMPARATIVE_MATRIX',
+    'TPL_CONVERSATIONAL_FLOW',
+    'TPL_SEQUENTIAL_WORKFLOW',
   ]);
   return (
-    archetype !== undefined &&
-    WORKING_TPLS.has(archetype.sourceTemplate) &&
+    truthCombinationTemplates.has(archetype.sourceTemplate) &&
     archetype.responseMode === 'truth_combination' &&
     archetype.choiceTopology === 'combo_sets' &&
     archetype.stemIntent === 'truth_combination'
@@ -620,7 +707,13 @@ function extractSourceFactAnchors(
     stimulus.match(
       /\d+(?:[.,]\d+)?\s*(?:%|명|개|원|일|개월|년|시간|단계)?/gu,
     ) ?? [];
-  return [...new Set(matches.map((value) => value.trim()).filter(Boolean))];
+  return [
+    ...new Set(
+      matches
+        .map((value) => value.trim())
+        .filter((value) => value !== '' && !/^\d$/u.test(value)),
+    ),
+  ];
 }
 
 // 모의고사형 선별: TPL 비율 기반 할당 → 단원 가중치 분배.

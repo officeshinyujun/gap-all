@@ -1,5 +1,55 @@
 import type { ExamQuestion } from '@shared/types/examQuestion';
 
+export interface StudyReferenceEvidence {
+  logicalSourceId: string;
+  source: string;
+  questionNumber: number | null;
+}
+
+export interface StudyExamPattern {
+  id: string;
+  title: string;
+  summary: string;
+  frequency: number;
+  confidence: 'high' | 'related';
+  questionFormats: string[];
+  keyChecks: string[];
+  commonTraps: string[];
+  referenceQuestionIds: string[];
+  evidence: StudyReferenceEvidence[];
+}
+
+export interface StudyInsights {
+  version: 'v1' | 'v2';
+  sourceQuestionCount: number;
+  verifiedQuestionCount: number;
+  patterns: StudyExamPattern[];
+  mustKnowBlocks?: StudyMustKnowBlock[];
+}
+
+export interface StudyMustKnowBlock {
+  id: string;
+  conceptAliases: string[];
+  title: string;
+  type: 'comparison' | 'checklist' | 'classification' | 'process' | 'formula';
+  summary?: string;
+  headers?: string[];
+  rows?: string[][];
+  mustRemember: string[];
+  commonTraps: string[];
+  referenceQuestionIds: string[];
+  confidence: 'high' | 'related';
+  reviewStatus: 'verified' | 'textbook_only' | 'review';
+  provenance?: 'deterministic' | 'ai';
+  aiMetadata?: {
+    model: string;
+    promptVersion: string;
+    inputFingerprint: string;
+    generatedAt: string;
+    validationVersion: string;
+  };
+}
+
 export interface FrequencyConcept {
   subject: string;
   subjectSlug: string;
@@ -7,6 +57,7 @@ export interface FrequencyConcept {
   unitTitle: string;
   totalQuestionsAnalyzed: number;
   concepts: FrequencyConceptItem[];
+  studyInsights?: StudyInsights;
 }
 
 export interface ConceptHighlightV2 {
@@ -53,6 +104,8 @@ export interface FrequencyConceptItem {
   description: string;
   conceptDefinition?: ConceptDefinition | null;
   keyPoints: string[];
+  importantNumbers?: string[];
+  comparisonTable?: string;
   examTips: string[];
   conceptContent: string;
   subtopics?: {
@@ -64,6 +117,7 @@ export interface FrequencyConceptItem {
   conceptHighlightV2?: ConceptHighlightV2 | null;
   /** v16+: 동일 개념에 연결된 실제 문제들. sampleQuestion은 하위 호환용. */
   relatedQuestions?: RelatedConceptQuestion[];
+  examMustKnow?: StudyMustKnowBlock;
 }
 
 export interface ConceptExplanation {

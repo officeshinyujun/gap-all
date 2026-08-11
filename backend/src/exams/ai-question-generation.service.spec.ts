@@ -1,5 +1,8 @@
 import type { AiQuestionBlueprint } from './ai-blueprint.types';
-import { AiQuestionGenerationService } from './ai-question-generation.service';
+import {
+  AiQuestionGenerationService,
+  aiQuestionStructuralFingerprint,
+} from './ai-question-generation.service';
 
 function blueprint(id: string, concept = '직무 분석'): AiQuestionBlueprint {
   return {
@@ -155,5 +158,31 @@ describe('AiQuestionGenerationService', () => {
     expect(result.accepted[0]?.blueprint.id).toBe('source-2');
     expect(result.requestedCount).toBe(1);
     expect(generate).toHaveBeenCalledTimes(4);
+  });
+
+  it('rejects a final question fingerprint used by a previous AI exam', async () => {
+    const first = await new AiQuestionGenerationService({
+      generate: jest.fn().mockResolvedValue(candidate()),
+    }).generate([blueprint('blueprint-1')]);
+    const generate = jest.fn().mockResolvedValue(candidate());
+
+    const result = await new AiQuestionGenerationService({ generate }).generate(
+      [blueprint('blueprint-2')],
+      undefined,
+      1,
+      undefined,
+      undefined,
+      undefined,
+      [first.accepted[0]!.fingerprint],
+      [
+        aiQuestionStructuralFingerprint(
+          first.accepted[0]!.blueprint,
+          first.accepted[0]!.candidate,
+        ),
+      ],
+    );
+
+    expect(result.accepted).toEqual([]);
+    expect(result.rejectionsByCode).toEqual({ AI_DUPLICATE_REJECTED: 3 });
   });
 });

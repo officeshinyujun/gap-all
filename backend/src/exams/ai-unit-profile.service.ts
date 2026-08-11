@@ -10,8 +10,15 @@ import {
 import { parseReference, stableHash } from './reference-selector.utils';
 import type { SubjectStyle } from './reference-frame.types';
 import type { AiQuestionFamily } from './ai-blueprint.types';
+import {
+  buildStudyInsights,
+  STUDY_INSIGHTS_VERSION,
+  type StudyInsights,
+  type StudyInsightObservation,
+} from '../study/study-insights';
+import { STUDY_NOTE_CANDIDATES } from '../study/study-note-candidates';
 
-export const AI_UNIT_PROFILE_VERSION = 'v2' as const;
+export const AI_UNIT_PROFILE_VERSION = 'v3' as const;
 
 const SUPPORTED_EVIDENCE_TEMPLATES = new Set([
   'TPL_CASE_DIAGNOSTIC_FRAME',
@@ -54,6 +61,7 @@ export type AiUnitProfileUnit = Readonly<{
   blockedReasons: readonly string[];
   archetypePatterns?: readonly AiUnitProfilePattern[];
   concepts: readonly AiUnitProfileConcept[];
+  studyInsights?: StudyInsights;
 }>;
 
 export type AiGenerationProfile = Readonly<{
@@ -68,11 +76,15 @@ export type AiProfileSource = Pick<
 >;
 
 type SourceObservation = Readonly<{
+  logicalSourceId: string;
   unitNumber: number;
   concept: string;
+  concepts: readonly string[];
   family: AiQuestionFamily;
   certified: boolean;
   supported: boolean;
+  source: string;
+  questionNumber: number | null;
   blockedReasons: readonly string[];
   archetypePattern?: Readonly<{
     template: string;
@@ -202,6 +214,7 @@ export function buildGenerationProfile(
       buildConceptProfile(name, unitObservations),
     );
     return buildUnitProfile(
+      subjectSlug,
       unitNumber,
       unitObservations,
       concepts,
@@ -220,11 +233,15 @@ function observeSource(
   if (!parsed.ok) {
     return [
       {
+        logicalSourceId: source.logicalSourceId,
         unitNumber: source.unitNumber,
         concept: '',
+        concepts: [],
         family: 'concept',
         certified: false,
         supported: false,
+        source: sourceName(source.sourcePayload),
+        questionNumber: questionNumber(source.sourcePayload),
         blockedReasons: ['INVALID_SOURCE_PAYLOAD'],
       },
     ];
@@ -253,8 +270,16 @@ function observeSource(
     : undefined;
   return [
     {
+      logicalSourceId: source.logicalSourceId,
       unitNumber: reference.unitNumber,
       concept: reference.target.primaryConcept,
+      concepts: unique(
+        Array.isArray(payloadRecord.targetConcepts)
+          ? payloadRecord.targetConcepts.filter(
+              (value): value is string => typeof value === 'string',
+            )
+          : [reference.target.primaryConcept],
+      ),
       family,
       certified:
         reference.correctAnswer !== null &&
@@ -262,6 +287,8 @@ function observeSource(
         reference.choices.length === 5 &&
         reference.stimulus.trim() !== '',
       supported,
+      source: sourceName(payloadRecord),
+      questionNumber: questionNumber(payloadRecord),
       blockedReasons,
       archetypePattern,
     },
@@ -269,6 +296,7 @@ function observeSource(
 }
 
 function buildUnitProfile(
+  subjectSlug: string,
   unitNumber: number,
   observations: readonly SourceObservation[],
   concepts: readonly AiUnitProfileConcept[],
@@ -294,6 +322,12 @@ function buildUnitProfile(
     blockedReasons: [...blockedReasons],
     archetypePatterns,
     concepts,
+    studyInsights: buildStudyInsights(
+      profileSubjectSlug(subjectSlug),
+      unitNumber,
+      observations.map(toStudyObservation),
+      STUDY_NOTE_CANDIDATES,
+    ),
   };
 }
 
@@ -386,6 +420,46 @@ function catalogReferencePayload(
   return { ...row.sourcePayload, source };
 }
 
+function toStudyObservation(
+  observation: SourceObservation,
+): StudyInsightObservation {
+  return {
+    logicalSourceId: observation.logicalSourceId,
+    unitNumber: observation.unitNumber,
+    concepts: observation.concepts,
+    family: observation.family,
+    certified: observation.certified,
+    supported: observation.supported,
+    source: observation.source,
+    questionNumber: observation.questionNumber,
+    ...(observation.archetypePattern === undefined
+      ? {}
+      : { archetypePattern: observation.archetypePattern }),
+  };
+}
+
+function sourceName(payload: Record<string, unknown>): string {
+  const source = isRecord(payload.source) ? payload.source : {};
+  const examType = source.examType;
+  const filename = source.filename;
+  if (typeof examType === 'string' && examType.trim() !== '') return examType;
+  if (typeof filename === 'string' && filename.trim() !== '') return filename;
+  return '기출';
+}
+
+function questionNumber(payload: Record<string, unknown>): number | null {
+  return typeof payload.questionNumber === 'number'
+    ? payload.questionNumber
+    : null;
+}
+
+function profileSubjectSlug(subjectSlug: string): 'success' | 'industry' {
+  if (subjectSlug === 'success' || subjectSlug === 'industry') {
+    return subjectSlug;
+  }
+  throw new Error(`지원하지 않는 과목입니다: ${subjectSlug}`);
+}
+
 function subjectStyle(subjectSlug: string): SubjectStyle {
   if (subjectSlug === 'success') return 'success';
   if (subjectSlug === 'industry') return 'kongil';
@@ -400,10 +474,12 @@ function catalogSubjects(subjectSlug: string): readonly string[] {
 
 function fingerprintSources(sources: readonly AiProfileSource[]): string {
   return stableHash(
-    sources
-      .map((source) => `${source.logicalSourceId}:${source.contentHash}`)
-      .sort()
-      .join('\u0000'),
+    [
+      STUDY_INSIGHTS_VERSION,
+      ...sources
+        .map((source) => `${source.logicalSourceId}:${source.contentHash}`)
+        .sort(),
+    ].join('\u0000'),
   );
 }
 

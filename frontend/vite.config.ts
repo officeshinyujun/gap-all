@@ -6,6 +6,9 @@ const alias = (path: string) => fileURLToPath(new URL(path, import.meta.url));
 
 export default defineConfig({
   plugins: [react()],
+  server: {
+    allowedHosts: ['macbookpro.tailc5a2a5.ts.net'],
+  },
   envPrefix: ['VITE_', 'NEXT_PUBLIC_'],
   resolve: {
     alias: {

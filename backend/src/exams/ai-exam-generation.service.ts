@@ -6,7 +6,7 @@ import {
 } from '@nestjs/common';
 import { randomUUID } from 'crypto';
 import { InjectRepository } from '@nestjs/typeorm';
-import { LessThanOrEqual, MoreThanOrEqual, Repository } from 'typeorm';
+import { In, Repository } from 'typeorm';
 import { AiGenerationCandidate } from '../entities/ai-generation-candidate.entity';
 import { AiGenerationRun } from '../entities/ai-generation-run.entity';
 import { ExamItem } from '../entities/exam-item.entity';
@@ -27,7 +27,10 @@ import {
 import { AI_BLUEPRINT_VERSION } from './ai-blueprint.types';
 import { AI_UNIT_PROFILE_VERSION } from './ai-unit-profile.service';
 import type { ExamGenerationProgressReporter } from './exam-generation.utils';
-import { AiQuestionGenerationService } from './ai-question-generation.service';
+import {
+  AiQuestionGenerationService,
+  aiQuestionStructuralFingerprint,
+} from './ai-question-generation.service';
 
 const AI_MODEL = aiModelForRole('candidate');
 const AI_JOB_TIMEOUT_MS = Number(process.env.AI_JOB_TIMEOUT_MS) || 900_000;
@@ -94,15 +97,10 @@ export class AiExamGenerationService {
         targetConcepts: dto.targetConcepts,
         aiQuestionFamily: dto.aiQuestionFamily,
         seed: idempotencyKey,
-        excludeSourceIds:
-          dto.excludePrevious === false
-            ? []
-            : await this.previousAiSourceIds(
-                userId,
-                dto.subjectId,
-                dto.startUnitNum,
-                dto.endUnitNum,
-              ),
+        // AI creates a new variant from reference evidence; source reuse is
+        // intentionally allowed here. Reference-only generation owns source
+        // deduplication in ExamsService.
+        excludeSourceIds: [],
       });
       await this.report(run, reportProgress, {
         stage: 'blueprint',
@@ -125,11 +123,19 @@ export class AiExamGenerationService {
               fidelity: 0,
               admission: 0,
             },
+            diagnostics: preview.diagnostics,
           });
         }
       }
 
       const abortController = new AbortController();
+      const previousFingerprints =
+        await this.previousAiQuestionFingerprints(
+          userId,
+          dto.subjectId,
+          dto.startUnitNum,
+          dto.endUnitNum,
+        );
       const cancellationPoll = setInterval(() => {
         if (isCanceled?.()) abortController.abort();
       }, 250);
@@ -142,6 +148,8 @@ export class AiExamGenerationService {
           Date.now() + AI_JOB_TIMEOUT_MS,
           isCanceled,
           abortController.signal,
+          previousFingerprints.exact,
+          previousFingerprints.structural,
         );
       } finally {
         clearInterval(cancellationPoll);
@@ -203,7 +211,13 @@ export class AiExamGenerationService {
             failureCode: null,
             fingerprint: candidate.fingerprint,
             candidate: candidate.candidate,
-            validation: candidate.validation,
+            validation: {
+              ...candidate.validation,
+              structuralFingerprint: aiQuestionStructuralFingerprint(
+                candidate.blueprint,
+                candidate.candidate,
+              ),
+            },
             providerModel: candidate.candidate.telemetry?.model ?? null,
             promptHash: candidate.candidate.telemetry?.promptHash ?? null,
             latencyMs: candidate.candidate.telemetry?.latencyMs ?? null,
@@ -317,32 +331,56 @@ export class AiExamGenerationService {
     }
   }
 
-  private async previousAiSourceIds(
+  private async previousAiQuestionFingerprints(
     userId: string,
     subjectId: string,
     startUnitNum: number,
     endUnitNum: number,
-  ): Promise<string[]> {
-    if (typeof this.examRepo.find !== 'function') return [];
-    const exams = await this.examRepo.find({
-      where: {
-        userId,
-        subjectId,
-        startUnitNum: LessThanOrEqual(endUnitNum),
-        endUnitNum: MoreThanOrEqual(startUnitNum),
-      },
-      relations: ['items', 'items.question'],
-    });
-    const questions = exams.flatMap((exam) =>
-      exam.items.map((item) => item.question),
-    );
-    const ids = new Set<string>();
-    for (const question of questions) {
-      const lineage = question.generationLineage;
-      if (lineage?.generationPath !== 'ai_blueprint') continue;
-      for (const evidence of lineage.sourceEvidence) ids.add(evidence.sourceId);
+  ): Promise<{
+    exact: readonly string[];
+    structural: readonly string[];
+  }> {
+    if (typeof this.runRepo.find !== 'function') {
+      return { exact: [], structural: [] };
     }
-    return [...ids];
+    if (typeof this.candidateRepo.find !== 'function') {
+      return { exact: [], structural: [] };
+    }
+    const runs = await this.runRepo.find({
+      where: { userId, subjectId, status: 'completed' },
+    });
+    const runIds = runs
+      .filter((run) => {
+        const request = run.request;
+        return (
+          Number(request.startUnitNum) <= endUnitNum &&
+          Number(request.endUnitNum) >= startUnitNum
+        );
+      })
+      .map((run) => run.id);
+    if (runIds.length === 0) return { exact: [], structural: [] };
+    const candidates = await this.candidateRepo.find({
+      where: { runId: In(runIds), status: 'accepted' },
+    });
+    return {
+      exact: [
+        ...new Set(
+          candidates
+            .map((candidate) => candidate.fingerprint)
+            .filter((fingerprint): fingerprint is string => fingerprint !== null),
+        ),
+      ],
+      structural: [
+        ...new Set(
+          candidates
+            .map((candidate) => candidate.validation?.structuralFingerprint)
+            .filter(
+              (fingerprint): fingerprint is string =>
+                typeof fingerprint === 'string',
+            ),
+        ),
+      ],
+    };
   }
 
   private async assertAiTelemetrySchema(): Promise<void> {

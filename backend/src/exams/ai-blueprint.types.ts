@@ -82,6 +82,51 @@ export type AiGenerationDistractorRule = Readonly<{
   description: string;
 }>;
 
+export type AiChoiceFocus = Readonly<{
+  concept: string;
+  cue: string;
+  relation: 'correct' | 'boundary' | 'misconception';
+}>;
+
+export function createAiChoiceFocuses(
+  targetConcept: string,
+  distractorConcepts: readonly string[],
+  answerIndex: 1 | 2 | 3 | 4 | 5,
+  sourceFactAnchors: readonly string[] = [],
+  caseContext = '',
+): readonly AiChoiceFocus[] {
+  const concepts = [
+    ...distractorConcepts.slice(0, answerIndex - 1),
+    targetConcept,
+    ...distractorConcepts.slice(answerIndex - 1),
+  ];
+  const cues = [
+    ...sourceFactAnchors,
+    ...caseContext
+      .split(/[\n.!?。！？,，;；]+/u)
+      .map((part) => part.trim())
+      .filter((part) => part.length >= 2),
+  ].filter((cue, index, all) => {
+    const normalized = cue.normalize('NFKC').replace(/\s+/gu, '');
+    return normalized !== '' && all.findIndex((item) =>
+      item.normalize('NFKC').replace(/\s+/gu, '') === normalized,
+    ) === index;
+  });
+  const fallbackCue = cues[0] ?? '본문의 구체적 조건';
+
+  return concepts.map((concept, index) => ({
+    concept,
+    // ponytail: short sources may not contain five independent cues; reuse the
+    // source cue rather than inventing facts. Concept/relation still differ.
+    cue: cues[index] ?? fallbackCue,
+    relation: index === answerIndex - 1
+      ? 'correct'
+      : index % 2 === 0
+        ? 'boundary'
+        : 'misconception',
+  }));
+}
+
 export type AiConversationContract = Readonly<{
   participants: readonly Readonly<{
     id: string;
@@ -124,6 +169,8 @@ export type AiQuestionBlueprint = Readonly<{
   sourceViewItems?: readonly string[];
   conversationContract?: AiConversationContract;
   sourceFactAnchors?: readonly string[];
+  /** Grounding contract for provider-written single-selection choices. */
+  choiceFocuses?: readonly AiChoiceFocus[];
   caseContext?: string;
   variantOrdinal?: number;
   invariantFacts: readonly AiGenerationInvariantFact[];

@@ -215,6 +215,14 @@ export class StudyController {
     return this.studyService.getFrequencyConcept(subjectSlug, unitNumber);
   }
 
+  @Get(':subjectSlug/:unitNumber/exam-patterns')
+  getStudyExamPatterns(
+    @Param('subjectSlug') subjectSlug: string,
+    @Param('unitNumber', ParseIntPipe) unitNumber: number,
+  ) {
+    return this.studyService.getStudyExamPatterns(subjectSlug, unitNumber);
+  }
+
   @Get(':subjectSlug/:unitNumber/mindmap')
   getMindmap(
     @Param('subjectSlug') subjectSlug: string,

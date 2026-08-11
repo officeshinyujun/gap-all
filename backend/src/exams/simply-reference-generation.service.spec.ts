@@ -293,6 +293,68 @@ describe('SimplyReferenceGenerationService', () => {
     });
   });
 
+  it('round-robins Study pattern sources and keeps internal pattern tags', async () => {
+    const completeBatch = jest.fn();
+    const sources = [1, 2, 3].map((index) => ({
+      ...sourcePayload(index, ['ㄱ. 첫 번째 판단 내용', 'ㄴ. 두 번째 판단 내용', 'ㄷ. 세 번째 판단 내용']),
+      stem: '다음 자료를 통해 알 수 있는 내용으로 옳은 것은?',
+      stimulus: `A씨가 원문 자료 ${index}의 조건을 검토한다.`,
+      choices: ['① ㄱ', '② ㄴ', '③ ㄱ, ㄴ', '④ ㄴ, ㄷ', '⑤ ㄱ, ㄴ, ㄷ'],
+      correctAnswer: 3,
+    }));
+    const sourceIds = sources.map(
+      (source) => `success:1:${(source.source as { filename: string }).filename}:${source.questionNumber}`,
+    );
+    const service = {
+      textbookService: {
+        getConcepts: jest.fn().mockReturnValue([
+          { unitName: '1단원', concepts: ['Career values'] },
+        ]),
+      },
+      catalogReader: {
+        find: jest.fn().mockResolvedValue(
+          sources.map((source) => ({ unitNumber: 1, sourcePayload: source })),
+        ),
+      },
+      dependencies: { completeBatch },
+    };
+
+    const drafts = await SimplyReferenceGenerationService.prototype.generate.call(
+      service,
+      'success',
+      1,
+      1,
+      Difficulty.MIDDLE,
+      3,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      {
+        sourcePreserving: true,
+        studyPatternGroups: [[sourceIds[0], sourceIds[1]], [sourceIds[2]]],
+        studyPatternTags: {
+          [sourceIds[0]]: { examPatternId: 'pattern-a', questionFormat: '사례 판단형' },
+          [sourceIds[1]]: { examPatternId: 'pattern-a', questionFormat: '사례 판단형' },
+          [sourceIds[2]]: { examPatternId: 'pattern-b', questionFormat: '개념 확인' },
+        },
+      },
+    );
+
+    expect(completeBatch).not.toHaveBeenCalled();
+    expect(drafts.map((draft) => draft.lineage.source.sourceId)).toEqual([
+      sourceIds[0],
+      sourceIds[2],
+      sourceIds[1],
+    ]);
+    expect(drafts.map((draft) => draft.lineage.examPatternId)).toEqual([
+      'pattern-a',
+      'pattern-b',
+      'pattern-a',
+    ]);
+  });
+
   it('Given sources without answer keys, When source-preserving generation is enabled, Then fails before calling the model', async () => {
     const completeBatch = jest.fn();
     const service = {

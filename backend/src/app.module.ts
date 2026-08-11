@@ -46,6 +46,8 @@ import { AiGenerationRun } from './entities/ai-generation-run.entity';
 import { AiGenerationCandidate } from './entities/ai-generation-candidate.entity';
 import { AiReferenceAnalysis } from './entities/ai-reference-analysis.entity';
 import { GenerationJob } from './entities/generation-job.entity';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
 
 @Module({
   imports: [
@@ -122,7 +124,9 @@ import { GenerationJob } from './entities/generation-job.entity';
     SupabaseModule,
     ReportsModule,
   ],
+  controllers: [AppController],
   providers: [
+    AppService,
     {
       provide: APP_GUARD,
       useClass: ThrottlerGuard,

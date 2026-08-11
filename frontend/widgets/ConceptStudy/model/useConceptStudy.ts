@@ -9,8 +9,8 @@ import { fetchUnitId, updateStudyProgress } from '@entities/study/api/studyApi';
 export type MainTab = 'concept' | 'overview';
 export type SlideView = 'learn' | 'question';
 
-// 1단원 활성 카드 제목·대표 문제가 변경되어 기존 응답 캐시 폐기
-const CACHE_VERSION = 'v20';
+// 출제 포인트 중요도 순위 표시가 추가되어 기존 응답 캐시 폐기
+const CACHE_VERSION = 'v24';
 
 function getCacheKey(subject: string, unitNumber: number) {
   return `concept-${CACHE_VERSION}-${subject}-${unitNumber}`;
@@ -97,6 +97,7 @@ export function useConceptStudy(subject: string, unitNumber: number, chapter: st
   }, [deepCache, cacheKey]);
 
   const concepts = data?.concepts ?? [];
+  const studyInsights = data?.studyInsights;
   const current: FrequencyConceptItem | null = concepts[currentIndex] ?? null;
   const total = concepts.length;
 
@@ -159,7 +160,7 @@ export function useConceptStudy(subject: string, unitNumber: number, chapter: st
 
   return {
     mainTab, setMainTab, slideView, setSlideView,
-    loading, error, data, concepts, current, total, currentIndex,
+    loading, error, data, concepts, studyInsights, current, total, currentIndex,
     deepCache, deepLoading, deep,
     structured, structuredLoading, openSections, toggleSection,
     bookmarks, bookmarkLoading, isBookmarked, handleBookmark,

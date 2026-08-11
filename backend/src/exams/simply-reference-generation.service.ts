@@ -70,6 +70,11 @@ export type SimplyReferenceGenerationOptions = Readonly<{
   previousSourceIds?: readonly string[];
   /** Use answer-key verified source content directly instead of model rewriting. */
   sourcePreserving?: boolean;
+  /** Study-derived ordering only; selection still filters canonical eligible references. */
+  studyPatternGroups?: readonly (readonly string[])[];
+  studyPatternTags?: Readonly<
+    Record<string, Readonly<{ examPatternId: string; questionFormat: string }>>
+  >;
 }>;
 
 type SimplyReferenceBatchParseResult = Readonly<{
@@ -243,10 +248,14 @@ export class SimplyReferenceGenerationService {
         ...selection.shortfall,
       });
     }
-    const ranked =
+    const rankedBase =
       sourceIds === undefined
         ? prioritizeSimplyReferenceSources(selection.references, selectionSeed)
         : preserveExplicitSourceOrder(selection.references, sourceIds);
+    const ranked =
+      sourceIds === undefined && options.studyPatternGroups !== undefined
+        ? prioritizeStudyPatternGroups(rankedBase, options.studyPatternGroups)
+        : rankedBase;
     const selected = [
       sourceIds === undefined && options.excludePrevious !== false
         ? selectSimplyReferenceSources(
@@ -284,6 +293,7 @@ export class SimplyReferenceGenerationService {
           difficulty,
           generationNonce,
           index + 1,
+          options.studyPatternTags?.[reference.source.sourceId],
         ),
       );
       await reportProgress?.({
@@ -505,6 +515,27 @@ function prioritizeSimplyReferenceSources(
       compareText(left.source.sourceId, right.source.sourceId)
     );
   });
+}
+
+function prioritizeStudyPatternGroups(
+  references: readonly NormalizedSourceReference[],
+  groups: readonly (readonly string[])[],
+): readonly NormalizedSourceReference[] {
+  const byId = new Map(references.map((reference) => [reference.source.sourceId, reference]));
+  const ordered: NormalizedSourceReference[] = [];
+  const seen = new Set<string>();
+  const maxGroupLength = Math.max(0, ...groups.map((group) => group.length));
+  for (let index = 0; index < maxGroupLength; index += 1) {
+    for (const group of groups) {
+      const sourceId = group[index];
+      const reference = sourceId === undefined ? undefined : byId.get(sourceId);
+      if (reference !== undefined && !seen.has(sourceId)) {
+        seen.add(sourceId);
+        ordered.push(reference);
+      }
+    }
+  }
+  return [...ordered, ...references.filter((reference) => !seen.has(reference.source.sourceId))];
 }
 
 function selectSimplyReferenceSources(
@@ -1290,6 +1321,7 @@ function sourcePreservingDraft(
   difficulty: Difficulty,
   generationNonce: string,
   batchOrdinal: number,
+  studyPatternTag?: Readonly<{ examPatternId: string; questionFormat: string }>,
 ): SimplyReferenceGeneratedDraft {
   const options = normalizeOfficialChoices(reference.choices);
   const comboBlock = sourceComboBlock(reference);
@@ -1342,6 +1374,10 @@ function sourcePreservingDraft(
       source: reference.source,
       batchOrdinal,
       selectedTemplate: render.template,
+      ...(studyPatternTag === undefined ? {} : studyPatternTag),
+      ...(studyPatternTag === undefined
+        ? {}
+        : { sourceReferenceIds: [reference.source.sourceId] }),
       adapterVersion: SOURCE_PRESERVING_ADAPTER_VERSION,
       validation: 'passed',
     },

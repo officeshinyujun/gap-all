@@ -5,17 +5,19 @@ import { UnitExamProfile } from '../src/entities/unit-exam-profile.entity';
 import {
   buildGenerationProfile,
   AI_UNIT_PROFILE_VERSION,
+  AiUnitProfileService,
 } from '../src/exams/ai-unit-profile.service';
 import { TextbookService } from '../src/textbook/textbook.service';
 
 type OutputFormat = 'json' | 'markdown';
+type DatabaseTarget = 'supabase' | 'local';
 
 async function main(): Promise<void> {
   const options = parseOptions(process.argv.slice(2));
   process.env.DB_PROVIDER = 'local';
   const dataSource = new DataSource({
     type: 'postgres',
-    url: requiredDatabaseUrl(),
+    url: requiredDatabaseUrl(options.database),
     entities: [ReferenceQuestion, UnitExamProfile],
     synchronize: false,
   });
@@ -23,6 +25,7 @@ async function main(): Promise<void> {
   try {
     await dataSource.initialize();
     const referenceRepo = dataSource.getRepository(ReferenceQuestion);
+    const profileRepo = dataSource.getRepository(UnitExamProfile);
     const sources = await referenceRepo.find({
       where: {
         subject: In(catalogSubjects(options.subjectSlug)),
@@ -35,14 +38,24 @@ async function main(): Promise<void> {
       options.startUnitNum,
       options.endUnitNum,
     );
-    const profile = buildGenerationProfile(
-      options.subjectSlug,
-      options.startUnitNum,
-      options.endUnitNum,
-      concepts,
-      sources,
-    );
-    const persisted = await dataSource.getRepository(UnitExamProfile).find({
+    const profile = options.write
+      ? await new AiUnitProfileService(
+          referenceRepo,
+          profileRepo,
+          textbookService,
+        ).getProfile(
+          options.subjectSlug,
+          options.startUnitNum,
+          options.endUnitNum,
+        )
+      : buildGenerationProfile(
+          options.subjectSlug,
+          options.startUnitNum,
+          options.endUnitNum,
+          concepts,
+          sources,
+        );
+    const persisted = await profileRepo.find({
       where: {
         subjectSlug: options.subjectSlug,
         unitNumber: Between(options.startUnitNum, options.endUnitNum),
@@ -61,11 +74,18 @@ function parseOptions(arguments_: readonly string[]): Readonly<{
   startUnitNum: number;
   endUnitNum: number;
   format: OutputFormat;
+  write: boolean;
+  database: DatabaseTarget;
 }> {
   const subjectSlug = valueOf(arguments_, '--subject') ?? 'success';
   const startUnitNum = integerValue(arguments_, '--start', 1);
   const endUnitNum = integerValue(arguments_, '--end', startUnitNum);
   const format = valueOf(arguments_, '--format') ?? 'markdown';
+  const write = arguments_.includes('--write');
+  const database = valueOf(arguments_, '--database') ?? 'supabase';
+  if (database !== 'supabase' && database !== 'local') {
+    throw new Error('Usage: rebuild:ai-unit-profiles --database=supabase|local');
+  }
   if (format !== 'json' && format !== 'markdown') {
     throw new Error('Usage: rebuild:ai-unit-profiles --format=json|markdown');
   }
@@ -77,6 +97,8 @@ function parseOptions(arguments_: readonly string[]): Readonly<{
     startUnitNum,
     endUnitNum,
     format: format === 'json' ? 'json' : 'markdown',
+    write,
+    database,
   };
 }
 
@@ -146,11 +168,10 @@ function reconcile(
   };
 }
 
-function requiredDatabaseUrl(): string {
-  const databaseUrl =
-    process.env.DATABASE_URL ??
-    process.env.DATABASE_LOCAL_URL ??
-    process.env.DATABASE_SUPABASE_URL;
+function requiredDatabaseUrl(target: DatabaseTarget): string {
+  const databaseUrl = target === 'supabase'
+    ? process.env.DATABASE_SUPABASE_URL ?? process.env.DATABASE_URL ?? process.env.DATABASE_LOCAL_URL
+    : process.env.DATABASE_LOCAL_URL ?? process.env.DATABASE_URL ?? process.env.DATABASE_SUPABASE_URL;
   if (databaseUrl === undefined || databaseUrl.trim() === '') {
     throw new Error(
       'DATABASE_URL, DATABASE_LOCAL_URL, or DATABASE_SUPABASE_URL is required.',

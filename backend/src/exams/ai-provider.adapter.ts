@@ -14,7 +14,7 @@ import { stableHash } from './reference-selector.utils';
 import { getTplGenerationSpec, type ProviderSlotField } from './ai-tpl-capabilities';
 
 export const AI_BLUEPRINT_PROVIDER = 'AI_BLUEPRINT_PROVIDER';
-export const AI_BLUEPRINT_PROMPT_VERSION = 'v2' as const;
+export const AI_BLUEPRINT_PROMPT_VERSION = 'v3' as const;
 export const AI_BLUEPRINT_VALIDATOR_VERSION = 'v2' as const;
 export const AI_REFERENCE_ANALYSIS_PROMPT_VERSION = 'v1' as const;
 
@@ -248,8 +248,14 @@ function templateExample(
 {
   "stemText": "○○고등학교에 재학 중인 청소년 A씨(만 18세)는 상시 근로자가 5명인 △△음식점에서 매장 정리, 주방 보조 담당으로 평일(월~금) 오전 11시부터 오후 2시까지 시간당 11,000원을 받고 일하는 조건으로 근로 계약을 체결했고, 오늘이 첫 주급을 받는 날이다. A씨는 첫 주급을 기대하며 출근하였지만, 사장님이 이번 주는 수습 기간이라며 첫 5시간 근무에 대해서는 시급이 없다고 하였다.",
   "explanationText": "근로기준법상 연소근로자(만 18세 미만)는 1일 7시간, 1주 35시간을 초과하여 근로할 수 없으며, 사용자는 연소근로자에 대해 정당한 사유 없이 수습 기간을 이유로 임금을 삭감할 수 없다. 사례에서 A씨는 만 18세로 연소근로자 보호 대상이며, 사장님의 수습 기간 주장은 근로기준법에 위배된다."
-}`;
+      }`;
     }
+    return `[예시: truth_combination 자료 생성]
+선택지와 <보기>는 서버가 원문 구조로 생성하므로, provider는 문제를 풀 수 있는 자료 설명과 해설만 반환한다.
+{
+  "stemText": "원문에 포함된 주체, 행위, 수치와 조건을 빠뜨리지 않고 구체적인 자료로 서술한다.",
+  "explanationText": "자료의 조건을 기준으로 정답 개념과 판단 근거를 설명한다."
+}`;
   }
   // --- single_selection (일반 선택형): LLM이 사례 + 선택지 + 해설 생성 ---
   if (tpl === 'TPL_CASE_DIAGNOSTIC_FRAME') {
@@ -259,16 +265,16 @@ function templateExample(
     return `[예시: single_selection 사례+선택지 생성 ${polarityHint} — 노동 관련 법률]
 개념(targetConcept) = "노동조합", 사례 맥락(caseContext) = "근로자들의 단체교섭과 쟁의행위".
 줄거리(stemText)는 개념명("노동조합")을 직접 노출하지 않고 구체적인 행위(임금 인상 요구, 단체교섭, 파업)만으로 묘사해야 한다.
-선택지(choiceTexts) 5개는 모두 "이 사례는 [개념]의 핵심 조건에 부합한다"라는 평행 구조여야 하며, 정답을 추측하게 하는 단서(길이 차이, 강조 표현)가 없어야 한다.
+선택지(choiceTexts) 5개는 blueprint.choiceFocuses의 cue를 각각 반영해야 한다. 개념명만 바꾼 generic 문장을 반복하지 말고, 사례의 서로 다른 행위·조건·수치를 판단하게 하라.
 올바른 출력 예:
 {
   "stemText": "A기업의 근로자 30명이 임금 인상을 요구하며 노동위원회에 조정을 신청하였다. 사용자는 경영상의 어려움을 이유로 임금 인상을 거부하였고, 근로자들은 단체교섭을 요구하였으나 사용자가 응하지 않았다. 이에 근로자들은 조합원 과반수의 찬성으로 파업을 결의하였다.",
   "choiceTexts": [
-    "이 사례는 노동조합의 핵심 조건에 부합한다.",
-    "이 사례는 직무 분석의 핵심 조건에 부합한다.",
-    "이 사례는 인사 평가의 핵심 조건에 부합한다.",
-    "이 사례는 경력 개발의 핵심 조건에 부합한다.",
-    "이 사례는 직업 훈련의 핵심 조건에 부합한다."
+    "근로자 30명이 임금 인상을 요구하며 단체교섭을 신청한 행위는 노동조합 활동의 판단 단서가 된다.",
+    "근로자들이 조합원 과반수의 찬성으로 파업을 결의한 사실은 직무 분석의 판단 근거가 아니다.",
+    "사용자가 단체교섭에 응하지 않은 상황은 인사 평가의 실시 여부를 보여 주는 단서가 아니다.",
+    "노동위원회에 조정을 신청한 행위는 경력 개발을 위한 교육 활동으로 볼 수 없다.",
+    "임금 인상 요구와 쟁의행위의 목적은 직업 훈련의 내용과 구별된다."
   ],
   "explanationText": "노동조합은 근로자가 주체가 되어 근로 조건의 유지·개선을 목적으로 조직하는 단체이다. 사례에서 근로자들이 임금 인상을 요구하며 단체교섭과 쟁의행위(파업)를 추진한 것은 노동조합의 전형적인 활동에 해당한다. 한편 직무 분석, 인사 평가, 경력 개발, 직업 훈련은 인사 관리의 개별 활동이므로 이 사례와 관련이 없다."
 }`;
@@ -296,7 +302,8 @@ export function buildAiCandidatePrompt(
   attempt: number,
   repair?: AiCandidateRepairContext,
 ): string {
-  const slotField = providerSlotField(blueprint.template);
+  const sourcePreserving = isTruthCombinationBlueprint(blueprint);
+  const slotField = sourcePreserving ? undefined : providerSlotField(blueprint.template);
   const providerChoices = supportsGeneratedChoices(blueprint);
   return JSON.stringify({
     task: 'Write bounded prose for one question blueprint.',
@@ -309,12 +316,30 @@ export function buildAiCandidatePrompt(
          ? `Return exactly one JSON object with ${slotField ?? 'stemText'}, choiceTexts (exactly five), and explanationText.`
          : slotField !== undefined
          ? `Return exactly one JSON object with exactly ${slotField} and explanationText.`
-        : 'Return exactly one JSON object with exactly stemText and explanationText.',
-      providerChoices
-        ? 'Return five complete, parallel choice statements. Do not return an answer number.'
-        : 'Do not return choices, answer numbers, stimulus data, metadata, or lineage.',
-       'Use only the blueprint concept, invariants, and permitted slots.',
-       ...(repair === undefined ? [] : [
+         : 'Return exactly one JSON object with exactly stemText and explanationText.',
+         providerChoices
+           ? 'Return five complete, parallel choice statements. Do not return an answer number.'
+           : 'Do not return choices, answer numbers, stimulus data, metadata, or lineage.',
+         ...(providerChoices && slotField !== undefined
+           ? [`Return the provider slot ${slotField} exactly as an array with the certified item count; do not replace it with stemText.`]
+           : []),
+     ...(providerChoices && blueprint.choiceFocuses !== undefined
+           ? [
+               'Write each choice from its assigned choiceFocus: quote or clearly paraphrase the cue, apply the assigned concept, and make the judgment concrete.',
+               'Do not make choices by swapping only a concept name into one generic sentence. Each choice must test a different cue or condition.',
+               'Do not use generic statements such as "핵심 조건에 부합한다", "이 자료는 X에 해당한다", or "X의 정의이다" without a concrete source cue.',
+             ]
+           : []),
+         'Use only the blueprint concept, invariants, and permitted slots.',
+        ...(blueprint.template === 'TPL_CASE_DIAGNOSTIC_FRAME' &&
+        blueprint.sourceArchetype?.stimulusRole === 'case' &&
+        blueprint.sourceArchetype.stemIntent !== 'truth_combination'
+          ? [
+              'The case narrative must name or clearly identify an actor, state a concrete action or decision, and include at least one checkable condition such as a number, time, place, contract, amount, or duration.',
+              'Do not write abstract advice, a definition, a summary, or meta text such as "사례가 제시되었다". The reader must be able to decide every option from the narrative.',
+            ]
+          : []),
+        ...(repair === undefined ? [] : [
          `Repair the previous failure: ${repair.failureReason}.`,
          repair.requiredAnchors.length > 0
            ? `The following certified source anchors are mandatory and must appear unchanged: ${repair.requiredAnchors.join(', ')}.`
@@ -329,8 +354,8 @@ export function buildAiCandidatePrompt(
         : `Keep stemText at most ${MAX_STEM_LENGTH} characters.`,
       `Keep explanationText at most ${MAX_EXPLANATION_LENGTH} characters.`,
     ],
-    ...(repair === undefined && blueprint.sourceArchetype !== undefined
-      ? { example: templateExample(blueprint) }
+     ...(repair === undefined && blueprint.sourceArchetype !== undefined
+       ? { example: templateExample(blueprint) }
       : {}),
     blueprint: {
       family: blueprint.family,
@@ -360,6 +385,7 @@ export function buildAiCandidatePrompt(
       variantOrdinal: blueprint.variantOrdinal ?? 1,
       invariantFacts: blueprint.invariantFacts,
       sourceFactAnchors: blueprint.sourceFactAnchors ?? [],
+      choiceFocuses: blueprint.choiceFocuses ?? [],
       mutableSlots: blueprint.mutableSlots,
       answerRule: blueprint.answerRule,
       distractorRule: blueprint.distractorRule,
@@ -368,7 +394,9 @@ export function buildAiCandidatePrompt(
         blueprint.sourceArchetype === undefined
           ? undefined
           : [
-              'The backend owns the question stem, template, choices, and answer.',
+               providerChoices
+                 ? 'The backend owns the question stem, template, answer index, and slot shape; the provider writes only the requested stimulus slot and five choice statements.'
+                 : 'The backend owns the question stem, template, choices, answer, and structured stimulus shape.',
               'stemText is ONLY the case narrative (pure descriptive prose).',
               'The server prepends the question stem like "다음 사례에 대한 설명으로 옳은 것은?". Do NOT write question sentences yourself.',
               'Never include: "무엇입니까?", "고르시오", "답하시오", "가장 적절한 것은?", "옳은 것은?", or any question mark at end.',
@@ -409,6 +437,7 @@ export function parseAiQuestionCandidate(
   }
   const keys = Object.keys(parsed).sort();
   const providerChoices = supportsGeneratedChoices(blueprint);
+  const sourcePreserving = isTruthCombinationBlueprint(blueprint);
   if (providerChoices) {
     const slotField = blueprint?.template === 'TPL_CASE_DIAGNOSTIC_FRAME'
       ? 'stemText'
@@ -481,7 +510,7 @@ export function parseAiQuestionCandidate(
       explanationText: explanationText.trim(),
     };
   }
-  const slotField = providerSlotField(blueprint?.template);
+  const slotField = sourcePreserving ? undefined : providerSlotField(blueprint?.template);
   if (slotField !== undefined) {
     const slotValues = parsed[slotField];
     if (
@@ -552,7 +581,9 @@ export function aiCandidateResponseFormat(
   repair = false,
 ) {
   const providerChoices = supportsGeneratedChoices(blueprint);
-  const slotField = providerSlotField(blueprint?.template);
+  const slotField = blueprint !== undefined && isTruthCombinationBlueprint(blueprint)
+    ? undefined
+    : providerSlotField(blueprint?.template);
   const conversation = slotField === 'messageTexts';
   const expectedSlotCount = blueprint
     ? expectedProviderSlotCount(blueprint)
@@ -649,6 +680,13 @@ function supportsGeneratedChoices(
   );
 }
 
+function isTruthCombinationBlueprint(
+  blueprint: AiQuestionBlueprint | undefined,
+): boolean {
+  return blueprint?.sourceArchetype?.stemIntent === 'truth_combination' ||
+    blueprint?.sourceArchetype?.responseMode === 'truth_combination';
+}
+
 function isBoundedTextArray(
   value: unknown,
   blueprint: AiQuestionBlueprint | undefined,
@@ -699,9 +737,11 @@ export function aiCandidateSystemPrompt(): string {
     '   - invariantFacts의 각 사실이 사례에 암시적으로 녹아들어야 하며, 보기에서 "~할 수 있다/~할 수 없다" 형태로 판단 가능해야 합니다.',
     '   - 예: "A씨는 만 17세이다", "1일 6시간 근무", "수습기간 3개월" 등 구체적 조건을 사례에 포함.',
     '',
-    '2. 선택지(choiceTexts, 요청된 경우에만 생성):',
-    '   - 각 선택지는 완전한 문장으로, 줄거리만 보고도 판단 가능해야 합니다.',
-    '   - 오답은 "그럴듯하지만 틀린" 내용이어야 합니다. 개념을 살짝 비틀거나, 유사 개념과 혼동하게 만드십시오.',
+     '2. 선택지(choiceTexts, 요청된 경우에만 생성):',
+     '   - 각 선택지는 완전한 문장으로, 줄거리만 보고도 판단 가능해야 합니다.',
+     '   - blueprint.choiceFocuses가 있으면 각 선택지는 지정된 cue를 반영하고, 지정된 개념의 경계를 그 단서에 적용해야 합니다.',
+     '   - 개념명만 바꾼 동일 문장이나 "핵심 조건에 부합한다" 같은 generic 선택지를 만들지 마십시오.',
+     '   - 오답은 "그럴듯하지만 틀린" 내용이어야 합니다. 개념을 살짝 비틀거나, 유사 개념과 혼동하게 만드십시오.',
     '   - 모든 선택지는 같은 문장 구조, 비슷한 길이, 유사한 어휘 수준을 유지하십시오.',
     '   - 정답이 유독 길거나 짧으면 안 됩니다.',
     '',

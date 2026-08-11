@@ -1,4 +1,5 @@
 import type {
+  AiChoiceFocus,
   AiGenerationValidationResult,
   AiQuestionBlueprint,
   AiQuestionCandidate,
@@ -8,7 +9,7 @@ import { deriveAiAnswer } from './ai-answer-engine';
 import { validateSimplyReferenceStructuredTpl } from './simply-reference-generation-contract';
 import type { StructuredTplName } from './tpl-schemas';
 
-export const AI_QUESTION_VALIDATOR_VERSION = 'v2' as const;
+export const AI_QUESTION_VALIDATOR_VERSION = 'v3' as const;
 
 export function validateAiQuestion(
   blueprint: AiQuestionBlueprint,
@@ -19,11 +20,26 @@ export function validateAiQuestion(
   if (blueprintShapeError !== null) {
     return failed('AI_CANDIDATE_SCHEMA_INVALID', blueprintShapeError);
   }
+  const archetype = blueprint.sourceArchetype;
+  const isTruthCombination =
+    archetype?.stemIntent === 'truth_combination' ||
+    archetype?.responseMode === 'truth_combination';
   if (
     candidate.stemText.trim() === '' ||
     candidate.explanationText.trim() === ''
   ) {
     return failed('AI_CANDIDATE_SCHEMA_INVALID', 'empty candidate text');
+  }
+  if (
+    blueprint.template === 'TPL_CASE_DIAGNOSTIC_FRAME' &&
+    blueprint.sourceArchetype?.stimulusRole === 'case' &&
+    !isTruthCombination &&
+    !isConcreteCaseNarrative(candidate.stemText)
+  ) {
+    return failed(
+      'AI_INVARIANT_MISMATCH',
+      'case narrative is too vague; include an actor, an action, and a concrete condition',
+    );
   }
   const candidateText = [
     candidate.stemText,
@@ -56,6 +72,13 @@ export function validateAiQuestion(
   if (question.optionsList.length !== 5) {
     return failed('AI_DISTRACTOR_INVALID', 'choice count is not five');
   }
+  const requiresGroundedChoices =
+    !isTruthCombination &&
+    archetype?.responseMode === 'single_selection' &&
+    blueprint.choiceFocuses !== undefined;
+  if (requiresGroundedChoices && candidate.choiceTexts === undefined) {
+    return failed('AI_DISTRACTOR_INVALID', 'grounded provider choices are required');
+  }
   if (
     candidate.choiceTexts !== undefined &&
     (new Set(candidate.choiceTexts.map((choice) => choice.normalize('NFKC').trim())).size !== 5 ||
@@ -64,6 +87,15 @@ export function validateAiQuestion(
     return failed('AI_DISTRACTOR_INVALID', 'provider choices are empty or duplicated');
   }
   if (candidate.choiceTexts !== undefined) {
+    if (blueprint.choiceFocuses !== undefined && !isTruthCombination) {
+      const groundedChoiceError = validateGroundedChoices(
+        blueprint,
+        candidate.choiceTexts,
+      );
+      if (groundedChoiceError !== null) {
+        return failed('AI_DISTRACTOR_INVALID', groundedChoiceError);
+      }
+    }
     const answerChoice = candidate.choiceTexts[blueprint.answerIndex - 1] ?? '';
     const normalizedAnswerChoice = normalizeFactText(answerChoice);
     if (!normalizedAnswerChoice.includes(normalizeFactText(blueprint.targetConcept))) {
@@ -98,10 +130,6 @@ export function validateAiQuestion(
   if (new Set(question.optionsList).size !== 5) {
     return failed('AI_DISTRACTOR_INVALID', 'duplicate choices');
   }
-  const archetype = blueprint.sourceArchetype;
-  const isTruthCombination =
-    archetype?.stemIntent === 'truth_combination' ||
-    archetype?.responseMode === 'truth_combination';
   if (
     archetype !== undefined &&
     !isTruthCombination &&
@@ -167,13 +195,14 @@ export function validateAiQuestion(
   if (
       question.recommendedTemplate === 'TPL_CONVERSATIONAL_FLOW'
       ? !Array.isArray(conversationMessages) ||
-        (candidateMessageTexts !== undefined && conversationMessages.length !== candidateMessageTexts.length) ||
-        (candidateMessageTexts !== undefined && conversationMessages.some((message, index) => {
+        (!isTruthCombination && candidateMessageTexts !== undefined && conversationMessages.length !== candidateMessageTexts.length) ||
+        (!isTruthCombination && candidateMessageTexts !== undefined && conversationMessages.some((message, index) => {
           if (typeof message !== 'object' || message === null) return true;
           const record = message as Record<string, unknown>;
           return record.text !== candidateMessageTexts[index];
         }))
-      : !isSourcePreservingTemplate(question.recommendedTemplate) &&
+      : !isTruthCombination &&
+          !isSourcePreservingTemplate(question.recommendedTemplate) &&
           !candidateMatchesStimulus(question.stimulusData, candidate) ||
         question.explanation.judgment !== candidate.explanationText
   ) {
@@ -185,6 +214,12 @@ export function validateAiQuestion(
   if (!question.explanation.judgment.includes(blueprint.targetConcept)) {
     return failed('AI_EXPLANATION_MISMATCH', 'explanation does not mention target concept');
   }
+  if (blueprint.choiceFocuses !== undefined && !isTruthCombination) {
+    const targetCue = blueprint.choiceFocuses[blueprint.answerIndex - 1]?.cue;
+    if (targetCue !== undefined && !hasCueToken(question.explanation.judgment, targetCue)) {
+      return failed('AI_EXPLANATION_MISMATCH', 'explanation does not mention the target source cue');
+    }
+  }
   // ponytail: target-term leakage lowers difficulty but does not invalidate the
   // server-derived answer; keep the item rather than exhausting a valid source.
   return {
@@ -195,6 +230,26 @@ export function validateAiQuestion(
 
 function normalizeFactText(value: string): string {
   return value.normalize('NFKC').replace(/\s+/gu, '');
+}
+
+function isConcreteCaseNarrative(value: string): boolean {
+  const text = value.trim();
+  const hasActor =
+    /(?:[A-Z가-힣]{1,12}(?:씨|님)|학생|근로자|직원|대표|사장|팀장|교사|고객|선수|지원자|소비자)/u.test(
+      text,
+    );
+  const hasAction =
+    /(?:계약|신청|요구|근무|해고|구매|지원|결정|수행|활동|제출|거부|실시|분석|참여|변경|받|지급|체결)/u.test(
+      text,
+    );
+  const hasConcreteCondition =
+    /(?:\d|년|월|일|시|%|원|개월|명|회|에서|에게|동안|이후|이전|때문|조건|기간|장소)/u.test(
+      text,
+    );
+  const metaNarrative = /(?:사례가 제시되었다|다음과 같이 제시|의미를 느끼는 일을)/u.test(
+    text,
+  );
+  return text.length >= 40 && hasActor && hasAction && hasConcreteCondition && !metaNarrative;
 }
 
 function sourceFactsArePreserved(
@@ -215,6 +270,8 @@ function validateBlueprintShape(blueprint: AiQuestionBlueprint): string | null {
   if (!Number.isInteger(blueprint.answerIndex) || blueprint.answerIndex < 1 || blueprint.answerIndex > 5) {
     return 'answer index is outside the five-choice contract';
   }
+  const choiceFocusError = validateChoiceFocuses(blueprint);
+  if (choiceFocusError !== null) return choiceFocusError;
   const lines = (blueprint.caseContext ?? '').split(/\n+/u).map((line) => line.trim()).filter(Boolean);
   let expected: number | null = null;
   switch (blueprint.template) {
@@ -252,6 +309,70 @@ function validateBlueprintShape(blueprint: AiQuestionBlueprint): string | null {
     return 'provider slot metadata does not match certified source shape';
   }
   return null;
+}
+
+function validateChoiceFocuses(blueprint: AiQuestionBlueprint): string | null {
+  const focuses = blueprint.choiceFocuses;
+  if (focuses === undefined) return null;
+  if (focuses.length !== 5) return 'choice focus metadata must contain five items';
+  const concepts = [
+    ...blueprint.distractorConcepts.slice(0, blueprint.answerIndex - 1),
+    blueprint.targetConcept,
+    ...blueprint.distractorConcepts.slice(blueprint.answerIndex - 1),
+  ];
+  if (focuses.some((focus, index) => focus.concept !== concepts[index])) {
+    return 'choice focus concepts do not match the answer plan';
+  }
+  if (new Set(focuses.map((focus) => `${focus.concept}:${focus.relation}`)).size !== 5) {
+    return 'choice focus concepts or relations are duplicated';
+  }
+  if (focuses.some((focus) => focus.cue.trim() === '')) return 'choice focus cue is empty';
+  return null;
+}
+
+function validateGroundedChoices(
+  blueprint: AiQuestionBlueprint,
+  choices: readonly string[],
+): string | null {
+  const focuses = blueprint.choiceFocuses ?? [];
+  if (choices.some((choice, index) => isGenericChoice(choice, focuses[index]))) {
+    return 'provider choice is generic instead of cue-based';
+  }
+  if (focuses.some((focus, index) => {
+    const choice = choices[index] ?? '';
+    return !normalizeFactText(choice).includes(normalizeFactText(focus.concept)) ||
+      !hasCueToken(choice, focus.cue);
+  })) {
+    return 'provider choice does not match its assigned concept and source cue';
+  }
+  const shapes = choices.map((choice) =>
+    normalizeFactText(choice)
+      .replace(/(?:직무|직업|인사|경력|노동|근로)[^\s,。.!?]{0,12}/gu, '개념')
+      .replace(/\d+(?:[.,]\d+)?(?:%|명|개|원|일|개월|년|시간)?/gu, '값'),
+  );
+  return new Set(shapes).size < 3
+    ? 'provider choices repeat one generic sentence shape'
+    : null;
+}
+
+function isGenericChoice(
+  choice: string,
+  focus: AiChoiceFocus | undefined,
+): boolean {
+  if (focus === undefined) return false;
+  const withoutConcept = normalizeFactText(
+    choice.replace(/^[①-⑤]\s*/u, ''),
+  ).replace(normalizeFactText(focus.concept), '');
+  return /^(?:이사례는|이자료는|이대화는)(?:의핵심조건에부합한다|에해당한다|의정의이다|옳은설명이다)\.?$/u.test(
+    withoutConcept,
+  );
+}
+
+function hasCueToken(choice: string, cue: string): boolean {
+  const tokens = cue.normalize('NFKC').match(/[가-힣A-Za-z0-9%]{2,}/gu) ?? [];
+  if (tokens.length === 0) return true;
+  const normalizedChoice = normalizeFactText(choice);
+  return tokens.some((token) => normalizedChoice.includes(normalizeFactText(token)));
 }
 
 function isSourcePreservingTemplate(template: StructuredTplName): boolean {

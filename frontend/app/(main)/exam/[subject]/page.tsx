@@ -366,11 +366,21 @@ export default function ExamPage() {
             </VStack>
 
             <button
-              className={s.startButton}
+              className={`${s.startButton} ${s.outlineButton}`}
               onClick={() => selectedItem.id && navigate(examHref(selectedItem.id))}
             >
-              <Typo.MD size={14} color="primary" style={{ fontWeight: 600, color: '#fff' }}>문제 풀기</Typo.MD>
+              <Typo.MD size={14} color="brand" style={{ fontWeight: 600 }}>
+                {selectedItem.score !== '미채점' ? '다시 풀기' : '문제 풀기'}
+              </Typo.MD>
             </button>
+            {selectedItem.score !== '미채점' && (
+              <button
+                className={s.startButton}
+                onClick={() => selectedItem.id && navigate(`/exam/${subject}/${selectedItem.id}?review=1`)}
+              >
+                <Typo.MD size={14} color="primary" style={{ fontWeight: 600, color: '#fff' }}>해설 보기</Typo.MD>
+              </button>
+            )}
             <button
               className={`${s.startButton} ${s.outlineButton}`}
               onClick={handlePdfExport}

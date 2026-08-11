@@ -71,6 +71,17 @@ export function materializeAiQuestion(
         '현재 AI case materializer와 archetype 계약이 일치하지 않습니다.',
     };
   }
+  const requiresGroundedChoices =
+    !isTruthCombination &&
+    archetype?.responseMode === 'single_selection' &&
+    blueprint.choiceFocuses !== undefined;
+  if (requiresGroundedChoices && !validProviderChoices(candidate.choiceTexts)) {
+    return {
+      kind: 'rejected',
+      code: 'AI_DISTRACTOR_INVALID',
+      message: '단서 기반 선택지 5개가 필요합니다.',
+    };
+  }
   const derivedAnswer = deriveAiAnswer(blueprint);
   if (derivedAnswer === null) {
     return {
@@ -89,15 +100,24 @@ export function materializeAiQuestion(
       : blueprint.template === 'TPL_CASE_DIAGNOSTIC_FRAME'
         ? '다음 사례에 대한 설명으로 옳은 것은?'
         : '다음 자료에 대한 설명으로 옳은 것은?';
-  // ponytail: the server answer engine owns choices; provider prose is validated
-  // separately and never becomes the persisted answer surface.
-  const optionsList = derivedAnswer.optionsList;
-  const stimulusData = materializeStimulus(blueprint, candidate);
+  // Keep provider-written choices when a certified single-selection blueprint
+  // has them; the validator still owns the answer index and rejects bad prose.
+  const optionsList =
+    !isTruthCombination &&
+    blueprint.sourceArchetype !== undefined &&
+    validProviderChoices(candidate.choiceTexts)
+      ? candidate.choiceTexts
+      : derivedAnswer.optionsList;
+  const stimulusData = materializeStimulus(
+    blueprint,
+    candidate,
+    isTruthCombination,
+  );
   if (stimulusData === null) {
     return {
       kind: 'rejected',
       code: 'AI_CANDIDATE_SCHEMA_INVALID',
-      message: '대화 후보가 서버가 고정한 발화자와 순서를 만족하지 않습니다.',
+      message: `인증된 ${blueprint.template} 자료 구조를 materialize할 수 없습니다.`,
     };
   }
   return {
@@ -151,6 +171,25 @@ export function materializeSourcePreservingFallback(
   });
 }
 
+function validProviderChoices(
+  choices: readonly string[] | undefined,
+): choices is readonly string[] {
+  return (
+    choices !== undefined &&
+    choices.length === 5 &&
+    new Set(choices.map((choice) => choice.normalize('NFKC').trim())).size === 5 &&
+    choices.every((choice) => choice.trim().length >= 8)
+  );
+}
+
+function caseProfileName(narrative: string): string {
+  return (
+    narrative.match(
+      /(?:^|[\n。])\s*([A-Za-z가-힣○]{1,12}(?:씨|님|팀장|대표|사장|학생|교사|근로자))/u,
+    )?.[1] ?? '사례'
+  );
+}
+
 function isMaterializableTemplate(template: string): template is StructuredTplName {
   return [
     'TPL_CASE_DIAGNOSTIC_FRAME',
@@ -173,27 +212,34 @@ function isMaterializableTemplate(template: string): template is StructuredTplNa
 function materializeStimulus(
   blueprint: AiQuestionBlueprint,
   candidate: AiQuestionCandidate,
+  preserveCertifiedSource: boolean,
 ): Record<string, unknown> | null {
   switch (blueprint.template) {
     case 'TPL_CONVERSATIONAL_FLOW':
-      return conversationStimulusData(blueprint, candidate);
+      return conversationStimulusData(blueprint, candidate, preserveCertifiedSource);
     case 'TPL_CASE_DIAGNOSTIC_FRAME':
-      // ponytail: isRecord({}) 통과 위해 빈 객체 필수. 빈 이름이면 렌더러가 아바타를 거의 안 보이게 함.
-      return {
-        case_profile: { name: ' ', context: '' },
-        narrative: candidate.stemText,
-        check_items: [],
-      };
+      // ponytail: truth-combination remains source-preserving until generated
+      // view-item semantics have a verifier; this prevents unsolvable hybrids.
+      {
+        const narrative = preserveCertifiedSource
+          ? blueprint.caseContext ?? candidate.stemText
+          : candidate.stemText;
+        return {
+          case_profile: { name: caseProfileName(narrative), context: '' },
+          narrative,
+          check_items: [],
+        };
+      }
     case 'TPL_COMPARATIVE_MATRIX':
-      return matrixStimulusData(blueprint, candidate);
+      return matrixStimulusData(blueprint, candidate, preserveCertifiedSource);
     case 'TPL_FORMAL_DOCUMENT':
-      return documentStimulusData(blueprint, candidate);
+      return documentStimulusData(blueprint, candidate, preserveCertifiedSource);
     case 'TPL_ARTICLE':
-      return articleStimulusData(blueprint, candidate);
+      return articleStimulusData(blueprint, candidate, preserveCertifiedSource);
     case 'TPL_ANNOUNCEMENT':
-      return announcementStimulusData(blueprint, candidate);
+      return announcementStimulusData(blueprint, candidate, preserveCertifiedSource);
     case 'TPL_SEQUENTIAL_WORKFLOW':
-      return workflowStimulusData(blueprint, candidate);
+      return workflowStimulusData(blueprint, candidate, preserveCertifiedSource);
     case 'TPL_DIGITAL_FORUM_INTERFACE':
     case 'TPL_INSTRUCTIONAL_SCENE':
     case 'TPL_PROMOTIONAL_CANVAS':
@@ -216,9 +262,13 @@ function sourceLines(blueprint: AiQuestionBlueprint): string[] {
 function matrixStimulusData(
   blueprint: AiQuestionBlueprint,
   candidate: AiQuestionCandidate,
+  preserveCertifiedSource: boolean,
 ): Record<string, unknown> | null {
-  const lines = sourceLines(blueprint).filter((line) => line.includes('|'));
-  if (lines.length < 2 || candidate.cellTexts === undefined) return null;
+  const lines = (blueprint.caseContext ?? '')
+    .split(/\n+/u)
+    .map((line) => line.trim())
+    .filter((line) => line.includes('|'));
+  if (lines.length < 2 || (!preserveCertifiedSource && candidate.cellTexts === undefined)) return null;
   const split = (line: string) =>
     line.split('|').map((cell) => cell.trim()).filter(Boolean);
   const headers = split(lines[0] ?? '');
@@ -228,13 +278,21 @@ function matrixStimulusData(
     cells: split(line),
   }));
   const cellCount = rows.reduce((count, row) => count + row.cells.length, 0);
-  if (headers.length === 0 || rows.length === 0 || (blueprint.providerSlotCount !== undefined && cellCount !== blueprint.providerSlotCount) || cellCount !== candidate.cellTexts.length) {
+  if (
+    headers.length === 0 ||
+    rows.length === 0 ||
+    rows.some((row) => row.cells.length !== headers.length) ||
+    (blueprint.providerSlotCount !== undefined && cellCount !== blueprint.providerSlotCount) ||
+    (!preserveCertifiedSource && cellCount !== candidate.cellTexts?.length)
+  ) {
     return null;
   }
+  const sourceCells = rows.flatMap((row) => row.cells);
+  const cellTexts = preserveCertifiedSource ? sourceCells : candidate.cellTexts!;
   let index = 0;
   return {
     headers: headers.map((label, headerIndex) => ({ id: `col-${headerIndex + 1}`, label })),
-    rows: rows.map((row) => ({ ...row, cells: row.cells.map(() => candidate.cellTexts![index++]) })),
+    rows: rows.map((row) => ({ ...row, cells: row.cells.map(() => cellTexts[index++]) })),
     selection_chips: [],
   };
 }
@@ -242,9 +300,13 @@ function matrixStimulusData(
 function documentStimulusData(
   blueprint: AiQuestionBlueprint,
   candidate: AiQuestionCandidate,
+  preserveCertifiedSource: boolean,
 ): Record<string, unknown> | null {
   const paragraphs = sourceLines(blueprint);
-  if (paragraphs.length === 0 || (blueprint.providerSlotCount !== undefined && paragraphs.length !== blueprint.providerSlotCount) || candidate.paragraphTexts?.length !== paragraphs.length) return null;
+  const paragraphTexts = preserveCertifiedSource
+    ? paragraphs
+    : candidate.paragraphTexts;
+  if (paragraphs.length === 0 || (blueprint.providerSlotCount !== undefined && paragraphs.length !== blueprint.providerSlotCount) || paragraphTexts?.length !== paragraphs.length) return null;
   return {
     doc_type: '공식 문서',
     header_info: {
@@ -252,7 +314,7 @@ function documentStimulusData(
       date: paragraphs[0]!,
       author: paragraphs[1] ?? paragraphs[0]!,
     },
-    paragraphs: paragraphs.map((_, index) => ({ sub_title: `문단 ${index + 1}`, content: candidate.paragraphTexts![index] })),
+    paragraphs: paragraphs.map((_, index) => ({ sub_title: `문단 ${index + 1}`, content: paragraphTexts![index] })),
     footnotes: [],
   };
 }
@@ -260,25 +322,29 @@ function documentStimulusData(
 function articleStimulusData(
   blueprint: AiQuestionBlueprint,
   candidate: AiQuestionCandidate,
+  preserveCertifiedSource: boolean,
 ): Record<string, unknown> | null {
   const paragraphs = sourceLines(blueprint);
-  if (paragraphs.length === 0 || (blueprint.providerSlotCount !== undefined && paragraphs.length !== blueprint.providerSlotCount) || candidate.paragraphTexts?.length !== paragraphs.length) return null;
-  return { title: blueprint.targetConcept, body_paragraphs: candidate.paragraphTexts };
+  const paragraphTexts = preserveCertifiedSource ? paragraphs : candidate.paragraphTexts;
+  if (paragraphs.length === 0 || (blueprint.providerSlotCount !== undefined && paragraphs.length !== blueprint.providerSlotCount) || paragraphTexts?.length !== paragraphs.length) return null;
+  return { title: blueprint.targetConcept, body_paragraphs: paragraphTexts };
 }
 
 function announcementStimulusData(
   blueprint: AiQuestionBlueprint,
   candidate: AiQuestionCandidate,
+  preserveCertifiedSource: boolean,
 ): Record<string, unknown> | null {
   const details = sourceLines(blueprint);
-  if (details.length === 0 || (blueprint.providerSlotCount !== undefined && details.length !== blueprint.providerSlotCount) || candidate.detailTexts?.length !== details.length) return null;
+  const detailTexts = preserveCertifiedSource ? details : candidate.detailTexts;
+  if (details.length === 0 || (blueprint.providerSlotCount !== undefined && details.length !== blueprint.providerSlotCount) || detailTexts?.length !== details.length) return null;
   return {
     title: blueprint.targetConcept,
     organizer: details[0]!,
     schedule: { start: details[0]!, end: details[details.length - 1]! },
     location: details[0]!,
     target: details[0]!,
-    details: details.map((_, index) => ({ label: `안내 ${index + 1}`, content: candidate.detailTexts![index] })),
+    details: details.map((_, index) => ({ label: `안내 ${index + 1}`, content: detailTexts![index] })),
     contact: details[details.length - 1]!,
   };
 }
@@ -286,21 +352,26 @@ function announcementStimulusData(
 function workflowStimulusData(
   blueprint: AiQuestionBlueprint,
   candidate: AiQuestionCandidate,
+  preserveCertifiedSource: boolean,
 ): Record<string, unknown> | null {
   const steps = sourceLines(blueprint);
-  if (steps.length === 0 || (blueprint.providerSlotCount !== undefined && steps.length !== blueprint.providerSlotCount) || candidate.stepTexts?.length !== steps.length) return null;
+  const stepTexts = preserveCertifiedSource ? steps : candidate.stepTexts;
+  if (steps.length === 0 || (blueprint.providerSlotCount !== undefined && steps.length !== blueprint.providerSlotCount) || stepTexts?.length !== steps.length) return null;
   return {
     orientation: 'vertical',
-    steps: steps.map((_, index) => ({ idx: index, label: `단계 ${index + 1}`, desc: candidate.stepTexts![index], is_missing: false })),
+    steps: steps.map((_, index) => ({ idx: index, label: `단계 ${index + 1}`, desc: stepTexts![index], is_missing: false })),
   };
 }
 
 function conversationStimulusData(
   blueprint: AiQuestionBlueprint,
   candidate: AiQuestionCandidate,
+  preserveCertifiedSource: boolean,
 ): Record<string, unknown> | null {
   const contract = blueprint.conversationContract;
-  const messageTexts = candidate.messageTexts ?? sourceConversationTexts(blueprint);
+  const messageTexts = preserveCertifiedSource
+    ? sourceConversationTexts(blueprint)
+    : candidate.messageTexts ?? sourceConversationTexts(blueprint);
   if (
     contract === undefined ||
     messageTexts === undefined ||

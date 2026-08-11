@@ -28,6 +28,7 @@ describe('StudyController', () => {
       getProgressBySubject: jest.fn(),
       getUnitsWithProgress: jest.fn(),
       getFrequencyConcept: jest.fn(),
+      getStudyExamPatterns: jest.fn(),
       getMindmap: jest.fn(),
       getConceptByName: jest.fn(),
       getStructuredConcept: jest.fn(),
@@ -93,6 +94,18 @@ describe('StudyController', () => {
       const result = await controller.getConcept('success', 1, '없는개념');
       expect(result.found).toBe(false);
     });
+  });
+
+  it('returns unit exam patterns', async () => {
+    studyService.getStudyExamPatterns.mockResolvedValue({
+      subjectSlug: 'success',
+      unitNumber: 4,
+      patterns: [],
+    } as never);
+
+    await expect(controller.getStudyExamPatterns('success', 4)).resolves.toEqual(
+      expect.objectContaining({ subjectSlug: 'success', unitNumber: 4 }),
+    );
   });
 
   describe('cache admin-only endpoints', () => {

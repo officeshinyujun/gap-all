@@ -173,6 +173,9 @@ describe('AiExamGenerationService', () => {
         }),
       ]),
     );
+    expect(fixture.blueprintService.preview).toHaveBeenCalledWith(
+      expect.objectContaining({ excludeSourceIds: [] }),
+    );
     expect(fixture.runRepo.save).toHaveBeenCalledWith(
       expect.objectContaining({
         status: 'completed',

@@ -1,5 +1,8 @@
 import { Difficulty } from '../entities/exam-record.entity';
-import { compileAiBlueprints } from './ai-blueprint.service';
+import {
+  compileAiBlueprints,
+  isSupportedCaseArchetype,
+} from './ai-blueprint.service';
 
 const profile = {
   subjectSlug: 'success',
@@ -240,4 +243,41 @@ describe('compileAiBlueprints', () => {
     expect(Object.values(result.reserveByTpl).reduce((sum, count) => sum + count, 0)).toBe(3);
   });
 
+});
+
+describe('isSupportedCaseArchetype', () => {
+  it('keeps both legacy single-selection and verified truth-combination references', () => {
+    expect(
+      isSupportedCaseArchetype({
+        sourceTemplate: 'TPL_CASE_DIAGNOSTIC_FRAME',
+        responseMode: 'single_selection',
+        choiceTopology: 'single_choice',
+        stemIntent: 'positive_single_selection',
+      } as never),
+    ).toBe(true);
+    expect(
+      isSupportedCaseArchetype({
+        sourceTemplate: 'TPL_COMPARATIVE_MATRIX',
+        responseMode: 'truth_combination',
+        choiceTopology: 'combo_sets',
+        stemIntent: 'truth_combination',
+      } as never),
+    ).toBe(true);
+    expect(
+      isSupportedCaseArchetype({
+        sourceTemplate: 'TPL_CASE_DIAGNOSTIC_FRAME',
+        responseMode: 'truth_combination',
+        choiceTopology: 'combo_sets',
+        stemIntent: 'truth_combination',
+      } as never),
+    ).toBe(true);
+    expect(
+      isSupportedCaseArchetype({
+        sourceTemplate: 'TPL_CASE_DIAGNOSTIC_FRAME',
+        responseMode: 'single_selection',
+        choiceTopology: 'combo_sets',
+        stemIntent: 'positive_single_selection',
+      } as never),
+    ).toBe(false);
+  });
 });

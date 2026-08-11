@@ -61,6 +61,8 @@ describe('local study data access', () => {
       key_points: [`핵심 ${index + 1}`],
       textbook_excerpt: `원문 ${index + 1}`,
       enriched_definition: `상세 정의 ${index + 1}`,
+      comparisonTable: index === 0 ? '| 구분 | 값 |\n|---|---|\n| 핵심 | 필수 |' : '',
+      importantNumbers: index === 0 ? [5, '5조 원'] : [],
       realQuestion: {
         questionData: {
           source_exam: '기출',
@@ -93,6 +95,7 @@ describe('local study data access', () => {
       {} as never,
       {} as never,
       {} as never,
+      undefined,
     );
 
     const result = await service.getFrequencyConcept('success', 1);
@@ -110,6 +113,11 @@ describe('local study data access', () => {
     });
     expect(result.concepts[0].conceptContent).toContain('정의 1');
     expect(result.concepts[0].conceptContent).toContain('원문 1');
+    expect(result.concepts[0].examMustKnow).toMatchObject({
+      type: 'comparison',
+      summary: expect.stringContaining('핵심'),
+      mustRemember: expect.arrayContaining(['중요 수치: 5']),
+    });
   });
 
   it('falls back to frequency data when fewer than five local cards exist', async () => {
@@ -147,6 +155,7 @@ describe('local study data access', () => {
       {} as never,
       {} as never,
       {} as never,
+      undefined,
     );
 
     await expect(service.getFrequencyConcept('success', 1)).resolves.toEqual({

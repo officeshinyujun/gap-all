@@ -12,7 +12,7 @@ import {
   UseInterceptors,
   Query,
 } from '@nestjs/common';
-import { AuthGuard } from '@nestjs/passport';
+import { GoogleAuthGuard } from '../common/guards/google-auth.guard';
 import { Throttle } from '@nestjs/throttler';
 import { randomBytes, timingSafeEqual } from 'crypto';
 import passport from 'passport';
@@ -150,6 +150,8 @@ export class AuthController {
     const state = randomBytes(32).toString('base64url');
     const options: any = { scope: ['email', 'profile'], session: false };
     options.state = state;
+    // ponytail: override callbackURL per-request for localhost vs Tailscale hosts
+    options.callbackURL = this.getGoogleCallbackURL(req);
     const stateCookie: OAuthStateCookie = {
       state,
       returnTo: this.normalizeReturnTo(returnTo),
@@ -163,7 +165,7 @@ export class AuthController {
   }
 
   @Get('google/callback')
-  @UseGuards(AuthGuard('google'))
+  @UseGuards(GoogleAuthGuard)
   async googleCallback(@Req() req: Request, @Res() res: Response) {
     const state =
       typeof req.query.state === 'string' ? req.query.state : undefined;
@@ -192,6 +194,14 @@ export class AuthController {
       return new URL(value).origin;
     }
     return getFrontendOrigin();
+  }
+
+  private getGoogleCallbackURL(req: Request): string {
+    const host = req.get('host') || 'localhost:3001';
+    const protocol = host.includes('localhost') || host.startsWith('127.') || host.startsWith('192.')
+      ? 'http'
+      : 'https';
+    return `${protocol}://${host}/auth/google/callback`;
   }
 
   private isValidOAuthState(

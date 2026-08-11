@@ -76,6 +76,36 @@ describe('materializeAiQuestion', () => {
     ]);
   });
 
+  it('keeps valid provider-written choices for certified single-selection items', () => {
+    const classified = classifyReferenceArchetype({
+      stem: '다음 사례에 대한 설명으로 옳은 것은?',
+      stimulus: 'A씨는 직무에 필요한 능력을 분석하였다.',
+      viewItems: [],
+      choices: ['① 하나', '② 둘', '③ 셋', '④ 넷', '⑤ 다섯'],
+      targetConcepts: ['직무 분석'],
+    });
+    if (classified.kind !== 'classified') throw new Error('invalid fixture');
+
+    const choices = [
+      '① 직무 분석의 핵심 조건에 부합한다.',
+      '② 직업 윤리의 핵심 조건에 부합한다.',
+      '③ 직업 훈련의 핵심 조건에 부합한다.',
+      '④ 인사 평가의 핵심 조건에 부합한다.',
+      '⑤ 경력 개발의 핵심 조건에 부합한다.',
+    ];
+    const result = materializeAiQuestion(
+      { ...blueprint, sourceArchetype: classified.value },
+      {
+        stemText: '기업이 직무에 필요한 능력을 조사하였다.',
+        choiceTexts: choices,
+        explanationText: '직무 분석은 직무에 필요한 능력을 파악하는 것이다.',
+      },
+    );
+
+    if (result.kind === 'rejected') throw new Error(result.message);
+    expect(result.question.optionsList).toEqual(choices);
+  });
+
   it('materializes a conversation with fixed participants and message order', () => {
     const classified = classifyReferenceArchetype({
       stem: '다음 대화에 대한 설명으로 옳은 것은?',
@@ -216,5 +246,79 @@ describe('materializeAiQuestion', () => {
         rows: [{ id: 'row-1', cells: ['조건 A', '조건 B'] }],
       }),
     );
+  });
+
+  it('keeps truth-combination source facts aligned with the source view', () => {
+    const result = materializeAiQuestion(
+      {
+        ...blueprint,
+        template: 'TPL_COMPARATIVE_MATRIX',
+        caseContext: '| 기준 | 값 |\n| --- | --- |\n| A | 원문 값 |',
+        providerSlotCount: 2,
+        sourceViewItems: ['ㄱ. 원문 조건이다.', 'ㄴ. 원문 결과다.'],
+        sourceChoiceTexts: [
+          '① ㄱ, ㄴ',
+          '② ㄱ',
+          '③ ㄴ',
+          '④ 해당 없음',
+          '⑤ 모두 옳다',
+        ],
+        sourceArchetype: {
+          sourceTemplate: 'TPL_COMPARATIVE_MATRIX',
+          responseMode: 'truth_combination',
+          choiceTopology: 'combo_sets',
+          stemIntent: 'truth_combination',
+          choiceEncoding: 'truth_combination',
+        } as never,
+      },
+      {
+        stemText: 'AI가 바꾼 표 내용',
+        cellTexts: ['AI 기준', 'AI 값'],
+        explanationText: '원문 조건을 분석한다.',
+      },
+    );
+
+    if (result.kind === 'rejected') throw new Error(result.message);
+    expect(result.question.stimulusData).toEqual(
+      expect.objectContaining({
+        rows: [{ id: 'row-1', cells: ['A', '원문 값'] }],
+      }),
+    );
+    expect(result.question.comboBlock?.items).toEqual([
+      { key: 'ㄱ', text: '원문 조건이다.' },
+      { key: 'ㄴ', text: '원문 결과다.' },
+    ]);
+  });
+
+  it('materializes a truth-combination matrix from the certified source without provider cells', () => {
+    const result = materializeAiQuestion(
+      {
+        ...blueprint,
+        template: 'TPL_COMPARATIVE_MATRIX',
+        caseContext: '| 기준 | 값 |\n| --- | --- |\n| A | 원문 값 |',
+        providerSlotCount: 2,
+        sourceViewItems: ['ㄱ. 원문 조건이다.', 'ㄴ. 원문 결과다.'],
+        sourceChoiceTexts: [
+          '① ㄱ, ㄴ',
+          '② ㄱ',
+          '③ ㄴ',
+          '④ 해당 없음',
+          '⑤ 모두 옳다',
+        ],
+        sourceArchetype: {
+          sourceTemplate: 'TPL_COMPARATIVE_MATRIX',
+          responseMode: 'truth_combination',
+          choiceTopology: 'combo_sets',
+          stemIntent: 'truth_combination',
+          choiceEncoding: 'truth_combination',
+        } as never,
+      },
+      {
+        stemText: 'AI가 바꾼 자료',
+        explanationText: '원문 조건을 분석한다.',
+      },
+    );
+
+    expect(result.kind).toBe('accepted');
   });
 });

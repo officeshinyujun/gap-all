@@ -279,6 +279,64 @@
   padding: 2px $spacing-8;
 }
 
+.mustKnowSection {
+  padding: $spacing-14;
+  background: $background-secondary;
+  border: 1px solid $border-primary;
+  border-radius: 12px;
+}
+
+.mustKnowBadge {
+  font-size: 11px;
+  color: $text-secondary;
+  border: 1px solid $border-primary;
+  border-radius: 10px;
+  padding: 2px $spacing-8;
+  background: $background-primary;
+}
+
+.mustKnowTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: $text-primary;
+}
+
+.mustKnowLabel {
+  font-size: 12px;
+  font-weight: 700;
+  color: $text-primary;
+}
+
+.mustKnowTableWrap {
+  overflow-x: auto;
+  width: 100%;
+}
+
+.mustKnowTable {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  font-size: 12px;
+  color: $text-primary;
+
+  th, td {
+    border: 1px solid $border-primary;
+    padding: $spacing-8;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  th {
+    background: $background-primary;
+    font-weight: 700;
+  }
+}
+
+.mustKnowTrap {
+  padding-top: $spacing-8;
+  border-top: 1px solid $border-primary;
+}
+
 /* ── 개념 적용 분석 섹션 ── */
 .analysisDivider {
   display: flex;
@@ -648,6 +706,78 @@
   font-size: 15px;
   font-weight: 700;
   color: $text-strong;
+}
+
+.examPatternCard {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-8;
+  padding: $spacing-14;
+  border: 1px solid $border-primary;
+  border-radius: 10px;
+  background: $background-primary;
+}
+
+.examPatternTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: $text-strong;
+}
+
+.examPatternCount,
+.examPatternEvidence {
+  font-size: 11px;
+  color: $text-secondary;
+}
+
+.examPatternImportance {
+  padding: 2px $spacing-8;
+  border: 1px solid $brand-primary;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  color: $brand-primary;
+  white-space: nowrap;
+}
+
+.examPatternSummary {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: $text-primary;
+}
+
+.examPatternTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-6;
+}
+
+.examPatternTag {
+  padding: 2px $spacing-8;
+  border: 1px solid $border-primary;
+  border-radius: 10px;
+  font-size: 11px;
+  color: $text-secondary;
+}
+
+.examPatternList,
+.examPatternTrap {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-4;
+}
+
+.examPatternTrap {
+  padding: $spacing-8;
+  border-radius: 8px;
+  background: $background-secondary;
+}
+
+.examPatternLabel {
+  font-size: 12px;
+  font-weight: 600;
+  color: $text-primary;
 }
 
 .accordionGroup {

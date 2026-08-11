@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import { MarkdownWithTable } from '@/shared/ui/markdown-with-table';
 import { VStack } from '@shared/ui/VStack';
@@ -14,26 +15,53 @@ function parseUnitNumber(chapter: string): number {
   return match ? parseInt(match[0], 10) : 1;
 }
 
+function importanceLabel(
+  patterns: readonly { frequency: number }[],
+  index: number,
+): string {
+  const frequency = patterns[index]?.frequency ?? 0;
+  const rank = patterns.filter((pattern) => pattern.frequency > frequency).length + 1;
+  return patterns.filter((pattern) => pattern.frequency === frequency).length > 1
+    ? `공동 ${rank}순위`
+    : `${rank}순위`;
+}
+
 export function ConceptStudyPage() {
   const { subject = '', chapter = '' } = useParams();
   const unitNumber = parseUnitNumber(chapter);
   const navigate = useNavigate();
+  const [relatedQuestionIndex, setRelatedQuestionIndex] = useState(0);
 
   const {
     mainTab, setMainTab, slideView, setSlideView,
     loading, error, data, concepts, current, total, currentIndex,
+    studyInsights,
     structured, structuredLoading, openSections, toggleSection,
     bookmarks, bookmarkLoading, isBookmarked, handleBookmark,
     openAnalysis, toggleAnalysis,
     handlePrev, handleNext, handleComplete, isFirst, isLast,
   } = useConceptStudy(subject, unitNumber, chapter);
 
-  const v2 = current?.conceptHighlightV2;
-  const sampleQuestion = current?.sampleQuestion;
+  const relatedQuestions = current?.relatedQuestions ?? [];
+  const activeRelatedQuestion = relatedQuestions[relatedQuestionIndex];
+  const v2 = activeRelatedQuestion ? activeRelatedQuestion.conceptHighlightV2 : current?.conceptHighlightV2;
+  const sampleQuestion = activeRelatedQuestion
+    ? {
+        ...activeRelatedQuestion.question,
+        correct_answer: activeRelatedQuestion.correct_answer,
+        questionSource: activeRelatedQuestion.questionSource,
+        questionNumber: activeRelatedQuestion.questionNumber ?? undefined,
+        rawStimulus: activeRelatedQuestion.rawStimulus,
+      }
+    : current?.sampleQuestion;
   const questionSource = sampleQuestion
     ? (sampleQuestion.questionSource ?? sampleQuestion.metadata?.source_exam ?? '수능특강')
     : '';
   const questionExplanation = String(sampleQuestion?.explanation ?? sampleQuestion?.render_ready?.explanation ?? '');
+
+  useEffect(() => {
+    setRelatedQuestionIndex(0);
+  }, [current?.name]);
 
   if (loading) return <div className={s.container}><div className={s.center}><div className={s.spinner} /></div></div>;
   if (error) return <div className={s.container}><div className={s.center}><span className={s.errorText}>{error}</span></div></div>;
@@ -140,6 +168,43 @@ export function ConceptStudyPage() {
                     </VStack>
                   )}
 
+                  {current.examMustKnow && current.examMustKnow.reviewStatus !== 'review' && (
+                    <VStack gap={10} fullWidth className={s.mustKnowSection}>
+                      <HStack justify="between" align="center" fullWidth>
+                        <span className={s.sectionTitle}>
+                          {current.examMustKnow.reviewStatus === 'verified' ? '시험 전 꼭 외울 것' : '핵심 암기'}
+                        </span>
+                        <span className={s.mustKnowBadge}>
+                          {current.examMustKnow.confidence === 'high' ? '기출 검증' : '교재 기준'}
+                        </span>
+                      </HStack>
+                      <span className={s.mustKnowTitle}>{current.examMustKnow.title}</span>
+                      {current.examMustKnow.summary && (
+                        <MarkdownWithTable className={s.markdownContent}>{current.examMustKnow.summary}</MarkdownWithTable>
+                      )}
+                      {current.examMustKnow.headers && current.examMustKnow.rows && (
+                        <div className={s.mustKnowTableWrap}>
+                          <table className={s.mustKnowTable}>
+                            <thead><tr>{current.examMustKnow.headers.map((header) => <th key={header}>{header}</th>)}</tr></thead>
+                            <tbody>{current.examMustKnow.rows.map((row, rowIndex) => <tr key={rowIndex}>{row.map((cell, cellIndex) => <td key={cellIndex}>{cell}</td>)}</tr>)}</tbody>
+                          </table>
+                        </div>
+                      )}
+                      {current.examMustKnow.mustRemember.length > 0 && (
+                        <VStack gap={6} fullWidth>
+                          <span className={s.mustKnowLabel}>반드시 기억</span>
+                          <ul className={s.bulletList}>{current.examMustKnow.mustRemember.map((item) => <li key={item}>{item}</li>)}</ul>
+                        </VStack>
+                      )}
+                      {current.examMustKnow.commonTraps.length > 0 && (
+                        <VStack gap={6} fullWidth className={s.mustKnowTrap}>
+                          <span className={s.mustKnowLabel}>자주 틀리는 구분</span>
+                          <ul className={s.bulletList}>{current.examMustKnow.commonTraps.map((item) => <li key={item}>{item}</li>)}</ul>
+                        </VStack>
+                      )}
+                    </VStack>
+                  )}
+
                   {/* 섹션 2 — 출처 태그 */}
                   {current.sources.length > 0 && (
                     <div className={s.tagsRow}>
@@ -152,7 +217,28 @@ export function ConceptStudyPage() {
 
             {current && sampleQuestion && slideView === 'question' && (
               <div className={s.questionTwoCol}>
-                <div className={s.questionCol}>
+                 <div className={s.questionCol}>
+                  {relatedQuestions.length > 1 && (
+                    <HStack className={s.relatedQNav} justify="between" align="center" fullWidth>
+                      <button
+                        className={s.relatedQNavBtn}
+                        onClick={() => setRelatedQuestionIndex((index) => Math.max(0, index - 1))}
+                        disabled={relatedQuestionIndex === 0}
+                        aria-label="이전 관련 문제"
+                      >
+                        ← 이전 문제
+                      </button>
+                      <span className={s.relatedQCount}>{relatedQuestionIndex + 1} / {relatedQuestions.length}</span>
+                      <button
+                        className={s.relatedQNavBtn}
+                        onClick={() => setRelatedQuestionIndex((index) => Math.min(relatedQuestions.length - 1, index + 1))}
+                        disabled={relatedQuestionIndex === relatedQuestions.length - 1}
+                        aria-label="다음 관련 문제"
+                      >
+                        다음 문제 →
+                      </button>
+                    </HStack>
+                  )}
                   {questionSource && (
                     <HStack justify="between" align="center" fullWidth className={s.questionSourceRow}>
                       <span className={s.questionSourceLabel}>유사 출제 문제</span>
@@ -278,8 +364,51 @@ export function ConceptStudyPage() {
             <div className={s.center}><div className={s.spinner} /></div>
           ) : !structured ? (
             <div className={s.center}><span className={s.errorText}>단원 개요 데이터가 없습니다.</span></div>
-          ) : (
-            <VStack gap={24} fullWidth>
+           ) : (
+             <VStack gap={24} fullWidth>
+              {studyInsights && studyInsights.patterns.length > 0 && (
+                <VStack gap={10} fullWidth>
+                  <span className={s.overviewSectionTitle}>이 단원에서 확인할 출제 포인트</span>
+                  <VStack gap={10} fullWidth>
+                    {studyInsights.patterns.map((pattern, patternIndex) => (
+                      <div key={pattern.id} className={s.examPatternCard}>
+                        <HStack justify="between" align="center" fullWidth>
+                          <span className={s.examPatternTitle}>{pattern.title}</span>
+                          <HStack gap={6} align="center">
+                            <span className={s.examPatternImportance}>
+                              {importanceLabel(studyInsights.patterns, patternIndex)}
+                            </span>
+                            <span className={s.examPatternCount}>
+                              {pattern.confidence === 'high' ? '빈출' : '관련 사례'} · {pattern.frequency}문제
+                            </span>
+                          </HStack>
+                        </HStack>
+                        <p className={s.examPatternSummary}>{pattern.summary}</p>
+                        {pattern.questionFormats.length > 0 && (
+                          <div className={s.examPatternTags}>
+                            {pattern.questionFormats.map((format) => <span key={format} className={s.examPatternTag}>{format}</span>)}
+                          </div>
+                        )}
+                        {pattern.keyChecks.length > 0 && (
+                          <div className={s.examPatternList}>
+                            <span className={s.examPatternLabel}>문제에서 확인할 기준</span>
+                            <ul className={s.bulletList}>{pattern.keyChecks.map((item) => <li key={item}>{item}</li>)}</ul>
+                          </div>
+                        )}
+                        {pattern.commonTraps.length > 0 && (
+                          <div className={s.examPatternTrap}>
+                            <span className={s.examPatternLabel}>자주 헷갈리는 지점</span>
+                            <ul className={s.bulletList}>{pattern.commonTraps.map((item) => <li key={item}>{item}</li>)}</ul>
+                          </div>
+                        )}
+                        <span className={s.examPatternEvidence}>
+                          근거 문제: {pattern.evidence.map((item) => `${item.source}${item.questionNumber ? ` ${item.questionNumber}번` : ''}`).join(', ')}
+                        </span>
+                      </div>
+                    ))}
+                  </VStack>
+                </VStack>
+              )}
               {structured.learningObjectives.length > 0 && (
                 <VStack gap={10} fullWidth>
                   <span className={s.overviewSectionTitle}>학습 목표</span>

@@ -12,6 +12,7 @@ import { IncorrectRecord } from '../entities/incorrect-record.entity';
 import { Question } from '../entities/question.entity';
 import { ExamItem } from '../entities/exam-item.entity';
 import { ConceptBookmark } from '../entities/concept-bookmark.entity';
+import { UnitExamProfile } from '../entities/unit-exam-profile.entity';
 import { TextbookModule } from '../textbook/textbook.module';
 import { ExamsModule } from '../exams/exams.module';
 
@@ -27,6 +28,7 @@ import { ExamsModule } from '../exams/exams.module';
       Question,
       ExamItem,
       ConceptBookmark,
+      UnitExamProfile,
     ]),
     TextbookModule,
     ExamsModule,
