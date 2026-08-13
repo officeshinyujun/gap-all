@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Between, In, type Repository } from 'typeorm';
+import { Between, In, Raw, type Repository } from 'typeorm';
 import { ReferenceQuestion } from '../entities/reference-question.entity';
 import { UnitExamProfile } from '../entities/unit-exam-profile.entity';
 import {
@@ -121,7 +121,9 @@ export class AiUnitProfileService {
     const sources = await this.referenceRepo.find({
       where: {
         subject: In(catalogSubjects(subjectSlug)),
-        unitNumber: Between(startUnitNum, endUnitNum),
+        unitNumbers: Raw(
+          (alias) => `${alias} && ARRAY(SELECT generate_series(${startUnitNum},${endUnitNum}))`,
+        ),
       },
     });
     const sourceFingerprint = fingerprintSources(sources);

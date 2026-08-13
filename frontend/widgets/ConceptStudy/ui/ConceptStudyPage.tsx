@@ -44,7 +44,7 @@ export function ConceptStudyPage() {
 
   const relatedQuestions = current?.relatedQuestions ?? [];
   const activeRelatedQuestion = relatedQuestions[relatedQuestionIndex];
-  const v2 = activeRelatedQuestion ? activeRelatedQuestion.conceptHighlightV2 : current?.conceptHighlightV2;
+  const v2 = activeRelatedQuestion?.conceptHighlightV2 ?? current?.conceptHighlightV2;
   const sampleQuestion = activeRelatedQuestion
     ? {
         ...activeRelatedQuestion.question,

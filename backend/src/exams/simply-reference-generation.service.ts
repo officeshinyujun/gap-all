@@ -5,7 +5,7 @@ import {
   Optional,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Between, In, type Repository } from 'typeorm';
+import { Between, In, Raw, type Repository } from 'typeorm';
 import { Difficulty } from '../entities/exam-record.entity';
 import { ReferenceQuestion } from '../entities/reference-question.entity';
 import {
@@ -172,12 +172,17 @@ export class SimplyReferenceGenerationService {
     const subject = subjectStyle(subjectSlug);
     const catalogRows = await this.catalogReader.find({
       where: {
-        subject: In(catalogSubjects(subjectSlug)),
-        unitNumber: Between(startUnitNum, endUnitNum),
+        // ponytail: query the canonical subject only; aliases can reintroduce cross-subject rows.
+        subject: catalogSubject(subjectSlug),
+        unitNumbers: Raw(
+          (alias) => `${alias} && ARRAY(SELECT generate_series(${startUnitNum},${endUnitNum}))`,
+        ),
       },
     });
     const parsedReferences = propagateSharedPassageStimuli(
-      catalogRows.map(catalogReferencePayload),
+      catalogRows
+        .filter((row) => isCatalogRowInScope(row, subject, startUnitNum, endUnitNum))
+        .map((row) => catalogReferencePayload(row, startUnitNum, endUnitNum)),
     );
     const eligibleParsedReferences = parsedReferences.filter((reference) => {
       const parsed = parseReference(reference, subject);
@@ -1133,12 +1138,20 @@ function parseComboBlock(
 }
 
 function catalogReferencePayload(
-  row: Pick<ReferenceQuestion, 'sourcePayload' | 'unitNumber'>,
+  row: Pick<ReferenceQuestion, 'sourcePayload' | 'unitNumber' | 'unitNumbers'>,
+  startUnitNum?: number,
+  endUnitNum?: number,
 ): Readonly<Record<string, unknown>> {
   const sourcePayload = row.sourcePayload.source;
   const source = isRecord(sourcePayload) ? { ...sourcePayload } : {};
-  if (Number.isInteger(row.unitNumber) && row.unitNumber > 0) {
-    source.unitNumber = row.unitNumber;
+  const units = Array.isArray(row.unitNumbers) && row.unitNumbers.length
+    ? row.unitNumbers
+    : [row.unitNumber];
+  const selectedUnit = units.find(
+    (unit) => unit >= (startUnitNum ?? unit) && unit <= (endUnitNum ?? unit),
+  );
+  if (selectedUnit !== undefined && Number.isInteger(selectedUnit) && selectedUnit > 0) {
+    source.unitNumber = selectedUnit;
   }
   return { ...row.sourcePayload, source };
 }
@@ -1175,10 +1188,29 @@ function propagateSharedPassageStimuli(
   });
 }
 
-function catalogSubjects(subjectSlug: string): readonly string[] {
-  if (subjectSlug === 'success') return ['success', 'sungjik'];
-  if (subjectSlug === 'industry') return ['industry', 'kongil'];
-  return [subjectSlug];
+function catalogSubject(subjectSlug: string): string {
+  if (subjectSlug === 'success') return 'success';
+  if (subjectSlug === 'industry') return 'kongil';
+  return subjectSlug;
+}
+
+function isCatalogRowInScope(
+  row: Pick<ReferenceQuestion, 'sourcePayload' | 'subject' | 'unitNumber' | 'unitNumbers'>,
+  subject: SubjectStyle,
+  startUnitNum: number,
+  endUnitNum: number,
+): boolean {
+  const source = isRecord(row.sourcePayload.source) ? row.sourcePayload.source : null;
+  const canonicalSubject = subject === 'success' ? 'success' : 'kongil';
+  if (row.subject !== undefined && row.subject !== canonicalSubject) return false;
+  if (source === null) return false;
+  if (source.subject !== undefined && source.subject !== canonicalSubject) return false;
+  const units = Array.isArray(row.unitNumbers) && row.unitNumbers.length
+    ? row.unitNumbers
+    : [row.unitNumber];
+  return (
+    units.some((unit) => unit >= startUnitNum && unit <= endUnitNum)
+  );
 }
 
 function subjectStyle(subjectSlug: string): SubjectStyle {

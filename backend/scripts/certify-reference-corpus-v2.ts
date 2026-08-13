@@ -95,6 +95,9 @@ function buildRecord(
     reasons.push('INCOMPLETE_TABLE');
   const stimulus = stimulusText(question, table);
   if (stimulus === '') reasons.push('EMPTY_STIMULUS');
+  if (/^\[(?:자료|보기)\]$|^\d+번 문항의 .+ 적용한다\.?$/u.test(stimulus.trim())) {
+    reasons.push('UNRESOLVED_SHARED_STIMULUS');
+  }
   if (
     reasons.length > 0 ||
     subject === null ||

@@ -43,17 +43,17 @@ export default function AdminExamsPage() {
   }, [isLoading, user, fetchExams]);
 
   if (isLoading || loading) {
-    return <Typo variant="body">로딩 중...</Typo>;
+    return <Typo.MD>로딩 중...</Typo.MD>;
   }
 
   if (user?.role !== 'admin') {
-    return <Typo variant="body">관리자만 접근할 수 있습니다.</Typo>;
+    return <Typo.MD>관리자만 접근할 수 있습니다.</Typo.MD>;
   }
 
   if (error) {
     return (
       <div>
-        <Typo variant="body" color="red">{error}</Typo>
+        <Typo.MD color="red">{error}</Typo.MD>
         <button onClick={fetchExams} style={{ marginTop: 8 }}>재시도</button>
       </div>
     );
@@ -71,10 +71,10 @@ export default function AdminExamsPage() {
 
   return (
     <div>
-      <Typo variant="h2" style={{ marginBottom: 16 }}>시험 생성 내역</Typo>
-      <Typo variant="body" style={{ marginBottom: 12 }}>
+      <Typo.BD size={20} style={{ marginBottom: 16 }}>시험 생성 내역</Typo.BD>
+      <Typo.MD style={{ marginBottom: 12 }}>
         총 {exams.length}개 시험
-      </Typo>
+      </Typo.MD>
       <table className={s.table}>
         <thead>
           <tr>

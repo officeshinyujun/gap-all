@@ -43,6 +43,7 @@ import {
 } from './reference-job-deadline';
 import { ReferenceFidelitySpecError } from './reference-fidelity-spec';
 import { assertAiBlueprintGenerationEnabled } from './ai-generation-feature';
+import type { SimplyReferenceGenerationLineage } from './reference-frame.types';
 import { AiExamGenerationService } from './ai-exam-generation.service';
 import { AiUnitProfileService } from './ai-unit-profile.service';
 
@@ -803,7 +804,21 @@ export class ExamsService {
           Number.parseInt(
             draft.result.metadata.unit_name.replace(/[^0-9]/g, ''),
             10,
-          ) || dto.startUnitNum;
+          );
+        if (
+          !Number.isInteger(unitNumber) ||
+          unitNumber < dto.startUnitNum ||
+          unitNumber > dto.endUnitNum ||
+          !referenceLineageMatchesSubject(
+            draft.lineage,
+            subjectSlug,
+            unitNumber,
+          )
+        ) {
+          throw new BadRequestException(
+            '참조 문항의 과목 또는 단원 범위가 요청과 일치하지 않습니다.',
+          );
+        }
         let unit = await unitRepo.findOne({
           where: { subjectId: dto.subjectId, unitNumber },
         });
@@ -1051,4 +1066,15 @@ export class ExamsService {
       throw error;
     }
   }
+}
+
+function referenceLineageMatchesSubject(
+  lineage: SimplyReferenceGenerationLineage,
+  subjectSlug: string,
+  unitNumber: number,
+): boolean {
+  const sourceId = lineage.source.sourceId;
+  const expectedPrefix = subjectSlug === 'success' ? 'success:' : 'kongil:';
+  const match = new RegExp(`^${expectedPrefix}(\\d+):`).exec(sourceId);
+  return match !== null && Number(match[1]) === unitNumber;
 }

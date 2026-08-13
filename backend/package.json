@@ -50,13 +50,15 @@
     "backfill:study-must-know": "node -r ts-node/register scripts/backfill-study-must-know.ts",
     "enrich:study-must-know-ai": "node -r ts-node/register scripts/enrich-study-must-know-ai.ts",
     "generate:study-representative-cards": "node -r ts-node/register scripts/generate-representative-study-cards.ts",
+    "rebuild:concept-tags:offline": "node -r ts-node/register scripts/rebuild-existing-concept-tags-offline.ts",
     "shadow:ai": "node -r ts-node/register scripts/ai-shadow-evaluation.ts",
     "export:ai-baseline": "node -r ts-node/register scripts/export-ai-baseline-corpus.ts",
     "inventory:ai-catalog": "node -r ts-node/register scripts/inventory-ai-catalog.ts",
     "plan:reference-catalog-legacy-migration": "node -r ts-node/register scripts/plan-reference-catalog-legacy-migration.ts",
     "seed:textbook:local": "node -r ts-node/register scripts/seed-local-textbook.ts",
     "migrate:sungjik-summations": "node -r ts-node/register scripts/migrate-missing-sungjik-summations.ts",
-    "migrate:concept-question-data": "node -r ts-node/register scripts/migrate-concept-question-data-to-supabase.ts"
+    "migrate:concept-question-data": "node -r ts-node/register scripts/migrate-concept-question-data-to-supabase.ts",
+    "seed:offline-concepts": "node -r ts-node/register scripts/seed-offline-concepts-to-supabase.ts"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",

@@ -7,7 +7,7 @@ import {
 import { InjectRepository } from '@nestjs/typeorm';
 import * as fs from 'fs';
 import * as path from 'path';
-import { Between, In, type Repository } from 'typeorm';
+import { Between, In, Raw, type Repository } from 'typeorm';
 import { Difficulty } from '../entities/exam-record.entity';
 import { ReferenceQuestion } from '../entities/reference-question.entity';
 import { ReferenceFrameCache } from '../entities/reference-frame-cache.entity';
@@ -653,11 +653,15 @@ export class ReferenceFrameGenerationService {
     const catalogRows = await this.catalogReader.find({
       where: {
         subject: In(catalogSubjects(subjectSlug)),
-        unitNumber: Between(startUnitNum, endUnitNum),
+        unitNumbers: Raw(
+          (alias) => `${alias} && ARRAY(SELECT generate_series(${startUnitNum},${endUnitNum}))`,
+        ),
       },
     });
     return propagateSharedPassageStimuli(
-      catalogRows.map(catalogReferencePayload),
+      catalogRows.map((row) =>
+        catalogReferencePayload(row, startUnitNum, endUnitNum),
+      ),
     );
   }
 
@@ -897,12 +901,20 @@ function catalogSubject(value: string): SubjectStyle | null {
 }
 
 function catalogReferencePayload(
-  row: Pick<ReferenceQuestion, 'sourcePayload' | 'unitNumber'>,
+  row: Pick<ReferenceQuestion, 'sourcePayload' | 'unitNumber' | 'unitNumbers'>,
+  startUnitNum?: number,
+  endUnitNum?: number,
 ): Readonly<Record<string, unknown>> {
   const sourcePayload = row.sourcePayload.source;
   const source = isRecord(sourcePayload) ? { ...sourcePayload } : {};
-  if (Number.isInteger(row.unitNumber) && row.unitNumber > 0) {
-    source.unitNumber = row.unitNumber;
+  const units = Array.isArray(row.unitNumbers) && row.unitNumbers.length
+    ? row.unitNumbers
+    : [row.unitNumber];
+  const selectedUnit = units.find(
+    (unit) => unit >= (startUnitNum ?? unit) && unit <= (endUnitNum ?? unit),
+  );
+  if (selectedUnit !== undefined && Number.isInteger(selectedUnit) && selectedUnit > 0) {
+    source.unitNumber = selectedUnit;
   }
   return { ...row.sourcePayload, source };
 }

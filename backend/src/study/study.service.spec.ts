@@ -191,7 +191,7 @@ describe('StudyService', () => {
 
       const result = await service.getUnitsWithProgress('user-1', 'success');
       expect(result.units[0].progress).toBe(10); // 50 / 5 modes = 10
-      expect(result.units[0].subUnits).toHaveLength(1);
+      expect(result.units[0].subUnits).toHaveLength(5);
     });
   });
 

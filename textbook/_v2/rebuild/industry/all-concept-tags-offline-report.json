@@ -1,0 +1,17 @@
+{
+  "mode": "offline",
+  "network": false,
+  "database": false,
+  "subject": "공업 일반",
+  "subjectSlug": "industry",
+  "units": 20,
+  "tags": 131,
+  "matched": 56,
+  "textbookOnly": 0,
+  "needsReview": 0,
+  "populatedFromStructured": 75,
+  "corrected": 75,
+  "missingTags": [],
+  "ambiguousTags": [],
+  "needsReviewTags": []
+}

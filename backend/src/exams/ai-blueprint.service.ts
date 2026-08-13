@@ -1,6 +1,6 @@
 import { Injectable, InternalServerErrorException, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Between, In, type Repository } from 'typeorm';
+import { Between, In, Raw, type Repository } from 'typeorm';
 import { Difficulty } from '../entities/exam-record.entity';
 import { ReferenceQuestion } from '../entities/reference-question.entity';
 import { AiReferenceAnalysis as AiReferenceAnalysisEntity } from '../entities/ai-reference-analysis.entity';
@@ -118,7 +118,9 @@ export class AiBlueprintService {
     const sources = await this.referenceRepo.find({
       where: {
         subject: In(catalogSubjects(request.subjectSlug)),
-        unitNumber: Between(request.startUnitNum, request.endUnitNum),
+        unitNumbers: Raw(
+          (alias) => `${alias} && ARRAY(SELECT generate_series(${request.startUnitNum},${request.endUnitNum}))`,
+        ),
       },
     });
     const collected = collectEvidence(sources, request.subjectSlug);

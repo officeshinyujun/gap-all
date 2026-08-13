@@ -103,7 +103,8 @@ describe('AiQuestionGenerationService', () => {
       choices: choices.map((_, index) => ({
         index: (index + 1) as 1 | 2 | 3 | 4 | 5,
         correct: index === 0,
-        reason: index === 0 ? 'target condition matches' : 'distractor condition',
+        reason:
+          index === 0 ? 'target condition matches' : 'distractor condition',
       })),
     });
 
@@ -115,8 +116,15 @@ describe('AiQuestionGenerationService', () => {
       targetConcepts: ['직무 분석'],
     });
     if (classified.kind !== 'classified') throw new Error('invalid fixture');
-    const result = await new AiQuestionGenerationService({ generate, verifyChoices })
-      .generate([{ ...blueprint('blueprint-verified'), sourceArchetype: { ...classified.value, stimulusRole: 'prose' } }]);
+    const result = await new AiQuestionGenerationService({
+      generate,
+      verifyChoices,
+    }).generate([
+      {
+        ...blueprint('blueprint-verified'),
+        sourceArchetype: { ...classified.value, stimulusRole: 'prose' },
+      },
+    ]);
 
     expect(result.accepted).toHaveLength(1);
     expect(result.accepted[0]?.question.optionsList).toEqual(choices);
@@ -144,9 +152,42 @@ describe('AiQuestionGenerationService', () => {
     });
   });
 
+  it('runs independent blueprints concurrently within the worker limit', async () => {
+    let active = 0;
+    let maximumActive = 0;
+    let call = 0;
+    const generate = jest.fn(async () => {
+      const currentCall = ++call;
+      active += 1;
+      maximumActive = Math.max(maximumActive, active);
+      await new Promise((resolve) => setTimeout(resolve, 5));
+      active -= 1;
+      return {
+        ...candidate(),
+        stemText: `기업이 ${currentCall}번째 직무를 분석하였다.`,
+      };
+    });
+
+    const result = await new AiQuestionGenerationService({ generate }).generate(
+      [
+        blueprint('blueprint-1'),
+        blueprint('blueprint-2'),
+        blueprint('blueprint-3'),
+      ],
+    );
+
+    expect(result.accepted).toHaveLength(3);
+    expect(maximumActive).toBeGreaterThan(1);
+    expect(maximumActive).toBeLessThanOrEqual(3);
+  });
+
   it('passes source-anchor validation failures into the next repair attempt', async () => {
-    const anchored = { ...blueprint('blueprint-1'), sourceFactAnchors: ['42%'] };
-    const generate = jest.fn()
+    const anchored = {
+      ...blueprint('blueprint-1'),
+      sourceFactAnchors: ['42%'],
+    };
+    const generate = jest
+      .fn()
       .mockResolvedValueOnce(candidate())
       .mockResolvedValueOnce({
         stemText: '기업의 취업률은 42%로 조사되었다.',
@@ -197,7 +238,8 @@ describe('AiQuestionGenerationService', () => {
     expect(result.accepted).toHaveLength(1);
     expect(result.accepted[0]?.blueprint.id).toBe('source-2');
     expect(result.requestedCount).toBe(1);
-    expect(generate).toHaveBeenCalledTimes(4);
+    // Workers may already have claimed the next blueprint before the first one succeeds.
+    expect(generate.mock.calls.length).toBeGreaterThanOrEqual(4);
   });
 
   it('rejects a final question fingerprint used by a previous AI exam', async () => {

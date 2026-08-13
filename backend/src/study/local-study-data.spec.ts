@@ -2,6 +2,8 @@ import type { DataSource, Repository } from 'typeorm';
 import { TextbookService } from '../textbook/textbook.service';
 import { StudyService } from './study.service';
 import { StudyQuizGeneratorService } from './study-quiz-generator.service';
+import * as fs from 'node:fs';
+import * as path from 'node:path';
 
 describe('local study data access', () => {
   const originalProvider = process.env.DB_PROVIDER;
@@ -12,6 +14,46 @@ describe('local study data access', () => {
 
   afterAll(() => {
     process.env.DB_PROVIDER = originalProvider;
+    delete process.env.STUDY_USE_OFFLINE_CONCEPT_TAGS;
+  });
+
+  afterEach(() => {
+    delete process.env.STUDY_USE_OFFLINE_CONCEPT_TAGS;
+  });
+
+  it('contains complete local pilot content for all six Unit 1 tags', () => {
+    const file = path.resolve(__dirname, '../../../textbook/_v2/rebuild/success/concept-tags-offline.json');
+    const cards = JSON.parse(fs.readFileSync(file, 'utf8')) as Array<Record<string, any>>;
+    const unitOneCards = cards.filter((card) => card._offline?.unitNumber === 1);
+    expect(unitOneCards.map((card) => card.name)).toEqual([
+      '직업 가치관(내재적/외재적)',
+      '홀랜드(Holland) 직업 흥미 유형',
+      '직업의 요건(계속성, 경제성, 사회성,',
+      '근무 방식(유연근로시간제, 교대근무,',
+      '직업 생활의 중요성(개인적·사회적 차원)',
+      '하렌(Harren)의 진로 의사 결정 유형',
+    ]);
+    for (const card of unitOneCards.filter((card) => card.contentStatus === 'complete')) {
+      expect(card).toMatchObject({
+        name: expect.any(String),
+        rank: expect.any(Number),
+        frequency: expect.any(Number),
+        sources: expect.any(Array),
+        description: expect.any(String),
+        keyPoints: expect.any(Array),
+        examTips: expect.any(Array),
+        conceptContent: expect.any(String),
+        relatedQuestions: expect.any(Array),
+        sourceTag: expect.any(String),
+        contentStatus: 'complete',
+      });
+      expect(card.description.trim()).not.toBe('');
+      expect(card.keyPoints.length).toBeGreaterThan(0);
+      expect(card.conceptContent.trim()).not.toBe('');
+    }
+    expect(unitOneCards.find((card) => card.name === '하렌(Harren)의 진로 의사 결정 유형')).toMatchObject({
+      contentStatus: 'needs_review',
+    });
   });
 
   it('reads concepts, units, and summation cards through parameterized local queries', async () => {
@@ -174,6 +216,98 @@ describe('local study data access', () => {
         }),
       ],
     });
+  });
+
+  it('stays offline and rebuilds a missing local sequence from textbook tags', async () => {
+    const query = jest
+      .fn()
+      .mockResolvedValueOnce([{ id: 'unit-1' }])
+      .mockResolvedValueOnce([{ concept_name: '대표 태그', sort_order: 0 }])
+      .mockResolvedValueOnce([])
+      .mockResolvedValueOnce([]);
+    const aiUnitProfileService = { getProfile: jest.fn() };
+    const service = new StudyService(
+      {} as Repository<any>,
+      {} as Repository<any>,
+      {} as Repository<any>,
+      {} as Repository<any>,
+      {} as never,
+      { query } as unknown as DataSource,
+      {} as Repository<any>,
+      {} as Repository<any>,
+      {} as Repository<any>,
+      {} as never,
+      {} as never,
+      {} as never,
+      {} as never,
+      {} as never,
+      aiUnitProfileService as never,
+    );
+
+    await expect(service.getFrequencyConcept('success', 1)).resolves.toMatchObject({
+      concepts: [{ name: '대표 태그', contentStatus: 'missing' }],
+    });
+    expect(aiUnitProfileService.getProfile).not.toHaveBeenCalled();
+  });
+
+  it('uses the offline artifact so every canonical tag reaches study', async () => {
+    process.env.STUDY_USE_OFFLINE_CONCEPT_TAGS = 'true';
+    const query = jest.fn()
+      .mockResolvedValueOnce([{ id: 'unit-1' }])
+      .mockResolvedValueOnce([
+        { concept_name: '직업 생활의 의미와 중요성', sort_order: 0 },
+        { concept_name: '홀랜드(Holland) 직업 흥미 유형', sort_order: 1 },
+      ]);
+    const service = new StudyService(
+      {} as Repository<any>, {} as Repository<any>, {} as Repository<any>, {} as Repository<any>,
+      {} as never, { query } as unknown as DataSource, {} as Repository<any>, {} as Repository<any>,
+      {} as Repository<any>, {} as never, {} as never, {} as never, {} as never,
+    );
+
+    const result = await service.getFrequencyConcept('success', 1);
+
+    expect(result.concepts.map((concept: any) => concept.name)).toEqual([
+      '직업 가치관(내재적/외재적)',
+      '홀랜드(Holland) 직업 흥미 유형',
+      '직업의 요건(계속성, 경제성, 사회성,',
+      '근무 방식(유연근로시간제, 교대근무,',
+      '직업 생활의 중요성(개인적·사회적 차원)',
+      '하렌(Harren)의 진로 의사 결정 유형',
+    ]);
+    expect(result.concepts.every((concept: any) => concept._offline === undefined || concept.name)).toBe(true);
+    expect(query).toHaveBeenCalledTimes(2);
+  });
+
+  it('does not assign an equally matching card to an arbitrary representative tag', async () => {
+    const service = new StudyService(
+      {} as Repository<any>,
+      {} as Repository<any>,
+      {} as Repository<any>,
+      {} as Repository<any>,
+      {} as never,
+      {} as DataSource,
+      {} as Repository<any>,
+      {} as Repository<any>,
+      {} as Repository<any>,
+      {} as never,
+      {} as never,
+      {} as never,
+      {} as never,
+    );
+
+    const aligned = (service as any).alignFrequencyConcepts(
+      { concepts: [{ name: 'career gamma' }] },
+      [
+        { name: 'career alpha', sortOrder: 0 },
+        { name: 'career beta', sortOrder: 1 },
+      ],
+    );
+
+    expect(aligned.concepts.map((concept: any) => concept.name)).toEqual([
+      'career alpha',
+      'career beta',
+    ]);
+    expect(aligned.concepts.every((concept: any) => concept.contentStatus === 'missing')).toBe(true);
   });
 
   it('rebuilds the study sequence from representative tags and hides legacy-only cards', async () => {

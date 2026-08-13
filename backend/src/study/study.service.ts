@@ -216,18 +216,22 @@ export class StudyService {
         unitNumber: unit.unitNumber,
         title: unit.title,
         progress: avgProgress,
-        subUnits: unitProgress.map((p) => ({
-          studyMode: p.studyMode,
-          title: studyModeLabels[p.studyMode] ?? p.studyMode,
-          progressPercent: p.progressPercent,
-          status:
-            p.progressPercent === 100
-              ? 'completed'
-              : p.progressPercent > 0
-                ? 'in_progress'
-                : 'not_started',
-          lastStudiedAt: p.lastStudiedAt,
-        })),
+        subUnits: Object.keys(studyModeLabels).map((studyMode) => {
+          const progress = unitProgress.find((p) => p.studyMode === studyMode);
+          const progressPercent = progress?.progressPercent ?? 0;
+          return {
+            studyMode,
+            title: studyModeLabels[studyMode],
+            progressPercent,
+            status:
+              progressPercent === 100
+                ? 'completed'
+                : progressPercent > 0
+                  ? 'in_progress'
+                  : 'not_started',
+            lastStudiedAt: progress?.lastStudiedAt,
+          };
+        }),
       };
     });
 
@@ -824,6 +828,21 @@ export class StudyService {
     );
   }
 
+  private readOfflineConceptCards(subjectSlug: string): any[] | null {
+    const directory = path.join(this.getTextbookBase(), '_v2', 'rebuild', subjectSlug);
+    for (const name of ['all-concept-tags-offline.json', 'concept-tags-offline.json']) {
+      const file = path.join(directory, name);
+      if (!fs.existsSync(file)) continue;
+      try {
+        const data = JSON.parse(fs.readFileSync(file, 'utf8'));
+        if (Array.isArray(data)) return data;
+      } catch {
+        return null;
+      }
+    }
+    return null;
+  }
+
   private async getAvailableUnits(subject: string): Promise<number[]> {
     const { data } = await this.supabase.client
       .from('textbook_units')
@@ -1012,10 +1031,17 @@ export class StudyService {
         return this.emptyFrequencyConcept(subjectSlug, unitNumber);
       }
 
-      const representativeTags = await this.getRepresentativeTags(unit.id);
-      const structuredConcept = this.readStructuredConceptSafely(subjectSlug, unitNumber);
+       const representativeTags = await this.getRepresentativeTags(unit.id);
+       const structuredConcept = this.readStructuredConceptSafely(subjectSlug, unitNumber);
 
-      const cards = (await this.dataSource.query(
+      const offlineCards = process.env.STUDY_USE_OFFLINE_CONCEPT_TAGS === 'true'
+        ? this.readOfflineConceptCards(subjectSlug)
+          ?.filter((card) => card._offline?.unitNumber === unitNumber)
+        : null;
+       const effectiveTags = offlineCards?.length
+         ? offlineCards.map((card, index) => ({ name: card.name, sortOrder: index }))
+         : representativeTags;
+       const cards = offlineCards ?? ((await this.dataSource.query(
         `SELECT rank, name, frequency, sources, definition, key_points,
                 textbook_excerpt, enriched_definition, caution, quiz,
                 real_question AS "realQuestion"
@@ -1023,7 +1049,7 @@ export class StudyService {
          WHERE unit_id = $1
          ORDER BY rank NULLS LAST, name`,
         [unit.id],
-      )) as any[];
+      )) as any[]);
 
       if (cards.length >= 5) {
         return this.withStudyInsights(
@@ -1031,7 +1057,7 @@ export class StudyService {
           unitNumber,
           this.alignFrequencyConcepts(
             this.transformCardsToFrequency({ concepts: cards }),
-            representativeTags,
+             effectiveTags,
             structuredConcept,
           ),
         );
@@ -1047,7 +1073,7 @@ export class StudyService {
           unitNumber,
           this.alignFrequencyConcepts(
             this.normalizeFrequencyConcepts(frequencies[0].frequency_data),
-            representativeTags,
+             effectiveTags,
             structuredConcept,
           ),
         );
@@ -1056,7 +1082,11 @@ export class StudyService {
       return this.withStudyInsights(
         subjectSlug,
         unitNumber,
-        this.emptyFrequencyConcept(subjectSlug, unitNumber),
+        this.alignFrequencyConcepts(
+          { concepts: [] },
+           effectiveTags,
+          structuredConcept,
+        ),
       );
     }
 
@@ -1071,6 +1101,16 @@ export class StudyService {
     if (unit) {
       const representativeTags = await this.getRepresentativeTags(unit.id);
       const structuredConcept = this.readStructuredConceptSafely(subjectSlug, unitNumber);
+      const offlineCards = process.env.STUDY_USE_OFFLINE_CONCEPT_TAGS === 'true'
+        ? this.readOfflineConceptCards(subjectSlug)?.filter((card) => card._offline?.unitNumber === unitNumber)
+        : null;
+      if (offlineCards?.length) {
+        return this.withStudyInsights(
+          subjectSlug,
+          unitNumber,
+          this.transformCardsToFrequency({ concepts: offlineCards }),
+        );
+      }
       const { data: cards } = await this.supabase.client
         .from('textbook_concept_cards')
         .select('*')
@@ -1107,6 +1147,7 @@ export class StudyService {
             ),
           );
        }
+
     }
 
     // 데이터 없으면 빈 배열 반환 (500 대신)
@@ -1159,11 +1200,12 @@ export class StudyService {
     const concepts = data.concepts as Array<Record<string, any>>;
     const assignments = new Map<string, Array<Record<string, any>>>();
     for (const concept of concepts) {
-      const match = representativeTags
+      const candidates = representativeTags
         .map((tag) => ({ tag, score: this.representativeTagScore(tag.name, concept.name) }))
         .filter(({ score }) => score > 0)
-        .sort((left, right) => right.score - left.score)[0];
-      if (!match) {
+        .sort((left, right) => right.score - left.score);
+      const match = candidates[0];
+      if (!match || candidates.some((candidate) => candidate.score === match.score && candidate !== match)) {
         continue;
       }
       const group = assignments.get(match.tag.name) ?? [];
@@ -1413,23 +1455,36 @@ export class StudyService {
     try {
       const related = await this.findSimilarByConceptNames(names, names.length * 5);
       const enrichedConcepts = concepts.map((concept: any) => {
+        // ponytail: cards_moi가 이미 채운 relatedQuestions(conceptHighlightV2 보유)는 보존하고,
+        // reference_questions는 중복 제거 후 뒤에 추가한다. sampleQuestion도 지우지 않는다.
+        const existing = Array.isArray(concept.relatedQuestions) ? concept.relatedQuestions : [];
+        const keyOf = (question: any) =>
+          question.questionSource && question.questionNumber != null
+            ? `${question.questionSource}:${question.questionNumber}`
+            : question.id ?? JSON.stringify(question.question);
+        const seen = new Set<string>(existing.map(keyOf));
         const matches = related.filter((question: any) =>
           question.matchedConcepts?.some(
             (name: string) => name.includes(concept.name) || concept.name.includes(name),
           ),
         );
-        const seen = new Set<string>();
-        const questions = matches.filter((question) => {
-          const key = question.questionSource && question.questionNumber != null
-            ? `${question.questionSource}:${question.questionNumber}`
-            : question.id ?? JSON.stringify(question.question);
-          if (seen.has(key)) return false;
-          seen.add(key);
-          return true;
-        }).slice(0, 5);
-        return questions.length > 0
-          ? { ...concept, relatedQuestions: questions, sampleQuestion: questions[0].question }
-          : { ...concept, relatedQuestions: [], sampleQuestion: null };
+        const refQuestions = matches
+          .filter((question: any) => {
+            const key = keyOf(question);
+            if (seen.has(key)) return false;
+            seen.add(key);
+            return true;
+          })
+          .slice(0, Math.max(0, 5 - existing.length));
+        const merged = [...existing, ...refQuestions];
+        if (merged.length > 0) {
+          return {
+            ...concept,
+            relatedQuestions: merged,
+            sampleQuestion: concept.sampleQuestion ?? merged[0].question,
+          };
+        }
+        return { ...concept, relatedQuestions: [], sampleQuestion: concept.sampleQuestion ?? null };
       });
       return { ...data, concepts: enrichedConcepts };
     } catch (error) {
@@ -1441,6 +1496,15 @@ export class StudyService {
   }
 
   private async readStudyInsights(subjectSlug: string, unitNumber: number) {
+    if (process.env.DB_PROVIDER === 'local') {
+      return {
+        version: 'v2' as const,
+        sourceQuestionCount: 0,
+        verifiedQuestionCount: 0,
+        patterns: [],
+        mustKnowBlocks: [],
+      };
+    }
     const profile = this.unitExamProfileRepo?.findOne
       ? await this.unitExamProfileRepo.findOne({
           where: { subjectSlug, unitNumber },
@@ -1691,6 +1755,11 @@ export class StudyService {
             realQuestion?.question_formats,
         ),
         description,
+        contentStatus: c._offline?.status === 'needs_review'
+          ? 'needs_review'
+          : c._offline?.status === 'textbook_only'
+            ? 'textbook_only'
+            : 'complete',
         conceptDefinition:
           realQuestion?.conceptDefinition ?? getUnit1ConceptDefinition(c.name),
         keyPoints,

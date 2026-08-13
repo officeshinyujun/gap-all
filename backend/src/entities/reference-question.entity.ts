@@ -25,6 +25,9 @@ export class ReferenceQuestion {
   @Column({ name: 'unit_number', type: 'int' })
   unitNumber: number;
 
+  @Column({ name: 'unit_numbers', type: 'int', array: true, default: '{}' })
+  unitNumbers: number[];
+
   @Column({ name: 'provenance_path', type: 'text' })
   provenancePath: string;
 
