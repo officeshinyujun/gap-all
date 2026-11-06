@@ -13,12 +13,15 @@ import {
   saveExamAnswers,
 } from '../examApi';
 
+import { clearClientCache } from '../clientCache';
+
 const mockFetch = vi.fn();
 global.fetch = mockFetch;
 
 describe('examApi', () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    clearClientCache();
   });
 
   describe('fetchExams', () => {

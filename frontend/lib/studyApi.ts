@@ -1,4 +1,4 @@
-import { API_BASE_URL } from './auth';
+import { apiFetch } from '@/shared/lib/apiClient';
 import {
   fetchWithClientCache,
   invalidateClientCache,
@@ -7,24 +7,6 @@ import {
 
 const USER_STUDY_TTL_MS = 30_000;
 const CONTENT_TTL_MS = 60 * 60 * 1_000;
-
-async function apiFetch<T>(path: string, options?: RequestInit): Promise<T> {
-  const res = await fetch(`${API_BASE_URL}${path}`, {
-    ...options,
-    credentials: 'include',
-    headers: {
-      'Content-Type': 'application/json',
-      ...(options?.headers ?? {}),
-    },
-  });
-
-  if (!res.ok) {
-    const error = await res.json().catch(() => ({ message: res.statusText }));
-    throw new Error(error.message ?? `API 오류: ${res.status}`);
-  }
-
-  return res.json() as Promise<T>;
-}
 
 export interface ApiSubUnit {
   studyMode: string;
@@ -84,12 +66,9 @@ export async function fetchUnitConcepts(
     `content:concepts:${subjectSlug}:${unitNumber}`,
     CONTENT_TTL_MS,
     async () => {
-      const res = await fetch(
-        `${API_BASE_URL}/exams/concepts?subjectSlug=${subjectSlug}&startUnitNum=${unitNumber}&endUnitNum=${unitNumber}`,
-        { headers: { 'Content-Type': 'application/json' } },
+      const data = await apiFetch<UnitConceptsResponse[]>(
+        `/exams/concepts?subjectSlug=${subjectSlug}&startUnitNum=${unitNumber}&endUnitNum=${unitNumber}`,
       );
-      if (!res.ok) throw new Error(`API 오류: ${res.status}`);
-      const data: UnitConceptsResponse[] = await res.json();
       return data[0]?.concepts ?? [];
     },
   ).catch(() => []);

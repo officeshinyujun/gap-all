@@ -1,4 +1,4 @@
-import { API_BASE_URL } from './auth';
+import { apiFetch, API_BASE_URL } from '@/shared/lib/apiClient';
 import {
   fetchWithClientCache,
   invalidateClientCache,
@@ -46,22 +46,6 @@ export type {
   SummationV2KeyConcept,
   RelatedConceptQuestion,
 };
-
-async function apiFetch<T>(path: string): Promise<T> {
-  const res = await fetch(`${API_BASE_URL}${path}`, {
-    credentials: 'include',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
-
-  if (!res.ok) {
-    const error = await res.json().catch(() => ({ message: res.statusText }));
-    throw new Error(error.message ?? `API 오류: ${res.status}`);
-  }
-
-  return res.json() as Promise<T>;
-}
 
 const FREQ_CONCEPT_TTL_MS = 5 * 60 * 1_000; // 5분 — 개념 데이터는 자주 안 바뀜
 const BOOKMARK_TTL_MS = 30_000;

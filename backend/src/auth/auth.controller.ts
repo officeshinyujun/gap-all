@@ -45,7 +45,7 @@ const ACCESS_COOKIE_OPTIONS = {
   sameSite: isProduction ? ('none' as const) : ('lax' as const),
   domain: process.env.COOKIE_DOMAIN || undefined,
   path: '/',
-  maxAge: 7 * 24 * 60 * 60 * 1000,
+  maxAge: 15 * 60 * 1000,
 };
 
 const OAUTH_STATE_COOKIE = 'gap_google_oauth_state';
@@ -197,7 +197,7 @@ export class AuthController {
   }
 
   private getGoogleCallbackURL(req: Request): string {
-    const host = req.get('host') || 'localhost:3001';
+    const host = req.get?.('host') || req.headers?.host || 'localhost:3001';
     const protocol = host.includes('localhost') || host.startsWith('127.') || host.startsWith('192.')
       ? 'http'
       : 'https';
