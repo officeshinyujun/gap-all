@@ -1,0 +1,10 @@
+{
+  "participants": [
+    { "id": "teacher", "name": "교사", "role": "진행자" },
+    { "id": "student", "name": "학생", "role": "학습자" }
+  ],
+  "messages": [
+    { "p_id": "teacher", "text": "자료의 조건을 확인해 봅시다.", "timestamp": "1" },
+    { "p_id": "student", "text": "네, 원문 내용을 검토하겠습니다.", "timestamp": "2" }
+  ]
+}

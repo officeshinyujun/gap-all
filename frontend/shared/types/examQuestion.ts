@@ -18,6 +18,7 @@ import type {
   TPL_INCIDENT_REPORT,
   TPL_ANNOUNCEMENT,
   TPL_REPORT,
+  TPL_SOURCE_BLOCKS,
 } from './questionstem';
 
 // ------------------------------------------------------------
@@ -56,6 +57,7 @@ export type ParsedStimulus =
   | { template: 'TPL_INCIDENT_REPORT';         data: TPL_INCIDENT_REPORT }
   | { template: 'TPL_ANNOUNCEMENT';            data: TPL_ANNOUNCEMENT }
   | { template: 'TPL_REPORT';                  data: TPL_REPORT }
+  | { template: 'TPL_SOURCE_BLOCKS';           data: TPL_SOURCE_BLOCKS }
   | { template: 'TPL_PLAIN_TEXT';              data: string };
 
 // ------------------------------------------------------------
@@ -81,7 +83,18 @@ export interface ExamQuestionOption {
 export type ExamExplanation =
   | string
   | { correct_answer: string }
-  | { judgment: string; [key: string]: string };
+  | { judgment: string; conceptHighlightV2?: StepExplanation; [key: string]: unknown };
+
+/**
+ * 공부 화면과 같은 단계별 해설(백엔드 conceptHighlightV2).
+ * verdict는 진술이 옳으면 O, 옳지 않으면 X다(정답 표시가 아님).
+ */
+export interface StepExplanation {
+  stimulusClues: { quote: string; why: string }[];
+  optionAnalysis: ({ optionNum: number; verdict: 'O' | 'X'; reasoning: string } | { optionKey: string; verdict: 'O' | 'X'; reasoning: string })[];
+  solvingFlow: { step: number; action: string }[];
+  takeaway: string;
+}
 
 // ------------------------------------------------------------
 // 메타데이터
@@ -149,9 +162,27 @@ export interface ExamQuestion {
 /**
  * explanation에서 텍스트를 추출합니다.
  */
+/** 해설에 유효한 단계별 해설이 있으면 돌려준다(공부 화면과 같은 검증 기준). */
+export function getStepExplanation(explanation: ExamExplanation | undefined): StepExplanation | null {
+  if (!explanation || typeof explanation !== 'object' || !('judgment' in explanation)) return null;
+  const value = explanation.conceptHighlightV2 as Partial<StepExplanation> | undefined;
+  if (!value || typeof value !== 'object') return null;
+  const valid =
+    Array.isArray(value.stimulusClues) && value.stimulusClues.length > 0 &&
+    value.stimulusClues.every((clue) => clue?.quote?.trim() && clue?.why?.trim()) &&
+    Array.isArray(value.optionAnalysis) && value.optionAnalysis.length > 0 &&
+    value.optionAnalysis.every((option) =>
+      ('optionKey' in option || Number.isInteger((option as { optionNum?: number }).optionNum)) &&
+      (option.verdict === 'O' || option.verdict === 'X') && option.reasoning?.trim()) &&
+    Array.isArray(value.solvingFlow) && value.solvingFlow.length >= 3 &&
+    value.solvingFlow.every((step) => Number.isInteger(step?.step) && step?.action?.trim()) &&
+    typeof value.takeaway === 'string' && value.takeaway.trim() !== '';
+  return valid ? (value as StepExplanation) : null;
+}
+
 export function getExplanationText(explanation: ExamExplanation): string {
   if (typeof explanation === 'string') return explanation;
-  if ('correct_answer' in explanation) return explanation.correct_answer;
+  if ('correct_answer' in explanation && typeof explanation.correct_answer === 'string') return explanation.correct_answer;
   if ('judgment' in explanation) {
     const judgment = explanation.judgment ?? '';
     const distractors = (explanation as any).distractors;

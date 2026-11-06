@@ -206,3 +206,9 @@
   word-break: keep-all;
   white-space: pre-line;
 }
+.explanationSummary {
+  cursor: pointer;
+  font-size: 12px;
+  color: $text-secondary;
+  margin-bottom: $spacing-8;
+}

@@ -160,3 +160,7 @@ export type { TPLAnnouncementProps } from './TPL_ANNOUNCEMENT';
 // --- TPL_REPORT ---
 export { TPLReport } from './TPL_REPORT';
 export type { TPLReportProps } from './TPL_REPORT';
+
+// --- TPL_SOURCE_BLOCKS (reference 원문 렌더 전용) ---
+export { TPLSourceBlocks, SourceChoiceTable, SourceText } from './TPL_SOURCE_BLOCKS';
+export type { TPLSourceBlocksProps, SourceChoiceTableProps, SourceTextProps } from './TPL_SOURCE_BLOCKS';
