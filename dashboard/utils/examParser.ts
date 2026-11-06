@@ -9,7 +9,13 @@ import type {
   TPL_PROMOTIONAL_CANVAS,
   TPL_QUANTITATIVE_CHART,
   TPL_SEQUENTIAL_WORKFLOW,
+  TPL_ARTICLE,
+  TPL_STATISTICS,
+  TPL_INCIDENT_REPORT,
+  TPL_ANNOUNCEMENT,
+  TPL_REPORT,
 } from '@/types/questionstem';
+import { normalizeSourceBlocks } from './sourceBlocks';
 
 function asRecord(data: unknown): Record<string, any> {
   return data && typeof data === 'object' && !Array.isArray(data)
@@ -142,6 +148,32 @@ function normalizePromotionalCanvas(data: unknown): TPL_PROMOTIONAL_CANVAS {
   };
 }
 
+function normalizeArticle(data: unknown): TPL_ARTICLE {
+  const d = asRecord(data);
+  return { title: typeof d.title === 'string' ? d.title : '', body_paragraphs: Array.isArray(d.body_paragraphs) ? d.body_paragraphs : [], byline: typeof d.byline === 'string' ? d.byline : undefined, published_date: typeof d.published_date === 'string' ? d.published_date : undefined, source: typeof d.source === 'string' ? d.source : undefined };
+}
+
+function normalizeStatistics(data: unknown): TPL_STATISTICS {
+  const d = asRecord(data);
+  return { title: typeof d.title === 'string' ? d.title : '', category_label: typeof d.category_label === 'string' ? d.category_label : undefined, data_entries: Array.isArray(d.data_entries) ? d.data_entries : [], unit: typeof d.unit === 'string' ? d.unit : undefined, source: typeof d.source === 'string' ? d.source : undefined };
+}
+
+function normalizeIncidentReport(data: unknown): TPL_INCIDENT_REPORT {
+  const d = asRecord(data);
+  return { title: typeof d.title === 'string' ? d.title : '', incident_type: typeof d.incident_type === 'string' ? d.incident_type : '', overview: typeof d.overview === 'string' ? d.overview : '', date: typeof d.date === 'string' ? d.date : undefined, location: typeof d.location === 'string' ? d.location : undefined, cause: typeof d.cause === 'string' ? d.cause : undefined, damage: typeof d.damage === 'string' ? d.damage : undefined, response: typeof d.response === 'string' ? d.response : undefined, prevention: typeof d.prevention === 'string' ? d.prevention : undefined, timeline: Array.isArray(d.timeline) ? d.timeline : undefined };
+}
+
+function normalizeAnnouncement(data: unknown): TPL_ANNOUNCEMENT {
+  const d = asRecord(data);
+  const schedule = asRecord(d.schedule);
+  return { title: typeof d.title === 'string' ? d.title : '', organizer: typeof d.organizer === 'string' ? d.organizer : '', schedule: typeof schedule.start === 'string' ? { start: schedule.start, end: typeof schedule.end === 'string' ? schedule.end : undefined } : undefined, location: typeof d.location === 'string' ? d.location : undefined, target: typeof d.target === 'string' ? d.target : undefined, details: Array.isArray(d.details) ? d.details : [], contact: typeof d.contact === 'string' ? d.contact : undefined };
+}
+
+function normalizeReport(data: unknown): TPL_REPORT {
+  const d = asRecord(data);
+  return { title: typeof d.title === 'string' ? d.title : '', author: typeof d.author === 'string' ? d.author : undefined, date: typeof d.date === 'string' ? d.date : undefined, metadata: Array.isArray(d.metadata) ? d.metadata : undefined, sections: Array.isArray(d.sections) ? d.sections : [], conclusion: typeof d.conclusion === 'string' ? d.conclusion : undefined };
+}
+
 function normalizePlainText(data: unknown): string {
   if (typeof data === 'string') return data;
   const d = asRecord(data);
@@ -163,6 +195,7 @@ export function inferTemplate(data: unknown): string | null {
   if (!data || typeof data !== 'object') return null;
   const d = data as Record<string, unknown>;
 
+  if (Array.isArray(d.blocks) && 'figures' in d) return 'TPL_SOURCE_BLOCKS';
   if ('headers' in d && 'rows' in d) return 'TPL_COMPARATIVE_MATRIX';
   if ('doc_type' in d && 'header_info' in d && 'paragraphs' in d) return 'TPL_FORMAL_DOCUMENT';
   if ('participants' in d && 'messages' in d) return 'TPL_CONVERSATIONAL_FLOW';
@@ -172,6 +205,11 @@ export function inferTemplate(data: unknown): string | null {
   if ('forum_name' in d && 'main_post' in d) return 'TPL_DIGITAL_FORUM_INTERFACE';
   if ('chart_type' in d && 'axes' in d && 'datasets' in d) return 'TPL_QUANTITATIVE_CHART';
   if ('slogan' in d && 'bullets' in d) return 'TPL_PROMOTIONAL_CANVAS';
+  if ('body_paragraphs' in d) return 'TPL_ARTICLE';
+  if ('data_entries' in d) return 'TPL_STATISTICS';
+  if ('incident_type' in d && 'overview' in d) return 'TPL_INCIDENT_REPORT';
+  if ('organizer' in d && 'details' in d) return 'TPL_ANNOUNCEMENT';
+  if ('sections' in d && Array.isArray(d.sections)) return 'TPL_REPORT';
   if ('profile' in d) return 'TPL_CASE_DIAGNOSTIC_FRAME';
   if ('events' in d) return 'TPL_SEQUENTIAL_WORKFLOW';
   if ('post' in d) return 'TPL_DIGITAL_FORUM_INTERFACE';
@@ -222,6 +260,18 @@ export function parseStimulus(
       return { template: 'TPL_QUANTITATIVE_CHART', data: normalizeQuantitativeChart(data) };
     case 'TPL_PROMOTIONAL_CANVAS':
       return { template: 'TPL_PROMOTIONAL_CANVAS', data: normalizePromotionalCanvas(data) };
+    case 'TPL_ARTICLE':
+      return { template: 'TPL_ARTICLE', data: normalizeArticle(data) };
+    case 'TPL_STATISTICS':
+      return { template: 'TPL_STATISTICS', data: normalizeStatistics(data) };
+    case 'TPL_INCIDENT_REPORT':
+      return { template: 'TPL_INCIDENT_REPORT', data: normalizeIncidentReport(data) };
+    case 'TPL_ANNOUNCEMENT':
+      return { template: 'TPL_ANNOUNCEMENT', data: normalizeAnnouncement(data) };
+    case 'TPL_REPORT':
+      return { template: 'TPL_REPORT', data: normalizeReport(data) };
+    case 'TPL_SOURCE_BLOCKS':
+      return { template: 'TPL_SOURCE_BLOCKS', data: normalizeSourceBlocks(data) };
     case 'TPL_PLAIN_TEXT':
       return { template: 'TPL_PLAIN_TEXT', data: normalizePlainText(data) };
     default:
@@ -249,6 +299,12 @@ export function getTemplateLabel(template: string): string {
     TPL_DIGITAL_FORUM_INTERFACE: '게시판',
     TPL_QUANTITATIVE_CHART: '차트',
     TPL_PROMOTIONAL_CANVAS: '광고문',
+    TPL_ARTICLE: '기사문',
+    TPL_STATISTICS: '통계 자료',
+    TPL_INCIDENT_REPORT: '사고 보고서',
+    TPL_ANNOUNCEMENT: '안내문',
+    TPL_REPORT: '보고서',
+    TPL_SOURCE_BLOCKS: '원문 자료',
   };
   return labels[template] ?? template;
 }

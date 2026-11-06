@@ -13,6 +13,12 @@ import type {
   TPL_DIGITAL_FORUM_INTERFACE,
   TPL_QUANTITATIVE_CHART,
   TPL_PROMOTIONAL_CANVAS,
+  TPL_ARTICLE,
+  TPL_STATISTICS,
+  TPL_INCIDENT_REPORT,
+  TPL_ANNOUNCEMENT,
+  TPL_REPORT,
+  TPL_SOURCE_BLOCKS,
 } from './questionstem';
 
 // ------------------------------------------------------------
@@ -28,6 +34,11 @@ export const TEMPLATE_NAMES = {
   DIGITAL_FORUM_INTERFACE: 'TPL_DIGITAL_FORUM_INTERFACE',
   QUANTITATIVE_CHART: 'TPL_QUANTITATIVE_CHART',
   PROMOTIONAL_CANVAS: 'TPL_PROMOTIONAL_CANVAS',
+  ARTICLE: 'TPL_ARTICLE',
+  STATISTICS: 'TPL_STATISTICS',
+  INCIDENT_REPORT: 'TPL_INCIDENT_REPORT',
+  ANNOUNCEMENT: 'TPL_ANNOUNCEMENT',
+  REPORT: 'TPL_REPORT',
 } as const;
 
 export type TemplateName = typeof TEMPLATE_NAMES[keyof typeof TEMPLATE_NAMES];
@@ -46,6 +57,12 @@ export type ParsedStimulus =
   | { template: 'TPL_DIGITAL_FORUM_INTERFACE'; data: TPL_DIGITAL_FORUM_INTERFACE }
   | { template: 'TPL_QUANTITATIVE_CHART';      data: TPL_QUANTITATIVE_CHART }
   | { template: 'TPL_PROMOTIONAL_CANVAS';      data: TPL_PROMOTIONAL_CANVAS }
+  | { template: 'TPL_ARTICLE';                 data: TPL_ARTICLE }
+  | { template: 'TPL_STATISTICS';              data: TPL_STATISTICS }
+  | { template: 'TPL_INCIDENT_REPORT';         data: TPL_INCIDENT_REPORT }
+  | { template: 'TPL_ANNOUNCEMENT';            data: TPL_ANNOUNCEMENT }
+  | { template: 'TPL_REPORT';                  data: TPL_REPORT }
+  | { template: 'TPL_SOURCE_BLOCKS';           data: TPL_SOURCE_BLOCKS }
   | { template: 'TPL_PLAIN_TEXT';              data: string };
 
 // ------------------------------------------------------------

@@ -140,3 +140,16 @@ export type { PromoVisualTagProps } from './TPL_PROMOTIONAL_CANVAS/PromoVisualTa
 
 export { PromoMissingPart } from './TPL_PROMOTIONAL_CANVAS/PromoMissingPart';
 export type { PromoMissingPartProps } from './TPL_PROMOTIONAL_CANVAS/PromoMissingPart';
+
+// --- TPL_ARTICLE through TPL_REPORT ---
+export {
+  TPLArticle,
+  TPLStatistics,
+  TPLIncidentReport,
+  TPLAnnouncement,
+  TPLReport,
+} from './TPL_TEXTUAL_DOCUMENTS';
+
+// --- TPL_SOURCE_BLOCKS (reference 원문 렌더 전용) ---
+export { TPLSourceBlocks, SourceChoiceTable } from './TPL_SOURCE_BLOCKS';
+export type { TPLSourceBlocksProps, SourceChoiceTableProps } from './TPL_SOURCE_BLOCKS';

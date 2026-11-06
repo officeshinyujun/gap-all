@@ -14,6 +14,13 @@ import {
   TPLDigitalForumInterface,
   TPLQuantitativeChart,
   TPLPromotionalCanvas,
+  TPLArticle,
+  TPLStatistics,
+  TPLIncidentReport,
+  TPLAnnouncement,
+  TPLReport,
+  TPLSourceBlocks,
+  SourceChoiceTable,
 } from '@/components/exam/QuestionStem';
 import type {
   TPL_COMPARATIVE_MATRIX,
@@ -25,6 +32,12 @@ import type {
   TPL_DIGITAL_FORUM_INTERFACE,
   TPL_QUANTITATIVE_CHART,
   TPL_PROMOTIONAL_CANVAS,
+  TPL_ARTICLE,
+  TPL_STATISTICS,
+  TPL_INCIDENT_REPORT,
+  TPL_ANNOUNCEMENT,
+  TPL_REPORT,
+  TPL_SOURCE_BLOCKS,
   ChartType,
 } from '@/types/questionstem';
 import s from './page.module.scss';
@@ -225,6 +238,135 @@ const PROMO_DATA: TPL_PROMOTIONAL_CANVAS = {
   missing_part: '행사 기간',
 };
 
+const ARTICLE_DATA: TPL_ARTICLE = {
+  title: '도심 하천 복원 사업, 시민 휴식 공간으로 재탄생',
+  byline: '김하늘 기자',
+  published_date: '2026. 8. 22.',
+  body_paragraphs: [
+    '도심을 가로지르는 하천 복원 구간이 시민들에게 개방됐다. 콘크리트로 덮여 있던 하천변에는 산책로와 수변 식물이 조성됐다.',
+    '전문가들은 빗물 저장과 열섬 완화 효과를 기대할 수 있다며, 장기적인 생태 관리가 함께 이뤄져야 한다고 설명했다.',
+  ],
+  source: 'GAP 환경 뉴스',
+};
+
+const STATISTICS_DATA: TPL_STATISTICS = {
+  title: '청소년 주간 독서 시간 조사',
+  category_label: '학년',
+  unit: '시간',
+  data_entries: [
+    { label: '1학년', value: '4.2', sub_label: '주 평균' },
+    { label: '2학년', value: '3.6', sub_label: '주 평균' },
+    { label: '3학년', value: '2.8', sub_label: '주 평균' },
+  ],
+  source: '2026 청소년 생활 조사',
+};
+
+const INCIDENT_DATA: TPL_INCIDENT_REPORT = {
+  title: '실험실 안전사고 경위 보고서',
+  incident_type: '경미 화상 사고',
+  date: '2026. 8. 20. 14:10',
+  location: '과학관 화학 실험실',
+  overview: '실험 도중 가열 용기의 열기가 남아 있는 상태에서 보호 장갑 없이 접촉하여 손등에 경미한 화상을 입었다.',
+  cause: '가열 후 충분한 냉각 시간을 확인하지 않았고, 안전 장비 착용 여부를 재확인하지 않았다.',
+  response: '즉시 흐르는 물로 환부를 식힌 뒤 보건실에서 응급 처치를 받았다.',
+  prevention: '가열 기구에는 냉각 중 표지를 부착하고, 실험 시작 전 보호 장비 점검을 실시한다.',
+  timeline: [{ time: '14:00', event: '실험 시작' }, { time: '14:10', event: '사고 발생 및 응급 처치' }, { time: '14:20', event: '보건실 이동' }],
+};
+
+const ANNOUNCEMENT_DATA: TPL_ANNOUNCEMENT = {
+  title: '2026학년도 진로 체험 프로그램 참가자 모집',
+  organizer: 'GAP고등학교 진로진학부',
+  schedule: { start: '2026. 9. 3.', end: '2026. 9. 5.' },
+  location: '본교 시청각실 및 온라인 접수처',
+  target: '1·2학년 재학생',
+  details: [{ label: '신청 방법', content: '학교 포털에서 희망 직무를 선택하여 제출' }, { label: '선발 기준', content: '희망 분야와 신청 사유를 종합하여 선발' }],
+  contact: '진로진학부 02-1234-5678',
+};
+
+const REPORT_DATA: TPL_REPORT = {
+  title: '교내 에너지 절약 실천 결과 보고서',
+  author: '학생자치회 환경부',
+  date: '2026. 8. 22.',
+  metadata: [{ label: '조사 기간', value: '2026. 6. 1. ~ 7. 31.' }, { label: '대상', value: '전 학급' }],
+  sections: [{ heading: '1. 추진 내용', content: '점심시간 소등, 냉난방 적정 온도 유지, 대기전력 차단 캠페인을 실시했다.' }, { heading: '2. 사용량 변화', content: '전년 같은 기간과 비교해 전력 사용량이 감소했다.', table: { headers: ['구분', '전년(kWh)', '금년(kWh)'], rows: [['6월', '18,400', '16,900'], ['7월', '21,100', '19,200']] } }],
+  conclusion: '학급별 실천 참여가 늘면서 에너지 절약 효과가 확인되었으며, 다음 학기에도 캠페인을 확대할 예정이다.',
+};
+
+// reference-pdf-v3 원문 블록 (moi_kongil_2024_6 q1·q2·q3·q12·q13·q19, 2024_9 q1 choiceTable에서 발췌)
+// F2·F4는 src 없음 → 설명 텍스트 박스, F4는 어떤 블록도 참조하지 않아 끝에 붙는다.
+const SOURCE_BLOCKS_DATA: TPL_SOURCE_BLOCKS = {
+  blocks: [
+    {
+      type: 'text',
+      text: '43년째 자신의 길을 걸어가고 있는 목공예 명장 A 씨는 최고의 전통 호랑이 목침*을 만들기 위해 기술과 지식을 끊임없이 습득하고 연마하여 발전시키고 있다.\n* 목침(木枕) : 나무토막으로 만든 베개',
+    },
+    {
+      type: 'table',
+      title: '○○공사 현장 안전 점검 결과',
+      headers: [
+        ['작업장', '점검 사항', '점검 결과', ''],
+        ['', '', '예', '아니오'],
+      ],
+      rows: [
+        ['(가)', '용접 작업 중 발생된 불꽃이 날아들 위험이 있는 곳에서 보호구를 착용하고 있는가?', '☐', '☑'],
+        ['(나)', '작업자에게 안전모를 착용하도록 작업장에 산업안전보건표지를 부착하였는가?', '☑', '☐'],
+        ['(다)', '노후화된 두 전선의 피복이 벗겨진 상태로 서로 접촉되어 화재가 발생할 가능성이 있는 전선을 교체하였는가?', '☑', '☐'],
+      ],
+      caption: null,
+    },
+    {
+      type: 'table',
+      title: null,
+      headers: [['공업', '특징', '에너지 활용 사례']],
+      rows: [
+        ['(가)', '제선, 제강, 연주 및 압연 과정을 거쳐 제품을 생산하는 공업', '태양광 에너지를 제품 생산 공정에 사용하는 비율이 증가하고 있음. [그림 F1]'],
+        ['(나)', '부양성, 적재성, 이동성을 갖춘 해상 수송 수단을 생산하는 공업', '수소 에너지를 사용하는 여객선이 개발됨. [그림 F2]'],
+      ],
+      caption: '* 지그(jig): 기계의 부품을 가공할 때 그 부품을 일정한 자리에 고정하여 절삭 공구가 닿을 위치를 결정하는 데 쓰이는 보조 기구',
+    },
+    {
+      type: 'dialogue',
+      lines: [
+        { speaker: '사장', text: 'A 제품과 B 제품에 대해 추진한 전략을 부서별로 말씀해 보세요.' },
+        { speaker: '마케팅 부장', text: '해외 수요 증가에 대비하여 DIN 표준을 적용한 A 제품을 출시하였습니다.' },
+        { speaker: '품질 부장', text: '계획(Plan)→실행(Do)→검토(Check)→조치(Action) 단계의 지속적인 순환 과정을 통해 품질을 관리하고 있습니다.' },
+      ],
+    },
+    { type: 'figure', figure_id: 'F3' },
+    {
+      type: 'text',
+      text: '○○기업 품질 혁신\n○○기업은 KC인증을 획득한 자동차용 변속기의 생산 관리 문제점을 파악하여 아래와 같이 개선함.\n◆ 생산 관리 활동',
+    },
+    {
+      type: 'table',
+      title: null,
+      headers: [['문제점', '개선안']],
+      rows: [
+        ['작업 공정별 낭비 요소 증가, 일정 관리 미흡 등으로 인한 불량률 상승', '변속기 부품 생산 공정에서는 생산성 극대화를 위해 구매, 생산, 관리 등 전 과정에서 발생되는 7대 낭비 요소를 제거하는 생산 방식을 도입'],
+        ['', '변속기 조립 일정 관리에 계획 대비 실적을 파악할 수 있는 도표를 활용하여 작업의 진행 상황과 진척 상황을 관리 [그림 F5]'],
+      ],
+      caption: null,
+    },
+  ],
+  figures: {
+    F1: { src: 'https://placehold.co/320x180/png?text=F1', alt: '지붕에 태양광 패널이 설치된 공장(제철소) 건물 그림.', kind: 'illustration' },
+    F2: { src: null, alt: '해상을 운항하는 여객선 그림.', kind: 'illustration' },
+    F3: { src: 'https://placehold.co/640x240/png?text=F3', alt: '회의 테이블에 사장, 마케팅 부장, 품질 부장, 개발 부장이 앉아 대화하는 장면.', kind: 'illustration' },
+    F4: { src: null, alt: '장식용. 작업실에서 조각칼 등 공구가 걸린 벽 앞 의자에 앉아 목침(나무 베개)을 조각하는 장인의 모습.', kind: 'illustration' },
+    F5: { src: 'https://placehold.co/480x120/png?text=F5+Gantt', alt: "'개선안' 표 칸 안의 간트 차트. 머리행 '구분 | 6월', 행 A와 B.", kind: 'chart' },
+  },
+  choice_table: {
+    headers: ['직업의식', '직업관'],
+    rows: [
+      ['전문 의식', '과정 지향적 직업관'],
+      ['전문 의식', '물질 지향적 직업관'],
+      ['책임 의식', '물질 지향적 직업관'],
+      ['연대 의식', '과정 지향적 직업관'],
+      ['연대 의식', '물질 지향적 직업관'],
+    ],
+  },
+};
+
 // ============================================================
 // 탭 정의
 // ============================================================
@@ -238,7 +380,13 @@ type TabId =
   | 'scene'
   | 'forum'
   | 'chart'
-  | 'promo';
+  | 'promo'
+  | 'article'
+  | 'statistics'
+  | 'incident'
+  | 'announcement'
+  | 'report'
+  | 'sourceBlocks';
 
 interface Tab {
   id: TabId;
@@ -256,6 +404,12 @@ const TABS: Tab[] = [
   { id: 'forum', label: '게시판', template: 'TPL_DIGITAL_FORUM_INTERFACE' },
   { id: 'chart', label: '차트', template: 'TPL_QUANTITATIVE_CHART' },
   { id: 'promo', label: '광고문', template: 'TPL_PROMOTIONAL_CANVAS' },
+  { id: 'article', label: '기사문', template: 'TPL_ARTICLE' },
+  { id: 'statistics', label: '통계 자료', template: 'TPL_STATISTICS' },
+  { id: 'incident', label: '사고 보고서', template: 'TPL_INCIDENT_REPORT' },
+  { id: 'announcement', label: '안내문', template: 'TPL_ANNOUNCEMENT' },
+  { id: 'report', label: '보고서', template: 'TPL_REPORT' },
+  { id: 'sourceBlocks', label: '원문 자료', template: 'TPL_SOURCE_BLOCKS' },
 ];
 
 const CHART_TYPES: { type: ChartType; label: string }[] = [
@@ -343,6 +497,23 @@ export default function QuestionStemDevPage() {
             label="다음 광고문을 읽고 물음에 답하시오."
           />
         );
+      case 'article':
+        return <TPLArticle data={ARTICLE_DATA} label="다음 기사문을 읽고, 글의 내용과 일치하는 것을 고르시오." />;
+      case 'statistics':
+        return <TPLStatistics data={STATISTICS_DATA} label="다음 통계 자료를 분석한 내용으로 옳은 것은?" />;
+      case 'incident':
+        return <TPLIncidentReport data={INCIDENT_DATA} label="다음 사고 보고서를 읽고, 예방 대책으로 적절한 것을 고르시오." />;
+      case 'announcement':
+        return <TPLAnnouncement data={ANNOUNCEMENT_DATA} label="다음 안내문의 내용으로 적절하지 않은 것을 고르시오." />;
+      case 'report':
+        return <TPLReport data={REPORT_DATA} label="다음 보고서의 내용으로 옳은 것을 고르시오." />;
+      case 'sourceBlocks':
+        return (
+          <VStack gap={12} fullWidth>
+            <TPLSourceBlocks data={SOURCE_BLOCKS_DATA} label="다음 자료에 대한 설명으로 옳은 것은?" />
+            {SOURCE_BLOCKS_DATA.choice_table && <SourceChoiceTable data={SOURCE_BLOCKS_DATA.choice_table} />}
+          </VStack>
+        );
       default:
         return null;
     }
@@ -361,6 +532,12 @@ export default function QuestionStemDevPage() {
       case 'forum': return FORUM_DATA;
       case 'chart': return chartData;
       case 'promo': return PROMO_DATA;
+      case 'article': return ARTICLE_DATA;
+      case 'statistics': return STATISTICS_DATA;
+      case 'incident': return INCIDENT_DATA;
+      case 'announcement': return ANNOUNCEMENT_DATA;
+      case 'report': return REPORT_DATA;
+      case 'sourceBlocks': return SOURCE_BLOCKS_DATA;
       default: return {};
     }
   };
@@ -372,7 +549,7 @@ export default function QuestionStemDevPage() {
         <VStack gap={4}>
           <Typo.BD size={20} color="primary">QuestionStem 컴포넌트 테스트</Typo.BD>
           <Typo.TH size={14} color="secondary">
-            EBS 수능특강 스타일 지문 컴포넌트 9종 렌더링 테스트 페이지
+            EBS 수능특강 스타일 지문 컴포넌트 15종 렌더링 테스트 페이지
           </Typo.TH>
         </VStack>
       </div>
