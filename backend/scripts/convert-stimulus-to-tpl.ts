@@ -28,8 +28,48 @@ import {
 import { validateSimplyReferenceStructuredTpl } from '../src/exams/simply-reference-generation-contract';
 import { getOpenAIClient } from '../src/lib/openai-keys';
 
-const CONCURRENCY = 5;
+const CONCURRENCY = 2;
 const RETRY_MAX = 2;
+const RATE_LIMIT_BACKOFF_MS = 20000;
+
+const usage = { prompt_tokens: 0, completion_tokens: 0, requests: 0 };
+const PRICES_PER_MILLION: Readonly<Record<string, Readonly<[number, number]>>> = {
+  'gpt-4o-mini': [0.15, 0.60],
+  'gpt-4o': [2.5, 10.0],
+  'gemini-3.5-flash': [0.3, 2.5],
+  'gemini-2.5-flash': [0.3, 2.5],
+  'gemini-2.0-flash': [0.1, 0.4],
+  'deepseek/deepseek-chat-v3-0324:free': [0, 0],
+};
+
+const GEMINI_BASE_URL = 'https://generativelanguage.googleapis.com/v1beta/openai';
+const OPENROUTER_BASE_URL = 'https://openrouter.ai/api/v1';
+
+function resolveClientAndModel(requestedModel?: string): { client: ReturnType<typeof getOpenAIClient>; model: string } {
+  const model = requestedModel ?? process.env.TPL_CONVERT_MODEL ?? 'gpt-4o-mini';
+  const OpenAI = require('openai').OpenAI;
+  if (model.includes('/')) {
+    const openRouterKey = process.env.OPENROUTER_API_KEY;
+    if (!openRouterKey) throw new Error('OPENROUTER_API_KEY required for model ' + model);
+    return {
+      client: new OpenAI({
+        apiKey: openRouterKey,
+        baseURL: OPENROUTER_BASE_URL,
+        defaultHeaders: { 'HTTP-Referer': 'https://gap.app', 'X-Title': 'gap-reference-repair' },
+      }),
+      model,
+    };
+  }
+  if (model.startsWith('gemini-') || model.startsWith('gemini/')) {
+    const geminiKey = process.env.GEMINI_API_KEY;
+    if (!geminiKey) throw new Error('GEMINI_API_KEY required for model ' + model);
+    return {
+      client: new OpenAI({ apiKey: geminiKey, baseURL: GEMINI_BASE_URL }),
+      model,
+    };
+  }
+  return { client: getOpenAIClient(), model };
+}
 
 interface ConvertTask {
   sourceId: string;
@@ -95,11 +135,13 @@ Return ONLY valid JSON.`;
 async function convertOne(
   task: ConvertTask,
   attempt: number,
+  client: ReturnType<typeof getOpenAIClient>,
+  model: string,
 ): Promise<Record<string, unknown> | null> {
   const prompt = buildPrompt(task.stimulus, task.tpl);
   try {
-    const response = await getOpenAIClient().chat.completions.create({
-      model: 'gpt-4o-mini',
+    const response = await client.chat.completions.create({
+      model,
       messages: [
         {
           role: 'system',
@@ -112,6 +154,12 @@ async function convertOne(
       max_tokens: 4096,
     });
     const content = response.choices[0]?.message.content?.trim() ?? '';
+    const responseUsage = response.usage;
+    if (responseUsage) {
+      usage.prompt_tokens += responseUsage.prompt_tokens ?? 0;
+      usage.completion_tokens += responseUsage.completion_tokens ?? 0;
+      usage.requests += 1;
+    }
     if (!content) return null;
 
     // Handle JSON wrapped in code blocks
@@ -123,7 +171,7 @@ async function convertOne(
     const valid = validateSimplyReferenceStructuredTpl(task.tpl, parsed);
     if (!valid) {
       if (attempt < RETRY_MAX) {
-        return convertOne(task, attempt + 1);
+        return convertOne(task, attempt + 1, client, model);
       }
       console.error(
         `  [FAIL] ${task.sourceId} schema validation failed after ${attempt + 1} attempts`,
@@ -133,10 +181,13 @@ async function convertOne(
     return parsed;
   } catch (err: any) {
     if (attempt < RETRY_MAX) {
+      const isRateLimit = typeof err?.status === 'number' && err.status === 429;
+      const delay = isRateLimit ? RATE_LIMIT_BACKOFF_MS : 1000;
+      await new Promise((resolve) => setTimeout(resolve, delay));
       console.warn(
-        `  [RETRY] ${task.sourceId} attempt ${attempt + 1}: ${err.message?.slice(0, 80)}`,
+        `  [RETRY] ${task.sourceId} attempt ${attempt + 1} (${isRateLimit ? '429' : err.message?.slice(0, 60)}), waiting ${delay}ms`,
       );
-      return convertOne(task, attempt + 1);
+      return convertOne(task, attempt + 1, client, model);
     }
     console.error(`  [FAIL] ${task.sourceId}: ${err.message?.slice(0, 120)}`);
     return null;
@@ -147,9 +198,12 @@ async function main() {
   const dryRun = process.argv.includes('--dry-run');
   const limitArg = process.argv.find((a) => a.startsWith('--limit='));
   const limit = limitArg ? parseInt(limitArg.split('=')[1], 10) : 0;
+  const modelArg = process.argv.find((a) => a.startsWith('--model='));
+  const model = modelArg ? modelArg.split('=')[1] : undefined;
+  const { client, model: resolvedModel } = resolveClientAndModel(model);
 
   console.log(
-    `Mode: ${dryRun ? 'DRY RUN' : 'WRITE'}` +
+    `Mode: ${dryRun ? 'DRY RUN' : 'WRITE'}, Model: ${resolvedModel}` +
       (limit > 0 ? `, Limit: ${limit}` : ''),
   );
 
@@ -183,8 +237,12 @@ async function main() {
     const stimulus = ref.value.stimulus;
     if (!stimulus.trim()) continue;
 
-    // Adapter handles this → no LLM needed. Clear any stale cached data.
-    if (sourcePreservingRender(ref.value) !== null) {
+    const force = process.argv.includes('--force');
+    const render = sourcePreservingRender(ref.value);
+    const renderTemplate = render?.template ?? null;
+    const isFallback = render === null || (renderTemplate !== null && renderTemplate !== tpl);
+    // Adapter handles this properly → no LLM needed (unless --force targets the fallback population).
+    if (render !== null && (!force || !isFallback)) {
       const existing = row.source_payload?.tplStimulusData;
       if (clearBad && existing) {
         await ds.query(
@@ -231,7 +289,7 @@ async function main() {
     const batch = effective.slice(i, i + CONCURRENCY);
     const results = await Promise.all(
       batch.map(async (task) => {
-        const data = await convertOne(task, 0);
+        const data = await convertOne(task, 0, client, resolvedModel);
         return { task, data };
       }),
     );
@@ -270,6 +328,13 @@ async function main() {
   }
 
   console.log(`\nDONE. Success: ${success}, Failed: ${failed}`);
+  const [promptPrice, completionPrice] = PRICES_PER_MILLION[resolvedModel] ?? [0, 0];
+  const estimatedUsd =
+    (usage.prompt_tokens / 1_000_000) * promptPrice +
+    (usage.completion_tokens / 1_000_000) * completionPrice;
+  console.log(
+    JSON.stringify({ model: resolvedModel, usage, estimatedUsd, processed: effective.length }),
+  );
   await ds.destroy();
 }
 

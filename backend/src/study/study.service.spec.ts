@@ -10,11 +10,16 @@ import { StudyProgress } from '../entities/study-progress.entity';
 import { Unit } from '../entities/unit.entity';
 import { Subject } from '../entities/subject.entity';
 import { User } from '../entities/user.entity';
-import { IncorrectRecord } from '../entities/incorrect-record.entity';
+import { IncorrectRecord, IncorrectSource } from '../entities/incorrect-record.entity';
 import { Question } from '../entities/question.entity';
 import { ExamItem } from '../entities/exam-item.entity';
 import { ConceptBookmark } from '../entities/concept-bookmark.entity';
 import { SupabaseService } from '../supabase/supabase.service';
+import {
+  SOURCE_BLOCKS_TPL,
+  buildSourceBlocksStimulus,
+} from '../exams/source-blocks-stimulus';
+import { v2StylePayload, v3Payload } from '../exams/source-blocks-stimulus.fixtures';
 
 describe('StudyService', () => {
   let service: StudyService;
@@ -268,13 +273,14 @@ describe('StudyService', () => {
     });
 
     it('오답이면 consecutiveCorrect 리셋', async () => {
-      incorrectRecordRepo.findOne.mockResolvedValue({
+      const record = {
         id: 'r-1',
         userId: 'user-1',
         consecutiveCorrect: 2,
         incorrectCount: 1,
         isGraduated: false,
-      } as IncorrectRecord);
+      } as IncorrectRecord;
+      incorrectRecordRepo.findOne.mockResolvedValue(record);
       incorrectRecordRepo.save.mockResolvedValue({} as IncorrectRecord);
 
       const result = await service.submitReviewResult('user-1', {
@@ -283,6 +289,51 @@ describe('StudyService', () => {
 
       expect(result.updated).toBe(1);
       expect(result.graduated).toBe(0);
+      expect(record.consecutiveCorrect).toBe(0);
+      expect(record.incorrectCount).toBe(2);
+      expect(record.isGraduated).toBe(false);
+    });
+
+    it('졸업은 연속 정답 3회에서만 true가 된다', async () => {
+      const record = {
+        id: 'r-1',
+        userId: 'user-1',
+        consecutiveCorrect: 0,
+        incorrectCount: 1,
+        isGraduated: false,
+      } as IncorrectRecord;
+      incorrectRecordRepo.findOne.mockResolvedValue(record);
+      incorrectRecordRepo.save.mockResolvedValue(record);
+
+      const review = {
+        results: [{
+          targetConcept: '개념A',
+          unitId: 'unit-1',
+          source: IncorrectSource.EXAM,
+          isCorrect: true,
+        }],
+      };
+
+      expect(await service.submitReviewResult('user-1', review)).toEqual({
+        updated: 1,
+        graduated: 0,
+      });
+      expect(record.consecutiveCorrect).toBe(1);
+      expect(record.isGraduated).toBe(false);
+
+      expect(await service.submitReviewResult('user-1', review)).toEqual({
+        updated: 1,
+        graduated: 0,
+      });
+      expect(record.consecutiveCorrect).toBe(2);
+      expect(record.isGraduated).toBe(false);
+
+      expect(await service.submitReviewResult('user-1', review)).toEqual({
+        updated: 1,
+        graduated: 1,
+      });
+      expect(record.consecutiveCorrect).toBe(3);
+      expect(record.isGraduated).toBe(true);
     });
   });
 
@@ -464,6 +515,61 @@ describe('StudyService', () => {
       await expect(service.removeConceptBookmark('user-1', 'b-1')).rejects.toThrow(
         NotFoundException,
       );
+    });
+  });
+
+  // ───────────────────────────────────────────
+  // findSimilarByConceptNames (reference_questions → 문항 카드)
+  // ───────────────────────────────────────────
+  describe('findSimilarByConceptNames', () => {
+    function mockReferenceRows(rows: unknown[]) {
+      const query = {
+        select: jest.fn().mockReturnThis(),
+        eq: jest.fn().mockReturnThis(),
+        limit: jest.fn().mockResolvedValue({ data: rows, error: null }),
+      };
+      (service as any).supabase = { client: { from: jest.fn(() => query) } };
+    }
+
+    it('renders v3 stimulusBlocks as TPL_SOURCE_BLOCKS', async () => {
+      const payload = v3Payload();
+      mockReferenceRows([
+        {
+          id: 'row-1',
+          logical_source_id: 'v3:moi:kongil:2023:6월_모의평가:q3',
+          subject: 'kongil',
+          unit_number: 3,
+          source_payload: payload,
+        },
+      ]);
+
+      const [result] = await service.findSimilarByConceptNames(['공업의 종류']);
+
+      expect(result.question.metadata.recommended_template).toBe(SOURCE_BLOCKS_TPL);
+      expect(result.question.render_ready.stimulus_data).toEqual(
+        buildSourceBlocksStimulus(payload),
+      );
+      expect(result.question.rawStimulus).toBe(payload.stimulus);
+    });
+
+    it('keeps the plain content mapping for rows without stimulusBlocks', async () => {
+      const payload = v2StylePayload();
+      mockReferenceRows([
+        {
+          id: 'row-2',
+          logical_source_id: 'kongil:3:source.pdf:3',
+          subject: 'kongil',
+          unit_number: 3,
+          source_payload: payload,
+        },
+      ]);
+
+      const [result] = await service.findSimilarByConceptNames(['공업의 종류']);
+
+      expect('recommended_template' in result.question.metadata).toBe(false);
+      expect(result.question.render_ready.stimulus_data).toEqual({
+        content: payload.stimulus,
+      });
     });
   });
 });

@@ -39,15 +39,15 @@ interface ConceptHighlightV2 {
   takeaway: string;
 }
 
-function parseAnswer(value: unknown): number {
-  if (typeof value === 'number') return value === 0 ? 1 : value;
+function parseAnswer(value: unknown): number | null {
+  if (typeof value === 'number') return Number.isInteger(value) && value >= 1 && value <= 5 ? value : null;
   if (typeof value === 'string') {
     const map: Record<string, number> = { '①': 1, '②': 2, '③': 3, '④': 4, '⑤': 5 };
     if (map[value]) return map[value];
     const n = parseInt(value.replace(/[^0-9]/g, ''), 10);
     if (!isNaN(n) && n >= 1 && n <= 5) return n;
   }
-  return 1;
+  return null;
 }
 
 function stimulusToText(value: any): string {
@@ -81,19 +81,23 @@ function extractJson(text: string): any {
 function validateHighlight(highlight: any, question: any): string[] {
   const errors: string[] = [];
   if (!highlight || !Array.isArray(highlight.solvingFlow) || highlight.solvingFlow.length < 3) errors.push('solvingFlow must contain at least 3 steps');
-  if (!Array.isArray(highlight?.stimulusClues)) errors.push('stimulusClues must be an array');
+   if (!Array.isArray(highlight?.stimulusClues) || highlight.stimulusClues.length === 0) errors.push('stimulusClues must be non-empty');
   if (typeof highlight?.takeaway !== 'string' || !highlight.takeaway.trim()) errors.push('takeaway is missing');
-  if (!Array.isArray(highlight?.optionAnalysis)) errors.push('optionAnalysis must be an array');
+   if (!Array.isArray(highlight?.optionAnalysis) || highlight.optionAnalysis.length === 0) errors.push('optionAnalysis must be non-empty');
   if (errors.length) return errors;
 
   const qd = question || {};
   const answer = parseAnswer(qd.correct_answer ?? qd.answer);
   const options = qd.options || qd.render_ready?.options_list || [];
+  if (answer === null || !Array.isArray(options) || options.length < 2 || answer > options.length) {
+    errors.push('question answer/options are invalid');
+    return errors;
+  }
   const comboItems = Array.isArray(qd.box_items) ? qd.box_items : [];
   const type = questionType(qd.render_ready?.question_stem || qd.stem || '', comboItems.length > 0);
   const analysis = highlight.optionAnalysis;
 
-  for (const option of analysis) {
+   for (const option of analysis) {
     if (option.verdict !== 'O' && option.verdict !== 'X') errors.push('each verdict must be O or X');
     if (typeof option.reasoning !== 'string' || option.reasoning.trim().length < 5) errors.push('each reasoning is too short');
   }
@@ -136,6 +140,7 @@ async function generateHighlight(
   const stem = qd?.render_ready?.question_stem || qd?.stem || '';
   const stimulus = stimulusToText(qd?.stimulus || qd?.render_ready?.stimulus_data);
   const answer = parseAnswer(qd?.correct_answer ?? qd?.answer);
+  if (answer === null) return null;
 
   for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
    try {
@@ -165,6 +170,13 @@ async function generateHighlight(
    } catch (e) {
     console.error(`  ✗ [${conceptName}] API 오류: ${(e as Error).message}`);
    }
+
+   for (const clue of highlight.stimulusClues) {
+     if (typeof clue?.quote !== 'string' || !clue.quote.trim()
+       || typeof clue?.why !== 'string' || !clue.why.trim()) {
+       errors.push('each stimulus clue requires quote and why');
+     }
+   }
   }
   return null;
 }
@@ -190,6 +202,7 @@ async function main() {
   const missing = cards.filter(c =>
     c.real_question &&
     c.real_question.questionData &&
+    validateHighlight({}, c.real_question.questionData).includes('question answer/options are invalid') === false &&
     (FORCE || !c.real_question.conceptHighlightV2 || (REPAIR_INVALID && validateHighlight(c.real_question.conceptHighlightV2, c.real_question.questionData).length > 0)) &&
     (!TARGET_UNIT || unitMap.get(c.unit_id) === TARGET_UNIT)
   );

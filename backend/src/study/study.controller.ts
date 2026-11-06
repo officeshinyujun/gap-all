@@ -9,7 +9,6 @@ import {
   Query,
   ParseIntPipe,
   UseGuards,
-  ForbiddenException,
 } from '@nestjs/common';
 import {
   StudyService,
@@ -26,23 +25,19 @@ import {
   SubmitReviewAnswerDto,
 } from './dto/review-question.dto';
 import { JwtAuthGuard } from '../common/guards/jwt-auth.guard';
+import { RolesGuard } from '../common/guards/roles.guard';
+import { Roles } from '../common/decorators/roles.decorator';
 import { CurrentUser } from '../common/decorators/current-user.decorator';
 import type { CurrentUserPayload } from '../common/decorators/current-user.decorator';
 import { TextbookEmbeddingService } from '../textbook/textbook-embedding.service';
 
 @Controller('study')
-@UseGuards(JwtAuthGuard)
+@UseGuards(JwtAuthGuard, RolesGuard)
 export class StudyController {
   constructor(
     private readonly studyService: StudyService,
     private readonly embeddingService: TextbookEmbeddingService,
   ) {}
-
-  private checkAdmin(user: CurrentUserPayload) {
-    if (user.role !== 'admin') {
-      throw new ForbiddenException('관리자만 접근할 수 있습니다.');
-    }
-  }
 
   @Get('streak')
   async getStreak(@CurrentUser() user: CurrentUserPayload) {
@@ -131,32 +126,26 @@ export class StudyController {
   }
 
   @Get('cache-status')
-  getCacheStatus(@CurrentUser() user: CurrentUserPayload) {
-    this.checkAdmin(user);
+  @Roles('admin')
+  getCacheStatus() {
     return this.studyService.getCacheStatus();
   }
 
   @Delete('cache-bulk')
-  deleteCacheBulk(
-    @CurrentUser() user: CurrentUserPayload,
-    @Body() dto: DeleteCacheBulkDto,
-  ) {
-    this.checkAdmin(user);
+  @Roles('admin')
+  deleteCacheBulk(@Body() dto: DeleteCacheBulkDto) {
     return this.studyService.deleteCacheBulk(dto);
   }
 
   @Post('cache-regenerate')
-  regenerateCache(
-    @CurrentUser() user: CurrentUserPayload,
-    @Body() dto: RegenerateCacheDto,
-  ) {
-    this.checkAdmin(user);
+  @Roles('admin')
+  regenerateCache(@Body() dto: RegenerateCacheDto) {
     return this.studyService.regenerateCache(dto);
   }
 
   @Get('cache-regenerate-status')
-  getRegenerationStatus(@CurrentUser() user: CurrentUserPayload) {
-    this.checkAdmin(user);
+  @Roles('admin')
+  getRegenerationStatus() {
     return this.studyService.getRegenerationStatus();
   }
 
@@ -177,13 +166,12 @@ export class StudyController {
   }
 
   @Put(':subjectSlug/summation/:unitNumber')
+  @Roles('admin')
   async updateSummationCards(
-    @CurrentUser() user: CurrentUserPayload,
     @Param('subjectSlug') subjectSlug: string,
     @Param('unitNumber', ParseIntPipe) unitNumber: number,
     @Body() dto: UpdateSummationDto,
   ) {
-    this.checkAdmin(user);
     return this.studyService.updateSummationCards(
       subjectSlug,
       unitNumber,
@@ -292,14 +280,13 @@ export class StudyController {
   }
 
   @Delete(':subjectSlug/:unitNumber/cache')
+  @Roles('admin')
   clearCache(
-    @CurrentUser() user: CurrentUserPayload,
     @Param('subjectSlug') subjectSlug: string,
     @Param('unitNumber', ParseIntPipe) unitNumber: number,
     @Query('type') type?: string,
     @Query('count') countStr?: string,
   ) {
-    this.checkAdmin(user);
     const cacheType = type === 'blank' || type === 'concept' ? type : undefined;
     const count = countStr === '10' ? 10 : countStr === '20' ? 20 : undefined;
     this.studyService.clearCache(subjectSlug, unitNumber, cacheType, count);
@@ -311,22 +298,20 @@ export class StudyController {
   // ============================================================
 
   @Post(':subjectSlug/embed-units')
+  @Roles('admin')
   async embedAllUnits(
-    @CurrentUser() user: CurrentUserPayload,
     @Param('subjectSlug') subjectSlug: string,
   ) {
-    this.checkAdmin(user);
     const results = await this.embeddingService.embedAllUnits(subjectSlug);
     return { message: '임베딩 생성 완료', results };
   }
 
   @Post(':subjectSlug/:unitNumber/embed')
+  @Roles('admin')
   async embedUnit(
-    @CurrentUser() user: CurrentUserPayload,
     @Param('subjectSlug') subjectSlug: string,
     @Param('unitNumber', ParseIntPipe) unitNumber: number,
   ) {
-    this.checkAdmin(user);
     const chunks = await this.embeddingService.embedUnit(
       subjectSlug,
       unitNumber,
@@ -335,11 +320,10 @@ export class StudyController {
   }
 
   @Get(':subjectSlug/embedding-status')
+  @Roles('admin')
   async getEmbeddingStatus(
-    @CurrentUser() user: CurrentUserPayload,
     @Param('subjectSlug') subjectSlug: string,
   ) {
-    this.checkAdmin(user);
     return this.embeddingService.getEmbeddingStatus(subjectSlug);
   }
 }
