@@ -1,6 +1,13 @@
 import React from 'react';
-import { View, Text } from '@react-pdf/renderer';
+import { View, Text, Image } from '@react-pdf/renderer';
 import { styles } from './styles';
+import {
+  CHOICE_MARKERS,
+  getUnreferencedFigureIds,
+  layoutSourceTable,
+  normalizeSourceBlocks,
+  splitFigureTokens,
+} from '@shared/utils/sourceBlocks';
 import type {
   TPL_COMPARATIVE_MATRIX,
   TPL_FORMAL_DOCUMENT,
@@ -16,6 +23,9 @@ import type {
   TPL_INCIDENT_REPORT,
   TPL_ANNOUNCEMENT,
   TPL_REPORT,
+  SourceFigure,
+  SourceTableBlock,
+  TPL_SOURCE_BLOCKS,
 } from '@/types/questionstem';
 
 interface Props {
@@ -418,6 +428,144 @@ function renderReport(data: TPL_REPORT) {
   }, null);
 }
 
+// ------------------------------------------------------------
+// TPL_SOURCE_BLOCKS
+// ------------------------------------------------------------
+
+const pdfBorder = { borderColor: '#999', borderStyle: 'solid' as const };
+
+function PdfSourceFigure({ id, figure, inline }: { id: string; figure: SourceFigure | undefined; inline?: boolean }) {
+  const alt = figure?.alt?.trim() || `[그림 ${id}]`;
+  if (!figure?.src) {
+    return (
+      <View style={{ marginVertical: 2, padding: 3, borderWidth: 0.5, ...pdfBorder, borderStyle: 'dashed' as const }}>
+        <Text style={[styles.stimulusText, { fontSize: 6.5, color: '#666' }]}>{alt}</Text>
+      </View>
+    );
+  }
+  return (
+    <Image
+      src={figure.src}
+      style={{ maxWidth: '100%', maxHeight: inline ? 90 : 180, objectFit: 'contain', marginVertical: 2, alignSelf: 'center' }}
+    />
+  );
+}
+
+function PdfSourceText({ text, figures, style }: { text: string; figures: Record<string, SourceFigure>; style?: any }) {
+  const segments = splitFigureTokens(text, figures);
+  if (!segments.some((seg) => seg.type === 'figure')) {
+    return <Text style={[styles.stimulusText, style]}>{text}</Text>;
+  }
+  return (
+    <View>
+      {segments.map((seg, i) =>
+        seg.type === 'text'
+          ? (seg.text.trim() ? <Text key={i} style={[styles.stimulusText, style]}>{seg.text}</Text> : null)
+          : <PdfSourceFigure key={i} id={seg.figureId} figure={figures[seg.figureId]} inline />,
+      )}
+    </View>
+  );
+}
+
+function renderPdfSourceTable(block: SourceTableBlock, figures: Record<string, SourceFigure>, key: number) {
+  const layout = layoutSourceTable(block.headers, block.rows);
+  if (layout.columnCount === 0) return null;
+  // react-pdf에는 rowspan이 없으므로 colspan은 flex 비율로, rowspan 아래 칸은 빈 칸으로 그린다.
+  const renderSection = (section: typeof layout.head, isHead: boolean) =>
+    section.grid.map((gridRow, r) => {
+      const slots: React.ReactNode[] = [];
+      for (let c = 0; c < layout.columnCount; c += 1) {
+        const cell = gridRow[c];
+        if (!cell || cell.col !== c) continue;
+        const cellStyle = {
+          flex: cell.colSpan,
+          padding: 2,
+          borderRightWidth: 0.5,
+          borderRightColor: '#999',
+          borderRightStyle: 'solid' as const,
+          ...(isHead ? { backgroundColor: '#eee' } : {}),
+        };
+        slots.push(
+          <View key={c} style={cellStyle}>
+            {cell.row === r
+              ? <PdfSourceText text={cell.text} figures={figures} style={isHead ? { fontWeight: 700, textAlign: 'center' } : undefined} />
+              : null}
+          </View>,
+        );
+      }
+      return <View key={`${isHead ? 'h' : 'b'}${r}`} style={styles.tableRow}>{slots}</View>;
+    });
+
+  return (
+    <View key={key} style={{ marginVertical: 2 }}>
+      {block.title ? <Text style={[styles.stimulusTitle, { textAlign: 'center' }]}>{block.title}</Text> : null}
+      <View style={{ borderTopWidth: 0.5, borderLeftWidth: 0.5, ...pdfBorder }}>
+        {renderSection(layout.head, true)}
+        {renderSection(layout.body, false)}
+      </View>
+      {block.caption ? <Text style={[styles.stimulusText, { fontSize: 6.5, color: '#666', marginTop: 1 }]}>{block.caption}</Text> : null}
+    </View>
+  );
+}
+
+function renderSourceBlocks(rawData: TPL_SOURCE_BLOCKS) {
+  return safe(() => {
+    const data = normalizeSourceBlocks(rawData);
+    const figures = data.figures;
+    if (data.blocks.length === 0) return null;
+    const trailing = getUnreferencedFigureIds(data);
+    const choiceTable = data.choice_table;
+    return (
+      <View style={styles.stimulusBox}>
+        {data.blocks.map((block, i) => {
+          switch (block.type) {
+            case 'text':
+              return block.text.trim()
+                ? <View key={i} style={{ marginBottom: 2 }}><PdfSourceText text={block.text} figures={figures} /></View>
+                : null;
+            case 'table':
+              return renderPdfSourceTable(block, figures, i);
+            case 'dialogue':
+              return (
+                <View key={i} style={{ marginBottom: 2 }}>
+                  {block.lines.map((line, li) => (
+                    <View key={li} style={{ marginBottom: 2 }}>
+                      {line.speaker ? <Text style={styles.speakerName}>{line.speaker}:</Text> : null}
+                      <PdfSourceText text={line.text} figures={figures} style={{ paddingLeft: 8 }} />
+                    </View>
+                  ))}
+                </View>
+              );
+            case 'figure':
+              return <PdfSourceFigure key={i} id={block.figure_id} figure={figures[block.figure_id]} />;
+            default:
+              return null;
+          }
+        })}
+        {trailing.map((id) => <PdfSourceFigure key={`t-${id}`} id={id} figure={figures[id]} />)}
+        {choiceTable ? (
+          <View style={{ marginTop: 3, borderTopWidth: 0.5, borderLeftWidth: 0.5, ...pdfBorder }}>
+            <View style={styles.tableRow}>
+              <Text style={[styles.tableCellHeader, { flex: 0.4 }]} />
+              {choiceTable.headers.map((h, i) => (
+                <Text key={i} style={[styles.tableCellHeader, { textAlign: 'center' }]}>{h}</Text>
+              ))}
+            </View>
+            {choiceTable.rows.map((row, ri) => (
+              <View key={ri} style={styles.tableRow}>
+                <Text style={[styles.tableCellHeader, { flex: 0.4, textAlign: 'center' }]}>{CHOICE_MARKERS[ri] ?? String(ri + 1)}</Text>
+                {choiceTable.headers.map((_, ci) => (
+                  <Text key={ci} style={[styles.tableCell, { textAlign: 'center' }]}>{row[ci] ?? ''}</Text>
+                ))}
+              </View>
+            ))}
+          </View>
+        ) : null}
+      </View>
+    );
+  }, null);
+}
+
 export function PdfStimulusRenderer({ template, data }: Props) {
   if (!data) return null;
 
@@ -450,6 +598,8 @@ export function PdfStimulusRenderer({ template, data }: Props) {
       return renderAnnouncement(data as TPL_ANNOUNCEMENT);
     case 'TPL_REPORT':
       return renderReport(data as TPL_REPORT);
+    case 'TPL_SOURCE_BLOCKS':
+      return renderSourceBlocks(data as TPL_SOURCE_BLOCKS);
     default:
       if (typeof data === 'string' && data.trim()) {
         return (

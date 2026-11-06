@@ -114,28 +114,21 @@ export default function ExamPage() {
     if (!selectedItem?.id || pdfLoading) return;
     setPdfLoading(true);
     try {
-      const React = await import('react');
-      const { pdf } = await import('@react-pdf/renderer');
-      const { ExamPdfDocument } = await import('@/components/exam/ExamPdf');
+      // 실제 시험지 지면(명조·두 단·<보 기>)으로 그린 HTML을 서버가 PDF로 만들어 바로 내려받는다.
+      const { downloadExamPdf } = await import('@/components/exam/ExamPrint');
       const { fetchExam } = await import('@/lib/examApi');
       const examData = await fetchExam(selectedItem.id);
-      const blob = await pdf(
-        React.createElement(ExamPdfDocument, {
-          title: examData.title,
-          subjectName,
-          difficulty: selectedItem.diff,
-          unitRange: selectedItem.range,
-          items: examData.items,
-        })
-      ).toBlob();
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `${examData.title}.pdf`;
-      a.click();
-      URL.revokeObjectURL(url);
+      await downloadExamPdf(selectedItem.id, {
+        title: examData.title,
+        sourceType: examData.sourceType,
+        subjectName,
+        difficulty: selectedItem.diff,
+        unitRange: selectedItem.range,
+        items: examData.items,
+      });
     } catch (err) {
       console.error('PDF export failed', err);
+      window.alert(`PDF를 만들지 못했습니다. ${err instanceof Error ? err.message : ''}`.trim());
     } finally {
       setPdfLoading(false);
     }
