@@ -14,6 +14,7 @@ import {
   UploadedFile,
   Res,
 } from '@nestjs/common';
+import { Throttle } from '@nestjs/throttler';
 import { FileInterceptor } from '@nestjs/platform-express';
 import type { Response } from 'express';
 import { ChatService } from './chat.service';
@@ -59,6 +60,7 @@ export class ChatController {
   }
 
   @Post('sessions/:sessionId/messages')
+  @Throttle({ default: { ttl: 60000, limit: 15 } })
   async sendMessage(
     @CurrentUser() user: CurrentUserPayload,
     @Param('sessionId') sessionId: string,
@@ -68,6 +70,7 @@ export class ChatController {
   }
 
   @Post('sessions/:sessionId/image-question')
+  @Throttle({ default: { ttl: 60000, limit: 10 } })
   @UseInterceptors(
     FileInterceptor('image', {
       limits: { fileSize: 10 * 1024 * 1024 },

@@ -50,6 +50,45 @@ function validReference(
 }
 
 describe('selectReferences', () => {
+  it('accepts official spaced keys and full-width choice punctuation', () => {
+    const result = parseReference(
+      {
+        source: { filename: 'combination.pdf', unitNumber: 1 },
+        questionNumber: 1,
+        stem: '다음 자료에 대한 설명으로 옳은 것은?',
+        stimulus: '자료 내용',
+        viewItems: ['ㄱ. 첫 번째 판단', 'ㄴ. 두 번째 판단', 'ㄷ. 세 번째 판단'],
+        choices: ['① ㄱ ㄷ', '② ㄴ', '③ ㄱ，ㄴ', '④ ㄴ－ㄷ', '⑤ ㄱ，ㄴ，ㄷ'],
+        targetConcepts: ['Safety'],
+      },
+      'success',
+    );
+
+    expect(result).toMatchObject({
+      ok: true,
+      value: {
+        choices: ['① ㄱ ㄷ', '② ㄴ', '③ ㄱ,ㄴ', '④ ㄴ-ㄷ', '⑤ ㄱ,ㄴ,ㄷ'],
+      },
+    });
+  });
+
+  it('rejects malformed combination choices', () => {
+    const result = parseReference(
+      {
+        source: { filename: 'combination.pdf', unitNumber: 1 },
+        questionNumber: 1,
+        stem: '다음 자료에 대한 설명으로 옳은 것은?',
+        stimulus: '자료 내용',
+        viewItems: ['ㄱ. 첫 번째 판단', 'ㄴ. 두 번째 판단'],
+        choices: ['① ㄱ ㄷ extra', '② ㄴ', '③ ㄱ, ㄴ', '④ ㄴ, ㄷ', '⑤ ㄱ, ㄴ, ㄷ'],
+        targetConcepts: ['Safety'],
+      },
+      'success',
+    );
+
+    expect(result).toEqual({ ok: false });
+  });
+
   it('accepts non-empty shared-set primaries and empty-stimulus shared pairs', () => {
     const primary = parseReference(
       {
@@ -115,6 +154,26 @@ describe('selectReferences', () => {
         viewItems: ['ㄱ. 직무는 4가지가 제시되어 있다.'],
         choices: ['① ㄱ', '② ㄴ', '③ ㄷ', '④ ㄹ', '⑤ ㅁ'],
         targetConcepts: ['국가직무능력표준(NCS)'],
+      },
+      'success',
+    );
+
+    expect(isReferenceSourceEligible(sourceId)).toBe(false);
+    expect(result).toEqual({ ok: false });
+  });
+
+  it('rejects the audited labor-law source with contradictory case facts', () => {
+    const sourceId = 'success:15:성직_15단원_문제.pdf:2';
+    const result = parseReference(
+      {
+        source: { filename: '성직_15단원_문제.pdf', unitNumber: 15 },
+        questionNumber: 2,
+        stem: '다음은 근로관계법 관련 사례이다. 이를 분석한 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?',
+        stimulus:
+          '만 18세 A씨가 상시 근로자 5명인 음식점에서 평일 11시부터 14시까지 시급 11,000원으로 일한다. 사장은 첫 5시간 임금을 지급하지 않겠다고 한다.',
+        viewItems: ['ㄱ. 주급 계산', 'ㄴ. 유급 휴가', 'ㄷ. 수습 기간 임금'],
+        choices: ['① ㄱ', '② ㄷ', '③ ㄱ, ㄴ', '④ ㄴ, ㄷ', '⑤ ㄱ, ㄴ, ㄷ'],
+        targetConcepts: ['연소 근로자 보호'],
       },
       'success',
     );

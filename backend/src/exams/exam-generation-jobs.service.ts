@@ -14,9 +14,11 @@ import type {
   AiGenerationProgress,
   AiGenerationStage,
 } from './ai-blueprint.types';
-import type {
-  ExamGenerationProgressUpdate,
-  ExamGenerationReferenceProgress,
+import {
+  GENERATION_ITEM_STATES,
+  type ExamGenerationProgressUpdate,
+  type ExamGenerationReferenceProgress,
+  type GenerationItemState,
 } from './exam-generation.utils';
 
 export type ExamGenerationJobStatus =
@@ -66,6 +68,8 @@ export type ExamGenerationJobReceipt = Readonly<{
   attempt?: number;
   maxAttempts?: number;
   aiProgress?: AiGenerationProgress;
+  itemStates?: readonly GenerationItemState[];
+  reserveStates?: readonly GenerationItemState[];
   errorCode?: string;
   errorMessage?: string;
   errorStage?: string;
@@ -93,6 +97,8 @@ export interface ExamGenerationJobState {
   logs: ExamGenerationJobLog[];
   referenceProgress?: ExamGenerationReferenceProgress;
   aiProgress?: AiGenerationProgress;
+  itemStates?: GenerationItemState[];
+  reserveStates?: GenerationItemState[];
   createdAt: string;
   updatedAt: string;
 }
@@ -146,7 +152,9 @@ export class ExamGenerationJobsService implements OnModuleInit {
     this.assertNoActiveJobForUser(userId);
     const now = new Date().toISOString();
     const referenceProgress =
-      request.sourceType !== 'ai' && request.sourceType !== 'ai_blueprint'
+      request.sourceType !== 'ai' &&
+      request.sourceType !== 'ai_blueprint' &&
+      request.sourceType !== 'ai_generative'
         ? {
             stage: 'queued',
             completed: 0,
@@ -156,7 +164,8 @@ export class ExamGenerationJobsService implements OnModuleInit {
           }
         : undefined;
     const aiProgress: AiGenerationProgress | undefined =
-      request.sourceType === 'ai_blueprint'
+      request.sourceType === 'ai_blueprint' ||
+      request.sourceType === 'ai_generative'
         ? {
             stage: 'queued',
             completed: 0,
@@ -251,7 +260,9 @@ export class ExamGenerationJobsService implements OnModuleInit {
         ? job.stage
         : this.safeReferenceStage(referenceProgress.stage);
     const receiptMessage = aiProgress
-      ? this.aiReceiptMessageForStatus(job.status)
+      ? job.request.sourceType === 'ai_generative' && job.status === 'running'
+        ? job.message
+        : this.aiReceiptMessageForStatus(job.status)
       : referenceProgress === undefined
         ? job.message
         : this.referenceReceiptMessageForStatus(job.status);
@@ -280,6 +291,10 @@ export class ExamGenerationJobsService implements OnModuleInit {
             attempt: referenceProgress.attempt,
             maxAttempts: referenceProgress.maxAttempts,
           }),
+      ...(job.itemStates === undefined ? {} : { itemStates: job.itemStates }),
+      ...(job.reserveStates === undefined || job.reserveStates.length === 0
+        ? {}
+        : { reserveStates: job.reserveStates }),
       ...(job.errorCode === undefined ? {} : { errorCode: job.errorCode }),
       ...(job.error === undefined ? {} : { errorMessage: job.error }),
       ...(job.status === 'failed' ? { errorStage: receiptStage } : {}),
@@ -378,12 +393,22 @@ export class ExamGenerationJobsService implements OnModuleInit {
       };
       job.stage = nextStage;
       job.progress = Math.max(job.progress, Math.min(100, update.progress));
-      job.message = ExamGenerationJobsService.aiReceiptMessage;
+      // 완전 AI 출제는 "3번 문항 검토 중" 같은 진행 문구를 그대로 보여 준다.
+      job.message =
+        job.request.sourceType === 'ai_generative'
+          ? update.message
+          : ExamGenerationJobsService.aiReceiptMessage;
+      if (job.request.sourceType === 'ai_generative' && update.itemStates !== undefined) {
+        job.itemStates = sanitizeItemStates(update.itemStates);
+      }
+      if (job.request.sourceType === 'ai_generative' && update.reserveStates !== undefined) {
+        job.reserveStates = sanitizeItemStates(update.reserveStates);
+      }
       job.updatedAt = now;
       job.logs.push({
         stage: nextStage,
         progress: job.progress,
-        message: ExamGenerationJobsService.aiReceiptMessage,
+        message: job.message,
         completed: job.aiProgress.completed,
         total: job.aiProgress.total,
         attempt: job.aiProgress.attempt,
@@ -678,4 +703,15 @@ export class ExamGenerationJobsService implements OnModuleInit {
     };
     return messages[status];
   }
+}
+
+/** 알려진 상태값만, 최대 40문항까지만 응답에 싣는다. */
+function sanitizeItemStates(states: readonly unknown[]): GenerationItemState[] {
+  return states
+    .slice(0, 40)
+    .map((state) =>
+      (GENERATION_ITEM_STATES as readonly unknown[]).includes(state)
+        ? (state as GenerationItemState)
+        : 'queued',
+    );
 }

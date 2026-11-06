@@ -1,6 +1,7 @@
 import { Difficulty } from '../entities/exam-record.entity';
 import {
   compileAiBlueprints,
+  extractSourceFactAnchors,
   isSupportedCaseArchetype,
 } from './ai-blueprint.service';
 
@@ -279,5 +280,29 @@ describe('isSupportedCaseArchetype', () => {
         stemIntent: 'positive_single_selection',
       } as never),
     ).toBe(false);
+  });
+});
+
+describe('extractSourceFactAnchors', () => {
+  it('keeps decisive quantities that carry a unit', () => {
+    expect(
+      extractSourceFactAnchors(
+        '만 17세인 A씨는 주 40시간, 월 2,150,000원을 받으며 15년 근속하였고 직원 12명 중 3명이 이직률 4.5%를 기록했다.',
+      ),
+    ).toEqual(['17세', '40시간', '2,150,000원', '15년', '12명', '3명', '4.5%']);
+  });
+
+  it('drops dates, times, IDs, list markers, and step labels seen in rejected runs', () => {
+    expect(
+      extractSourceFactAnchors(
+        [
+          '1. 신청 기간: 2023.05.08 ~ 4.1 ~ 9.30',
+          '경력: 1979.09 ~ 2005.11, 2023년 10월 11일 13:00 접수',
+          '접수 번호 2306010001, 2306010006 (21번 창구)',
+          '1단계 → 2단계 → 3단계',
+          '응답 1, 2, 3 중 81 선택',
+        ].join('\n'),
+      ),
+    ).toEqual([]);
   });
 });

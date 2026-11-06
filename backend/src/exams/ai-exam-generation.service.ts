@@ -182,6 +182,9 @@ export class AiExamGenerationService {
         run.totalTokens =
           (run.totalTokens ?? 0) + (telemetry.usage?.totalTokens ?? 0);
       }
+      const blueprintsById = new Map(
+        preview.blueprints.map((blueprint) => [blueprint.id, blueprint]),
+      );
       await this.candidateRepo.save([
         ...generated.rejected
           .filter(
@@ -201,11 +204,15 @@ export class AiExamGenerationService {
               status: 'rejected',
               failureCode: candidate.code,
               fingerprint: null,
-              candidate: null,
-              validation:
-                candidate.message === undefined
-                  ? null
-                  : { failureCode: candidate.code, message: candidate.message },
+              candidate: candidate.candidate ?? null,
+              validation: {
+                failureCode: candidate.code,
+                ...(candidate.message === undefined
+                  ? {}
+                  : { message: candidate.message }),
+                // Snapshot for offline replay (npm run shadow:ai).
+                blueprint: blueprintsById.get(candidate.blueprintId) ?? null,
+              },
               providerModel: null,
               promptHash: null,
               latencyMs: null,
@@ -228,6 +235,7 @@ export class AiExamGenerationService {
                 candidate.blueprint,
                 candidate.candidate,
               ),
+              blueprint: candidate.blueprint,
             },
             providerModel: candidate.candidate.telemetry?.model ?? null,
             promptHash: candidate.candidate.telemetry?.promptHash ?? null,
@@ -477,6 +485,20 @@ export class AiExamGenerationService {
       const unitRepo = manager.getRepository(Unit);
       const questions: Question[] = [];
       for (const item of accepted) {
+        const evidenceUnits = item.blueprint.sourceEvidence.map(
+          (evidence) => evidence.unitNumber,
+        );
+        if (
+          item.blueprint.unitNumber < dto.startUnitNum ||
+          item.blueprint.unitNumber > dto.endUnitNum ||
+          evidenceUnits.some(
+            (unit) => unit < dto.startUnitNum || unit > dto.endUnitNum,
+          )
+        ) {
+          throw new ConflictException(
+            '생성 문항의 출처 단원이 요청 단원 범위를 벗어났습니다.',
+          );
+        }
         let unit = await unitRepo.findOne({
           where: {
             subjectId: dto.subjectId,

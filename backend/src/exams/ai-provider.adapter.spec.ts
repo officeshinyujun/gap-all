@@ -285,6 +285,8 @@ describe('AiProviderAdapter', () => {
       ...blueprint,
       template: 'TPL_COMPARATIVE_MATRIX',
       providerSlotCount: 2,
+      caseContext: '| 기준 | 값 |\n| --- | --- |\n| A | 원문 값 |',
+      sourceViewItems: ['ㄱ. 원문 조건이다.', 'ㄴ. 원문 결과다.'],
       sourceArchetype: {
         sourceTemplate: 'TPL_COMPARATIVE_MATRIX',
         responseMode: 'truth_combination',
@@ -297,13 +299,12 @@ describe('AiProviderAdapter', () => {
     expect(
       parseAiQuestionCandidate(
         JSON.stringify({
-          stemText: '원문 조건을 보존한 자료다.',
           explanationText: '자료의 조건을 기준으로 판단한다.',
         }),
         truthBlueprint,
       ),
     ).toEqual({
-      stemText: '원문 조건을 보존한 자료다.',
+      stemText: '| 기준 | 값 |\n| --- | --- |\n| A | 원문 값 |',
       explanationText: '자료의 조건을 기준으로 판단한다.',
     });
     expect(

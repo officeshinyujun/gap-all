@@ -49,6 +49,7 @@ import type {
   UnitRange,
 } from './reference-frame.types';
 import type { NormalizedSourceReference } from './reference-selector.types';
+import { activeReferenceParseVersion } from './reference-parse-version';
 import {
   ReferenceJobDeadlineAdmissionError,
   type ReferenceJobDeadline,
@@ -652,6 +653,7 @@ export class ReferenceFrameGenerationService {
     }
     const catalogRows = await this.catalogReader.find({
       where: {
+        parseVersion: activeReferenceParseVersion(),
         subject: In(catalogSubjects(subjectSlug)),
         unitNumbers: Raw(
           (alias) => `${alias} && ARRAY(SELECT generate_series(${startUnitNum},${endUnitNum}))`,
@@ -659,9 +661,9 @@ export class ReferenceFrameGenerationService {
       },
     });
     return propagateSharedPassageStimuli(
-      catalogRows.map((row) =>
-        catalogReferencePayload(row, startUnitNum, endUnitNum),
-      ),
+      catalogRows
+        .filter((row) => isCatalogRowInScope(row, subjectSlug, startUnitNum, endUnitNum))
+        .map((row) => catalogReferencePayload(row, startUnitNum, endUnitNum)),
     );
   }
 
@@ -693,7 +695,9 @@ export class ReferenceFrameGenerationService {
       timeoutMs: Number(process.env.OPENAI_TIMEOUT_MS) || 180_000,
       retryDelayMs: 0,
     });
-    const rows = await this.catalogReader.find();
+    const rows = await this.catalogReader.find({
+      where: { parseVersion: activeReferenceParseVersion() },
+    });
     const payloads = propagateSharedPassageStimuli(
       rows.map((row) => catalogReferencePayload(row)),
     );
@@ -712,6 +716,13 @@ export class ReferenceFrameGenerationService {
           if (row === undefined) return;
           const payload = payloads[nextIndex];
           nextIndex += 1;
+          // Multi-unit sources need a unit-specific frame key. The cache key is
+          // source-only, so don't warm a misleading first-unit frame; on-demand
+          // generation still receives the correct requested unit.
+          if (Array.isArray(row.unitNumbers) && row.unitNumbers.length > 1) {
+            logWarmupProgress();
+            continue;
+          }
           const subject = catalogSubject(row.subject);
           if (subject === null) {
             increment(unsupportedSubject, row.subject);
@@ -917,6 +928,20 @@ function catalogReferencePayload(
     source.unitNumber = selectedUnit;
   }
   return { ...row.sourcePayload, source };
+}
+
+function isCatalogRowInScope(
+  row: Pick<ReferenceQuestion, 'sourcePayload' | 'subject' | 'unitNumber' | 'unitNumbers'>,
+  subjectSlug: string,
+  startUnitNum: number,
+  endUnitNum: number,
+): boolean {
+  const canonicalSubject = subjectSlug === 'success' ? 'success' : 'kongil';
+  if (row.subject !== canonicalSubject) return false;
+  const source = isRecord(row.sourcePayload.source) ? row.sourcePayload.source : null;
+  if (source === null || (source.subject !== undefined && source.subject !== canonicalSubject)) return false;
+  const units = Array.isArray(row.unitNumbers) && row.unitNumbers.length ? row.unitNumbers : [row.unitNumber];
+  return units.some((unit) => unit >= startUnitNum && unit <= endUnitNum);
 }
 
 function isRecord(value: unknown): value is Record<string, unknown> {

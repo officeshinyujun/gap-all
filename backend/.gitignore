@@ -5,3 +5,6 @@ node_modules
 !.env.example
 
 /generated/prisma
+
+# 에이전트 스킬 패키지(npm run build:skill)
+/dist-skill

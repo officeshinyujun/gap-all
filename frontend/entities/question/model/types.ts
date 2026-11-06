@@ -81,7 +81,7 @@ export interface ExamQuestionOption {
 export type ExamExplanation =
   | string
   | { correct_answer: string }
-  | { judgment: string; [key: string]: string };
+  | { judgment: string; [key: string]: unknown };
 
 // ------------------------------------------------------------
 // 메타데이터
@@ -151,7 +151,7 @@ export interface ExamQuestion {
  */
 export function getExplanationText(explanation: ExamExplanation): string {
   if (typeof explanation === 'string') return explanation;
-  if ('correct_answer' in explanation) return explanation.correct_answer;
+  if ('correct_answer' in explanation && typeof explanation.correct_answer === 'string') return explanation.correct_answer;
   if ('judgment' in explanation) {
     const judgment = explanation.judgment ?? '';
     const distractors = (explanation as any).distractors;

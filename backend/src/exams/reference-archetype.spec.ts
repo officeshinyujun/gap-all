@@ -130,4 +130,29 @@ describe('classifyReferenceArchetype', () => {
       },
     });
   });
+
+  it('accepts reference-pdf-v3 slash-joined (가)/(나) view-key columns', () => {
+    const source = {
+      stem: '다음 (가), (나) 사례에 해당하는 첨단 기술로 가장 적절한 것을 <보기>에서 고른 것은?',
+      stimulus: '(가) 초미세 기술 사례\n(나) 가축 분뇨 처리 사례',
+      viewItems: ['ㄱ. 나노 기술(NT)', 'ㄴ. 문화 기술(CT)', 'ㄷ. 환경 기술(ET)', 'ㄹ. 우주 항공 기술(ST)'],
+    };
+    for (const choices of [
+      ['① ㄱ / ㄴ', '② ㄱ / ㄷ', '③ ㄴ / ㄹ', '④ ㄹ / ㄴ', '⑤ ㄹ / ㄷ'],
+      ['① ㄴ / ㄷ / ㄱ', '② ㄴ / ㄹ / ㄷ', '③ ㄷ / ㄹ / ㄱ', '④ ㄹ / ㄱ / ㄴ', '⑤ ㄹ / ㄱ / ㄷ'],
+      // v2 표기(공백 구분)도 그대로 통과한다.
+      ['① ㄱ ㄴ', '② ㄱ ㄷ', '③ ㄴ ㄹ', '④ ㄹ ㄴ', '⑤ ㄹ ㄷ'],
+    ]) {
+      expect(classifyReferenceArchetype({ ...source, choices })).toMatchObject({
+        kind: 'classified',
+        value: { stemIntent: 'truth_combination' },
+      });
+    }
+    expect(
+      classifyReferenceArchetype({
+        ...source,
+        choices: ['① ㄱ /', '② ㄱ / ㄷ', '③ ㄴ / ㄹ', '④ ㄹ / ㄴ', '⑤ ㄹ / ㄷ'],
+      }),
+    ).toEqual({ kind: 'ambiguous', reason: 'NON_COMBINATION_CHOICES_WITH_VIEW' });
+  });
 });

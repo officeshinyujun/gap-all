@@ -152,4 +152,32 @@ describe('simply reference structured TPL contracts', () => {
       }),
     ).toBe(false);
   });
+
+  it.each([
+    [
+      'TPL_COMPARATIVE_MATRIX',
+      {
+        rows: [{ id: 'row-1', cells: ['비교 내용'] }],
+        selection_chips: [],
+      },
+    ],
+    [
+      'TPL_COMPARATIVE_MATRIX',
+      {
+        headers: [{ id: 'criterion', label: '판단 기준' }],
+        selection_chips: [],
+      },
+    ],
+    [
+      'TPL_CONVERSATIONAL_FLOW',
+      { participants: [{ id: 'a', name: 'A씨', role: '상담자' }] },
+    ],
+  ] as const)(
+    'rejects %s when a required renderer field is missing',
+    (template, stimulusData) => {
+      expect(
+        validateSimplyReferenceStructuredTpl(template, stimulusData),
+      ).toBe(false);
+    },
+  );
 });

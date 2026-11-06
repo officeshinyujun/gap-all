@@ -1,5 +1,9 @@
 import { isStructuredTplName } from './tpl-schemas';
 import { StimulusNormalizer } from './stimulus-normalizer';
+import {
+  isSourceBlocksStimulusData,
+  isSourceBlocksTpl,
+} from './source-blocks-stimulus';
 
 export const SIMPLY_REFERENCE_HISTORICAL_AUDIT_ISSUE_CODES = [
   'invalid_tpl',
@@ -95,14 +99,20 @@ function classify(
 ): SimplyReferenceHistoricalAuditQuestion {
   const issueCodes: SimplyReferenceHistoricalAuditIssueCode[] = [];
 
+  // 렌더 전용 TPL_SOURCE_BLOCKS(v3 원문 블록)는 자체 검증기로 확인한다.
+  const sourceBlocksValid =
+    isSourceBlocksTpl(row.recommendedTemplate) &&
+    row.lineageTemplate === row.recommendedTemplate &&
+    isSourceBlocksStimulusData(row.stimulusData);
   if (
-    !isStructuredTplName(row.recommendedTemplate) ||
-    row.lineageTemplate !== row.recommendedTemplate ||
-    row.stimulusData === null ||
-    !STIMULUS_NORMALIZER.isRenderableTplData(
-      row.stimulusData,
-      row.recommendedTemplate,
-    )
+    !sourceBlocksValid &&
+    (!isStructuredTplName(row.recommendedTemplate) ||
+      row.lineageTemplate !== row.recommendedTemplate ||
+      row.stimulusData === null ||
+      !STIMULUS_NORMALIZER.isRenderableTplData(
+        row.stimulusData,
+        row.recommendedTemplate,
+      ))
   ) {
     issueCodes.push('invalid_tpl');
   }

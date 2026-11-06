@@ -1,6 +1,10 @@
 import { Inject, Injectable, Optional } from '@nestjs/common';
 import type OpenAI from 'openai';
-import { getOpenAIClient } from '../lib/openai-keys';
+import {
+  geminiReasoningEffort,
+  getLlmClient,
+  samplingParams,
+} from '../lib/llm-client';
 import {
   AI_BLUEPRINT_CONTRACT_VERSION,
   type AiGenerationFailureCode,
@@ -293,18 +297,15 @@ function templateExample(
     if (tpl === 'TPL_CASE_DIAGNOSTIC_FRAME') {
       return `[예시: truth_combination 사례 생성 — 근로기준법]
 개념(targetConcept) = "근로기준법상 연소근로자 보호", 사례 맥락(caseContext) = "청소년 아르바이트생의 근로조건".
-줄거리(stemText)는 개념명을 직접 노출하지 않고 구체적인 근로조건(나이, 근무시간, 임금, 수습기간 등)을 포함해야 한다.
-보기(ㄱㄴㄷㄹ) 조건들은 이 사례의 세부 수치와 조건을 바탕으로 서버가 생성하므로, 사례에는 판단 가능한 구체적 정보가 충분히 포함되어야 한다.
+truth_combination에서는 사례·보기·선지를 새로 만들지 않는다. 서버가 인증한 caseContext를 그대로 사용하고 provider는 해설만 작성한다.
 올바른 출력 예:
 {
-  "stemText": "○○고등학교에 재학 중인 청소년 A씨(만 18세)는 상시 근로자가 5명인 △△음식점에서 매장 정리, 주방 보조 담당으로 평일(월~금) 오전 11시부터 오후 2시까지 시간당 11,000원을 받고 일하는 조건으로 근로 계약을 체결했고, 오늘이 첫 주급을 받는 날이다. A씨는 첫 주급을 기대하며 출근하였지만, 사장님이 이번 주는 수습 기간이라며 첫 5시간 근무에 대해서는 시급이 없다고 하였다.",
   "explanationText": "근로기준법상 연소근로자(만 18세 미만)는 1일 7시간, 1주 35시간을 초과하여 근로할 수 없으며, 사용자는 연소근로자에 대해 정당한 사유 없이 수습 기간을 이유로 임금을 삭감할 수 없다. 사례에서 A씨는 만 18세로 연소근로자 보호 대상이며, 사장님의 수습 기간 주장은 근로기준법에 위배된다."
       }`;
     }
     return `[예시: truth_combination 자료 생성]
-선택지와 <보기>는 서버가 원문 구조로 생성하므로, provider는 문제를 풀 수 있는 자료 설명과 해설만 반환한다.
+사례·표·문서·선택지·<보기>는 서버가 인증한 원문 구조를 그대로 사용한다. provider는 해설만 반환한다.
 {
-  "stemText": "원문에 포함된 주체, 행위, 수치와 조건을 빠뜨리지 않고 구체적인 자료로 서술한다.",
   "explanationText": "자료의 조건을 기준으로 정답 개념과 판단 근거를 설명한다."
 }`;
   }
@@ -355,14 +356,18 @@ export function buildAiCandidatePrompt(
     attempt,
     repair: repair ?? null,
       outputRules: [
-       providerChoices
-         ? `Return exactly one JSON object with ${slotField ?? 'stemText'}, choiceTexts (exactly five), and explanationText.`
-         : slotField !== undefined
-         ? `Return exactly one JSON object with exactly ${slotField} and explanationText.`
-         : 'Return exactly one JSON object with exactly stemText and explanationText.',
-         providerChoices
-           ? 'Return five complete, parallel choice statements. Do not return an answer number.'
-           : 'Do not return choices, answer numbers, stimulus data, metadata, or lineage.',
+        providerChoices
+          ? `Return exactly one JSON object with ${slotField ?? 'stemText'}, choiceTexts (exactly five), and explanationText.`
+          : sourcePreserving
+            ? 'truth_combination: Return exactly one JSON object with explanationText only. The server preserves caseContext, <보기>, choices, answer, and stimulus structure.'
+          : slotField !== undefined
+          ? `Return exactly one JSON object with exactly ${slotField} and explanationText.`
+          : 'Return exactly one JSON object with exactly stemText and explanationText.',
+        providerChoices
+          ? 'Return five complete, parallel choice statements. Do not return an answer number.'
+          : sourcePreserving
+            ? 'Never rewrite, summarize, reorder, or supplement the certified source. Do not return stemText, choices, <보기> items, answer numbers, or metadata.'
+          : 'Do not return choices, answer numbers, stimulus data, metadata, or lineage.',
          ...(providerChoices && slotField !== undefined
            ? [`Return the provider slot ${slotField} exactly as an array with the certified item count; do not replace it with stemText.`]
            : []),
@@ -391,7 +396,9 @@ export function buildAiCandidatePrompt(
         'Do not invent source facts, official answers, numbers, tables, or diagrams.',
        // stemText is pure narrative. The server prepends the question stem ("다음 사례에...").
        // Do NOT write "무엇입니까?", "고르시오", "답하시오", or any question sentence.
-       'CRITICAL: stemText is ONLY the case description (narrative prose). The server adds the question stem separately. Never end stemText with a question mark or include "~ 가장 적절한 것은?", "~ 옳은 것은?" etc.',
+        ...(sourcePreserving
+          ? []
+          : ['CRITICAL: stemText is ONLY the case description (narrative prose). The server adds the question stem separately. Never end stemText with a question mark or include "~ 가장 적절한 것은?", "~ 옳은 것은?" etc.']),
        slotField !== undefined
          ? `Keep every ${slotField} item at most ${MAX_STEM_LENGTH} characters.`
         : `Keep stemText at most ${MAX_STEM_LENGTH} characters.`,
@@ -441,9 +448,13 @@ export function buildAiCandidatePrompt(
                providerChoices
                  ? 'The backend owns the question stem, template, answer index, and slot shape; the provider writes only the requested stimulus slot and five choice statements.'
                  : 'The backend owns the question stem, template, choices, answer, and structured stimulus shape.',
-              'stemText is ONLY the case narrative (pure descriptive prose).',
-              'The server prepends the question stem like "다음 사례에 대한 설명으로 옳은 것은?". Do NOT write question sentences yourself.',
-              'Never include: "무엇입니까?", "고르시오", "답하시오", "가장 적절한 것은?", "옳은 것은?", or any question mark at end.',
+               ...(sourcePreserving
+                 ? ['truth_combination: certified caseContext and source structure are immutable. Return only explanationText.']
+                 : [
+                     'stemText is ONLY the case narrative (pure descriptive prose).',
+                     'The server prepends the question stem like "다음 사례에 대한 설명으로 옳은 것은?". Do NOT write question sentences yourself.',
+                     'Never include: "무엇입니까?", "고르시오", "답하시오", "가장 적절한 것은?", "옳은 것은?", or any question mark at end.',
+                   ]),
               ...(blueprint.sourceChoiceTexts === undefined
                 ? []
                 : ['The certified reference choices remain unchanged; preserve every fact and condition needed to judge them in stemText.']),
@@ -485,6 +496,24 @@ export function parseAiQuestionCandidate(
   const keys = Object.keys(parsed).sort();
   const providerChoices = supportsGeneratedChoices(blueprint);
   const sourcePreserving = isTruthCombinationBlueprint(blueprint);
+  if (sourcePreserving) {
+    const caseContext = blueprint?.caseContext?.trim();
+    if (
+      !caseContext ||
+      keys.length !== 1 ||
+      keys[0] !== 'explanationText' ||
+      !isBoundedText(parsed.explanationText, MAX_EXPLANATION_LENGTH)
+    ) {
+      throw new AiProviderError(
+        'AI_CANDIDATE_SCHEMA_INVALID',
+        'truth_combination 후보는 explanationText만 반환해야 합니다.',
+      );
+    }
+    return {
+      stemText: caseContext,
+      explanationText: parsed.explanationText.trim(),
+    };
+  }
   if (providerChoices) {
     const slotField = blueprint?.template === 'TPL_CASE_DIAGNOSTIC_FRAME'
       ? 'stemText'
@@ -663,7 +692,8 @@ export function aiCandidateResponseFormat(
   repair = false,
 ) {
   const providerChoices = supportsGeneratedChoices(blueprint);
-  const slotField = blueprint !== undefined && isTruthCombinationBlueprint(blueprint)
+  const sourcePreserving = blueprint !== undefined && isTruthCombinationBlueprint(blueprint);
+  const slotField = blueprint !== undefined && sourcePreserving
     ? undefined
     : providerSlotField(blueprint?.template);
   const conversation = slotField === 'messageTexts';
@@ -712,6 +742,14 @@ export function aiCandidateResponseFormat(
                 maxLength: MAX_EXPLANATION_LENGTH,
               },
             }
+          : sourcePreserving
+          ? {
+              explanationText: {
+                type: 'string',
+                minLength: 1,
+                maxLength: MAX_EXPLANATION_LENGTH,
+              },
+            }
           : {
               stemText: {
                 type: 'string',
@@ -730,6 +768,8 @@ export function aiCandidateResponseFormat(
             : ['stemText', 'choiceTexts', 'explanationText']
           : slotField !== undefined
           ? [slotField, 'explanationText']
+          : sourcePreserving
+          ? ['explanationText']
           : ['stemText', 'explanationText'],
         additionalProperties: false,
       },
@@ -879,16 +919,11 @@ async function completeWithOpenAi(
   responseFormat: Parameters<AiProviderDependency['complete']>[2] =
     aiCandidateResponseFormat(),
 ): Promise<AiProviderCompletion> {
-  const client: OpenAI = getOpenAIClient();
+  const model = aiModelForRole(roleForResponseFormat(responseFormat.json_schema.name));
+  const client: OpenAI = getLlmClient(model);
   const response = await client.chat.completions.create(
     {
-      model: aiModelForRole(
-        responseFormat.json_schema.name.includes('analysis')
-          ? 'analysis'
-          : responseFormat.json_schema.name.includes('repair')
-            ? 'repair'
-            : 'candidate',
-      ),
+      model,
       messages: [
         {
           role: 'system',
@@ -897,7 +932,10 @@ async function completeWithOpenAi(
         { role: 'user', content: prompt },
       ],
       response_format: responseFormat,
-      temperature: 0.2,
+      ...samplingParams(model, {
+        temperature: 0.2,
+        reasoningEffort: geminiReasoningEffort(),
+      }),
     },
     { signal },
   );
@@ -914,21 +952,30 @@ async function completeWithOpenAi(
   };
 }
 
+function roleForResponseFormat(schemaName: string): AiModelRole {
+  if (schemaName.includes('analysis')) return 'analysis';
+  if (schemaName.includes('verification')) return 'verification';
+  if (schemaName.includes('repair')) return 'repair';
+  return 'candidate';
+}
+
+export const DEFAULT_AI_GENERATION_MODEL = 'gemini-3.8-flash';
+
+/**
+ * 우선순위: AI_<ROLE>_MODEL > AI_GENERATION_MODEL > (레거시) OPENAI_AI_<ROLE>_MODEL > gemini-3.8-flash.
+ * 롤백은 AI_GENERATION_MODEL=gpt-4.1 처럼 OpenAI 모델 이름을 주면 된다.
+ */
 export function aiModelForRole(
   role: AiModelRole,
   environment: Readonly<Record<string, string | undefined>> = process.env,
 ): string {
-  const configured = environment[`OPENAI_AI_${role.toUpperCase()}_MODEL`]?.trim();
-  if (configured) return configured;
-  if (role === 'candidate' || role === 'repair') {
-    return environment.OPENAI_AI_BLUEPRINT_MODEL?.trim() ||
-      environment.OPENAI_MODEL?.trim() || 'gpt-4o';
-  }
-  // ponytail: analysis was hardcoded to gpt-4o-mini; now respects OPENAI_AI_ANALYSIS_MODEL
-  return role === 'analysis'
-    ? environment.OPENAI_AI_BLUEPRINT_MODEL?.trim() ||
-      environment.OPENAI_MODEL?.trim() || 'gpt-4o-mini'
-    : 'gpt-4o';
+  const suffix = `${role.toUpperCase()}_MODEL`;
+  return (
+    environment[`AI_${suffix}`]?.trim() ||
+    environment.AI_GENERATION_MODEL?.trim() ||
+    environment[`OPENAI_AI_${suffix}`]?.trim() ||
+    DEFAULT_AI_GENERATION_MODEL
+  );
 }
 
 function isBoundedText(value: unknown, maxLength: number): value is string {

@@ -300,6 +300,41 @@ describe('validateAiQuestion', () => {
     });
   });
 
+  it('accepts certified source choices that do not follow the generic choice shape', () => {
+    const sourceChoices = [
+      '① 근로자의 임금 수준을 결정하는 절차이다.',
+      '② 직무 수행에 필요한 지식과 기술을 파악한다.',
+      '③ 직업인의 윤리적 책임을 강조한다.',
+      '④ 신규 인력을 선발하는 단계이다.',
+      '⑤ 경력 목표를 장기적으로 설계한다.',
+    ];
+    const classified = classifyReferenceArchetype({
+      stem: '다음 사례에 대한 설명으로 옳은 것은?',
+      stimulus: 'A씨는 직무에 필요한 능력을 분석하였다.',
+      viewItems: [],
+      choices: sourceChoices,
+      targetConcepts: ['직무 분석'],
+    });
+    if (classified.kind !== 'classified') throw new Error('invalid fixture');
+    const sourceChoiceBlueprint: AiQuestionBlueprint = {
+      ...blueprint,
+      answerIndex: 2,
+      sourceArchetype: { ...classified.value, stimulusRole: 'prose' },
+      sourceChoiceTexts: sourceChoices,
+    };
+    const candidate = {
+      stemText: '기업이 직무에 필요한 능력을 조사하였다.',
+      explanationText: '직무 분석은 직무에 필요한 능력을 파악하는 것이다.',
+    };
+    const materialized = materializeAiQuestion(sourceChoiceBlueprint, candidate);
+    if (materialized.kind === 'rejected') throw new Error(materialized.message);
+
+    expect(materialized.question.optionsList).toEqual(sourceChoices);
+    expect(
+      validateAiQuestion(sourceChoiceBlueprint, candidate, materialized.question),
+    ).toEqual({ passed: true, validatorVersion: 'v3' });
+  });
+
   it('rejects structured blueprints with missing slot metadata', () => {
     const structuredBlueprint = {
       ...blueprint,

@@ -8,15 +8,21 @@ import {
   type NormalizedSourceReference,
   type ReferenceSelectorShortfallReason,
 } from './reference-selector.types';
+import { buildSourceBlocksStimulus } from './source-blocks-stimulus';
+import { stableHash } from '../common/stable-hash';
+
+export { stableHash };
 
 const UNIT_NAME_PATTERN = /^(\d+)단원$/;
 
-export const REFERENCE_SOURCE_ELIGIBILITY_REGISTRY_VERSION = 1;
+export const REFERENCE_SOURCE_ELIGIBILITY_REGISTRY_VERSION = 2;
 
 // These sources are retained for provenance but cannot be answered from their
 // persisted context. Do not allow them into either reference-generation path.
 export const INELIGIBLE_REFERENCE_SOURCE_IDS = new Set<string>([
   'success:10:성직_10단원_문제.pdf:10',
+  // 원문 자체의 연령·근로시간·주급 계산이 서로 맞지 않아 정답 근거로 사용할 수 없다.
+  'success:15:성직_15단원_문제.pdf:2',
 ]);
 
 export function isReferenceSourceEligible(sourceId: string): boolean {
@@ -42,7 +48,7 @@ export function parseReference(
     typeof value.stimulus === 'string' ? value.stimulus.trim() : null;
   const rawViewItems =
     value.viewItems === undefined ? [] : textArray(value.viewItems);
-  const choices = textArray(value.choices);
+  const choices = textArray(value.choices)?.map(normalizeChoicePunctuation) ?? null;
   const correctAnswer = officialAnswer(value.correctAnswer);
   const rawTargetConcepts = textArray(value.targetConcepts);
   const primaryConcept = rawTargetConcepts?.[0];
@@ -86,6 +92,7 @@ export function parseReference(
   ) {
     return { ok: false };
   }
+  const sourceBlocksStimulus = buildSourceBlocksStimulus(value);
   const sourceHash = `fnv1a:${stableHash(
     [
       sourceId,
@@ -120,6 +127,8 @@ export function parseReference(
         nonEmptyText(value.explanation) ??
         nonEmptyText(value.generatedExplanation) ??
         undefined,
+      // v3 행만 가진다. v2 행에는 키 자체를 만들지 않아 기존 결과와 동일하다.
+      ...(sourceBlocksStimulus === null ? {} : { sourceBlocksStimulus }),
     },
   };
 }
@@ -175,7 +184,7 @@ function extractEmbeddedViewItems(
  * Also strips the question-number prefix (e.g. `16. `) that the MOI parser
  * includes when the source exam uses shared-passage numbering.
  */
-const PASSAGE_HEADER_PATTERN = /^\s*\[\s*\d+\s*[~～-]\s*\d+\s*\][^\n]*\n?/u;
+const PASSAGE_HEADER_PATTERN = /^\s*\[\s*\d+\s*[~～-]\s*\d+\s*\]\s*/u;
 const SCORE_LABEL_PATTERN = /\s*\[\s*\d+\s*점\s*\]\s*$/u;
 const QUESTION_NUMBER_PATTERN = /^\s*\d+\.\s*/u;
 
@@ -213,13 +222,6 @@ export function conceptKey(value: string): string {
     .toLocaleLowerCase('ko-KR');
 }
 
-export function stableHash(value: string): string {
-  let hash = 0x811c9dc5;
-  for (let index = 0; index < value.length; index += 1) {
-    hash = Math.imul(hash ^ value.charCodeAt(index), 0x01000193);
-  }
-  return (hash >>> 0).toString(16).padStart(8, '0');
-}
 
 export function uniqueReasons(
   reasons: readonly ReferenceSelectorShortfallReason[],
@@ -272,4 +274,8 @@ function textArray(value: unknown): readonly string[] | null {
   }
   const parsed = value.map(nonEmptyText);
   return parsed.every((item): item is string => item !== null) ? parsed : null;
+}
+
+function normalizeChoicePunctuation(value: string): string {
+  return value.replaceAll('，', ',').replaceAll('－', '-').replaceAll('：', ':');
 }

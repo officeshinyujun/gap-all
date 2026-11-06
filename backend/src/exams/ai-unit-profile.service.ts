@@ -8,6 +8,7 @@ import {
   type UnitConcepts,
 } from '../textbook/textbook.service';
 import { parseReference, stableHash } from './reference-selector.utils';
+import { activeReferenceParseVersion } from './reference-parse-version';
 import type { SubjectStyle } from './reference-frame.types';
 import type { AiQuestionFamily } from './ai-blueprint.types';
 import {
@@ -72,7 +73,7 @@ export type AiGenerationProfile = Readonly<{
 
 export type AiProfileSource = Pick<
   ReferenceQuestion,
-  'logicalSourceId' | 'contentHash' | 'subject' | 'unitNumber' | 'sourcePayload'
+  'logicalSourceId' | 'contentHash' | 'subject' | 'unitNumber' | 'unitNumbers' | 'sourcePayload'
 >;
 
 type SourceObservation = Readonly<{
@@ -120,6 +121,7 @@ export class AiUnitProfileService {
     );
     const sources = await this.referenceRepo.find({
       where: {
+        parseVersion: activeReferenceParseVersion(),
         subject: In(catalogSubjects(subjectSlug)),
         unitNumbers: Raw(
           (alias) => `${alias} && ARRAY(SELECT generate_series(${startUnitNum},${endUnitNum}))`,
@@ -230,13 +232,14 @@ function observeSource(
   source: AiProfileSource,
   subject: SubjectStyle,
 ): SourceObservation[] {
-  const payload = catalogReferencePayload(source);
-  const parsed = parseReference(payload, subject);
-  if (!parsed.ok) {
-    return [
-      {
+  const units = source.unitNumbers?.length ? source.unitNumbers : [source.unitNumber];
+  return units.map((unitNumber) => {
+    const payload = catalogReferencePayload(source, unitNumber);
+    const parsed = parseReference(payload, subject);
+    if (!parsed.ok) {
+      return {
         logicalSourceId: source.logicalSourceId,
-        unitNumber: source.unitNumber,
+        unitNumber,
         concept: '',
         concepts: [],
         family: 'concept',
@@ -245,35 +248,25 @@ function observeSource(
         source: sourceName(source.sourcePayload),
         questionNumber: questionNumber(source.sourcePayload),
         blockedReasons: ['INVALID_SOURCE_PAYLOAD'],
-      },
-    ];
-  }
-  const reference = parsed.value;
-  const payloadRecord = source.sourcePayload;
-  const explicitFamily = explicitFamilyFromPayload(payloadRecord);
-  const family =
-    explicitFamily ??
-    (reference.archetype?.stimulusRole === 'case' ||
-    reference.archetype?.stimulusRole === 'dialogue'
-      ? 'case'
-      : 'concept');
-  const supported = SUPPORTED_EVIDENCE_TEMPLATES.has(
-    reference.archetype?.sourceTemplate ?? '',
-  );
-  const blockedReasons = supported ? [] : [BLOCKED_TEMPLATE_REASON];
-  const archetypePattern = reference.archetype
-    ? {
+      };
+    }
+    const reference = parsed.value;
+    const payloadRecord = source.sourcePayload;
+    const explicitFamily = explicitFamilyFromPayload(payloadRecord);
+    const family = explicitFamily ??
+      (reference.archetype?.stimulusRole === 'case' || reference.archetype?.stimulusRole === 'dialogue' ? 'case' : 'concept');
+    const supported = SUPPORTED_EVIDENCE_TEMPLATES.has(reference.archetype?.sourceTemplate ?? '');
+    const blockedReasons = supported ? [] : [BLOCKED_TEMPLATE_REASON];
+    const archetypePattern = reference.archetype ? {
         template: reference.archetype.sourceTemplate,
         stemIntent: reference.archetype.stemIntent,
         responseMode: reference.archetype.responseMode,
         materialKind: reference.archetype.materialKind,
         reasoningPattern: reference.archetype.reasoningPattern,
-      }
-    : undefined;
-  return [
-    {
+      } : undefined;
+    return {
       logicalSourceId: source.logicalSourceId,
-      unitNumber: reference.unitNumber,
+      unitNumber,
       concept: reference.target.primaryConcept,
       concepts: unique(
         Array.isArray(payloadRecord.targetConcepts)
@@ -293,8 +286,8 @@ function observeSource(
       questionNumber: questionNumber(payloadRecord),
       blockedReasons,
       archetypePattern,
-    },
-  ];
+    };
+  });
 }
 
 function buildUnitProfile(
@@ -415,10 +408,11 @@ function explicitFamilyFromPayload(
 
 function catalogReferencePayload(
   row: AiProfileSource,
+  unitNumber = row.unitNumber,
 ): Readonly<Record<string, unknown>> {
   const sourceValue = row.sourcePayload.source;
   const source = isRecord(sourceValue) ? { ...sourceValue } : {};
-  source.unitNumber = row.unitNumber;
+  source.unitNumber = unitNumber;
   return { ...row.sourcePayload, source };
 }
 

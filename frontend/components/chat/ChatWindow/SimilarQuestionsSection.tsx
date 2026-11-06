@@ -1,5 +1,6 @@
 import { QuestionRenderer } from '@shared/ui/QuestionStem/QuestionRenderer';
 import { HighlightedStimulus } from '@shared/utils/highlightStimulus';
+import { inferTemplate } from '@shared/utils/examParser';
 import type { SimilarQuestion } from '@shared/types/chat';
 import s from './SimilarQuestionsSection.module.scss';
 
@@ -123,6 +124,11 @@ function ConceptExplanation({
   if (!hasClues && !hasFlow && !hasOptions && !hasTakeaway && !hasSimilarity) return null;
 
   const markers = ['①', '②', '③', '④', '⑤'];
+  // TPL_SOURCE_BLOCKS의 rawStimulus는 표를 `|`로 펼치고 그림을 `[그림 F1: 설명]`으로 적은
+  // 평문이다. 위 QuestionRenderer가 원문 블록을 이미 보여 주므로 평문 박스는 생략한다.
+  const template = sq.question?.metadata?.recommended_template
+    || inferTemplate(sq.question?.render_ready?.stimulus_data);
+  const showRawStimulus = !!sq.question?.rawStimulus && template !== 'TPL_SOURCE_BLOCKS';
 
   return (
     <>
@@ -147,10 +153,10 @@ function ConceptExplanation({
           {hasClues && (
             <div>
               <div className={s.sectionTitle}>지문 단서</div>
-              {sq.question?.rawStimulus && (
+              {showRawStimulus && (
                 <div className={s.rawStimulusBox}>
                   <HighlightedStimulus
-                    text={sq.question.rawStimulus}
+                    text={sq.question.rawStimulus!}
                     quotes={v2.stimulusClues!.map((c) => c.quote)}
                     highlightClassName={s.stimulusHighlight}
                   />

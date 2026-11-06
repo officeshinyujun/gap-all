@@ -1,5 +1,15 @@
 import type { NormalizedSourceReference } from './reference-selector.types';
 import { sourcePreservingRender } from './simply-reference-source-preserving.adapter';
+import { parseReference } from './reference-selector.utils';
+import {
+  SOURCE_BLOCKS_TPL,
+  buildSourceBlocksStimulus,
+} from './source-blocks-stimulus';
+import {
+  V3_DIALOGUE_CHOICE_TABLE_PAYLOAD,
+  v2StylePayload,
+  v3Payload,
+} from './source-blocks-stimulus.fixtures';
 
 function reference(
   template: string,
@@ -27,7 +37,10 @@ describe('sourcePreservingRender', () => {
     ).toMatchObject({ template: 'TPL_ARTICLE' });
     expect(
       sourcePreservingRender(reference('TPL_QUANTITATIVE_CHART', '이미지 자료')),
-    ).toMatchObject({ template: 'TPL_ARTICLE' });
+    ).toMatchObject({
+      template: 'TPL_ARTICLE',
+      stimulusData: { body_paragraphs: ['이미지 자료'] },
+    });
   });
 
   it('preserves Article physical lines, including blanks and indentation', () => {
@@ -149,5 +162,58 @@ describe('sourcePreservingRender', () => {
         body_paragraphs: ['상황 설명', '교사: 확인합니다.', '학생: 네.'],
       },
     });
+  });
+});
+
+describe('sourcePreservingRender with reference-pdf-v3 source blocks', () => {
+  function parsed(payload: unknown): NormalizedSourceReference {
+    const result = parseReference(payload, 'kongil');
+    if (!result.ok) throw new Error('fixture must parse');
+    return result.value;
+  }
+
+  it('renders v3 payloads as TPL_SOURCE_BLOCKS', () => {
+    for (const payload of [
+      v3Payload(),
+      v3Payload(V3_DIALOGUE_CHOICE_TABLE_PAYLOAD),
+    ]) {
+      const reference = parsed(payload);
+      expect(reference.sourceBlocksStimulus).toEqual(
+        buildSourceBlocksStimulus(payload),
+      );
+      expect(sourcePreservingRender(reference)).toEqual({
+        template: SOURCE_BLOCKS_TPL,
+        stimulusData: buildSourceBlocksStimulus(payload),
+      });
+    }
+  });
+
+  it('prefers source blocks over cached tplStimulusData', () => {
+    const payload = v3Payload();
+    payload.tplStimulusData = {
+      headers: [{ id: 'c1', label: '관련 공업' }],
+      rows: [{ id: 'r1', cells: ['(가)'] }],
+      selection_chips: [],
+    };
+    expect(sourcePreservingRender(parsed(payload))?.template).toBe(
+      SOURCE_BLOCKS_TPL,
+    );
+  });
+
+  it('leaves the same question without stimulusBlocks (v2 shape) unchanged', () => {
+    for (const fixture of [undefined, V3_DIALOGUE_CHOICE_TABLE_PAYLOAD] as const) {
+      const v2 = parsed(v2StylePayload(fixture));
+      expect('sourceBlocksStimulus' in v2).toBe(false);
+      const render = sourcePreservingRender(v2);
+      expect(render).not.toBeNull();
+      expect(render?.template).not.toBe(SOURCE_BLOCKS_TPL);
+      // v3 행에서 블록만 뗀 결과와 v2 모양의 결과가 같아야 한다.
+      const { sourceBlocksStimulus: _ignored, ...withoutBlocks } = parsed(
+        fixture === undefined ? v3Payload() : v3Payload(fixture),
+      );
+      expect(sourcePreservingRender(withoutBlocks as NormalizedSourceReference)).toEqual(
+        render,
+      );
+    }
   });
 });

@@ -25,6 +25,10 @@ export interface GeneratedQuestion {
   dnaContract?: Record<string, any>;
 }
 
+/** 완전 AI 출제에서 문항(슬롯)별 진행 상태. 진행 카드의 문항 칩에 쓴다. */
+export const GENERATION_ITEM_STATES = ['queued', 'generating', 'verifying', 'accepted', 'failed', 'skipped'] as const;
+export type GenerationItemState = (typeof GENERATION_ITEM_STATES)[number];
+
 export interface ExamGenerationProgressUpdate {
   stage: string;
   progress: number;
@@ -33,6 +37,9 @@ export interface ExamGenerationProgressUpdate {
   detail?: string;
   referenceProgress?: ExamGenerationReferenceProgress;
   aiProgress?: AiGenerationProgress;
+  itemStates?: readonly GenerationItemState[];
+  /** 본 문항이 반려될 때 병렬로 시작한 예비 문항의 상태 */
+  reserveStates?: readonly GenerationItemState[];
   completed?: number;
   total?: number;
   attempt?: number;

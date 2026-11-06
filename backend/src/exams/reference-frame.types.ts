@@ -172,6 +172,7 @@ export type GroundingQuantityUnit = (typeof GROUNDING_QUANTITY_UNITS)[number];
 export type SourceIdentity = Readonly<{
   sourceId: string;
   sourceHash: string;
+  unitNumber?: number;
 }>;
 
 export type UnitRange = Readonly<{
@@ -453,10 +454,35 @@ export type AiBlueprintGenerationLineage = Readonly<{
   validation: 'passed';
 }>;
 
+/** 참조 문항 없이 기출 특징 프로필만으로 출제한 문항. */
+export type AiGenerativeGenerationLineage = Readonly<{
+  generationPath: 'ai_generative';
+  generationNonce: string;
+  specVersion: string;
+  profileVersion: string;
+  promptVersion: string;
+  validatorVersion: string;
+  model: string;
+  verificationModel: string;
+  spec: Readonly<{
+    unitNumber: number;
+    responseMode: string;
+    polarity: string;
+    materialGenre: string;
+    stimulusShape: string;
+    stemEnding: string;
+    points: number;
+  }>;
+  blindSolve: Readonly<{ answerIndex: number; ambiguity: string }>;
+  attempt: number;
+  validation: 'passed';
+}>;
+
 export type QuestionGenerationLineage =
   | ReferenceFrameGenerationLineage
   | SimplyReferenceGenerationLineage
-  | AiBlueprintGenerationLineage;
+  | AiBlueprintGenerationLineage
+  | AiGenerativeGenerationLineage;
 
 export type ContractValidationResult<T> =
   | Readonly<{ ok: true; value: T }>

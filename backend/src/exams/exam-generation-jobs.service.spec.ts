@@ -280,6 +280,31 @@ describe('ExamGenerationJobsService receipt contract', () => {
     );
   });
 
+  it('shows server-composed progress text for ai_generative jobs while running only', () => {
+    const service = new ExamGenerationJobsService();
+    const job = service.create('user-1', {
+      subjectId: 'subject-1',
+      startUnitNum: 1,
+      endUnitNum: 2,
+      difficulty: Difficulty.HIGH,
+      questionCount: 2,
+      sourceType: 'ai_generative',
+    });
+    service.start(job.id, 'user-1');
+    service.push(job.id, 'user-1', {
+      stage: 'candidate',
+      progress: 40,
+      message: '완성 1/2 · 2번 문항 검토 중 (정답을 모르는 상태로 다시 풀기)',
+      aiProgress: { stage: 'candidate', completed: 1, total: 2, attempt: 1, maxAttempts: 4, accepted: 1, rejected: 0 },
+      itemStates: ['accepted', 'bogus' as never],
+    });
+    const receipt = service.toReceipt(service.getForUser(job.id, 'user-1'));
+    expect(receipt.message).toBe('완성 1/2 · 2번 문항 검토 중 (정답을 모르는 상태로 다시 풀기)');
+    expect(receipt.itemStates).toEqual(['accepted', 'queued']);
+    service.cancel(job.id, 'user-1');
+    expect(service.toReceipt(service.getForUser(job.id, 'user-1')).message).toBe('시험 생성이 취소되었습니다.');
+  });
+
   it('keeps gated AI stages monotonic and exposes only safe progress counters', () => {
     const service = new ExamGenerationJobsService();
     const job = service.create('user-1', {

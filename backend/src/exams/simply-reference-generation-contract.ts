@@ -1,3 +1,7 @@
+import {
+  isSourceBlocksStimulusData,
+  isSourceBlocksTpl,
+} from './source-blocks-stimulus';
 import { StimulusNormalizer } from './stimulus-normalizer';
 import { isStructuredTplName, type StructuredTplName } from './tpl-schemas';
 
@@ -13,6 +17,21 @@ export function validateSimplyReferenceStructuredTpl(
     meetsWebRendererContract(template, stimulusData) &&
     meetsPdfRendererContract(template, stimulusData)
   );
+}
+
+/**
+ * 원문 보존(source-preserving) 저장 경계용 게이트.
+ * LLM 템플릿 계약에 더해 렌더 전용 TPL_SOURCE_BLOCKS도 받는다.
+ * LLM 생성 결과 검증에는 validateSimplyReferenceStructuredTpl만 쓴다.
+ */
+export function validateSimplyReferenceRenderTpl(
+  template: unknown,
+  stimulusData: unknown,
+): boolean {
+  if (isSourceBlocksTpl(template)) {
+    return isSourceBlocksStimulusData(stimulusData);
+  }
+  return validateSimplyReferenceStructuredTpl(template, stimulusData);
 }
 
 function meetsWebRendererContract(

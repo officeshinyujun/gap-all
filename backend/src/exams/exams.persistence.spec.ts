@@ -169,7 +169,7 @@ describe('ExamsService reference generation persistence', () => {
       generationNonce: 'prior-nonce',
       source: { sourceId: 'success:1:source.pdf:1', sourceHash: 'hash-1' },
       batchOrdinal: 1,
-      selectedTemplate: 'TPL_REGENERATION_REQUIRED',
+      selectedTemplate: 'TPL_COMPARATIVE_MATRIX',
       adapterVersion: 0,
       validation: 'passed' as const,
     };
@@ -192,11 +192,15 @@ describe('ExamsService reference generation persistence', () => {
                 target_concept: 'Career values',
                 item_type: 'simply_reference',
                 difficulty: Difficulty.MIDDLE,
-                recommended_template: 'TPL_REGENERATION_REQUIRED',
+                 recommended_template: 'TPL_COMPARATIVE_MATRIX',
               },
               render_ready: {
                 question_stem: 'Generated question',
-                stimulus_data: { body: 'Generated stimulus' },
+                stimulus_data: {
+                  headers: [{ id: 'criterion', label: '판단 기준' }],
+                  rows: [{ id: 'row-1', cells: ['원문 근거'] }],
+                  selection_chips: [],
+                },
                 options_list: ['① one', '② two', '③ three', '④ four', '⑤ five'],
                 combo_block: null,
               },
@@ -217,8 +221,11 @@ describe('ExamsService reference generation persistence', () => {
       },
       examItemRepo: { create: jest.fn().mockImplementation((value) => value) },
       findOne: jest.fn().mockResolvedValue({ id: 'exam-1' }),
-      getSimplyReferenceHistory:
-        ExamsService.prototype['getSimplyReferenceHistory'],
+      getSimplyReferenceHistory: jest.fn().mockResolvedValue({
+        fingerprints: [],
+        sourceIds: [],
+      }),
+      getStudyPatternOptions: ExamsService.prototype['getStudyPatternOptions'],
       createSimplyReferenceExam:
         ExamsService.prototype['createSimplyReferenceExam'],
     };
@@ -259,6 +266,99 @@ describe('ExamsService reference generation persistence', () => {
     expect(service.examItemRepo.create).toHaveBeenCalledWith(
       expect.objectContaining({ examId: 'exam-1', questionId: 'question-1' }),
     );
+  });
+
+  it('rejects an unrenderable simply_reference draft before saving a Question', async () => {
+    const questionRepo = {
+      create: jest.fn().mockImplementation((value) => value),
+      save: jest.fn().mockResolvedValue({ id: 'question-1' }),
+    };
+    const unitRepo = {
+      findOne: jest.fn().mockResolvedValue({ id: 'unit-1' }),
+      create: jest.fn(),
+      save: jest.fn(),
+    };
+    const manager = {
+      getRepository: jest
+        .fn()
+        .mockReturnValueOnce(questionRepo)
+        .mockReturnValueOnce(unitRepo),
+      save: jest.fn(),
+    };
+    const transaction = jest.fn(async (work: (current: typeof manager) => Promise<unknown>) =>
+      work(manager),
+    );
+    const service = {
+      simplyReferenceGenerationService: {
+        generate: jest.fn().mockResolvedValue([
+          {
+            lineage: {
+              generationPath: 'simply_reference' as const,
+              generationNonce: 'nonce',
+              source: { sourceId: 'source-1', sourceHash: 'hash-1' },
+              batchOrdinal: 1,
+              selectedTemplate: 'TPL_COMPARATIVE_MATRIX',
+              adapterVersion: 2,
+              validation: 'passed' as const,
+            },
+            result: {
+              metadata: {
+                unit_name: '1단원',
+                target_concept: 'concept-1',
+                item_type: 'simply_reference' as const,
+                difficulty: Difficulty.MIDDLE,
+                recommended_template: 'TPL_COMPARATIVE_MATRIX',
+              },
+              render_ready: {
+                question_stem: '다음 표를 보고 답하시오.',
+                stimulus_data: {
+                  headers: [],
+                  rows: [],
+                  selection_chips: [],
+                },
+                options_list: ['① 하나', '② 둘', '③ 셋', '④ 넷', '⑤ 다섯'],
+                combo_block: null,
+              },
+              explanation: { judgment: '설명' },
+              correct_answer: 1,
+            },
+          },
+        ]),
+      },
+      getSimplyReferenceHistory: jest.fn().mockResolvedValue({
+        fingerprints: [],
+        sourceIds: [],
+      }),
+      getStudyPatternOptions: ExamsService.prototype['getStudyPatternOptions'],
+      examRepo: {
+        create: jest.fn(),
+        manager: { transaction },
+      },
+      examItemRepo: { create: jest.fn() },
+      findOne: jest.fn(),
+    };
+
+    await expect(
+      ExamsService.prototype['createSimplyReferenceExam'].call(
+        service,
+        'user-1',
+        {
+          subjectId: 'subject-1',
+          startUnitNum: 1,
+          endUnitNum: 1,
+          difficulty: Difficulty.MIDDLE,
+          questionCount: 1,
+          sourceType: 'simply_reference',
+        },
+        'Success',
+        'success',
+      ),
+    ).rejects.toThrow('렌더러 계약을 통과하지 못한 참조 문항은 저장할 수 없습니다.');
+
+    expect(questionRepo.save).not.toHaveBeenCalled();
+    expect(manager.save).not.toHaveBeenCalled();
+    expect(service.examRepo.create).not.toHaveBeenCalled();
+    expect(service.examItemRepo.create).not.toHaveBeenCalled();
   });
 
   it('Given a mixed semantic batch failure, When the background job runs, Then it writes no Question or ExamItem and exposes a sanitized failure code', async () => {
