@@ -1,12 +1,17 @@
 import { validateSimplyReferenceStructuredTpl } from './simply-reference-generation-contract';
 import type { NormalizedSourceReference } from './reference-selector.types';
+import {
+  SOURCE_BLOCKS_TPL,
+  sanitizeSourceBlocksStimulus,
+  type RenderTplName,
+} from './source-blocks-stimulus';
 import { isStructuredTplName, type StructuredTplName } from './tpl-schemas';
 
 /** Increment when source-preserving output semantics change. */
 export const SOURCE_PRESERVING_ADAPTER_VERSION = 2 as const;
 
 export type SourcePreservingRender = Readonly<{
-  template: StructuredTplName;
+  template: RenderTplName;
   stimulusData: Record<string, unknown>;
 }>;
 
@@ -20,6 +25,13 @@ export function sourceTemplate(
 export function sourcePreservingRender(
   reference: NormalizedSourceReference,
 ): SourcePreservingRender | null {
+  // v3 구조화 제시문이 있으면 캐시된 tplStimulusData나 문자열 휴리스틱보다 우선한다.
+  if (reference.sourceBlocksStimulus !== undefined) {
+    const blocks = sanitizeSourceBlocksStimulus(reference.sourceBlocksStimulus);
+    if (blocks !== null) {
+      return { template: SOURCE_BLOCKS_TPL, stimulusData: { ...blocks } };
+    }
+  }
   const explicitMatrix = reference.tplStimulusData;
   if (
     explicitMatrix !== undefined &&

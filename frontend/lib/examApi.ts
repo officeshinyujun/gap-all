@@ -1,4 +1,4 @@
-import { API_BASE_URL } from './auth';
+import { apiFetch } from '@/shared/lib/apiClient';
 import {
   fetchWithClientCache,
   invalidateClientCache,
@@ -6,24 +6,6 @@ import {
 import type { ExamQuestion } from '@/types/examQuestion';
 
 const EXAM_TTL_MS = 30_000;
-
-async function apiFetch<T>(path: string, options?: RequestInit): Promise<T> {
-  const res = await fetch(`${API_BASE_URL}${path}`, {
-    ...options,
-    credentials: 'include',
-    headers: {
-      'Content-Type': 'application/json',
-      ...(options?.headers ?? {}),
-    },
-  });
-
-  if (!res.ok) {
-    const error = await res.json().catch(() => ({ message: res.statusText }));
-    throw new Error(error.message ?? `API 오류: ${res.status}`);
-  }
-
-  return res.json() as Promise<T>;
-}
 
 // 백엔드 question 응답 → QuestionRenderer가 기대하는 ExamQuestion 형태로 변환
 function normalizeQuestion(raw: Record<string, unknown>): ExamQuestion {
@@ -66,7 +48,7 @@ export interface ExamListItem {
   difficulty: string;
   questionCount: number;
   totalScore: number | null;
-  sourceType: 'ai' | 'reference' | 'simply_reference' | 'ai_blueprint';
+  sourceType: 'ai' | 'reference' | 'simply_reference' | 'ai_blueprint' | 'ai_generative';
   createdAt: string;
   subject?: { id: string; slug: string; title: string };
   tags?: { id: string; tagName: string }[];
@@ -118,7 +100,7 @@ export interface ExamJobStatus {
     rejectionsByTemplate?: Record<string, number>;
     rejectionsByCode?: Record<string, number>;
   };
-  sourceType?: 'ai' | 'reference' | 'simply_reference' | 'ai_blueprint';
+  sourceType?: 'ai' | 'reference' | 'simply_reference' | 'ai_blueprint' | 'ai_generative';
   aiProgress?: {
     stage: 'queued' | 'profile' | 'blueprint' | 'candidate' | 'validation' | 'saving' | 'completed' | 'failed' | 'canceled';
     completed: number;
@@ -144,7 +126,7 @@ export interface ExamData {
   title: string;
   difficulty: string;
   questionCount: number;
-  sourceType: 'ai' | 'reference' | 'simply_reference' | 'ai_blueprint';
+  sourceType: 'ai' | 'reference' | 'simply_reference' | 'ai_blueprint' | 'ai_generative';
   items: ExamItem[];
 }
 

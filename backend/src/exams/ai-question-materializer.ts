@@ -54,6 +54,19 @@ export function materializeAiQuestion(
   const isTruthCombination =
     archetype?.stemIntent === 'truth_combination' ||
     archetype?.responseMode === 'truth_combination';
+  if (isTruthCombination) {
+    if (
+      blueprint.caseContext?.trim() === '' ||
+      blueprint.sourceViewItems === undefined ||
+      sourceViewComboBlock(blueprint.sourceViewItems) === null
+    ) {
+      return {
+        kind: 'rejected',
+        code: 'AI_CANDIDATE_SCHEMA_INVALID',
+        message: 'truth_combination은 인증된 자료와 <보기>가 모두 필요합니다.',
+      };
+    }
+  }
   if (
     archetype !== undefined &&
     !isTruthCombination &&

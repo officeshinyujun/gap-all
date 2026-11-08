@@ -321,4 +321,27 @@ describe('materializeAiQuestion', () => {
 
     expect(result.kind).toBe('accepted');
   });
+
+  it('rejects truth-combination without certified view items', () => {
+    const result = materializeAiQuestion(
+      {
+        ...blueprint,
+        template: 'TPL_CASE_DIAGNOSTIC_FRAME',
+        caseContext: '원문 자료',
+        sourceArchetype: {
+          sourceTemplate: 'TPL_CASE_DIAGNOSTIC_FRAME',
+          responseMode: 'truth_combination',
+          choiceTopology: 'combo_sets',
+          stemIntent: 'truth_combination',
+          choiceEncoding: 'truth_combination',
+        } as never,
+      },
+      { stemText: 'AI가 만든 자료', explanationText: '해설' },
+    );
+
+    expect(result).toEqual(expect.objectContaining({
+      kind: 'rejected',
+      code: 'AI_CANDIDATE_SCHEMA_INVALID',
+    }));
+  });
 });

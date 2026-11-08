@@ -1,0 +1,10 @@
+{
+  "headers": [
+    { "id": "criterion", "label": "비교 기준" },
+    { "id": "company-a", "label": "A 기업" }
+  ],
+  "rows": [
+    { "id": "row-a", "cells": ["근무 시간", "주 5일"] }
+  ],
+  "selection_chips": []
+}

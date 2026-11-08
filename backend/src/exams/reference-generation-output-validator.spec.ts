@@ -1,4 +1,7 @@
-import { validateReferenceGenerationOutput } from './reference-generation-output-validator';
+import {
+  validateReferenceGenerationOutput,
+  type ReferenceGeneratedOutput,
+} from './reference-generation-output-validator';
 import type { ReferenceGenerationBatch } from './reference-blueprint.types';
 
 const batch: ReferenceGenerationBatch = {
@@ -42,11 +45,15 @@ const batch: ReferenceGenerationBatch = {
     },
   ],
 };
-const question = (slotId: string) => ({
+const question = (
+  slotId: string,
+  overrides: Partial<ReferenceGeneratedOutput> = {},
+): ReferenceGeneratedOutput => ({
   slotId,
   template: 'TPL_CASE_DIAGNOSTIC_FRAME',
   choices: ['1', '2', '3', '4', '5'],
   answerIndex: 1,
+  ...overrides,
 });
 
 describe('validateReferenceGenerationOutput', () => {
@@ -63,6 +70,51 @@ describe('validateReferenceGenerationOutput', () => {
     });
     expect(
       validateReferenceGenerationOutput(batch, [question('a'), question('a')]),
+    ).toEqual({ kind: 'rejected', reason: 'DUPLICATE_SLOT' });
+  });
+
+  it.each([
+    {
+      reason: 'UNKNOWN_SLOT',
+      output: [question('unknown'), question('a'), question('b')],
+    },
+    {
+      reason: 'MISSING_SLOT',
+      output: [question('a')],
+    },
+    {
+      reason: 'TEMPLATE_MISMATCH',
+      output: [
+        question('a', { template: 'TPL_ARTICLE' }),
+        question('b'),
+      ],
+    },
+    {
+      reason: 'INVALID_CHOICES',
+      output: [
+        question('a', { choices: ['1', '2', '3', '4', ''] }),
+        question('b'),
+      ],
+    },
+  ] as const)('$reason is rejected before persistence', ({ reason, output }) => {
+    expect(validateReferenceGenerationOutput(batch, output)).toEqual({
+      kind: 'rejected',
+      reason,
+    });
+  });
+
+  it('rejects a duplicate slot without relying on missing-slot detection', () => {
+    const singleSlotBatch = {
+      ...batch,
+      slotIds: ['a'] as const,
+      slots: [batch.slots[0]!],
+    };
+
+    expect(
+      validateReferenceGenerationOutput(singleSlotBatch, [
+        question('a'),
+        question('a'),
+      ]),
     ).toEqual({ kind: 'rejected', reason: 'DUPLICATE_SLOT' });
   });
 });

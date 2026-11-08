@@ -152,14 +152,39 @@ export class AuthService {
   // Refresh
   // ============================================================
   async refresh(refreshToken: string) {
+    const refreshSecret = process.env.JWT_REFRESH_SECRET;
+    if (!refreshSecret) {
+      throw new Error('JWT_REFRESH_SECRET is required');
+    }
+
+    let payload: { sub: string; email: string; role: string } | null = null;
+    try {
+      payload = await this.jwtService.verifyAsync<{ sub: string; email: string; role: string }>(refreshToken, {
+        secret: refreshSecret,
+      });
+    } catch {
+      throw new UnauthorizedException('유효하지 않거나 만료된 리프레시 토큰입니다.');
+    }
+
     const hashedToken = this.hashToken(refreshToken);
     const stored = await this.refreshTokenRepo.findOne({
       where: { token: hashedToken },
       relations: ['user'],
     });
 
-    if (!stored || stored.expiresAt < new Date()) {
-      throw new UnauthorizedException('유효하지 않은 리프레시 토큰입니다.');
+    if (!stored) {
+      // Replay attack detection: valid JWT signed by this server, but token record does not exist
+      if (payload?.sub) {
+        await this.refreshTokenRepo.delete({ userId: payload.sub });
+      }
+      throw new UnauthorizedException(
+        '보안 위험: 이미 사용된 리프레시 토큰이 감지되어 모든 세션이 만료되었습니다.',
+      );
+    }
+
+    if (stored.expiresAt < new Date()) {
+      await this.refreshTokenRepo.remove(stored);
+      throw new UnauthorizedException('만료된 리프레시 토큰입니다.');
     }
 
     const tokens = await this.generateTokens(

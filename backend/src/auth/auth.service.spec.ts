@@ -80,6 +80,7 @@ describe('AuthService', () => {
     };
     const mockJwtService = {
       signAsync: jest.fn(),
+      verifyAsync: jest.fn(),
     };
 
     const module: TestingModule = await Test.createTestingModule({
@@ -234,14 +235,33 @@ describe('AuthService', () => {
   // refresh
   // ───────────────────────────────────────────────────
   describe('refresh', () => {
-    it('유효하지 않은 리프레시 토큰으로 요청 시 UnauthorizedException', async () => {
-      refreshTokenRepo.findOne.mockResolvedValue(null);
+    it('서명이 유효하지 않은 리프레시 토큰으로 요청 시 UnauthorizedException', async () => {
+      jwtService.verifyAsync.mockRejectedValue(new Error('Invalid token'));
       await expect(service.refresh('invalid-token')).rejects.toThrow(
         UnauthorizedException,
       );
     });
 
+    it('토큰 서명은 유효하지만 DB에 없으면(이미 회전/사용됨) Replay Attack으로 간주하여 유저의 모든 토큰 삭제 후 차단', async () => {
+      jwtService.verifyAsync.mockResolvedValue({
+        sub: 'user-1',
+        email: 'test@example.com',
+        role: 'user',
+      });
+      refreshTokenRepo.findOne.mockResolvedValue(null);
+
+      await expect(service.refresh('reused-token')).rejects.toThrow(
+        '보안 위험: 이미 사용된 리프레시 토큰이 감지되어 모든 세션이 만료되었습니다.',
+      );
+      expect(refreshTokenRepo.delete).toHaveBeenCalledWith({ userId: 'user-1' });
+    });
+
     it('만료된 리프레시 토큰으로 요청 시 UnauthorizedException', async () => {
+      jwtService.verifyAsync.mockResolvedValue({
+        sub: 'user-1',
+        email: 'test@example.com',
+        role: 'user',
+      });
       refreshTokenRepo.findOne.mockResolvedValue({
         expiresAt: new Date('2020-01-01'),
         user: mockUser,
@@ -252,6 +272,11 @@ describe('AuthService', () => {
     });
 
     it('유효한 리프레시 토큰으로 재발급 성공', async () => {
+      jwtService.verifyAsync.mockResolvedValue({
+        sub: 'user-1',
+        email: 'test@example.com',
+        role: 'user',
+      });
       refreshTokenRepo.findOne.mockResolvedValue({
         token: 'mock-hashed-token',
         expiresAt: new Date(Date.now() + 86400000),

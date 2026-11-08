@@ -5,6 +5,7 @@ import type {
   UnitRange,
 } from './reference-frame.types';
 import type { ReferenceArchetype } from './reference-archetype';
+import type { SourceBlocksStimulusData } from './source-blocks-stimulus';
 
 export const DEFAULT_DISTRACTOR_AXES = [
   'condition_omission',
@@ -72,6 +73,8 @@ export type NormalizedSourceReference = SelectedParsedReference &
     tplStimulusData?: Record<string, unknown>;
     /** Official explanation from answer key / 해설 PDF. */
     explanation?: string;
+    /** reference-pdf-v3 구조화 제시문(stimulusBlocks)에서 만든 TPL_SOURCE_BLOCKS 데이터. */
+    sourceBlocksStimulus?: SourceBlocksStimulusData;
   }>;
 
 export type ReferenceSelectorShortfall = Readonly<{

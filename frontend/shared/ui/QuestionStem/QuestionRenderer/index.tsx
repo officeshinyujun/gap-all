@@ -20,10 +20,14 @@ import {
   TPLIncidentReport,
   TPLAnnouncement,
   TPLReport,
+  TPLSourceBlocks,
+  SourceChoiceTable,
+  SourceText,
 } from '../index';
 import { parseStimulus, getTemplateLabel, inferTemplate } from '@shared/utils/examParser';
 import type { ExamQuestion, ParsedStimulus } from '@/types/examQuestion';
-import { getExplanationText, getOptionNumber, normalizeOptions } from '@/types/examQuestion';
+import { getExplanationText, getOptionNumber, getStepExplanation, normalizeOptions } from '@/types/examQuestion';
+import { ConceptAnalysisPanel } from '@shared/ui/ConceptAnalysisPanel';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import s from './index.module.scss';
@@ -87,11 +91,17 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
   const question_stem = raw_stem.replace(/^\d+\.\s*/, '');
 
   const explanation = question.explanation ?? render_ready.explanation;
+  const stepExplanation = getStepExplanation(explanation);
 
   const normalizedOptions = normalizeOptions(options, options_list);
 
   const resolvedTemplate = metadata.recommended_template || inferTemplate(stimulus_data) || '';
   const parsed = parseStimulus(resolvedTemplate, stimulus_data);
+
+  // 원문 자료(TPL_SOURCE_BLOCKS)의 그림 선지·<보기> 속 `[그림 Fk]`는 이미지로 바꿔 보여 준다.
+  const sourceFigures = parsed?.template === 'TPL_SOURCE_BLOCKS' ? parsed.data.figures : null;
+  const renderOptionText = (text: string): React.ReactNode =>
+    sourceFigures ? <SourceText text={text} figures={sourceFigures} /> : text;
 
   const renderStimulus = (parsed: ParsedStimulus | null) => {
     if (!parsed) return renderPlainTextFallback(stimulus_data);
@@ -187,6 +197,11 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
         if (!raw || !raw.sections?.length) return renderPlainTextFallback(stimulus_data);
         return <TPLReport data={raw} />;
       }
+      case 'TPL_SOURCE_BLOCKS': {
+        const raw = parsed.data;
+        if (!raw || !raw.blocks?.length) return renderPlainTextFallback(stimulus_data);
+        return <TPLSourceBlocks data={raw} />;
+      }
       case 'TPL_PLAIN_TEXT':
         if (!parsed.data || (typeof parsed.data === 'string' && !parsed.data.trim())) {
           return renderPlainTextFallback(stimulus_data);
@@ -221,10 +236,14 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
           <div className={s.comboBlockTitle}>{question.combo_block.title}</div>
           {question.combo_block.items.map((item) => (
             <div key={item.key} className={s.comboBlockItem}>
-              {item.key}. {item.text}
+              {item.key}. {renderOptionText(item.text)}
             </div>
           ))}
         </VStack>
+      )}
+
+      {parsed?.template === 'TPL_SOURCE_BLOCKS' && parsed.data.choice_table && (
+        <SourceChoiceTable data={parsed.data.choice_table} />
       )}
 
       <VStack gap={8} fullWidth className={s.optionsSection}>
@@ -244,7 +263,7 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
                   number={num as 1 | 2 | 3 | 4 | 5}
                   selected={selectedOption === num}
                 />
-                <span className={s.optionText}>{option.text}</span>
+                <span className={s.optionText}>{renderOptionText(option.text)}</span>
               </HStack>
             </button>
           );
@@ -256,9 +275,21 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
           <div className={s.explanationDivider} />
           <div className={s.explanationBox}>
             <Typo.SM size={14} color="primary" style={{ fontWeight: 600, marginBottom: 8 }}>해설</Typo.SM>
-            <Typo.SM size={12} color="secondary" as="p" className={s.explanationText}>
-              {getExplanationText(explanation)}
-            </Typo.SM>
+            {stepExplanation ? (
+              <VStack gap={16} fullWidth>
+                <ConceptAnalysisPanel data={stepExplanation} />
+                <details>
+                  <summary className={s.explanationSummary}>전체 해설 문장 보기</summary>
+                  <Typo.SM size={12} color="secondary" as="p" className={s.explanationText}>
+                    {getExplanationText(explanation)}
+                  </Typo.SM>
+                </details>
+              </VStack>
+            ) : (
+              <Typo.SM size={12} color="secondary" as="p" className={s.explanationText}>
+                {getExplanationText(explanation)}
+              </Typo.SM>
+            )}
           </div>
         </VStack>
       )}

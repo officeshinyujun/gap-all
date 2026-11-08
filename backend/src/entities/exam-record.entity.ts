@@ -12,17 +12,15 @@ import { Subject } from './subject.entity';
 import { ExamTag } from './exam-tag.entity';
 import { ExamItem } from './exam-item.entity';
 
-export enum Difficulty {
-  LOW = 'LOW',
-  MIDDLE = 'MIDDLE',
-  HIGH = 'HIGH',
-  INTERGRATE = 'INTERGRATE',
-}
+import { Difficulty } from './difficulty';
+
+export { Difficulty };
 
 export enum ExamSourceType {
   AI = 'ai',
   REFERENCE = 'reference',
   AI_BLUEPRINT = 'ai_blueprint',
+  AI_GENERATIVE = 'ai_generative',
 }
 
 @Entity('exam_records')

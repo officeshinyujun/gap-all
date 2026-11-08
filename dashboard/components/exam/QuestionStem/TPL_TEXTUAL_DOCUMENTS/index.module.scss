@@ -1,0 +1,18 @@
+.box { width: 100%; box-sizing: border-box; padding: $spacing-20 $spacing-24; border: 1.5px solid $text-strong; color: $text-primary; }
+.title { margin: 0 0 $spacing-8; font-size: 18px; line-height: 1.4; font-weight: $bold; }
+.muted { margin: 0 0 $spacing-8; color: $text-secondary; font-size: 13px; line-height: 1.6; }
+.subtle { color: $text-secondary; }
+.paragraph { margin: 0 0 $spacing-10; font-size: 14px; line-height: 1.75; white-space: pre-line; }
+.source { margin: $spacing-16 0 0; padding-top: $spacing-8; border-top: 1px solid $border-primary; color: $text-secondary; font-size: 12px; }
+.badge { display: inline-block; margin-bottom: $spacing-16; padding: 2px 10px; border-radius: 12px; background: $background-secondary; color: $brand-primary; font-size: 12px; font-weight: $semi-bold; }
+.factGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: $spacing-6 $spacing-16; margin: 0 0 $spacing-16; padding: $spacing-12; border-radius: 6px; background: $background-secondary; font-size: 13px; line-height: 1.6; }
+.section { margin: 0 0 $spacing-16; }
+.section h3 { margin: 0 0 $spacing-8; padding-bottom: $spacing-4; border-bottom: 2px solid $background-secondary; font-size: 14px; font-weight: $semi-bold; }
+.timelineTime { min-width: 54px; color: $text-secondary; font-size: 12px; font-weight: $semi-bold; }
+.details { margin: $spacing-16 0; padding-top: $spacing-12; border-top: 1px solid $border-primary; }
+.details p { margin: 0 0 $spacing-10; font-size: 14px; line-height: 1.6; }
+.table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.table th, .table td { padding: $spacing-8 $spacing-10; border: 1px solid $border-primary; text-align: left; }
+.table th { background: $background-secondary; font-weight: $semi-bold; }
+.value { text-align: right !important; font-weight: $semi-bold; }
+@media (max-width: 640px) { .factGrid { grid-template-columns: 1fr; } }

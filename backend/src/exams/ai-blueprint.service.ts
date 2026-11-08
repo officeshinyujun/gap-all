@@ -24,7 +24,7 @@ import type { SubjectStyle } from './reference-frame.types';
 import type { PreviewAiBlueprintDto } from './dto/preview-ai-blueprint.dto';
 import { canGenerateAiTemplate } from './ai-tpl-capabilities';
 import { getTplGenerationSpec } from './ai-tpl-capabilities';
-import { AiProviderAdapter } from './ai-provider.adapter';
+import { AiProviderAdapter, aiModelForRole } from './ai-provider.adapter';
 import type { AiReferenceAnalysis } from './ai-blueprint.types';
 
 export type AiBlueprintPreview = Readonly<{
@@ -90,6 +90,18 @@ type AiBlueprintPreviewOptions = Readonly<{
   reportAnalysisProgress?: (completed: number, total: number) => Promise<void> | void;
 }>;
 
+function unitsForSource(
+  source: AiProfileSource,
+  startUnitNum?: number,
+  endUnitNum?: number,
+): readonly number[] {
+  const units = source.unitNumbers?.length ? source.unitNumbers : [source.unitNumber];
+  const scoped = units.filter((unit) =>
+    unit >= (startUnitNum ?? unit) && unit <= (endUnitNum ?? unit),
+  );
+  return scoped.length > 0 ? [scoped[0]] : [];
+}
+
 @Injectable()
 export class AiBlueprintService {
   private readonly logger = new Logger(AiBlueprintService.name);
@@ -123,7 +135,12 @@ export class AiBlueprintService {
         ),
       },
     });
-    const collected = collectEvidence(sources, request.subjectSlug);
+    const collected = collectEvidence(
+      sources,
+      request.subjectSlug,
+      request.startUnitNum,
+      request.endUnitNum,
+    );
     const evidence = collected.evidence;
     const candidateCount =
       request.questionCount +
@@ -207,8 +224,7 @@ export class AiBlueprintService {
               sourceId: item.sourceId,
               sourceHash: item.sourceHash,
               analysisVersion: AI_BLUEPRINT_VERSION,
-              providerModel: process.env.OPENAI_AI_ANALYSIS_MODEL ??
-                process.env.OPENAI_AI_BLUEPRINT_MODEL ?? process.env.OPENAI_MODEL ?? 'gpt-4o-mini',
+              providerModel: aiModelForRole('analysis'),
               promptHash: null,
               analysis: analysis as unknown as any,
             },
@@ -567,13 +583,15 @@ function sourceSlotsFor(
 function collectEvidence(
   sources: readonly AiProfileSource[],
   subjectSlug: string,
+  startUnitNum?: number,
+  endUnitNum?: number,
 ): EvidenceCollectionResult {
   const subject = subjectStyle(subjectSlug);
   let parsedReferenceCount = 0;
   let invalidReferenceCount = 0;
   let unsupportedTemplateCount = 0;
-  const evidence = sources.flatMap((source) => {
-    const parsed = parseReference(catalogReferencePayload(source), subject);
+  const evidence = sources.flatMap((source) => unitsForSource(source, startUnitNum, endUnitNum).flatMap((unitNumber) => {
+    const parsed = parseReference(catalogReferencePayload(source, unitNumber), subject);
     if (
       !parsed.ok ||
       !isSingleAnswerIndex(parsed.value.correctAnswer)
@@ -629,7 +647,7 @@ function collectEvidence(
       sourcePayload: source.sourcePayload,
       sourceAnswerIndex: parsed.value.correctAnswer as 1 | 2 | 3 | 4 | 5,
     }));
-  });
+  }));
   return {
     evidence,
     rawReferenceCount: sources.length,
@@ -757,21 +775,30 @@ function providerSlotCountFor(template: string, stimulus: string | undefined): n
   return lines.length || undefined;
 }
 
-function extractSourceFactAnchors(
+// Dates, clock times, and calendar years are surface details a variant may
+// change; requiring them verbatim contradicts the "new storyline" instruction.
+const NON_FACT_NUMBER_PATTERNS = [
+  /\d{2,4}\s*[./-]\s*\d{1,2}(?:\s*[./-]\s*\d{1,2})?\.?/gu,
+  /\d{1,2}\s*월(?:\s*\d{1,2}\s*일)?/gu,
+  /\d{4}\s*년/gu,
+  /\d{1,2}\s*:\s*\d{2}/gu,
+] as const;
+
+// Only quantities with a unit are decisive facts. Bare numbers are list
+// markers, IDs, or ordinals, and "N단계" labels are structural, not facts.
+export function extractSourceFactAnchors(
   stimulus: string | undefined,
 ): readonly string[] {
   if (stimulus === undefined) return [];
+  const withoutDates = NON_FACT_NUMBER_PATTERNS.reduce(
+    (text, pattern) => text.replace(pattern, ' '),
+    stimulus,
+  );
   const matches =
-    stimulus.match(
-      /\d+(?:[.,]\d+)?\s*(?:%|명|개|원|일|개월|년|시간|단계)?/gu,
+    withoutDates.match(
+      /\d+(?:[.,]\d+)*\s*(?:%|명|개월|개|원|일|년|시간|세)/gu,
     ) ?? [];
-  return [
-    ...new Set(
-      matches
-        .map((value) => value.trim())
-        .filter((value) => value !== '' && !/^\d$/u.test(value)),
-    ),
-  ];
+  return [...new Set(matches.map((value) => value.trim()))];
 }
 
 // 모의고사형 선별: TPL 비율 기반 할당 → 단원 가중치 분배.
@@ -909,10 +936,11 @@ function selectBalancedEvidence(
 
 function catalogReferencePayload(
   row: AiProfileSource,
+  unitNumber = row.unitNumber,
 ): Readonly<Record<string, unknown>> {
   const sourceValue = row.sourcePayload.source;
   const source = isRecord(sourceValue) ? { ...sourceValue } : {};
-  source.unitNumber = row.unitNumber;
+  source.unitNumber = unitNumber;
   return { ...row.sourcePayload, source };
 }
 

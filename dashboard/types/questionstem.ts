@@ -214,3 +214,133 @@ export interface TPL_PROMOTIONAL_CANVAS {
   /** 빈칸 없으면 빈 문자열("") */
   missing_part: string;
 }
+
+// ------------------------------------------------------------
+// 10–14. Textual document templates
+// ------------------------------------------------------------
+
+export interface TPL_ARTICLE {
+  title: string;
+  body_paragraphs: string[];
+  byline?: string;
+  published_date?: string;
+  source?: string;
+}
+
+export interface StatisticsEntry {
+  label: string;
+  value: string;
+  sub_label?: string;
+}
+
+export interface TPL_STATISTICS {
+  title: string;
+  category_label?: string;
+  data_entries: StatisticsEntry[];
+  unit?: string;
+  source?: string;
+}
+
+export interface TimelineEvent {
+  time: string;
+  event: string;
+}
+
+export interface TPL_INCIDENT_REPORT {
+  title: string;
+  incident_type: string;
+  date?: string;
+  location?: string;
+  overview: string;
+  cause?: string;
+  damage?: string;
+  response?: string;
+  prevention?: string;
+  timeline?: TimelineEvent[];
+}
+
+export interface AnnouncementSchedule { start: string; end?: string; }
+export interface AnnouncementDetail { label: string; content: string; }
+
+export interface TPL_ANNOUNCEMENT {
+  title: string;
+  organizer: string;
+  schedule?: AnnouncementSchedule;
+  location?: string;
+  target?: string;
+  details: AnnouncementDetail[];
+  contact?: string;
+}
+
+export interface ReportMeta { label: string; value: string; }
+export interface ReportSectionTable { headers: string[]; rows: string[][]; }
+export interface ReportSection { heading: string; content: string; table?: ReportSectionTable; }
+
+export interface TPL_REPORT {
+  title: string;
+  author?: string;
+  date?: string;
+  metadata?: ReportMeta[];
+  sections: ReportSection[];
+  conclusion?: string;
+}
+
+// ------------------------------------------------------------
+// 15. TPL_SOURCE_BLOCKS (렌더 전용 — reference 원문 블록)
+// 계약: artifacts/reference-corpus-v3/SOURCE_BLOCKS_CONTRACT.md
+// 모든 문자열은 원문 그대로이며 마크다운으로 해석하지 않는다.
+// 텍스트·표 셀·대화 안에 `[그림 Fk]` 토큰이 들어 있을 수 있다.
+// ------------------------------------------------------------
+
+export interface SourceTextBlock {
+  type: 'text';
+  text: string;
+}
+
+export interface SourceTableBlock {
+  type: 'table';
+  title?: string | null;
+  /** 0행 이상. 병합 셀은 첫 칸에만 값이 있고 나머지는 "" */
+  headers: string[][];
+  rows: string[][];
+  caption?: string | null;
+}
+
+export interface SourceDialogueLine {
+  speaker: string;
+  text: string;
+}
+
+export interface SourceDialogueBlock {
+  type: 'dialogue';
+  lines: SourceDialogueLine[];
+}
+
+export interface SourceFigureBlock {
+  type: 'figure';
+  figure_id: string;
+}
+
+export type SourceBlock =
+  | SourceTextBlock
+  | SourceTableBlock
+  | SourceDialogueBlock
+  | SourceFigureBlock;
+
+export interface SourceFigure {
+  /** 이미지 미업로드면 null → alt 텍스트 박스로 대체 */
+  src: string | null;
+  alt: string;
+  kind?: string;
+}
+
+export interface SourceChoiceTable {
+  headers: string[];
+  rows: string[][];
+}
+
+export interface TPL_SOURCE_BLOCKS {
+  blocks: SourceBlock[];
+  figures: Record<string, SourceFigure>;
+  choice_table?: SourceChoiceTable | null;
+}

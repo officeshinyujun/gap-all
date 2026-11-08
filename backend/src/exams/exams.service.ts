@@ -45,7 +45,12 @@ import { ReferenceFidelitySpecError } from './reference-fidelity-spec';
 import { assertAiBlueprintGenerationEnabled } from './ai-generation-feature';
 import type { SimplyReferenceGenerationLineage } from './reference-frame.types';
 import { AiExamGenerationService } from './ai-exam-generation.service';
+import {
+  GenerativeExamGenerationService,
+  assertAiGenerativeEnabled,
+} from './generative/generative-exam-generation.service';
 import { AiUnitProfileService } from './ai-unit-profile.service';
+import { validateSimplyReferenceRenderTpl } from './simply-reference-generation-contract';
 
 const REFERENCE_JOB_TIMEOUT_MS =
   Number(process.env.REFERENCE_JOB_TIMEOUT_MS) || 360_000;
@@ -303,6 +308,8 @@ export class ExamsService {
     private readonly aiExamGenerationService: AiExamGenerationService,
     @Optional()
     private readonly aiUnitProfileService?: AiUnitProfileService,
+    @Optional()
+    private readonly generativeExamGenerationService?: GenerativeExamGenerationService,
   ) {}
 
   // ============================================================
@@ -341,6 +348,13 @@ export class ExamsService {
   // 시험 생성
   // ============================================================
   async create(userId: string, dto: CreateExamDto) {
+    if (dto.sourceType === 'ai_generative') {
+      assertAiGenerativeEnabled();
+      throw new BadRequestException({
+        code: 'AI_SYNC_UNSUPPORTED',
+        message: '완전 AI 출제는 생성 작업(POST /exams/jobs)으로만 요청할 수 있습니다.',
+      });
+    }
     if (dto.sourceType === 'ai_blueprint') {
       assertAiBlueprintGenerationEnabled();
       throw new BadRequestException({
@@ -372,6 +386,9 @@ export class ExamsService {
   async createJob(userId: string, dto: CreateExamDto) {
     if (dto.sourceType === 'ai_blueprint') {
       assertAiBlueprintGenerationEnabled();
+    }
+    if (dto.sourceType === 'ai_generative') {
+      assertAiGenerativeEnabled();
     }
     const subject = await this.subjectRepo.findOne({
       where: { id: dto.subjectId },
@@ -497,6 +514,18 @@ export class ExamsService {
     return { ...exam, items: safeItems };
   }
 
+  /** 본인(또는 관리자) 시험인지 확인하고 제목을 돌려준다. */
+  async assertExamAccess(userId: string, examId: string, userRole?: string) {
+    const exam = await this.examRepo.findOne({
+      where: { id: examId },
+      select: { id: true, userId: true, title: true },
+    });
+    if (!exam) throw new NotFoundException('시험을 찾을 수 없습니다.');
+    if (exam.userId !== userId && userRole !== 'admin')
+      throw new ForbiddenException('접근 권한이 없습니다.');
+    return { id: exam.id, title: exam.title };
+  }
+
   // ============================================================
   // 시험 삭제
   // ============================================================
@@ -526,13 +555,21 @@ export class ExamsService {
     if (exam.userId !== userId)
       throw new ForbiddenException('접근 권한이 없습니다.');
 
+    // 제출(채점)이 끝난 시험은 중간 저장을 받지 않는다. 늦게 도착한 자동 저장이 채점 결과를 건드리지 않게 한다.
+    if (exam.totalScore !== null && exam.totalScore !== undefined) {
+      return { saved: 0 };
+    }
+
+    let saved = 0;
     for (const ans of answers) {
       const item = exam.items.find((i) => i.id === ans.examItemId);
       if (!item) continue;
-      item.userAnswer = ans.answer;
-      await this.examItemRepo.save(item);
+      // 엔티티 전체를 save하면 미리 읽어 둔 is_correct까지 다시 써서, 그사이 끝난 채점 결과를 덮어쓴다.
+      // 응답 칸만 갱신한다.
+      await this.examItemRepo.update({ id: item.id, examId: exam.id }, { userAnswer: ans.answer });
+      saved += 1;
     }
-    return { saved: answers.length };
+    return { saved };
   }
 
   // ============================================================
@@ -628,11 +665,18 @@ export class ExamsService {
     if (exam.userId !== userId)
       throw new ForbiddenException('접근 권한이 없습니다.');
 
+    // 제출된 시험의 정오는 저장된 플래그 대신 응답과 정답을 직접 비교한다.
+    // (예전 자동 저장 경쟁으로 플래그가 덮어써진 시험도 올바르게 보이게 한다)
+    const submitted = exam.totalScore !== null && exam.totalScore !== undefined;
     const items = exam.items.map((item) => ({
       id: item.id,
       orderIndex: item.orderIndex,
       userAnswer: item.userAnswer,
-      isCorrect: item.isCorrect,
+      isCorrect: submitted
+        ? item.userAnswer !== null &&
+          item.userAnswer !== undefined &&
+          item.userAnswer === item.question.correctAnswer
+        : item.isCorrect,
       question: {
         id: item.question.id,
         targetConcept: item.question.targetConcept,
@@ -684,7 +728,9 @@ export class ExamsService {
       return;
     this.examGenerationJobsService.start(userIdJobId, userId);
     const deadline =
-      dto.sourceType === 'ai' || dto.sourceType === 'ai_blueprint'
+      dto.sourceType === 'ai' ||
+      dto.sourceType === 'ai_blueprint' ||
+      dto.sourceType === 'ai_generative'
         ? undefined
         : new ReferenceJobDeadline({
             deadlineAtMs: Date.now() + REFERENCE_JOB_TIMEOUT_MS,
@@ -800,6 +846,19 @@ export class ExamsService {
       const unitRepo = manager.getRepository(Unit);
       const questions: Question[] = [];
       for (const draft of drafts) {
+        // ponytail: enforce the existing renderer contract at the last safe boundary.
+        if (
+          draft.lineage.selectedTemplate !==
+            draft.result.metadata.recommended_template ||
+          !validateSimplyReferenceRenderTpl(
+            draft.result.metadata.recommended_template,
+            draft.result.render_ready.stimulus_data,
+          )
+        ) {
+          throw new BadRequestException(
+            '렌더러 계약을 통과하지 못한 참조 문항은 저장할 수 없습니다.',
+          );
+        }
         const unitNumber =
           Number.parseInt(
             draft.result.metadata.unit_name.replace(/[^0-9]/g, ''),
@@ -987,6 +1046,27 @@ export class ExamsService {
     });
     if (!subject) throw new NotFoundException('과목을 찾을 수 없습니다.');
 
+    if (dto.sourceType === 'ai_generative') {
+      if (this.generativeExamGenerationService === undefined) {
+        throw new InternalServerErrorException('완전 AI 출제 서비스가 등록되지 않았습니다.');
+      }
+      const examId = await this.generativeExamGenerationService.generate(
+        userId,
+        dto,
+        subject.title,
+        subject.slug,
+        idempotencyKey ?? randomUUID(),
+        reportProgress,
+        () =>
+          idempotencyKey !== undefined &&
+          this.examGenerationJobsService.isCanceled?.(
+            idempotencyKey,
+            userId,
+          ) === true,
+      );
+      return this.findOne(userId, examId);
+    }
+
     if (dto.sourceType === 'ai_blueprint') {
       const examId = await this.aiExamGenerationService.generate(
         userId,
@@ -1074,6 +1154,7 @@ function referenceLineageMatchesSubject(
   unitNumber: number,
 ): boolean {
   const sourceId = lineage.source.sourceId;
+  if (lineage.source.unitNumber === unitNumber) return true;
   const expectedPrefix = subjectSlug === 'success' ? 'success:' : 'kongil:';
   const match = new RegExp(`^${expectedPrefix}(\\d+):`).exec(sourceId);
   return match !== null && Number(match[1]) === unitNumber;

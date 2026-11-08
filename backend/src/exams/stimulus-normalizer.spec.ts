@@ -1,4 +1,9 @@
 import { StimulusNormalizer } from './stimulus-normalizer';
+import {
+  SOURCE_BLOCKS_TPL,
+  buildSourceBlocksStimulus,
+} from './source-blocks-stimulus';
+import { v3Payload } from './source-blocks-stimulus.fixtures';
 
 const normalizer = new StimulusNormalizer();
 
@@ -128,6 +133,22 @@ describe('StimulusNormalizer TPL renderability', () => {
     ).toBe(false);
   });
 
+  it('downgrades invalid structured data to readable plain text at the API boundary', () => {
+    const normalized = normalizer.normalizeStimulusWithTemplate(
+      {
+        headers: [],
+        rows: [],
+        source_excerpt: '원문을 보존해야 하는 표 자료',
+      },
+      'TPL_COMPARATIVE_MATRIX',
+    );
+
+    expect(normalized.effectiveTemplate).toBe('TPL_PLAIN_TEXT');
+    expect(normalized.stimulusData).toEqual({
+      data: expect.stringContaining('원문을 보존해야 하는 표 자료'),
+    });
+  });
+
   it('adds safe visual defaults to legacy conversations', () => {
     expect(
       normalizer.normalizeStimulusData(
@@ -203,5 +224,46 @@ describe('StimulusNormalizer TPL renderability', () => {
         'TPL_CONVERSATIONAL_FLOW',
       ),
     ).toBe(false);
+  });
+});
+
+describe('StimulusNormalizer TPL_SOURCE_BLOCKS', () => {
+  const stored = () =>
+    JSON.parse(JSON.stringify(buildSourceBlocksStimulus(v3Payload())));
+
+  it('round-trips valid source blocks on read without downgrading', () => {
+    const persisted = stored();
+    const { stimulusData, effectiveTemplate } =
+      normalizer.normalizeStimulusWithTemplate(persisted, SOURCE_BLOCKS_TPL);
+    expect(effectiveTemplate).toBe(SOURCE_BLOCKS_TPL);
+    expect(stimulusData).toEqual(stored());
+    expect(normalizer.normalizeStimulusData(stored(), SOURCE_BLOCKS_TPL)).toEqual(
+      stored(),
+    );
+  });
+
+  it('sanitizes unknown keys on read', () => {
+    const persisted = stored();
+    persisted.injected = '<script>';
+    persisted.figures.F1.onerror = 'x';
+    const { stimulusData } = normalizer.normalizeStimulusWithTemplate(
+      persisted,
+      SOURCE_BLOCKS_TPL,
+    );
+    expect(stimulusData).toEqual(stored());
+  });
+
+  it('downgrades invalid source blocks to plain text', () => {
+    const persisted = stored();
+    persisted.figures.F1.src = 'http://insecure.example/a.png';
+    expect(
+      normalizer.normalizeStimulusWithTemplate(persisted, SOURCE_BLOCKS_TPL)
+        .effectiveTemplate,
+    ).toBe('TPL_PLAIN_TEXT');
+  });
+
+  it('keeps LLM-facing checks unaware of the render-only template', () => {
+    expect(normalizer.resolveTemplate(SOURCE_BLOCKS_TPL)).toBe('TPL_PLAIN_TEXT');
+    expect(normalizer.isRenderableTplData(stored(), SOURCE_BLOCKS_TPL)).toBe(false);
   });
 });

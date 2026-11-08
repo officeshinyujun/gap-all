@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router';
-import { API_BASE_URL } from '@/lib/auth';
+import { apiFetch, API_BASE_URL } from '@/shared/lib/apiClient';
 import { clearClientCache } from '@/lib/clientCache';
 
 interface User {
@@ -31,18 +31,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const navigate = useNavigate();
 
   const refreshUser = useCallback(async (): Promise<User | null> => {
-    const res = await fetch(`${API_BASE_URL}/users/me`, {
-      credentials: 'include',
-    });
-
-    if (!res.ok) {
+    try {
+      const data = await apiFetch<User>('/users/me');
+      setUser(data);
+      return data;
+    } catch {
       setUser(null);
       return null;
     }
-
-    const data = await res.json() as User;
-    setUser(data);
-    return data;
   }, []);
 
   useEffect(() => {

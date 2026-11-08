@@ -17,6 +17,13 @@ import {
   TPLDigitalForumInterface,
   TPLQuantitativeChart,
   TPLPromotionalCanvas,
+  TPLArticle,
+  TPLStatistics,
+  TPLIncidentReport,
+  TPLAnnouncement,
+  TPLReport,
+  TPLSourceBlocks,
+  SourceChoiceTable,
 } from '../index';
 import { parseStimulus, getTemplateLabel, inferTemplate } from '@/utils/examParser';
 import type { ExamQuestion, ParsedStimulus } from '@/types/examQuestion';
@@ -105,6 +112,19 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
         return <TPLQuantitativeChart data={parsed.data} label={question_stem} />;
       case 'TPL_PROMOTIONAL_CANVAS':
         return <TPLPromotionalCanvas data={parsed.data} label={question_stem} />;
+      case 'TPL_ARTICLE':
+        return <TPLArticle data={parsed.data} label={question_stem} />;
+      case 'TPL_STATISTICS':
+        return <TPLStatistics data={parsed.data} label={question_stem} />;
+      case 'TPL_INCIDENT_REPORT':
+        return <TPLIncidentReport data={parsed.data} label={question_stem} />;
+      case 'TPL_ANNOUNCEMENT':
+        return <TPLAnnouncement data={parsed.data} label={question_stem} />;
+      case 'TPL_REPORT':
+        return <TPLReport data={parsed.data} label={question_stem} />;
+      case 'TPL_SOURCE_BLOCKS':
+        if (!parsed.data.blocks.length) return null;
+        return <TPLSourceBlocks data={parsed.data} label={question_stem} />;
       case 'TPL_PLAIN_TEXT':
         return (
           <StemBox>
@@ -151,6 +171,11 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
             </div>
           ))}
         </VStack>
+      )}
+
+      {/* 선택지 머리 표 ((가)/(나) 열) */}
+      {parsed?.template === 'TPL_SOURCE_BLOCKS' && parsed.data.choice_table && (
+        <SourceChoiceTable data={parsed.data.choice_table} />
       )}
 
       {/* 선택지 */}

@@ -37,6 +37,9 @@ import {
   AiQuestionGenerationService,
 } from './ai-question-generation.service';
 import { AiExamGenerationService } from './ai-exam-generation.service';
+import { GenerativeExamGenerationService } from './generative/generative-exam-generation.service';
+import { GenerativeLlmClient } from './generative/generative-llm.client';
+import { ExamPdfService } from './exam-pdf.service';
 
 @Module({
   imports: [
@@ -82,6 +85,9 @@ import { AiExamGenerationService } from './ai-exam-generation.service';
     },
     AiQuestionGenerationService,
     AiExamGenerationService,
+    GenerativeLlmClient,
+    GenerativeExamGenerationService,
+    ExamPdfService,
   ],
   exports: [ExamsService, AiUnitProfileService],
 })

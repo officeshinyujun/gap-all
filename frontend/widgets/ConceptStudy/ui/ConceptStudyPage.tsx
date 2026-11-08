@@ -7,6 +7,8 @@ import { VStack } from '@shared/ui/VStack';
 import { HStack } from '@shared/ui/HStack';
 import Typo from '@shared/ui/Typo';
 import { QuestionRenderer } from '@shared/ui/QuestionStem/QuestionRenderer';
+import { ConceptAnalysisPanel } from '@shared/ui/ConceptAnalysisPanel';
+import type { ConceptHighlightV2, StudyMustKnowBlock } from '@entities/concept/model/types';
 import { useConceptStudy } from '../model/useConceptStudy';
 import s from '@/app/(main)/study/[subject]/[chapter]/concept/page.module.scss';
 
@@ -26,6 +28,51 @@ function importanceLabel(
     : `${rank}순위`;
 }
 
+function isValidConceptHighlightV2(value: unknown): value is ConceptHighlightV2 {
+  if (!value || typeof value !== 'object') return false;
+  const highlight = value as Record<string, any>;
+  return Array.isArray(highlight.stimulusClues)
+    && highlight.stimulusClues.length > 0
+    && highlight.stimulusClues.every((clue: any) => clue?.quote?.trim() && clue?.why?.trim())
+    && Array.isArray(highlight.optionAnalysis)
+    && highlight.optionAnalysis.length > 0
+    && highlight.optionAnalysis.every((option: any) =>
+      (typeof option?.optionKey === 'string' || Number.isInteger(option?.optionNum))
+      && (option.verdict === 'O' || option.verdict === 'X')
+      && option.reasoning?.trim(),
+    )
+    && Array.isArray(highlight.solvingFlow)
+    && highlight.solvingFlow.length >= 3
+    && highlight.solvingFlow.every((step: any) => Number.isInteger(step?.step) && step?.action?.trim())
+    && typeof highlight.takeaway === 'string'
+    && highlight.takeaway.trim() !== '';
+}
+
+function isValidQuestion(value: unknown): boolean {
+  if (!value || typeof value !== 'object') return false;
+  const question = value as any;
+  const renderReady = question.render_ready;
+  const stem = renderReady?.question_stem ?? question.stem;
+  const options = renderReady?.options_list ?? renderReady?.options ?? question.options ?? question.choices;
+  const answer = Number(question.correct_answer ?? question.answer ?? question.correctAnswer);
+  return typeof stem === 'string'
+    && stem.trim() !== ''
+    && Array.isArray(options)
+    && options.length >= 2
+    && Number.isInteger(answer)
+    && answer >= 1
+    && answer <= options.length;
+}
+
+function isValidMustKnow(value: unknown): value is StudyMustKnowBlock {
+  if (!value || typeof value !== 'object') return false;
+  const block = value as any;
+  return typeof block.title === 'string'
+    && Array.isArray(block.mustRemember)
+    && Array.isArray(block.commonTraps)
+    && block.reviewStatus !== 'review';
+}
+
 export function ConceptStudyPage() {
   const { subject = '', chapter = '' } = useParams();
   const unitNumber = parseUnitNumber(chapter);
@@ -35,29 +82,37 @@ export function ConceptStudyPage() {
   const {
     mainTab, setMainTab, slideView, setSlideView,
     loading, error, data, concepts, current, total, currentIndex,
+    currentHasQuestion,
     studyInsights,
     structured, structuredLoading, openSections, toggleSection,
     bookmarks, bookmarkLoading, isBookmarked, handleBookmark,
-    openAnalysis, toggleAnalysis,
     handlePrev, handleNext, handleComplete, isFirst, isLast,
   } = useConceptStudy(subject, unitNumber, chapter);
 
-  const relatedQuestions = current?.relatedQuestions ?? [];
-  const activeRelatedQuestion = relatedQuestions[relatedQuestionIndex];
-  const v2 = activeRelatedQuestion?.conceptHighlightV2 ?? current?.conceptHighlightV2;
-  const sampleQuestion = activeRelatedQuestion
+  const relatedQuestions = (current?.relatedQuestions ?? []).filter((related) =>
+    isValidQuestion({ ...related.question, correct_answer: related.correct_answer }),
+  );
+  const hasRelatedQuestions = relatedQuestions.length > 0;
+  const activeRelatedQuestion = relatedQuestions[Math.min(relatedQuestionIndex, Math.max(relatedQuestions.length - 1, 0))];
+  const v2 = hasRelatedQuestions
+    ? (activeRelatedQuestion && isValidConceptHighlightV2(activeRelatedQuestion.conceptHighlightV2)
+      ? activeRelatedQuestion.conceptHighlightV2
+      : null)
+    : (isValidConceptHighlightV2(current?.conceptHighlightV2) ? current.conceptHighlightV2 : null);
+  const sampleQuestion = hasRelatedQuestions
     ? {
-        ...activeRelatedQuestion.question,
-        correct_answer: activeRelatedQuestion.correct_answer,
-        questionSource: activeRelatedQuestion.questionSource,
-        questionNumber: activeRelatedQuestion.questionNumber ?? undefined,
-        rawStimulus: activeRelatedQuestion.rawStimulus,
+        ...(activeRelatedQuestion?.question ?? {}),
+        correct_answer: activeRelatedQuestion?.correct_answer,
+        questionSource: activeRelatedQuestion?.questionSource,
+        questionNumber: activeRelatedQuestion?.questionNumber ?? undefined,
+        rawStimulus: activeRelatedQuestion?.rawStimulus,
       }
-    : current?.sampleQuestion;
+    : (isValidQuestion(current?.sampleQuestion) ? current.sampleQuestion : null);
   const questionSource = sampleQuestion
     ? (sampleQuestion.questionSource ?? sampleQuestion.metadata?.source_exam ?? '수능특강')
     : '';
   const questionExplanation = String(sampleQuestion?.explanation ?? sampleQuestion?.render_ready?.explanation ?? '');
+  const examMustKnow = isValidMustKnow(current?.examMustKnow) ? current.examMustKnow : null;
 
   useEffect(() => {
     setRelatedQuestionIndex(0);
@@ -177,38 +232,40 @@ export function ConceptStudyPage() {
                     </VStack>
                   )}
 
-                  {current.examMustKnow && current.examMustKnow.reviewStatus !== 'review' && (
+                  {examMustKnow && (
                     <VStack gap={10} fullWidth className={s.mustKnowSection}>
                       <HStack justify="between" align="center" fullWidth>
                         <span className={s.sectionTitle}>
-                          {current.examMustKnow.reviewStatus === 'verified' ? '시험 전 꼭 외울 것' : '핵심 암기'}
+                          {examMustKnow.reviewStatus === 'verified' ? '시험 전 꼭 외울 것' : '핵심 암기'}
                         </span>
                         <span className={s.mustKnowBadge}>
-                          {current.examMustKnow.confidence === 'high' ? '기출 검증' : '교재 기준'}
+                           {examMustKnow.confidence === 'high' ? '기출 검증' : '교재 기준'}
                         </span>
                       </HStack>
-                      <span className={s.mustKnowTitle}>{current.examMustKnow.title}</span>
-                      {current.examMustKnow.summary && (
-                        <MarkdownWithTable className={s.markdownContent}>{current.examMustKnow.summary}</MarkdownWithTable>
+                      {examMustKnow.title !== '핵심 암기' && (
+                        <span className={s.mustKnowTitle}>{examMustKnow.title}</span>
                       )}
-                      {current.examMustKnow.headers && current.examMustKnow.rows && (
+                      {examMustKnow.summary && (
+                        <MarkdownWithTable className={s.markdownContent}>{examMustKnow.summary}</MarkdownWithTable>
+                      )}
+                      {examMustKnow.headers && examMustKnow.rows && (
                         <div className={s.mustKnowTableWrap}>
                           <table className={s.mustKnowTable}>
-                            <thead><tr>{current.examMustKnow.headers.map((header) => <th key={header}>{header}</th>)}</tr></thead>
-                            <tbody>{current.examMustKnow.rows.map((row, rowIndex) => <tr key={rowIndex}>{row.map((cell, cellIndex) => <td key={cellIndex}>{cell}</td>)}</tr>)}</tbody>
+                            <thead><tr>{examMustKnow.headers.map((header, index) => <th key={index}>{header}</th>)}</tr></thead>
+                            <tbody>{examMustKnow.rows.map((row, rowIndex) => <tr key={rowIndex}>{row.map((cell, cellIndex) => <td key={cellIndex}>{cell}</td>)}</tr>)}</tbody>
                           </table>
                         </div>
                       )}
-                      {current.examMustKnow.mustRemember.length > 0 && (
+                      {examMustKnow.mustRemember.length > 0 && (
                         <VStack gap={6} fullWidth>
                           <span className={s.mustKnowLabel}>반드시 기억</span>
-                          <ul className={s.bulletList}>{current.examMustKnow.mustRemember.map((item) => <li key={item}>{item}</li>)}</ul>
+                           <ul className={s.bulletList}>{examMustKnow.mustRemember.map((item, index) => <li key={index}>{item}</li>)}</ul>
                         </VStack>
                       )}
-                      {current.examMustKnow.commonTraps.length > 0 && (
+                      {examMustKnow.commonTraps.length > 0 && (
                         <VStack gap={6} fullWidth className={s.mustKnowTrap}>
                           <span className={s.mustKnowLabel}>자주 틀리는 구분</span>
-                          <ul className={s.bulletList}>{current.examMustKnow.commonTraps.map((item) => <li key={item}>{item}</li>)}</ul>
+                           <ul className={s.bulletList}>{examMustKnow.commonTraps.map((item, index) => <li key={index}>{item}</li>)}</ul>
                         </VStack>
                       )}
                     </VStack>
@@ -268,74 +325,19 @@ export function ConceptStudyPage() {
                     flat
                   />
                 </div>
+                {v2 ? (
+                  <ConceptAnalysisPanel key={`${currentIndex}-${relatedQuestionIndex}`} className={s.analysisPanel} data={v2} />
+                ) : (
                 <div className={s.analysisPanel}>
                   <span className={s.analysisPanelTitle}>이 개념이 문제에서 어떻게 나왔나</span>
-                  {(['solvingFlow', 'stimulusClues', 'optionAnalysis', 'takeaway'] as const).map((key) => {
-                    const labels: Record<string, string> = { solvingFlow: '풀이 흐름', stimulusClues: '지문 단서', optionAnalysis: '선택지 분석', takeaway: '핵심 교훈' };
-                    const hasData = v2 && (key === 'solvingFlow' ? v2.solvingFlow.length > 0 : key === 'stimulusClues' ? v2.stimulusClues.length > 0 : key === 'optionAnalysis' ? v2.optionAnalysis.length > 0 : !!v2.takeaway);
-                    if (!hasData) return null;
-                    return (
-                      <div key={key} className={s.analysisAccordion}>
-                        <button className={s.analysisAccordionHeader} onClick={() => toggleAnalysis(key)}>
-                          <span>{labels[key]}</span>
-                          <span className={s.analysisChevron}>{openAnalysis[key] ? '▲' : '▼'}</span>
-                        </button>
-                        {openAnalysis[key] && (
-                          <div className={s.analysisAccordionBody}>
-                            {key === 'solvingFlow' && v2 && (
-                              <VStack gap={6} fullWidth>
-                                {v2.solvingFlow.map((step, i) => <div key={i} className={s.solvingStep}><span className={s.stepNum}>{step.step}</span><span className={s.stepText}>{step.action}</span></div>)}
-                              </VStack>
-                            )}
-                            {key === 'stimulusClues' && v2 && (
-                              <VStack gap={12} fullWidth>
-                                <VStack gap={8} fullWidth>
-                                  {v2.stimulusClues.map((clue, i) => (
-                                    <div key={i} className={s.clueBox}>
-                                      <p className={s.clueQuote}><mark className={s.stimulusHighlight}>{clue.quote}</mark></p>
-                                      <MarkdownWithTable className={s.clueWhy}>{clue.why}</MarkdownWithTable>
-                                    </div>
-                                  ))}
-                                </VStack>
-                              </VStack>
-                            )}
-                            {key === 'optionAnalysis' && v2 && (
-                              <VStack gap={6} fullWidth>
-                                {v2.optionAnalysis.map((opt: any, i: number) => {
-                                  const label = opt.optionKey ?? (['①', '②', '③', '④', '⑤'][(opt.optionNum ?? 1) - 1] ?? String(opt.optionNum));
-                                  return (
-                                    <div key={i} className={`${s.optionAnalysisRow} ${opt.verdict === 'O' ? s.optionCorrectRow : s.optionWrongRow}`}>
-                                      <HStack gap={8} align="start">
-                                        <span className={s.optionAnalysisNum}>{label}</span>
-                                        <span className={`${s.verdict} ${opt.verdict === 'O' ? s.verdictO : s.verdictX}`}>{opt.verdict}</span>
-                                        <MarkdownWithTable className={s.optionReasoning}>{opt.reasoning}</MarkdownWithTable>
-                                      </HStack>
-                                    </div>
-                                  );
-                                })}
-                              </VStack>
-                            )}
-                            {key === 'takeaway' && v2 && <MarkdownWithTable className={s.markdownContent}>{v2.takeaway}</MarkdownWithTable>}
-                          </div>
-                        )}
-                      </div>
-                    );
-                  })}
-                  {!v2 && (
-                    <VStack gap={12} fullWidth>
-                      <div className={s.analysisFallbackBox}>
-                        <span className={s.analysisFallbackTitle}>이 개념이 문제에서 어떻게 나왔나</span>
-                        <MarkdownWithTable className={s.markdownContent}>
-                          {`${current.name}은(는) 이 대표 문제의 지문·보기·선택지를 판단하는 기준으로 출제되었습니다.`}
-                        </MarkdownWithTable>
-                      </div>
-                      {questionExplanation && (
+                     <VStack gap={12} fullWidth>
+                       {questionExplanation && (
                         <div className={s.analysisFallbackBox}>
                           <span className={s.analysisFallbackTitle}>문제 해설</span>
                           <MarkdownWithTable className={s.markdownContent}>{questionExplanation}</MarkdownWithTable>
                         </div>
                       )}
-                      {current.examTips.length > 0 && (
+                       {!activeRelatedQuestion && current.examTips.length > 0 && (
                         <div className={s.analysisFallbackBox}>
                           <span className={s.analysisFallbackTitle}>이 문제의 출제 포인트</span>
                           <VStack gap={6} fullWidth>
@@ -344,10 +346,13 @@ export function ConceptStudyPage() {
                             ))}
                           </VStack>
                         </div>
-                      )}
-                    </VStack>
-                  )}
+                       )}
+                       {!questionExplanation && (activeRelatedQuestion || current.examTips.length === 0) && (
+                         <p className={s.noAnalysisText}>검증된 문제 분석 데이터가 없습니다.</p>
+                       )}
+                     </VStack>
                 </div>
+                )}
               </div>
             )}
             {current && !sampleQuestion && slideView === 'question' && (
@@ -361,7 +366,7 @@ export function ConceptStudyPage() {
             {isLast ? (
               <button className={`${s.navButton} ${s.navButtonNext}`} onClick={handleComplete}>빈칸 문제 풀기 →</button>
             ) : (
-              <button className={`${s.navButton} ${s.navButtonPrimary}`} onClick={handleNext}>{slideView === 'learn' ? '문제 보기 →' : '다음 개념 →'}</button>
+              <button className={`${s.navButton} ${s.navButtonPrimary}`} onClick={handleNext}>{slideView === 'learn' && currentHasQuestion ? '문제 보기 →' : '다음 개념 →'}</button>
             )}
           </div>
         </>

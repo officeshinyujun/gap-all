@@ -23,7 +23,8 @@ export type ExamSourceType =
   | 'ai'
   | 'reference'
   | 'simply_reference'
-  | 'ai_blueprint';
+  | 'ai_blueprint'
+  | 'ai_generative';
 
 export class CreateExamDto {
   @IsUUID()
@@ -61,7 +62,7 @@ export class CreateExamDto {
   targetConcepts?: string[];
 
   @IsOptional()
-  @IsIn(['ai', 'reference', 'simply_reference', 'ai_blueprint'])
+  @IsIn(['ai', 'reference', 'simply_reference', 'ai_blueprint', 'ai_generative'])
   sourceType?: ExamSourceType;
 
   @IsOptional()

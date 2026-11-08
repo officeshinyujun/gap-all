@@ -4,7 +4,8 @@ export type ExamSourceType =
   | 'ai'
   | 'reference'
   | 'simply_reference'
-  | 'ai_blueprint';
+  | 'ai_blueprint'
+  | 'ai_generative';
 
 export type AiGenerationStage =
   | 'queued'
@@ -70,6 +71,8 @@ export interface SubjectInfo {
   title: string;
 }
 
+export type GenerationItemState = 'queued' | 'generating' | 'verifying' | 'accepted' | 'failed' | 'skipped';
+
 export interface ExamJobStatus {
   jobId: string;
   status: 'pending' | 'running' | 'completed' | 'failed' | 'canceled';
@@ -93,6 +96,12 @@ export interface ExamJobStatus {
     rejectionsByCode?: Record<string, number>;
   };
   sourceType?: ExamSourceType;
+  /** 완전 AI 출제: 문항별 진행 상태 (출제 순서대로) */
+  itemStates?: GenerationItemState[];
+  /** 본 문항이 반려되어 병렬로 시작한 예비 문항의 상태 */
+  reserveStates?: GenerationItemState[];
+  createdAt?: string;
+  updatedAt?: string;
   aiProgress?: {
     stage: AiGenerationStage;
     completed: number;
@@ -106,5 +115,5 @@ export interface ExamJobStatus {
 
 export type ExamGenerationMode = Extract<
   ExamSourceType,
-  'simply_reference' | 'ai_blueprint'
+  'simply_reference' | 'ai_blueprint' | 'ai_generative'
 >;

@@ -1038,7 +1038,7 @@ function parseQuestion(
     lineage: {
       generationPath: 'simply_reference',
       generationNonce,
-      source: ref.source,
+      source: { ...ref.source, unitNumber: ref.unitNumber },
       batchOrdinal,
       selectedTemplate,
       adapterVersion: 0,
@@ -1358,8 +1358,10 @@ function sourcePreservingDraft(
   const options = normalizeOfficialChoices(reference.choices);
   const comboBlock = sourceComboBlock(reference);
   // Prefer cached LLM-converted TPL data over adapter output.
+  // 단, v3 구조화 제시문(TPL_SOURCE_BLOCKS)은 캐시보다 우선한다.
   const cachedData = reference.tplStimulusData;
   const render =
+    reference.sourceBlocksStimulus === undefined &&
     cachedData !== undefined &&
     validateSimplyReferenceStructuredTpl(
       sourceTemplate(reference) ?? 'TPL_ARTICLE',

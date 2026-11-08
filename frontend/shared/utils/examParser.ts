@@ -1,4 +1,5 @@
 import type { ParsedStimulus } from '@/types/examQuestion';
+import { normalizeSourceBlocks } from './sourceBlocks';
 
 function asRecord(data: unknown): Record<string, any> {
   return data && typeof data === 'object' && !Array.isArray(data)
@@ -239,6 +240,7 @@ export function inferTemplate(data: unknown): string | null {
   if (!data || typeof data !== 'object') return null;
   const d = data as Record<string, unknown>;
 
+  if (Array.isArray(d.blocks) && 'figures' in d) return 'TPL_SOURCE_BLOCKS';
   if ('headers' in d && 'rows' in d) return 'TPL_COMPARATIVE_MATRIX';
   if ('doc_type' in d && 'header_info' in d && 'paragraphs' in d) return 'TPL_FORMAL_DOCUMENT';
   if ('participants' in d && 'messages' in d) return 'TPL_CONVERSATIONAL_FLOW';
@@ -308,6 +310,8 @@ export function parseStimulus(
       return { template: 'TPL_ANNOUNCEMENT', data: normalizeAnnouncement(data) };
     case 'TPL_REPORT':
       return { template: 'TPL_REPORT', data: normalizeReport(data) };
+    case 'TPL_SOURCE_BLOCKS':
+      return { template: 'TPL_SOURCE_BLOCKS', data: normalizeSourceBlocks(data) };
     case 'TPL_PLAIN_TEXT':
       return { template: 'TPL_PLAIN_TEXT', data: normalizePlainText(data) };
     default:
@@ -337,6 +341,7 @@ export function getTemplateLabel(template: string): string {
     TPL_INCIDENT_REPORT: '사고 보고서',
     TPL_ANNOUNCEMENT: '공고문',
     TPL_REPORT: '보고서',
+    TPL_SOURCE_BLOCKS: '원문 자료',
   };
   return labels[template] ?? template;
 }

@@ -1,7 +1,9 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { ForbiddenException } from '@nestjs/common';
+import { Reflector } from '@nestjs/core';
 import { StudyController } from './study.controller';
 import { StudyService } from './study.service';
+import { RolesGuard } from '../common/guards/roles.guard';
 import { TextbookEmbeddingService } from '../textbook/textbook-embedding.service';
 
 describe('StudyController', () => {
@@ -109,27 +111,59 @@ describe('StudyController', () => {
   });
 
   describe('cache admin-only endpoints', () => {
+    const reflector = new Reflector();
+    const rolesGuard = new RolesGuard(reflector);
+
+    function createMockContext(handler: any, user: any) {
+      return {
+        getHandler: () => handler,
+        getClass: () => StudyController,
+        switchToHttp: () => ({
+          getRequest: () => ({ user }),
+        }),
+      } as any;
+    }
+
     it('관리자가 아닌 사용자는 cache-status 접근 불가', () => {
-      expect(() => controller.getCacheStatus(studentUser as any)).toThrow(ForbiddenException);
+      expect(() =>
+        rolesGuard.canActivate(createMockContext(controller.getCacheStatus, studentUser)),
+      ).toThrow(ForbiddenException);
     });
 
     it('관리자는 cache-status 접근 가능', () => {
-      studyService.getCacheStatus.mockReturnValue({ subjects: [] });
-      const result = controller.getCacheStatus(adminUser as any);
+      expect(
+        rolesGuard.canActivate(createMockContext(controller.getCacheStatus, adminUser)),
+      ).toBe(true);
+      studyService.getCacheStatus!.mockReturnValue({ subjects: [] } as any);
+      const result = controller.getCacheStatus();
       expect(result).toEqual({ subjects: [] });
     });
 
     it('관리자가 아닌 사용자는 shared content, cache, embedding 관리 불가', async () => {
-      expect(() => controller.deleteCacheBulk(studentUser as any, {})).toThrow(ForbiddenException);
-      expect(() => controller.regenerateCache(studentUser as any, { subjectSlug: 'success' })).toThrow(ForbiddenException);
-      expect(() => controller.getRegenerationStatus(studentUser as any)).toThrow(ForbiddenException);
-      expect(() => controller.clearCache(studentUser as any, 'success', 1)).toThrow(ForbiddenException);
-      await expect(controller.embedAllUnits(studentUser as any, 'success')).rejects.toThrow(ForbiddenException);
-      await expect(controller.embedUnit(studentUser as any, 'success', 1)).rejects.toThrow(ForbiddenException);
-      await expect(controller.getEmbeddingStatus(studentUser as any, 'success')).rejects.toThrow(ForbiddenException);
-      await expect(
-        controller.updateSummationCards(studentUser as any, 'success', 1, { cards: [] }),
-      ).rejects.toThrow(ForbiddenException);
+      expect(() =>
+        rolesGuard.canActivate(createMockContext(controller.deleteCacheBulk, studentUser)),
+      ).toThrow(ForbiddenException);
+      expect(() =>
+        rolesGuard.canActivate(createMockContext(controller.regenerateCache, studentUser)),
+      ).toThrow(ForbiddenException);
+      expect(() =>
+        rolesGuard.canActivate(createMockContext(controller.getRegenerationStatus, studentUser)),
+      ).toThrow(ForbiddenException);
+      expect(() =>
+        rolesGuard.canActivate(createMockContext(controller.clearCache, studentUser)),
+      ).toThrow(ForbiddenException);
+      expect(() =>
+        rolesGuard.canActivate(createMockContext(controller.embedAllUnits, studentUser)),
+      ).toThrow(ForbiddenException);
+      expect(() =>
+        rolesGuard.canActivate(createMockContext(controller.embedUnit, studentUser)),
+      ).toThrow(ForbiddenException);
+      expect(() =>
+        rolesGuard.canActivate(createMockContext(controller.getEmbeddingStatus, studentUser)),
+      ).toThrow(ForbiddenException);
+      expect(() =>
+        rolesGuard.canActivate(createMockContext(controller.updateSummationCards, studentUser)),
+      ).toThrow(ForbiddenException);
     });
   });
 

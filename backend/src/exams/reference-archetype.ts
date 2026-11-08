@@ -88,8 +88,11 @@ export function isReferenceCombinationChoiceSet(
     const stripped = choice.replaceAll(PARENTHESIZED_LABEL, '');
     return (
       COMBINATION_CHOICE_PATTERN.test(stripped) ||
-      // ordering/sequence format: ① ㄱ-ㄴ-ㄷ-ㄹ
-      /^\s*[①②③④⑤]\s*[ㄱ-ㅎ](?:\s*-\s*[ㄱ-ㅎ])+\s*$/.test(stripped) ||
+      // Some official PDFs print paired view keys in adjacent columns without a comma.
+      // v3 추출은 (가)/(나) 열을 ` / `로 이어 붙인다(① ㄱ / ㄴ).
+      /^\s*[①②③④⑤]\s*[ㄱ-ㅎ](?:(?:\s+|\s*\/\s*)[ㄱ-ㅎ])+(?:\s*모두\s*아님)?\s*$/.test(stripped) ||
+      // ordering/sequence format: ① ㄱ-ㄴ-ㄷ-ㄹ (원본마다 -, –, —, － 를 섞어 쓴다)
+      /^\s*[①②③④⑤]\s*[ㄱ-ㅎ](?:\s*[-–—－]\s*[ㄱ-ㅎ])+\s*$/.test(stripped) ||
       // label-value pair format: ① (가): ㄱ, (나): ㄴ or ① (가) - ㄱ, (나) - ㄴ
       /^\s*[①②③④⑤]\s*[(（][가-힣]+[）)]\s*[-:]\s*[ㄱ-ㅎ](?:\s*,\s*[(（][가-힣]+[）)]\s*[-:]\s*[ㄱ-ㅎ])*\s*$/.test(
         choice,
@@ -99,7 +102,9 @@ export function isReferenceCombinationChoiceSet(
 }
 
 function hasLetterChoices(choices: readonly string[]): boolean {
-  return choices.some((choice) => LETTER_KEY_PATTERN.test(choice));
+  // Korean prose contains Hangul everywhere; only treat a choice as a
+  // letter-only combination when its numbered payload starts with a view key.
+  return choices.some((choice) => /^\s*[①②③④⑤]\s*[ㄱ-ㅎ㉠-㉭](?:\s*[,，·ㆍ및과와\-–—]\s*[ㄱ-ㅎ㉠-㉭])*\s*$/u.test(choice));
 }
 
 const DIALOGUE_TURN_PATTERN = /^\s*[^\n]{1,24}:\s/m;

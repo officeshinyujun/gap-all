@@ -385,3 +385,63 @@ export interface TPL_REPORT {
   sections: ReportSection[];
   conclusion?: string;
 }
+
+// ------------------------------------------------------------
+// 15. TPL_SOURCE_BLOCKS (렌더 전용 — reference 원문 블록)
+// 계약: artifacts/reference-corpus-v3/SOURCE_BLOCKS_CONTRACT.md
+// 모든 문자열은 원문 그대로이며 마크다운으로 해석하지 않는다.
+// 텍스트·표 셀·대화 안에 `[그림 Fk]` 토큰이 들어 있을 수 있다.
+// ------------------------------------------------------------
+
+export interface SourceTextBlock {
+  type: 'text';
+  text: string;
+}
+
+export interface SourceTableBlock {
+  type: 'table';
+  title?: string | null;
+  /** 0행 이상. 병합 셀은 첫 칸에만 값이 있고 나머지는 "" */
+  headers: string[][];
+  rows: string[][];
+  caption?: string | null;
+}
+
+export interface SourceDialogueLine {
+  speaker: string;
+  text: string;
+}
+
+export interface SourceDialogueBlock {
+  type: 'dialogue';
+  lines: SourceDialogueLine[];
+}
+
+export interface SourceFigureBlock {
+  type: 'figure';
+  figure_id: string;
+}
+
+export type SourceBlock =
+  | SourceTextBlock
+  | SourceTableBlock
+  | SourceDialogueBlock
+  | SourceFigureBlock;
+
+export interface SourceFigure {
+  /** 이미지 미업로드면 null → alt 텍스트 박스로 대체 */
+  src: string | null;
+  alt: string;
+  kind?: string;
+}
+
+export interface SourceChoiceTable {
+  headers: string[];
+  rows: string[][];
+}
+
+export interface TPL_SOURCE_BLOCKS {
+  blocks: SourceBlock[];
+  figures: Record<string, SourceFigure>;
+  choice_table?: SourceChoiceTable | null;
+}

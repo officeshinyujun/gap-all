@@ -11,6 +11,6 @@ This is a React + Vite SPA. The entry point is `src/main.tsx`; route modules rem
 ## Question Rendering Ownership
 
 - `shared/ui/QuestionStem` owns the live Web question renderer and is used by exam, review, study, and chat surfaces.
-- `components/exam/ExamPdf/ExamPdfDocument.tsx` and `PdfStimulusRenderer.tsx` own downloadable PDF output.
+- `components/exam/ExamPrint` owns PDF output: it builds an exam-paper HTML document (serif, two columns, `<보 기>` boxes) and posts it to `POST /exams/:examId/pdf`, where the backend renders it with headless Chromium and returns the PDF for download. That document is isolated from the app theme, so it uses its own print tokens in `examPrintStyles.ts` and plain markup instead of `VStack`/`HStack`.
 - `components/exam/QuestionStem` is not a target for new rendering features in this scope.
 - Dashboard renderers remain text-only unless a separate dashboard task explicitly expands their scope.

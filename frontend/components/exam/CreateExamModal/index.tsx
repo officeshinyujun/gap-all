@@ -9,7 +9,7 @@ import Typo from '@shared/ui/Typo';
 import { API_BASE_URL } from '@shared/lib/auth';
 import { fetchSubjectBySlug } from '@/lib/examApi';
 
-type GenerationMode = 'ai_blueprint' | 'simply_reference';
+type GenerationMode = 'ai_blueprint' | 'ai_generative' | 'simply_reference';
 
 interface CreateExamModalProps {
     isOpen: boolean;
@@ -146,6 +146,7 @@ export function CreateExamModal({ isOpen, onClose, subjectName, onCreated, defau
                                 onChange={(val) => setMode(val as GenerationMode)}
                                 options={[
                                     { label: 'AI 생성', value: 'ai_blueprint' as const },
+                                    { label: 'AI 완전 출제 (Beta)', value: 'ai_generative' as const },
                                     { label: '참조 기반', value: 'simply_reference' as const },
                                 ]}
                             />

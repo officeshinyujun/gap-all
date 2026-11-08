@@ -5,6 +5,7 @@ import {
   Logger,
 } from '@nestjs/common';
 import type {
+  AiChoiceVerification,
   AiGenerationFailureCode,
   AiGenerationValidationResult,
   AiCandidateRepairContext,
@@ -48,6 +49,8 @@ export type AiAcceptedQuestion = Readonly<{
 
 export type AiRejectedCandidate = Readonly<{
   blueprintId: string;
+  /** Raw provider output, kept so rejections can be replayed offline. */
+  candidate?: AiQuestionCandidate;
   template: string;
   attempt: number;
   code: AiGenerationFailureCode;
@@ -152,6 +155,7 @@ export class AiQuestionGenerationService {
               );
               rejected.push({
                 blueprintId: blueprint.id,
+                candidate,
                 template: blueprint.template,
                 attempt,
                 code: materialized.code,
@@ -174,6 +178,7 @@ export class AiQuestionGenerationService {
                 // Fall back to the server-owned answer engine for custom providers.
                 rejected.push({
                   blueprintId: blueprint.id,
+                  candidate,
                   template: blueprint.template,
                   attempt,
                   code: 'AI_ANSWER_RULE_MISMATCH',
@@ -209,25 +214,11 @@ export class AiQuestionGenerationService {
                 }
                 continue;
               }
-              if (
-                (verification !== undefined && !verification.passed) ||
-                (verification !== undefined &&
-                  verification.answerIndex !== blueprint.answerIndex) ||
-                (verification !== undefined &&
-                  verification.choices.length !== 5) ||
-                (verification !== undefined &&
-                  verification.choices.filter((choice) => choice.correct)
-                    .length !== 1) ||
-                (verification !== undefined &&
-                  !verification.choices.every(
-                    (choice) =>
-                      choice.correct ===
-                      (choice.index === blueprint.answerIndex),
-                  ))
-              ) {
+              if (!verificationConfirmsAnswer(verification, blueprint)) {
                 const message = 'semantic choice verification failed';
                 rejected.push({
                   blueprintId: blueprint.id,
+                  candidate,
                   template: blueprint.template,
                   attempt,
                   code: 'AI_ANSWER_RULE_MISMATCH',
@@ -251,6 +242,7 @@ export class AiQuestionGenerationService {
               );
               rejected.push({
                 blueprintId: blueprint.id,
+                candidate,
                 template: blueprint.template,
                 attempt,
                 code: validation.failureCode ?? 'AI_INVARIANT_MISMATCH',
@@ -333,6 +325,39 @@ export class AiQuestionGenerationService {
               }
               continue;
             }
+            if (
+              usesRewrittenStimulusWithSourceChoices(
+                blueprint,
+                candidate,
+                materialized.question,
+              ) &&
+              this.provider.verifyChoices !== undefined
+            ) {
+              // The provider rewrote the stimulus but the certified choices are
+              // reused verbatim; re-solve to confirm the source answer still holds.
+              const verification = await this.provider.verifyChoices(
+                blueprint,
+                { ...candidate, choiceTexts: materialized.question.optionsList },
+                abortSignal,
+              );
+              if (!verificationConfirmsAnswer(verification, blueprint)) {
+                const message =
+                  'rewritten stimulus no longer supports the source answer';
+                rejected.push({
+                  blueprintId: blueprint.id,
+                  candidate,
+                  template: blueprint.template,
+                  attempt,
+                  code: 'AI_ANSWER_RULE_MISMATCH',
+                  message,
+                });
+                repair = {
+                  failureReason: message,
+                  requiredAnchors: blueprint.sourceFactAnchors ?? [],
+                };
+                continue;
+              }
+            }
             const fingerprint = aiQuestionFingerprint(materialized.question);
             const structuralFingerprint = aiQuestionStructuralFingerprint(
               blueprint,
@@ -341,6 +366,7 @@ export class AiQuestionGenerationService {
             if (fingerprints.has(fingerprint)) {
               rejected.push({
                 blueprintId: blueprint.id,
+                candidate,
                 template: blueprint.template,
                 attempt,
                 code: 'AI_DUPLICATE_REJECTED',
@@ -350,6 +376,7 @@ export class AiQuestionGenerationService {
             if (structuralFingerprints.has(structuralFingerprint)) {
               rejected.push({
                 blueprintId: blueprint.id,
+                candidate,
                 template: blueprint.template,
                 attempt,
                 code: 'AI_DUPLICATE_REJECTED',
@@ -483,4 +510,40 @@ export function aiQuestionStructuralFingerprint(
         .trim(),
     }),
   )}`;
+}
+
+function verificationConfirmsAnswer(
+  verification: AiChoiceVerification,
+  blueprint: AiQuestionBlueprint,
+): boolean {
+  return (
+    verification.passed &&
+    verification.answerIndex === blueprint.answerIndex &&
+    verification.choices.length === 5 &&
+    verification.choices.every(
+      (choice) => choice.correct === (choice.index === blueprint.answerIndex),
+    )
+  );
+}
+
+function usesRewrittenStimulusWithSourceChoices(
+  blueprint: AiQuestionBlueprint,
+  candidate: AiQuestionCandidate,
+  question: AiMaterializedQuestion,
+): boolean {
+  const archetype = blueprint.sourceArchetype;
+  if (
+    archetype === undefined ||
+    archetype.stemIntent === 'truth_combination' ||
+    archetype.responseMode === 'truth_combination' ||
+    candidate.choiceTexts !== undefined ||
+    blueprint.sourceChoiceTexts === undefined ||
+    JSON.stringify(question.optionsList) !==
+      JSON.stringify(blueprint.sourceChoiceTexts)
+  ) {
+    return false;
+  }
+  const normalize = (value: string) =>
+    value.normalize('NFKC').replace(/\s+/gu, '');
+  return normalize(candidate.stemText) !== normalize(blueprint.caseContext ?? '');
 }

@@ -1,4 +1,5 @@
 import { NestFactory } from '@nestjs/core';
+import type { NestExpressApplication } from '@nestjs/platform-express';
 import { ValidationPipe } from '@nestjs/common';
 import cookieParser from 'cookie-parser';
 import helmet from 'helmet';
@@ -15,7 +16,9 @@ dotenv.config();
 async function bootstrap() {
   validateEnv();
 
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create<NestExpressApplication>(AppModule);
+  // 시험지 PDF 내보내기는 시험지 HTML(수십~수백 KB)을 본문으로 받는다.
+  app.useBodyParser('json', { limit: '4mb' });
 
   app.use(helmet());
   app.use(

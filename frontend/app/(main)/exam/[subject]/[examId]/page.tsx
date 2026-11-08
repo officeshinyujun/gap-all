@@ -132,6 +132,11 @@ export default function ExamDetailPage() {
 
   async function handleSubmit() {
     if (!examId || !examData) return;
+    // 대기 중인 자동 저장이 채점 뒤에 도착하지 않도록 먼저 취소한다(제출 요청에 모든 답이 포함됨).
+    if (saveTimer.current) {
+      clearTimeout(saveTimer.current);
+      saveTimer.current = null;
+    }
     try {
       const formattedAnswers = examData.items.map((item) => ({
         examItemId: item.id,

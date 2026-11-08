@@ -1,6 +1,11 @@
 import { Logger } from '@nestjs/common';
 import { isDeepStrictEqual } from 'node:util';
 import { normalizeConversationVisualMetadata } from './conversation-visual-aid-validator';
+import {
+  SOURCE_BLOCKS_TPL,
+  isSourceBlocksTpl,
+  sanitizeSourceBlocksStimulus,
+} from './source-blocks-stimulus';
 import { STRUCTURED_TPL_NAMES } from './tpl-schemas';
 
 type TplName = (typeof STRUCTURED_TPL_NAMES)[number] | 'TPL_PLAIN_TEXT';
@@ -84,6 +89,11 @@ export class StimulusNormalizer {
   // TPL 스키마 검증
   // ============================================================
   public normalizeStimulusData(data: any, template: string): any {
+    // 렌더 전용 TPL_SOURCE_BLOCKS: 유효하면 정리만 하고 그대로 보존한다.
+    if (isSourceBlocksTpl(template)) {
+      const blocks = sanitizeSourceBlocksStimulus(data);
+      if (blocks !== null) return { ...blocks };
+    }
     const tpl = ALL_TPLS.includes(template as TplName)
       ? template
       : 'TPL_PLAIN_TEXT';
@@ -140,6 +150,14 @@ export class StimulusNormalizer {
     template: string,
     comboBlock?: any,
   ): { stimulusData: any; effectiveTemplate: string } {
+    // 렌더 전용 TPL_SOURCE_BLOCKS: 유효하면 fillDefaults/PLAIN_TEXT 강등 없이 보존한다.
+    // 유효하지 않으면 아래 기존 경로(알 수 없는 템플릿 → TPL_PLAIN_TEXT)를 탄다.
+    if (isSourceBlocksTpl(template)) {
+      const blocks = sanitizeSourceBlocksStimulus(data);
+      if (blocks !== null) {
+        return { stimulusData: { ...blocks }, effectiveTemplate: SOURCE_BLOCKS_TPL };
+      }
+    }
     const declaredTpl = ALL_TPLS.includes(template as TplName)
       ? (template as TplName)
       : 'TPL_PLAIN_TEXT';

@@ -36,6 +36,12 @@ function questionData(question) {
 }
 
 function findQuestion(tag, questions) {
+  const normalizedTag = normalize(tag);
+  const exact = questions.find((question) =>
+    (question.targetConcepts || []).some((concept) => normalize(concept) === normalizedTag),
+  );
+  if (exact) return exact;
+
   const tagTokens = new Set(tokens(tag));
   const candidates = questions.map((question) => {
     const concepts = question.targetConcepts || [];
@@ -71,7 +77,7 @@ for (const subject of SUBJECTS) {
       if (card.sampleQuestion && card.problemApplication) continue;
       const sourceCard = (source.concepts || []).find((item) => {
         const overlap = [...new Set(tokens(card.name))].filter((token) => normalize(item.name).includes(token));
-        return overlap.length >= 2 && item.realQuestion?.questionData;
+        return (normalize(item.name) === normalize(card.name) || overlap.length >= 2) && item.realQuestion?.questionData;
       });
       const parsedQuestion = findQuestion(card.name, questions);
       const question = sourceCard?.realQuestion?.questionData || (parsedQuestion && questionData(parsedQuestion));

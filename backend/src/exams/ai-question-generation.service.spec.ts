@@ -131,6 +131,82 @@ describe('AiQuestionGenerationService', () => {
     expect(verifyChoices).toHaveBeenCalledTimes(1);
   });
 
+  describe('certified source choices', () => {
+    const sourceChoices = [
+      '① 근로자의 임금 수준을 결정하는 절차이다.',
+      '② 직무 수행에 필요한 지식과 기술을 파악한다.',
+      '③ 직업인의 윤리적 책임을 강조한다.',
+      '④ 신규 인력을 선발하는 단계이다.',
+      '⑤ 경력 목표를 장기적으로 설계한다.',
+    ];
+
+    function sourceChoiceBlueprint(): AiQuestionBlueprint {
+      const classified = classifyReferenceArchetype({
+        stem: '다음 사례에 대한 설명으로 옳은 것은?',
+        stimulus: 'A씨는 직무에 필요한 능력을 분석하였다.',
+        viewItems: [],
+        choices: sourceChoices,
+        targetConcepts: ['직무 분석'],
+      });
+      if (classified.kind !== 'classified') throw new Error('invalid fixture');
+      return {
+        ...blueprint('blueprint-source-choices'),
+        answerIndex: 2,
+        sourceArchetype: { ...classified.value, stimulusRole: 'prose' },
+        sourceChoiceTexts: sourceChoices,
+      };
+    }
+
+    function verification(answerIndex: 1 | 2 | 3 | 4 | 5) {
+      return {
+        passed: true,
+        answerIndex,
+        choices: sourceChoices.map((_, index) => ({
+          index: (index + 1) as 1 | 2 | 3 | 4 | 5,
+          correct: index + 1 === answerIndex,
+          reason: 'checked',
+        })),
+      };
+    }
+
+    it('admits source choices once the rewritten stimulus still yields the source answer', async () => {
+      const generate = jest.fn().mockResolvedValue(candidate());
+      const verifyChoices = jest.fn().mockResolvedValue(verification(2));
+
+      const result = await new AiQuestionGenerationService({
+        generate,
+        verifyChoices,
+      }).generate([sourceChoiceBlueprint()]);
+
+      expect(result.accepted).toHaveLength(1);
+      expect(result.accepted[0]?.question.optionsList).toEqual(sourceChoices);
+      expect(result.accepted[0]?.question.correctAnswer).toBe(2);
+      expect(verifyChoices).toHaveBeenCalledWith(
+        expect.objectContaining({ id: 'blueprint-source-choices' }),
+        expect.objectContaining({ choiceTexts: sourceChoices }),
+        undefined,
+      );
+    });
+
+    it('rejects a rewrite that changes which source choice is correct', async () => {
+      const generate = jest.fn().mockResolvedValue(candidate());
+      const verifyChoices = jest.fn().mockResolvedValue(verification(4));
+
+      const result = await new AiQuestionGenerationService({
+        generate,
+        verifyChoices,
+      }).generate([sourceChoiceBlueprint()]);
+
+      expect(result.accepted).toHaveLength(0);
+      expect(generate).toHaveBeenCalledTimes(3);
+      expect(result.rejected.map((item) => item.message)).toEqual([
+        'rewritten stimulus no longer supports the source answer',
+        'rewritten stimulus no longer supports the source answer',
+        'rewritten stimulus no longer supports the source answer',
+      ]);
+    });
+  });
+
   it('returns a shortfall after the bounded retry budget', async () => {
     const generate = jest.fn().mockRejectedValue(new Error('provider down'));
     const service = new AiQuestionGenerationService({ generate });

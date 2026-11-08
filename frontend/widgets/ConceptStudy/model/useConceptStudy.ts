@@ -10,7 +10,7 @@ export type MainTab = 'concept' | 'overview';
 export type SlideView = 'learn' | 'question';
 
 // 출제 포인트 중요도 순위 표시가 추가되어 기존 응답 캐시 폐기
-const CACHE_VERSION = 'v25';
+const CACHE_VERSION = 'v28';
 
 function getCacheKey(subject: string, unitNumber: number) {
   return `concept-${CACHE_VERSION}-${subject}-${unitNumber}`;
@@ -22,6 +22,25 @@ function readSession<T>(key: string, defaultValue: T): T {
     const cached = sessionStorage.getItem(key);
     return cached ? JSON.parse(cached) : defaultValue;
   } catch { return defaultValue; }
+}
+
+function isRenderableQuestion(value: any): boolean {
+  if (!value || typeof value !== 'object') return false;
+  const renderReady = value.render_ready;
+  const stem = renderReady?.question_stem ?? value.stem;
+  const options = renderReady?.options_list ?? renderReady?.options ?? value.options ?? value.choices;
+  const answer = Number(value.correct_answer ?? value.answer ?? value.correctAnswer);
+  return typeof stem === 'string' && stem.trim() !== ''
+    && Array.isArray(options) && options.length >= 2
+    && Number.isInteger(answer) && answer >= 1 && answer <= options.length;
+}
+
+function hasRenderableQuestion(item: FrequencyConceptItem | null): boolean {
+  if (!item) return false;
+  if (isRenderableQuestion(item.sampleQuestion)) return true;
+  return (item.relatedQuestions ?? []).some((related) =>
+    isRenderableQuestion({ ...related.question, correct_answer: related.correct_answer }),
+  );
 }
 
 export function useConceptStudy(subject: string, unitNumber: number, chapter: string) {
@@ -100,6 +119,7 @@ export function useConceptStudy(subject: string, unitNumber: number, chapter: st
   const studyInsights = data?.studyInsights;
   const current: FrequencyConceptItem | null = concepts[currentIndex] ?? null;
   const total = concepts.length;
+  const currentHasQuestion = hasRenderableQuestion(current);
 
   // deep info lazy load
   useEffect(() => {
@@ -140,7 +160,14 @@ export function useConceptStudy(subject: string, unitNumber: number, chapter: st
   };
   const handleNext = () => {
     if (slideView === 'learn') {
-      setSlideView('question');
+      if (currentHasQuestion) {
+        setSlideView('question');
+      } else if (currentIndex < total - 1) {
+        // ponytail: 개념별 문제는 선택 데이터라, 없는 문제 화면은 노출하지 않고 다음 개념으로 건너뛴다.
+        const next = currentIndex + 1;
+        setCurrentIndexState(next);
+        persistIndex(next);
+      }
     } else if (currentIndex < total - 1) {
       const next = currentIndex + 1;
       setCurrentIndexState(next);
@@ -155,12 +182,13 @@ export function useConceptStudy(subject: string, unitNumber: number, chapter: st
   };
 
   const isFirst = currentIndex === 0 && slideView === 'learn';
-  const isLast = currentIndex === total - 1 && slideView === 'question';
+   const isLast = currentIndex === total - 1 && (slideView === 'question' || !currentHasQuestion);
   const deep = current ? deepCache[current.name] : null;
 
   return {
     mainTab, setMainTab, slideView, setSlideView,
     loading, error, data, concepts, studyInsights, current, total, currentIndex,
+    currentHasQuestion,
     deepCache, deepLoading, deep,
     structured, structuredLoading, openSections, toggleSection,
     bookmarks, bookmarkLoading, isBookmarked, handleBookmark,

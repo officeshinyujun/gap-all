@@ -23,7 +23,10 @@ function loadKeys(): string[] {
 function loadClients(): OpenAI[] {
   if (clients === null) {
     const keys = loadKeys();
-    clients = keys.map((key) => new OpenAI({ apiKey: key }));
+    // 셸에 남은 OPENAI_BASE_URL(예전 중계 서버)이 SDK에 자동 적용되지 않도록 공식 주소를 명시한다.
+    // 다른 OpenAI 호환 주소가 필요하면 OPENAI_API_BASE_URL로 지정한다.
+    const baseURL = process.env.OPENAI_API_BASE_URL?.trim() || 'https://api.openai.com/v1';
+    clients = keys.map((key) => new OpenAI({ apiKey: key, baseURL }));
   }
   return clients;
 }

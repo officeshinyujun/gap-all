@@ -1,4 +1,4 @@
-import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import { mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import * as path from 'node:path';
 import { parseReference } from '../src/exams/reference-selector.utils';
 import { sourcePreservingRender } from '../src/exams/simply-reference-source-preserving.adapter';
@@ -7,6 +7,15 @@ type Corpus = {
   source: Record<string, unknown>;
   questions: Array<Record<string, unknown>>;
 };
+type LocalRow = Readonly<{
+  logicalSourceId: string;
+  subject: unknown;
+  unitNumber: unknown;
+  provenancePath: unknown;
+  status: unknown;
+  validationErrors: readonly unknown[];
+  sourcePayload: Record<string, unknown>;
+}>;
 type CertifiedRecord = Readonly<{
   logicalSourceId: string;
   subject: 'success' | 'kongil';
@@ -23,18 +32,20 @@ type BlockedRecord = Readonly<{
 function main(): void {
   const repositoryRoot = path.resolve(__dirname, '../..');
   const corpusRoot = path.join(repositoryRoot, 'artifacts/reference-corpus-v2');
-  const outputPath = path.join(
+  const rowsPath = argumentValue('--rows=');
+  const outputPath = argumentValue('--output=') ?? path.join(
     repositoryRoot,
     'artifacts/reference-certification-v2.json',
   );
+  mkdirSync(path.dirname(outputPath), { recursive: true });
   const certified: CertifiedRecord[] = [];
   const blocked: BlockedRecord[] = [];
-  for (const file of readdirSync(corpusRoot).filter((name) =>
-    name.endsWith('.json'),
-  )) {
-    const corpus = JSON.parse(
-      readFileSync(path.join(corpusRoot, file), 'utf8'),
-    ) as Corpus;
+  const corpora = rowsPath === undefined
+    ? readdirSync(corpusRoot)
+      .filter((name) => name.endsWith('.json'))
+      .map((file) => JSON.parse(readFileSync(path.join(corpusRoot, file), 'utf8')) as Corpus)
+    : localRowsToCorpora(JSON.parse(readFileSync(rowsPath, 'utf8')) as LocalRow[]);
+  for (const corpus of corpora) {
     for (const question of corpus.questions) {
       const result = buildRecord(corpus.source, question);
       if (result.kind === 'certified') certified.push(result.value);
@@ -56,6 +67,51 @@ function main(): void {
     `${JSON.stringify({ outputPath, counts: report.counts })}\n`,
   );
   if (blocked.length > 0) process.exitCode = 1;
+}
+
+function argumentValue(prefix: string): string | undefined {
+  const value = process.argv.find((argument) => argument.startsWith(prefix));
+  return value === undefined ? undefined : value.slice(prefix.length);
+}
+
+function localRowsToCorpora(rows: readonly LocalRow[]): Corpus[] {
+  return rows.map((row) => {
+    const payload = row.sourcePayload;
+    const source = recordValue(payload.source);
+    return {
+      source: {
+        sourceKey: row.logicalSourceId,
+        sourceType: source?.type,
+        subject: row.subject,
+        unitNumber: row.unitNumber,
+        year: source?.year,
+        examType: source?.examType,
+        questionPdf: row.provenancePath,
+      },
+      questions: [
+        {
+          ...payload,
+          unitNumber: row.unitNumber,
+          legacySourceFilename: canonicalFilename(row.subject, source, row.unitNumber),
+          localValidationErrors: row.validationErrors,
+        },
+      ],
+    };
+  });
+}
+
+function canonicalFilename(
+  subject: unknown,
+  source: Record<string, unknown> | null,
+  unit: unknown,
+): string {
+  const normalizedSubject = subject === 'success' ? 'sungjik' : String(subject ?? '');
+  if (source?.type === 'moi') {
+    return `${normalizedSubject}_${source.year}_${source.examType}_${source.filename}`;
+  }
+  const unitNumber = Number(unit);
+  const textbookPrefix = subject === 'success' ? '성직' : '공일';
+  return `${textbookPrefix}_${unitNumber}단원_문제.pdf`;
 }
 
 function buildRecord(
@@ -80,6 +136,10 @@ function buildRecord(
   const explanation = stringValue(question.explanation);
   const generatedExplanation = stringValue(question.generatedExplanation);
   const visual = recordValue(question.visual);
+  const localErrors = Array.isArray(question.localValidationErrors)
+    ? question.localValidationErrors.map(String)
+    : [];
+  if (localErrors.some(isUnresolvedLocalError)) reasons.push('LOCAL_REVIEW_REQUIRED');
   const table = visual?.kind === 'table' ? tableData(visual) : null;
   if (subject === null) reasons.push('INVALID_SUBJECT');
   if (!Number.isSafeInteger(unitNumber) || unitNumber < 1)
@@ -91,7 +151,7 @@ function buildRecord(
     reasons.push('MISSING_OFFICIAL_ANSWER');
   if (explanation === '' && generatedExplanation === '')
     reasons.push('MISSING_OFFICIAL_EXPLANATION');
-  if (visual?.kind === 'table' && table === null)
+  if (visual?.kind === 'table' && table === null && stringValue(question.stimulus) === '')
     reasons.push('INCOMPLETE_TABLE');
   const stimulus = stimulusText(question, table);
   if (stimulus === '') reasons.push('EMPTY_STIMULUS');
@@ -128,6 +188,12 @@ function buildRecord(
     explanation,
     targetConcepts,
   };
+  if (recordValue(question.conceptHighlightsV2) !== null) {
+    payload.conceptHighlightsV2 = question.conceptHighlightsV2;
+  }
+  if (recordValue(question.conceptHighlightV2) !== null) {
+    payload.conceptHighlightV2 = question.conceptHighlightV2;
+  }
   if (generatedExplanation !== '') {
     payload.generatedExplanation = generatedExplanation;
     payload.generatedExplanationProvenance = stringValue(
@@ -155,6 +221,10 @@ function buildRecord(
       payload,
     },
   };
+}
+
+function isUnresolvedLocalError(error: string): boolean {
+  return /REVIEW_FAILED|reviewedQuestion failed|Could not locate|읽기 어려운|urlopen error|EMPTY_STIMULUS|CHOICE_COUNT|REGION_REVIEW_REQUIRED|VISUAL_REVIEW_REQUIRED|CONCEPT_MAPPING_REVIEW_REQUIRED|OFFICIAL_ANSWER_MISSING|TARGET_CONCEPTS_MISSING|UNIT_MAPPING_REQUIRED/u.test(error);
 }
 
 function tableData(

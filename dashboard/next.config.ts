@@ -8,9 +8,19 @@ const nextConfig: NextConfig = {
     // Next and Sass are installed from the monorepo workspace root.
     root: path.resolve(__dirname, '..'),
   },
+
   sassOptions: {
-    additionalData: `@import "${path.join(process.cwd(), 'styles/variables')}";`,
+    additionalData: `@import "${path.join(
+      process.cwd(),
+      'styles/variables'
+    )}";`,
   },
+
+  allowedDevOrigins: [
+    'macbookpro.tailc5a2a5.ts.net',
+    'macbookpro.tailc5a2a5.ts.net:3002',
+  ],
+
   async headers() {
     return [
       {
@@ -24,16 +34,27 @@ const nextConfig: NextConfig = {
               "object-src 'none'",
               "frame-ancestors 'none'",
               "form-action 'self'",
-              `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ''}`,
+              `script-src 'self' 'unsafe-inline'${
+                isDev ? " 'unsafe-eval'" : ''
+              }`,
               "style-src 'self' 'unsafe-inline'",
               "img-src 'self' data: blob: https:",
               "font-src 'self' data:",
               "connect-src 'self' https: http://localhost:*",
             ].join('; '),
           },
-          { key: 'X-Content-Type-Options', value: 'nosniff' },
-          { key: 'X-Frame-Options', value: 'DENY' },
-          { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY',
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'strict-origin-when-cross-origin',
+          },
           {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=(), payment=()',

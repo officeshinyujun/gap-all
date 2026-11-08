@@ -289,6 +289,10 @@ describe('SimplyReferenceGenerationService', () => {
       lineage: {
         generationPath: 'simply_reference',
         selectedTemplate: 'TPL_CASE_DIAGNOSTIC_FRAME',
+        source: {
+          sourceId: 'success:1:source-1.pdf:1',
+          sourceHash: expect.any(String),
+        },
       },
     });
   });

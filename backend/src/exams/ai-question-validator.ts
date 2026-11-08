@@ -148,9 +148,18 @@ export function validateAiQuestion(
   ) {
     return failed('AI_INVARIANT_MISMATCH', 'stem polarity mismatch');
   }
+  // Certified reference choices keep their original wording; the generic
+  // "이 사례는 … 부합한다" shape only applies to server-composed choices.
+  // Their fit with the rewritten stimulus is checked by semantic verification.
+  const usesSourceChoices =
+    candidate.choiceTexts === undefined &&
+    blueprint.sourceChoiceTexts !== undefined &&
+    JSON.stringify(question.optionsList) ===
+      JSON.stringify(blueprint.sourceChoiceTexts);
   if (
     archetype !== undefined &&
     !isTruthCombination &&
+    !usesSourceChoices &&
     candidate.choiceTexts === undefined &&
     question.optionsList.some(
       (option) =>
@@ -170,7 +179,11 @@ export function validateAiQuestion(
   }
   // ponytail: truth_combination choices are set labels (① ㄱ,ㄴ), not concept sentences.
   // The answer engine validates correctness; we skip the concept-name-in-choice check.
-  if (!isTruthCombination && !question.optionsList[blueprint.answerIndex - 1]?.includes(blueprint.targetConcept)) {
+  if (
+    !isTruthCombination &&
+    !usesSourceChoices &&
+    !question.optionsList[blueprint.answerIndex - 1]?.includes(blueprint.targetConcept)
+  ) {
     return failed('AI_ANSWER_RULE_MISMATCH', 'answer choice does not contain target concept');
   }
   if (

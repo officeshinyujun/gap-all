@@ -37,6 +37,11 @@ import type { BlankQuestion, ConceptPair } from '../textbook/textbook.service';
 import { SupabaseService } from '../supabase/supabase.service';
 import { getUnit1ConceptDefinition } from './unit1-concept-definition';
 import { AiUnitProfileService } from '../exams/ai-unit-profile.service';
+import { activeReferenceParseVersion } from '../exams/reference-parse-version';
+import {
+  SOURCE_BLOCKS_TPL,
+  buildSourceBlocksStimulus,
+} from '../exams/source-blocks-stimulus';
 import type { StudyInsights, StudyMustKnowBlock } from './study-insights';
 
 export class DeleteCacheBulkDto {
@@ -1395,7 +1400,7 @@ export class StudyService {
     unitNumber: number,
     data: Record<string, unknown>,
   ) {
-    const enrichedData = await this.withRelatedQuestions(data);
+    const enrichedData = await this.withRelatedQuestions(data, subjectSlug, unitNumber);
     const studyInsights = await this.readStudyInsights(subjectSlug, unitNumber);
     const withMustKnow = this.withStudyMustKnow(enrichedData, studyInsights);
     return studyInsights.patterns.length > 0 || (studyInsights.mustKnowBlocks?.length ?? 0) > 0
@@ -1411,11 +1416,12 @@ export class StudyService {
     const blocks = studyInsights.mustKnowBlocks ?? [];
     const concepts = data.concepts.map((concept: any) => {
       const block = blocks.find((candidate) =>
-        candidate.conceptAliases.some((alias) =>
+        isValidStudyMustKnowBlock(candidate) && candidate.conceptAliases.some((alias) =>
           concept.name?.includes(alias) || alias.includes(concept.name ?? ''),
         ),
       );
       if (block !== undefined) return { ...concept, examMustKnow: block };
+      if (isValidStudyMustKnowBlock(concept.examMustKnow)) return concept;
       const keyPoints = Array.isArray(concept.keyPoints) ? concept.keyPoints : [];
       const importantNumbers = Array.isArray(concept.importantNumbers)
         ? concept.importantNumbers.filter((value: unknown) => value !== null && value !== undefined).map(String)
@@ -1423,17 +1429,18 @@ export class StudyService {
       const comparisonTable = typeof concept.comparisonTable === 'string'
         ? concept.comparisonTable.trim()
         : '';
-      if (keyPoints.length === 0 && importantNumbers.length === 0 && comparisonTable === '') return concept;
+      const mustRemember = [
+        ...keyPoints,
+        ...importantNumbers.map((value) => `중요 수치: ${value}`),
+      ].filter((value): value is string => typeof value === 'string' && value.trim() !== '');
+      if (mustRemember.length === 0 && comparisonTable === '' && !String(concept.caution ?? '').trim()) return concept;
       const fallback: StudyMustKnowBlock = {
         id: `card-${slugForMustKnow(concept.name)}`,
         conceptAliases: [concept.name],
         title: '핵심 암기',
         type: comparisonTable === '' ? 'checklist' : 'comparison',
         ...(comparisonTable === '' ? {} : { summary: comparisonTable }),
-        mustRemember: [
-          ...keyPoints,
-          ...importantNumbers.map((value) => `중요 수치: ${value}`),
-        ].slice(0, 5),
+        mustRemember: [...new Set(mustRemember)].slice(0, 5),
         commonTraps: concept.caution ? [concept.caution] : [],
         referenceQuestionIds: [],
         confidence: 'related',
@@ -1444,7 +1451,11 @@ export class StudyService {
     return { ...data, concepts };
   }
 
-  private async withRelatedQuestions(data: Record<string, unknown>) {
+  private async withRelatedQuestions(
+    data: Record<string, unknown>,
+    subjectSlug?: string,
+    unitNumber?: number,
+  ) {
     if (process.env.DB_PROVIDER === 'local') return data;
     const concepts = Array.isArray(data.concepts) ? data.concepts : [];
     const names = concepts
@@ -1453,38 +1464,68 @@ export class StudyService {
     if (names.length === 0) return data;
 
     try {
-      const related = await this.findSimilarByConceptNames(names, names.length * 5);
+      const related = await this.findSimilarByConceptNames(
+        names,
+        5,
+        subjectSlug,
+        unitNumber,
+        true,
+      );
       const enrichedConcepts = concepts.map((concept: any) => {
         // ponytail: cards_moi가 이미 채운 relatedQuestions(conceptHighlightV2 보유)는 보존하고,
         // reference_questions는 중복 제거 후 뒤에 추가한다. sampleQuestion도 지우지 않는다.
-        const existing = Array.isArray(concept.relatedQuestions) ? concept.relatedQuestions : [];
+        const existing = Array.isArray(concept.relatedQuestions)
+          ? concept.relatedQuestions
+            .filter(isRenderableRelatedQuestion)
+            .map((question: any) => ({
+              ...question,
+              conceptHighlightV2: isValidConceptHighlightV2(question.conceptHighlightV2)
+                ? question.conceptHighlightV2
+                : null,
+            }))
+          : [];
         const keyOf = (question: any) =>
           question.questionSource && question.questionNumber != null
             ? `${question.questionSource}:${question.questionNumber}`
             : question.id ?? JSON.stringify(question.question);
-        const seen = new Set<string>(existing.map(keyOf));
+        const seen = new Set<string>();
+        const uniqueExisting = existing.filter((question: any) => {
+          const key = keyOf(question);
+          if (seen.has(key)) return false;
+          seen.add(key);
+          return true;
+        });
         const matches = related.filter((question: any) =>
           question.matchedConcepts?.some(
             (name: string) => name.includes(concept.name) || concept.name.includes(name),
           ),
         );
         const refQuestions = matches
+          .filter(isRenderableRelatedQuestion)
           .filter((question: any) => {
             const key = keyOf(question);
             if (seen.has(key)) return false;
             seen.add(key);
             return true;
           })
-          .slice(0, Math.max(0, 5 - existing.length));
-        const merged = [...existing, ...refQuestions];
+          .slice(0, Math.max(0, 5 - uniqueExisting.length));
+        const merged = [...uniqueExisting, ...refQuestions];
         if (merged.length > 0) {
           return {
             ...concept,
             relatedQuestions: merged,
-            sampleQuestion: concept.sampleQuestion ?? merged[0].question,
+            sampleQuestion: isRenderableQuestionData(concept.sampleQuestion)
+              ? concept.sampleQuestion
+              : merged[0].question,
           };
         }
-        return { ...concept, relatedQuestions: [], sampleQuestion: concept.sampleQuestion ?? null };
+        return {
+          ...concept,
+          relatedQuestions: [],
+          sampleQuestion: isRenderableQuestionData(concept.sampleQuestion)
+            ? concept.sampleQuestion
+            : null,
+        };
       });
       return { ...data, concepts: enrichedConcepts };
     } catch (error) {
@@ -1612,7 +1653,7 @@ export class StudyService {
   }
 
   private buildRelatedQuestion(realQ: any, raw: any, conceptName: string): any | null {
-    if (!realQ) return null;
+    if (!isRenderableQuestionData(realQ)) return null;
 
     return {
       id: realQ.id || null,
@@ -1622,8 +1663,15 @@ export class StudyService {
         realQ.correct_answer ?? realQ.answer,
       ),
       rawStimulus: realQ.stimulus ?? '',
-      conceptHighlightV2: realQ.conceptHighlightV2 || null,
+      conceptHighlightV2: isValidConceptHighlightV2(
+        realQ.conceptHighlightV2 ?? realQ._conceptHighlightV2,
+      )
+        ? (realQ.conceptHighlightV2 ?? realQ._conceptHighlightV2)
+        : null,
       question: {
+        correct_answer: this.parseCorrectAnswer(
+          realQ.correct_answer ?? realQ.answer,
+        ),
         metadata: realQ.metadata || {
           source_exam: realQ.source_exam || '',
           question_number: realQ.number || 0,
@@ -1662,10 +1710,12 @@ export class StudyService {
   }
 
   private transformCardsToFrequency(raw: any): any {
-    const concepts = (raw.concepts || []).map((c: any) => {
+      const concepts = (raw.concepts || []).map((c: any) => {
       // TypeORM aliases this as realQuestion; Supabase returns the DB column name.
       const realQuestion = c.realQuestion ?? c.real_question;
       const realQ = realQuestion?.questionData;
+      const hasRealQuestion = isRenderableQuestionData(realQ);
+      const hasValidHighlight = isValidConceptHighlightV2(realQuestion?.conceptHighlightV2);
       const textbookExcerpt = c.textbook_excerpt ?? c.card?.textbookExcerpt ?? '';
       const definition = c.definition ?? c.card?.definition ?? '';
       const keyPoints = this.normalizeStringArray(
@@ -1682,7 +1732,7 @@ export class StudyService {
         c.comparison_table ?? c.comparisonTable ?? c.card?.comparisonTable ?? '',
       ).trim();
       const description =
-        c.enriched_definition ?? c.card?.enrichedDefinition ?? definition;
+        c.enriched_definition || c.card?.enrichedDefinition || definition || textbookExcerpt;
       const caution = c.caution || '';
       const conceptUsage = realQuestion?.conceptUsage || '';
       const conceptSubtopics = Array.isArray(realQuestion?.conceptSubtopics)
@@ -1772,7 +1822,7 @@ export class StudyService {
           importantNumbers,
           comparisonTable,
          subtopics: conceptSubtopics,
-        sampleQuestion: realQ
+         sampleQuestion: hasRealQuestion
           ? {
               metadata: realQ.metadata || {
                 source_exam: realQ.source_exam || '',
@@ -1855,10 +1905,24 @@ export class StudyService {
           inOptions: [],
           reason: '',
         },
-        conceptHighlightV2: realQuestion?.conceptHighlightV2 || null,
+        conceptHighlightV2: hasValidHighlight
+          ? realQuestion.conceptHighlightV2
+          : isValidConceptHighlightV2(realQ?.conceptHighlightV2)
+            ? realQ.conceptHighlightV2
+            : null,
          relatedQuestions: realQ
-           ? [this.buildRelatedQuestion(realQ, raw, c.name)].filter(Boolean)
-           : [],
+            ? [
+                this.buildRelatedQuestion(
+                  {
+                    ...realQ,
+                    conceptHighlightV2:
+                      realQuestion?.conceptHighlightV2 ?? realQ.conceptHighlightV2,
+                  },
+                  raw,
+                  c.name,
+                ),
+              ].filter(Boolean)
+            : [],
       };
     });
 
@@ -1985,17 +2049,28 @@ export class StudyService {
   async findSimilarByConceptNames(
     conceptNames: string[],
     limit = 5,
+    subjectSlug?: string,
+    unitNumber?: number,
+    returnAllMatches = false,
   ): Promise<any[]> {
     if (!conceptNames || conceptNames.length === 0) return [];
     const { data, error } = await this.supabase.client
       .from('reference_questions')
       .select('id, logical_source_id, subject, unit_number, source_payload')
+      .eq('parse_version', activeReferenceParseVersion())
       .limit(1000);
     if (error || !data) return [];
 
     const normalized = conceptNames.map((name) => name.trim()).filter(Boolean);
-    return data
+    const expectedSubject = subjectSlug === 'success'
+      ? 'sungjik'
+      : subjectSlug === 'industry'
+        ? 'kongil'
+        : subjectSlug;
+    const results = data
       .flatMap((row: any) => {
+        if (unitNumber !== undefined && Number(row.unit_number) !== unitNumber) return [];
+        if (expectedSubject && row.subject !== expectedSubject && row.subject !== subjectSlug) return [];
         const payload = row.source_payload ?? {};
         const targets = Array.isArray(payload.targetConcepts)
           ? payload.targetConcepts.filter((value: unknown): value is string => typeof value === 'string')
@@ -2006,6 +2081,8 @@ export class StudyService {
         if (matchedNames.length === 0 || !Array.isArray(payload.choices) || payload.choices.length !== 5) return [];
         const source = payload.source ?? {};
         const explanation = payload.explanation || payload.generatedExplanation || '';
+        // v3 구조화 제시문(stimulusBlocks)이 있으면 그림·표를 원문 그대로 렌더한다.
+        const sourceBlocks = buildSourceBlocksStimulus(payload);
         return [{
           id: row.logical_source_id ?? row.id ?? undefined,
           conceptName: targets[0] ?? matchedNames[0],
@@ -2013,6 +2090,7 @@ export class StudyService {
           unitNumber: row.unit_number,
           sourceExam: source.filename ?? '',
           questionNumber: payload.questionNumber ?? null,
+          correct_answer: Number(payload.correctAnswer),
           question: {
             metadata: {
               source_exam: source.filename ?? '',
@@ -2020,10 +2098,15 @@ export class StudyService {
               unit_name: `${row.unit_number}단원`,
               target_concept: targets[0] ?? matchedNames[0],
               item_type: '실제 기출문제',
+              ...(sourceBlocks === null
+                ? {}
+                : { recommended_template: SOURCE_BLOCKS_TPL }),
             },
             render_ready: {
               question_stem: payload.stem ?? '',
-              stimulus_data: payload.stimulus ? { content: payload.stimulus } : null,
+              stimulus_data: sourceBlocks !== null
+                ? { ...sourceBlocks }
+                : payload.stimulus ? { content: payload.stimulus } : null,
               options_list: payload.choices,
               explanation,
             },
@@ -2031,10 +2114,17 @@ export class StudyService {
             correct_answer: Number(payload.correctAnswer),
             rawStimulus: payload.stimulus ?? '',
           },
-          conceptHighlightV2: null,
+          conceptHighlightV2: isValidConceptHighlightV2(payload.conceptHighlightV2)
+            ? payload.conceptHighlightV2
+            : null,
         }];
       })
-      .slice(0, limit);
+      .sort((left: any, right: any) =>
+        String(left.sourceExam).localeCompare(String(right.sourceExam), 'ko') ||
+        Number(left.questionNumber ?? 0) - Number(right.questionNumber ?? 0) ||
+        String(left.id).localeCompare(String(right.id)),
+      );
+    return returnAllMatches ? results : results.slice(0, limit);
   }
 }
 
@@ -2094,4 +2184,60 @@ function slugForMustKnow(value: unknown): string {
     .toLowerCase()
     .replace(/[^\p{L}\p{N}]+/gu, '-')
     .replace(/^-|-$/g, '') || 'concept';
+}
+
+function isRenderableQuestionData(value: unknown): boolean {
+  if (typeof value !== 'object' || value === null) return false;
+  const question = value as Record<string, any>;
+  const renderReady = question.render_ready;
+  const stem = renderReady?.question_stem ?? question.stem;
+  const options = renderReady?.options_list ?? renderReady?.options ?? question.options ?? question.choices;
+  const answer = parseRenderableAnswer(
+    question.correct_answer ?? question.answer ?? question.correctAnswer,
+  );
+  return typeof stem === 'string'
+    && stem.trim() !== ''
+    && Array.isArray(options)
+    && options.length >= 2
+    && answer !== null
+    && answer >= 1
+    && answer <= options.length;
+}
+
+function parseRenderableAnswer(value: unknown): number | null {
+  if (typeof value === 'number') return Number.isInteger(value) ? value : null;
+  if (typeof value !== 'string') return null;
+  const circled = '①②③④⑤'.indexOf(value.trim());
+  if (circled >= 0) return circled + 1;
+  const match = value.match(/[1-5]/u);
+  return match ? Number(match[0]) : null;
+}
+
+function isRenderableRelatedQuestion(value: unknown): boolean {
+  if (typeof value !== 'object' || value === null) return false;
+  return isRenderableQuestionData((value as Record<string, any>).question);
+}
+
+function isValidConceptHighlightV2(value: unknown): boolean {
+  if (typeof value !== 'object' || value === null) return false;
+  const highlight = value as Record<string, any>;
+  return Array.isArray(highlight.stimulusClues) && highlight.stimulusClues.length > 0 &&
+    highlight.stimulusClues.every((clue: any) => clue?.quote?.trim() && clue?.why?.trim()) &&
+    Array.isArray(highlight.optionAnalysis) && highlight.optionAnalysis.length > 0 &&
+    highlight.optionAnalysis.every((option: any) =>
+      (typeof option?.optionKey === 'string' || Number.isInteger(option?.optionNum)) &&
+      (option.verdict === 'O' || option.verdict === 'X') && option.reasoning?.trim()) &&
+    Array.isArray(highlight.solvingFlow) && highlight.solvingFlow.length >= 3 &&
+    highlight.solvingFlow.every((step: any) => Number.isInteger(step?.step) && step?.action?.trim()) &&
+    typeof highlight.takeaway === 'string' && highlight.takeaway.trim() !== '';
+}
+
+function isValidStudyMustKnowBlock(value: unknown): value is StudyMustKnowBlock {
+  if (typeof value !== 'object' || value === null) return false;
+  const block = value as Record<string, any>;
+  return typeof block.id === 'string' && typeof block.title === 'string' &&
+    Array.isArray(block.conceptAliases) && Array.isArray(block.mustRemember) &&
+    Array.isArray(block.commonTraps) && block.reviewStatus !== undefined &&
+    (block.summary?.trim?.() || block.mustRemember.length > 0 || block.commonTraps.length > 0 ||
+      (Array.isArray(block.headers) && Array.isArray(block.rows) && block.rows.length > 0));
 }
