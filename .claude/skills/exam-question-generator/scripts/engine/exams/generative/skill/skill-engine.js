@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.SKILL_ENGINE_VERSION = exports.Difficulty = void 0;
 exports.toPlanRequest = toPlanRequest;
 exports.planExam = planExam;
+exports.planConceptExam = planConceptExam;
 exports.replanItem = replanItem;
 exports.writingBrief = writingBrief;
 exports.checkCandidate = checkCandidate;
@@ -22,11 +23,12 @@ Object.defineProperty(exports, "Difficulty", { enumerable: true, get: function (
 const generative_item_assembler_1 = require("../generative-item-assembler");
 const generative_gates_1 = require("../generative-gates");
 const generative_item_planner_1 = require("../generative-item-planner");
+const concept_slots_1 = require("../concept-slots");
 const generative_item_prompt_1 = require("../generative-item-prompt");
 const exam_style_knowledge_1 = require("../exam-style-knowledge");
 const legal_review_rules_1 = require("../legal-review-rules");
 const text_similarity_1 = require("../text-similarity");
-exports.SKILL_ENGINE_VERSION = 'exam-skill-engine-v5';
+exports.SKILL_ENGINE_VERSION = 'exam-skill-engine-v6';
 const NEAR_DUPLICATE_THRESHOLD = 0.55;
 function toPlanRequest(args) {
     if (args.startUnit < 1 || args.endUnit > 20 || args.startUnit > args.endUnit) {
@@ -49,6 +51,28 @@ function toPlanRequest(args) {
 function planExam(request) {
     return (0, generative_item_planner_1.planGenerativeExam)(request);
 }
+/**
+ * 개념 고정 계획: 고른 개념을 모두 시험에 넣는다(단원 범위를 넘나들어도 된다).
+ * 개념이 문항보다 많으면 나머지를 가까운 단원 문항에 "함께 엮을 개념"으로 붙이고, 반려되어도 개념은 바뀌지 않는다.
+ */
+function planConceptExam(args) {
+    if (!Number.isInteger(args.count) || args.count < 1 || args.count > 30)
+        throw new Error('문항 수는 1~30이어야 합니다.');
+    const resolved = (0, concept_slots_1.resolveConcepts)(args.subject, args.concepts);
+    const slots = (0, concept_slots_1.assignConceptSlots)(resolved, args.count);
+    const units = slots.map((slot) => slot.unitNumber);
+    const request = toPlanRequest({
+        subject: args.subject,
+        startUnit: Math.min(...units),
+        endUnit: Math.max(...units),
+        count: args.count,
+        difficulty: args.difficulty,
+        seed: args.seed,
+        ultra: args.ultra,
+        concepts: resolved.map((entry) => entry.concept.name),
+    });
+    return { request, specs: (0, generative_item_planner_1.planGenerativeSlots)(request, slots), resolved };
+}
 /** 같은 형식·정답 위치로 개념·자료를 바꾼 대체 명세(같은 명세로 계속 실패할 때) */
 function replanItem(request, failed, attempt, usedConcepts) {
     return (0, generative_item_planner_1.replanGenerativeItem)(request, failed, attempt, usedConcepts);
@@ -57,7 +81,7 @@ function replanItem(request, failed, attempt, usedConcepts) {
 function writingBrief(spec, repairNotes = []) {
     return {
         system: (0, generative_item_prompt_1.generativeSystemPrompt)(),
-        user: [(0, generative_item_prompt_1.buildGenerativeItemPrompt)(spec, repairNotes), ...(0, generative_item_prompt_1.selfCheck)(spec)].join('\n'),
+        user: [(0, generative_item_prompt_1.buildGenerativeItemPrompt)(spec, repairNotes), ...(0, generative_item_prompt_1.skillWritingAddendum)(spec), ...(0, generative_item_prompt_1.selfCheck)(spec)].join('\n'),
         schema: (0, generative_item_prompt_1.generativeItemResponseFormat)(spec).json_schema.schema,
     };
 }
@@ -87,9 +111,21 @@ function checkCandidate(spec, content, otherTexts = []) {
 /** 블라인드 검토 지시서: 정답·해설 없이 학생 화면과 같은 정보 + (법·제도 단원) 정합성 점검 항목 */
 function reviewBrief(spec, question) {
     return {
-        system: (0, generative_item_prompt_1.blindSolveSystemPrompt)({ dataFree: true }),
-        user: (0, generative_item_prompt_1.blindSolveUserPrompt)((0, generative_item_assembler_1.renderForSolver)(question), (0, legal_review_rules_1.legalReviewRules)(spec.subject, spec.unitNumber), spec.ultra === true),
-        schema: (0, generative_item_prompt_1.blindSolveResponseFormat)({ dataFree: true }).json_schema.schema,
+        system: (0, generative_item_prompt_1.blindSolveSystemPrompt)(reviewOptions(spec)),
+        user: [
+            (0, generative_item_prompt_1.blindSolveUserPrompt)((0, generative_item_assembler_1.renderForSolver)(question), (0, legal_review_rules_1.legalReviewRules)(spec.subject, spec.unitNumber), spec.ultra === true),
+            ...(0, generative_item_prompt_1.textbookReference)(spec),
+        ].join('\n'),
+        schema: (0, generative_item_prompt_1.blindSolveResponseFormat)(reviewOptions(spec)).json_schema.schema,
+    };
+}
+/** 스킬 검토 옵션: 자료 없이 풀리는 진술·발문 점검은 늘, 진술별 사고 단계는 초고난도, 엮은 개념 확인은 엮을 개념이 있을 때 */
+function reviewOptions(spec) {
+    return {
+        dataFree: true,
+        stemReview: true,
+        statementAnalysis: spec.ultra === true,
+        mixConcepts: (spec.mixConcepts ?? []).map((concept) => concept.name),
     };
 }
 /** 검토 결과(JSON 문자열)를 서버 파이프라인과 같은 기준으로 판정한다. */

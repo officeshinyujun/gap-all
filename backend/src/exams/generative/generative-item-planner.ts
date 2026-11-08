@@ -21,6 +21,7 @@ import {
   type GenerativeStimulusShape,
   type GenerativeSubject,
   type MaterialGenre,
+  type MixConcept,
   type UnitConcept,
   type UnitStyleGuide,
 } from './generative.types';
@@ -128,6 +129,56 @@ export function planGenerativeExam(request: GenerativePlanRequest): GenerativeIt
   });
 }
 
+/** 개념 고정 계획의 문항 자리: 정답 판단 개념(없으면 그 단원에서 추첨)과 함께 엮을 개념 */
+export type ConceptSlot = Readonly<{ unitNumber: number; concept?: UnitConcept; mix: readonly MixConcept[] }>;
+
+/**
+ * 개념 고정 계획(에이전트 스킬 전용): 자리마다 단원·정답 판단 개념·엮을 개념을 정해 둔 채
+ * 형식·정답 위치·배점은 planGenerativeExam과 같은 규칙으로 정한다. 반려되어도 개념은 유지된다(conceptLocked).
+ */
+export function planGenerativeSlots(request: GenerativePlanRequest, slots: readonly ConceptSlot[]): GenerativeItemSpec[] {
+  const rng = seededRandom(`${request.seed}:plan`);
+  const count = slots.length;
+  const sourceStats = statsForDifficulty(request.subject, request.difficulty);
+  const modes = request.ultra
+    ? ultraModes(count, rng)
+    : shuffle(largestRemainder(modeDistribution(sourceStats, request.difficulty), count), rng) as GenerativeResponseMode[];
+  const answers = request.ultra
+    ? ultraAnswers(modes, rng)
+    : spreadAnswers(largestRemainder(sourceStats.answerPositions, count).map(Number), rng);
+  const units = slots.map((slot) => slot.unitNumber);
+  const points = request.ultra
+    ? units.map(() => 3 as const)
+    : allocatePoints(request.subject, units, request.difficulty, seededRandom(`${request.seed}:points`));
+  let negativeLeft = Math.min(
+    MAX_NEGATIVE_PER_EXAM,
+    Math.round(modes.filter((mode) => mode === 'statement').length * sourceStats.negativeShareOfSingle),
+  );
+  const usage = new PlanUsage();
+  for (const slot of slots) if (slot.concept !== undefined) usage.concepts.add(slot.concept.name);
+  return slots.map((slot, index) => {
+    const mode = modes[index] ?? 'truth_combination';
+    let polarity: GenerativePolarity = 'positive';
+    if (mode === 'statement' && negativeLeft > 0) {
+      polarity = 'negative';
+      negativeLeft -= 1;
+    }
+    return planItem({
+      request,
+      unitNumber: slot.unitNumber,
+      ordinal: index + 1,
+      mode,
+      polarity,
+      answerIndex: (answers[index] ?? 1) as GenerativeItemSpec['answerIndex'],
+      points: points[index] ?? 2,
+      usage,
+      salt: '',
+      ...(slot.concept === undefined ? {} : { forcedConcept: slot.concept }),
+      mix: { concepts: slot.mix, locked: true },
+    });
+  });
+}
+
 /** 한 슬롯이 끝내 실패했을 때: 형식·정답 위치는 유지하고 개념·자료·소재를 바꾼 대체 명세. */
 /**
  * 예비 문항 계획: 본 시험의 약 30%(1~6개)를 같은 단원 범위에서 다른 개념으로 계획한다.
@@ -165,6 +216,10 @@ export function replanGenerativeItem(
     points: failed.points,
     usage,
     salt: `:replan:${attempt}`,
+    // 개념 고정 계획(스킬 전용): 사용자가 요청한 개념이 반려로 빠지지 않게 중심·엮을 개념은 그대로 두고 자료·소재만 바꾼다.
+    ...(failed.conceptLocked === true
+      ? { forcedConcept: failed.targetConcept, mix: { concepts: failed.mixConcepts ?? [], locked: true } }
+      : {}),
     // 그림형 자리는 그림 구성·종류를 유지한다(시험의 그림 비율이 재출제로 줄지 않게, 정답 위치·형식과 같은 규칙).
     ...(isFigureShape(failed.stimulusShape) && failed.figureType !== undefined
       ? { figure: { shape: failed.stimulusShape, type: failed.figureType } }
@@ -194,6 +249,10 @@ function planItem(input: Readonly<{
   salt: string;
   /** 대체 명세에서 유지할 그림 구성·종류 */
   figure?: Readonly<{ shape: GenerativeStimulusShape; type: FigureType }>;
+  /** 개념 고정 계획: 이 개념을 정답 판단 개념으로 쓴다(가중 추첨하지 않음). */
+  forcedConcept?: UnitConcept;
+  /** 개념 고정 계획: 함께 엮을 개념과 개념 고정 여부 */
+  mix?: Readonly<{ concepts: readonly MixConcept[]; locked: boolean }>;
 }>): GenerativeItemSpec {
   const { request, unitNumber, mode, polarity, answerIndex, usage } = input;
   const rng = seededRandom(`${request.seed}:item:${input.ordinal}${input.salt}`);
@@ -206,7 +265,8 @@ function planItem(input: Readonly<{
   const calcRng = seededRandom(`${request.seed}:calc:${input.ordinal}${input.salt}`);
   // 같은 모듈은 한 시험에 2번까지(같은 자료 틀이 반복되지 않게)
   // 초고난도는 서버 계산 고정 진술을 쓰지 않는다: 고정 진술은 한 단계로 판정되는 경우가 많아 소거 지름길이 된다.
-  const signatureChoice = request.ultra || input.figure !== undefined ? undefined : chooseSignature(
+  // 개념을 지정한 슬롯은 계산 모듈이 다른 개념의 진술을 고정하지 않게 특징 문항을 쓰지 않는다.
+  const signatureChoice = request.ultra || input.figure !== undefined || input.forcedConcept !== undefined ? undefined : chooseSignature(
     request.subject,
     unitNumber,
     mode,
@@ -223,7 +283,7 @@ function planItem(input: Readonly<{
   const signaturePreferred = (request.targetConcepts ?? []).length === 0 ? signatureConcept(guide, signatureChoice) : undefined;
   // 이미 쓴 개념(본 문항·이전 시도)이면 겹치지 않게 일반 선택으로 돌린다.
   const preferredConcept = signaturePreferred !== undefined && !usage.concepts.has(signaturePreferred.name) ? signaturePreferred : undefined;
-  const targetConcept = preferredConcept ?? pickedConcept;
+  const targetConcept = input.forcedConcept ?? preferredConcept ?? pickedConcept;
   usage.concepts.add(targetConcept.name);
   const companionConcepts = companionsFor(guide, targetConcept, rng);
   // 자료 형식은 실제 기출의 단원·출처별 블록 구성 분포에서 먼저 뽑고(같은 시험 안 반복은 감점),
@@ -395,6 +455,8 @@ function planItem(input: Readonly<{
     diversityHint,
     unitDifficultyTier: unitDifficulty.tier,
     ...(request.ultra ? { ultra: true } : {}),
+    ...(input.mix !== undefined && input.mix.concepts.length > 0 ? { mixConcepts: input.mix.concepts } : {}),
+    ...(input.mix?.locked === true ? { conceptLocked: true } : {}),
   };
 }
 

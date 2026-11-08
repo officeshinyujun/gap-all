@@ -204,7 +204,7 @@ describe('blind review fix mode and data-free statements', () => {
     const two = selfCheck(spec({ points: 2, responseMode: 'statement' })).join('\n');
     expect(two).toContain('단순 읽기 1개 이하');
     expect(two).toContain('자료 없이 풀리는 진술 2개 이하');
-    expect(selfCheck(spec())).toHaveLength(9);
+    expect(selfCheck(spec())).toHaveLength(10);
   });
 
   it('does not treat generic words like "구분" as concept names', () => {

@@ -73,7 +73,57 @@ function blindSolveRejection(spec, solve) {
             fix: 'repair',
         };
     }
-    if (spec.ultra && solve.perceivedDifficulty !== 'hard') {
+    // 발문 문장(스킬 검토에만 있는 필드): 정보 과적·자료/조건 나열은 같은 명세로 발문만 고치게 한다.
+    if ((solve.stemIssues ?? []).length > 0) {
+        return {
+            code: 'GEN_STEM_INVALID',
+            message: `검토자: 발문이 한 번에 읽히지 않음 — ${(solve.stemIssues ?? []).join(' / ')}`,
+            notes: [
+                `검토자가 발문에서 다음 문제를 지적했습니다: ${(solve.stemIssues ?? []).join(' / ')}`,
+                '발문은 자료 이름(명사구 하나)과 대상만 담고, 사례 정보는 제시문으로, (단, …)은 기준 하나만 남기십시오. 나머지 기준은 제시문 끝 "※" 줄로 옮기십시오.',
+            ],
+            fix: 'repair',
+        };
+    }
+    // 함께 엮은 개념(스킬 개념 고정 계획): 검토자가 판정에 쓰였다고 확인하지 않은 개념이 있으면 고치게 한다.
+    const mixNames = (spec.mixConcepts ?? []).map((concept) => concept.name);
+    if (mixNames.length > 0 && solve.mixConceptsUsed !== undefined) {
+        const used = solve.mixConceptsUsed.map(compactName);
+        const missing = mixNames.filter((name) => !used.some((entry) => entry === compactName(name) || entry.includes(compactName(name)) || compactName(name).includes(entry)));
+        if (missing.length > 0) {
+            return {
+                code: 'GEN_TOO_EASY',
+                message: `검토자: 함께 엮을 개념이 판정에 쓰이지 않음 — ${missing.join(', ')}`,
+                notes: [
+                    `검토자가 ${missing.join(', ')}을(를) 어떤 진술의 참/거짓 판정에도 필요하지 않았다고 보았습니다(이름만 나오거나 장식).`,
+                    '그 개념을 제시문 사례 단서로 넣고, 진술 하나 이상이 그 개념을 적용해야 판정되게 바꾸십시오. design.mixUse도 맞추십시오.',
+                ],
+                fix: 'repair',
+            };
+        }
+    }
+    // 초고난도: 검토자가 진술별 사고 단계를 냈으면 체감 난도 대신 그 구조로 판정한다(검토자마다 hard 기준이 흔들리는 문제).
+    const analysis = solve.statementAnalysis ?? [];
+    if (spec.ultra && analysis.length > 0) {
+        const shallow = analysis.filter((entry) => entry.steps < 2).map((entry) => entry.label);
+        if (shallow.length > 0 || solve.eliminationShortcut === true || solve.perceivedDifficulty === 'easy') {
+            return {
+                code: 'GEN_TOO_EASY',
+                message: `검토자: 초고난도 기준 미달 — ${[
+                    ...(shallow.length > 0 ? [`2단계 미만 진술 ${shallow.join(', ')}`] : []),
+                    ...(solve.eliminationShortcut === true ? ['소거 지름길 있음'] : []),
+                    ...(solve.perceivedDifficulty === 'easy' ? ['체감 난도 easy'] : []),
+                ].join(', ')}`,
+                notes: [
+                    ...(shallow.length > 0 ? [`${shallow.join(', ')}은(는) 판단 하나로 참/거짓이 정해집니다. 흩어진 단서 연결·개념 판별·계산 중 둘 이상을 거쳐야 판정되게 바꾸십시오.`] : []),
+                    ...(solve.eliminationShortcut === true ? ['일부 진술만 판정해도 소거로 정답이 정해지는 길이 있습니다. 모든 진술을 판정해야 정답이 하나로 정해지게 바꾸십시오.'] : []),
+                    `검토 근거: ${solve.reasoning.slice(0, 400)}`,
+                ],
+                fix: 'repair',
+            };
+        }
+    }
+    else if (spec.ultra && solve.perceivedDifficulty !== 'hard') {
         return {
             code: 'GEN_TOO_EASY',
             message: `검토자: 초고난도 문항인데 난도가 ${solve.perceivedDifficulty}`,
@@ -96,6 +146,8 @@ function blindSolveRejection(spec, solve) {
     }
     return null;
 }
+const compactName = (value) => value.replace(/[\s·・,.()（）[\]'"]/gu, '').toLowerCase();
+const labels = (value) => Array.isArray(value) ? value.filter((label) => typeof label === 'string' && label.trim() !== '') : undefined;
 /** 블라인드 풀이 응답(JSON 문자열) 해석. 형식이 틀리면 Error. */
 function parseBlindSolveResult(content) {
     let raw;
@@ -123,6 +175,18 @@ function parseBlindSolveResult(content) {
         dataFreeStatements: Array.isArray(value.dataFreeStatements)
             ? value.dataFreeStatements.filter((label) => typeof label === 'string' && label.trim() !== '')
             : [],
+        // 아래는 스킬 검토에만 있는 필드: 값이 없으면 undefined로 두어 판정에 쓰지 않는다.
+        ...(Array.isArray(value.statementAnalysis)
+            ? {
+                statementAnalysis: value.statementAnalysis
+                    .filter((entry) => typeof entry === 'object' && entry !== null)
+                    .map((entry) => ({ label: String(entry.label ?? ''), steps: Number(entry.steps) }))
+                    .filter((entry) => entry.label !== '' && Number.isFinite(entry.steps)),
+            }
+            : {}),
+        ...(typeof value.eliminationShortcut === 'boolean' ? { eliminationShortcut: value.eliminationShortcut } : {}),
+        ...(labels(value.stemIssues) === undefined ? {} : { stemIssues: labels(value.stemIssues) }),
+        ...(labels(value.mixConceptsUsed) === undefined ? {} : { mixConceptsUsed: labels(value.mixConceptsUsed) }),
         perceivedDifficulty: value.perceivedDifficulty === 'easy' || value.perceivedDifficulty === 'hard'
             ? value.perceivedDifficulty
             : 'moderate',

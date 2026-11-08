@@ -12,6 +12,8 @@ import {
   copiedStatementIssues,
   explanationNumeralIssues,
   laborHeadcountIssues,
+  mixUseIssues,
+  stemOverloadIssues,
   realEntityIssues,
 } from './precheck';
 import { normalizeExamNotation, normalizeExamRegister } from './exam-register';
@@ -97,6 +99,14 @@ export function parseGenerativeCandidate(
       scenario: text(design.scenario),
       clues: texts(design.clues),
       difficultyDevices: texts(design.difficultyDevices),
+      ...(Array.isArray(design.mixUse)
+        ? {
+            mixUse: design.mixUse.filter(isRecord).map((entry) => ({
+              concept: text(entry.concept),
+              statements: texts(entry.statements),
+            })),
+          }
+        : {}),
     },
     blocks: blocks as GeneratedBlock[],
     ...(figures.length === 0 ? {} : { figures }),
@@ -362,6 +372,8 @@ export function validateGenerativeCandidate(
       ...copiedStatementIssues(spec, { ...candidate, blocks: modelBlocks }, fixedTexts),
       ...laborHeadcountIssues(spec, candidate, stimulusText),
       ...explanationNumeralIssues(spec, candidate),
+      ...stemOverloadIssues(stem, spec.stemEnding),
+      ...mixUseIssues(spec, candidate),
     ]) push(issue.code, issue.message);
   }
 

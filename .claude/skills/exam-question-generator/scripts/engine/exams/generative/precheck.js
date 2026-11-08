@@ -7,7 +7,12 @@ exports.realEntityIssues = realEntityIssues;
 exports.copiedStatementIssues = copiedStatementIssues;
 exports.laborHeadcountIssues = laborHeadcountIssues;
 exports.explanationNumeralIssues = explanationNumeralIssues;
+exports.stemConditions = stemConditions;
+exports.conditionCriteria = conditionCriteria;
+exports.stemOverloadIssues = stemOverloadIssues;
+exports.mixUseIssues = mixUseIssues;
 const figure_parse_1 = require("./figures/figure-parse");
+const generative_item_prompt_1 = require("./generative-item-prompt");
 const UNIT_ONLY = /^(명|개|원|만 원|억 원|%|%p|kg|g|m|km|cm|mm|℃|mL|L|N|J|W|s|초|분|시간|일|주|개월|년|단위|가구|건|회|배|점)$/u;
 function blankCellIssues(blocks) {
     for (const block of blocks) {
@@ -141,4 +146,93 @@ function explanationNumeralIssues(spec, candidate) {
     return /[①②③④⑤]/u.test([candidate.explanation.solution, ...candidate.explanation.distractorNotes].join(' '))
         ? [{ code: 'GEN_EXPLANATION_INVALID', message: '해설에 선지 번호(①~⑤)를 쓰지 마십시오. 정답 위치는 엔진이 정하므로 번호 대신 선지 내용으로 설명하십시오.' }]
         : [];
+}
+/** 발문의 (단, …) 조건들(괄호 안 괄호 허용) */
+function stemConditions(stem) {
+    const result = [];
+    let index = stem.indexOf('(단,');
+    while (index >= 0) {
+        let depth = 0;
+        let end = index;
+        for (; end < stem.length; end += 1) {
+            if (stem[end] === '(')
+                depth += 1;
+            if (stem[end] === ')')
+                depth -= 1;
+            if (depth === 0)
+                break;
+        }
+        result.push(stem.slice(index, end + 1));
+        index = stem.indexOf('(단,', end + 1);
+    }
+    return result;
+}
+/**
+ * 조건 안의 판정 기준 수에서 빼는 마무리 문구: 법령 근거("｢근로기준법｣에 따르며"),
+ * 부정형 사실 전제("제시된 근무 외의 근로는 없다", "A 씨의 고의는 없었다", "단체 협약은 고려하지 않는다").
+ */
+const CLOSURE_CLAUSE = /｢[^｣]*｣[에을]?\s*(따르|따른|근거|$)|관련 법령에\s*따르|(없|않|아니)(다|었다|았다|는다)\.?$|고려하지\s*않|해당하지\s*않/u;
+/** (단, …) 조건 하나에 든 판정 기준(마무리 문구 제외)의 수. 괄호 안(저자명 등)의 쉼표는 나누지 않는다. */
+function conditionCriteria(condition) {
+    const inner = condition.replace(/^\(단,\s*/u, '').replace(/\)$/u, '');
+    let depth = 0;
+    const masked = [...inner].map((char) => {
+        if (char === '(')
+            depth += 1;
+        const out = depth > 0 ? '_' : char;
+        if (char === ')')
+            depth = Math.max(0, depth - 1);
+        return out;
+    }).join('');
+    const parts = masked
+        .split(/(?:하며|이며|으며|따르며|따르고|하고|이고),\s*|,\s*(?=[가-힣]{1,8}(?:\s[가-힣]{1,8}){0,3}[은는]\s)/u)
+        .map((part) => part.trim())
+        .filter((part) => part !== '');
+    return parts.filter((part) => !CLOSURE_CLAUSE.test(part));
+}
+/**
+ * 발문 과적: 정보를 발문에 욱여넣어 한 번에 읽히지 않는 발문.
+ * 기준은 기출 발문 틀(질문 끝맺음 앞 본문 최대 88자, 조건 최대 74자·판정 기준 하나)로 정했다(precheck.spec 참고).
+ * 수식어 겹침·자료 나열처럼 길이로 잡히지 않는 문제는 블라인드 검토의 stemIssues가 잡는다.
+ */
+function stemOverloadIssues(stem, stemEnding = '') {
+    const conditions = stemConditions(stem);
+    let body = stem;
+    for (const condition of conditions)
+        body = body.replace(condition, '');
+    body = body.trim();
+    const lead = stemEnding !== '' && body.endsWith(stemEnding) ? body.slice(0, -stemEnding.length).trim() : body;
+    const problems = [];
+    if (conditions.length > 1)
+        problems.push(`(단, …) 조건이 ${conditions.length}개입니다. 하나만 남기고 나머지는 제시문 끝 "※" 줄로 옮기십시오`);
+    for (const condition of conditions) {
+        const criteria = conditionCriteria(condition);
+        const length = condition.replace(/^\(단,\s*/u, '').replace(/\)$/u, '').length;
+        if (criteria.length > 1)
+            problems.push(`(단, …) 조건 하나에 판정 기준이 ${criteria.length}개 묶여 있습니다("${criteria.map((part) => part.slice(0, 14)).join('" / "')}"). 기준 하나만 남기고 나머지는 제시문 끝 "※" 줄로 옮기십시오`);
+        else if (length > generative_item_prompt_1.STEM_CONDITION_LIMIT)
+            problems.push(`(단, …) 조건이 ${length}자입니다(최대 ${generative_item_prompt_1.STEM_CONDITION_LIMIT}자)`);
+    }
+    if (lead.length > generative_item_prompt_1.STEM_LEAD_LIMIT)
+        problems.push(`질문 끝맺음 앞 본문이 ${lead.length}자입니다(최대 ${generative_item_prompt_1.STEM_LEAD_LIMIT}자). 자료 이름은 명사구 하나로, 사례 정보·수식어는 제시문으로 옮기십시오`);
+    return problems.length === 0 ? [] : [{ code: 'GEN_STEM_INVALID', message: `발문이 한 번에 읽히지 않습니다: ${problems.join(' / ')}.` }];
+}
+/** 엮을 개념 선언 검사: 개념마다 진술 표지가 하나 이상 있고, 그 표지가 실제 진술을 가리켜야 한다. */
+function mixUseIssues(spec, candidate) {
+    const mix = spec.mixConcepts ?? [];
+    if (mix.length === 0)
+        return [];
+    const valid = spec.responseMode === 'truth_combination'
+        ? new Set(spec.viewKeys ?? [])
+        : new Set(['정답', '오답1', '오답2', '오답3', '오답4']);
+    const normalize = (value) => value.replace(/[\s·・,.()（）[\]'"]/gu, '');
+    const declared = candidate.design.mixUse ?? [];
+    const missing = mix.filter((concept) => {
+        const entry = declared.find((use) => normalize(use.concept) === normalize(concept.name) || normalize(concept.name).includes(normalize(use.concept)) && normalize(use.concept).length >= 3);
+        return entry === undefined || !entry.statements.some((label) => valid.has(label.replace(/\s/gu, '')));
+    });
+    return missing.length === 0 ? [] : [{
+            code: 'GEN_SCHEMA_INVALID',
+            message: `함께 엮을 개념 ${missing.map((concept) => `"${concept.name}"`).join(', ')}이(가) design.mixUse에 없거나, 판정 요소로 쓴 진술 표지(${[...valid].join('·')})가 없습니다. 개념마다 실제로 판정에 쓰이는 진술을 만들고 그 표지를 적으십시오.`,
+        }];
 }
