@@ -645,8 +645,9 @@ export const STEM_CONDITION_LIMIT = 75;
 
 const hasMix = (spec: Pick<GenerativeItemSpec, 'mixConcepts'>) => (spec.mixConcepts?.length ?? 0) > 0;
 
+/** 개념 정의와 핵심 사실 전부(분류표·단계 순서처럼 판정 기준이 뒤쪽 사실에 있는 경우가 많아 자르지 않는다 — 가이드는 개념당 10개 이내) */
 const conceptLine = (concept: Pick<UnitConcept, 'name' | 'definition' | 'keyFacts'>) =>
-  [`- ${concept.name}: ${concept.definition}`, ...concept.keyFacts.slice(0, 4).map((fact) => `    · ${fact}`)].join('\n');
+  [`- ${concept.name}: ${concept.definition}`, ...concept.keyFacts.slice(0, 10).map((fact) => `    · ${fact}`)].join('\n');
 
 /**
  * 스킬 출제 지시서에 덧붙이는 절(서버 프롬프트에는 없다): 발문 문장 규칙과 함께 엮을 개념.
