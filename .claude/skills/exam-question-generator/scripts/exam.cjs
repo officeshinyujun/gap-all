@@ -146,7 +146,7 @@ function nextAttempt(work, plan, item, notes, fix = 'repair') {
   item.replanned = false;
   item.repairFrom = fix === 'repair' && fs.existsSync(previous) ? previous : undefined;
   if (fix === 'replan') {
-    // 설계가 무너진 경우만 형식·정답 위치는 유지하고 개념·자료·소재를 바꾼다.
+    // 설계가 무너진 경우만 형식·정답 위치는 유지하고 개념·자료·소재를 바꾼다(개념 고정 계획이면 개념은 유지하고 자료·소재만).
     const used = plan.items.filter((entry) => entry.status === 'accepted').map((entry) => entry.spec.targetConcept.name);
     item.spec = engine.replanItem(plan.request, item.spec, item.attempt, used);
     // 개념은 바뀌지만 반려 원인(단순 읽기 진술·맥락 불일치 등)은 다음 문항에도 해당하므로 교훈으로 넘긴다.
@@ -233,18 +233,36 @@ function commandPlan(options) {
   if (!difficulty) fail('--difficulty는 LOW|MIDDLE|HIGH|INTERGRATE|ULTRA(하|중|상|통합|초고난도)입니다.');
   // 초고난도: 엔진 난이도는 HIGH(전부 3점) + 소거 지름길 없는 선지 조합·계산 고정 진술 없음
   const ultra = difficulty === 'ULTRA' || options.ultra === true;
-  const [startUnit, endUnit = startUnit] = String(options.units || '').split('-').map(Number);
-  const request = engine.toPlanRequest({
-    subject,
-    startUnit,
-    endUnit,
-    count: Number(options.count || 5),
-    difficulty: ultra ? 'HIGH' : difficulty,
-    ultra,
-    seed: options.seed ? String(options.seed) : undefined,
-    concepts: options.concepts ? String(options.concepts).split(',').map((value) => value.trim()).filter(Boolean) : undefined,
-  });
-  const specs = engine.planExam(request);
+  const concepts = options.concepts ? String(options.concepts).split(',').map((value) => value.trim()).filter(Boolean) : undefined;
+  let request;
+  let specs;
+  if (options.lock) {
+    // 개념 고정 계획: 고른 개념을 모두 넣는다(단원 범위 불필요, 넘나들어도 됨). 반려되어도 개념은 유지된다.
+    if (!concepts || concepts.length === 0) fail('--lock에는 --concepts "개념1,개념2,…"가 필요합니다.');
+    let planned;
+    try {
+      planned = engine.planConceptExam({ subject, concepts, count: Number(options.count || concepts.length), difficulty: ultra ? 'HIGH' : difficulty, ultra, seed: options.seed ? String(options.seed) : undefined });
+    } catch (error) {
+      fail(error.message);
+    }
+    request = planned.request;
+    specs = planned.specs;
+    console.log('개념 찾기:');
+    for (const entry of planned.resolved) console.log(`  "${entry.query}" → ${entry.unitNumber}단원 [${entry.concept.name}]`);
+  } else {
+    const [startUnit, endUnit = startUnit] = String(options.units || '').split('-').map(Number);
+    request = engine.toPlanRequest({
+      subject,
+      startUnit,
+      endUnit,
+      count: Number(options.count || 5),
+      difficulty: ultra ? 'HIGH' : difficulty,
+      ultra,
+      seed: options.seed ? String(options.seed) : undefined,
+      concepts,
+    });
+    specs = engine.planExam(request);
+  }
   const plan = {
     engine: engine.SKILL_ENGINE_VERSION,
     createdAt: new Date().toISOString(),
@@ -253,13 +271,14 @@ function commandPlan(options) {
   };
   savePlan(work, plan);
   for (const item of plan.items) writeWritingBrief(work, item);
-  console.log(`출제 계획: ${SUBJECT_NAMES[subject]} ${startUnit}~${endUnit}단원, ${ultra ? '초고난도(ULTRA)' : difficulty}, ${specs.length}문항 → ${work}`);
+  console.log(`출제 계획: ${SUBJECT_NAMES[subject]} ${request.startUnitNum}~${request.endUnitNum}단원${options.lock ? '(개념 고정)' : ''}, ${ultra ? '초고난도(ULTRA)' : difficulty}, ${specs.length}문항 → ${work}`);
   for (const item of plan.items) {
     const s = item.spec;
     const figure = s.stimulusShape === 'scene+dialogue' ? ' +인물 그림'
       : s.stimulusShape.startsWith('chart') ? ` +그래프(${s.figureType ?? 'categorical'})`
         : s.stimulusShape.startsWith('diagram') ? ` +도식(${s.figureType ?? 'flow'})` : '';
-    console.log(`  ${pad(item.ordinal)}. ${s.unitNumber}단원 [${s.targetConcept.name}] ${s.responseMode}${s.calculation ? `+계산(${s.calculation.kind}/${s.calculation.format})` : ''}${figure} ${s.points}점 정답 ${s.answerIndex}번 → ${path.join(itemDir(work, item.ordinal), 'brief.md')}`);
+    const mix = (s.mixConcepts || []).length ? ` +엮기[${s.mixConcepts.map((concept) => `${concept.unitNumber}단원 ${concept.name}`).join(', ')}]` : '';
+    console.log(`  ${pad(item.ordinal)}. ${s.unitNumber}단원 [${s.targetConcept.name}]${mix} ${s.responseMode}${s.calculation ? `+계산(${s.calculation.kind}/${s.calculation.format})` : ''}${figure} ${s.points}점 정답 ${s.answerIndex}번 → ${path.join(itemDir(work, item.ordinal), 'brief.md')}`);
   }
 }
 
@@ -308,7 +327,7 @@ function commandReview(options) {
   if (judgement.invalid) fail(`검토 JSON 형식 오류: ${judgement.invalid}`);
   console.log(`✗ ${item.ordinal}번 검토 반려 [${judgement.rejection.code}] ${judgement.rejection.message}`);
   const brief = nextAttempt(work, plan, item, judgement.rejection.notes, judgement.rejection.fix);
-  console.log(brief ? `→ 고친 지시서: ${brief}${item.replanned ? ' (대체 명세 — 새로 쓰기)' : ' (같은 명세 — 고치기)'}` : '→ 최대 시도 횟수를 넘겨 제외했습니다. refill로 다시 열 수 있습니다.');
+  console.log(brief ? `→ 고친 지시서: ${brief}${item.replanned ? (item.spec.conceptLocked ? ' (대체 명세 — 개념 유지, 자료·소재를 바꿔 새로 쓰기)' : ' (대체 명세 — 새로 쓰기)') : ' (같은 명세 — 고치기)'}` : '→ 최대 시도 횟수를 넘겨 제외했습니다. refill로 다시 열 수 있습니다.');
   process.exitCode = 2;
 }
 
@@ -467,7 +486,7 @@ function commandPdf(options) {
 const { command, options } = parseArgs(process.argv.slice(2));
 const commands = { plan: commandPlan, check: commandCheck, review: commandReview, status: commandStatus, refresh: commandRefresh, refill: commandRefill, export: commandExport, pdf: commandPdf };
 if (!commands[command]) {
-  console.log('사용법: node exam.cjs <plan|check|review|status|refresh|refill|export|pdf> [옵션]\n  plan   --work DIR --subject success|kongil --units 15-17 --count 5 --difficulty LOW|MIDDLE|HIGH|INTERGRATE|ULTRA [--seed s] [--concepts a,b] [--force]\n  check  --work DIR --item N [--file candidate.json]\n  review --work DIR --item N [--file review.json]\n  status --work DIR [--json]   (문항별 다음 할 일: write·repair → 출제자, review → 검토자, judge → review 명령, refill)\n  refresh --work DIR\n  refill --work DIR [--item N]\n  export --work DIR\n  pdf    --work DIR [--no-answers] [--chrome PATH]');
+  console.log('사용법: node exam.cjs <plan|check|review|status|refresh|refill|export|pdf> [옵션]\n  plan   --work DIR --subject success|kongil --units 15-17 --count 5 --difficulty LOW|MIDDLE|HIGH|INTERGRATE|ULTRA [--seed s] [--concepts a,b] [--force]\n  plan   --work DIR --subject success --lock --concepts "개념1,개념2,…" --count 10 --difficulty ULTRA   (개념 고정: 단원을 넘나들며 모든 개념을 넣고, 남는 개념은 함께 엮음)\n  check  --work DIR --item N [--file candidate.json]\n  review --work DIR --item N [--file review.json]\n  status --work DIR [--json]   (문항별 다음 할 일: write·repair → 출제자, review → 검토자, judge → review 명령, refill)\n  refresh --work DIR\n  refill --work DIR [--item N]\n  export --work DIR\n  pdf    --work DIR [--no-answers] [--chrome PATH]');
   process.exit(command ? 1 : 0);
 }
 commands[command](options);

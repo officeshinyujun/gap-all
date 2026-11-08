@@ -20,14 +20,18 @@ import {
 import { blindSolveRejection, parseBlindSolveResult, type BlindSolveRejection } from '../generative-gates';
 import {
   planGenerativeExam,
+  planGenerativeSlots,
   replanGenerativeItem,
   type GenerativePlanRequest,
 } from '../generative-item-planner';
+import { assignConceptSlots, resolveConcepts, type ResolvedConcept } from '../concept-slots';
 import {
   blindSolveResponseFormat,
   blindSolveSystemPrompt,
   blindSolveUserPrompt,
   selfCheck,
+  skillWritingAddendum,
+  textbookReference,
   buildGenerativeItemPrompt,
   generativeItemResponseFormat,
   generativeSystemPrompt,
@@ -40,7 +44,7 @@ import { similarity } from '../text-similarity';
 export { Difficulty };
 export type { AssembledGenerativeQuestion, GenerativeItemSpec, GenerativePlanRequest };
 
-export const SKILL_ENGINE_VERSION = 'exam-skill-engine-v5';
+export const SKILL_ENGINE_VERSION = 'exam-skill-engine-v6';
 const NEAR_DUPLICATE_THRESHOLD = 0.55;
 
 export type PlanArgs = Readonly<{
@@ -78,6 +82,38 @@ export function planExam(request: GenerativePlanRequest): GenerativeItemSpec[] {
   return planGenerativeExam(request);
 }
 
+export type ConceptPlanArgs = Readonly<{
+  subject: GenerativeSubject;
+  /** 사용자가 고른 개념 이름(띄어쓰기·오타 일부 허용, 단원 가이드에서 찾는다) */
+  concepts: readonly string[];
+  count: number;
+  difficulty: Difficulty;
+  seed?: string;
+  ultra?: boolean;
+}>;
+
+/**
+ * 개념 고정 계획: 고른 개념을 모두 시험에 넣는다(단원 범위를 넘나들어도 된다).
+ * 개념이 문항보다 많으면 나머지를 가까운 단원 문항에 "함께 엮을 개념"으로 붙이고, 반려되어도 개념은 바뀌지 않는다.
+ */
+export function planConceptExam(args: ConceptPlanArgs): Readonly<{ request: GenerativePlanRequest; specs: GenerativeItemSpec[]; resolved: ResolvedConcept[] }> {
+  if (!Number.isInteger(args.count) || args.count < 1 || args.count > 30) throw new Error('문항 수는 1~30이어야 합니다.');
+  const resolved = resolveConcepts(args.subject, args.concepts);
+  const slots = assignConceptSlots(resolved, args.count);
+  const units = slots.map((slot) => slot.unitNumber);
+  const request = toPlanRequest({
+    subject: args.subject,
+    startUnit: Math.min(...units),
+    endUnit: Math.max(...units),
+    count: args.count,
+    difficulty: args.difficulty,
+    seed: args.seed,
+    ultra: args.ultra,
+    concepts: resolved.map((entry) => entry.concept.name),
+  });
+  return { request, specs: planGenerativeSlots(request, slots), resolved };
+}
+
 /** 같은 형식·정답 위치로 개념·자료를 바꾼 대체 명세(같은 명세로 계속 실패할 때) */
 export function replanItem(
   request: GenerativePlanRequest,
@@ -94,7 +130,7 @@ export type Brief = Readonly<{ system: string; user: string; schema: unknown }>;
 export function writingBrief(spec: GenerativeItemSpec, repairNotes: readonly string[] = []): Brief {
   return {
     system: generativeSystemPrompt(),
-    user: [buildGenerativeItemPrompt(spec, repairNotes), ...selfCheck(spec)].join('\n'),
+    user: [buildGenerativeItemPrompt(spec, repairNotes), ...skillWritingAddendum(spec), ...selfCheck(spec)].join('\n'),
     schema: generativeItemResponseFormat(spec).json_schema.schema,
   };
 }
@@ -131,9 +167,22 @@ export function checkCandidate(
 /** 블라인드 검토 지시서: 정답·해설 없이 학생 화면과 같은 정보 + (법·제도 단원) 정합성 점검 항목 */
 export function reviewBrief(spec: GenerativeItemSpec, question: AssembledGenerativeQuestion): Brief {
   return {
-    system: blindSolveSystemPrompt({ dataFree: true }),
-    user: blindSolveUserPrompt(renderForSolver(question), legalReviewRules(spec.subject, spec.unitNumber), spec.ultra === true),
-    schema: blindSolveResponseFormat({ dataFree: true }).json_schema.schema,
+    system: blindSolveSystemPrompt(reviewOptions(spec)),
+    user: [
+      blindSolveUserPrompt(renderForSolver(question), legalReviewRules(spec.subject, spec.unitNumber), spec.ultra === true),
+      ...textbookReference(spec),
+    ].join('\n'),
+    schema: blindSolveResponseFormat(reviewOptions(spec)).json_schema.schema,
+  };
+}
+
+/** 스킬 검토 옵션: 자료 없이 풀리는 진술·발문 점검은 늘, 진술별 사고 단계는 초고난도, 엮은 개념 확인은 엮을 개념이 있을 때 */
+function reviewOptions(spec: GenerativeItemSpec) {
+  return {
+    dataFree: true,
+    stemReview: true,
+    statementAnalysis: spec.ultra === true,
+    mixConcepts: (spec.mixConcepts ?? []).map((concept) => concept.name),
   };
 }
 

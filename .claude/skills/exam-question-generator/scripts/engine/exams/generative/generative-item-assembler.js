@@ -61,6 +61,14 @@ function parseGenerativeCandidate(content, spec) {
             scenario: text(design.scenario),
             clues: texts(design.clues),
             difficultyDevices: texts(design.difficultyDevices),
+            ...(Array.isArray(design.mixUse)
+                ? {
+                    mixUse: design.mixUse.filter(isRecord).map((entry) => ({
+                        concept: text(entry.concept),
+                        statements: texts(entry.statements),
+                    })),
+                }
+                : {}),
         },
         blocks: blocks,
         ...(figures.length === 0 ? {} : { figures }),
@@ -321,6 +329,8 @@ function validateGenerativeCandidate(spec, candidate, options = {}) {
             ...(0, precheck_1.copiedStatementIssues)(spec, { ...candidate, blocks: modelBlocks }, fixedTexts),
             ...(0, precheck_1.laborHeadcountIssues)(spec, candidate, stimulusText),
             ...(0, precheck_1.explanationNumeralIssues)(spec, candidate),
+            ...(0, precheck_1.stemOverloadIssues)(stem, spec.stemEnding),
+            ...(0, precheck_1.mixUseIssues)(spec, candidate),
         ])
             push(issue.code, issue.message);
     }

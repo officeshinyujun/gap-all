@@ -1,9 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.STEM_CONDITION_LIMIT = exports.STEM_LEAD_LIMIT = void 0;
 exports.generativeSystemPrompt = generativeSystemPrompt;
 exports.buildGenerativeItemPrompt = buildGenerativeItemPrompt;
 exports.generativeItemResponseFormat = generativeItemResponseFormat;
 exports.selfCheck = selfCheck;
+exports.skillWritingAddendum = skillWritingAddendum;
+exports.textbookReference = textbookReference;
 exports.ultraInstructions = ultraInstructions;
 exports.blindSolveUserPrompt = blindSolveUserPrompt;
 exports.blindSolveSystemPrompt = blindSolveSystemPrompt;
@@ -481,7 +484,7 @@ function generativeItemResponseFormat(spec) {
         design: {
             type: 'object',
             additionalProperties: false,
-            required: ['scenario', 'clues', 'difficultyDevices'],
+            required: ['scenario', 'clues', 'difficultyDevices', ...(hasMix(spec) ? ['mixUse'] : [])],
             properties: {
                 scenario: STRING,
                 clues: { type: 'array', items: STRING, minItems: spec.points === 3 ? 4 : 3, maxItems: 6 },
@@ -491,6 +494,22 @@ function generativeItemResponseFormat(spec) {
                     minItems: spec.points === 3 ? 1 : 0,
                     maxItems: 4,
                 },
+                // 함께 엮을 개념이 있는 명세(스킬 개념 고정 계획)에만 있는 필드 — 서버 명세에는 없어 스키마가 그대로다.
+                ...(hasMix(spec)
+                    ? {
+                        mixUse: {
+                            type: 'array',
+                            minItems: spec.mixConcepts?.length ?? 0,
+                            maxItems: spec.mixConcepts?.length ?? 0,
+                            items: {
+                                type: 'object',
+                                additionalProperties: false,
+                                required: ['concept', 'statements'],
+                                properties: { concept: STRING, statements: { type: 'array', items: STRING, minItems: 1, maxItems: 5 } },
+                            },
+                        },
+                    }
+                    : {}),
             },
         },
         blocks: { type: 'array', items: (0, generative_types_1.isFigureShape)(spec.stimulusShape) ? FIGURE_BLOCK_SCHEMA : BLOCK_SCHEMA, minItems: 1, maxItems: 4 },
@@ -586,6 +605,15 @@ function generativeItemResponseFormat(spec) {
 function selfCheck(spec) {
     const high = spec.points === 3;
     const label = spec.responseMode === 'truth_combination' ? '<보기>' : '선지';
+    const extra = [
+        `8. 발문: 소리 내어 한 번에 읽힙니까? 질문 끝맺음 앞 본문은 60자 안팎(최대 ${exports.STEM_LEAD_LIMIT}자), "(단, …)"은 1개·판정 기준 하나(최대 ${exports.STEM_CONDITION_LIMIT}자)이고, 사례 정보·수치·자료 나열·겹친 수식어가 없어야 합니다.`,
+        ...(spec.ultra === true
+            ? [`9. 사고 단계: ${label}마다 판정에 필요한 단계(단서 찾기·개념 판별·계산/비교)를 적어 보아 2단계 미만이 없고, 일부 ${label}만 판정해 소거로 정답이 나오는 길이 없습니까?`]
+            : []),
+        ...(hasMix(spec)
+            ? [`${spec.ultra === true ? 10 : 9}. 엮을 개념: ${spec.mixConcepts?.map((concept) => concept.name).join(', ')} 각각이 제시문 단서와 ${label} 하나 이상의 판정에 실제로 쓰였고, design.mixUse에 그 ${label} 표지를 적었습니까?`]
+            : []),
+    ];
     return [
         '',
         '## 제출 전 자기 점검 (check 전에 하나씩 확인 — 블라인드 검토가 정확히 이 기준으로 반려합니다)',
@@ -596,6 +624,55 @@ function selfCheck(spec) {
         '5. 법·제도와 판정 기준: 법정 수치(연령·시간·기간·비율)는 교과서 값이고, 적용 범위를 가르는 사실(상시 근로자 수, 연령, 근속 기간)과 근로 계약 당사자(누가 사용자인지)가 제시문에 있습니까? 이론·분류 기준이 필요하면 (단, …)에 밝혀 해석이 하나로 정해집니까?',
         '6. 사실·맥락: 실존 기업·브랜드·인물·통계 대신 ○○기업·△△사, A 씨·갑 같은 가상 명칭을 썼고, 도입 맥락(직업·업종·제도를 이용하게 된 상황)이 사례 내용과 맞습니까? 판정에 쓰이지 않는 장식 정보는 뺐습니까?',
         '7. 해설: solution·distractorNotes에 선지 번호(①~⑤)를 쓰지 않았고(정답 위치는 엔진이 정함), clues의 quote를 제시문에서 글자 그대로 복사했습니까?',
+        ...extra,
+    ];
+}
+/**
+ * 발문 과적 기준(스킬 전용 즉시 반려와 같다). 기출 발문 틀 1,072개에서 질문 끝맺음("옳은 것만을 <보기>에서 …") 앞 본문은
+ * 95%가 56자 이하·최대 88자, (단, …) 조건은 최대 74자였고 판정 기준은 하나였다(법령 근거·"제시된 … 외의 … 없다" 같은 마무리 문구 제외).
+ */
+exports.STEM_LEAD_LIMIT = 90;
+exports.STEM_CONDITION_LIMIT = 75;
+const hasMix = (spec) => (spec.mixConcepts?.length ?? 0) > 0;
+const conceptLine = (concept) => [`- ${concept.name}: ${concept.definition}`, ...concept.keyFacts.slice(0, 4).map((fact) => `    · ${fact}`)].join('\n');
+/**
+ * 스킬 출제 지시서에 덧붙이는 절(서버 프롬프트에는 없다): 발문 문장 규칙과 함께 엮을 개념.
+ * 발문 규칙은 "정보를 발문에 욱여넣어 한 번에 읽히지 않는" 문제를 막는다.
+ */
+function skillWritingAddendum(spec) {
+    const label = spec.responseMode === 'truth_combination' ? '<보기>' : '선지';
+    const lines = [
+        '',
+        '## 발문 문장 (필수 — 어기면 check에서 반려)',
+        '- 발문은 "무엇을 보고(자료) 누구/무엇에 대해(대상) 묻는가"만 담습니다. 사례 정보(인물의 사정·수치·날짜·판정 단서)는 모두 제시문에 두십시오.',
+        '- 자료 이름은 명사구 하나로 씁니다(예: "다음 상담 기록에 나타난 A 씨에 대한 …"). 자료를 둘 이상 나열하거나("상담 장면과 발표 자료"), 대상 앞에 수식어를 겹겹이 붙이지 마십시오("IT 스타트업 신입 사원 A 씨와의 대화에 나타난 고객사와 업무").',
+        `- "(단, …)"은 판정 기준이 꼭 필요할 때 1개만, 판정 기준 하나로 씁니다(최대 ${exports.STEM_CONDITION_LIMIT}자). 법령 근거나 "제시된 … 외의 … 없다" 같은 마무리 문구는 덧붙여도 되지만, 서로 다른 판정 기준 둘(예: "A는 ○○ 이론, B는 △△ 이론에 근거하며")은 안 됩니다. 나머지 기준은 제시문 끝에 "※ …" 한 줄로 옮기십시오.`,
+        `- 분량: 질문 끝맺음("${spec.stemEnding}") 앞 본문은 60자 안팎, 최대 ${exports.STEM_LEAD_LIMIT}자. 다 쓴 뒤 소리 내어 읽어 한 번에 읽히는지 확인하십시오.`,
+        '- 좋은 예: "다음 상담 기록에 나타난 A 씨에 대한 분석으로 옳은 것만을 <보기>에서 있는 대로 고른 것은? (단, 발달 과업은 해비거스트의 이론에 근거한다.)"',
+        '- 나쁜 예: "다음 진로 캠프 상담 장면과 발표 자료에 나타난 인물에 대한 분석으로 적절한 것만을 <보기>에서 고른 것은? (단, 자아 정체감 유형은 마샤, 발달 과업은 해비거스트의 이론에 근거한다.)" — 자료 나열, 조건 둘.',
+    ];
+    if (hasMix(spec)) {
+        lines.push('', '## 함께 엮을 개념 (필수 — 사용자가 이 개념들을 한 시험에 모두 넣도록 요청함)', `- 정답 판단 개념(${spec.targetConcept.name})에 아래 개념을 자연스럽게 엮으십시오. 각 개념은 제시문 사례 속 단서로 등장하고, ${label} 하나 이상에서 실제 판정 요소여야 합니다(이름만 언급하는 장식 금지).`, '- 아래 정의·핵심 사실의 교과서 표현을 그대로 쓰십시오. 바꿔 쓴 표현 때문에 참/거짓이 흔들리면 정답 불일치로 반려됩니다.', `- design.mixUse에 개념마다 판정 요소로 쓴 ${label} 표지를 적으십시오(<보기>는 "ㄱ"~"ㄹ", 단일 정답형은 "정답"·"오답1"~"오답4" — 오답 번호는 otherChoices 순서).`, ...(spec.mixConcepts ?? []).map((concept) => `[${concept.unitNumber}단원 ${concept.unitTitle}]\n${conceptLine(concept)}`));
+    }
+    return lines;
+}
+/**
+ * 블라인드 검토 지시서에 붙이는 교과서 기준(스킬 전용): 검토자가 자기 기억 대신 단원 가이드 정의로 교과 정합성을 판정하게 한다.
+ * 정답 판단 개념이 드러나지 않게 관련 개념과 섞어 이름순으로 싣는다(판정 단서 diagnosticCues는 싣지 않는다).
+ */
+function textbookReference(spec) {
+    const seen = new Set();
+    const concepts = [spec.targetConcept, ...spec.companionConcepts.slice(0, 4), ...(spec.mixConcepts ?? [])]
+        .filter((concept) => concept.definition !== '' && !seen.has(concept.name) && seen.add(concept.name))
+        .sort((left, right) => left.name.localeCompare(right.name, 'ko'));
+    if (concepts.length === 0)
+        return [];
+    return [
+        '',
+        '[교과서 기준] 아래는 고등학교 교과서(단원 가이드)의 정의입니다. 용어·분류·과업 목록·단계 순서의 참/거짓은 이 정의를 기준으로 판정하십시오.',
+        '- 여기 나온 용어를 "교과서 용어가 아니다"라고 지적하지 마십시오. 문항이 이 정의와 어긋나거나 정의에 없는 표현을 바꿔 써서 판정이 흔들리면 curriculumIssues에 적으십시오.',
+        ...concepts.map(conceptLine),
+        ...(spec.confusionPairs.length > 0 ? ['- 혼동 쌍 판별 기준:', ...spec.confusionPairs.map((pair) => `    · ${pair.a} ↔ ${pair.b}: ${pair.boundary}`)] : []),
     ];
 }
 /** 블라인드 검토 사용자 프롬프트: 학생 화면 + (법·제도 단원) 정합성 점검 항목 */
@@ -621,7 +698,7 @@ function blindSolveUserPrompt(rendered, legalRules = [], ultra = false) {
         sections.push('', '[법적 정합성 점검 항목] 아래를 하나라도 어기면 curriculumIssues에 적고, 그 때문에 정답이 흔들리면 ambiguity를 major로 하십시오.', ...legalRules.map((rule) => `- ${rule}`));
     }
     if (ultra) {
-        sections.push('', '[초고난도 점검] 이 문항은 모든 <보기>·선지가 두 단계 이상 생각해야 판정되는 초고난도를 목표로 합니다.', '- reasoning에 <보기>·선지마다 판정에 필요한 최소 사고 단계 수와 내용을 적으십시오.', '- 규칙 하나·값 하나만 확인해도 판정되는 <보기>·선지, 복합 진술의 앞 구절만으로 판정되는 진술, 대충 계산해도 맞는 참 진술은 trivialStatements에 넣으십시오.', '- 일부 <보기>만 판정하고 소거로 정답에 도달하는 경로가 있으면 reasoning에 적고 perceivedDifficulty를 moderate 이하로 하십시오.', '- perceivedDifficulty는 실제 수능 3점 최고난도 문항과 비교해 그 수준이면 hard로 하십시오.');
+        sections.push('', '[초고난도 점검] 이 문항은 모든 <보기>·선지가 두 단계 이상 생각해야 판정되는 초고난도를 목표로 합니다.', '- reasoning에 <보기>·선지마다 판정에 필요한 최소 사고 단계 수와 내용을 적으십시오(statementAnalysis 필드가 있으면 그 수를 그대로 적으십시오 — 초고난도 통과 여부는 이 수와 eliminationShortcut으로 정해집니다).', '- 규칙 하나·값 하나만 확인해도 판정되는 <보기>·선지, 복합 진술의 앞 구절만으로 판정되는 진술, 대충 계산해도 맞는 참 진술은 trivialStatements에 넣으십시오.', '- 일부 <보기>만 판정하고 소거로 정답에 도달하는 경로가 있으면 reasoning에 적고 perceivedDifficulty를 moderate 이하로 하십시오.', '- perceivedDifficulty는 실제 수능 3점 최고난도 문항과 비교해 그 수준이면 hard로 하십시오.');
     }
     return sections.join('\n');
 }
@@ -649,6 +726,18 @@ function blindSolveSystemPrompt(options = {}) {
         ...(options.dataFree === true
             ? ['- dataFreeStatements: 제시문(자료)을 전혀 읽지 않아도 교과 개념 암기만으로 참/거짓이 정해지는 <보기>·선지의 표지(예: "ㄱ", "③"). 자료의 수치·조건·사례를 해석해야 판정되면 포함하지 마십시오. 없으면 빈 배열.']
             : []),
+        ...(options.statementAnalysis === true
+            ? [
+                '- statementAnalysis: <보기>·선지마다 {label, steps}. steps는 그 진술의 참/거짓을 정하는 데 꼭 필요한 서로 다른 판단의 수입니다. 판단 하나 = (a) 흩어진 단서를 찾아 연결하기, (b) 개념·분류 기준 적용하기, (c) 계산·비교하기 중 하나. 같은 종류라도 대상이 다르면 따로 셉니다(예: 두 사례를 각각 분류하면 2). 규칙 하나·값 하나 확인으로 끝나면 1입니다.',
+                '- eliminationShortcut: 일부 <보기>·선지만 판정하고도 소거로 정답이 하나로 정해지는 길이 있으면 true(그 경로를 reasoning에 적으십시오).',
+            ]
+            : []),
+        ...(options.stemReview === true
+            ? ['- stemIssues: 발문이 한 번에 읽히지 않는 문제를 짧게 적으십시오(사례 정보·수치를 발문에 넣음, 자료를 둘 이상 나열, 대상 앞 수식어가 겹침, (단, …) 조건이 둘 이상이거나 기준을 여러 개 묶음). 자연스러우면 빈 배열.']
+            : []),
+        ...((options.mixConcepts?.length ?? 0) > 0
+            ? [`- mixConceptsUsed: 이 문항에 함께 엮었다는 개념(${options.mixConcepts?.join(', ')}) 중, 실제로 어떤 <보기>·선지의 참/거짓을 정하는 데 필요했던 것만 그대로 적으십시오. 이름만 나오거나 판정에 쓰이지 않았으면 넣지 마십시오.`]
+            : []),
         '- 출력은 요청된 JSON 하나뿐입니다.',
     ].join('\n');
 }
@@ -665,6 +754,9 @@ function blindSolveResponseFormat(options = {}) {
                 required: [
                     'reasoning', 'answerIndex', 'ambiguity', 'curriculumIssues', 'answerGivenAway', 'perceivedDifficulty', 'trivialStatements',
                     ...(dataFree ? ['dataFreeStatements'] : []),
+                    ...(options.statementAnalysis === true ? ['statementAnalysis', 'eliminationShortcut'] : []),
+                    ...(options.stemReview === true ? ['stemIssues'] : []),
+                    ...((options.mixConcepts?.length ?? 0) > 0 ? ['mixConceptsUsed'] : []),
                 ],
                 properties: {
                     reasoning: STRING,
@@ -675,6 +767,23 @@ function blindSolveResponseFormat(options = {}) {
                     perceivedDifficulty: { type: 'string', enum: ['easy', 'moderate', 'hard'] },
                     trivialStatements: { type: 'array', items: STRING, maxItems: 5 },
                     ...(dataFree ? { dataFreeStatements: { type: 'array', items: STRING, maxItems: 5 } } : {}),
+                    ...(options.statementAnalysis === true
+                        ? {
+                            statementAnalysis: {
+                                type: 'array',
+                                maxItems: 5,
+                                items: {
+                                    type: 'object',
+                                    additionalProperties: false,
+                                    required: ['label', 'steps'],
+                                    properties: { label: STRING, steps: { type: 'integer', minimum: 0, maximum: 6 } },
+                                },
+                            },
+                            eliminationShortcut: { type: 'boolean' },
+                        }
+                        : {}),
+                    ...(options.stemReview === true ? { stemIssues: { type: 'array', items: STRING, maxItems: 3 } } : {}),
+                    ...((options.mixConcepts?.length ?? 0) > 0 ? { mixConceptsUsed: { type: 'array', items: STRING, maxItems: 6 } } : {}),
                 },
             },
         },

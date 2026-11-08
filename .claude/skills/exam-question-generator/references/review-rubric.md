@@ -10,7 +10,11 @@
 | `answerGivenAway` | 제시문이 정답 개념명·정의를 그대로 알려 줌 | true면 반려 |
 | `trivialStatements` | 개념 없이 제시문 값만 읽어 판정되는 진술 표지 | 3점은 1개 이상, 2점은 2개 이상이면 반려 |
 | `dataFreeStatements` | 제시문을 가려도 교과 개념 암기만으로 판정되는 진술 표지(스킬 검토에만 있음) | 3점은 2개 이상, 2점은 3개 이상이면 반려 |
-| `perceivedDifficulty` | easy / moderate / hard | 3점 문항이 easy면 반려 |
+| `perceivedDifficulty` | easy / moderate / hard | 3점 문항이 easy면 반려. 초고난도는 `statementAnalysis`가 없을 때만 hard가 아니면 반려 |
+| `statementAnalysis` | 초고난도만: 진술마다 {label, steps}. steps = 꼭 필요한 서로 다른 판단(단서 연결·개념 판별·계산/비교) 수 | 2 미만인 진술이 있으면 반려 |
+| `eliminationShortcut` | 초고난도만: 일부 진술만 판정해 소거로 정답이 정해지는 길 | true면 반려 |
+| `stemIssues` | 발문이 한 번에 읽히지 않는 문제(자료 나열, 수식어 겹침, 조건 둘 이상·기준 여럿) | 하나라도 있으면 반려(발문만 고치기) |
+| `mixConceptsUsed` | 개념 고정 계획의 엮을 개념 중 실제로 판정에 필요했던 것 | 빠진 개념이 있으면 반려 |
 | `reasoning` | 풀이 근거 | — |
 
 반려 뒤 다시 쓰는 방식(`fix`)은 반려 사유에 따라 정해진다.

@@ -54,6 +54,9 @@ export type UnitConcept = Readonly<{
 
 export type ConfusionPair = Readonly<{ a: string; b: string; boundary: string }>;
 
+/** 다른 단원에서 가져와 함께 엮는 개념(에이전트 스킬의 개념 고정 계획 전용). */
+export type MixConcept = UnitConcept & Readonly<{ unitNumber: number; unitTitle: string }>;
+
 export type MaterialGenre = Readonly<{
   genre: string;
   blockShape: string;
@@ -139,6 +142,13 @@ export type GenerativeItemSpec = Readonly<{
    * (어느 <보기> 하나라도 판정하지 않으면 정답 후보가 둘 이상 남는다). 서버 계산 고정 진술은 쓰지 않는다.
    */
   ultra?: boolean;
+  /**
+   * 함께 엮을 개념(에이전트 스킬의 개념 고정 계획 전용, 서버 파이프라인은 쓰지 않는다).
+   * 제시문 단서와 진술 하나 이상에서 실제 판정 요소로 쓰여야 한다.
+   */
+  mixConcepts?: readonly MixConcept[];
+  /** 개념 고정: 반려되어 대체 명세를 만들 때도 중심 개념·엮을 개념을 유지하고 자료·소재만 바꾼다. */
+  conceptLocked?: boolean;
 }>;
 
 export type GeneratedBlock = Readonly<{
@@ -154,7 +164,13 @@ export type GeneratedBlock = Readonly<{
 
 /** LLM 출력(정답 위치 없음). 서버가 명세에 맞춰 조립한다. */
 export type GenerativeCandidate = Readonly<{
-  design: Readonly<{ scenario: string; clues: readonly string[]; difficultyDevices: readonly string[] }>;
+  design: Readonly<{
+    scenario: string;
+    clues: readonly string[];
+    difficultyDevices: readonly string[];
+    /** 엮을 개념마다 판정 요소로 쓴 진술 표지(ㄱ~ㄹ, 정답·오답1~4). spec.mixConcepts가 있을 때만 쓴다. */
+    mixUse?: readonly Readonly<{ concept: string; statements: readonly string[] }>[];
+  }>;
   blocks: readonly GeneratedBlock[];
   /** 그림형 문항의 그림 명세(엔진이 SVG로 그린다). figure 블록이 id로 가리킨다. */
   figures?: readonly FigureSpec[];
@@ -205,6 +221,17 @@ export type BlindSolveResult = Readonly<{
    * 서버 파이프라인 검토 스키마에는 없어 빈 배열로 읽힌다.
    */
   dataFreeStatements?: readonly string[];
+  /**
+   * 아래는 에이전트 스킬 검토에만 있는 필드(서버 검토 스키마에는 없어 비어 있다).
+   * 진술별 최소 사고 단계 수 — 초고난도 판정을 체감 난도 대신 이 수로 한다.
+   */
+  statementAnalysis?: readonly Readonly<{ label: string; steps: number }>[];
+  /** 일부 진술만 판정하고 소거로 정답에 이르는 길이 있는가 */
+  eliminationShortcut?: boolean;
+  /** 발문이 한 번에 읽히지 않는 문제(정보 과적, 자료·조건 나열 등) */
+  stemIssues?: readonly string[];
+  /** 함께 엮은 개념 중 실제로 어떤 진술 판정에 필요했던 것 */
+  mixConceptsUsed?: readonly string[];
   reasoning: string;
 }>;
 
