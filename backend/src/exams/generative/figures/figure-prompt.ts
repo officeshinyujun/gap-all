@@ -131,6 +131,7 @@ const TYPE_RULES: Partial<Record<FigureType, readonly string[]>> = {
   flow: [
     '## 흐름도·순서도 (필수 — 기출 공정 흐름도·순서도)',
     '- {"kind":"diagram","diagramType":"flow","direction":"horizontal","steps":[{"id":"s1","label":"원료 투입","shape":"box","yesLabel":null}, …],"loops":[]}',
+    '- 글자 수: 단계 글 40자 이하, 되돌림 화살표 글 10자 이하, yesLabel 6자 이하.',
     '- steps는 화살표로 이어지는 순서대로(가로 2~6개, 세로 2~8개). shape: box(단계), decision(판단 마름모, label은 "…인가?"), terminal(시작·끝).',
     '- decision 단계는 아래(다음 단계)로 가는 갈래 이름을 yesLabel("예")로, 다른 갈래를 loops({"from":"s3","to":"s1","label":"아니요"})로 씁니다. loops는 되돌아가거나 건너뛰는 화살표(최대 3개)입니다. 순서도는 direction "vertical"을 권장합니다.',
   ],
@@ -148,26 +149,27 @@ const TYPE_RULES: Partial<Record<FigureType, readonly string[]>> = {
   tree: [
     '## 계층도·조직도·분류 트리 (필수)',
     '- {"kind":"diagram","diagramType":"tree","direction":"down","nodes":[{"id":"n1","label":"대표이사","parent":null},{"id":"n2","label":"생산부","parent":"n1"}, …3~20개]}',
-    '- 뿌리(parent null)는 1개, 깊이 4단계 이하, 한 노드의 자식 6개 이하. 한 층이 넓은 분류 트리는 direction "right"(왼쪽 뿌리→오른쪽 가지).',
+    '- 노드 글 16자 이하. 뿌리(parent null)는 1개, 깊이 4단계 이하, 한 노드의 자식 6개 이하. 한 층이 넓은 분류 트리는 direction "right"(왼쪽 뿌리→오른쪽 가지).',
   ],
   cycle: [
     '## 순환도 (필수 — 데밍 사이클·순환 과정)',
-    '- {"kind":"diagram","diagramType":"cycle","center":"안전 관리 사이클","steps":["P 계획","D 실시","C (가)","A 조치"]} — 시계 방향 3~8단계, 마지막 단계 다음은 첫 단계입니다.',
+    '- {"kind":"diagram","diagramType":"cycle","center":"안전 관리 사이클","steps":["P 계획","D 실시","C (가)","A 조치"]} — 시계 방향 3~8단계(단계 글 16자 이하, center 14자 이하), 마지막 단계 다음은 첫 단계입니다.',
   ],
   venn: [
     '## 벤 다이어그램·포함 도식 (필수)',
-    '- 겹침: {"kind":"diagram","diagramType":"venn","mode":"overlap","labels":["(가)","(나)"],"onlyFirst":["…"],"onlySecond":["…"],"both":["…"]} — 각 영역 항목 4개 이하, 항목은 짧은 개조식 구절.',
+    '- 겹침: {"kind":"diagram","diagramType":"venn","mode":"overlap","labels":["(가)","(나)"],"onlyFirst":["…"],"onlySecond":["…"],"both":["…"]} — 각 영역 항목 4개 이하, 항목은 30자 이하의 짧은 개조식 구절, 집합 이름(labels)은 14자 이하.',
     '- 포함: {"mode":"nested","labels":["바깥 개념","가운데","안쪽"],"onlyFirst":null,"onlySecond":null,"both":null} — 바깥이 안쪽을 포함(2~4겹).',
   ],
   relation: [
     '## 관계도 (필수 — 주체 사이 관계·중심 개념과 주변 요소)',
     '- {"kind":"diagram","diagramType":"relation","layout":"circle","nodes":[{"id":"a","label":"(가)"}, …2~6개],"links":[{"from":"b","to":"a","label":"노동정책 건의","arrow":"forward"}, …]}',
+    '- 글자 수: 노드 글 16자 이하(hub 배치는 40자 이하), 연결 글 14자 이하.',
     '- layout "circle": 노드가 원 둘레(3개면 삼각형)에 놓이고 글이 달린 화살표로 이어집니다. 맞방향 관계는 두 연결로 쓰면 나란히 그려집니다. layout "hub": 첫 노드가 가운데, 나머지가 둘레(마인드맵·전략 도식, 노드 글 40자 이하).',
   ],
   matrix: [
     '## 2×2 매트릭스(포지셔닝 맵) (필수)',
     '- {"kind":"diagram","diagramType":"matrix","xAxis":{"label":"자신이 아는 정도","low":"안다","high":"모른다"},"yAxis":{…},"quadrants":["왼쪽 위","오른쪽 위","왼쪽 아래","오른쪽 아래" 이름],"points":[{"label":"A","x":3,"y":7}]}',
-    '- 좌표는 0~10(5가 경계, 경계 위 금지). 엔진이 점마다 속한 사분면을 계산합니다.',
+    '- 좌표는 0~10(5가 경계, 경계 위 금지). 엔진이 점마다 속한 사분면을 계산합니다. 글자 수: 축 이름·사분면 이름 14자, 양 끝 글 10자, 점 이름 8자 이하.',
   ],
   nesting: [
     '## 가공 형태(원판 배치) (필수 — 판재에서 원판 따내기)',

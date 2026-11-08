@@ -200,6 +200,11 @@ export type BlindSolveResult = Readonly<{
   perceivedDifficulty: 'easy' | 'moderate' | 'hard';
   /** 교과 개념 없이 제시문의 값·문장만 읽으면 판정되는 진술의 표지(ㄱ, ②…) */
   trivialStatements: readonly string[];
+  /**
+   * 제시문(자료)을 전혀 읽지 않고 교과 개념 암기만으로 판정되는 진술의 표지 — 에이전트 스킬 검토에만 있는 필드.
+   * 서버 파이프라인 검토 스키마에는 없어 빈 배열로 읽힌다.
+   */
+  dataFreeStatements?: readonly string[];
   reasoning: string;
 }>;
 

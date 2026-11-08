@@ -439,7 +439,8 @@ function renderVenn(spec) {
         }
     };
     bullets(spec.onlyFirst, leftX - rx + 22, 112, false);
-    bullets(spec.onlySecond, rightX - 50, 112, false);
+    // 오른쪽 전용 영역은 왼쪽 타원 오른쪽 끝(leftX + rx) 밖에서 시작해야 공통 영역 글과 겹치지 않는다.
+    bullets(spec.onlySecond, leftX + rx + 12, 112, false);
     bullets(spec.both, WIDTH / 2, 70, true);
     return (0, svg_builder_1.svgRoot)(WIDTH, cy + ry + 8, parts, { 'font-size': FONT });
 }

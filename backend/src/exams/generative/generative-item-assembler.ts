@@ -7,6 +7,13 @@ import {
 import { stableHash } from '../../common/stable-hash';
 import { josa } from './calculation/calculation-kit';
 import { findConceptLeak } from './concept-leak';
+import {
+  blankCellIssues,
+  copiedStatementIssues,
+  explanationNumeralIssues,
+  laborHeadcountIssues,
+  realEntityIssues,
+} from './precheck';
 import { normalizeExamNotation, normalizeExamRegister } from './exam-register';
 import {
   figureReadingLength,
@@ -249,9 +256,18 @@ function figureNotation(figure: FigureSpec, notation: (value: string) => string)
 }
 
 /** 결정론적 품질 게이트. 빈 배열이면 통과. */
+export type ValidateOptions = Readonly<{
+  /**
+   * 블라인드 검토가 반복해서 잡던 결함을 형식 검증 단계에서 즉시 반려한다(precheck.ts).
+   * 에이전트 스킬만 켠다 — 서버 파이프라인은 기본값(false)이라 판정이 바뀌지 않는다.
+   */
+  precheck?: boolean;
+}>;
+
 export function validateGenerativeCandidate(
   spec: GenerativeItemSpec,
   candidate: GenerativeCandidate,
+  options: ValidateOptions = {},
 ): GenerativeIssue[] {
   const issues: GenerativeIssue[] = [];
   const push = (code: GenerativeFailureCode, message: string) => issues.push({ code, message });
@@ -336,6 +352,17 @@ export function validateGenerativeCandidate(
   }
   if (spec.points === 3 && candidate.design.difficultyDevices.length === 0) {
     push('GEN_TOO_EASY', '3점 문항인데 난도 장치(계산·단서 분산·복합 개념 등)가 없습니다.');
+  }
+  if (options.precheck === true) {
+    // 서버 확정 자료(계산 표·[조건])는 모델이 쓴 글이 아니므로 빈칸·베끼기·실존 명칭 검사에서 뺀다.
+    const modelBlocks = modelWrittenBlocks(spec, candidate.blocks);
+    for (const issue of [
+      ...blankCellIssues(modelBlocks),
+      ...realEntityIssues(modelBlocks, figures, stem),
+      ...copiedStatementIssues(spec, { ...candidate, blocks: modelBlocks }, fixedTexts),
+      ...laborHeadcountIssues(spec, candidate, stimulusText),
+      ...explanationNumeralIssues(spec, candidate),
+    ]) push(issue.code, issue.message);
   }
 
   // 응답 형식
@@ -821,12 +848,23 @@ function calculationExplanation(spec: GenerativeItemSpec): string[] {
  * 이 이유 하나로 60~90초짜리 출제 결과를 통째로 버리던 것을 막는다.
  * 표 칸 전체가 라벨인 빈칸은 내용이 빠진 것이므로 고치지 않고 검증에서 반려되게 둔다.
  */
-export function repairUnusedLabels(candidate: GenerativeCandidate): GenerativeCandidate {
+export function repairUnusedLabels(
+  candidate: GenerativeCandidate,
+  options: Readonly<{ keepTableHeadLabels?: boolean }> = {},
+): GenerativeCandidate {
   const unused = unusedStimulusLabels(stimulusPlainText(candidate.blocks, candidate.figures), questionSideText(candidate));
   if (unused.length === 0) return candidate;
   const isBlankCell = (cell: string) => unused.includes(cell.trim());
   if (candidate.blocks.some((block) => block.type === 'table' && block.rows.some((row) => row.some(isBlankCell)))) {
     return candidate;
+  }
+  // 표 머리행·행 머리의 라벨("(나) 지역")을 지우면 "지역"만 남아 표가 어색해진다(검토 반려 사례)
+  // → 고치지 않고 검증에서 반려해 라벨을 묻게 한다. 에이전트 스킬만 켠다(서버는 기존처럼 지운다).
+  if (options.keepTableHeadLabels === true) {
+    const labelIn = (cell: string) => unused.some((label) => cell.includes(label));
+    if (candidate.blocks.some((block) => block.type === 'table' && (block.headers.some(labelIn) || block.rows.some((row) => labelIn(row[0] ?? ''))))) {
+      return candidate;
+    }
   }
   // 그래프 범주·계열 이름 자체가 라벨이면 지울 수 없으므로 고치지 않고 검증에서 반려되게 둔다.
   const chartNames = (candidate.figures ?? []).flatMap((figure) => (figure.kind === 'scene' ? [] : collectFigureStrings(figure)));

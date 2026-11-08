@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.generativeSystemPrompt = generativeSystemPrompt;
 exports.buildGenerativeItemPrompt = buildGenerativeItemPrompt;
 exports.generativeItemResponseFormat = generativeItemResponseFormat;
+exports.selfCheck = selfCheck;
 exports.ultraInstructions = ultraInstructions;
 exports.blindSolveUserPrompt = blindSolveUserPrompt;
 exports.blindSolveSystemPrompt = blindSolveSystemPrompt;
@@ -578,6 +579,25 @@ function generativeItemResponseFormat(spec) {
         },
     };
 }
+/**
+ * 제출 전 자기 점검(에이전트 스킬 출제 지시서 끝에 붙인다): 블라인드 검토의 반려 기준을 출제자가 check 전에 직접 대조해
+ * 1차 통과율을 올린다. 기준은 블라인드 검토 판정(generative-gates)과 같다.
+ */
+function selfCheck(spec) {
+    const high = spec.points === 3;
+    const label = spec.responseMode === 'truth_combination' ? '<보기>' : '선지';
+    return [
+        '',
+        '## 제출 전 자기 점검 (check 전에 하나씩 확인 — 블라인드 검토가 정확히 이 기준으로 반려합니다)',
+        `1. 정답 확정: ${label}마다 정답을 모르는 학생처럼 다시 풀어 보십시오. 지정한 참/거짓·정답 외에 다르게 판정될 해석(용어의 넓은 뜻, 범주 전체에 붙인 서술, 빠진 조건)이 없어야 합니다.`,
+        `2. 단순 읽기 ${high ? '0개' : '1개 이하'}: 제시문 문장을 옮기거나 한 단어만 뒤집은 진술, 제시문과 정면으로 어긋나 개념 없이 거짓이 되는 진술(예: 본문 "직접 찾아가 상담하였다"인데 진술 "방문하지 않고 상담하였다")을 세어 보십시오.`,
+        `3. 자료 없이 풀리는 진술 ${high ? '1개 이하' : '2개 이하'}: 제시문을 가리고도 교과 암기만으로 판정되는 ${label}를 세어 보십시오. 넘으면 사례 조건·수치·인물의 상황과 결합하십시오.`,
+        '4. 표기: 표의 모든 열·행 머리에 라벨((가)·A 기업 등)이 있고, 추론할 빈칸은 ㉠·□ 기호로 표시했고, 제시문의 모든 라벨을 발문·선지에서 물었습니까?',
+        '5. 법·제도와 판정 기준: 법정 수치(연령·시간·기간·비율)는 교과서 값이고, 적용 범위를 가르는 사실(상시 근로자 수, 연령, 근속 기간)과 근로 계약 당사자(누가 사용자인지)가 제시문에 있습니까? 이론·분류 기준이 필요하면 (단, …)에 밝혀 해석이 하나로 정해집니까?',
+        '6. 사실·맥락: 실존 기업·브랜드·인물·통계 대신 ○○기업·△△사, A 씨·갑 같은 가상 명칭을 썼고, 도입 맥락(직업·업종·제도를 이용하게 된 상황)이 사례 내용과 맞습니까? 판정에 쓰이지 않는 장식 정보는 뺐습니까?',
+        '7. 해설: solution·distractorNotes에 선지 번호(①~⑤)를 쓰지 않았고(정답 위치는 엔진이 정함), clues의 quote를 제시문에서 글자 그대로 복사했습니까?',
+    ];
+}
 /** 블라인드 검토 사용자 프롬프트: 학생 화면 + (법·제도 단원) 정합성 점검 항목 */
 /** 초고난도 문항 지시: 모든 <보기>·선지가 두 단계 이상, 한 단계 판정·소거 지름길 금지 */
 function ultraInstructions(spec) {
@@ -605,7 +625,7 @@ function blindSolveUserPrompt(rendered, legalRules = [], ultra = false) {
     }
     return sections.join('\n');
 }
-function blindSolveSystemPrompt() {
+function blindSolveSystemPrompt(options = {}) {
     return [
         '당신은 수능 직업탐구 영역(공업 일반, 성공적인 직업생활) 검토위원입니다.',
         '정답을 모르는 상태에서 문항을 직접 풀고, 문항 자체의 결함을 찾습니다.',
@@ -626,10 +646,14 @@ function blindSolveSystemPrompt() {
         '- answerGivenAway: 제시문이 정답 판단의 핵심 개념명이나 그 정의를 사실상 그대로 써서, 추론 없이 단어 대조만으로 풀리면 true.',
         '- perceivedDifficulty: 수능 기준 easy(단서 대조만으로 즉시 풀림) / moderate(개념 추론 1~2단계) / hard(계산·복합 개념·분산 단서).',
         '- trivialStatements: 교과 개념을 전혀 몰라도 제시문의 값·문장을 그대로 읽기만 하면 참/거짓이 정해지는 <보기>·선지의 표지(예: "ㄴ", "③"). 계산이나 개념 적용이 필요하면 포함하지 마십시오. 표·본문에 이미 적힌 값이나 문장을 그대로 다시 확인하는 진술(예: 표에 74%가 있는데 "누적 비율은 74%이다")은 계산처럼 보여도 포함하십시오. 없으면 빈 배열.',
+        ...(options.dataFree === true
+            ? ['- dataFreeStatements: 제시문(자료)을 전혀 읽지 않아도 교과 개념 암기만으로 참/거짓이 정해지는 <보기>·선지의 표지(예: "ㄱ", "③"). 자료의 수치·조건·사례를 해석해야 판정되면 포함하지 마십시오. 없으면 빈 배열.']
+            : []),
         '- 출력은 요청된 JSON 하나뿐입니다.',
     ].join('\n');
 }
-function blindSolveResponseFormat() {
+function blindSolveResponseFormat(options = {}) {
+    const dataFree = options.dataFree === true;
     return {
         type: 'json_schema',
         json_schema: {
@@ -638,7 +662,10 @@ function blindSolveResponseFormat() {
             schema: {
                 type: 'object',
                 additionalProperties: false,
-                required: ['reasoning', 'answerIndex', 'ambiguity', 'curriculumIssues', 'answerGivenAway', 'perceivedDifficulty', 'trivialStatements'],
+                required: [
+                    'reasoning', 'answerIndex', 'ambiguity', 'curriculumIssues', 'answerGivenAway', 'perceivedDifficulty', 'trivialStatements',
+                    ...(dataFree ? ['dataFreeStatements'] : []),
+                ],
                 properties: {
                     reasoning: STRING,
                     answerIndex: { type: 'integer', enum: [1, 2, 3, 4, 5] },
@@ -647,6 +674,7 @@ function blindSolveResponseFormat() {
                     answerGivenAway: { type: 'boolean' },
                     perceivedDifficulty: { type: 'string', enum: ['easy', 'moderate', 'hard'] },
                     trivialStatements: { type: 'array', items: STRING, maxItems: 5 },
+                    ...(dataFree ? { dataFreeStatements: { type: 'array', items: STRING, maxItems: 5 } } : {}),
                 },
             },
         },

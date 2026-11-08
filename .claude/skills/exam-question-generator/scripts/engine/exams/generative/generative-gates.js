@@ -20,6 +20,7 @@ function blindSolveRejection(spec, solve) {
                 `독립 검토자가 의도와 다른 선지(${solve.answerIndex}번)를 정답으로 판단했습니다. 검토 근거: ${solve.reasoning.slice(0, 400)}`,
                 '정답 판정이 제시문 단서로 하나로 확정되도록 단서와 진술을 다시 설계하십시오.',
             ],
+            fix: 'replan',
         };
     }
     if (solve.ambiguity === 'major' || solve.curriculumIssues.length > 0) {
@@ -31,6 +32,7 @@ function blindSolveRejection(spec, solve) {
                 ...solve.curriculumIssues,
                 ...(solve.ambiguity === 'major' ? [`모호성: ${solve.reasoning.slice(0, 300)}`] : []),
             ],
+            fix: solve.ambiguity === 'major' ? 'replan' : 'repair',
         };
     }
     if (solve.answerGivenAway) {
@@ -41,6 +43,7 @@ function blindSolveRejection(spec, solve) {
                 '검토자가 제시문만 보고 단어 대조로 정답을 찾았습니다. 개념명·정의 표현을 빼고 행동·수치·상황 단서로 바꾸십시오.',
                 `검토 근거: ${solve.reasoning.slice(0, 300)}`,
             ],
+            fix: 'repair',
         };
     }
     const trivialLimit = spec.points === 3 ? 0 : 1;
@@ -52,6 +55,22 @@ function blindSolveRejection(spec, solve) {
                 `검토자가 ${solve.trivialStatements.join(', ')}을(를) 교과 개념 없이 제시문 값만 읽어도 판정되는 진술로 판단했습니다.`,
                 '해당 진술을 개념 적용이나 계산이 필요한 진술로 바꾸십시오.',
             ],
+            fix: 'repair',
+        };
+    }
+    // 자료 없이 개념 암기만으로 판정되는 진술: 3점은 1개, 2점은 2개까지.
+    // 검토 JSON에 이 필드가 있을 때만 판정한다(서버 파이프라인의 검토 스키마에는 없어 항상 빈 배열).
+    const dataFree = solve.dataFreeStatements ?? [];
+    const dataFreeLimit = spec.points === 3 ? 1 : 2;
+    if (dataFree.length > dataFreeLimit) {
+        return {
+            code: 'GEN_TOO_EASY',
+            message: `검토자: 자료 없이 개념만으로 판정되는 진술 ${dataFree.join(', ')}`,
+            notes: [
+                `검토자가 ${dataFree.join(', ')}을(를) 제시문을 읽지 않고 교과 개념만으로 판정되는 진술로 판단했습니다. 기출 문항처럼 각 진술이 자료(수치·사례 조건·인물의 상황)를 해석해야 판정되게 바꾸십시오.`,
+                '제시문의 자료가 진술 판정에 실제로 쓰이도록 설계하고, 판정에 쓰이지 않는 자료는 빼십시오.',
+            ],
+            fix: 'repair',
         };
     }
     if (spec.ultra && solve.perceivedDifficulty !== 'hard') {
@@ -62,6 +81,7 @@ function blindSolveRejection(spec, solve) {
                 '검토자가 실제 수능 3점 최고난도 수준이 아니라고 판단했습니다. 모든 <보기>·선지에 계산과 기준 적용을 둘 이상 결합하고, 흔한 실수로 계산하면 판정이 뒤집히게 하십시오.',
                 `검토 근거: ${solve.reasoning.slice(0, 400)}`,
             ],
+            fix: 'repair',
         };
     }
     if (solve.perceivedDifficulty === 'easy' && requiresNonTrivial(spec)) {
@@ -71,6 +91,7 @@ function blindSolveRejection(spec, solve) {
             notes: [
                 '검토자가 즉시 풀리는 쉬운 문항으로 판단했습니다. 계산이 필요한 표 수치, 두 곳 이상에 분산된 단서, 복수 개념 결합 중 하나 이상을 넣으십시오.',
             ],
+            fix: 'repair',
         };
     }
     return null;
@@ -98,6 +119,9 @@ function parseBlindSolveResult(content) {
         answerGivenAway: value.answerGivenAway === true,
         trivialStatements: Array.isArray(value.trivialStatements)
             ? value.trivialStatements.filter((label) => typeof label === 'string' && label.trim() !== '')
+            : [],
+        dataFreeStatements: Array.isArray(value.dataFreeStatements)
+            ? value.dataFreeStatements.filter((label) => typeof label === 'string' && label.trim() !== '')
             : [],
         perceivedDifficulty: value.perceivedDifficulty === 'easy' || value.perceivedDifficulty === 'hard'
             ? value.perceivedDifficulty

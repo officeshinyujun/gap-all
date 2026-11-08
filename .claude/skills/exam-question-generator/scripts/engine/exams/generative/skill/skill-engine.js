@@ -26,7 +26,7 @@ const generative_item_prompt_1 = require("../generative-item-prompt");
 const exam_style_knowledge_1 = require("../exam-style-knowledge");
 const legal_review_rules_1 = require("../legal-review-rules");
 const text_similarity_1 = require("../text-similarity");
-exports.SKILL_ENGINE_VERSION = 'exam-skill-engine-v4';
+exports.SKILL_ENGINE_VERSION = 'exam-skill-engine-v5';
 const NEAR_DUPLICATE_THRESHOLD = 0.55;
 function toPlanRequest(args) {
     if (args.startUnit < 1 || args.endUnit > 20 || args.startUnit > args.endUnit) {
@@ -57,7 +57,7 @@ function replanItem(request, failed, attempt, usedConcepts) {
 function writingBrief(spec, repairNotes = []) {
     return {
         system: (0, generative_item_prompt_1.generativeSystemPrompt)(),
-        user: (0, generative_item_prompt_1.buildGenerativeItemPrompt)(spec, repairNotes),
+        user: [(0, generative_item_prompt_1.buildGenerativeItemPrompt)(spec, repairNotes), ...(0, generative_item_prompt_1.selfCheck)(spec)].join('\n'),
         schema: (0, generative_item_prompt_1.generativeItemResponseFormat)(spec).json_schema.schema,
     };
 }
@@ -67,8 +67,8 @@ function writingBrief(spec, repairNotes = []) {
  */
 function checkCandidate(spec, content, otherTexts = []) {
     try {
-        const candidate = (0, generative_item_assembler_1.applyCalculationPlan)(spec, (0, generative_item_assembler_1.repairUnusedLabels)((0, generative_item_assembler_1.parseGenerativeCandidate)(content, spec)));
-        const issues = (0, generative_item_assembler_1.validateGenerativeCandidate)(spec, candidate);
+        const candidate = (0, generative_item_assembler_1.applyCalculationPlan)(spec, (0, generative_item_assembler_1.repairUnusedLabels)((0, generative_item_assembler_1.parseGenerativeCandidate)(content, spec), { keepTableHeadLabels: true }));
+        const issues = (0, generative_item_assembler_1.validateGenerativeCandidate)(spec, candidate, { precheck: true });
         if (issues.length > 0)
             return { ok: false, issues };
         const question = (0, generative_item_assembler_1.assembleGenerativeQuestion)(spec, candidate);
@@ -87,9 +87,9 @@ function checkCandidate(spec, content, otherTexts = []) {
 /** 블라인드 검토 지시서: 정답·해설 없이 학생 화면과 같은 정보 + (법·제도 단원) 정합성 점검 항목 */
 function reviewBrief(spec, question) {
     return {
-        system: (0, generative_item_prompt_1.blindSolveSystemPrompt)(),
+        system: (0, generative_item_prompt_1.blindSolveSystemPrompt)({ dataFree: true }),
         user: (0, generative_item_prompt_1.blindSolveUserPrompt)((0, generative_item_assembler_1.renderForSolver)(question), (0, legal_review_rules_1.legalReviewRules)(spec.subject, spec.unitNumber), spec.ultra === true),
-        schema: (0, generative_item_prompt_1.blindSolveResponseFormat)().json_schema.schema,
+        schema: (0, generative_item_prompt_1.blindSolveResponseFormat)({ dataFree: true }).json_schema.schema,
     };
 }
 /** 검토 결과(JSON 문자열)를 서버 파이프라인과 같은 기준으로 판정한다. */

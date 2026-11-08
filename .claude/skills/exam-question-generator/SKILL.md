@@ -26,11 +26,12 @@ description: 수능·모의평가형 직업탐구 문항(공업 일반, 성공�
 
 ```
 exam plan   --work W --subject S --units A-B --count N --difficulty D [--seed X]
-  └ 문항마다: brief.md 읽기 → candidate.json 쓰기 → exam check → (통과) review-brief.md → review.json → exam review
-exam status --work W
+  └ 문항마다: brief.md 읽기 → 자기 점검 → candidate.json 쓰기 → exam check → (통과) review-brief.md → review.json → exam review
+exam status --work W [--json]   # 문항별 "다음:" 열 — write·repair(출제자), review(검토자), judge(review 명령), refill, done
 exam refill --work W      # 3회 모두 반려(failed)된 자리를 같은 형식·정답 위치의 새 명세로 다시 연다(자리당 최대 2번)
 exam refresh --work W     # 엔진을 갱신했다면: 통과 문항의 해설만 새 엔진으로 다시 조립(보이는 내용이 바뀌면 거부)
 exam export --work W      # W/exam.json(앱 형식), W/exam.md(미리보기)
+exam pdf --work W [--no-answers] [--chrome PATH]   # 2단 시험지 PDF(정답·해설 쪽 포함) — 헤드리스 Chrome 필요
 ```
 
 ### 문항 쓰기 (문항마다)
@@ -38,21 +39,48 @@ exam export --work W      # W/exam.json(앱 형식), W/exam.md(미리보기)
 2. 스키마에 맞는 **JSON 객체 하나**를 `W/items/NN/candidate.json`에 저장한다(설명·코드블록 없이 JSON만).
    - 정답 위치, <보기> 참/거짓, 배점, 계산 자료(표·[조건]·계산 진술·수치 선지)는 엔진이 정했다. 지시서 지정값을 바꾸지 않는다.
    - 계산 자료가 있으면 지시서의 표와 문장을 그대로 옮긴다(어차피 엔진이 덮어쓴다).
-3. `exam check --work W --item NN`
-   - `✗`이면 출력된 사유가 반영된 새 brief.md가 생긴다. 그 지시서로 처음부터 다시 쓴다(최대 3회, 2회차부터는 개념·자료가 바뀐 대체 명세).
+3. 저장 전에 brief.md 끝의 **"제출 전 자기 점검" 7항목**을 하나씩 확인한다(블라인드 검토의 반려 기준과 같다).
+4. `exam check --work W --item NN`
+   - `✗`이면 새 brief.md가 생긴다. **고치기 모드**: 앞 시도 문항(`candidate.attemptN.json`)에서 반려 사유만 고쳐 다시 저장한다. 처음부터 다시 쓰지 않으며, 최대 3회까지다.
+   - check는 형식만 보지 않는다. 다음 결함도 블라인드 검토 전에 즉시 반려한다.
+     - 기호 없는 빈칸
+     - 실존 기업·브랜드·인물
+     - 제시문을 베낀 진술
+     - 성직 15·16단원의 상시 근로자 수 누락
+     - 해설의 선지 번호(①~⑤)
+     - 묻지 않은 표 머리 라벨
    - `✓`이면 `review-brief.md`가 생긴다.
 
 ### 블라인드 검토 (문항마다, 필수)
-4. **출제할 때 본 내용(brief.md, candidate.json, 정답)을 모르는 상태로** `review-brief.md`만 보고 푼다.
+5. **출제할 때 본 내용(brief.md, candidate.json, 정답)을 모르는 상태로** `review-brief.md`만 보고 푼다.
    - 하위 에이전트를 만들 수 있으면 새 하위 에이전트에게 review-brief.md 경로만 주고 결과 JSON을 받는다(권장).
    - 그럴 수 없으면 직접 하되, 의도한 정답을 떠올리지 말고 제시문·선지만으로 풀고 결함을 적극적으로 찾는다.
-5. 결과 JSON을 `W/items/NN/review.json`에 저장하고 `exam review --work W --item NN`.
-   - 정답 불일치·모호성·교과/법적 오류·정답 노출·단순 읽기 진술·(3점) 쉬움이면 반려되고 새 brief.md가 생긴다 → 3단계부터 다시.
+6. 결과 JSON을 `W/items/NN/review.json`에 저장하고 `exam review --work W --item NN`.
+   - 다음 경우에 반려되고 새 brief.md가 생긴다.
+     - 정답 불일치
+     - 모호성
+     - 교과·법적 오류
+     - 정답 노출
+     - 단순 읽기 진술
+     - 자료 없이 풀리는 진술(`dataFreeStatements`: 3점은 1개, 2점은 2개 초과)
+     - 3점 문항이 쉬움
+   - 반려 출력에 따라 다시 쓰는 방식이 다르다.
+     - `(같은 명세 — 고치기)`: 고치기 모드로 3단계부터 다시 한다. 원래 출제자에게 이어서 시키면 가장 빠르다.
+     - `(대체 명세 — 새로 쓰기)`: 정답 불일치나 심각한 모호성이라서 새 명세로 처음부터 쓴다.
 
 ### 마무리
-6. `failed` 문항이 있으면 `exam refill --work W`로 그 자리를 다시 열어 3단계부터 다시 쓴다. 요청한 문항 수를 채우는 것이 원칙이며, 다시 연 자리도 실패하면 제외한다.
-7. 모든 문항이 `accepted` 또는 `failed`가 되면 `exam export --work W`.
-8. 사용자에게 `exam.md`(문항·정답·해설 미리보기)와 `exam.json` 경로, 통과 문항 수, 제외된 문항과 사유를 알린다.
+7. `failed` 문항이 있으면 `exam refill --work W`로 그 자리를 다시 열어 1단계부터 새로 쓴다(고치기 모드 해제). 요청한 문항 수를 채우는 것이 원칙이며, 다시 연 자리도 실패하면 제외한다.
+8. 모든 문항이 `accepted` 또는 `failed`가 되면 `exam export --work W`(PDF가 필요하면 `exam pdf --work W`).
+9. 사용자에게 `exam.md`(문항·정답·해설 미리보기)와 `exam.json` 경로, 통과 문항 수, 제외된 문항과 사유를 알린다.
+
+### 빠른 진행 (권장): 문항별 병렬 파이프라인
+하위 에이전트를 쓸 수 있으면 다음 순서로 진행한다.
+- **문항마다 출제자를 동시에** 띄운다.
+- 각 문항이 check를 통과하는 즉시 그 문항의 **검토자(새 에이전트)**를 띄운다. 묶음 전체를 기다리지 않는다.
+- 고치기 모드로 반려된 문항은 원래 출제자에게 이어서 맡긴다.
+- 같은 문항을 쓴 에이전트는 그 문항을 검토하지 않는다.
+
+프롬프트 틀과 순서는 [references/orchestration.md](references/orchestration.md)에 있다. 문항별 다음 할 일은 `exam status`의 "다음:" 열로 본다.
 
 ### 초고난도 모드 (`--difficulty ULTRA` 또는 `초고난도`)
 "모든 선지를 두 번 이상 생각해야 하는" 문항을 요청받으면 이 모드를 쓴다.

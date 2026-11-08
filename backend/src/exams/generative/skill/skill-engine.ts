@@ -27,6 +27,7 @@ import {
   blindSolveResponseFormat,
   blindSolveSystemPrompt,
   blindSolveUserPrompt,
+  selfCheck,
   buildGenerativeItemPrompt,
   generativeItemResponseFormat,
   generativeSystemPrompt,
@@ -39,7 +40,7 @@ import { similarity } from '../text-similarity';
 export { Difficulty };
 export type { AssembledGenerativeQuestion, GenerativeItemSpec, GenerativePlanRequest };
 
-export const SKILL_ENGINE_VERSION = 'exam-skill-engine-v4';
+export const SKILL_ENGINE_VERSION = 'exam-skill-engine-v5';
 const NEAR_DUPLICATE_THRESHOLD = 0.55;
 
 export type PlanArgs = Readonly<{
@@ -93,7 +94,7 @@ export type Brief = Readonly<{ system: string; user: string; schema: unknown }>;
 export function writingBrief(spec: GenerativeItemSpec, repairNotes: readonly string[] = []): Brief {
   return {
     system: generativeSystemPrompt(),
-    user: buildGenerativeItemPrompt(spec, repairNotes),
+    user: [buildGenerativeItemPrompt(spec, repairNotes), ...selfCheck(spec)].join('\n'),
     schema: generativeItemResponseFormat(spec).json_schema.schema,
   };
 }
@@ -112,8 +113,8 @@ export function checkCandidate(
   otherTexts: readonly string[] = [],
 ): CheckResult {
   try {
-    const candidate = applyCalculationPlan(spec, repairUnusedLabels(parseGenerativeCandidate(content, spec)));
-    const issues = validateGenerativeCandidate(spec, candidate);
+    const candidate = applyCalculationPlan(spec, repairUnusedLabels(parseGenerativeCandidate(content, spec), { keepTableHeadLabels: true }));
+    const issues = validateGenerativeCandidate(spec, candidate, { precheck: true });
     if (issues.length > 0) return { ok: false, issues };
     const question = assembleGenerativeQuestion(spec, candidate);
     const duplicateText = duplicateCheckText(spec, candidate.blocks, candidate.figures);
@@ -130,9 +131,9 @@ export function checkCandidate(
 /** 블라인드 검토 지시서: 정답·해설 없이 학생 화면과 같은 정보 + (법·제도 단원) 정합성 점검 항목 */
 export function reviewBrief(spec: GenerativeItemSpec, question: AssembledGenerativeQuestion): Brief {
   return {
-    system: blindSolveSystemPrompt(),
+    system: blindSolveSystemPrompt({ dataFree: true }),
     user: blindSolveUserPrompt(renderForSolver(question), legalReviewRules(spec.subject, spec.unitNumber), spec.ultra === true),
-    schema: blindSolveResponseFormat().json_schema.schema,
+    schema: blindSolveResponseFormat({ dataFree: true }).json_schema.schema,
   };
 }
 

@@ -11,6 +11,7 @@
  *   refresh 엔진 갱신 뒤 통과 문항의 해설만 다시 조립(학생에게 보이는 내용이 바뀌면 거부 → 재검토 필요)
  *   refill  3회 모두 반려되어 제외(failed)된 문항을 같은 자리·형식·정답 위치의 새 명세로 다시 연다
  *   export  통과 문항을 앱 형식 JSON(exam.json)과 미리보기(exam.md)로
+ *   pdf     exam.json을 2단 시험지 PDF(exam.pdf, 정답·해설 쪽 포함)로 — 헤드리스 Chrome/Chromium/Edge 필요
  *
  * 필요: Node 18+. 외부 패키지·API 키 없음.
  */
@@ -21,7 +22,8 @@ const path = require('path');
 const engine = require('./engine/exams/generative/skill/skill-engine.js');
 
 const MAX_ATTEMPTS = 3;
-const REPLAN_AT = 2; // 2번째 시도부터 개념·자료를 바꾼 대체 명세
+// 반려 방식: 형식 검증 실패와 국소 결함(표기·문구·쉬운 진술·사소한 교과 지적)은 같은 명세로 기존 문항을 고치고(repair),
+// 정답 불일치·심각한 모호성처럼 설계가 무너진 경우만 개념·자료를 바꾼 대체 명세(replan)로 새로 쓴다.
 const MAX_REFILLS = 2; // 한 자리를 다시 여는 최대 횟수(무한 재출제 방지)
 
 const SUBJECTS = { success: 'success', sungjik: 'success', 성직: 'success', 성공적인직업생활: 'success', kongil: 'kongil', industry: 'kongil', 공일: 'kongil', 공업일반: 'kongil' };
@@ -98,10 +100,21 @@ function writeWritingBrief(work, item) {
   const brief = engine.writingBrief(item.spec, item.repairNotes || []);
   const file = path.join(itemDir(work, item.ordinal), 'brief.md');
   fs.mkdirSync(path.dirname(file), { recursive: true });
-  fs.writeFileSync(file, briefMarkdown(`${item.ordinal}번 문항 출제 지시서 (시도 ${item.attempt}/${MAX_ATTEMPTS})`, brief, [
+  const repair = item.repairFrom && fs.existsSync(item.repairFrom)
+    ? [
+        '## 고치기 모드 (처음부터 다시 쓰지 마십시오)',
+        '',
+        `- 앞 시도 문항: \`${item.repairFrom}\` — 이 JSON을 읽고 **아래 "이전 시도 반려 사유"에 해당하는 부분만** 고쳐 candidate.json으로 저장합니다.`,
+        '- 정답 위치·<보기> 참/거짓·계산 자료·개념은 바꾸지 않습니다. 반려 사유와 무관한 부분은 그대로 둡니다(다시 쓰면 새 결함이 생깁니다).',
+        '- 고친 진술이 다른 진술·해설(clues·steps·basis)과 어긋나지 않게 함께 맞추십시오.',
+        '',
+      ]
+    : [];
+  fs.writeFileSync(file, briefMarkdown(`${item.ordinal}번 문항 출제 지시서 (시도 ${item.attempt}/${MAX_ATTEMPTS}${item.repairFrom ? ', 고치기' : ''})`, brief, [
     `- 결과를 \`${path.join(itemDir(work, item.ordinal), 'candidate.json')}\`에 저장한 뒤 \`check --item ${item.ordinal}\` 명령을 실행합니다.`,
     '- 정답 위치·<보기> 참/거짓·계산 자료는 서버가 정했습니다. 지시서의 지정값을 그대로 따르십시오.',
     '',
+    ...repair,
   ]));
   return file;
 }
@@ -121,20 +134,23 @@ function savePlan(work, plan) {
   writeJson(planPath(work), plan);
 }
 
-function nextAttempt(work, plan, item, notes) {
+function nextAttempt(work, plan, item, notes, fix = 'repair') {
   item.repairNotes = notes;
   if (item.attempt >= MAX_ATTEMPTS) {
     item.status = 'failed';
     savePlan(work, plan);
     return null;
   }
+  const previous = path.join(itemDir(work, item.ordinal), `candidate.attempt${item.attempt}.json`);
   item.attempt += 1;
   item.replanned = false;
-  if (item.attempt === REPLAN_AT) {
-    // 같은 명세로 실패하면 형식·정답 위치는 유지하고 개념·자료·소재를 바꾼다(서버 파이프라인과 같은 규칙).
+  item.repairFrom = fix === 'repair' && fs.existsSync(previous) ? previous : undefined;
+  if (fix === 'replan') {
+    // 설계가 무너진 경우만 형식·정답 위치는 유지하고 개념·자료·소재를 바꾼다.
     const used = plan.items.filter((entry) => entry.status === 'accepted').map((entry) => entry.spec.targetConcept.name);
     item.spec = engine.replanItem(plan.request, item.spec, item.attempt, used);
-    item.repairNotes = [];
+    // 개념은 바뀌지만 반려 원인(단순 읽기 진술·맥락 불일치 등)은 다음 문항에도 해당하므로 교훈으로 넘긴다.
+    item.repairNotes = notes.map((note) => `[앞 명세(다른 개념)에서 반려된 사유 — 같은 실수를 반복하지 마십시오] ${note}`);
     item.replanned = true;
   }
   item.status = 'writing';
@@ -200,6 +216,7 @@ function commandRefill(options) {
     item.status = 'writing';
     item.repairNotes = [];
     item.replanned = true;
+    item.repairFrom = undefined;
     const brief = writeWritingBrief(work, item);
     console.log(`↻ ${item.ordinal}번 다시 엶: ${item.spec.unitNumber}단원 [${item.spec.targetConcept.name}] ${item.spec.responseMode}${item.spec.calculation ? `+계산(${item.spec.calculation.kind}/${item.spec.calculation.format})` : ''} → ${brief}`);
   }
@@ -260,8 +277,8 @@ function commandCheck(options) {
   if (!result.ok) {
     console.log(`✗ ${item.ordinal}번 검증 실패 (시도 ${item.attempt}/${MAX_ATTEMPTS})`);
     for (const issue of result.issues) console.log(`  - [${issue.code}] ${issue.message}`);
-    const brief = nextAttempt(work, plan, item, result.issues.map((issue) => issue.message));
-    console.log(brief ? `→ 고친 지시서: ${brief}${item.replanned ? ' (개념·자료를 바꾼 대체 명세)' : ''}` : '→ 최대 시도 횟수를 넘겨 제외했습니다.');
+    const brief = nextAttempt(work, plan, item, result.issues.map((issue) => issue.message), 'repair');
+    console.log(brief ? `→ 고친 지시서: ${brief} (같은 명세 — 앞 시도 문항을 고치기)` : '→ 최대 시도 횟수를 넘겨 제외했습니다. refill로 다시 열 수 있습니다.');
     process.exitCode = 2;
     return;
   }
@@ -290,18 +307,40 @@ function commandReview(options) {
   }
   if (judgement.invalid) fail(`검토 JSON 형식 오류: ${judgement.invalid}`);
   console.log(`✗ ${item.ordinal}번 검토 반려 [${judgement.rejection.code}] ${judgement.rejection.message}`);
-  const brief = nextAttempt(work, plan, item, judgement.rejection.notes);
-  console.log(brief ? `→ 고친 지시서: ${brief}${item.replanned ? ' (개념·자료를 바꾼 대체 명세)' : ''}` : '→ 최대 시도 횟수를 넘겨 제외했습니다.');
+  const brief = nextAttempt(work, plan, item, judgement.rejection.notes, judgement.rejection.fix);
+  console.log(brief ? `→ 고친 지시서: ${brief}${item.replanned ? ' (대체 명세 — 새로 쓰기)' : ' (같은 명세 — 고치기)'}` : '→ 최대 시도 횟수를 넘겨 제외했습니다. refill로 다시 열 수 있습니다.');
   process.exitCode = 2;
 }
 
+/** 문항별 다음 할 일(병렬 진행용): 출제자는 write/repair, 검토자는 review, review 명령은 judge, 끝난 문항은 done */
+function nextAction(work, item) {
+  const dir = itemDir(work, item.ordinal);
+  if (item.status === 'accepted') return { action: 'done', file: null };
+  if (item.status === 'failed') return { action: 'refill', file: null };
+  if (item.status === 'awaiting_review') {
+    const reviewFile = path.join(dir, 'review.json');
+    const briefFile = path.join(dir, 'review-brief.md');
+    return fs.existsSync(reviewFile) && (!fs.existsSync(briefFile) || fs.statSync(reviewFile).mtimeMs > fs.statSync(briefFile).mtimeMs)
+      ? { action: 'judge', file: reviewFile }
+      : { action: 'review', file: briefFile };
+  }
+  return { action: item.repairFrom ? 'repair' : 'write', file: path.join(dir, 'brief.md') };
+}
+
 function commandStatus(options) {
-  const plan = loadPlan(options.work);
+  const work = options.work;
+  const plan = loadPlan(work);
   const counts = {};
-  for (const item of plan.items) {
+  const rows = plan.items.map((item) => {
     counts[item.status] = (counts[item.status] || 0) + 1;
-    const s = item.spec;
-    console.log(`${pad(item.ordinal)}. ${item.status.padEnd(16)} 시도 ${item.attempt}/${MAX_ATTEMPTS}  ${s.unitNumber}단원 [${s.targetConcept.name}] ${s.points}점`);
+    return { ordinal: item.ordinal, status: item.status, attempt: item.attempt, unit: item.spec.unitNumber, concept: item.spec.targetConcept.name, points: item.spec.points, ...nextAction(work, item) };
+  });
+  if (options.json) {
+    console.log(JSON.stringify({ counts, items: rows }, null, 2));
+    return;
+  }
+  for (const row of rows) {
+    console.log(`${pad(row.ordinal)}. ${row.status.padEnd(16)} 시도 ${row.attempt}/${MAX_ATTEMPTS}  다음: ${row.action.padEnd(7)} ${row.unit}단원 [${row.concept}] ${row.points}점${row.file ? `  → ${row.file}` : ''}`);
   }
   console.log(`요약: ${Object.entries(counts).map(([key, value]) => `${key} ${value}`).join(', ')}`);
 }
@@ -416,10 +455,19 @@ function commandExport(options) {
   console.log(`내보냄: ${path.join(work, 'exam.json')}, ${path.join(work, 'exam.md')} — ${questions.length}/${request.questionCount}문항${failed.length ? `, 미완료 ${failed.join(', ')}` : ''}`);
 }
 
+/** 시험지 PDF: exam.json → 2단 시험지 HTML → 헤드리스 Chrome PDF(정답·해설 쪽 포함, --no-answers면 시험지만) */
+function commandPdf(options) {
+  const work = options.work;
+  if (!work) fail('--work <작업 폴더>가 필요합니다.');
+  if (!fs.existsSync(path.join(work, 'exam.json'))) commandExport(options);
+  const out = require('./pdf.cjs').exportPdf(work, { answers: options['no-answers'] !== true, chrome: typeof options.chrome === 'string' ? options.chrome : undefined });
+  console.log(out.pdfFile ? `PDF: ${out.pdfFile}\nHTML: ${out.htmlFile}` : `${out.reason}\nHTML: ${out.htmlFile}`);
+}
+
 const { command, options } = parseArgs(process.argv.slice(2));
-const commands = { plan: commandPlan, check: commandCheck, review: commandReview, status: commandStatus, refresh: commandRefresh, refill: commandRefill, export: commandExport };
+const commands = { plan: commandPlan, check: commandCheck, review: commandReview, status: commandStatus, refresh: commandRefresh, refill: commandRefill, export: commandExport, pdf: commandPdf };
 if (!commands[command]) {
-  console.log('사용법: node exam.cjs <plan|check|review|status|refresh|refill|export> [옵션]\n  plan   --work DIR --subject success|kongil --units 15-17 --count 5 --difficulty LOW|MIDDLE|HIGH|INTERGRATE|ULTRA [--seed s] [--concepts a,b] [--force]\n  check  --work DIR --item N [--file candidate.json]\n  review --work DIR --item N [--file review.json]\n  status --work DIR\n  refresh --work DIR\n  refill --work DIR [--item N]\n  export --work DIR');
+  console.log('사용법: node exam.cjs <plan|check|review|status|refresh|refill|export|pdf> [옵션]\n  plan   --work DIR --subject success|kongil --units 15-17 --count 5 --difficulty LOW|MIDDLE|HIGH|INTERGRATE|ULTRA [--seed s] [--concepts a,b] [--force]\n  check  --work DIR --item N [--file candidate.json]\n  review --work DIR --item N [--file review.json]\n  status --work DIR [--json]   (문항별 다음 할 일: write·repair → 출제자, review → 검토자, judge → review 명령, refill)\n  refresh --work DIR\n  refill --work DIR [--item N]\n  export --work DIR\n  pdf    --work DIR [--no-answers] [--chrome PATH]');
   process.exit(command ? 1 : 0);
 }
 commands[command](options);

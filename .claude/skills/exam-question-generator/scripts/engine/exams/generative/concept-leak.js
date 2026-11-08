@@ -12,12 +12,14 @@ const GENERIC_SUFFIXES = ['방식', '제도', '기법', '방법', '활동', '시
 const GENERIC_TOKENS = new Set([
     '관리', '활동', '방식', '제도', '기법', '방법', '종류', '유형', '특징', '개념', '기업', '시스템',
     '과정', '단계', '원칙', '요소', '구성', '형태', '분류', '사례', '의미', '역할',
+    '구분', '비교', '변화', '이해', '양상', '기준', '조건', '관계', '영향', '종류와', '특성', '차이', '이용', '활용',
 ]);
 function conceptAliases(name) {
     const aliases = new Set();
     const add = (value) => {
         const trimmed = value.replace(/\s+/gu, ' ').trim();
-        if (compact(trimmed).length >= 2)
+        // "구분", "특징" 같은 일반어 하나만 남은 조각은 개념명이 아니다(표 머리 "구분"을 정답 노출로 오판한 사례).
+        if (compact(trimmed).length >= 2 && !GENERIC_TOKENS.has(compact(trimmed)))
             aliases.add(trimmed);
     };
     const outer = name.replace(/\([^)]*\)/gu, ' ').trim();

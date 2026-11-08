@@ -18,6 +18,7 @@ const source_blocks_stimulus_1 = require("../source-blocks-stimulus");
 const stable_hash_1 = require("../../common/stable-hash");
 const calculation_kit_1 = require("./calculation/calculation-kit");
 const concept_leak_1 = require("./concept-leak");
+const precheck_1 = require("./precheck");
 const exam_register_1 = require("./exam-register");
 const figure_spec_1 = require("./figures/figure-spec");
 const figure_parse_1 = require("./figures/figure-parse");
@@ -221,8 +222,7 @@ function figureNotation(figure, notation) {
         ...(figure.secondaryAxis === undefined ? {} : { secondaryAxis: { ...figure.secondaryAxis, label: notation(figure.secondaryAxis.label) } }),
     };
 }
-/** 결정론적 품질 게이트. 빈 배열이면 통과. */
-function validateGenerativeCandidate(spec, candidate) {
+function validateGenerativeCandidate(spec, candidate, options = {}) {
     const issues = [];
     const push = (code, message) => issues.push({ code, message });
     // 발문
@@ -311,6 +311,18 @@ function validateGenerativeCandidate(spec, candidate) {
     }
     if (spec.points === 3 && candidate.design.difficultyDevices.length === 0) {
         push('GEN_TOO_EASY', '3점 문항인데 난도 장치(계산·단서 분산·복합 개념 등)가 없습니다.');
+    }
+    if (options.precheck === true) {
+        // 서버 확정 자료(계산 표·[조건])는 모델이 쓴 글이 아니므로 빈칸·베끼기·실존 명칭 검사에서 뺀다.
+        const modelBlocks = modelWrittenBlocks(spec, candidate.blocks);
+        for (const issue of [
+            ...(0, precheck_1.blankCellIssues)(modelBlocks),
+            ...(0, precheck_1.realEntityIssues)(modelBlocks, figures, stem),
+            ...(0, precheck_1.copiedStatementIssues)(spec, { ...candidate, blocks: modelBlocks }, fixedTexts),
+            ...(0, precheck_1.laborHeadcountIssues)(spec, candidate, stimulusText),
+            ...(0, precheck_1.explanationNumeralIssues)(spec, candidate),
+        ])
+            push(issue.code, issue.message);
     }
     // 응답 형식
     if (spec.responseMode === 'truth_combination') {
@@ -789,13 +801,21 @@ function calculationExplanation(spec) {
  * 이 이유 하나로 60~90초짜리 출제 결과를 통째로 버리던 것을 막는다.
  * 표 칸 전체가 라벨인 빈칸은 내용이 빠진 것이므로 고치지 않고 검증에서 반려되게 둔다.
  */
-function repairUnusedLabels(candidate) {
+function repairUnusedLabels(candidate, options = {}) {
     const unused = unusedStimulusLabels(stimulusPlainText(candidate.blocks, candidate.figures), questionSideText(candidate));
     if (unused.length === 0)
         return candidate;
     const isBlankCell = (cell) => unused.includes(cell.trim());
     if (candidate.blocks.some((block) => block.type === 'table' && block.rows.some((row) => row.some(isBlankCell)))) {
         return candidate;
+    }
+    // 표 머리행·행 머리의 라벨("(나) 지역")을 지우면 "지역"만 남아 표가 어색해진다(검토 반려 사례)
+    // → 고치지 않고 검증에서 반려해 라벨을 묻게 한다. 에이전트 스킬만 켠다(서버는 기존처럼 지운다).
+    if (options.keepTableHeadLabels === true) {
+        const labelIn = (cell) => unused.some((label) => cell.includes(label));
+        if (candidate.blocks.some((block) => block.type === 'table' && (block.headers.some(labelIn) || block.rows.some((row) => labelIn(row[0] ?? ''))))) {
+            return candidate;
+        }
     }
     // 그래프 범주·계열 이름 자체가 라벨이면 지울 수 없으므로 고치지 않고 검증에서 반려되게 둔다.
     const chartNames = (candidate.figures ?? []).flatMap((figure) => (figure.kind === 'scene' ? [] : (0, figure_parse_1.collectFigureStrings)(figure)));
