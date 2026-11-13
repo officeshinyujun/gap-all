@@ -10,10 +10,12 @@
  *  5. 해설의 선지 번호: 정답 위치는 엔진이 정하므로 해설·오답 해설에 ①~⑤를 쓰면 틀린 번호가 된다.
  *  6. 발문 과적: 본문이 길거나 (단, …) 조건이 둘 이상·너무 길어 한 번에 읽히지 않음.
  *  7. 엮을 개념 선언(개념 고정 계획): design.mixUse에 엮을 개념마다 실제 진술 표지가 있어야 한다.
+ *  8. 구어·속어 어휘: "접었다", "라이더", "자격증을 따다"처럼 기출에 없는 낱말(대화 발화 포함) — 표준 어휘로.
  */
 import type { FigureSpec } from './figures/figure-spec';
 import { collectFigureStrings } from './figures/figure-parse';
 import { STEM_CONDITION_LIMIT, STEM_LEAD_LIMIT } from './generative-item-prompt';
+import { findNonExamWords } from './exam-register';
 import type { GeneratedBlock, GenerativeCandidate, GenerativeFailureCode, GenerativeItemSpec } from './generative.types';
 
 export type PrecheckIssue = Readonly<{ code: GenerativeFailureCode; message: string }>;
@@ -80,6 +82,29 @@ export function realEntityIssues(
   return found.length === 0 ? [] : [{
     code: 'GEN_STIMULUS_INVALID',
     message: `제시문·발문에 실존 기업·브랜드·인물(${found.join(', ')})이 나옵니다. 기출 관례대로 ○○기업·△△사, A 씨·갑 같은 가상 명칭으로 바꾸십시오.`,
+  }];
+}
+
+/** 평가원 시험지에 쓰지 않는 구어·속어 어휘: 제시문(대화 발화 포함)·발문·<보기>·선지 */
+export function nonExamWordIssues(
+  candidate: GenerativeCandidate,
+  blocks: readonly GeneratedBlock[],
+  figures: readonly FigureSpec[],
+  stem = '',
+): PrecheckIssue[] {
+  const texts = [
+    stem,
+    ...blocks.flatMap((block) => [block.text, block.title, ...block.headers, ...block.rows.flat(), ...block.lines.map((line) => line.text)]),
+    ...figures.flatMap((figure) => (figure.kind === 'scene' ? [] : collectFigureStrings(figure))),
+    ...(candidate.viewItems ?? []).map((item) => item.text),
+    candidate.keyedChoice?.text ?? '',
+    ...(candidate.otherChoices ?? []).map((choice) => choice.text),
+    ...(candidate.pairTable ? [...candidate.pairTable.keyedRow, ...candidate.pairTable.otherRows.flat()] : []),
+  ];
+  const found = findNonExamWords(texts);
+  return found.length === 0 ? [] : [{
+    code: 'GEN_STIMULUS_INVALID',
+    message: `평가원 시험지에 쓰지 않는 구어·속어 어휘가 있습니다: ${found.map(({ word, use }) => `${word} → ${use}`).join(', ')}. 대화 발화도 해요체·합니다체는 유지하되 낱말은 교과서·기출의 표준 어휘로 쓰십시오.`,
   }];
 }
 

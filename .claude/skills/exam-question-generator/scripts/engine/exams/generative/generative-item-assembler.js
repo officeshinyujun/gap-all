@@ -326,6 +326,7 @@ function validateGenerativeCandidate(spec, candidate, options = {}) {
         for (const issue of [
             ...(0, precheck_1.blankCellIssues)(modelBlocks),
             ...(0, precheck_1.realEntityIssues)(modelBlocks, figures, stem),
+            ...(0, precheck_1.nonExamWordIssues)(candidate, modelBlocks, figures, stem),
             ...(0, precheck_1.copiedStatementIssues)(spec, { ...candidate, blocks: modelBlocks }, fixedTexts),
             ...(0, precheck_1.laborHeadcountIssues)(spec, candidate, stimulusText),
             ...(0, precheck_1.explanationNumeralIssues)(spec, candidate),
