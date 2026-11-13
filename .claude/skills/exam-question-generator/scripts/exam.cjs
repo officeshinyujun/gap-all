@@ -321,7 +321,9 @@ function commandReview(options) {
   if (judgement.accepted) {
     item.status = 'accepted';
     savePlan(work, plan);
-    console.log(`✓ ${item.ordinal}번 통과`);
+    console.log(judgement.downgraded
+      ? `✓ ${item.ordinal}번 통과(3점 기준은 쉬움 → 2점으로 받음. 3점 수는 export가 다른 문항을 올려 맞춤)`
+      : `✓ ${item.ordinal}번 통과`);
     return;
   }
   if (judgement.invalid) fail(`검토 JSON 형식 오류: ${judgement.invalid}`);
@@ -441,7 +443,14 @@ function commandExport(options) {
     .map((item) => ({ item, question: readJson(path.join(itemDir(work, item.ordinal), 'question.json')) }))
     .sort((left, right) => left.item.spec.unitNumber - right.item.spec.unitNumber || left.item.ordinal - right.item.ordinal);
   if (accepted.length === 0) fail('통과한 문항이 없습니다.');
-  const questions = accepted.map(({ item, question }, index) => engine.toAppQuestion(item.spec, question, index + 1));
+  // 배점 재배분: 쉬움으로 2점이 된 3점 문항만큼, 3점 기준을 통과한 2점 문항을 체감 난도 순으로 올린다.
+  const reviewFile = (ordinal) => path.join(itemDir(work, ordinal), 'review.json');
+  const rebalance = engine.rebalancePoints(accepted.map(({ item }) => engine.reviewPoints(
+    item.spec, item.ordinal, fs.existsSync(reviewFile(item.ordinal)) ? fs.readFileSync(reviewFile(item.ordinal), 'utf8') : '',
+  )));
+  const questions = accepted.map(({ item, question }, index) => engine.toAppQuestion(
+    item.spec, { ...question, points: rebalance.points.get(item.ordinal) ?? question.points }, index + 1,
+  ));
   const request = plan.request;
   const level = request.ultra ? '초고난도' : request.difficulty;
   const title = `${SUBJECT_NAMES[request.subject]} ${request.startUnitNum}~${request.endUnitNum}단원 (AI 출제 ${level})`;
@@ -472,6 +481,8 @@ function commandExport(options) {
   fs.writeFileSync(path.join(work, 'exam.md'), md);
   const failed = plan.items.filter((item) => item.status !== 'accepted').map((item) => `${item.ordinal}(${item.status})`);
   console.log(`내보냄: ${path.join(work, 'exam.json')}, ${path.join(work, 'exam.md')} — ${questions.length}/${request.questionCount}문항${failed.length ? `, 미완료 ${failed.join(', ')}` : ''}`);
+  if (rebalance.changes.length) console.log(`배점 재배분: ${rebalance.changes.join(', ')}`);
+  if (rebalance.shortfall > 0) console.log(`주의: 3점으로 올릴 수 있는 문항이 모자라 3점이 계획보다 ${rebalance.shortfall}개 적습니다.`);
 }
 
 /** 시험지 PDF: exam.json → 2단 시험지 HTML → 헤드리스 Chrome PDF(정답·해설 쪽 포함, --no-answers면 시험지만) */

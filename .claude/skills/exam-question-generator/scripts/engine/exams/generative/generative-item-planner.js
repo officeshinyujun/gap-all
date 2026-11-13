@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.STEM_ENDINGS = void 0;
 exports.planGenerativeExam = planGenerativeExam;
+exports.keepHighPointsOffLabelModes = keepHighPointsOffLabelModes;
 exports.planGenerativeSlots = planGenerativeSlots;
 exports.planGenerativeReserves = planGenerativeReserves;
 exports.replanGenerativeItem = replanGenerativeItem;
@@ -73,6 +74,8 @@ function planGenerativeExam(request) {
     const points = request.ultra
         ? units.map(() => 3)
         : allocatePoints(request.subject, units, request.difficulty, seededRandom(`${request.seed}:points`));
+    if (!request.ultra)
+        keepHighPointsOffLabelModes(request.subject, units, modes, points);
     const usage = new PlanUsage();
     for (const concept of request.avoidConcepts ?? [])
         usage.concepts.add(concept);
@@ -97,6 +100,24 @@ function planGenerativeExam(request) {
     });
 }
 /**
+ * 3점 자리에는 진술형(<보기>형·단일 정답형)을 우선 배정한다.
+ * 계산 특징 모듈이 없는 단원의 용어 고르기(short_label)·짝짓기(pair_table)는 정의 대조로 풀리는 경우가 많아
+ * 블라인드 검토에서 "3점인데 쉬움"으로 반복 반려되었다(성직 11단원 학점은행제·14단원 프랜차이즈 등).
+ * 같은 시험의 2점 진술형 자리와 응답 형식만 맞바꾼다: 형식 분포·배점·정답 위치는 그대로다.
+ */
+function keepHighPointsOffLabelModes(subject, units, modes, points) {
+    const labelMode = (mode) => mode === 'short_label' || mode === 'pair_table';
+    const hasCalculation = (unit) => signature_registry_1.SIGNATURE_MODULES.some((module) => module.subject === subject && module.shares[unit] !== undefined);
+    for (let index = 0; index < modes.length; index += 1) {
+        if (points[index] !== 3 || !labelMode(modes[index]) || hasCalculation(units[index] ?? 0))
+            continue;
+        const swap = modes.findIndex((mode, other) => points[other] === 2 && (mode === 'truth_combination' || mode === 'statement'));
+        if (swap < 0)
+            return;
+        [modes[index], modes[swap]] = [modes[swap], modes[index]];
+    }
+}
+/**
  * 개념 고정 계획(에이전트 스킬 전용): 자리마다 단원·정답 판단 개념·엮을 개념을 정해 둔 채
  * 형식·정답 위치·배점은 planGenerativeExam과 같은 규칙으로 정한다. 반려되어도 개념은 유지된다(conceptLocked).
  */
@@ -114,6 +135,8 @@ function planGenerativeSlots(request, slots) {
     const points = request.ultra
         ? units.map(() => 3)
         : allocatePoints(request.subject, units, request.difficulty, seededRandom(`${request.seed}:points`));
+    if (!request.ultra)
+        keepHighPointsOffLabelModes(request.subject, units, modes, points);
     let negativeLeft = Math.min(MAX_NEGATIVE_PER_EXAM, Math.round(modes.filter((mode) => mode === 'statement').length * sourceStats.negativeShareOfSingle));
     const usage = new PlanUsage();
     for (const slot of slots)

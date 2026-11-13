@@ -3,18 +3,23 @@
  * 출제 엔진(결정론적 부분)을 에이전트 스킬 폴더로 빌드한다.
  *   out: <repo>/.claude/skills/exam-question-generator/scripts/engine
  * 엔진은 Node 18+ 표준 라이브러리만 쓴다(DB·Nest·OpenAI 의존이 섞이면 빌드를 실패시킨다).
+ * 빌드는 옆 폴더(engine.next)에 한 뒤 이름만 바꿔 교체한다: 출제 에이전트가 check를 돌리는 중에 다시 빌드해도
+ * 엔진 폴더가 비는 순간이 없다(예전에는 출제 중인 에이전트가 모두 끝날 때까지 기다려야 했다).
  */
 import { execFileSync } from 'node:child_process';
-import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from 'node:fs';
+import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, renameSync, rmSync, statSync, writeFileSync } from 'node:fs';
 import { dirname, join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const backend = join(dirname(fileURLToPath(import.meta.url)), '..');
 const skillDir = join(backend, '..', '.claude', 'skills', 'exam-question-generator');
-const engineDir = join(skillDir, 'scripts', 'engine');
+const liveDir = join(skillDir, 'scripts', 'engine');
+const engineDir = `${liveDir}.next`;
+const oldDir = `${liveDir}.old`;
 
 rmSync(engineDir, { recursive: true, force: true });
-execFileSync(join(backend, 'node_modules', '.bin', 'tsc'), ['-p', join(backend, 'tsconfig.skill.json')], { stdio: 'inherit' });
+rmSync(oldDir, { recursive: true, force: true });
+execFileSync(join(backend, 'node_modules', '.bin', 'tsc'), ['-p', join(backend, 'tsconfig.skill.json'), '--outDir', engineDir], { stdio: 'inherit' });
 
 const dataSource = join(backend, 'src', 'exams', 'generative', 'data');
 const dataTarget = join(engineDir, 'exams', 'generative', 'data');
@@ -41,7 +46,11 @@ if (!existsSync(join(engineDir, 'exams', 'generative', 'skill', 'skill-engine.js
   process.exit(1);
 }
 writeFileSync(join(engineDir, 'BUILD.json'), `${JSON.stringify({ builtAt: new Date().toISOString(), files: files.length }, null, 2)}\n`);
-console.log(`built ${files.length} engine files → ${relative(join(backend, '..'), engineDir)}`);
+// 교체: 이름 바꾸기 두 번이라 엔진이 없는 시간은 사실상 없다.
+if (existsSync(liveDir)) renameSync(liveDir, oldDir);
+renameSync(engineDir, liveDir);
+rmSync(oldDir, { recursive: true, force: true });
+console.log(`built ${files.length} engine files → ${relative(join(backend, '..'), liveDir)}`);
 
 // Claude.ai·API에 올릴 수 있는 zip(스킬 폴더 통째). zip 명령이 없으면 건너뛴다.
 const zipDir = join(backend, 'dist-skill');
