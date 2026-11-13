@@ -124,6 +124,9 @@ describe('figure spec', () => {
     expect(alt).toContain('치수 60, 도장 80, 흠집 94, 기타 100');
     expect(figureAlt(chartOf('pie'))).toContain('A 50%, B 30%, C 20%');
     expect(figureAlt(interview)).toBe('장식용. 기자(기자)와 A 씨(경영자)가 마주 보고 이야기하는 인물 그림. 대화 내용은 이어지는 대화 블록에 있음.');
+    // 괄호 뒤 조사는 화자명(괄호 앞말)을 따른다: 역할 '시민'에 받침이 있어도 "A 씨(시민)가"
+    expect(figureAlt({ ...interview, people: [{ ...interview.people[0], speaker: '상담원' }, { ...interview.people[1], role: 'citizen' }] } as never))
+      .toContain('상담원(기자)과 A 씨(시민)가');
   });
 });
 
