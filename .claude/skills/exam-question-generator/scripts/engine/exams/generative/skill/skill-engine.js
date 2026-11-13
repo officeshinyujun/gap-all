@@ -9,6 +9,8 @@ exports.writingBrief = writingBrief;
 exports.checkCandidate = checkCandidate;
 exports.reviewBrief = reviewBrief;
 exports.judgeReview = judgeReview;
+exports.reviewPoints = reviewPoints;
+exports.rebalancePoints = rebalancePoints;
 exports.toAppQuestion = toAppQuestion;
 exports.unitTitle = unitTitle;
 /**
@@ -128,7 +130,15 @@ function reviewOptions(spec) {
         mixConcepts: (spec.mixConcepts ?? []).map((concept) => concept.name),
     };
 }
-/** 검토 결과(JSON 문자열)를 서버 파이프라인과 같은 기준으로 판정한다. */
+/** 배점을 문항 사이에서 맞바꿀 수 있는 시험(2점·3점이 섞인 중·통합). 하(전부 2점)·상/초고난도(전부 3점)는 아니다. */
+function pointsFlexible(spec) {
+    return spec.ultra !== true && (spec.difficulty === difficulty_1.Difficulty.MIDDLE || spec.difficulty === difficulty_1.Difficulty.INTERGRATE);
+}
+/**
+ * 검토 결과(JSON 문자열)를 서버 파이프라인과 같은 기준으로 판정한다.
+ * 배점이 섞인 시험에서 3점 문항이 "쉬움"(체감 easy·단순 읽기·자료 없이 풀리는 진술)으로만 걸리고 2점 기준은 통과하면
+ * 반려하지 않고 2점으로 받는다(downgraded). 3점 수는 내보낼 때 rebalancePoints가 다른 문항을 올려 맞춘다.
+ */
 function judgeReview(spec, content) {
     let solve;
     try {
@@ -138,7 +148,52 @@ function judgeReview(spec, content) {
         return { accepted: false, invalid: error instanceof Error ? error.message : String(error) };
     }
     const rejection = (0, generative_gates_1.blindSolveRejection)(spec, solve);
-    return rejection === null ? { accepted: true } : { accepted: false, rejection };
+    if (rejection === null)
+        return { accepted: true };
+    if (rejection.code === 'GEN_TOO_EASY' && spec.points === 3 && pointsFlexible(spec) && (0, generative_gates_1.blindSolveRejection)({ ...spec, points: 2 }, solve) === null) {
+        return { accepted: true, downgraded: true };
+    }
+    return { accepted: false, rejection };
+}
+/** 통과 문항의 마지막 검토 결과로 배점 재배분 정보를 만든다(3점 기준을 통과하는지, 내려간 문항인지, 체감 난도). */
+function reviewPoints(spec, ordinal, content) {
+    let solve;
+    try {
+        solve = (0, generative_gates_1.parseBlindSolveResult)(content);
+    }
+    catch {
+        return { ordinal, points: spec.points, downgraded: false, eligibleFor3: spec.points === 3, perceived: 'unknown' };
+    }
+    const passes3 = (0, generative_gates_1.blindSolveRejection)({ ...spec, points: 3 }, solve) === null;
+    return {
+        ordinal,
+        points: spec.points,
+        downgraded: spec.points === 3 && pointsFlexible(spec) && !passes3,
+        eligibleFor3: pointsFlexible(spec) && passes3,
+        perceived: solve.perceivedDifficulty,
+    };
+}
+/**
+ * 시험 전체의 3점 문항 수를 계획대로 유지한다: 쉬움으로 내려간 문항 대신, 3점 기준을 통과한 2점 문항을
+ * 체감 난도가 높은 순(hard → moderate)으로 3점으로 올린다. 올릴 문항이 모자라면 shortfall에 남은 수를 돌려준다.
+ */
+function rebalancePoints(entries) {
+    const points = new Map(entries.map((entry) => [entry.ordinal, entry.downgraded ? 2 : entry.points]));
+    const target = entries.filter((entry) => entry.points === 3).length;
+    const changes = entries.filter((entry) => entry.downgraded).map((entry) => `${entry.ordinal}번 3점→2점(검토 체감 난도 ${entry.perceived})`);
+    let deficit = target - [...points.values()].filter((value) => value === 3).length;
+    const rank = (perceived) => (perceived === 'hard' ? 0 : perceived === 'moderate' ? 1 : 2);
+    const candidates = entries
+        .filter((entry) => points.get(entry.ordinal) === 2 && !entry.downgraded && entry.eligibleFor3)
+        .sort((left, right) => rank(left.perceived) - rank(right.perceived) || left.ordinal - right.ordinal);
+    for (const entry of candidates) {
+        if (deficit <= 0)
+            break;
+        points.set(entry.ordinal, 3);
+        changes.push(`${entry.ordinal}번 2점→3점(검토 체감 난도 ${entry.perceived})`);
+        deficit -= 1;
+    }
+    return { points, changes, shortfall: Math.max(0, deficit) };
 }
 /** 앱(questions 테이블·시험지 렌더러)과 같은 문항 형식 */
 function toAppQuestion(spec, question, orderIndex) {

@@ -80,3 +80,7 @@ credentials.*
 
 # Generated reference extraction artifacts
 /artifacts/
+
+# exam skill build scratch (atomic swap)
+.claude/skills/exam-question-generator/scripts/engine.next/
+.claude/skills/exam-question-generator/scripts/engine.old/

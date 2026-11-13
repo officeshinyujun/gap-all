@@ -106,6 +106,7 @@ export function planGenerativeExam(request: GenerativePlanRequest): GenerativeIt
   const points = request.ultra
     ? units.map(() => 3 as const)
     : allocatePoints(request.subject, units, request.difficulty, seededRandom(`${request.seed}:points`));
+  if (!request.ultra) keepHighPointsOffLabelModes(request.subject, units, modes, points);
   const usage = new PlanUsage();
   for (const concept of request.avoidConcepts ?? []) usage.concepts.add(concept);
   return units.map((unitNumber, index) => {
@@ -129,6 +130,28 @@ export function planGenerativeExam(request: GenerativePlanRequest): GenerativeIt
   });
 }
 
+/**
+ * 3점 자리에는 진술형(<보기>형·단일 정답형)을 우선 배정한다.
+ * 계산 특징 모듈이 없는 단원의 용어 고르기(short_label)·짝짓기(pair_table)는 정의 대조로 풀리는 경우가 많아
+ * 블라인드 검토에서 "3점인데 쉬움"으로 반복 반려되었다(성직 11단원 학점은행제·14단원 프랜차이즈 등).
+ * 같은 시험의 2점 진술형 자리와 응답 형식만 맞바꾼다: 형식 분포·배점·정답 위치는 그대로다.
+ */
+export function keepHighPointsOffLabelModes(
+  subject: GenerativeSubject,
+  units: readonly number[],
+  modes: GenerativeResponseMode[],
+  points: readonly number[],
+): void {
+  const labelMode = (mode: GenerativeResponseMode | undefined) => mode === 'short_label' || mode === 'pair_table';
+  const hasCalculation = (unit: number) => SIGNATURE_MODULES.some((module) => module.subject === subject && module.shares[unit] !== undefined);
+  for (let index = 0; index < modes.length; index += 1) {
+    if (points[index] !== 3 || !labelMode(modes[index]) || hasCalculation(units[index] ?? 0)) continue;
+    const swap = modes.findIndex((mode, other) => points[other] === 2 && (mode === 'truth_combination' || mode === 'statement'));
+    if (swap < 0) return;
+    [modes[index], modes[swap]] = [modes[swap] as GenerativeResponseMode, modes[index] as GenerativeResponseMode];
+  }
+}
+
 /** 개념 고정 계획의 문항 자리: 정답 판단 개념(없으면 그 단원에서 추첨)과 함께 엮을 개념 */
 export type ConceptSlot = Readonly<{ unitNumber: number; concept?: UnitConcept; mix: readonly MixConcept[] }>;
 
@@ -150,6 +173,7 @@ export function planGenerativeSlots(request: GenerativePlanRequest, slots: reado
   const points = request.ultra
     ? units.map(() => 3 as const)
     : allocatePoints(request.subject, units, request.difficulty, seededRandom(`${request.seed}:points`));
+  if (!request.ultra) keepHighPointsOffLabelModes(request.subject, units, modes as GenerativeResponseMode[], points);
   let negativeLeft = Math.min(
     MAX_NEGATIVE_PER_EXAM,
     Math.round(modes.filter((mode) => mode === 'statement').length * sourceStats.negativeShareOfSingle),
