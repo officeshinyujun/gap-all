@@ -416,9 +416,9 @@ function sceneAlt(spec) {
     if (first === undefined)
         return '장식용 인물 그림.';
     if (spec.layout === 'pair' && second !== undefined) {
-        // 조사는 괄호 안 역할 이름의 받침을 따른다("기자(기자)와", "A 씨(연구원)이").
-        const and = (0, calculation_kit_1.josa)(exports.ROLE_LABELS[first.role], '이/가').endsWith('이') ? '과' : '와';
-        const subject = (0, calculation_kit_1.josa)(exports.ROLE_LABELS[second.role], '이/가').endsWith('이') ? '이' : '가';
+        // 괄호 뒤 조사는 괄호를 빼고 읽은 앞말(화자명)에 맞춘다("A 씨(시민)가", "상담원(직업 상담사)과").
+        const and = (0, calculation_kit_1.josa)(first.speaker, '이/가').endsWith('이') ? '과' : '와';
+        const subject = (0, calculation_kit_1.josa)(second.speaker, '이/가').endsWith('이') ? '이' : '가';
         return `장식용. ${who(first)}${and} ${who(second)}${subject} 마주 보고 이야기하는 인물 그림. 대화 내용은 이어지는 대화 블록에 있음.`;
     }
     if (spec.layout === 'presenter') {
