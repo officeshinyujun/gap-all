@@ -14,6 +14,7 @@ import {
   laborHeadcountIssues,
   mixUseIssues,
   stemOverloadIssues,
+  nonExamWordIssues,
   realEntityIssues,
 } from './precheck';
 import { normalizeExamNotation, normalizeExamRegister } from './exam-register';
@@ -369,6 +370,7 @@ export function validateGenerativeCandidate(
     for (const issue of [
       ...blankCellIssues(modelBlocks),
       ...realEntityIssues(modelBlocks, figures, stem),
+      ...nonExamWordIssues(candidate, modelBlocks, figures, stem),
       ...copiedStatementIssues(spec, { ...candidate, blocks: modelBlocks }, fixedTexts),
       ...laborHeadcountIssues(spec, candidate, stimulusText),
       ...explanationNumeralIssues(spec, candidate),

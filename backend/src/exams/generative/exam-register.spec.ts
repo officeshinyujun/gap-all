@@ -1,4 +1,4 @@
-import { normalizeExamNotation, normalizeExamRegister } from './exam-register';
+import { findNonExamWords, normalizeExamNotation, normalizeExamRegister } from './exam-register';
 
 describe('평가원 문체·표기 보정', () => {
   it('turns colloquial past contractions into the exam\'s written forms', () => {
@@ -16,5 +16,13 @@ describe('평가원 문체·표기 보정', () => {
     expect(normalizeExamNotation('실업 항목 3만 6천 원, 훈련 항목 1만 8천 원, 회비 5천 원, 체불 2천만 원'))
       .toBe('실업 항목 36,000원, 훈련 항목 18,000원, 회비 5,000원, 체불 2천만 원');
     expect(normalizeExamNotation('아저씨와 ○○씨')).toBe('아저씨와 ○○ 씨');
+  });
+
+  it('finds colloquial words the exam never uses, even in dialogue, but not look-alike words', () => {
+    expect(findNonExamWords(['주식회사를 세우는 방안은 접었어요.']).map((entry) => entry.word)).toEqual(['접다(그만둠)']);
+    expect(findNonExamWords(['정규직 라이더와 같은 일을 했어요. 자격증을 따고 밀린 임금을 받았다.']).map((entry) => entry.word))
+      .toEqual(['라이더', '(자격증을) 따다', '밀린 임금']);
+    // 면접은·직접은·인접은, 체불 임금, 자격증을 취득하고는 그대로
+    expect(findNonExamWords(['면접은 오후에 직접은 어렵고 인접은 한다. 체불 임금, 자격증을 취득하고 아르바이트를 한다.'])).toEqual([]);
   });
 });

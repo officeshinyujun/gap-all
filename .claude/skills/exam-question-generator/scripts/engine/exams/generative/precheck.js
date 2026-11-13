@@ -4,6 +4,7 @@ exports.COPIED_STATEMENT_RATIO = void 0;
 exports.blankCellIssues = blankCellIssues;
 exports.findRealEntities = findRealEntities;
 exports.realEntityIssues = realEntityIssues;
+exports.nonExamWordIssues = nonExamWordIssues;
 exports.copiedStatementIssues = copiedStatementIssues;
 exports.laborHeadcountIssues = laborHeadcountIssues;
 exports.explanationNumeralIssues = explanationNumeralIssues;
@@ -13,6 +14,7 @@ exports.stemOverloadIssues = stemOverloadIssues;
 exports.mixUseIssues = mixUseIssues;
 const figure_parse_1 = require("./figures/figure-parse");
 const generative_item_prompt_1 = require("./generative-item-prompt");
+const exam_register_1 = require("./exam-register");
 const UNIT_ONLY = /^(명|개|원|만 원|억 원|%|%p|kg|g|m|km|cm|mm|℃|mL|L|N|J|W|s|초|분|시간|일|주|개월|년|단위|가구|건|회|배|점)$/u;
 function blankCellIssues(blocks) {
     for (const block of blocks) {
@@ -70,6 +72,23 @@ function realEntityIssues(blocks, figures, stem = '') {
     return found.length === 0 ? [] : [{
             code: 'GEN_STIMULUS_INVALID',
             message: `제시문·발문에 실존 기업·브랜드·인물(${found.join(', ')})이 나옵니다. 기출 관례대로 ○○기업·△△사, A 씨·갑 같은 가상 명칭으로 바꾸십시오.`,
+        }];
+}
+/** 평가원 시험지에 쓰지 않는 구어·속어 어휘: 제시문(대화 발화 포함)·발문·<보기>·선지 */
+function nonExamWordIssues(candidate, blocks, figures, stem = '') {
+    const texts = [
+        stem,
+        ...blocks.flatMap((block) => [block.text, block.title, ...block.headers, ...block.rows.flat(), ...block.lines.map((line) => line.text)]),
+        ...figures.flatMap((figure) => (figure.kind === 'scene' ? [] : (0, figure_parse_1.collectFigureStrings)(figure))),
+        ...(candidate.viewItems ?? []).map((item) => item.text),
+        candidate.keyedChoice?.text ?? '',
+        ...(candidate.otherChoices ?? []).map((choice) => choice.text),
+        ...(candidate.pairTable ? [...candidate.pairTable.keyedRow, ...candidate.pairTable.otherRows.flat()] : []),
+    ];
+    const found = (0, exam_register_1.findNonExamWords)(texts);
+    return found.length === 0 ? [] : [{
+            code: 'GEN_STIMULUS_INVALID',
+            message: `평가원 시험지에 쓰지 않는 구어·속어 어휘가 있습니다: ${found.map(({ word, use }) => `${word} → ${use}`).join(', ')}. 대화 발화도 해요체·합니다체는 유지하되 낱말은 교과서·기출의 표준 어휘로 쓰십시오.`,
         }];
 }
 function grams(text) {
