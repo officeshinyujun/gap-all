@@ -149,6 +149,14 @@ describe('skill review gates', () => {
     expect(blindSolveRejection(mixed, solve({ perceivedDifficulty: 'hard', mixConceptsUsed: ['사회적 기업', '협동조합'] }))).toBeNull();
   });
 
+  it('repairs petty statements that hinge on edge-case deadlines, exceptions or off-textbook figures', () => {
+    expect(blindSolveRejection(ultra, solve({ perceivedDifficulty: 'hard', pettyStatements: ['ㄷ: 65세 전부터 피보험 자격 유지 예외'] }))).toMatchObject({ code: 'GEN_CHOICES_INVALID', fix: 'repair' });
+    expect(blindSolveRejection(ultra, solve({ perceivedDifficulty: 'hard', pettyStatements: [] }))).toBeNull();
+    expect(parseBlindSolveResult(JSON.stringify({ answerIndex: 1, pettyStatements: ['ㄱ: 이유'] })).pettyStatements).toEqual(['ㄱ: 이유']);
+    expect(blindSolveResponseFormat({ pettyReview: true }).json_schema.schema.required).toContain('pettyStatements');
+    expect(blindSolveSystemPrompt()).not.toMatch(/pettyStatements/u);
+  });
+
   it('parses the new fields only when present, and keeps the server review schema unchanged', () => {
     expect(parseBlindSolveResult(JSON.stringify({ answerIndex: 1 })).statementAnalysis).toBeUndefined();
     expect(parseBlindSolveResult(JSON.stringify({ answerIndex: 1, statementAnalysis: [{ label: 'ㄱ', steps: 2 }], stemIssues: [] }))).toMatchObject({ statementAnalysis: [{ label: 'ㄱ', steps: 2 }], stemIssues: [] });
@@ -164,6 +172,6 @@ describe('skill review gates', () => {
     const question = { questionStem: '다음 자료에 대한 설명으로 옳은 것은?', stimulusData: { blocks: [], figures: {}, choice_table: null }, optionsList: ['① 가', '② 나', '③ 다', '④ 라', '⑤ 마'], comboBlock: null };
     const brief = reviewBrief(spec, question as never);
     expect(brief.user).toContain('[교과서 기준]');
-    expect((brief.schema as { required: string[] }).required).toEqual(expect.arrayContaining(['stemIssues', 'mixConceptsUsed', 'statementAnalysis']));
+    expect((brief.schema as { required: string[] }).required).toEqual(expect.arrayContaining(['stemIssues', 'pettyStatements', 'mixConceptsUsed', 'statementAnalysis']));
   });
 });

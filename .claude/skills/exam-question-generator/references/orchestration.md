@@ -43,7 +43,7 @@ items/<NN>/brief.md를 끝까지 읽고, 끝의 "제출 전 자기 점검" 7항�
 실제 시험장에서 푸는 것처럼 진술을 하나씩 판정해 정답을 고르고 결함을 찾아라. 계산은 직접 하라.
 법·제도 단원은 "법적 정합성 점검 항목"을 하나씩 대조하라. 판정이나 교과 정확성에 실제로 영향을 주는 결함만 curriculumIssues에 적어라.
 dataFreeStatements에는 제시문을 가려도 교과 암기만으로 판정되는 <보기>·선지만 넣어라.
-지시서 끝의 [교과서 기준] 정의로 교과 정합성을 판정하고, 스키마에 statementAnalysis·stemIssues·mixConceptsUsed가 있으면 지시대로 채워라.
+지시서 끝의 [교과서 기준] 정의로 교과 정합성을 판정하고, 스키마에 statementAnalysis·stemIssues·pettyStatements·mixConceptsUsed가 있으면 지시대로 채워라.
 결과 JSON(스키마 그대로)을 같은 폴더의 review.json에 저장하라. 기존 파일은 열지 말고 덮어써라. CLI는 실행하지 마라.
 최종 보고는 한 줄(고른 정답, 난도, 지적 수)로 하라.
 ```

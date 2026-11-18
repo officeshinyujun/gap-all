@@ -1,12 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.STEM_CONDITION_LIMIT = exports.STEM_LEAD_LIMIT = void 0;
+exports.PETTY_DETAIL_KINDS = exports.STEM_CONDITION_LIMIT = exports.STEM_LEAD_LIMIT = void 0;
 exports.generativeSystemPrompt = generativeSystemPrompt;
 exports.buildGenerativeItemPrompt = buildGenerativeItemPrompt;
 exports.generativeItemResponseFormat = generativeItemResponseFormat;
 exports.selfCheck = selfCheck;
 exports.skillWritingAddendum = skillWritingAddendum;
 exports.textbookReference = textbookReference;
+exports.pettyDetailRules = pettyDetailRules;
 exports.ultraInstructions = ultraInstructions;
 exports.blindSolveUserPrompt = blindSolveUserPrompt;
 exports.blindSolveSystemPrompt = blindSolveSystemPrompt;
@@ -139,6 +140,7 @@ function buildGenerativeItemPrompt(spec, repairNotes = []) {
         lines.push('- 2점 기본 문항이지만 개념명을 제시문에서 바로 찾아 맞히는 수준이면 안 됩니다. 단서 → 개념 추론 한 단계는 반드시 필요합니다.');
     }
     lines.push('- 금지: 표의 수를 단순히 더하기만 하는 진술, 제시문 문장을 그대로 옮긴 참 진술, 제시문에 쓰인 개념명을 그대로 묻는 진술.');
+    lines.push(...pettyDetailRules());
     const legalRules = (0, legal_review_rules_1.legalReviewRules)(spec.subject, spec.unitNumber);
     if (legalRules.length > 0) {
         lines.push('');
@@ -677,6 +679,28 @@ function textbookReference(spec) {
         ...(spec.confusionPairs.length > 0 ? ['- 혼동 쌍 판별 기준:', ...spec.confusionPairs.map((pair) => `    · ${pair.a} ↔ ${pair.b}: ${pair.boundary}`)] : []),
     ];
 }
+/**
+ * 지엽적 진술 금지: 난도는 핵심 개념의 요건·대상·주체·절차를 사례에 적용하는 데서 나와야 한다.
+ * 기한·연령 경계를 촘촘히 맞춘 설정, 예외의 예외, 교과서 밖 세부 수치, 중심 개념과 무관한 다른 제도의 세부 요건으로 판정을 가르면
+ * 기출과 달리 "짜치는" 문항이 된다. 검토 스키마의 pettyStatements와 같은 기준이다.
+ */
+exports.PETTY_DETAIL_KINDS = [
+    '기한·일수·연령·인원 기준에 겨우 걸치거나 겨우 못 미치게 맞춘 설정(예: 65세 생일 직전·직후 입사, 180일에 며칠 모자람, 기간 만료 다음 날, 요양 2년에서 며칠 모자람)으로 참/거짓이 갈리는 진술',
+    '원칙이 아닌 예외의 예외·단서 조항(예: 65세 전부터 피보험 자격을 유지한 사람, 3개월 이상 계속 근로하는 초단시간 근로자, 다태아·우선 지원 대상 기업 특례)을 알아야 판정되는 진술',
+    '교과서 기준(단원 가이드 핵심 사실)에 없는 법정 수치·한도·요율·일수 표(예: 보험료율 계산, 소정급여일수 표, 탄력적 근로시간제 특정 주 한도, 긴급 조정 후 재개 일수, 노사협의회 설치 기준)로 판정되는 진술',
+    '중심 개념과 무관한 다른 제도·단원의 세부 요건(예: 평생 학습 문항에 독학 학위제 응시 자격, 산재 문항에 직업재활급여 요건)으로 판정되는 진술',
+    '날짜가 여러 개인 일지에서 기산일·만료일을 하루 단위로 세어야 판정되는 진술이 한 문항에 둘 이상',
+];
+function pettyDetailRules() {
+    return [
+        '',
+        '## 지엽적 진술 금지 (필수 — 어기면 블라인드 검토에서 반려됨)',
+        '- 난도는 핵심 개념의 요건·대상·주체·절차를 사례에 적용하는 판단에서 나와야 합니다. 경계값 맞추기, 예외 암기, 날짜 산수로 난도를 올리지 마십시오.',
+        '- 수치 기준(연령, 기간, 일수, 시간, 인원)을 쓸 때는 사례 값을 기준에서 넉넉히 떨어뜨려(예: 65세 기준이면 40대·70대, 180일 기준이면 1년 이상·두 달) 기준 자체를 아는지와 어느 제도에 적용되는지를 묻으십시오.',
+        '- 오답 재료는 같은 단원 핵심 개념과의 혼동(제도·급여·절차의 대상·주체·효력 혼동)으로 만드십시오. 다음과 같은 진술은 쓰지 마십시오:',
+        ...exports.PETTY_DETAIL_KINDS.map((kind) => `  · ${kind}`),
+    ];
+}
 /** 블라인드 검토 사용자 프롬프트: 학생 화면 + (법·제도 단원) 정합성 점검 항목 */
 /** 초고난도 문항 지시: 모든 <보기>·선지가 두 단계 이상, 한 단계 판정·소거 지름길 금지 */
 function ultraInstructions(spec) {
@@ -686,7 +710,8 @@ function ultraInstructions(spec) {
         '- 모든 <보기>·선지는 두 단계 이상의 판단을 거쳐야 참/거짓이 정해져야 합니다. 한 단계란 규칙 하나를 떠올리거나 값 하나를 확인하는 것입니다. 예: (1) 휴게 시간을 빼서 실제 근로 시간을 구하고 (2) 연령·사업장 규모 기준과 비교하고 (3) 남은 한도나 금액을 계산하는 진술.',
         '- 규칙 하나만 알면 판정되는 진술은 금지입니다(예: "5명 미만이므로 가산 수당이 없다"만으로 거짓이 되는 진술). 규칙을 알아도 사례의 수치를 계산해야 결론이 나게 쓰십시오.',
         '- 복합 진술의 앞 구절 하나만 보고 거짓이 되게 쓰지 마십시오. 거짓 진술의 오류는 끝까지 계산·판단해야 드러나는 마지막 결론(금액·시간·기한·적용 여부)에 두십시오.',
-        '- 참 진술은 흔한 실수(휴게 시간 미차감, 가산 누락·이중 가산, 기준 연령·인원 혼동, 기간 계산 착오)로 계산하면 다른 값이 나오게 하십시오. 대충 계산해도 맞는 참 진술은 변별력이 없습니다.',
+        '- 두 단계 이상은 개념 판단을 겹쳐 만드십시오(예: 사례 → 해당 제도·급여 판별 → 요건·주체·효력 적용 → 필요하면 금액·시간 계산). 기한·연령 경계를 촘촘히 맞추거나 예외 조항을 겹쳐 단계를 늘리지 마십시오(위 "지엽적 진술 금지").',
+        '- 참 진술은 흔한 실수(휴게 시간 미차감, 가산 누락·이중 가산, 비슷한 제도·급여의 혼동, 적용 대상 혼동)로 판단하면 다른 결론이 나오게 하십시오. 대충 계산해도 맞는 참 진술은 변별력이 없습니다.',
         '- 거짓 진술의 값은 그 흔한 실수로 나오는 값으로 만드십시오(예: 가산율을 100%로 본 금액, 휴게를 빼지 않은 시간).',
         '- 판정에 필요한 수치·조건(인원, 연령, 시각, 기간, 금액)은 모두 제시문에 두고, 서로 다른 블록·줄에 나누어 두십시오.',
         ...(spec.responseMode === 'truth_combination'
@@ -737,6 +762,12 @@ function blindSolveSystemPrompt(options = {}) {
         ...(options.stemReview === true
             ? ['- stemIssues: 발문이 한 번에 읽히지 않는 문제를 짧게 적으십시오(사례 정보·수치를 발문에 넣음, 자료를 둘 이상 나열, 대상 앞 수식어가 겹침, (단, …) 조건이 둘 이상이거나 기준을 여러 개 묶음). 자연스러우면 빈 배열.']
             : []),
+        ...(options.pettyReview === true
+            ? [
+                '- pettyStatements: 다음 중 하나 때문에 참/거짓이 정해지는 <보기>·선지를 "표지: 이유" 형식으로 적으십시오(예: "ㄷ: 65세 전부터 피보험 자격 유지 예외를 알아야 판정"). 핵심 개념의 요건·대상·주체·절차를 사례에 적용해 판정되면 넣지 마십시오. 없으면 빈 배열.',
+                ...exports.PETTY_DETAIL_KINDS.map((kind) => `  · ${kind}`),
+            ]
+            : []),
         ...((options.mixConcepts?.length ?? 0) > 0
             ? [`- mixConceptsUsed: 이 문항에 함께 엮었다는 개념(${options.mixConcepts?.join(', ')}) 중, 실제로 어떤 <보기>·선지의 참/거짓을 정하는 데 필요했던 것만 그대로 적으십시오. 이름만 나오거나 판정에 쓰이지 않았으면 넣지 마십시오.`]
             : []),
@@ -758,6 +789,7 @@ function blindSolveResponseFormat(options = {}) {
                     ...(dataFree ? ['dataFreeStatements'] : []),
                     ...(options.statementAnalysis === true ? ['statementAnalysis', 'eliminationShortcut'] : []),
                     ...(options.stemReview === true ? ['stemIssues'] : []),
+                    ...(options.pettyReview === true ? ['pettyStatements'] : []),
                     ...((options.mixConcepts?.length ?? 0) > 0 ? ['mixConceptsUsed'] : []),
                 ],
                 properties: {
@@ -785,6 +817,7 @@ function blindSolveResponseFormat(options = {}) {
                         }
                         : {}),
                     ...(options.stemReview === true ? { stemIssues: { type: 'array', items: STRING, maxItems: 3 } } : {}),
+                    ...(options.pettyReview === true ? { pettyStatements: { type: 'array', items: STRING, maxItems: 5 } } : {}),
                     ...((options.mixConcepts?.length ?? 0) > 0 ? { mixConceptsUsed: { type: 'array', items: STRING, maxItems: 6 } } : {}),
                 },
             },

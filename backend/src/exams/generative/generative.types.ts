@@ -232,6 +232,8 @@ export type BlindSolveResult = Readonly<{
   stemIssues?: readonly string[];
   /** 함께 엮은 개념 중 실제로 어떤 진술 판정에 필요했던 것 */
   mixConceptsUsed?: readonly string[];
+  /** 지엽적 진술("표지: 이유") — 경계값 맞추기·예외의 예외·교과서 밖 세부 수치·무관한 제도의 세부 요건 */
+  pettyStatements?: readonly string[];
   reasoning: string;
 }>;
 

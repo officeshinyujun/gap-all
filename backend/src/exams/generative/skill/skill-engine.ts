@@ -176,11 +176,12 @@ export function reviewBrief(spec: GenerativeItemSpec, question: AssembledGenerat
   };
 }
 
-/** 스킬 검토 옵션: 자료 없이 풀리는 진술·발문 점검은 늘, 진술별 사고 단계는 초고난도, 엮은 개념 확인은 엮을 개념이 있을 때 */
+/** 스킬 검토 옵션: 자료 없이 풀리는 진술·발문·지엽적 진술 점검은 늘, 진술별 사고 단계는 초고난도, 엮은 개념 확인은 엮을 개념이 있을 때 */
 function reviewOptions(spec: GenerativeItemSpec) {
   return {
     dataFree: true,
     stemReview: true,
+    pettyReview: true,
     statementAnalysis: spec.ultra === true,
     mixConcepts: (spec.mixConcepts ?? []).map((concept) => concept.name),
   };

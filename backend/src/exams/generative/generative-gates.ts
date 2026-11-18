@@ -99,6 +99,19 @@ export function blindSolveRejection(
       fix: 'repair',
     };
   }
+  // 지엽적 진술(스킬 검토에만 있는 필드): 경계값 맞추기·예외의 예외·교과서 밖 세부 수치로 판정이 갈리면 같은 명세로 그 진술만 고치게 한다.
+  const petty = solve.pettyStatements ?? [];
+  if (petty.length > 0) {
+    return {
+      code: 'GEN_CHOICES_INVALID',
+      message: `검토자: 지엽적 진술 — ${petty.join(' / ')}`,
+      notes: [
+        `검토자가 다음 진술을 지엽적이라고 판단했습니다: ${petty.join(' / ')}`,
+        '그 진술을 핵심 개념의 요건·대상·주체·절차를 사례에 적용해야 판정되는 진술로 바꾸십시오. 기한·연령 수치는 기준에서 넉넉히 떨어뜨리고, 예외 조항·교과서 밖 수치·다른 제도의 세부 요건으로 판정을 가르지 마십시오. 사례에서 그 진술에만 쓰이던 날짜·연령 설정은 함께 정리하십시오.',
+      ],
+      fix: 'repair',
+    };
+  }
   // 함께 엮은 개념(스킬 개념 고정 계획): 검토자가 판정에 쓰였다고 확인하지 않은 개념이 있으면 고치게 한다.
   const mixNames = (spec.mixConcepts ?? []).map((concept) => concept.name);
   if (mixNames.length > 0 && solve.mixConceptsUsed !== undefined) {
@@ -202,6 +215,7 @@ export function parseBlindSolveResult(content: string): BlindSolveResult {
     ...(typeof value.eliminationShortcut === 'boolean' ? { eliminationShortcut: value.eliminationShortcut } : {}),
     ...(labels(value.stemIssues) === undefined ? {} : { stemIssues: labels(value.stemIssues) }),
     ...(labels(value.mixConceptsUsed) === undefined ? {} : { mixConceptsUsed: labels(value.mixConceptsUsed) }),
+    ...(labels(value.pettyStatements) === undefined ? {} : { pettyStatements: labels(value.pettyStatements) }),
     perceivedDifficulty:
       value.perceivedDifficulty === 'easy' || value.perceivedDifficulty === 'hard'
         ? value.perceivedDifficulty
