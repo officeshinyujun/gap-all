@@ -1,0 +1,9 @@
+{
+  "reasoning": "(가) 극저온에서 저항 0 -> 초전도체. (나) 70℃ 넘자 스프링이 원래 길이로 복원 -> 형상 기억 합금. (다) 굴절률이 다른 두 겹 유리, 빛 전달 -> 광섬유. ① 극저온 저항 0은 (가) 초전도체 성질(거짓). ② 초전도체는 금속 재료로 분류(거짓). ③ 광섬유는 중심부 굴절률이 바깥보다 높음(거짓). ④ 초음파 세척기 진동자는 압전 세라믹스(거짓). ⑤ 초전도체는 자기 부상 열차에 활용(적절). 정답 ⑤. 영하 269℃(약 4K) 액체 헬륨 냉각 수치도 정합.",
+  "answerIndex": 5,
+  "ambiguity": "none",
+  "curriculumIssues": [],
+  "answerGivenAway": false,
+  "perceivedDifficulty": "moderate",
+  "trivialStatements": []
+}

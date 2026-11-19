@@ -1,0 +1,698 @@
+{
+  "title": "성공적인 직업생활 2~4단원 (AI 출제 초고난도)",
+  "subject": "success",
+  "difficulty": "ULTRA",
+  "unitRange": [
+    2,
+    4
+  ],
+  "requestedCount": 5,
+  "engine": "exam-skill-engine-v5",
+  "exportedAt": "2026-11-08T12:19:11.043Z",
+  "questions": [
+    {
+      "orderIndex": 1,
+      "subject": "success",
+      "unitNumber": 2,
+      "unitTitle": "생애 발달과 직업적 성공",
+      "targetConcept": "마샤의 자아 정체감 유형",
+      "itemType": "ai_generative_truth_combination",
+      "difficulty": "HIGH",
+      "points": 3,
+      "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+      "questionStem": "다음 진로 캠프 상담 장면과 발표 자료에 나타난 인물에 대한 분석으로 적절한 것만을 <보기>에서 고른 것은? (단, 자아 정체감 유형은 마샤(Marcia, J.), 발달 과업은 해비거스트(Havighurst, R. J.)의 이론에 근거한다.)",
+      "stimulusData": {
+        "blocks": [
+          {
+            "type": "text",
+            "text": "○○시 진로 캠프에서 상담 교사가 참가자들에게 희망 직업을 물었다.\nA(17세, 고등학생): “아버지 일을 보며 플랫폼 노동에 관심이 생겨 노동 인권 캠프와 배달 앱 회사 견학에 참여했어요. 노무사와 앱 기획자 중 무엇이 맞을지는 아직 정하지 못했어요.”\nB(25세, 대학생): “하고 싶은 일이 아직 없고, 따로 찾아본 적도 없어요. 졸업하고 나서 천천히 생각하려고요.”"
+          },
+          {
+            "type": "text",
+            "text": "A의 발표 자료 ‘아버지의 일’\n■ 아버지(49세)의 이력\n• 고등학생 때는 장래에 관심이 없어 따로 알아본 적이 없었음\n• 고등학교를 졸업하던 해, 삼촌이 정해 준 물류 회사를 옳은 길이라 믿고 다른 곳은 알아보지 않은 채 입사함\n• 그 회사에서 25년 동안 일하다 퇴사한 뒤, 1년 동안 여러 일을 알아보며 고민함\n• 고민 끝에 플랫폼 배달 일을 택하였고, 올해로 4년째 이 일에 전념하고 있음"
+          }
+        ],
+        "figures": {},
+        "choice_table": null
+      },
+      "optionsList": [
+        "① ㄱ, ㄴ, ㄷ",
+        "② ㄱ, ㄴ, ㄹ",
+        "③ ㄱ, ㄷ, ㄹ",
+        "④ ㄴ, ㄷ, ㄹ",
+        "⑤ ㄱ, ㄴ, ㄷ, ㄹ"
+      ],
+      "comboBlock": {
+        "title": "<보기>",
+        "items": [
+          {
+            "key": "ㄱ",
+            "text": "A의 아버지가 현재 B와 같은 정체감 유형이었던 시기에는 ‘직업 선택과 준비’가 발달 과업이었다."
+          },
+          {
+            "key": "ㄴ",
+            "text": "A의 아버지가 정체감 성취에 이른 시기의 발달 과업에는 ‘경제적 생활 수준 확립과 유지’가 있다."
+          },
+          {
+            "key": "ㄷ",
+            "text": "정체감 유예에 해당하는 참가자가 속한 시기의 발달 과업에는 ‘부모와 다른 성인들로부터 정서적 독립’이 있다."
+          },
+          {
+            "key": "ㄹ",
+            "text": "A의 아버지는 현재 B의 나이였을 때 정체감 유실에 해당하였다."
+          }
+        ]
+      },
+      "correctAnswer": 5,
+      "explanation": {
+        "judgment": "[출제 의도] 위기(탐색) 경험과 전념(관여) 여부로 인물의 시기별 자아 정체감 유형을 판별하고, 그 시기의 나이를 계산하여 해비거스트의 발달 과업과 연결할 수 있는가?\n[해설] A는 캠프와 견학으로 진로를 탐색하고 있으나 아직 정하지 못하였으므로 정체감 유예, B는 탐색도 결정도 없으므로 정체감 혼미이다. 아버지(49세)는 배달 일 4년째이므로 45세 무렵 배달 일을 시작하였고, 그 전 1년(44세 무렵) 동안 탐색하였으며, 25년 근무하였으므로 19세 무렵 입사하였다. ㄱ. B와 같은 혼미 유형이던 아버지의 시기는 장래에 관심도 탐색도 없던 고등학생 때로 청소년기이므로 ‘직업 선택과 준비’가 과업이어서 옳다. ㄴ. 아버지는 1년 동안의 탐색 끝에 배달 일을 택해 전념하고 있으므로 45세 무렵부터 정체감 성취이며, 이는 중년기이므로 ‘경제적 생활 수준 확립과 유지’가 과업이어서 옳다. ㄷ. 정체감 유예인 참가자는 17세인 A로 청소년기이므로 ‘부모와 다른 성인들로부터 정서적 독립’이 과업이어서 옳다. ㄹ. B의 나이인 25세에 아버지는 삼촌이 정해 준 회사에 탐색 없이 입사하여 6년째 일하던 중이었으므로 위기 없이 전념한 정체감 유실이어서 옳다. 따라서 ㄱ, ㄴ, ㄷ, ㄹ 모두 옳다.\n[오답 피하기] ㄱ을 빼는 경우: 무관심한 B를 아직 진로를 정하지 않았다는 점만 보고 정체감 유예로 혼동하면 아버지의 탐색 시기(44세 무렵, 중년기)와 대응시키게 되지만, B는 탐색 경험이 없으므로 혼미이고 아버지의 혼미 시기는 고등학생 때이다. ㄴ을 빼는 경우: 진로에 전념한 첫 시점인 회사 입사(19세 무렵)를 정체감 성취로 보면 중년기가 아니게 되지만, 그때는 탐색 없이 삼촌의 결정을 따른 유실이고 성취는 탐색을 거친 45세 무렵 이후이다. ㄷ을 빼는 경우: 결정하지 못한 두 참가자 중 B를 유예로 보면 25세 성년기가 되어 판정이 뒤집히지만, 탐색(위기) 경험이 있는 A가 유예이다. ㄹ을 빼는 경우: 25세의 아버지가 한 직장에 전념하고 있었다는 점만 보고 정체감 성취로 보거나, 진로를 스스로 고민하지 않았다는 점만 보고 혼미로 보면 거짓으로 판단하게 된다. 위기 없음과 전념 있음을 함께 적용하면 유실이다.",
+        "conceptHighlightV2": {
+          "stimulusClues": [
+            {
+              "quote": "노무사와 앱 기획자 중 무엇이 맞을지는 아직 정하지 못했어요",
+              "why": "탐색(위기)은 있으나 전념이 없는 정체감 유예의 단서이다."
+            },
+            {
+              "quote": "하고 싶은 일이 아직 없고, 따로 찾아본 적도 없어요",
+              "why": "위기와 전념이 모두 없는 정체감 혼미의 단서이다."
+            },
+            {
+              "quote": "다른 곳은 알아보지 않은 채 입사함",
+              "why": "탐색 없이 타인의 결정을 따라 전념한 정체감 유실의 단서이다."
+            },
+            {
+              "quote": "올해로 4년째 이 일에 전념하고 있음",
+              "why": "1년간의 탐색 뒤 전념한 정체감 성취의 단서이며, 49세에서 거슬러 성취 시기가 중년기임을 계산하게 한다."
+            }
+          ],
+          "optionAnalysis": [
+            {
+              "optionKey": "ㄱ",
+              "verdict": "O",
+              "reasoning": "B는 진로를 탐색한 적도(위기 없음) 정한 것도(전념 없음) 없으므로 정체감 혼미이다. 아버지가 장래에 관심도 탐색도 없던 혼미 시기는 고등학생 때로 청소년기이므로 ‘직업 선택과 준비’가 발달 과업이다."
+            },
+            {
+              "optionKey": "ㄴ",
+              "verdict": "O",
+              "reasoning": "아버지는 퇴사 후 1년 동안 여러 일을 알아보며 고민(위기)한 끝에 배달 일을 택해 전념하고 있으므로 이때 정체감 성취에 이르렀다. 49세에서 4년째를 거슬러 올라가면 45세 무렵부터이므로 중년기이고 ‘경제적 생활 수준 확립과 유지’가 발달 과업이다."
+            },
+            {
+              "optionKey": "ㄷ",
+              "verdict": "O",
+              "reasoning": "캠프와 견학으로 탐색하고 있으나(위기 있음) 아직 진로를 정하지 못한(전념 없음) A가 정체감 유예이다. A는 17세로 청소년기이므로 ‘부모와 다른 성인들로부터 정서적 독립’이 발달 과업이다."
+            },
+            {
+              "optionKey": "ㄹ",
+              "verdict": "O",
+              "reasoning": "아버지는 49-4-1-25=19세 무렵 입사하여 25년 동안 근무하였으므로 B의 나이인 25세에는 입사 6년째였다. 삼촌이 정해 준 길을 탐색 없이(위기 없음) 믿고 따른(전념 있음) 상태이므로 정체감 유실이다."
+            }
+          ],
+          "solvingFlow": [
+            {
+              "step": 1,
+              "action": "위기·전념 기준으로 참가자 유형 판정: A 탐색 O·결정 X → 유예(17세), B 탐색 X·결정 X → 혼미(25세)"
+            },
+            {
+              "step": 2,
+              "action": "아버지 이력 나이 역산: 배달 일 시작 49-4=45세 무렵, 탐색 44세 무렵, 입사 44-25=19세 무렵"
+            },
+            {
+              "step": 3,
+              "action": "아버지의 시기별 유형: 고등학생 때 혼미 → 19~44세 무렵 유실 → 탐색 1년 유예 → 45세 무렵 이후 성취"
+            },
+            {
+              "step": 4,
+              "action": "각 시기를 해비거스트 단계에 대응해 과업 대조: 아버지 혼미기 청소년기, 성취기 중년기, A 청소년기, 아버지 25세는 유실 → ㄱ~ㄹ 모두 옳음"
+            }
+          ],
+          "takeaway": "진로를 정하지 않은 상태라도 탐색(위기)이 있으면 유예, 없으면 혼미이고, 한 일에 전념하더라도 탐색 없이 타인의 결정을 따랐다면 성취가 아니라 유실이다."
+        }
+      },
+      "fingerprint": "edddab43",
+      "generation": {
+        "engine": "exam-skill-engine-v5",
+        "specId": "gen_9b99aae5",
+        "profileVersion": "exam-style-profile-v2"
+      }
+    },
+    {
+      "orderIndex": 2,
+      "subject": "success",
+      "unitNumber": 2,
+      "unitTitle": "생애 발달과 직업적 성공",
+      "targetConcept": "마샤의 자아 정체감 유형",
+      "itemType": "ai_generative_statement",
+      "difficulty": "HIGH",
+      "points": 3,
+      "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+      "questionStem": "다음은 ○○ 기업 인사 담당자와 현장 실습생인 학생 A의 대화이다. 이에 대한 분석으로 가장 적절한 것은? (단, 발달 과업은 해비거스트 이론에 근거한다.)",
+      "stimulusData": {
+        "blocks": [
+          {
+            "type": "figure",
+            "figure_id": "F1"
+          },
+          {
+            "type": "dialogue",
+            "lines": [
+              {
+                "speaker": "인사 담당자",
+                "text": "실습 마지막 날이네요. 넉 달 전 회계 자격증 두 개를 내밀며 부모님 권유로 택한 회계 일만 하겠다던 모습이 떠올라요. 저는 스물여섯 살이 될 때까지 진로에 관심이 없어 고민도 미루기만 했어요."
+              },
+              {
+                "speaker": "학생 A",
+                "text": "열다섯 살에 회계과에 들어온 뒤로 다른 길은 생각해 본 적이 없었어요. 그런데 실습 중 인사·총무 일도 맡고 선배들께 여러 직무를 여쭈면서 처음 고민이 생겼어요. 그때는 무엇을 할지 정하지 못한 채 고민만 깊어졌어요."
+              },
+              {
+                "speaker": "인사 담당자",
+                "text": "그 무렵 제가 신입 사원들의 고충을 차분히 들어 주는 모습이 인상 깊다고 말했지요. 저는 스물여섯 살에 부모님이 권하신 이 회사에 그대로 들어와 지금까지 일하고 있어요."
+              },
+              {
+                "speaker": "학생 A",
+                "text": "그 말씀을 듣기 전에는 제게 그런 면이 있는 줄 몰랐어요. 그 뒤 여러 직무를 견주어 인사 직무로 진로를 정하였고, 지난주 부모님께도 말씀드렸어요. 지금은 노무 관련 자격증을 준비해요."
+              }
+            ]
+          }
+        ],
+        "figures": {
+          "F1": {
+            "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0ODAgMjI0IiBmb250LWZhbWlseT0iJiMzOTtOb3RvIFNhbnMgS1ImIzM5OywmIzM5O0FwcGxlIFNEIEdvdGhpYyBOZW8mIzM5OywmIzM5O01hbGd1biBHb3RoaWMmIzM5OywmIzM5O05hbnVtR290aGljJiMzOTssc2Fucy1zZXJpZiI+PGRlZnM+PGNsaXBQYXRoIGlkPSJGMS0xNzE2MjMtY2xpcCI+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjQ4MCIgaGVpZ2h0PSIyMjQiLz48L2NsaXBQYXRoPjwvZGVmcz48ZyBjbGlwLXBhdGg9InVybCgjRjEtMTcxNjIzLWNsaXApIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNDAgOCkiPjxwYXRoIGQ9Ik0tMzIgNjRDLTM2IDEwMCAtMzggMTIwIC0yNiAxMzBMMjYgMTMwQzM4IDEyMCAzNiAxMDAgMzIgNjRaIiBmaWxsPSIjM2EzYTNhIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHJlY3QgeD0iLTkuNSIgeT0iOTYiIHdpZHRoPSIxOSIgaGVpZ2h0PSIyNiIgZmlsbD0iI2ZiZmJmYiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIvPjxwYXRoIGQ9Ik0tMTMgMTEzQy0yOCAxMTYgLTQ5IDExOCAtNTQgMTQwQy01NyAxNzAgLTU3IDE5NCAtNTUgMjM0TDQyIDIzNEM0MCAxOTQgMzkgMTcwIDM4IDE0MEM0OSAxMTggMjggMTE2IDEzIDExM1oiIGZpbGw9IiNmZmZmZmYiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNLTEzIDExM0wtMiAxMzBMLTE1IDEyNkwtMTcgMTE1WiIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0xMyAxMTNMMiAxMzBMMTUgMTI2TDE3IDExNVoiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNLTMuNSAxMjJMMy41IDEyMkw1LjUgMTY1TDAgMTczTC01LjUgMTY1WiIgZmlsbD0iIzRhNGE0YSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuMyIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxsaW5lIHgxPSIwIiB5MT0iMTczIiB4Mj0iMCIgeTI9IjIyOCIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuMyIvPjxwYXRoIGQ9Ik0tMTUgMTE2TC05IDE3MU0xNSAxMTZMOSAxNzEiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzU1NSIgc3Ryb2tlLXdpZHRoPSIxLjYiLz48cmVjdCB4PSItMTIiIHk9IjE2OSIgd2lkdGg9IjI0IiBoZWlnaHQ9IjMwIiByeD0iMiIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuMyIvPjxyZWN0IHg9Ii03IiB5PSIxNzQiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxMSIgZmlsbD0iI2JkYmRiZCIvPjxlbGxpcHNlIGN4PSIwIiBjeT0iNzAiIHJ4PSIyOCIgcnk9IjM0IiBmaWxsPSIjZmJmYmZiIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43Ii8+PHBhdGggZD0iTS0yNyA2OEMtMzYgNjUgLTM2IDgyIC0yNyA4MCIgZmlsbD0iI2ZiZmJmYiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIvPjxlbGxpcHNlIGN4PSItNCIgY3k9IjcyIiByeD0iMi4zIiByeT0iMi45IiBmaWxsPSIjMjYyNjI2Ii8+PGVsbGlwc2UgY3g9IjEzIiBjeT0iNzIiIHJ4PSIyLjMiIHJ5PSIyLjkiIGZpbGw9IiMyNjI2MjYiLz48cGF0aCBkPSJNLTkgNjRRLTQgNjEgMSA2My41IiBmaWxsPSJub25lIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS44IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cGF0aCBkPSJNOCA2My41UTEzIDYxIDE4IDY0IiBmaWxsPSJub25lIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS44IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cGF0aCBkPSJNMTUuMiA2OS42bDIuNiAtMS42IiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS4yIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cGF0aCBkPSJNNiA3N1E5LjUgODQgNSA4NSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTS0yIDkxUTQuNSA5Ni41IDExIDkxIiBmaWxsPSJub25lIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cGF0aCBkPSJNLTMyIDg4Qy0zNiA1MiAtMjYgMzAgMiAzMEMyNiAzMCAzNiA1MiAzMiA4OEwyNiA4NkMyOCA2OCAyNiA1OCAyMCA1NEMxMCA2MCAtNiA1NiAtMTIgNDhDLTE2IDU2IC0yNCA2MiAtMjYgODZaIiBmaWxsPSIjM2EzYTNhIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTS0zNCAxNThDLTM2IDE4MCAtMzYgMjA0IC0zNSAyMzQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik00MiAxMzRMNTIgMTg0TDcxIDE2NiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjIyLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik00MiAxMzRMNTIgMTg0TDcxIDE2NiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjE5IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNNjUgMTcyQzYzIDE2MyA3MCAxNTcgNzkgMTU3Qzg1IDE1NyA4NiAxNjEgODIgMTYyTDc2IDE2M0M4MSAxNjYgODAgMTcyIDczIDE3NFoiIGZpbGw9IiNmYmZiZmIiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L2c+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzQwIDgpIHNjYWxlKC0xIDEpIj48cGF0aCBkPSJNLTMyIDcwQy0zNiAxMDYgLTM4IDEyNiAtMjYgMTM2TDI2IDEzNkMzOCAxMjYgMzYgMTA2IDMyIDcwWiIgZmlsbD0iIzJmMmYyZiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxyZWN0IHg9Ii05LjUiIHk9IjEwMiIgd2lkdGg9IjE5IiBoZWlnaHQ9IjI2IiBmaWxsPSIjZmJmYmZiIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43Ii8+PHBhdGggZD0iTS0xMyAxMTlDLTI4IDEyMiAtNDUgMTI0IC01MCAxNDZDLTUzIDE3NiAtNTMgMTk0IC01MSAyMzRMMzggMjM0QzM2IDE5NCAzNSAxNzYgMzQgMTQ2QzQ1IDEyNCAyOCAxMjIgMTMgMTE5WiIgZmlsbD0iIzZmNmY2ZiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0tMTYgMTE4TDAgMTY1TDE2IDExOFoiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNLTEzIDExOUwtMiAxMzZMLTE1IDEzMkwtMTcgMTIxWiIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0xMyAxMTlMMiAxMzZMMTUgMTMyTDE3IDEyMVoiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNLTExIDEzN0wwIDE0M0wxMSAxMzdMOSAxNTFMMCAxNDZMLTkgMTUxWiIgZmlsbD0iIzNhM2EzYSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuMiIvPjxwYXRoIGQ9Ik0tMTUgMTE5TC0yIDE2OUwtMTIgMTYxTC0yNCAxMzdMLTIwIDEyNVoiIGZpbGw9IiM1ZDVkNWQiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNMTUgMTE5TDIgMTY5TDEyIDE2MUwyNCAxMzdMMjAgMTI1WiIgZmlsbD0iIzVkNWQ1ZCIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxsaW5lIHgxPSIwIiB5MT0iMTY5IiB4Mj0iMCIgeTI9IjIyOCIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuMyIvPjxyZWN0IHg9Ii0yOS4xNCIgeT0iMTY1IiB3aWR0aD0iMTgiIGhlaWdodD0iNiIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEiLz48ZWxsaXBzZSBjeD0iMCIgY3k9Ijc2IiByeD0iMjgiIHJ5PSIzNCIgZmlsbD0iI2ZiZmJmYiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIvPjxwYXRoIGQ9Ik0tMjcgNzRDLTM2IDcxIC0zNiA4OCAtMjcgODYiIGZpbGw9IiNmYmZiZmIiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciLz48ZWxsaXBzZSBjeD0iLTQiIGN5PSI3OCIgcng9IjIuMyIgcnk9IjIuOSIgZmlsbD0iIzI2MjYyNiIvPjxlbGxpcHNlIGN4PSIxMyIgY3k9Ijc4IiByeD0iMi4zIiByeT0iMi45IiBmaWxsPSIjMjYyNjI2Ii8+PHBhdGggZD0iTS05IDcwUS00IDY3IDEgNjkuNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTggNjkuNVExMyA2NyAxOCA3MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTE1LjIgNzUuNmwyLjYgLTEuNiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTYgODNROS41IDkwIDUgOTEiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik0tMiA5N1E0LjUgMTAyLjUgMTEgOTciIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik0tMjYgNThDLTQ0IDY0IC00NiA5NCAtMzYgMTEwQy0zMiA5NCAtMzIgNzYgLTI0IDY4WiIgZmlsbD0iIzJmMmYyZiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0tMzIgOTRDLTM2IDU4IC0yNiAzNiAyIDM2QzI2IDM2IDM2IDU4IDMyIDk0TDI2IDkyQzI4IDc0IDI2IDY0IDIwIDYwQzEwIDY2IC02IDYyIC0xMiA1NEMtMTYgNjIgLTI0IDY4IC0yNiA5MloiIGZpbGw9IiMyZjJmMmYiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNLTMwIDE2NEMtMzIgMTg2IC0zMiAyMDQgLTMxIDIzNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTM4IDE0MEw0OCAxOTBMNjcgMTcyIiBmaWxsPSJub25lIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMjIuNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTM4IDE0MEw0OCAxOTBMNjcgMTcyIiBmaWxsPSJub25lIiBzdHJva2U9IiM2ZjZmNmYiIHN0cm9rZS13aWR0aD0iMTkiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik02MSAxNzhDNTkgMTY5IDY2IDE2MyA3NSAxNjNDODEgMTYzIDgyIDE2NyA3OCAxNjhMNzIgMTY5Qzc3IDE3MiA3NiAxNzggNjkgMTgwWiIgZmlsbD0iI2ZiZmJmYiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvZz48L2c+PC9zdmc+",
+            "alt": "장식용. 인사 담당자(회사원)과 학생 A(학생)이 마주 보고 이야기하는 인물 그림. 대화 내용은 이어지는 대화 블록에 있음.",
+            "kind": "illustration",
+            "spec": {
+              "id": "F1",
+              "kind": "scene",
+              "layout": "pair",
+              "people": [
+                {
+                  "speaker": "인사 담당자",
+                  "role": "office",
+                  "gender": "female",
+                  "age": "adult"
+                },
+                {
+                  "speaker": "학생 A",
+                  "role": "student",
+                  "gender": "female",
+                  "age": "teen"
+                }
+              ]
+            }
+          }
+        },
+        "choice_table": null
+      },
+      "optionsList": [
+        "① A의 맹목 영역이 줄어든 시점에 A는 정체감 유예에 해당하였다.",
+        "② ‘부모와 다른 어른으로부터의 정서적 독립’이 과업인 시기에 인사 담당자는 정체감 유실이었다.",
+        "③ A의 숨겨진 영역이 줄어든 시점에 A는 정체감 혼미에 해당하였다.",
+        "④ A가 정체감 성취에 이른 뒤 A의 경청하는 면은 A의 맹목 영역에 속하였다.",
+        "⑤ 회사에 처음 들어올 때의 인사 담당자는 현재의 A와 같은 정체감 유형이었다."
+      ],
+      "comboBlock": null,
+      "correctAnswer": 1,
+      "explanation": {
+        "judgment": "[출제 의도] 사례 속 인물의 시점별 위기·전념 여부로 마샤의 자아 정체감 유형을 판별하고, 조하리의 창과 해비거스트의 청소년기 발달 과업을 결합하여 판정 시점을 특정할 수 있는가?\n[해설] 인사 담당자가 A의 경청하는 면을 말해 준 일은 A는 모르고 타인은 아는 정보를 알려 준 피드백이므로 A의 맹목 영역이 줄었다. 이 일은 A가 실습 중 여러 직무를 여쭈며 고민하였으나 무엇을 할지 정하지 못하던 무렵에 있었으므로, 그때 A는 위기 있음·전념 없음의 정체감 유예에 해당한다. 한편 실습 전 A는 위기 없이 부모님 권유로 택한 회계 일에 전념한 유실, 현재 A는 탐색 뒤 진로를 정한 성취이다. A가 스스로 뜻을 알려 숨겨진 영역을 줄인 때는 실습 첫날(유실)과 진로를 정한 뒤(성취)뿐이고, 피드백 뒤 경청하는 면은 공개 영역으로 옮겨 갔다. 인사 담당자는 부모와 다른 어른으로부터의 정서적 독립이 과업인 청소년기에 위기·전념이 모두 없는 혼미였고, 26세 입사 때는 위기 없이 부모님 권유를 따른 유실이다. 따라서 A의 맹목 영역이 줄어든 시점에 A가 정체감 유예였다는 분석이 가장 적절하다.\n[오답 피하기] 부모와 다른 어른으로부터의 정서적 독립은 해비거스트의 청소년기 과업이며, 인사 담당자는 그 시기에 진로에 관심이 없어 고민도 하지 않았으므로 유실이 아니라 혼미이다. 이 과업을 성년기로 보아 26세 입사 때의 유실을 끌어오면 틀린다. 숨겨진 영역은 자기 공개로 줄어들며, A가 자기 뜻을 알린 때는 실습 첫날(유실)과 진로를 정한 뒤(성취)이다. 실습 전 A를 탐색이 없다는 이유로 혼미로 보거나, 피드백을 받던 고민 시기와 혼동하면 틀린다. 경청하는 면은 피드백을 받기 전에는 맹목 영역이었으나, 피드백 뒤 A가 진로를 정하여 성취에 이르렀을 때는 이미 공개 영역이다. 영역이 시점에 따라 바뀐다는 점이나 피드백과 진로 결정의 선후를 놓치면 틀린다. 입사 때의 인사 담당자는 위기 없이 전념한 유실이고 현재의 A는 위기를 거쳐 전념한 성취이다. 전념 여부만 비교하거나 A가 인사 담당자의 말을 따랐다고 보면 틀린다.",
+        "conceptHighlightV2": {
+          "stimulusClues": [
+            {
+              "quote": "신입 사원들의 고충을 차분히 들어 주는 모습이 인상 깊다고",
+              "why": "타인이 알고 있던 A의 모습을 A에게 알려 준 피드백으로, A의 맹목 영역을 줄인다."
+            },
+            {
+              "quote": "그 말씀을 듣기 전에는 제게 그런 면이 있는 줄 몰랐어요.",
+              "why": "A 자신은 몰랐다는 단서로, 인사 담당자는 알았다는 단서와 결합하여 맹목 영역임을 확정한다."
+            },
+            {
+              "quote": "그때는 무엇을 할지 정하지 못한 채 고민만 깊어졌어요.",
+              "why": "여러 직무를 탐색하는 위기는 있으나 전념은 없는 상태로, 피드백 무렵의 A가 정체감 유예임을 보여 준다."
+            },
+            {
+              "quote": "진로에 관심이 없어 고민도 미루기만 했어요",
+              "why": "인사 담당자가 정서적 독립이 과업인 청소년기 전체에 걸쳐 위기·전념이 모두 없는 정체감 혼미였음을 보여 준다."
+            }
+          ],
+          "optionAnalysis": [
+            {
+              "optionNum": 1,
+              "verdict": "O",
+              "reasoning": "A의 경청하는 면은 인사 담당자는 알고 A는 몰랐던 맹목 영역이며, 이를 전해 들은 것은 A가 여러 직무를 탐색하면서도 진로를 정하지 못하던 때이므로 위기 있음·전념 없음의 정체감 유예에 해당한다."
+            },
+            {
+              "optionNum": 2,
+              "verdict": "X",
+              "reasoning": "해비거스트 이론에서 부모와 다른 어른으로부터의 정서적 독립은 청소년기(12~20세)의 과업이다. 인사 담당자는 26세가 될 때까지 진로에 관심이 없어 고민도 미루었으므로 그 시기에는 위기·전념이 모두 없는 정체감 혼미에 해당한다."
+            },
+            {
+              "optionNum": 3,
+              "verdict": "X",
+              "reasoning": "숨겨진 영역은 A가 스스로 알리는 자기 공개로 줄어든다. A가 자기 뜻을 알린 때는 회계 일만 하겠다고 밝힌 실습 첫날(위기 없음·전념 있음의 유실)과 진로를 정한 뒤 부모님께 말씀드린 때(성취)이므로 어느 시점도 혼미가 아니다."
+            },
+            {
+              "optionNum": 4,
+              "verdict": "X",
+              "reasoning": "A는 인사 담당자의 피드백으로 경청하는 면을 알게 된 뒤에 직무를 견주어 진로를 정하였다. 따라서 정체감 성취에 이른 뒤 그 면은 자신과 타인이 모두 아는 공개 영역에 속한다."
+            },
+            {
+              "optionNum": 5,
+              "verdict": "X",
+              "reasoning": "입사 때의 인사 담당자는 탐색 없이 부모님이 권한 회사에 들어와 전념한 정체감 유실이고, 현재의 A는 여러 직무를 탐색한 뒤 진로를 정한 정체감 성취이므로 두 사람의 유형은 다르다."
+            }
+          ],
+          "solvingFlow": [
+            {
+              "step": 1,
+              "action": "인사 담당자의 말과 A의 반응을 결합하여 경청하는 면이 피드백 전에는 맹목 영역, 피드백 뒤에는 공개 영역임을 확인한다."
+            },
+            {
+              "step": 2,
+              "action": "피드백 시점(실습 중 고민하며 정하지 못하던 무렵)은 위기 있음·전념 없음 → 정체감 유예로 판정한다."
+            },
+            {
+              "step": 3,
+              "action": "A의 실습 전(위기 없음·전념 있음 → 유실)과 진로를 정한 뒤(위기 있음·전념 있음 → 성취)를 판정하고, A가 스스로 뜻을 알린 시점이 이 두 시기임을 확인한다."
+            },
+            {
+              "step": 4,
+              "action": "정서적 독립이 해비거스트의 청소년기 과업임을 이용해 인사 담당자의 청소년기(혼미)와 26세 입사 때(유실)를 구분한다."
+            },
+            {
+              "step": 5,
+              "action": "각 분석을 판정 결과와 대조하여 맹목 영역이 줄어든 시점의 A를 유예로 본 분석을 고른다."
+            }
+          ],
+          "takeaway": "마샤 유형과 조하리의 창 영역은 모두 시점마다 따로 판정해야 하며, 피드백(맹목 영역 축소)과 자기 공개(숨겨진 영역 축소)가 일어난 시점을 구분하는 것이 핵심이다."
+        }
+      },
+      "fingerprint": "c13ba7fe",
+      "generation": {
+        "engine": "exam-skill-engine-v5",
+        "specId": "gen_6c40198d",
+        "profileVersion": "exam-style-profile-v2"
+      }
+    },
+    {
+      "orderIndex": 3,
+      "subject": "success",
+      "unitNumber": 3,
+      "unitTitle": "생애 발달과 직업적 성공 (2) — 직업적 성공과 개인 특성",
+      "targetConcept": "장인 정신과 소명 의식",
+      "itemType": "ai_generative_truth_combination",
+      "difficulty": "HIGH",
+      "points": 3,
+      "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+      "questionStem": "다음은 ○○공단 신규 채용에 지원한 A 씨의 전형 단계별 기록이다. 이에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "stimulusData": {
+        "blocks": [
+          {
+            "type": "table",
+            "title": "○○공단 경력직 신규 채용 전형 기록(지원자 A 씨)",
+            "headers": [
+              [
+                "전형 단계",
+                "기록 내용"
+              ]
+            ],
+            "rows": [
+              [
+                "(가) 서류 전형",
+                "자기소개서에 부모님의 두부 가게를 25년 동안 운영하였다고 적었다. 콩값이 두 배로 오른 해에도 지역산 콩과 천연 간수만 썼다고 밝혔다. 지원 동기에는 어릴 때부터 콩 고르는 일이 늘 즐거웠다고 썼다."
+              ],
+              [
+                "(나) 1차 면접",
+                "그동안 누구에게도 말하지 않았던 장부 관리의 어려움을 처음 털어놓았다. 면접관이 ‘원칙 고집 사장님’이라는 별명을 전하자, 이미 아는 별명이라고 답하였다. 답변 중 탁자를 두드리는 버릇이 보였으나 면접관은 알리지 않았다."
+              ],
+              [
+                "(다) 2차 면접",
+                "면접관이 그 버릇을 알려 주자 처음 듣는다며 놀라워하였다. “이 일을 타고난 운명이라 여긴 적은 없습니다. 제 이름을 건 두부라 손님이 몰라도 공정 하나 줄이지 않았을 뿐입니다.” 직원 교육에서 불량 콩을 가장 빨리 가려내는 시범을 보였다고 하였다."
+              ]
+            ],
+            "caption": null
+          }
+        ],
+        "figures": {},
+        "choice_table": null
+      },
+      "optionsList": [
+        "① ㄱ, ㄷ",
+        "② ㄱ, ㄹ",
+        "③ ㄷ, ㄹ",
+        "④ ㄱ, ㄷ, ㄹ",
+        "⑤ ㄱ, ㄴ, ㄷ, ㄹ"
+      ],
+      "comboBlock": {
+        "title": "<보기>",
+        "items": [
+          {
+            "key": "ㄱ",
+            "text": "(가)에서 원칙을 지킨 근거는 (다)로 볼 때 소명 의식이 아닌 장인 정신에 해당한다."
+          },
+          {
+            "key": "ㄴ",
+            "text": "(가)의 지원 동기와 (다)의 직원 교육 기록은 모두 A 씨의 적성을 보여 준다."
+          },
+          {
+            "key": "ㄷ",
+            "text": "(가) 시점 A 씨의 숨겨진 창에 있던 내용 하나는 (나) 이후 열린 창에 속한다."
+          },
+          {
+            "key": "ㄹ",
+            "text": "면접관이 A 씨에게 전한 말 중 보이지 않는 창을 줄인 것은 (다)에서 전한 말뿐이다."
+          }
+        ]
+      },
+      "correctAnswer": 4,
+      "explanation": {
+        "judgment": "[출제 의도] 전형 시점별 기록을 추적하여 장인 정신과 소명 의식, 흥미와 적성을 구별하고 조하리의 창 영역의 변화를 판단할 수 있는가?\n[해설] ㄱ. (가)에서 콩값이 두 배로 올라도 원재료 원칙을 지켰고, (다)에서 이 일을 타고난 운명이라 여긴 적은 없으며 이름을 건 두부라 공정을 줄이지 않았다고 하였으므로 근거는 소명 의식이 아닌 장인 정신이다. 옳다. ㄴ. (다)의 불량 콩을 가장 빨리 가려내는 능력은 적성이지만, (가)의 콩 고르는 일이 즐거웠다는 지원 동기는 흥미이므로 옳지 않다. ㄷ. (나)에서 그동안 누구에게도 말하지 않았던 장부 관리의 어려움을 털어놓았으므로 이 내용은 (가) 시점에 숨겨진 창에 있었고 (나) 이후 열린 창에 속한다. 옳다. ㄹ. (나)에서 전한 별명은 A 씨가 이미 알던 내용이라 영역 변화가 없고, 버릇은 (나)에서 알리지 않았다가 (다)에서 알려 주어 그때 보이지 않는 창이 줄었다. 옳다. 따라서 적절한 것은 ㄱ, ㄷ, ㄹ이다.\n[오답 피하기] ㄴ: (다)의 직원 교육 기록은 적성이지만 (가)의 지원 동기는 콩 고르는 일을 즐거워한 흥미이다. 흥미에 적성을 붙여 ‘모두 적성’이라 한 진술이므로 옳지 않다.",
+        "conceptHighlightV2": {
+          "stimulusClues": [
+            {
+              "quote": "콩값이 두 배로 오른 해에도 지역산 콩과 천연 간수만 썼다",
+              "why": "원가 부담 속에서도 원재료 원칙을 타협하지 않은 행동으로, (다)의 동기와 결합해 장인 정신으로 판단한다."
+            },
+            {
+              "quote": "이 일을 타고난 운명이라 여긴 적은 없습니다",
+              "why": "일을 하늘이 내려 준 것으로 여기는 소명 의식이 근거가 아님을 보여 준다."
+            },
+            {
+              "quote": "그동안 누구에게도 말하지 않았던 장부 관리의 어려움",
+              "why": "(가) 시점에 A 씨만 알던 숨겨진 창의 내용이며 (나)에서 털어놓아 열린 창으로 옮겨 간다."
+            },
+            {
+              "quote": "면접관이 그 버릇을 알려 주자 처음 듣는다며 놀라워하였다",
+              "why": "(나)에서는 알리지 않았던 보이지 않는 창의 내용이 (다)의 말로 A 씨에게 알려진다."
+            }
+          ],
+          "optionAnalysis": [
+            {
+              "optionKey": "ㄱ",
+              "verdict": "O",
+              "reasoning": "(가)의 원가 부담 속 원재료 원칙 유지는 (다)에서 타고난 운명이라 여긴 적이 없고 이름을 건 두부에 대한 자부심과 책임감 때문이라고 밝혔으므로 소명 의식이 아니라 장인 정신에 해당한다."
+            },
+            {
+              "optionKey": "ㄴ",
+              "verdict": "X",
+              "reasoning": "(다)의 불량 콩을 가장 빨리 가려내는 능력은 적성이지만, (가)의 콩 고르는 일이 즐거웠다는 지원 동기는 좋아하고 관심을 갖는 흥미이므로 둘 다 적성이라 볼 수 없다."
+            },
+            {
+              "optionKey": "ㄷ",
+              "verdict": "O",
+              "reasoning": "(나)에서 그동안 누구에게도 말하지 않았던 장부 관리의 어려움을 털어놓았으므로 이 내용은 (가) 시점에 A 씨만 아는 숨겨진 창에 있었고, (나) 이후 A 씨와 면접관이 함께 아는 열린 창에 속한다."
+            },
+            {
+              "optionKey": "ㄹ",
+              "verdict": "O",
+              "reasoning": "(나)에서 전한 별명은 A 씨도 이미 알던 열린 창의 내용이고 버릇은 알리지 않았다. (다)에서 A 씨가 몰랐던 버릇을 알려 준 말만 보이지 않는 창을 줄인다."
+            }
+          ],
+          "solvingFlow": [
+            {
+              "step": 1,
+              "action": "(가)의 원칙 유지 행동과 (다)의 동기 발언을 묶어 소명 의식과 장인 정신 중 어느 쪽인지 판단한다"
+            },
+            {
+              "step": 2,
+              "action": "(가)의 지원 동기(즐거움)와 (다)의 직원 교육 기록(가려내는 능력)을 흥미와 적성으로 각각 분류한다"
+            },
+            {
+              "step": 3,
+              "action": "장부 관리의 어려움이 (가) 시점에 누가 알던 내용인지 (나) 기록으로 확인하고 (나) 이후 영역을 정한다"
+            },
+            {
+              "step": 4,
+              "action": "면접관이 (나)와 (다)에서 전한 말을 A 씨가 이미 알았는지 몰랐는지 확인하여 보이지 않는 창의 변화 시점을 정한다"
+            }
+          ],
+          "takeaway": "같은 사람의 기록이라도 시점마다 누가 아는지가 달라지므로, 조하리의 창은 시점별로 추적하고 이미 알던 내용을 전해 들은 것은 영역 변화가 아님에 주의한다."
+        }
+      },
+      "fingerprint": "0effb5fa",
+      "generation": {
+        "engine": "exam-skill-engine-v5",
+        "specId": "gen_dda442a8",
+        "profileVersion": "exam-style-profile-v2"
+      }
+    },
+    {
+      "orderIndex": 4,
+      "subject": "success",
+      "unitNumber": 4,
+      "unitTitle": "기업의 종류와 형태별 특징",
+      "targetConcept": "사회적 기업",
+      "itemType": "ai_generative_truth_combination",
+      "difficulty": "HIGH",
+      "points": 3,
+      "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+      "questionStem": "다음은 △△유한회사의 사원총회 회의록과 첨부 자료이다. 이에 대한 설명으로 적절한 것만을 <보기>에서 고른 것은? (단, 기업 규모는 자산 총액과 최근 3년 평균 매출액으로만 판단하며, 유예 기간은 고려하지 않는다.)",
+      "stimulusData": {
+        "blocks": [
+          {
+            "type": "text",
+            "text": "△△유한회사 제9차 사원총회 회의록\n■ 안건 1: 조직 변경 및 자금 조달\n• 총사원의 일치로 주식회사로의 조직 변경을 결의함(법원의 인가를 받는 것으로 가정함)\n• 변경 후 신주를 발행하여 600억 원을 전액 현금으로 납입받고, 배달 노동자 쉼터를 늘릴 계획임\n■ 안건 2: 고용노동부 장관의 인증 신청\n• 올해 배분 가능한 이윤은 36억 원으로 예상됨\n• 배당 총액은 지난해와 같게 하고, 나머지는 전액 배달 노동자의 산재 예방 교육과 복지에 쓰기로 함\n■ 안건 3: 협력 기관 선정\n• (가)에서 출자금 총액의 70%를 낸 조합원 18명이 공동 사업 협약을 먼저 제안함\n• (나)의 출자자인 (주)◇◇는 시가 발행 주식 전부를 보유한 회사로 확인됨"
+          },
+          {
+            "type": "text",
+            "text": "[첨부] 관련 기관 현황\n• △△유한회사: 플랫폼 배달 대행업, 상시 근로자 830명 중 고령자·장애인 배달 노동자 270명을 직접 고용함\n• △△유한회사 재무: 자산 총액 4,700억 원, 최근 3년 평균 매출액 380억 원이며 다른 기업 집단에 속하지 않음\n• △△유한회사 이윤: 지난해 배분 가능한 이윤 30억 원 중 12억 원을 사원에게 배당하고, 나머지는 전액 배달 노동자 안전 교육에 씀\n• (가): 배달 노동자 40명이 공동 출자하여 조합원의 이용과 편익을 위해 운영하며, 가입과 탈퇴가 자유로움\n• (나): 공공 배달 앱을 운영하는 기관으로, 시가 55%, (주)◇◇가 45%를 출자함"
+          }
+        ],
+        "figures": {},
+        "choice_table": null
+      },
+      "optionsList": [
+        "① ㄱ",
+        "② ㄹ",
+        "③ ㄱ, ㄹ",
+        "④ ㄱ, ㄴ, ㄹ",
+        "⑤ ㄱ, ㄷ, ㄹ"
+      ],
+      "comboBlock": {
+        "title": "<보기>",
+        "items": [
+          {
+            "key": "ㄱ",
+            "text": "신주 대금이 모두 납입된 직후 △△ 회사는 규모에 따른 분류에서 중견기업에 해당한다."
+          },
+          {
+            "key": "ㄴ",
+            "text": "(나)는 출자 형태에 따른 분류에서 공사 합동 기업에 해당한다."
+          },
+          {
+            "key": "ㄷ",
+            "text": "조합원 전원이 참석한 (가)의 총회에서 출자금이 많은 18명만 찬성해도 찬성이 과반이 된다."
+          },
+          {
+            "key": "ㄹ",
+            "text": "지난해 실적으로는 △△ 회사가 인증의 이윤 사용 요건에 미달하나, 안건 2대로라면 이 요건을 충족한다."
+          }
+        ]
+      },
+      "correctAnswer": 3,
+      "explanation": {
+        "judgment": "[출제 의도] 회의록과 첨부 자료의 단서를 결합하여 사회적 기업의 이윤 사용 요건, 규모에 따른 기업 분류, 협동조합의 의결 방식, 출자 형태에 따른 기업 분류를 적용할 수 있는가?\n[해설] ㄱ. 신주 납입 직후 자산 총액은 4,700억 원+600억 원=5,300억 원이다. 평균 매출액 380억 원은 매출액 기준 이하이지만 자산 총액이 5,000억 원 이상이므로 중소기업에서 벗어나고, 5조 원 미만이며 기업 집단에 속하지 않으므로 중견기업에 해당한다(참). ㄴ. (나)에 출자한 (주)◇◇는 시가 주식 전부를 보유한 회사이므로 (나)는 시와 시 소유 회사만 출자한 공기업이며 공사 합동 기업이 아니다(거짓). ㄷ. (가)는 배달 노동자들이 공동 출자하여 조합원의 이용과 편익을 위해 운영하고 가입·탈퇴가 자유로운 협동조합으로 1인 1표이다. 40명 중 18명은 45%이므로 과반이 아니다(거짓). ㄹ. 취약 계층 배달 노동자를 직접 고용하고 고용노동부 장관 인증을 신청하므로 사회적 기업 인증 요건인 ‘배분 가능한 이윤의 2/3 이상 사회적 목적 사용’을 적용한다. 지난해는 18억 원/30억 원=60%로 미달, 올해는 배당 총액 12억 원을 빼면 24억 원/36억 원=2/3이므로 충족한다(참). 따라서 옳은 것은 ㄱ, ㄹ이다.\n[오답 피하기] ㄴ: (주)◇◇를 민간 기업으로 보면 공사 합동 기업으로 오판하게 된다. (주)◇◇는 시가 주식 전부를 보유하므로 (나)의 출자는 모두 공적 자본이고, (나)는 공기업이다. ㄷ: 출자금 비율(70%)로 의결권을 세는 것은 주식회사(1주 1의결권)나 유한회사(출자 1좌 1의결권)의 방식이다. 협동조합은 1인 1표이므로 40명 중 18명의 찬성은 과반이 아니다.",
+        "conceptHighlightV2": {
+          "stimulusClues": [
+            {
+              "quote": "자산 총액 4,700억 원, 최근 3년 평균 매출액 380억 원",
+              "why": "신주 납입액과 더해 중소기업 자산 상한 5,000억 원과 비교해야 하는 규모 판단 자료이다."
+            },
+            {
+              "quote": "배당 총액은 지난해와 같게 하고",
+              "why": "지난해 배당 12억 원을 올해 이윤 36억 원에서 빼 사회적 목적 사용 비율 2/3를 계산하게 하는 단서이다."
+            },
+            {
+              "quote": "(주)◇◇는 시가 발행 주식 전부를 보유한 회사로 확인됨",
+              "why": "(나)의 출자자가 모두 공적 자본임을 알려 주어 공기업으로 판정하게 한다."
+            },
+            {
+              "quote": "가입과 탈퇴가 자유로움",
+              "why": "(가)가 1인 1표로 의결하는 협동조합임을 가리킨다."
+            }
+          ],
+          "optionAnalysis": [
+            {
+              "optionKey": "ㄱ",
+              "verdict": "O",
+              "reasoning": "자산 총액 4,700억 원에 신주 납입액 600억 원을 더하면 5,300억 원으로 중소기업의 자산 상한(5,000억 원 미만)을 넘는다. 평균 매출액이 380억 원으로 적어도 중소기업이 아니며, 5조 원 미만이고 기업 집단에 속하지 않으므로 중견기업이다."
+            },
+            {
+              "optionKey": "ㄴ",
+              "verdict": "X",
+              "reasoning": "(나)의 출자자는 시와 (주)◇◇인데, (주)◇◇는 시가 발행 주식 전부를 보유한 회사이므로 민간 자본이 없다. 공적 자본만으로 출자한 (나)는 공사 합동 기업이 아니라 공기업이다."
+            },
+            {
+              "optionKey": "ㄷ",
+              "verdict": "X",
+              "reasoning": "(가)는 공동 출자, 조합원의 이용과 편익, 자유로운 가입·탈퇴로 보아 협동조합이며 출자액과 관계없이 1인 1표이다. 40명 중 18명은 45%이므로 출자금 70%와 관계없이 과반이 되지 않는다."
+            },
+            {
+              "optionKey": "ㄹ",
+              "verdict": "O",
+              "reasoning": "고용노동부 장관 인증은 사회적 기업 인증으로, 배분 가능한 이윤의 2/3 이상을 사회적 목적에 써야 한다. 지난해는 18억 원/30억 원=60%로 미달이고, 올해는 (36억 원-12억 원)/36억 원=2/3로 요건을 충족한다."
+            }
+          ],
+          "solvingFlow": [
+            {
+              "step": 1,
+              "action": "첨부의 자산 총액 4,700억 원에 안건 1의 신주 납입액 600억 원을 더해 5,300억 원 → 5,000억 원 이상·5조 원 미만이므로 중견기업"
+            },
+            {
+              "step": 2,
+              "action": "고용노동부 장관 인증과 취약 계층 고용으로 사회적 기업 인증임을 파악 → 이윤 2/3 이상 기준으로 지난해 18÷30=60%(미달), 올해 24÷36=2/3(충족) 계산"
+            },
+            {
+              "step": 3,
+              "action": "(가)의 공동 출자·조합원 편익·가입 탈퇴 자유로 협동조합 판별 → 1인 1표이므로 40명 중 18명은 과반 아님"
+            },
+            {
+              "step": 4,
+              "action": "(나)의 출자자 (주)◇◇가 시 소유임을 안건 3에서 확인 → 공적 자본만 출자한 공기업"
+            }
+          ],
+          "takeaway": "사회적 기업의 이윤 기준은 2/3 이상(노무비 50%와 혼동 금지)이고, 중소기업은 매출액이 작아도 자산 총액이 5,000억 원 이상이면 벗어나며, 협동조합은 출자액과 관계없이 1인 1표이다."
+        }
+      },
+      "fingerprint": "cb2e322a",
+      "generation": {
+        "engine": "exam-skill-engine-v5",
+        "specId": "gen_262ed5e7",
+        "profileVersion": "exam-style-profile-v2"
+      }
+    },
+    {
+      "orderIndex": 5,
+      "subject": "success",
+      "unitNumber": 4,
+      "unitTitle": "기업의 종류와 형태별 특징",
+      "targetConcept": "주식회사",
+      "itemType": "ai_generative_statement",
+      "difficulty": "HIGH",
+      "points": 3,
+      "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+      "questionStem": "다음은 ○○기업에서 현장 실습 중인 A와 B에 관한 기록과 사내 퀴즈 자료이다. 이에 대한 분석으로 가장 적절한 것은?",
+      "stimulusData": {
+        "blocks": [
+          {
+            "type": "text",
+            "text": "현장 실습생 A와 B는 ○○기업에서 실습 중이다. ○○기업은 2018년 출자액 한도로만 책임지는 사원 5명이 세웠고, 그중 갑은 8좌, 을은 4좌를 출자하였다. 정관에 의결권 규정은 따로 없었고, 사원 총회에서 선임한 이사가 회사를 대표하였다. 2025년에는 법원의 인가를 받아 회사 형태를 바꾸고, 주식을 새로 발행하여 1,200억 원을 조달하였다. 자산 총액은 변경 전 3,900억 원에서 조달액만큼만 늘었다."
+          },
+          {
+            "type": "text",
+            "text": "■ 참고: ○○기업은 기업 집단에 속하지 않고 상시 근로자는 280명임. 협력사 △△사의 사원은 연대 무한 책임 사원 2명, 유한 책임 사원 3명임\n■ 퀴즈(기본 점수 100점, 맞히면 배점만큼 가산, 틀리면 10점 감점)\n• 문항 1(20점): 설립 당시 갑의 의결권 수는 을의 2배였다.\n• 문항 2(30점): 현재 ○○기업은 중견기업에 해당한다.\n• 문항 3(50점): 정관에 다른 규정이 없으면 △△사에서 업무 집행 권리가 있는 사원은 3명이다.\n■ 응답: A는 모든 문항에 ○로, B는 모든 문항에 ×로 답함"
+          }
+        ],
+        "figures": {},
+        "choice_table": null
+      },
+      "optionsList": [
+        "① A와 B 중 문항 1을 맞힌 사람은 문항 3도 맞혔다.",
+        "② A의 최종 점수는 B의 최종 점수보다 10점 높다.",
+        "③ B가 틀린 문항 중 배점이 가장 높은 문항에서 다룬 회사 형태에는 이사회가 없다.",
+        "④ A가 맞힌 문항에서 다룬 회사 형태는 모두 주식을 발행하여 자본을 조달할 수 있다.",
+        "⑤ 노무를 출자할 수 있는 사원은 △△사가 설립 당시 ○○기업보다 3명 많다."
+      ],
+      "comboBlock": null,
+      "correctAnswer": 2,
+      "explanation": {
+        "judgment": "[출제 의도] 사원 구성·의결 방식·자금 조달 방식으로 회사 형태를 특정하고 자산 총액으로 기업 규모를 분류하여 퀴즈 정답과 점수를 판단할 수 있는가?\n[해설] 설립 당시 ○○기업은 사원 전원이 유한 책임을 지고 사원 총회에서 선임한 이사가 대표하므로 유한회사이며, 정관에 별도 규정이 없으면 출자 1좌마다 1의결권이므로 8좌인 갑의 의결권은 4좌인 을의 2배이다(문항 1 정답 ○). 법원의 인가를 거쳐 형태를 바꾼 뒤 주식을 발행하였으므로 현재는 주식회사이고, 자산 총액은 3,900억 원+1,200억 원=5,100억 원으로 중소기업의 자산 상한 5,000억 원을 넘고 기업 집단에 속하지 않으므로 중견기업이다(문항 2 정답 ○). △△사는 무한 책임 사원과 유한 책임 사원으로 구성된 합자회사로, 업무 집행 권리가 있는 사원은 무한 책임 사원 2명뿐이다(문항 3 정답 ×). 따라서 모두 ○로 답한 A는 100+20+30-10=140점, 모두 ×로 답한 B는 100-10-10+50=130점이므로 A가 B보다 10점 높다.\n[오답 피하기] 문항 1을 맞힌 사람은 A인데, A는 정답이 ×인 문항 3에 ○로 답해 틀렸다. 유한회사를 1인 1의결권으로 보거나 유한 책임 사원도 업무를 집행한다고 보면 판정이 뒤집힌다. B가 틀린 문항은 문항 1·2이고 배점이 높은 문항 2는 주식회사를 다루므로 이사회가 있다. 자산 증가분을 빠뜨려 중소기업으로 보면 문항 1의 유한회사를 고르게 된다. A가 맞힌 문항 1·2는 유한회사와 주식회사를 다루며, 유한회사는 주식을 발행하여 자본을 조달할 수 없다. 노무 출자는 무한 책임 사원만 할 수 있으므로 △△사는 2명, 설립 당시 ○○기업은 0명이어서 차이는 2명이다. 3명은 유한 책임 사원 수를 센 값이다.",
+        "conceptHighlightV2": {
+          "stimulusClues": [
+            {
+              "quote": "사원 총회에서 선임한 이사가 회사를 대표하였다",
+              "why": "유한 책임 사원만으로 구성되고 사원 총회·이사를 두므로 유한회사이며, 출자 1좌마다 1의결권을 가진다."
+            },
+            {
+              "quote": "주식을 새로 발행하여 1,200억 원을 조달하였다",
+              "why": "주식을 발행해 자본을 조달하므로 변경 후는 주식회사이고, 조달액만큼 자산 총액이 늘어난다."
+            },
+            {
+              "quote": "○○기업은 기업 집단에 속하지 않고",
+              "why": "자산 총액 5,100억 원으로 중소기업 범위를 넘고 기업 집단에 속하지 않으므로 중견기업이다."
+            },
+            {
+              "quote": "연대 무한 책임 사원 2명, 유한 책임 사원 3명",
+              "why": "무한·유한 책임 사원이 함께 있는 합자회사로, 업무 집행과 노무 출자는 무한 책임 사원만 할 수 있다."
+            }
+          ],
+          "optionAnalysis": [
+            {
+              "optionNum": 1,
+              "verdict": "X",
+              "reasoning": "유한회사는 출자 1좌마다 1의결권이므로 문항 1의 정답은 ○이고 이를 맞힌 사람은 A이다. 합자회사의 유한 책임 사원은 업무를 집행하지 못해 문항 3의 정답은 ×이므로 ○로 답한 A는 문항 3을 틀렸다."
+            },
+            {
+              "optionNum": 2,
+              "verdict": "O",
+              "reasoning": "설립 당시 ○○기업은 유한회사라 출자 1좌마다 1의결권이므로 문항 1은 ○, 현재 자산 총액 5,100억 원인 주식회사로 중견기업이므로 문항 2는 ○, 합자회사인 △△사는 무한 책임 사원 2명만 업무를 집행하므로 문항 3은 ×이다. A는 100+20+30-10=140점, B는 100-10-10+50=130점으로 A가 10점 높다."
+            },
+            {
+              "optionNum": 3,
+              "verdict": "X",
+              "reasoning": "B는 정답이 ○인 문항 1과 문항 2를 틀렸고, 그중 배점이 높은 문항 2는 현재의 주식회사를 다룬다. 주식회사는 이사회에서 선임한 대표이사가 업무를 집행하므로 이사회가 있다."
+            },
+            {
+              "optionNum": 4,
+              "verdict": "X",
+              "reasoning": "A가 맞힌 문항은 유한회사를 다룬 문항 1과 주식회사를 다룬 문항 2이다. 유한회사는 주식을 발행할 수 없으므로 두 회사 형태 모두 주식을 발행할 수 있는 것은 아니다."
+            },
+            {
+              "optionNum": 5,
+              "verdict": "X",
+              "reasoning": "합자회사인 △△사에서 노무를 출자할 수 있는 사원은 무한 책임 사원 2명뿐이고, 유한 책임 사원만으로 구성된 설립 당시 ○○기업에는 그런 사원이 없으므로 2명 많다."
+            }
+          ],
+          "solvingFlow": [
+            {
+              "step": 1,
+              "action": "사원 책임·사원 총회·이사 단서로 설립 당시를 유한회사로, 주식 발행 단서로 현재를 주식회사로, △△사를 합자회사로 특정한다."
+            },
+            {
+              "step": 2,
+              "action": "문항 1: 출자 1좌 1의결권 → 8 : 4 = 2배이므로 정답 ○"
+            },
+            {
+              "step": 3,
+              "action": "문항 2: 3,900억 + 1,200억 = 5,100억 원 ≥ 5,000억 원, 기업 집단 미소속 → 중견기업이므로 정답 ○(근로자 280명은 기준 아님)"
+            },
+            {
+              "step": 4,
+              "action": "문항 3: 업무 집행은 무한 책임 사원 2명만 → 정답 ×"
+            },
+            {
+              "step": 5,
+              "action": "점수: A = 100+20+30-10 = 140점, B = 100-10-10+50 = 130점 → 응답자·형태별 특징으로 나머지 선지를 판정한다."
+            }
+          ],
+          "takeaway": "유한회사는 출자 1좌 1의결권·이사회 없음·주식 발행 불가이고, 기업 규모는 근로자 수가 아니라 변동 후 자산 총액으로 5,000억 원 기준과 비교해야 한다."
+        }
+      },
+      "fingerprint": "c9392fcb",
+      "generation": {
+        "engine": "exam-skill-engine-v5",
+        "specId": "gen_f2b0e64f",
+        "profileVersion": "exam-style-profile-v2"
+      }
+    }
+  ],
+  "answerKey": [
+    {
+      "orderIndex": 1,
+      "correctAnswer": 5
+    },
+    {
+      "orderIndex": 2,
+      "correctAnswer": 1
+    },
+    {
+      "orderIndex": 3,
+      "correctAnswer": 4
+    },
+    {
+      "orderIndex": 4,
+      "correctAnswer": 3
+    },
+    {
+      "orderIndex": 5,
+      "correctAnswer": 2
+    }
+  ]
+}

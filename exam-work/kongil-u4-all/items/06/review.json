@@ -1,0 +1,9 @@
+{
+  "reasoning": "A 위성 신호+센서로 스스로 주행 -> 자율 주행. B 위치·체온을 무선망으로 서버에 실시간 전송 -> IoT. C 말로 질문하면 학습 자료로 문장 생성 -> (생성형) AI. D 육각형 판이 관 모양으로 말린 nm 소재 -> 탄소 나노 튜브. ㄱ 관 모양이므로 그래핀 아님(거짓). ㄴ AI(참). ㄷ IoT(참). ㄹ 나노 크기 소재 활용은 NT이지 BT 아님(거짓). 정답 ㄴ,ㄷ = ③. ㄴ·ㄷ 진술이 각 기술의 정의를 그대로 서술하고 있어 대조가 쉬움.",
+  "answerIndex": 3,
+  "ambiguity": "none",
+  "curriculumIssues": [],
+  "answerGivenAway": false,
+  "perceivedDifficulty": "easy",
+  "trivialStatements": []
+}

@@ -1,0 +1,27 @@
+=== Reference Integrity Audit ===
+Total: 935
+Parse OK: 930  FAIL: 5
+Has Answer: 930  No Answer: 0
+TPL OK: 930  TPL FAIL: 0
+Empty Stimulus: 0
+Dirty Stem: 286
+Unit Mismatch: 0
+
+Parse FAIL samples:
+  success:10:성직_10단원_문제.pdf:10
+  success:19:성직_19단원_문제.pdf:9
+  success:18:성직_18단원_문제.pdf:9
+  success:19:성직_19단원_문제.pdf:10
+  success:15:성직_15단원_문제.pdf:2
+
+Dirty Stem samples:
+  kongil:9:kongil_2022_9월_모의평가_03 직탐(공업 일반)_문제.pdf:14
+  kongil:7:kongil_2022_9월_모의평가_03 직탐(공업 일반)_문제.pdf:16
+  kongil:18:kongil_2022_9월_모의평가_03 직탐(공업 일반)_문제.pdf:17
+  kongil:7:kongil_2022_수능_03 직탐(공업 일반)_문제.pdf:2
+  kongil:19:kongil_2022_수능_03 직탐(공업 일반)_문제.pdf:19
+  kongil:7:kongil_2023_6월_모의평가_03 직탐(공업 일반)_문제.pdf:7
+  kongil:7:kongil_2023_6월_모의평가_03 직탐(공업 일반)_문제.pdf:14
+  kongil:7:kongil_2023_6월_모의평가_03 직탐(공업 일반)_문제.pdf:17
+  success:10:sungjik_2023_수능_06 성공적인 직업생활_문제.pdf:12
+  kongil:19:kongil_2024_6월_모의평가_03 공업 일반_문제지.pdf:11

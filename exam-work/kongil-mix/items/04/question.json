@@ -1,0 +1,172 @@
+{
+  "targetConcept": "가공 기술(주조·소성·절삭·분말 야금)",
+  "itemType": "ai_generative_truth_combination",
+  "difficulty": "HIGH",
+  "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+  "questionStem": "다음 ○○기업의 감속기 제조 과정을 분석한 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+  "stimulusData": {
+    "blocks": [
+      {
+        "type": "figure",
+        "figure_id": "F1"
+      }
+    ],
+    "figures": {
+      "F1": {
+        "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0ODAgNjg4IiBmb250LWZhbWlseT0iJiMzOTtOb3RvIFNhbnMgS1ImIzM5OywmIzM5O0FwcGxlIFNEIEdvdGhpYyBOZW8mIzM5OywmIzM5O01hbGd1biBHb3RoaWMmIzM5OywmIzM5O05hbnVtR290aGljJiMzOTssc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNSI+PHRleHQgeD0iMjQwIiB5PSIyMiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjcwMCI+4peL4peL6riw7JeFIOyImOy2nOyaqSDqsJDsho3quLAg7KCc7KGwIOqzvOyglTwvdGV4dD48cmVjdCB4PSIxMTUiIHk9IjQyIiB3aWR0aD0iMjEwIiBoZWlnaHQ9IjUwIiByeD0iMjUiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjMiLz48dGV4dCB4PSIyMjAiIHk9IjYzLjA0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjE0Ij48dHNwYW4geD0iMjIwIiBkeT0iMCI+7ISk6rOEOiDsp4DrgpwgM+uFhCDtjJDrp6Qg7Iuk7KCB7Jy866GcPC90c3Bhbj48dHNwYW4geD0iMjIwIiBkeT0iMTgiPuu2hOq4sOuzhCDtjJDrp6Trn4nsnYQg7LaU7KCV7ZWY7JesIO2ZleyglTwvdHNwYW4+PC90ZXh0PjxsaW5lIHgxPSIyMjAiIHkxPSI5MyIgeDI9IjIyMCIgeTI9IjExMS42IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4zIi8+PHBvbHlnb24gcG9pbnRzPSIyMjAsMTE4IDIyMy4zNiwxMTAgMjE2LjY0LDExMCIgZmlsbD0iIzAwMCIvPjxyZWN0IHg9IjExNSIgeT0iMTIwIiB3aWR0aD0iMjEwIiBoZWlnaHQ9IjUwIiByeD0iMiIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEuMyIvPjx0ZXh0IHg9IjIyMCIgeT0iMTQxLjA0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjE0Ij48dHNwYW4geD0iMjIwIiBkeT0iMCI+7JuQ7J6Q7J6sIO2ZleuztDog7LKgIOu2hOunkCwg6rCV7LKgIOu0iSw8L3RzcGFuPjx0c3BhbiB4PSIyMjAiIGR5PSIxOCI+7ISg7LKgKOyjvOuLuSA0MDDshLjtirgg67aE65+JKTwvdHNwYW4+PC90ZXh0PjxsaW5lIHgxPSIyMjAiIHkxPSIxNzEiIHgyPSIyMjAiIHkyPSIxODkuNiIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEuMyIvPjxwb2x5Z29uIHBvaW50cz0iMjIwLDE5NiAyMjMuMzYsMTg4IDIxNi42NCwxODgiIGZpbGw9IiMwMDAiLz48cmVjdCB4PSIxMTUiIHk9IjE5OCIgd2lkdGg9IjIxMCIgaGVpZ2h0PSI1MCIgcng9IjIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjMiLz48dGV4dCB4PSIyMjAiIHk9IjIxOS4wNCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxNCI+PHRzcGFuIHg9IjIyMCIgZHk9IjAiPu2VmOyasOynlTog64W57J24IOyEoOyyoOydhCDrqqjrnpgg7YuA7JeQPC90c3Bhbj48dHNwYW4geD0iMjIwIiBkeT0iMTgiPuu2gOyWtCDqtbPtnowg65KkIOyghOufiSBY7ISgIOy0rOyYgTwvdHNwYW4+PC90ZXh0PjxsaW5lIHgxPSIyMjAiIHkxPSIyNDkiIHgyPSIyMjAiIHkyPSIyNjcuNiIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEuMyIvPjxwb2x5Z29uIHBvaW50cz0iMjIwLDI3NCAyMjMuMzYsMjY2IDIxNi42NCwyNjYiIGZpbGw9IiMwMDAiLz48cmVjdCB4PSIxMTUiIHk9IjI3NiIgd2lkdGg9IjIxMCIgaGVpZ2h0PSI2OCIgcng9IjIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjMiLz48dGV4dCB4PSIyMjAiIHk9IjI5Ny4wNCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxNCI+PHRzcGFuIHg9IjIyMCIgZHk9IjAiPuq4sOyWtDog7ZqM7KCEIOy7pO2EsOuhnCDsm5DtjJDsnYQg6rmO642YPC90c3Bhbj48dHNwYW4geD0iMjIwIiBkeT0iMTgiPuuwqeyLneydhCDssqAg67aE66eQIOyVley2lTwvdHNwYW4+PHRzcGFuIHg9IjIyMCIgZHk9IjE4Ij7shLHtmJXCt+qwgOyXtOuhnCDrsJTqv4g8L3RzcGFuPjwvdGV4dD48bGluZSB4MT0iMjIwIiB5MT0iMzQ1IiB4Mj0iMjIwIiB5Mj0iMzYzLjYiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjMiLz48cG9seWdvbiBwb2ludHM9IjIyMCwzNzAgMjIzLjM2LDM2MiAyMTYuNjQsMzYyIiBmaWxsPSIjMDAwIi8+PHJlY3QgeD0iMTE1IiB5PSIzNzIiIHdpZHRoPSIyMTAiIGhlaWdodD0iNTAiIHJ4PSIyIiBmaWxsPSIjZmZmIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4zIi8+PHRleHQgeD0iMjIwIiB5PSIzOTMuMDQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTQiPjx0c3BhbiB4PSIyMjAiIGR5PSIwIj7stpU6IOqwleyyoCDrtInsnYQg64uk7J20IOq1rOupjeyXkCDrhKPqs6A8L3RzcGFuPjx0c3BhbiB4PSIyMjAiIGR5PSIxOCI+7J6h7JWE64u56rKoIOyngOumhOydhCDspITsnoQ8L3RzcGFuPjwvdGV4dD48bGluZSB4MT0iMjIwIiB5MT0iNDIzIiB4Mj0iMjIwIiB5Mj0iNDQxLjYiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjMiLz48cG9seWdvbiBwb2ludHM9IjIyMCw0NDggMjIzLjM2LDQ0MCAyMTYuNjQsNDQwIiBmaWxsPSIjMDAwIi8+PHJlY3QgeD0iMTE1IiB5PSI0NTAiIHdpZHRoPSIyMTAiIGhlaWdodD0iNjgiIHJ4PSIyIiBmaWxsPSIjZmZmIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4zIi8+PHRleHQgeD0iMjIwIiB5PSI0NzEuMDQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTQiPjx0c3BhbiB4PSIyMjAiIGR5PSIwIj7roZztirgg7Iuc7ZeYOiDquLDslrTripQgMjAw6rCc64u5PC90c3Bhbj48dHNwYW4geD0iMjIwIiBkeT0iMTgiPjTqsJwsIOy2leydgCAxMDDqsJzri7kgM+qwnOulvCDtjIzqtLQ8L3RzcGFuPjx0c3BhbiB4PSIyMjAiIGR5PSIxOCI+7Iuc7ZeYPC90c3Bhbj48L3RleHQ+PGxpbmUgeDE9IjIyMCIgeTE9IjUxOSIgeDI9IjIyMCIgeTI9IjUzNy42IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4zIi8+PHBvbHlnb24gcG9pbnRzPSIyMjAsNTQ0IDIyMy4zNiw1MzYgMjE2LjY0LDUzNiIgZmlsbD0iIzAwMCIvPjxyZWN0IHg9IjExNSIgeT0iNTQ2IiB3aWR0aD0iMjEwIiBoZWlnaHQ9IjUwIiByeD0iMiIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEuMyIvPjx0ZXh0IHg9IjIyMCIgeT0iNTY3LjA0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjE0Ij48dHNwYW4geD0iMjIwIiBkeT0iMCI+7KGw66a9OiDshLjtirjri7kg6riw7Ja0IDLqsJwsIOy2lSAx6rCcLDwvdHNwYW4+PHRzcGFuIHg9IjIyMCIgZHk9IjE4Ij7tlZjsmrDsp5UgMeqwnOulvCDqsrDtlantlZjsl6wg7JmE7ISxPC90c3Bhbj48L3RleHQ+PGxpbmUgeDE9IjIyMCIgeTE9IjU5NyIgeDI9IjIyMCIgeTI9IjYxNS42IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4zIi8+PHBvbHlnb24gcG9pbnRzPSIyMjAsNjIyIDIyMy4zNiw2MTQgMjE2LjY0LDYxNCIgZmlsbD0iIzAwMCIvPjxyZWN0IHg9IjExNSIgeT0iNjI0IiB3aWR0aD0iMjEwIiBoZWlnaHQ9IjUwIiByeD0iMjUiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjMiLz48dGV4dCB4PSIyMjAiIHk9IjY0NS4wNCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxNCI+PHRzcGFuIHg9IjIyMCIgZHk9IjAiPuy2nO2VmDog7LC96rOg7JeQIOuztOq0gO2VmOuLpOqwgCDsnKDrn708L3RzcGFuPjx0c3BhbiB4PSIyMjAiIGR5PSIxOCI+67Cc7KO86rCAIOyYpOuptCDsnbjspp0g7ZGc7IucIO2bhCDstpztlZg8L3RzcGFuPjwvdGV4dD48L3N2Zz4=",
+        "alt": "흐름도(위에서 아래). 제목 ‘○○기업 수출용 감속기 제조 과정’. [설계: 지난 3년 판매 실적으로 분기별 판매량을 추정하여 확정] → [원자재 확보: 철 분말, 강철 봉, 선철(주당 400세트 분량)] → [하우징: 녹인 선철을 모래 틀에 부어 굳힌 뒤 전량 X선 촬영] → [기어: 회전 커터로 원판을 깎던 방식을 철 분말 압축 성형·가열로 바꿈] → [축: 강철 봉을 다이 구멍에 넣고 잡아당겨 지름을 줄임] → [로트 시험: 기어는 200개당 4개, 축은 100개당 3개를 파괴 시험] → [조립: 세트당 기어 2개, 축 1개, 하우징 1개를 결합하여 완성] → [출하: 창고에 보관하다가 유럽 발주가 오면 인증 표시 후 출하].",
+        "kind": "diagram",
+        "spec": {
+          "id": "F1",
+          "kind": "diagram",
+          "title": "○○기업 수출용 감속기 제조 과정",
+          "diagramType": "flow",
+          "direction": "vertical",
+          "steps": [
+            {
+              "id": "s1",
+              "label": "설계: 지난 3년 판매 실적으로 분기별 판매량을 추정하여 확정",
+              "shape": "terminal"
+            },
+            {
+              "id": "s2",
+              "label": "원자재 확보: 철 분말, 강철 봉, 선철(주당 400세트 분량)",
+              "shape": "box"
+            },
+            {
+              "id": "s3",
+              "label": "하우징: 녹인 선철을 모래 틀에 부어 굳힌 뒤 전량 X선 촬영",
+              "shape": "box"
+            },
+            {
+              "id": "s4",
+              "label": "기어: 회전 커터로 원판을 깎던 방식을 철 분말 압축 성형·가열로 바꿈",
+              "shape": "box"
+            },
+            {
+              "id": "s5",
+              "label": "축: 강철 봉을 다이 구멍에 넣고 잡아당겨 지름을 줄임",
+              "shape": "box"
+            },
+            {
+              "id": "s6",
+              "label": "로트 시험: 기어는 200개당 4개, 축은 100개당 3개를 파괴 시험",
+              "shape": "box"
+            },
+            {
+              "id": "s7",
+              "label": "조립: 세트당 기어 2개, 축 1개, 하우징 1개를 결합하여 완성",
+              "shape": "box"
+            },
+            {
+              "id": "s8",
+              "label": "출하: 창고에 보관하다가 유럽 발주가 오면 인증 표시 후 출하",
+              "shape": "terminal"
+            }
+          ],
+          "loops": []
+        }
+      }
+    },
+    "choice_table": null
+  },
+  "optionsList": [
+    "① ㄴ",
+    "② ㄹ",
+    "③ ㄴ, ㄹ",
+    "④ ㄱ, ㄴ, ㄹ",
+    "⑤ ㄴ, ㄷ, ㄹ"
+  ],
+  "comboBlock": {
+    "title": "<보기>",
+    "items": [
+      {
+        "key": "ㄱ",
+        "text": "분말 야금으로 만든 부품은 전수 검사 방식으로 주당 800개를 검사한다."
+      },
+      {
+        "key": "ㄴ",
+        "text": "주당 검사 수량이 가장 적은 부품의 가공에는 소성 가공 기술이 활용된다."
+      },
+      {
+        "key": "ㄷ",
+        "text": "가공 방식이 바뀐 부품의 이전 기계는 전조기와 같은 가공 기술에 속한다."
+      },
+      {
+        "key": "ㄹ",
+        "text": "○○기업의 생산 방식은 전용 설비로 표준화된 제품을 대량 생산하는 데 적합하다."
+      }
+    ]
+  },
+  "explanation": {
+    "judgment": "[출제 의도] 제조 과정의 공정 서술과 검사 조건을 분석하여 가공 기술, 품질 검사 방식, 수요 형태에 따른 생산 방식을 판별하고 적용할 수 있는가?\n[해설] ㄱ. 철 분말을 압축 성형한 뒤 가열하는 기어가 분말 야금 부품이다. 기어는 주당 800개 생산되지만 200개당 4개를 뽑아 파괴 시험하므로 표본 검사이고 검사 수량은 16개이므로 옳지 않다. ㄴ. 주당 검사 수량은 하우징 400개, 기어 16개, 축 12개로 축이 가장 적다. 축은 강철 봉을 다이 구멍에 넣고 잡아당기는 인발로 만들므로 소성 가공 기술이 활용되어 옳다. ㄷ. 가공 방식이 바뀐 기어는 이전에 회전 커터로 원판을 깎는 절삭 가공 기계를 썼고, 전조기는 소성 가공 기계이므로 옳지 않다. ㄹ. 판매량을 추정해 미리 생산하고 창고에 보관하다가 출하하는 계획 생산이므로 전용 설비로 표준화된 제품을 대량 생산하는 데 적합하여 옳다. 따라서 옳은 것은 ㄴ, ㄹ이다.\n[오답 피하기] ㄱ: 기어는 200개당 4개만 뽑아 파괴 시험하는 표본 검사 대상이며, 주당 검사 수량은 800개가 아니라 16개이다. 생산량 전체를 검사하는 부품은 전량 X선 촬영을 하는 하우징이다. ㄷ: 기어의 이전 가공은 회전 커터로 원판을 깎는 절삭이고, 전조기는 소성 가공 기계이므로 두 기계는 서로 다른 가공 기술에 속한다.",
+    "conceptHighlightV2": {
+      "stimulusClues": [
+        {
+          "quote": "회전 커터로 원판을 깎던 방식을 철 분말 압축 성형·가열로 바꿈",
+          "why": "기어의 가공이 공구로 깎아 내는 절삭에서 금속 분말을 가압·성형한 뒤 소결하는 분말 야금으로 바뀌었음을 가리킨다."
+        },
+        {
+          "quote": "강철 봉을 다이 구멍에 넣고 잡아당겨 지름을 줄임",
+          "why": "외력을 가해 영구 변형시키는 인발로, 소성 가공에 해당한다."
+        },
+        {
+          "quote": "기어는 200개당 4개, 축은 100개당 3개를 파괴 시험",
+          "why": "일부만 뽑아 파괴하여 판정하는 표본 검사이며, 생산량과 결합해 검사 수량을 계산해야 한다."
+        },
+        {
+          "quote": "창고에 보관하다가 유럽 발주가 오면 인증 표시 후 출하",
+          "why": "판매량 추정 후 미리 생산해 두는 계획 생산의 단서이다."
+        }
+      ],
+      "optionAnalysis": [
+        {
+          "optionKey": "ㄱ",
+          "verdict": "X",
+          "reasoning": "철 분말을 압축 성형한 뒤 가열하는 기어가 분말 야금 부품이다. 기어는 주당 800개(400세트×2개)가 생산되지만 200개당 4개만 뽑아 파괴 시험하므로 표본 검사이며, 검사 수량은 800÷200×4=16개이다."
+        },
+        {
+          "optionKey": "ㄴ",
+          "verdict": "O",
+          "reasoning": "주당 검사 수량은 하우징 400개(전량), 기어 800÷200×4=16개, 축 400÷100×3=12개로 축이 가장 적다. 축은 강철 봉을 다이 구멍에 넣고 잡아당겨 지름을 줄이는 인발로 만들므로 소성 가공 기술이 활용된다."
+        },
+        {
+          "optionKey": "ㄷ",
+          "verdict": "X",
+          "reasoning": "가공 방식이 바뀐 부품은 기어이며, 이전에는 회전 커터로 원판을 깎았으므로 절삭 가공 기계를 썼다. 전조기는 압연기·압출기·인발기와 함께 소성 가공 기계이므로 같은 가공 기술에 속하지 않는다."
+        },
+        {
+          "optionKey": "ㄹ",
+          "verdict": "O",
+          "reasoning": "판매 실적으로 분기별 판매량을 추정해 생산하고, 완성품을 창고에 보관하다가 발주가 오면 출하하므로 계획 생산이다. 계획 생산은 표준화된 제품을 전용 설비로 미리 대량 생산하는 방식이다."
+        }
+      ],
+      "solvingFlow": [
+        {
+          "step": 1,
+          "action": "공정 서술로 부품별 가공 기술을 판별한다(하우징 주조, 기어 절삭→분말 야금, 축 인발=소성 가공)."
+        },
+        {
+          "step": 2,
+          "action": "주당 400세트, 세트당 기어 2개로 부품별 생산량을 구한다(하우징 400개, 기어 800개, 축 400개)."
+        },
+        {
+          "step": 3,
+          "action": "검사 방식과 수량을 계산한다(하우징 전수 400개, 기어 800÷200×4=16개, 축 400÷100×3=12개)."
+        },
+        {
+          "step": 4,
+          "action": "판매량 추정·창고 보관 단서로 계획 생산을 판별하고 그 특징을 적용한다."
+        },
+        {
+          "step": 5,
+          "action": "ㄱ 거짓, ㄴ 참, ㄷ 거짓, ㄹ 참이므로 ㄴ, ㄹ을 고른다."
+        }
+      ],
+      "takeaway": "인발·전조는 압연·압출과 함께 소성 가공 기계이고, 파괴 시험처럼 일부만 뽑아 판정하는 검사는 표본 검사이다."
+    }
+  },
+  "correctAnswer": 3,
+  "points": 3,
+  "fingerprint": "9d3667d3"
+}

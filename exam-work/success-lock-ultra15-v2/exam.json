@@ -1,0 +1,2265 @@
+{
+  "title": "성공적인 직업생활 7~19단원 (AI 출제 초고난도)",
+  "subject": "success",
+  "difficulty": "ULTRA",
+  "unitRange": [
+    7,
+    19
+  ],
+  "requestedCount": 15,
+  "engine": "exam-skill-engine-v6",
+  "exportedAt": "2026-11-18T07:45:24.700Z",
+  "questions": [
+    {
+      "orderIndex": 1,
+      "subject": "success",
+      "unitNumber": 7,
+      "unitTitle": "서비스업과 서비스 생산",
+      "targetConcept": "슈메너의 서비스 프로세스 매트릭스",
+      "itemType": "ai_generative_statement",
+      "difficulty": "HIGH",
+      "points": 3,
+      "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+      "questionStem": "다음은 ○○㈜의 서비스 운영 사례이다. 이에 대해 분석한 내용으로 옳지 않은 것은? (단, 서비스 유형은 슈메너의 분류에 따른다.)",
+      "stimulusData": {
+        "blocks": [
+          {
+            "type": "text",
+            "text": "○○㈜는 중소기업의 급여 계산과 4대 보험 신고 업무를 대신 처리하는 회사로, 거래 기업은 800여 곳이다. 거래 기업의 인사 담당자가 주된 고객이며, 이들은 신고 기한이나 서식 작성 방법을 고객 센터에 문의한다. 고객 센터에서는 상담원 120명이 하루 2,000여 건의 전화 문의에 직접 응대한다. 문의 대부분은 정해진 절차에 관한 것이지만, 같은 질문에도 상담원마다 안내 내용이 달라 인사 담당자들의 불만이 이어졌다."
+          },
+          {
+            "type": "text",
+            "text": "이에 ○○㈜는 지난 5년간의 상담 기록을 분석한 안내 시스템을 도입하였다. 상담원은 문의 유형을 입력한 뒤 화면에 제시된 답변을 기준으로 안내한다. 급여 계산은 근태 자료가 들어오면 프로그램이 사람의 손을 거치지 않고 자동으로 처리한다. 근태 자료는 거래 기업이 △△기업에서 구입한 근태 관리 단말기로 기록하는데, 이 단말기는 △△기업이 공장에서 만들어 판매한다. 한편 해고나 임금 체불 분쟁이 생긴 기업에는 공인 노무사가 직접 찾아가 사정을 듣고 기업별 해결 방안을 제시한다."
+          }
+        ],
+        "figures": {},
+        "choice_table": null
+      },
+      "optionsList": [
+        "① △△기업의 근태 관리 단말기는 생산과 소비가 동시에 일어나는 특성을 지닌다.",
+        "② ○○㈜는 서비스의 이질성에서 생긴 문제를 줄이기 위해 안내 시스템을 도입하였다.",
+        "③ 수요 주체에 따라 분류할 때 ○○㈜의 서비스는 생산자 서비스업에 해당한다.",
+        "④ 급여 자동 계산은 서비스 공장, 고객 센터 상담은 대량 서비스에 해당한다.",
+        "⑤ 노무사의 분쟁 해결 지원은 고객 센터 상담과 달리 전문 서비스에 해당한다."
+      ],
+      "comboBlock": null,
+      "correctAnswer": 1,
+      "explanation": {
+        "judgment": "[출제 의도] 서비스 기업의 운영 사례에서 서비스의 특성, 수요 주체에 따른 분류, 슈메너의 서비스 프로세스 매트릭스 유형을 판정하고 제조업 산출물과 구별할 수 있는가?\n[해설] 상담원마다 안내 내용이 달랐던 문제는 서비스의 이질성에서 생긴 것이고, 상담 기록을 분석한 안내 시스템은 답변을 표준화하여 이를 줄인다. ○○㈜의 고객은 중소기업이며 급여·보험 업무는 기업 경영에 투입되므로 생산자 서비스업이다. 슈메너의 분류에 따르면 사람의 손을 거치지 않는 급여 자동 계산은 노동 집중도와 고객화 정도가 모두 낮은 서비스 공장, 상담원 120명이 정해진 절차를 안내하는 고객 센터는 노동 집중도가 높고 고객화 정도가 낮은 대량 서비스, 노무사가 직접 찾아가 기업별 해결 방안을 제시하는 분쟁 해결 지원은 둘 다 높은 전문 서비스이다. 반면 △△기업이 공장에서 만들어 판매하는 단말기는 제조업 산출물인 유형의 재화로, 생산과 소비가 분리되므로 동시성을 지닌다는 진술은 옳지 않다.\n[오답 피하기] 근태 관리 단말기는 △△기업이 공장에서 만들어 판매하는 유형의 재화로, 생산 후 보관·판매되어 사용되므로 생산과 소비가 동시에 일어나는 동시성은 단말기에 해당하지 않는다.",
+        "conceptHighlightV2": {
+          "stimulusClues": [
+            {
+              "quote": "같은 질문에도 상담원마다 안내 내용이 달라",
+              "why": "제공자에 따라 서비스의 질이 달라지는 이질성이 문제의 원인임을 보여 준다."
+            },
+            {
+              "quote": "상담원 120명이 하루 2,000여 건의 전화 문의에 직접 응대한다",
+              "why": "사람의 노동이 많이 투입되면서 정해진 절차를 안내하므로 노동 집중도가 높고 고객화가 낮은 대량 서비스를 가리킨다."
+            },
+            {
+              "quote": "프로그램이 사람의 손을 거치지 않고 자동으로 처리한다",
+              "why": "노동 집중도와 고객화 정도가 모두 낮은 서비스 공장의 단서이다."
+            },
+            {
+              "quote": "이 단말기는 △△기업이 공장에서 만들어 판매한다",
+              "why": "단말기가 제조업의 유형 산출물이므로 서비스의 동시성이 적용되지 않음을 보여 준다."
+            }
+          ],
+          "optionAnalysis": [
+            {
+              "optionNum": 1,
+              "verdict": "X",
+              "reasoning": "△△기업은 단말기를 공장에서 만들어 판매하는 제조 기업이며, 단말기는 유형의 재화이므로 생산된 뒤 보관·판매되어 나중에 사용된다. 생산과 소비가 동시에 일어나는 동시성은 서비스의 특성이므로 옳지 않다."
+            },
+            {
+              "optionNum": 2,
+              "verdict": "O",
+              "reasoning": "같은 질문에도 상담원마다 안내 내용이 달랐던 것은 제공자에 따라 서비스의 질이 달라지는 이질성 때문이며, 상담 기록을 분석한 안내 시스템은 답변을 표준화하여 이질성을 줄인다."
+            },
+            {
+              "optionNum": 3,
+              "verdict": "O",
+              "reasoning": "○○㈜의 고객은 개인 소비자가 아니라 중소기업이며, 급여 계산·보험 신고 대행은 기업의 경영 활동에 투입되므로 생산자 서비스업에 해당한다."
+            },
+            {
+              "optionNum": 4,
+              "verdict": "O",
+              "reasoning": "급여 자동 계산은 사람의 손을 거치지 않아 노동 집중도와 고객화 정도가 모두 낮으므로 서비스 공장이고, 고객 센터 상담은 상담원 다수가 정해진 절차를 안내하므로 노동 집중도는 높고 고객화 정도는 낮은 대량 서비스이다."
+            },
+            {
+              "optionNum": 5,
+              "verdict": "O",
+              "reasoning": "노무사가 직접 찾아가 기업별 해결 방안을 제시하므로 노동 집중도와 고객화 정도가 모두 높은 전문 서비스이고, 고객 센터 상담은 고객화 정도가 낮은 대량 서비스이다."
+            }
+          ],
+          "solvingFlow": [
+            {
+              "step": 1,
+              "action": "상담원마다 안내가 달랐던 문제와 안내 시스템 도입을 연결하여 이질성 문제와 해결책을 확인한다."
+            },
+            {
+              "step": 2,
+              "action": "고객이 중소기업(인사 담당자)임을 확인하여 수요 주체에 따라 생산자 서비스업으로 분류한다."
+            },
+            {
+              "step": 3,
+              "action": "급여 자동 계산, 고객 센터 상담, 노무사 분쟁 해결 지원 각각의 노동 집중도와 고객화 정도를 판단하여 서비스 공장, 대량 서비스, 전문 서비스로 분류한다."
+            },
+            {
+              "step": 4,
+              "action": "△△기업의 단말기가 공장에서 만든 유형의 재화임을 확인하고, 동시성은 서비스에만 해당함을 적용하여 옳지 않은 진술을 고른다."
+            }
+          ],
+          "takeaway": "생산과 소비의 동시성은 서비스의 특성이므로 공장에서 만든 유형의 재화에는 적용되지 않으며, 슈메너 유형은 노동 집중도와 고객화 정도 두 축으로 함께 판단한다."
+        }
+      },
+      "fingerprint": "30676d99",
+      "generation": {
+        "engine": "exam-skill-engine-v6",
+        "specId": "gen_9b677924",
+        "profileVersion": "exam-style-profile-v2"
+      }
+    },
+    {
+      "orderIndex": 2,
+      "subject": "success",
+      "unitNumber": 7,
+      "unitTitle": "서비스업과 서비스 생산",
+      "targetConcept": "서비스업과 제조업의 차이",
+      "itemType": "ai_generative_statement",
+      "difficulty": "HIGH",
+      "points": 3,
+      "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+      "questionStem": "다음 글에 나타난 사업체에 대한 설명으로 가장 적절한 것은? (단, 제시된 사업체는 제조업과 서비스업으로만 구분한다.)",
+      "stimulusData": {
+        "blocks": [
+          {
+            "type": "text",
+            "text": "A 씨는 IT 스타트업인 ○○기업에 올해 입사한 신입 사원이다. ○○기업은 예약·고객 관리 앱을 만들어 사업자에게 월 사용료를 받고 제공한다. A 씨는 앱의 불편 사항을 듣기 위해 이 앱을 사용하는 고객인 변호사 B 씨의 사무소, 미용사 C 씨의 미용실, □□기업을 방문하였다."
+          },
+          {
+            "type": "text",
+            "text": "변호사 B 씨는 지방 소도시에서 15년째 사무소를 운영하였다. 지역 인구가 줄면서 의뢰 건수가 3년 사이 절반으로 줄었다. B 씨는 의뢰인을 직접 만나 사정을 듣고 서류를 함께 검토해야 하므로, 기업이 많은 광역시로 사무소를 옮길 계획이다. 미용사 C 씨는 직원 2명과 함께 동네 미용실을 운영한다. C 씨는 손님마다 원하는 모양을 묻고, 머리 상태를 살피며 손으로 직접 손질한다. □□기업은 헤어드라이어를 생산하여 전국 매장에 공급하며, 조립 라인 대부분을 자동화하였다. 완성품은 창고에 보관하였다가 주문이 들어오면 운송한다."
+          }
+        ],
+        "figures": {},
+        "choice_table": null
+      },
+      "optionsList": [
+        "① C 씨의 미용실은 □□기업에 비해 생산 비용 중 인건비가 차지하는 비중이 높다.",
+        "② ○○기업은 이윤 창출을 위해 앱을 공급하므로 ‘소비자 서비스업’에 해당한다.",
+        "③ □□기업은 C 씨의 미용실에 비해 생산 과정에 고객이 참여하는 정도가 높다.",
+        "④ B 씨의 이전 계획은 변호사마다 상담의 질이 달라지는 특성에 대응한 것이다.",
+        "⑤ B 씨의 상담 업무는 상호 작용과 노동 집중도가 낮은 ‘서비스 공장’에 해당한다."
+      ],
+      "comboBlock": null,
+      "correctAnswer": 1,
+      "explanation": {
+        "judgment": "[출제 의도] 서비스업과 제조업의 차이를 이해하고, 서비스업의 분류·특성·슈메너 매트릭스와 함께 사례에 적용할 수 있는가?\n[해설] 단서 조건에 따라 B 씨의 사무소와 C 씨의 미용실은 무형의 서비스를 제공하는 서비스업, 헤어드라이어를 생산하는 □□기업은 제조업으로 구분한다. C 씨는 손님마다 손으로 직접 손질하고, □□기업은 조립 라인 대부분을 자동화하였다. 서비스업은 기계화 수준이 낮아 제조업에 비해 인건비 비중이 높으므로, C 씨의 미용실이 □□기업보다 인건비 비중이 높다는 설명이 가장 적절하다.\n[오답 피하기] ○○기업이 이윤 창출을 위해 앱을 공급한다는 점은 공급 주체에 따른 민간 서비스업의 근거이다. 수요 주체로는 사업자의 사업 운영에 투입되는 생산자 서비스업에 해당한다. 제조업은 생산 과정에 고객이 거의 참여하지 않으므로, □□기업은 C 씨의 미용실보다 고객 참여도가 낮다. B 씨의 사무소 이전은 서비스가 고객이 있는 곳에서 제공되어야 하는 동시성 때문이며, 상담 품질의 편차(이질성)는 제시문에 나타나지 않는다. 의뢰인과 직접 만나 함께 검토하는 변호사 업무는 상호 작용과 노동 집중도가 모두 높은 전문 서비스에 해당하며, 두 축이 모두 낮은 서비스 공장이 아니다.",
+        "conceptHighlightV2": {
+          "stimulusClues": [
+            {
+              "quote": "손님마다 원하는 모양을 묻고, 머리 상태를 살피며 손으로 직접 손질한다",
+              "why": "고객 접촉·참여가 많고 사람의 노동에 의존하는 서비스업의 생산 방식을 보여 준다."
+            },
+            {
+              "quote": "조립 라인 대부분을 자동화하였다",
+              "why": "기계화 수준이 높아 인건비 비중이 낮은 제조업의 특징을 가리킨다."
+            },
+            {
+              "quote": "완성품은 창고에 보관하였다가 주문이 들어오면 운송한다",
+              "why": "유형의 제품을 저장·운송할 수 있는 제조업임을 보여 주는 단서이다."
+            },
+            {
+              "quote": "의뢰인을 직접 만나 사정을 듣고 서류를 함께 검토해야 하므로",
+              "why": "고객이 생산에 참여하고 생산과 소비가 동시에 일어나는 동시성, 높은 상호 작용을 가리킨다."
+            }
+          ],
+          "optionAnalysis": [
+            {
+              "optionNum": 1,
+              "verdict": "O",
+              "reasoning": "C 씨의 미용실은 손님마다 손으로 직접 손질하는 서비스업이고, □□기업은 조립 라인을 자동화한 제조업이다. 서비스업은 기계화 수준이 낮아 제조업보다 인건비 비중이 높으므로 옳다."
+            },
+            {
+              "optionNum": 2,
+              "verdict": "X",
+              "reasoning": "이윤 창출은 공급 주체에 따른 민간 서비스업의 근거이다. 수요 주체로 보면 앱을 사업자에게 제공하여 사업 운영에 투입되므로 생산자 서비스업에 해당하여 틀리다."
+            },
+            {
+              "optionNum": 3,
+              "verdict": "X",
+              "reasoning": "□□기업은 자동화 라인에서 제품을 만들어 보관·운송하는 제조업이고, C 씨는 손님의 요구를 들으며 손질하는 서비스업이다. 제조업은 서비스업보다 고객 참여도가 낮으므로 틀리다."
+            },
+            {
+              "optionNum": 4,
+              "verdict": "X",
+              "reasoning": "B 씨는 의뢰인을 직접 만나야 상담을 제공할 수 있어 고객이 많은 곳으로 옮기려 한다. 이는 생산과 소비가 동시에 일어나는 동시성에 대응한 것이며, 품질 편차(이질성)는 제시문에 드러나지 않아 틀리다."
+            },
+            {
+              "optionNum": 5,
+              "verdict": "X",
+              "reasoning": "B 씨는 의뢰인을 직접 만나 사정을 듣고 서류를 함께 검토하므로 상호 작용·고객화 정도가 높고, 변호사 본인의 노동에 의존하여 노동 집중도도 높다. 따라서 전문 서비스에 해당하여 틀리다."
+            }
+          ],
+          "solvingFlow": [
+            {
+              "step": 1,
+              "action": "단서 조건에 따라 B 씨·C 씨는 서비스업, □□기업은 제조업으로 구분한다."
+            },
+            {
+              "step": 2,
+              "action": "C 씨의 손 손질과 □□기업의 자동화 라인을 비교하여 노동 의존도와 인건비 비중을 판단한다."
+            },
+            {
+              "step": 3,
+              "action": "○○기업은 공급 주체(민간)와 수요 주체(사업자 → 생산자 서비스업)를 따로 판정한다."
+            },
+            {
+              "step": 4,
+              "action": "B 씨의 이전 이유에서 동시성을, 업무 방식에서 슈메너의 전문 서비스를 확인하여 남은 선지를 판정한다."
+            }
+          ],
+          "takeaway": "서비스업은 기계화 수준이 낮아 제조업보다 인건비 비중과 고객 참여도가 높으며, 공급 주체와 수요 주체는 서로 다른 분류 축이다."
+        }
+      },
+      "fingerprint": "e6b54e4b",
+      "generation": {
+        "engine": "exam-skill-engine-v6",
+        "specId": "gen_fe25ecf6",
+        "profileVersion": "exam-style-profile-v2"
+      }
+    },
+    {
+      "orderIndex": 3,
+      "subject": "success",
+      "unitNumber": 11,
+      "unitTitle": "경력 개발과 평생 학습의 의미",
+      "targetConcept": "평생 학습 계좌제",
+      "itemType": "ai_generative_truth_combination",
+      "difficulty": "HIGH",
+      "points": 3,
+      "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+      "questionStem": "다음 경력 개발 계획서에 나타난 A 씨와 평생 학습 제도 (가)~(다)에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "stimulusData": {
+        "blocks": [
+          {
+            "type": "text",
+            "text": "■ 작성자: ○○호텔 객실팀 A 씨\n• 고등학교를 졸업하고 입사하여 5년째 근무하고 있다.\n• 근무 중에 국가기술자격인 호텔서비스사를 취득하였고, 사내 직무 교육도 여러 차례 이수하였다.\n• 야간 교대 근무가 잦아 학습 시간을 꾸준히 확보하기 어려운 점을 걸림돌로 꼽았다.\n■ 인사팀이 안내한 평생 학습 제도\n• (가): ｢평생교육법｣ 제23조에 근거하며, 누리집에서 개인별로 신청한다.\n• (나): ｢산업교육진흥 및 산학연협력촉진에 관한 법률｣에 근거한다. 우리 호텔은 내년에 △△대학과 협약을 맺고 직원 대상 학과를 개설할 예정이다.\n• (다): ｢학점인정 등에 관한 법률｣에 근거하며, 온라인 강좌로도 수강할 수 있다.\n■ 계획 흐름"
+          },
+          {
+            "type": "figure",
+            "figure_id": "F1"
+          }
+        ],
+        "figures": {
+          "F1": {
+            "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0ODAgNjU0IiBmb250LWZhbWlseT0iJiMzOTtOb3RvIFNhbnMgS1ImIzM5OywmIzM5O0FwcGxlIFNEIEdvdGhpYyBOZW8mIzM5OywmIzM5O01hbGd1biBHb3RoaWMmIzM5OywmIzM5O05hbnVtR290aGljJiMzOTssc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNSI+PHRleHQgeD0iMjQwIiB5PSIyMiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjcwMCI+QSDslKjsnZgg6rK966ClIOqwnOuwnCDqs4Ttmo0g7Z2Q66aEPC90ZXh0PjxyZWN0IHg9IjExNSIgeT0iNDIiIHdpZHRoPSIyMTAiIGhlaWdodD0iNTAiIHJ4PSIyIiBmaWxsPSIjZmZmIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4zIi8+PHRleHQgeD0iMjIwIiB5PSI2My4wNCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxNCI+PHRzcGFuIHg9IjIyMCIgZHk9IjAiPuqwneyLpCDsp4DrsLDsnbgg7KeB66y07J2YIOyekOqyqTwvdHNwYW4+PHRzcGFuIHg9IjIyMCIgZHk9IjE4Ij7smpTqsbTqs7wg7Iq57KeEIOyghOunnSDsobDsgqw8L3RzcGFuPjwvdGV4dD48bGluZSB4MT0iMjIwIiB5MT0iOTMiIHgyPSIyMjAiIHkyPSIxMTEuNiIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEuMyIvPjxwb2x5Z29uIHBvaW50cz0iMjIwLDExOCAyMjMuMzYsMTEwIDIxNi42NCwxMTAiIGZpbGw9IiMwMDAiLz48cmVjdCB4PSIxMTUiIHk9IjEyMCIgd2lkdGg9IjIxMCIgaGVpZ2h0PSI1MCIgcng9IjIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjMiLz48dGV4dCB4PSIyMjAiIHk9IjE0MS4wNCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxNCI+PHRzcGFuIHg9IjIyMCIgZHk9IjAiPuyekOyLoOydmCDsmbjqta3slrQg64ql66Cl6rO8IOqzoOqwnTwvdHNwYW4+PHRzcGFuIHg9IjIyMCIgZHk9IjE4Ij7snZHrjIAg7KCB7ISxIOygkOqygDwvdHNwYW4+PC90ZXh0PjxsaW5lIHgxPSIyMjAiIHkxPSIxNzEiIHgyPSIyMjAiIHkyPSIxODkuNiIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEuMyIvPjxwb2x5Z29uIHBvaW50cz0iMjIwLDE5NiAyMjMuMzYsMTg4IDIxNi42NCwxODgiIGZpbGw9IiMwMDAiLz48cmVjdCB4PSIxMTUiIHk9IjE5OCIgd2lkdGg9IjIxMCIgaGVpZ2h0PSI1MCIgcng9IjIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjMiLz48dGV4dCB4PSIyMjAiIHk9IjIxOS4wNCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxNCI+PHRzcGFuIHg9IjIyMCIgZHk9IjAiPjfrhYQg7JWI7JeQIOqwneyLpCDsp4DrsLDsnbjsnLzroZw8L3RzcGFuPjx0c3BhbiB4PSIyMjAiIGR5PSIxOCI+7Iq57KeE7ZWY64qUIOuqqe2RnCDshKTsoJU8L3RzcGFuPjwvdGV4dD48bGluZSB4MT0iMjIwIiB5MT0iMjQ5IiB4Mj0iMjIwIiB5Mj0iMjY3LjYiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjMiLz48cG9seWdvbiBwb2ludHM9IjIyMCwyNzQgMjIzLjM2LDI2NiAyMTYuNjQsMjY2IiBmaWxsPSIjMDAwIi8+PHJlY3QgeD0iMTE1IiB5PSIyNzYiIHdpZHRoPSIyMTAiIGhlaWdodD0iNTAiIHJ4PSIyIiBmaWxsPSIjZmZmIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4zIi8+PHRleHQgeD0iMjIwIiB5PSIyOTcuMDQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTQiPjx0c3BhbiB4PSIyMjAiIGR5PSIwIj4o6rCAKeyXkOyEnCDtlZnsirUg7J2066ClIOymneuqheyEnOulvDwvdHNwYW4+PHRzcGFuIHg9IjIyMCIgZHk9IjE4Ij7rsJzquInrsJvslYQg7Iq57KeEIOyLrOyCrOyXkCDsoJzstpw8L3RzcGFuPjwvdGV4dD48bGluZSB4MT0iMjIwIiB5MT0iMzI3IiB4Mj0iMjIwIiB5Mj0iMzQ1LjYiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjMiLz48cG9seWdvbiBwb2ludHM9IjIyMCwzNTIgMjIzLjM2LDM0NCAyMTYuNjQsMzQ0IiBmaWxsPSIjMDAwIi8+PHJlY3QgeD0iMTE1IiB5PSIzNTQiIHdpZHRoPSIyMTAiIGhlaWdodD0iNTAiIHJ4PSIyIiBmaWxsPSIjZmZmIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4zIi8+PHRleHQgeD0iMjIwIiB5PSIzNzUuMDQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTQiPjx0c3BhbiB4PSIyMjAiIGR5PSIwIj4o64KYKSwgKOuLpCkg7KSRIO2VmeychCDst6jrk50g67Cp67KV7J2EPC90c3Bhbj48dHNwYW4geD0iMjIwIiBkeT0iMTgiPuqzqOudvCDsi6Ttlok8L3RzcGFuPjwvdGV4dD48bGluZSB4MT0iMjIwIiB5MT0iNDA1IiB4Mj0iMjIwIiB5Mj0iNDIzLjYiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjMiLz48cG9seWdvbiBwb2ludHM9IjIyMCw0MzAgMjIzLjM2LDQyMiAyMTYuNjQsNDIyIiBmaWxsPSIjMDAwIi8+PHBvbHlnb24gcG9pbnRzPSIyMjAsNDMyIDMxNC41LDQ3NiAyMjAsNTIwIDEyNS41LDQ3NiIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEuMyIvPjx0ZXh0IHg9IjIyMCIgeT0iNDYzLjA0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjE0Ij48dHNwYW4geD0iMjIwIiBkeT0iMCI+NuqwnOyblOuniOuLpCDsoJDqsoDtlZw8L3RzcGFuPjx0c3BhbiB4PSIyMjAiIGR5PSIxOCI+6rKw6rO8IOqzhO2ajeuztOuLpDwvdHNwYW4+PHRzcGFuIHg9IjIyMCIgZHk9IjE4Ij7riqbslrTsoYzripTqsIA/PC90c3Bhbj48L3RleHQ+PGxpbmUgeDE9IjIyMCIgeTE9IjUyMSIgeDI9IjIyMCIgeTI9IjUzOS42IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4zIi8+PHBvbHlnb24gcG9pbnRzPSIyMjAsNTQ2IDIyMy4zNiw1MzggMjE2LjY0LDUzOCIgZmlsbD0iIzAwMCIvPjx0ZXh0IHg9IjIyOCIgeT0iNTM3IiBmb250LXNpemU9IjEyIj7smIg8L3RleHQ+PHJlY3QgeD0iMTE1IiB5PSI1NDgiIHdpZHRoPSIyMTAiIGhlaWdodD0iMzIiIHJ4PSIyIiBmaWxsPSIjZmZmIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4zIi8+PHRleHQgeD0iMjIwIiB5PSI1NjkuMDQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTQiPu2VmeyKtSDsi5zqsITqs7wg67Cp67KV7J2EIOyhsOyglTwvdGV4dD48bGluZSB4MT0iMjIwIiB5MT0iNTgxIiB4Mj0iMjIwIiB5Mj0iNTk5LjYiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjMiLz48cG9seWdvbiBwb2ludHM9IjIyMCw2MDYgMjIzLjM2LDU5OCAyMTYuNjQsNTk4IiBmaWxsPSIjMDAwIi8+PHJlY3QgeD0iMTE1IiB5PSI2MDgiIHdpZHRoPSIyMTAiIGhlaWdodD0iMzIiIHJ4PSIxNiIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEuMyIvPjx0ZXh0IHg9IjIyMCIgeT0iNjI5LjA0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjE0Ij7ri6TsnYwg7KCQ6rKA6rmM7KeAIOqzhO2ajSDsi6Ttlok8L3RleHQ+PHBvbHlsaW5lIHBvaW50cz0iMTI1LjUsNDc2IDkzLDQ3NiA5Myw2MjQgMTA2LjYsNjI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4zIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBvbHlnb24gcG9pbnRzPSIxMTMsNjI0IDEwNSw2MjAuNjQgMTA1LDYyNy4zNiIgZmlsbD0iIzAwMCIvPjx0ZXh0IHg9IjEwOS4yNSIgeT0iNDcwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjEyIj7slYTri4jsmpQ8L3RleHQ+PC9zdmc+",
+            "alt": "순서도(위에서 아래). 제목 ‘A 씨의 경력 개발 계획 흐름’. [객실 지배인 직무의 자격 요건과 승진 전망 조사] → [자신의 외국어 능력과 고객 응대 적성 점검] → [7년 안에 객실 지배인으로 승진하는 목표 설정] → [(가)에서 학습 이력 증명서를 발급받아 승진 심사에 제출] → [(나), (다) 중 학위 취득 방법을 골라 실행] → ◇‘6개월마다 점검한 결과 계획보다 늦어졌는가?’ →(예) [학습 시간과 방법을 조정] → [다음 점검까지 계획 실행]. ◇‘6개월마다 점검한 결과 계획보다 늦어졌는가?’에서 ‘아니요’이면 [다음 점검까지 계획 실행](으)로 가는 화살표.",
+            "kind": "diagram",
+            "spec": {
+              "id": "F1",
+              "kind": "diagram",
+              "title": "A 씨의 경력 개발 계획 흐름",
+              "diagramType": "flow",
+              "direction": "vertical",
+              "steps": [
+                {
+                  "id": "s1",
+                  "label": "객실 지배인 직무의 자격 요건과 승진 전망 조사",
+                  "shape": "box"
+                },
+                {
+                  "id": "s2",
+                  "label": "자신의 외국어 능력과 고객 응대 적성 점검",
+                  "shape": "box"
+                },
+                {
+                  "id": "s3",
+                  "label": "7년 안에 객실 지배인으로 승진하는 목표 설정",
+                  "shape": "box"
+                },
+                {
+                  "id": "s4",
+                  "label": "(가)에서 학습 이력 증명서를 발급받아 승진 심사에 제출",
+                  "shape": "box"
+                },
+                {
+                  "id": "s5",
+                  "label": "(나), (다) 중 학위 취득 방법을 골라 실행",
+                  "shape": "box"
+                },
+                {
+                  "id": "s6",
+                  "label": "6개월마다 점검한 결과 계획보다 늦어졌는가?",
+                  "shape": "decision",
+                  "yesLabel": "예"
+                },
+                {
+                  "id": "s7",
+                  "label": "학습 시간과 방법을 조정",
+                  "shape": "box"
+                },
+                {
+                  "id": "s8",
+                  "label": "다음 점검까지 계획 실행",
+                  "shape": "terminal"
+                }
+              ],
+              "loops": [
+                {
+                  "from": "s6",
+                  "to": "s8",
+                  "label": "아니요"
+                }
+              ]
+            }
+          }
+        },
+        "choice_table": null
+      },
+      "optionsList": [
+        "① ㄱ, ㄷ",
+        "② ㄱ, ㄹ",
+        "③ ㄷ, ㄹ",
+        "④ ㄱ, ㄷ, ㄹ",
+        "⑤ ㄱ, ㄴ, ㄷ, ㄹ"
+      ],
+      "comboBlock": {
+        "title": "<보기>",
+        "items": [
+          {
+            "key": "ㄱ",
+            "text": "A 씨는 고졸 학력뿐 아니라 호텔서비스사 취득 이력도 (가)에 누적하여 관리할 수 있다."
+          },
+          {
+            "key": "ㄴ",
+            "text": "(나)는 ○○호텔이 경비를 부담하지 않아도 재교육형으로 운영될 수 있다."
+          },
+          {
+            "key": "ㄷ",
+            "text": "(나)와 (다)는 모두 고졸 재직자인 A 씨가 학위를 취득하는 데 활용할 수 있다."
+          },
+          {
+            "key": "ㄹ",
+            "text": "A 씨가 학습 시간 확보를 걸림돌로 꼽은 것은 적성 점검과 같은 계획 단계에 해당한다."
+          }
+        ]
+      },
+      "correctAnswer": 4,
+      "explanation": {
+        "judgment": "[출제 의도] 근거 법률과 운영 단서로 평생 학습 제도를 식별하고, 경력 개발 계획 단계에 구체 활동을 바르게 배치할 수 있는가?\n[해설] (가)는 ｢평생교육법｣ 제23조에 근거하고 학습 이력 증명서를 발급하므로 평생 학습 계좌제, (나)는 ｢산업교육진흥 및 산학연협력촉진에 관한 법률｣에 따라 호텔이 대학과 협약을 맺어 직원 대상 학과를 개설하므로 재교육형 계약학과, (다)는 ｢학점인정 등에 관한 법률｣에 근거하므로 학점은행제이다. ㄱ. 평생 학습 계좌제는 학력·경력·자격·평생 학습 이수 경험을 누적·관리하므로 자격 취득 이력도 등록할 수 있다. ㄴ. 재교육형 계약학과는 산업체가 경비를 부담하여 소속 직원의 교육을 대학에 의뢰하는 방식이므로 틀린 진술이다. ㄷ. 계약학과와 학점은행제는 모두 학위를 취득할 수 있고 일과 학업을 병행할 수 있다. ㄹ. 장애 요소 파악과 자신의 능력·적성 파악은 모두 자신과 환경 이해 단계에 해당한다.\n[오답 피하기] ㄴ: 계약학과의 재교육형은 산업체 등이 소속 직원의 재교육이나 직무 능력 향상을 위해 대학에 교육을 의뢰하고 경비를 부담하는 방식이므로, 호텔이 경비를 부담하지 않는 재교육형 운영은 성립하지 않는다.",
+        "conceptHighlightV2": {
+          "stimulusClues": [
+            {
+              "quote": "｢평생교육법｣ 제23조에 근거하며, 누리집에서 개인별로 신청한다.",
+              "why": "순서도의 학습 이력 증명서 발급과 함께 (가)가 평생 학습 계좌제임을 가리킨다."
+            },
+            {
+              "quote": "우리 호텔은 내년에 △△대학과 협약을 맺고 직원 대상 학과를 개설할 예정이다.",
+              "why": "산업체가 소속 직원 교육을 위해 대학과 협약하여 설치하는 재교육형 계약학과를 가리킨다."
+            },
+            {
+              "quote": "｢학점인정 등에 관한 법률｣에 근거하며",
+              "why": "학교 안팎의 학습을 학점으로 인정해 학위를 주는 학점은행제의 근거 법률이다."
+            },
+            {
+              "quote": "학습 시간을 꾸준히 확보하기 어려운 점을 걸림돌로 꼽았다",
+              "why": "환경 속 장애 요소 파악으로, 경력 개발 계획의 자신과 환경 이해 단계에 해당한다."
+            }
+          ],
+          "optionAnalysis": [
+            {
+              "optionKey": "ㄱ",
+              "verdict": "O",
+              "reasoning": "｢평생교육법｣ 제23조와 학습 이력 증명서 발급으로 (가)는 평생 학습 계좌제이다. 평생 학습 계좌제는 학력뿐 아니라 경력·자격·평생 학습 이수 경험을 학습 이력으로 누적·관리하므로 옳다."
+            },
+            {
+              "optionKey": "ㄴ",
+              "verdict": "X",
+              "reasoning": "근거 법률과 호텔·대학의 협약으로 (나)는 계약학과이고, 직원 대상 학과이므로 재교육형이다. 재교육형 계약학과는 산업체가 소속 직원의 재교육을 대학에 의뢰하고 경비를 부담하므로 옳지 않다."
+            },
+            {
+              "optionKey": "ㄷ",
+              "verdict": "O",
+              "reasoning": "(나)는 계약학과, (다)는 ｢학점인정 등에 관한 법률｣에 근거한 학점은행제이다. 계약학과는 대학의 학위 과정이고 학점은행제는 학점이 기준을 충족하면 학위를 받으므로, 둘 다 근무하는 A 씨가 학위 취득에 활용할 수 있다."
+            },
+            {
+              "optionKey": "ㄹ",
+              "verdict": "O",
+              "reasoning": "학습 시간 확보의 어려움을 걸림돌로 꼽은 것은 환경 속 장애 요소 파악이고, 외국어 능력과 적성 점검은 자신에 대한 이해이다. 둘 다 경력 개발 계획의 자신과 환경 이해 단계에 해당하므로 옳다."
+            }
+          ],
+          "solvingFlow": [
+            {
+              "step": 1,
+              "action": "본문의 근거 법률과 순서도의 단서로 (가) 평생 학습 계좌제, (나) 계약학과, (다) 학점은행제를 식별한다."
+            },
+            {
+              "step": 2,
+              "action": "(가)가 학력·경력·자격·학습 경험을 누적·관리한다는 점을 A 씨의 호텔서비스사 취득에 적용한다."
+            },
+            {
+              "step": 3,
+              "action": "(나)가 직원 대상 재교육형이므로 산업체의 경비 부담이 필요한지 판단하고, (나)·(다)의 학위 취득 가능 여부를 확인한다."
+            },
+            {
+              "step": 4,
+              "action": "걸림돌 파악과 적성 점검을 경력 개발 계획 5단계에 배치하여 같은 단계인지 판단한다."
+            }
+          ],
+          "takeaway": "재교육형 계약학과는 산업체가 경비를 부담해 소속 직원 교육을 대학에 의뢰하며, 장애 요소 파악은 자신과 환경 이해 단계에 속한다."
+        }
+      },
+      "fingerprint": "11d8d9ff",
+      "generation": {
+        "engine": "exam-skill-engine-v6",
+        "specId": "gen_bff9a0cf",
+        "profileVersion": "exam-style-profile-v2"
+      }
+    },
+    {
+      "orderIndex": 4,
+      "subject": "success",
+      "unitNumber": 15,
+      "unitTitle": "근로관계와 법 (1)",
+      "targetConcept": "근로시간과 휴게시간",
+      "itemType": "ai_generative_statement",
+      "difficulty": "HIGH",
+      "points": 3,
+      "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+      "questionStem": "다음 근로 계약 비교 자료에 나타난 A 씨와 B 씨의 근로 관계를 분석한 내용으로 옳은 것은? (단, ｢근로기준법｣에 따르며 제시된 내용 외의 근로는 없다.)",
+      "stimulusData": {
+        "blocks": [
+          {
+            "type": "text",
+            "text": "A 씨와 B 씨는 각각 카페와 식당에서 아르바이트를 하고 있다. 대학생인 A 씨는 졸업 후 카페 창업을 계획하여 이 일을 택하였다. A 씨는 근무일마다 점장의 지시로 종업 시각부터 30분 동안 매장을 정리한 뒤 퇴근한다. 고등학생인 B 씨는 근무일마다 시업 30분 전에 출근하여 점장이 진행하는 위생 교육을 받는다."
+          },
+          {
+            "type": "table",
+            "title": "A 씨와 B 씨의 근로 계약 내용",
+            "headers": [
+              [
+                "구분",
+                "A 씨",
+                "B 씨"
+              ]
+            ],
+            "rows": [
+              [
+                "사용자(상시 근로자 수)",
+                "○○카페(3명)",
+                "△△식당(30명)"
+              ],
+              [
+                "나이",
+                "24세",
+                "16세"
+              ],
+              [
+                "근무일",
+                "월~금요일",
+                "토, 일요일"
+              ],
+              [
+                "시업~종업 시각",
+                "09:00~18:00",
+                "10:00~18:00"
+              ],
+              [
+                "휴게 시각",
+                "12:00~13:00",
+                "13:00~14:00"
+              ],
+              [
+                "주휴일",
+                "일요일",
+                "수요일"
+              ],
+              [
+                "시급",
+                "12,000원",
+                "12,000원"
+              ],
+              [
+                "기타",
+                "-",
+                "친권자 동의서 비치, 연장 근로는 B 씨와 합의함"
+              ]
+            ],
+            "caption": null
+          }
+        ],
+        "figures": {},
+        "choice_table": null
+      },
+      "optionsList": [
+        "① A 씨가 1주를 개근하면 ○○카페가 지급해야 할 주휴수당은 102,000원이다.",
+        "② A 씨의 1주 매장 정리 시간에 대해 ○○카페가 지급해야 할 최소 임금은 3만 원이다.",
+        "③ B 씨의 1주 위생 교육 시간에 대해 △△식당이 지급해야 할 최소 임금은 12,000원이다.",
+        "④ △△식당이 B 씨에게 위생 교육을 받게 하려면 고용노동부 장관의 인가를 받아야 한다.",
+        "⑤ △△식당은 B 씨와 합의하면 B 씨의 종업 시각을 지금보다 1시간 늦출 수 있다."
+      ],
+      "comboBlock": null,
+      "correctAnswer": 2,
+      "explanation": {
+        "judgment": "[출제 의도] 업무상 교육·작업장 정리를 포함하고 휴게를 제외한 실제 근로시간을 구하여 사업장 규모와 연소 근로자 기준에 적용할 수 있는가?\n[해설] A 씨는 계약상 09:00~18:00에서 휴게 1시간을 빼 1일 8시간이고, 점장 지시에 따른 정리 30분이 더해져 실제로는 1일 8시간 30분 일한다. 정리 시간은 1주 2시간 30분이며, 상시 근로자 3명인 ○○카페에는 연장 가산수당이 적용되지 않으므로 지급해야 할 최소 임금은 2.5시간 × 12,000원 = 3만 원이다. 주휴수당은 소정근로시간 8시간을 기준으로 96,000원이다. B 씨는 10:00~18:00에서 휴게 1시간을 빼 7시간에, 시업 전 위생 교육 30분이 더해져 1일 7시간 30분 일한다. 16세인 B 씨의 기준은 1일 7시간이므로 30분은 연장 근로이고, 상시 30명인 △△식당은 1주 교육 시간 1시간에 대해 12,000원 × 1.5 = 18,000원을 지급해야 한다. 연소 근로자의 연장 근로는 합의로 1일 1시간까지 할 수 있어 장관 인가는 필요 없고, 남은 연장 한도는 1일 30분이다.\n[오답 피하기] 주휴수당은 1일 소정근로시간 × 시급으로 계산하므로 지시에 따른 정리 시간을 넣지 않은 8시간 × 12,000원 = 96,000원이다. B 씨에게 성인 기준 8시간을 적용하면 가산이 없다고 보게 되지만, 연소 근로자 기준 7시간을 넘은 교육 시간은 연장 근로이므로 30명 사업장에서는 18,000원을 지급해야 한다. 연소 근로자의 연장 근로는 당사자 합의로 가능하며, 본인 동의와 고용노동부 장관 인가가 필요한 것은 야간·휴일 근로이다. B 씨의 주휴일은 수요일이므로 토·일요일 근무는 휴일 근로가 아니다. 위생 교육 시간을 빼고 7시간으로 보면 1시간을 더 늘릴 수 있다고 판단하게 되지만, 실제 근로가 7시간 30분이므로 1일 8시간 한도까지 30분만 남는다.",
+        "conceptHighlightV2": {
+          "stimulusClues": [
+            {
+              "quote": "점장의 지시로 종업 시각부터 30분 동안 매장을 정리한 뒤 퇴근한다",
+              "why": "사용자의 지시에 따른 작업장 정리는 근로시간에 포함되어 A 씨의 실제 근로가 1일 8시간 30분이 된다."
+            },
+            {
+              "quote": "시업 30분 전에 출근하여 점장이 진행하는 위생 교육을 받는다",
+              "why": "업무상 교육은 근로시간이므로 휴게 1시간을 뺀 B 씨의 실제 근로는 1일 7시간 30분이 된다."
+            },
+            {
+              "quote": "친권자 동의서 비치, 연장 근로는 B 씨와 합의함",
+              "why": "연소 근로자의 연장 근로는 당사자 합의로 1일 1시간 한도에서 할 수 있음을 가리킨다."
+            }
+          ],
+          "optionAnalysis": [
+            {
+              "optionNum": 1,
+              "verdict": "X",
+              "reasoning": "주휴일은 5명 미만 사업장에도 적용되지만 주휴수당은 1일 소정근로시간 8시간 × 12,000원 = 96,000원이다. 지시에 따른 정리 30분은 소정근로시간에 넣지 않는다."
+            },
+            {
+              "optionNum": 2,
+              "verdict": "O",
+              "reasoning": "점장 지시에 따른 매장 정리는 근로시간이므로 1주에 30분 × 5일 = 2시간 30분이다. 상시 근로자 3명인 사업장에는 연장 가산수당이 적용되지 않으므로 2.5시간 × 12,000원 = 3만 원이다."
+            },
+            {
+              "optionNum": 3,
+              "verdict": "X",
+              "reasoning": "B 씨의 실제 근로는 1일 7시간 30분으로 연소 근로자 기준 7시간을 넘는다. 상시 30명 사업장이므로 교육 1시간(30분 × 2일)에 가산하여 12,000원 × 1.5 = 18,000원을 지급해야 한다."
+            },
+            {
+              "optionNum": 4,
+              "verdict": "X",
+              "reasoning": "위생 교육으로 B 씨의 근로는 1일 7시간을 30분 넘는 연장 근로가 된다. 연소 근로자의 연장 근로는 당사자 합의로 할 수 있고, 장관 인가는 야간·휴일 근로에 필요하다."
+            },
+            {
+              "optionNum": 5,
+              "verdict": "X",
+              "reasoning": "B 씨는 위생 교육을 포함해 이미 1일 7시간 30분 일한다. 연소 근로자는 합의해도 1일 8시간까지만 일할 수 있으므로 종업 시각은 30분만 늦출 수 있다."
+            }
+          ],
+          "solvingFlow": [
+            {
+              "step": 1,
+              "action": "시업~종업 시각에서 휴게 1시간을 빼 소정근로시간을 구한다: A 씨 8시간, B 씨 7시간"
+            },
+            {
+              "step": 2,
+              "action": "지시에 따른 정리·업무상 교육 30분을 더해 실제 근로시간을 구한다: A 씨 8시간 30분, B 씨 7시간 30분"
+            },
+            {
+              "step": 3,
+              "action": "기준을 적용한다: A 씨는 5명 미만 사업장이라 가산 없음, B 씨는 16세로 7시간 초과분이 연장 근로이고 30명 사업장이라 가산 적용"
+            },
+            {
+              "step": 4,
+              "action": "계산한다: A 씨 정리 임금 2.5시간 × 12,000원 = 3만 원, 주휴수당 8시간 × 12,000원 = 96,000원, B 씨 교육 임금 1시간 × 12,000원 × 1.5 = 18,000원, B 씨의 남은 연장 한도 1일 30분"
+            }
+          ],
+          "takeaway": "지시에 따른 정리·업무상 교육은 근로시간에 넣고 휴게는 빼서 실제 근로시간을 구한 뒤, 사업장 규모(가산 여부)와 연소 근로자 기준(1일 7시간, 합의로 1시간 연장)을 적용한다."
+        }
+      },
+      "fingerprint": "6282141d",
+      "generation": {
+        "engine": "exam-skill-engine-v6",
+        "specId": "gen_f09d2f2c",
+        "profileVersion": "exam-style-profile-v2"
+      }
+    },
+    {
+      "orderIndex": 5,
+      "subject": "success",
+      "unitNumber": 15,
+      "unitTitle": "근로관계와 법 (1)",
+      "targetConcept": "주휴일과 주휴수당",
+      "itemType": "ai_generative_truth_combination",
+      "difficulty": "HIGH",
+      "points": 3,
+      "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+      "questionStem": "다음 상담 대화에 나타난 A 씨와 동생의 근로 조건을 분석한 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은? (단, ｢근로기준법｣에 따르며 제시된 근무 외의 근로는 없다.)",
+      "stimulusData": {
+        "blocks": [
+          {
+            "type": "dialogue",
+            "lines": [
+              {
+                "speaker": "직업 상담사",
+                "text": "다시 일을 시작하신 지 얼마나 되셨나요?"
+              },
+              {
+                "speaker": "A 씨",
+                "text": "자녀를 돌보느라 10년 동안 일을 쉬다가 직업 훈련을 마치고, 상시 근로자 40명인 ○○기업에 6월 1일 사무직으로 입사하였어요. 10월 말까지 한 번도 결근하지 않았고, 다음 달에는 휴가를 내어 가족 여행을 다녀올 계획이에요."
+              },
+              {
+                "speaker": "직업 상담사",
+                "text": "근무 시간과 동생분의 아르바이트 조건도 알려 주세요."
+              },
+              {
+                "speaker": "A 씨",
+                "text": "저는 월요일부터 금요일까지 09:00~18:00에 일하고 12:00~13:00에 쉬며 시급은 12,500원이에요. 20세 대학생인 동생은 상시 근로자 8명인 △△카페와 근로 계약을 맺고 화요일과 목요일 18:00~23:30에 일하며, 20:00~20:30에 쉬고 시급은 12,000원이에요. 이번 주에는 둘 다 정해진 날에 모두 출근하였어요."
+              }
+            ]
+          }
+        ],
+        "figures": {},
+        "choice_table": null
+      },
+      "optionsList": [
+        "① ㄷ",
+        "② ㄹ",
+        "③ ㄷ, ㄹ",
+        "④ ㄱ, ㄷ, ㄹ",
+        "⑤ ㄴ, ㄷ, ㄹ"
+      ],
+      "comboBlock": {
+        "title": "<보기>",
+        "items": [
+          {
+            "key": "ㄱ",
+            "text": "A 씨에게 10월 말까지 발생한 연차 유급휴가는 모두 15일이다."
+          },
+          {
+            "key": "ㄴ",
+            "text": "동생은 이번 주 소정근로일을 개근하였으므로 60,000원의 주휴수당을 받는다."
+          },
+          {
+            "key": "ㄷ",
+            "text": "A 씨가 이번 주 개근에 따라 받는 주휴수당은 10만 원이다."
+          },
+          {
+            "key": "ㄹ",
+            "text": "동생의 이번 주 임금에는 야간 근로 가산수당 18,000원이 포함된다."
+          }
+        ]
+      },
+      "correctAnswer": 3,
+      "explanation": {
+        "judgment": "[출제 의도] 휴게 시간을 뺀 소정근로시간으로 주휴수당 적용 여부와 금액을 판단하고, 초단시간 근로자에게 적용되는 규정과 적용되지 않는 규정을 구분할 수 있는가?\n[해설] ㄱ. A 씨는 6월 1일 입사하여 계속 근로 1년 미만이므로 1개월 개근 시 1일의 연차 유급휴가가 발생한다. 10월 말까지 5개월 개근하였으므로 5일이며 15일이 아니다. ㄴ. 동생은 18:00~23:30 중 휴게 30분을 빼면 1일 5시간, 1주 10시간을 일하므로 1주 소정근로시간 15시간 미만인 초단시간 근로자이다. 따라서 개근하였더라도 주휴수당이 적용되지 않는다. ㄷ. A 씨는 09:00~18:00 중 휴게 1시간을 빼면 1일 소정근로시간이 8시간, 1주 40시간이므로 주휴수당은 8시간 × 12,500원 = 10만 원이다. ㄹ. 동생은 화요일과 목요일 각각 22:00~23:30에 1.5시간씩, 1주 3시간 야간 근로를 한다. 상시 근로자 8명인 사업장이므로 초단시간 근로자에게도 야간 근로 가산수당이 적용되어 3시간 × 12,000원 × 0.5 = 18,000원이다. 따라서 옳은 것은 ㄷ, ㄹ이다.\n[오답 피하기] ㄱ: 계속 근로 1년 미만인 근로자는 1개월 개근 시 1일씩 연차 유급휴가가 발생하므로 5개월 개근한 A 씨는 5일이며, 15일은 1년간 80% 이상 출근하였을 때의 일수이다. ㄴ: 주휴수당은 1주 소정근로일 개근과 함께 1주 소정근로시간 15시간 이상이어야 하는데, 동생은 휴게 시간을 빼면 1주 10시간이므로 개근하였더라도 받을 수 없다. 60,000원은 1일 5시간 × 12,000원으로 계산한 잘못된 값이다.",
+        "conceptHighlightV2": {
+          "stimulusClues": [
+            {
+              "quote": "09:00~18:00에 일하고 12:00~13:00에 쉬며 시급은 12,500원이에요",
+              "why": "휴게 1시간을 빼면 1일 소정근로시간 8시간, 1주 40시간으로 주휴수당 계산의 기준이 된다."
+            },
+            {
+              "quote": "화요일과 목요일 18:00~23:30에 일하며, 20:00~20:30에 쉬고",
+              "why": "휴게 30분을 빼면 1주 10시간으로 15시간 미만인 초단시간 근로자이고, 22시 이후 1.5시간씩 야간 근로가 있다."
+            },
+            {
+              "quote": "상시 근로자 8명인 △△카페",
+              "why": "상시 5명 이상 사업장이므로 야간 근로 가산수당이 적용된다."
+            },
+            {
+              "quote": "10월 말까지 한 번도 결근하지 않았고",
+              "why": "계속 근로 1년 미만 근로자의 개근 개월 수로 연차 유급휴가 일수를 정한다."
+            }
+          ],
+          "optionAnalysis": [
+            {
+              "optionKey": "ㄱ",
+              "verdict": "X",
+              "reasoning": "A 씨는 계속 근로 1년 미만이므로 1개월 개근 시 1일의 연차 유급휴가가 발생하며, 6월부터 10월까지 5개월 개근하였으므로 5일이다. 15일은 1년간 80% 이상 출근한 경우의 일수이다."
+            },
+            {
+              "optionKey": "ㄴ",
+              "verdict": "X",
+              "reasoning": "동생의 1일 소정근로시간은 휴게 30분을 뺀 5시간, 1주 소정근로시간은 10시간으로 15시간 미만인 초단시간 근로자이므로 개근하였더라도 주휴일과 주휴수당이 적용되지 않는다."
+            },
+            {
+              "optionKey": "ㄷ",
+              "verdict": "O",
+              "reasoning": "A 씨의 1일 소정근로시간은 9시간에서 휴게 1시간을 뺀 8시간이고 1주 40시간으로 15시간 이상이므로, 주휴수당은 8시간 × 12,500원 = 10만 원이다."
+            },
+            {
+              "optionKey": "ㄹ",
+              "verdict": "O",
+              "reasoning": "동생은 하루 22:00~23:30의 1.5시간, 1주 3시간 야간 근로를 하였고, 상시 5명 이상 사업장이므로 초단시간 근로자라도 가산수당이 적용되어 3시간 × 12,000원 × 0.5 = 18,000원이다."
+            }
+          ],
+          "solvingFlow": [
+            {
+              "step": 1,
+              "action": "두 사람의 근무 시각에서 휴게 시간을 빼 1일 소정근로시간을 구한다: A 씨 9시간 - 1시간 = 8시간, 동생 5.5시간 - 0.5시간 = 5시간"
+            },
+            {
+              "step": 2,
+              "action": "1주 소정근로시간을 15시간 기준과 비교한다: A 씨 8시간 × 5일 = 40시간(적용), 동생 5시간 × 2일 = 10시간(초단시간, 주휴 미적용)"
+            },
+            {
+              "step": 3,
+              "action": "A 씨의 주휴수당을 계산한다: 8시간 × 12,500원 = 10만 원"
+            },
+            {
+              "step": 4,
+              "action": "동생의 야간 근로 가산수당을 계산한다: 22:00~23:30 1.5시간 × 2일 = 3시간, 3시간 × 12,000원 × 0.5 = 18,000원(상시 8명 사업장이므로 적용)"
+            },
+            {
+              "step": 5,
+              "action": "A 씨의 연차 유급휴가를 계산한다: 1년 미만 근로자, 6~10월 5개월 개근 → 5일"
+            }
+          ],
+          "takeaway": "1주 소정근로시간 15시간 미만인 초단시간 근로자는 주휴수당·연차 유급휴가가 적용되지 않지만, 상시 5명 이상 사업장이면 야간 근로 가산수당은 적용된다."
+        }
+      },
+      "fingerprint": "59803ae1",
+      "generation": {
+        "engine": "exam-skill-engine-v6",
+        "specId": "gen_1b3bc47e",
+        "profileVersion": "exam-style-profile-v2"
+      }
+    },
+    {
+      "orderIndex": 6,
+      "subject": "success",
+      "unitNumber": 15,
+      "unitTitle": "근로관계와 법 (1)",
+      "targetConcept": "연차 유급휴가",
+      "itemType": "ai_generative_statement",
+      "difficulty": "HIGH",
+      "points": 3,
+      "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+      "questionStem": "다음 근무 현황표에 나타난 갑~병의 근로 관계를 분석한 내용으로 옳은 것은? (단, ｢근로기준법｣에 따르며 단체협약은 고려하지 않는다.)",
+      "stimulusData": {
+        "blocks": [
+          {
+            "type": "table",
+            "title": "청년 창업자 사업장의 근로자 근무 현황(2026년 1월 15일 기준)",
+            "headers": [
+              [
+                "구분",
+                "갑",
+                "을",
+                "병"
+              ]
+            ],
+            "rows": [
+              [
+                "사업장(대표)",
+                "○○ 공방(A 씨)",
+                "△△ 기업(B 씨)",
+                "△△ 기업(B 씨)"
+              ],
+              [
+                "상시 근로자 수",
+                "3명",
+                "30명",
+                "30명"
+              ],
+              [
+                "입사일",
+                "2024년 2월 1일",
+                "2025년 3월 3일",
+                "2023년 9월 2일"
+              ],
+              [
+                "근무 요일·시각",
+                "월~금 09:00~18:00(휴게 12:00~13:00)",
+                "월~금 09:00~18:00(휴게 12:00~13:00)",
+                "토·일 10:00~15:00(휴게 12:00~13:00)"
+              ],
+              [
+                "시급",
+                "12,000원",
+                "11,000원",
+                "10,500원"
+              ],
+              [
+                "출근 상황",
+                "입사 후 1년간 결근 3일, 이후 결근 없음",
+                "입사 후 결근 없음",
+                "입사 후 결근 없음"
+              ],
+              [
+                "담당 업무",
+                "가죽 제품 제작",
+                "모바일 앱 화면 설계",
+                "주말 고객 문의 응대"
+              ]
+            ],
+            "caption": null
+          }
+        ],
+        "figures": {},
+        "choice_table": null
+      },
+      "optionsList": [
+        "① △△ 기업은 결근 없이 2년 넘게 근무한 병에게 15일의 연차 유급휴가를 주어야 한다.",
+        "② △△ 기업에서 을에게 기준일까지 발생한 연차 유급휴가는 모두 10일이다.",
+        "③ 기준일까지 연차 유급휴가가 발생한 근로자는 갑~병 중 모두 2명이다.",
+        "④ ○○ 공방이 1주 소정근로일을 개근한 갑에게 지급해야 할 주급은 480,000원이다.",
+        "⑤ △△ 기업은 1주 소정근로일을 개근한 을에게 99,000원의 주휴수당을 주어야 한다."
+      ],
+      "comboBlock": null,
+      "correctAnswer": 2,
+      "explanation": {
+        "judgment": "[출제 의도] 사업장의 상시 근로자 수, 1주 소정근로시간, 근속 기간을 연차 유급휴가와 주휴일의 기준에 적용하여 휴가 일수와 주휴수당을 판단할 수 있는가?\n[해설] 을은 상시 근로자 30명인 △△ 기업에서 휴게 시간을 뺀 1일 8시간, 1주 40시간을 근무하므로 연차 유급휴가 대상이다. 2025년 3월 3일에 입사하여 기준일인 2026년 1월 15일까지 계속 근로 1년 미만이고 결근이 없으므로, 개근한 완성된 달(2025년 3월 3일~2026년 1월 2일) 10개월에 대해 1개월마다 1일씩 모두 10일의 연차 유급휴가가 발생한다. 따라서 을에게 기준일까지 발생한 연차 유급휴가가 10일이라는 진술이 옳다.\n[오답 피하기] 병은 1일 5시간 중 휴게 1시간을 빼면 4시간씩 토·일 이틀 근무하여 1주 소정근로시간이 8시간이므로, 근속 기간과 출근율에 관계없이 연차 유급휴가가 적용되지 않는다. 갑은 입사 후 1년간 80% 이상 출근하였으나 ○○ 공방은 상시 근로자 3명인 사업장이어서 연차 유급휴가가 적용되지 않고, 병은 1주 소정근로시간이 8시간이어서 제외되므로 연차 유급휴가가 발생한 근로자는 을 1명뿐이다. 주휴일은 5명 미만 사업장에도 적용되므로 ○○ 공방은 기본급 40시간 × 12,000원 = 480,000원에 주휴수당 8시간 × 12,000원 = 96,000원을 더한 576,000원을 주급으로 주어야 한다. 480,000원은 연차 유급휴가와 주휴일의 적용 범위를 혼동하여 주휴수당을 뺀 값이다. 주휴수당은 1일 소정근로시간 × 시급이며, 을의 1일 소정근로시간은 9시간에서 휴게 1시간을 뺀 8시간이므로 88,000원이다.",
+        "conceptHighlightV2": {
+          "stimulusClues": [
+            {
+              "quote": "토·일 10:00~15:00(휴게 12:00~13:00)",
+              "why": "병의 1주 소정근로시간은 4시간 × 2일 = 8시간으로 15시간 미만이므로 연차 유급휴가 대상이 아니다."
+            },
+            {
+              "quote": "2025년 3월 3일",
+              "why": "기준일인 2026년 1월 15일까지 계속 근로 1년 미만이므로 개근한 달마다 1일의 연차 유급휴가가 발생한다."
+            },
+            {
+              "quote": "월~금 09:00~18:00(휴게 12:00~13:00)",
+              "why": "휴게 시간을 빼면 1일 소정근로시간은 8시간, 1주 40시간으로 주휴수당 계산과 연차 대상 판단의 기준이 된다."
+            },
+            {
+              "quote": "입사 후 1년간 결근 3일, 이후 결근 없음",
+              "why": "갑은 80% 이상 출근하였지만 상시 근로자 3명인 사업장이어서 연차 유급휴가는 적용되지 않고, 주휴일은 적용된다."
+            }
+          ],
+          "optionAnalysis": [
+            {
+              "optionNum": 1,
+              "verdict": "X",
+              "reasoning": "병은 휴게 시간을 빼면 1일 4시간씩 토·일 이틀 근무하여 1주 소정근로시간이 8시간이므로 1주 15시간 미만 근로자로서 연차 유급휴가가 적용되지 않는다."
+            },
+            {
+              "optionNum": 2,
+              "verdict": "O",
+              "reasoning": "△△ 기업은 상시 근로자 30명이고 을은 1주 40시간 근무하므로 연차 유급휴가 대상이며, 계속 근로 1년 미만인 을은 2025년 3월 3일부터 개근한 완성된 달 10개월에 대해 10일이 발생한다."
+            },
+            {
+              "optionNum": 3,
+              "verdict": "X",
+              "reasoning": "연차 유급휴가는 상시 5명 이상 사업장에서 1주 15시간 이상 근무하는 근로자에게 적용되므로, 3명 사업장의 갑과 1주 8시간 근무하는 병은 제외되고 을 1명에게만 발생한다."
+            },
+            {
+              "optionNum": 4,
+              "verdict": "X",
+              "reasoning": "갑의 1주 소정근로시간은 휴게를 뺀 8시간 × 5일 = 40시간이고, 주휴일은 5명 미만 사업장에도 적용되므로 주급은 480,000원에 주휴수당 96,000원을 더한 576,000원이다."
+            },
+            {
+              "optionNum": 5,
+              "verdict": "X",
+              "reasoning": "을의 1일 소정근로시간은 휴게 1시간을 뺀 8시간이므로 주휴수당은 8시간 × 11,000원 = 88,000원이다. 99,000원은 휴게 시간을 빼지 않은 9시간으로 계산한 값이다."
+            }
+          ],
+          "solvingFlow": [
+            {
+              "step": 1,
+              "action": "표에서 사업장별 상시 근로자 수를 확인 → ○○ 공방 3명(5명 미만), △△ 기업 30명(5명 이상)"
+            },
+            {
+              "step": 2,
+              "action": "휴게 시간을 빼서 1주 소정근로시간 계산 → 갑·을 8시간 × 5일 = 40시간, 병 4시간 × 2일 = 8시간(15시간 미만)"
+            },
+            {
+              "step": 3,
+              "action": "연차 유급휴가 대상 판별 → 5명 이상 사업장이면서 1주 15시간 이상인 근로자는 을뿐임"
+            },
+            {
+              "step": 4,
+              "action": "을의 개근한 완성된 달 계산 → 2025년 3월 3일~2026년 1월 2일 10개월 → 10일"
+            },
+            {
+              "step": 5,
+              "action": "주휴일은 5명 미만 사업장에도 적용 → 갑의 주급 40시간 × 12,000원 + 8시간 × 12,000원 = 576,000원, 을의 주휴수당 8시간 × 11,000원 = 88,000원"
+            }
+          ],
+          "takeaway": "연차 유급휴가는 상시 5명 이상 사업장의 1주 15시간 이상 근로자에게만 적용되지만, 주휴일은 5명 미만 사업장에도 적용된다."
+        }
+      },
+      "fingerprint": "92fb334e",
+      "generation": {
+        "engine": "exam-skill-engine-v6",
+        "specId": "gen_86aef017",
+        "profileVersion": "exam-style-profile-v2"
+      }
+    },
+    {
+      "orderIndex": 7,
+      "subject": "success",
+      "unitNumber": 15,
+      "unitTitle": "근로관계와 법 (1)",
+      "targetConcept": "연장·야간·휴일 근로와 가산수당",
+      "itemType": "ai_generative_truth_combination",
+      "difficulty": "HIGH",
+      "points": 3,
+      "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+      "questionStem": "다음 사례에 나타난 A 씨와 B 씨의 근로 조건을 분석한 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은? (단, ｢근로기준법｣에 따르며 단체협약은 고려하지 않는다.)",
+      "stimulusData": {
+        "blocks": [
+          {
+            "type": "text",
+            "text": "배달 플랫폼을 운영하는 ○○사(상시 근로자 40명)는 배달원 A 씨(34세)를 직접 고용하였다. 배달 대행업체 △△사(상시 근로자 3명)는 배달원 B 씨(26세)를 직접 고용하였다. 두 근로 계약은 모두 기간의 정함이 없고, 시급은 10,000원이다. 두 사람은 근로 조건을 확인하려고 노동 상담 센터를 찾았다."
+          },
+          {
+            "type": "dialogue",
+            "lines": [
+              {
+                "speaker": "상담사",
+                "text": "계약서에 적힌 근무일과 근무 시간을 말씀해 주세요."
+              },
+              {
+                "speaker": "A 씨",
+                "text": "저는 대학원 수업이 없는 금요일과 토요일에만 일해요. 19:00부터 23:30까지 근무하고, 휴게시간은 22:00부터 22:30까지예요. 휴게 뒤에는 늦은 시각의 배달 주문을 처리해요."
+              },
+              {
+                "speaker": "B 씨",
+                "text": "저는 오후 조로 월요일부터 금요일까지 일하고, 일요일이 주휴일이에요. 14:00부터 22:30까지 근무하고, 휴게시간은 18:00부터 18:30까지예요. 다음 달에는 이륜차 정비 자격증을 취득할 계획이에요."
+              },
+              {
+                "speaker": "상담사",
+                "text": "두 분 모두 계약서에 정한 시간 외의 추가 근무는 없다는 말씀이군요."
+              }
+            ]
+          }
+        ],
+        "figures": {},
+        "choice_table": null
+      },
+      "optionsList": [
+        "① ㄴ",
+        "② ㄹ",
+        "③ ㄴ, ㄹ",
+        "④ ㄱ, ㄴ, ㄹ",
+        "⑤ ㄴ, ㄷ, ㄹ"
+      ],
+      "comboBlock": {
+        "title": "<보기>",
+        "items": [
+          {
+            "key": "ㄱ",
+            "text": "A 씨가 1년간 80% 이상 출근하면 ○○사는 A 씨에게 15일의 연차 유급휴가를 주어야 한다."
+          },
+          {
+            "key": "ㄴ",
+            "text": "A 씨가 1주 근무일을 모두 근무하면 ○○사는 야간 근로 가산수당으로 1만 원을 더 지급해야 한다."
+          },
+          {
+            "key": "ㄷ",
+            "text": "B 씨의 1일 근로시간에 필요한 휴게시간은 30분 이상이므로 B 씨의 휴게시간은 적법하다."
+          },
+          {
+            "key": "ㄹ",
+            "text": "B 씨가 1주 소정근로일을 개근하면 △△사는 B 씨에게 주휴수당 8만 원을 지급해야 한다."
+          }
+        ]
+      },
+      "correctAnswer": 3,
+      "explanation": {
+        "judgment": "[출제 의도] 사업장 규모와 초단시간 근로 여부에 따라 가산수당·연차 유급휴가·휴게시간·주휴수당의 적용을 판단하고 금액을 계산할 수 있는가?\n[해설] A 씨는 19:00~23:30 근무에서 휴게 30분을 빼면 1일 4시간, 금·토요일 2일이므로 1주 8시간인 초단시간 근로자이다. B 씨는 14:00~22:30 근무에서 휴게 30분을 빼면 1일 8시간, 1주 40시간이다. ㄱ. 초단시간 근로자에게는 연차 유급휴가가 적용되지 않으므로 ○○사가 상시 40명 사업장이라도 15일의 연차 유급휴가를 줄 의무가 없다. ㄴ. A 씨의 오후 10시 이후 근로는 22:30~23:30의 1시간이고 1주 2시간이다. 가산수당은 초단시간 근로자에게도 적용되므로 2시간 × 5,000원 = 1만 원을 더 지급해야 한다. ㄷ. 근로시간이 8시간이면 휴게시간은 1시간 이상이어야 하며, 이 규정은 상시 3명인 △△사에도 적용되므로 30분 휴게는 위법하다. ㄹ. 주휴일은 상시 5명 미만 사업장에도 적용되므로 B 씨의 주휴수당은 1일 소정근로시간 8시간 × 10,000원 = 8만 원이다. 따라서 옳은 것은 ㄴ, ㄹ이다.\n[오답 피하기] ㄱ: 연차 유급휴가는 상시 5명 이상 사업장이라는 요건만으로 성립하지 않는다. A 씨는 1주 근로시간이 8시간인 초단시간 근로자이므로 연차 유급휴가가 적용되지 않는다. ㄷ: 휴게시간 30분 이상은 근로시간 4시간인 경우의 기준이다. B 씨처럼 근로시간이 8시간이면 1시간 이상을 주어야 하고, 휴게 규정은 5명 미만 사업장에도 적용된다.",
+        "conceptHighlightV2": {
+          "stimulusClues": [
+            {
+              "quote": "배달 플랫폼을 운영하는 ○○사(상시 근로자 40명)",
+              "why": "상시 5명 이상 사업장이므로 야간 근로 가산수당이 적용된다."
+            },
+            {
+              "quote": "휴게시간은 22:00부터 22:30까지예요",
+              "why": "휴게시간은 근로시간에서 빠지므로 A 씨의 오후 10시 이후 근로는 1시간이고, 1일 근로시간은 4시간이다."
+            },
+            {
+              "quote": "금요일과 토요일에만 일해요",
+              "why": "1주 근로시간이 8시간으로 1주 15시간 미만인 초단시간 근로자임을 알려 준다."
+            },
+            {
+              "quote": "14:00부터 22:30까지 근무하고, 휴게시간은 18:00부터 18:30까지예요",
+              "why": "B 씨의 1일 근로시간은 8시간이므로 휴게시간 1시간 기준과 주휴수당 계산의 근거가 된다."
+            }
+          ],
+          "optionAnalysis": [
+            {
+              "optionKey": "ㄱ",
+              "verdict": "X",
+              "reasoning": "A 씨의 1일 근로시간은 휴게 30분을 뺀 4시간, 1주 근로시간은 8시간으로 1주 15시간 미만인 초단시간 근로자이다. 초단시간 근로자에게는 상시 5명 이상 사업장이라도 연차 유급휴가가 적용되지 않는다."
+            },
+            {
+              "optionKey": "ㄴ",
+              "verdict": "O",
+              "reasoning": "A 씨의 오후 10시 이후 근로는 휴게 22:00~22:30을 뺀 22:30~23:30의 1시간이고, 1주 2일이므로 2시간이다. ○○사는 상시 40명 사업장이므로 초단시간 근로자에게도 2시간 × 10,000원 × 0.5 = 1만 원을 가산해야 한다."
+            },
+            {
+              "optionKey": "ㄷ",
+              "verdict": "X",
+              "reasoning": "B 씨의 1일 근로시간은 14:00~22:30에서 휴게 30분을 뺀 8시간이다. 근로시간이 8시간이면 휴게시간을 1시간 이상 주어야 하며, 휴게 규정은 상시 5명 미만 사업장에도 적용되므로 30분 휴게는 위법하다."
+            },
+            {
+              "optionKey": "ㄹ",
+              "verdict": "O",
+              "reasoning": "B 씨의 1일 소정근로시간은 휴게를 뺀 8시간, 1주 40시간이다. 주휴일은 상시 5명 미만 사업장에도 적용되므로 주휴수당은 8시간 × 10,000원 = 8만 원이다."
+            }
+          ],
+          "solvingFlow": [
+            {
+              "step": 1,
+              "action": "두 사업장의 상시 근로자 수를 확인한다: ○○사 40명(5명 이상), △△사 3명(5명 미만)."
+            },
+            {
+              "step": 2,
+              "action": "휴게시간을 빼서 근로시간을 구한다: A 씨 1일 4시간 × 2일 = 1주 8시간(초단시간), B 씨 1일 8시간 × 5일 = 1주 40시간."
+            },
+            {
+              "step": 3,
+              "action": "A 씨의 오후 10시 이후 근로를 구한다: 22:30~23:30의 1시간 × 2일 = 2시간, 가산수당 2시간 × 10,000원 × 0.5 = 1만 원."
+            },
+            {
+              "step": 4,
+              "action": "초단시간 근로자에게 연차 유급휴가가 적용되지 않음과, 5명 미만 사업장에도 휴게(8시간 → 1시간 이상)와 주휴일이 적용됨을 대입한다: B 씨 주휴수당 8시간 × 10,000원 = 8만 원."
+            }
+          ],
+          "takeaway": "초단시간 근로자는 주휴일·연차 유급휴가가 적용되지 않지만 상시 5명 이상 사업장의 야간 근로 가산수당은 받으며, 휴게시간과 주휴일은 5명 미만 사업장에도 적용된다."
+        }
+      },
+      "fingerprint": "079c0856",
+      "generation": {
+        "engine": "exam-skill-engine-v6",
+        "specId": "gen_aaa3006b",
+        "profileVersion": "exam-style-profile-v2"
+      }
+    },
+    {
+      "orderIndex": 8,
+      "subject": "success",
+      "unitNumber": 16,
+      "unitTitle": "근로관계와 법 (2)",
+      "targetConcept": "모성 보호와 일·가정 양립 제도",
+      "itemType": "ai_generative_truth_combination",
+      "difficulty": "HIGH",
+      "points": 3,
+      "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+      "questionStem": "다음 상담에서 가죽 공방 운영자 A 씨가 밝힌 직원 사례를 분석한 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "stimulusData": {
+        "blocks": [
+          {
+            "type": "figure",
+            "figure_id": "F1"
+          },
+          {
+            "type": "dialogue",
+            "lines": [
+              {
+                "speaker": "근로관계법 전문가",
+                "text": "전시회 준비로 바쁘신데 직원들의 근로 조건 때문에 고민이 많으시다고요?"
+              },
+              {
+                "speaker": "A 씨",
+                "text": "네, 저희 가죽 공방은 저를 빼고 상시 근로자가 6명이에요. 3년째 근무하는 B 씨는 자녀 1명을 임신하였는데, 출산 예정일 60일 전부터 90일 동안 휴가를 쓰겠다고 하였어요."
+              },
+              {
+                "speaker": "근로관계법 전문가",
+                "text": "남성 직원 C 씨도 휴직을 신청하였다고 들었는데요?"
+              },
+              {
+                "speaker": "A 씨",
+                "text": "네, 2년째 근무하는 C 씨가 만 5세 자녀를 돌보겠다고 하였지만, 남성의 휴직은 받아들이기 어려워 30일 전에 예고하고 해고하려고 해요. D 씨는 출퇴근 시각을 스스로 정하여 4주 동안 주 44시간씩 2주, 주 32시간씩 2주를 일하겠다고 하였어요."
+              }
+            ]
+          }
+        ],
+        "figures": {
+          "F1": {
+            "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0ODAgMjI0IiBmb250LWZhbWlseT0iJiMzOTtOb3RvIFNhbnMgS1ImIzM5OywmIzM5O0FwcGxlIFNEIEdvdGhpYyBOZW8mIzM5OywmIzM5O01hbGd1biBHb3RoaWMmIzM5OywmIzM5O05hbnVtR290aGljJiMzOTssc2Fucy1zZXJpZiI+PGRlZnM+PGNsaXBQYXRoIGlkPSJGMS1lOTdhZmYtY2xpcCI+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjQ4MCIgaGVpZ2h0PSIyMjQiLz48L2NsaXBQYXRoPjwvZGVmcz48ZyBjbGlwLXBhdGg9InVybCgjRjEtZTk3YWZmLWNsaXApIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNDAgOCkiPjxyZWN0IHg9Ii05LjUiIHk9Ijk2IiB3aWR0aD0iMTkiIGhlaWdodD0iMjYiIGZpbGw9IiNmYmZiZmIiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciLz48cGF0aCBkPSJNLTEzIDExM0MtMjggMTE2IC01NiAxMTggLTYxIDE0MEMtNjQgMTcwIC02NCAxOTQgLTYyIDIzNEw0OSAyMzRDNDcgMTk0IDQ2IDE3MCA0NSAxNDBDNTYgMTE4IDI4IDExNiAxMyAxMTNaIiBmaWxsPSIjYjhiOGI4IiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTS0xNyAxMTJMMCAxNDlMMTcgMTEyWiIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0tMTcgMTE0TC0zIDE1MUwtMyAyMjgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjMiLz48cGF0aCBkPSJNMTcgMTE0TDMgMTUxIiBmaWxsPSJub25lIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS4zIi8+PGNpcmNsZSBjeD0iMCIgY3k9IjE2NSIgcj0iMiIgZmlsbD0iIzU1NSIvPjxjaXJjbGUgY3g9IjAiIGN5PSIxODUiIHI9IjIiIGZpbGw9IiM1NTUiLz48Y2lyY2xlIGN4PSIwIiBjeT0iMjA1IiByPSIyIiBmaWxsPSIjNTU1Ii8+PGVsbGlwc2UgY3g9IjAiIGN5PSI3MCIgcng9IjI4IiByeT0iMzQiIGZpbGw9IiNmYmZiZmIiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciLz48cGF0aCBkPSJNLTI3IDY4Qy0zNiA2NSAtMzYgODIgLTI3IDgwIiBmaWxsPSIjZmJmYmZiIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43Ii8+PGVsbGlwc2UgY3g9Ii00IiBjeT0iNzIiIHJ4PSIyLjMiIHJ5PSIyLjkiIGZpbGw9IiMyNjI2MjYiLz48ZWxsaXBzZSBjeD0iMTMiIGN5PSI3MiIgcng9IjIuMyIgcnk9IjIuOSIgZmlsbD0iIzI2MjYyNiIvPjxwYXRoIGQ9Ik0tOSA2NFEtNCA2MSAxIDYzLjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik04IDYzLjVRMTMgNjEgMTggNjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik02IDc3UTkuNSA4NCA1IDg1IiBmaWxsPSJub25lIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS40IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cGF0aCBkPSJNLTIgOTFRNC41IDk2LjUgMTEgOTEiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik0tMjkgNzRDLTMzIDQ4IC0yNiAzMiAtMiAzMUMyNCAzMCAzMiA1MiAyOSA2OEMyNCA1NyAxNCA1MiAyIDQ5Qy04IDU0IC0yMiA1NiAtMjMgNjhaIiBmaWxsPSIjM2EzYTNhIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTS00MSAxNThDLTQzIDE4MCAtNDMgMjA0IC00MiAyMzQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxyZWN0IHg9Ii00IiB5PSIxNDgiIHdpZHRoPSI0NCIgaGVpZ2h0PSI1NCIgcng9IjIiIGZpbGw9IiNmMmYyZjIiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjUiIHRyYW5zZm9ybT0icm90YXRlKC04IDE4IDE3NSkiLz48cmVjdCB4PSIxMCIgeT0iMTQ1IiB3aWR0aD0iMTYiIGhlaWdodD0iNyIgcng9IjEuNSIgZmlsbD0iIzg4OCIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuMSIgdHJhbnNmb3JtPSJyb3RhdGUoLTggMTggMTc1KSIvPjxwYXRoIGQ9Ik00IDE2NGgyOE00IDE3NGgyOE00IDE4NGgxOCIgc3Ryb2tlPSIjOWE5YTlhIiBzdHJva2Utd2lkdGg9IjEuMyIgdHJhbnNmb3JtPSJyb3RhdGUoLTggMTggMTc1KSIvPjxwYXRoIGQ9Ik00OSAxMzRMNTkgMTg2TDI2IDE5OCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjIyLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik00OSAxMzRMNTkgMTg2TDI2IDE5OCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYjhiOGI4IiBzdHJva2Utd2lkdGg9IjE5IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48ZWxsaXBzZSBjeD0iMjYiIGN5PSIxOTgiIHJ4PSI3LjUiIHJ5PSI2LjkiIGZpbGw9IiNmYmZiZmIiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciLz48L2c+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzQwIDgpIHNjYWxlKC0xIDEpIj48cGF0aCBkPSJNLTMyIDY0Qy0zNiAxMDAgLTM4IDEyMCAtMjYgMTMwTDI2IDEzMEMzOCAxMjAgMzYgMTAwIDMyIDY0WiIgZmlsbD0iIzNhM2EzYSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxyZWN0IHg9Ii05LjUiIHk9Ijk2IiB3aWR0aD0iMTkiIGhlaWdodD0iMjYiIGZpbGw9IiNmYmZiZmIiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciLz48cGF0aCBkPSJNLTEzIDExM0MtMjggMTE2IC00OSAxMTggLTU0IDE0MEMtNTcgMTcwIC01NyAxOTQgLTU1IDIzNEw0MiAyMzRDNDAgMTk0IDM5IDE3MCAzOCAxNDBDNDkgMTE4IDI4IDExNiAxMyAxMTNaIiBmaWxsPSIjYWRhZGFkIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTS0xNiAxMTNDLTEwIDEyNyAxMCAxMjcgMTYgMTEzIiBmaWxsPSJub25lIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS40Ii8+PHBhdGggZD0iTS0xMyAxMTRDLTggMTIyIDggMTIyIDEzIDExNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNzc3IiBzdHJva2Utd2lkdGg9IjEuMSIvPjxlbGxpcHNlIGN4PSIwIiBjeT0iNzAiIHJ4PSIyOCIgcnk9IjM0IiBmaWxsPSIjZmJmYmZiIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43Ii8+PHBhdGggZD0iTS0yNyA2OEMtMzYgNjUgLTM2IDgyIC0yNyA4MCIgZmlsbD0iI2ZiZmJmYiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIvPjxlbGxpcHNlIGN4PSItNCIgY3k9IjcyIiByeD0iMi4zIiByeT0iMi45IiBmaWxsPSIjMjYyNjI2Ii8+PGVsbGlwc2UgY3g9IjEzIiBjeT0iNzIiIHJ4PSIyLjMiIHJ5PSIyLjkiIGZpbGw9IiMyNjI2MjYiLz48cGF0aCBkPSJNLTkgNjRRLTQgNjEgMSA2My41IiBmaWxsPSJub25lIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS44IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cGF0aCBkPSJNOCA2My41UTEzIDYxIDE4IDY0IiBmaWxsPSJub25lIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS44IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cGF0aCBkPSJNMTUuMiA2OS42bDIuNiAtMS42IiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS4yIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cGF0aCBkPSJNNiA3N1E5LjUgODQgNSA4NSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTS0yIDkxUTQuNSA5Ni41IDExIDkxIiBmaWxsPSJub25lIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cGF0aCBkPSJNLTMyIDg4Qy0zNiA1MiAtMjYgMzAgMiAzMEMyNiAzMCAzNiA1MiAzMiA4OEwyNiA4NkMyOCA2OCAyNiA1OCAyMCA1NEMxMCA2MCAtNiA1NiAtMTIgNDhDLTE2IDU2IC0yNCA2MiAtMjYgODZaIiBmaWxsPSIjM2EzYTNhIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTS0zNCAxNThDLTM2IDE4MCAtMzYgMjA0IC0zNSAyMzQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik00MiAxMzRMNTIgMTg0TDcxIDE2NiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjIyLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik00MiAxMzRMNTIgMTg0TDcxIDE2NiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYWRhZGFkIiBzdHJva2Utd2lkdGg9IjE5IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNNjUgMTcyQzYzIDE2MyA3MCAxNTcgNzkgMTU3Qzg1IDE1NyA4NiAxNjEgODIgMTYyTDc2IDE2M0M4MSAxNjYgODAgMTcyIDczIDE3NFoiIGZpbGw9IiNmYmZiZmIiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L2c+PC9nPjwvc3ZnPg==",
+            "alt": "장식용. 근로관계법 전문가(상담사)와 A 씨(시민)가 마주 보고 이야기하는 인물 그림. 대화 내용은 이어지는 대화 블록에 있음.",
+            "kind": "illustration",
+            "spec": {
+              "id": "F1",
+              "kind": "scene",
+              "layout": "pair",
+              "people": [
+                {
+                  "speaker": "근로관계법 전문가",
+                  "role": "counselor",
+                  "gender": "male",
+                  "age": "adult"
+                },
+                {
+                  "speaker": "A 씨",
+                  "role": "citizen",
+                  "gender": "female",
+                  "age": "adult"
+                }
+              ]
+            }
+          }
+        },
+        "choice_table": null
+      },
+      "optionsList": [
+        "① ㄱ, ㄴ, ㄷ",
+        "② ㄱ, ㄴ, ㄹ",
+        "③ ㄱ, ㄷ, ㄹ",
+        "④ ㄴ, ㄷ, ㄹ",
+        "⑤ ㄱ, ㄴ, ㄷ, ㄹ"
+      ],
+      "comboBlock": {
+        "title": "<보기>",
+        "items": [
+          {
+            "key": "ㄱ",
+            "text": "B 씨가 계획대로 휴가를 쓰면 출산 후 휴가 기간이 법정 기준에 못 미친다."
+          },
+          {
+            "key": "ㄴ",
+            "text": "C 씨는 남성이지만 자녀 연령과 근속 기간에 비추어 육아휴직 대상에 해당한다."
+          },
+          {
+            "key": "ㄷ",
+            "text": "30일 전에 예고하여도 C 씨 해고는 부당 노동 행위가 아닌 ｢남녀고용평등법｣ 위반이다."
+          },
+          {
+            "key": "ㄹ",
+            "text": "D 씨의 4주 근무 계획은 선택적 근로시간제의 근로 시간 기준을 충족한다."
+          }
+        ]
+      },
+      "correctAnswer": 5,
+      "explanation": {
+        "judgment": "[출제 의도] 출산전후휴가, 육아휴직, 선택적 근로시간제의 요건을 사례에 적용하고, 육아휴직 신청을 이유로 한 해고를 부당 노동 행위와 구별할 수 있는가?\n[해설] ㄱ. 자녀 1명을 임신한 B 씨의 출산전후휴가는 90일이며 출산 후 45일 이상이 되어야 한다. 출산 예정일 60일 전부터 시작하면 출산 후는 30일이므로 기준에 못 미친다. ㄴ. 육아휴직은 성별과 관계없이 만 8세 이하 자녀를 양육하는 근로자가 신청할 수 있으며, C 씨는 만 5세 자녀를 두고 2년째 근무하고 있어 대상에 해당한다. ㄷ. 30일 전 해고 예고는 절차일 뿐이며, 남성의 육아휴직 신청을 이유로 한 해고는 노동조합 활동과 관계가 없으므로 부당 노동 행위가 아니라 ｢남녀고용평등법｣ 위반이다. ㄹ. 근로자가 출퇴근 시각을 스스로 정하는 방식은 선택적 근로시간제이며, 4주 평균 주 38시간으로 1주 40시간 이내이므로 기준을 충족한다. 따라서 ㄱ, ㄴ, ㄷ, ㄹ 모두 적절하다.\n[오답 피하기] ㄱ을 거짓으로 보는 경우: 휴가 총일수 90일만 확인하고 출산 후 45일 이상 배정 기준을 적용하지 않은 실수이다. ㄴ을 거짓으로 보는 경우: 육아휴직을 여성 근로자만 쓸 수 있는 제도로 오해한 것이다. ㄷ을 거짓으로 보는 경우: 해고 예고 절차를 지키면 해고가 적법하다고 보거나, 근로자 권익 침해를 모두 부당 노동 행위로 본 혼동이다. ㄹ을 거짓으로 보는 경우: 주 44시간인 주만 보고 1주 40시간을 넘었다고 판단하여 정산 기간 평균을 계산하지 않은 실수이다.",
+        "conceptHighlightV2": {
+          "stimulusClues": [
+            {
+              "quote": "출산 예정일 60일 전부터 90일 동안 휴가를 쓰겠다고 하였어요",
+              "why": "90일 중 출산 후 휴가가 30일만 남아 출산 후 45일 이상 배정 기준을 판단하게 한다."
+            },
+            {
+              "quote": "2년째 근무하는 C 씨가 만 5세 자녀를 돌보겠다고 하였지만",
+              "why": "남성 직원 C 씨의 휴직은 성별과 관계없이 만 8세 이하 자녀를 양육하는 근로자가 쓰는 육아휴직을 가리킨다."
+            },
+            {
+              "quote": "남성의 휴직은 받아들이기 어려워 30일 전에 예고하고 해고하려고 해요",
+              "why": "해고 이유가 노동조합 활동이 아닌 육아휴직 신청이므로 남녀고용평등법 위반을 판단하게 한다."
+            },
+            {
+              "quote": "4주 동안 주 44시간씩 2주, 주 32시간씩 2주를 일하겠다고 하였어요",
+              "why": "선택적 근로시간제의 정산 기간 평균 1주 40시간 기준을 계산하게 한다."
+            }
+          ],
+          "optionAnalysis": [
+            {
+              "optionKey": "ㄱ",
+              "verdict": "O",
+              "reasoning": "자녀 1명 임신 시 출산전후휴가 90일 중 출산 후 45일 이상이 되어야 하는데, 출산 예정일 60일 전부터 90일을 쓰면 출산 후 휴가는 30일에 그치므로 기준에 못 미친다."
+            },
+            {
+              "optionKey": "ㄴ",
+              "verdict": "O",
+              "reasoning": "육아휴직은 성별과 관계없이 만 8세 이하 자녀를 양육하는 근로자가 대상이며, C 씨는 만 5세 자녀를 두고 6개월 이상인 2년째 근무하고 있으므로 대상에 해당한다."
+            },
+            {
+              "optionKey": "ㄷ",
+              "verdict": "O",
+              "reasoning": "해고 예고 절차를 지켜도 육아휴직 신청을 이유로 한 해고는 정당하지 않으며, 해고 이유가 노동조합 활동이 아니므로 부당 노동 행위가 아니라 ｢남녀고용평등법｣ 위반에 해당한다."
+            },
+            {
+              "optionKey": "ㄹ",
+              "verdict": "O",
+              "reasoning": "출퇴근 시각을 근로자가 정하는 방식은 선택적 근로시간제이며, 4주 평균 근로 시간이 (44×2+32×2)÷4=38시간으로 1주 40시간을 넘지 않으므로 기준을 충족한다."
+            }
+          ],
+          "solvingFlow": [
+            {
+              "step": 1,
+              "action": "B 씨의 휴가를 출산전후휴가로 판별하고 90-60=30일로 출산 후 휴가를 구해 45일 기준과 비교한다."
+            },
+            {
+              "step": 2,
+              "action": "C 씨의 휴직을 육아휴직으로 판별하고 자녀 연령(만 5세), 근속 기간(2년), 성별 무관 원칙을 적용한다."
+            },
+            {
+              "step": 3,
+              "action": "C 씨 해고의 이유가 노동조합 활동인지 육아휴직 신청인지 확인하고, 해고 예고 절차와 해고의 정당성을 구별한다."
+            },
+            {
+              "step": 4,
+              "action": "D 씨의 요청을 선택적 근로시간제로 판별하고 (44×2+32×2)÷4=38시간을 1주 40시간과 비교한다."
+            }
+          ],
+          "takeaway": "출산전후휴가는 총 90일과 함께 출산 후 45일 이상 배정을 확인하고, 선택적 근로시간제는 특정 주가 아니라 정산 기간 평균으로 1주 40시간을 판단한다."
+        }
+      },
+      "fingerprint": "3227e422",
+      "generation": {
+        "engine": "exam-skill-engine-v6",
+        "specId": "gen_23dadbcb",
+        "profileVersion": "exam-style-profile-v2"
+      }
+    },
+    {
+      "orderIndex": 9,
+      "subject": "success",
+      "unitNumber": 17,
+      "unitTitle": "고용 서비스와 사회 제도",
+      "targetConcept": "고용보험 적용 대상과 제외",
+      "itemType": "ai_generative_statement",
+      "difficulty": "HIGH",
+      "points": 3,
+      "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+      "questionStem": "다음은 고용24(구 워크넷) 상담 게시판의 대화이다. 학생 A와 가족에게 적용되는 고용보험에 대해 분석한 내용으로 옳은 것은?",
+      "stimulusData": {
+        "blocks": [
+          {
+            "type": "dialogue",
+            "lines": [
+              {
+                "speaker": "상담사",
+                "text": "고용24(구 워크넷) 상담 게시판입니다. 어떤 점이 궁금하신가요?"
+              },
+              {
+                "speaker": "학생 A",
+                "text": "저는 △△기업에서 현장 실습 중인 고등학생이에요. 구직 활동 단계별 지원을 찾다가 이곳을 알게 되었어요. 겨울 방학 6주 동안 상시 근로자 3명인 □□ 빵집과 근로 계약을 맺고, 토요일에만 1주 6시간 일하기로 하였어요."
+              },
+              {
+                "speaker": "상담사",
+                "text": "가족분들의 근무 상황도 알려 주시겠어요?"
+              },
+              {
+                "speaker": "학생 A",
+                "text": "할아버지께서는 60세에 정년퇴직하고 쉬시다가 70세인 올해 상시 근로자 4명인 ◇◇ 물류 회사에 새로 입사하셨어요. 52세인 어머니께서도 올해 같은 회사에 새로 입사하셨어요. 두 분 모두 1주 40시간 일하시고, 다른 사정은 없어요."
+              }
+            ]
+          }
+        ],
+        "figures": {},
+        "choice_table": null
+      },
+      "optionsList": [
+        "① 할아버지는 ◇◇ 물류 회사에서 고용보험이 적용되지만 구직급여는 적용되지 않는다.",
+        "② 어머니는 빵집에서 일하는 학생 A와 같이 고용보험 적용이 제외되는 근로자에 해당한다.",
+        "③ 할아버지의 실업급여 보험료는 사업주와 할아버지가 절반씩 나누어 부담한다.",
+        "④ 할아버지와 어머니는 모두 50세 이후에 새로 입사하였으므로 구직급여 적용 여부가 같다.",
+        "⑤ 학생 A는 빵집 근로에 대해 고용보험이 적용되지만 구직급여는 적용되지 않는다."
+      ],
+      "comboBlock": null,
+      "correctAnswer": 1,
+      "explanation": {
+        "judgment": "[출제 의도] 사례의 사업장 규모, 1주 소정근로시간, 입사 당시 연령을 고용보험 적용 기준에 대입하여 적용 대상과 적용 제외를 판단할 수 있는가?\n[해설] 빵집(상시 근로자 3명)과 물류 회사(상시 근로자 4명)는 모두 5명 미만이지만 고용보험은 근로자를 사용하는 모든 사업장에 적용되므로 사업장 규모로는 적용이 제외되지 않는다. 학생 A는 1주 6시간 일하므로 1주 소정근로시간 15시간 미만 근로자에 해당하여 빵집 근로에 대해 고용보험 전체가 적용 제외된다. 할아버지는 60세에 퇴직한 뒤 70세에 새로 입사하였으므로 65세 이후 신규 고용에 해당하여 고용보험은 적용되지만 실업급여(구직급여)는 적용되지 않는다. 어머니는 52세에 입사하였고 1주 40시간 일하므로 실업급여를 포함한 고용보험 전체가 적용된다. 따라서 할아버지에게 고용보험이 적용되지만 구직급여는 적용되지 않는다는 진술이 옳다.\n[오답 피하기] 5명 미만 사업장도 고용보험이 적용되고 어머니는 1주 40시간 일하므로 적용 제외 근로자가 아니다. 1주 소정근로시간 15시간 미만으로 적용이 제외되는 사람은 학생 A뿐이다. 할아버지는 65세 이후 신규 고용으로 실업급여가 적용되지 않으므로 실업급여 보험료를 절반씩 부담하지 않는다. 고용 안정·직업 능력 개발 보험료는 사업주만 부담한다. 구직급여 미적용 기준은 50세가 아니라 65세 이후 신규 고용이므로, 70세에 입사한 할아버지와 52세에 입사한 어머니는 구직급여 적용 여부가 다르다. 50세는 소정급여일수 구분 기준이다. 1주 15시간 미만 근로자는 고용보험 전체가 적용 제외되므로, 학생 A에게 빵집 근로에 대해 고용보험이 적용되고 구직급여만 적용되지 않는다는 진술은 틀렸다.",
+        "conceptHighlightV2": {
+          "stimulusClues": [
+            {
+              "quote": "토요일에만 1주 6시간 일하기로 하였어요",
+              "why": "1주 소정근로시간 15시간 미만 근로자로서 고용보험 전체가 적용 제외됨을 가리킨다."
+            },
+            {
+              "quote": "70세인 올해 상시 근로자 4명인 ◇◇ 물류 회사에 새로 입사하셨어요",
+              "why": "65세 이후 새로 고용된 사람이므로 실업급여가 적용되지 않으며, 5명 미만 사업장도 고용보험이 적용됨을 가리킨다."
+            },
+            {
+              "quote": "52세인 어머니께서도 올해 같은 회사에 새로 입사하셨어요",
+              "why": "65세 전에 고용되었으므로 실업급여를 포함한 고용보험 전체가 적용됨을 가리킨다."
+            },
+            {
+              "quote": "두 분 모두 1주 40시간 일하시고",
+              "why": "할아버지와 어머니는 소정근로시간 기준으로 적용 제외되는 근로자가 아님을 가리킨다."
+            }
+          ],
+          "optionAnalysis": [
+            {
+              "optionNum": 1,
+              "verdict": "O",
+              "reasoning": "고용보험은 상시 근로자 5명 미만 사업장에도 적용되고 할아버지는 1주 40시간 일하므로 적용 대상이지만, 65세 이후 새로 고용된 사람이므로 실업급여(구직급여)는 적용되지 않는다."
+            },
+            {
+              "optionNum": 2,
+              "verdict": "X",
+              "reasoning": "학생 A는 1주 소정근로시간이 15시간 미만이어서 적용이 제외되지만, 어머니는 1주 40시간 일하고 5명 미만 사업장도 고용보험이 적용되므로 적용 제외 근로자가 아니다."
+            },
+            {
+              "optionNum": 3,
+              "verdict": "X",
+              "reasoning": "65세 이후 새로 고용된 할아버지에게는 실업급여가 적용되지 않으므로 실업급여 보험료를 부담하지 않으며, 고용 안정·직업 능력 개발 보험료만 사업주가 부담한다."
+            },
+            {
+              "optionNum": 4,
+              "verdict": "X",
+              "reasoning": "구직급여가 적용되지 않는 기준은 65세 이후 신규 고용이므로 70세에 입사한 할아버지는 적용되지 않고 52세에 입사한 어머니는 적용되어 두 사람의 적용 여부가 다르다. 50세는 소정급여일수를 나누는 기준이다."
+            },
+            {
+              "optionNum": 5,
+              "verdict": "X",
+              "reasoning": "학생 A의 1주 소정근로시간은 6시간으로 15시간 미만이므로 빵집 근로에 대해 고용보험 전체가 적용 제외되며, 구직급여만 빠지는 것이 아니다."
+            }
+          ],
+          "solvingFlow": [
+            {
+              "step": 1,
+              "action": "사업장 규모 확인: 빵집 3명, 물류 회사 4명 → 5명 미만도 고용보험 적용 대상 사업장"
+            },
+            {
+              "step": 2,
+              "action": "학생 A의 소정근로시간 확인: 1주 6시간 < 15시간 → 빵집 근로는 고용보험 전체 적용 제외"
+            },
+            {
+              "step": 3,
+              "action": "입사 당시 연령 확인: 할아버지 70세 신규 입사 → 고용보험 적용, 실업급여 미적용 / 어머니 52세 → 실업급여 포함 전체 적용"
+            },
+            {
+              "step": 4,
+              "action": "각 진술의 결론을 ①~③과 비교하여 할아버지에 대한 진술만 옳음을 확인"
+            }
+          ],
+          "takeaway": "1주 15시간 미만 근로자는 고용보험 전체가 적용 제외되지만, 65세 이후 새로 고용된 사람은 고용보험은 적용되고 실업급여만 적용되지 않으며, 5명 미만 사업장도 고용보험이 적용된다."
+        }
+      },
+      "fingerprint": "ec729796",
+      "generation": {
+        "engine": "exam-skill-engine-v6",
+        "specId": "gen_a051f87f",
+        "profileVersion": "exam-style-profile-v2"
+      }
+    },
+    {
+      "orderIndex": 10,
+      "subject": "success",
+      "unitNumber": 17,
+      "unitTitle": "고용 서비스와 사회 제도",
+      "targetConcept": "취업촉진 수당",
+      "itemType": "ai_generative_statement",
+      "difficulty": "HIGH",
+      "points": 3,
+      "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+      "questionStem": "다음 ○○ 사회적 기업 사례에서 A 씨, B 씨에게 적용될 수 있는 실업급여에 대한 분석으로 가장 적절한 것은?",
+      "stimulusData": {
+        "blocks": [
+          {
+            "type": "text",
+            "text": "갑은 취약 계층을 고용하여 친환경 세제를 만드는 ○○ 사회적 기업을 운영한다. 2024년 3월 납품 계약이 끝나 경영이 악화되자, 갑은 인원 감축을 위해 A 씨와 B 씨에게 사직을 권고하였다. 두 사람은 2024년 3월 31일에 이직하였으며, 이직 사유에 다른 사정은 없다. 두 사람은 고용센터에서 수급 자격을 인정받아 구직급여를 받았고, 현재 재취업한 곳에서 1년 넘게 근무하고 있다."
+          },
+          {
+            "type": "table",
+            "title": "A 씨와 B 씨의 구직 및 재취업 경과",
+            "headers": [
+              [
+                "구분",
+                "A 씨",
+                "B 씨"
+              ]
+            ],
+            "rows": [
+              [
+                "이직 당시 나이·근속 기간",
+                "만 52세, 12년",
+                "만 34세, 4년"
+              ],
+              [
+                "소정급여일수",
+                "270일",
+                "180일"
+              ],
+              [
+                "수급 중 활동",
+                "본인이 고른 학원의 회계 강좌를 수강하였고, 고용센터 소개로 먼 지역 기업의 면접에 다녀옴",
+                "고용센터가 지시한 3개월 용접 훈련 과정을 받기 위해 다른 도시로 이사하여 과정을 마침"
+              ],
+              [
+                "재취업",
+                "구직급여 90일분을 받은 뒤 △△기업에 기간의 정함이 없는 근로자로 재취업",
+                "구직급여 150일분을 받은 뒤 그 도시의 □□기업에 기간의 정함이 없는 근로자로 재취업"
+              ]
+            ],
+            "caption": null
+          }
+        ],
+        "figures": {},
+        "choice_table": null
+      },
+      "optionsList": [
+        "① A 씨는 재취업 전 회계 강좌를 수강한 기간에 대해 직업 능력 개발 수당을 받을 수 있다.",
+        "② A 씨는 조기 재취업 수당을 받을 수 있으나, B 씨는 받을 수 없다.",
+        "③ B 씨는 지시받은 훈련을 받았으므로 소정급여일수를 넘겨 훈련 연장 급여를 받을 수 있다.",
+        "④ A 씨와 B 씨는 모두 먼 지역으로 구직·훈련 활동을 하였으므로 광역 구직 활동비를 받을 수 있다.",
+        "⑤ A 씨가 받을 수 있는 취업촉진 수당은 B 씨보다 그 종류가 더 많다."
+      ],
+      "comboBlock": null,
+      "correctAnswer": 2,
+      "explanation": {
+        "judgment": "[출제 의도] 실직자의 재취업 시점과 구직·훈련 활동을 분석하여 취업촉진 수당의 종류와 요건을 적용할 수 있는가?\n[해설] A 씨와 B 씨는 경영상 인원 감축에 따른 권고사직으로 이직하여 수급 자격이 제한되지 않는다. A 씨는 소정급여일수 270일 중 90일분을 받고 재취업하여 180일이 남았으므로 절반인 135일 이상을 남긴 조기 재취업에 해당한다. B 씨는 180일 중 150일분을 받고 재취업하여 30일만 남았으므로 절반인 90일에 미치지 못해 조기 재취업 수당을 받을 수 없다. 따라서 A 씨는 조기 재취업 수당을 받을 수 있으나 B 씨는 받을 수 없다는 진술이 옳다.\n[오답 피하기] A 씨의 회계 강좌는 본인이 고른 학원 강좌로 직업안정기관의 장의 지시가 없으므로 직업 능력 개발 수당의 대상이 아니다. B 씨는 소정급여일수가 끝나기 전에 훈련을 마치고 재취업하였으므로 훈련 연장 급여가 지급되지 않는다. A 씨의 먼 지역 면접은 광역 구직 활동비 대상이나, B 씨가 지시받은 훈련을 위해 주거를 옮긴 경비는 이주비이므로 두 사람 모두 광역 구직 활동비를 받는 것은 아니다. A 씨는 조기 재취업 수당·광역 구직 활동비, B 씨는 직업 능력 개발 수당·이주비를 받을 수 있어 종류의 수가 같다. 본인이 고른 회계 강좌를 직업 능력 개발 수당으로 세면 A 씨가 더 많다고 잘못 판단하게 된다.",
+        "conceptHighlightV2": {
+          "stimulusClues": [
+            {
+              "quote": "구직급여 90일분을 받은 뒤 △△기업에 기간의 정함이 없는 근로자로 재취업",
+              "why": "A 씨는 소정급여일수 270일 중 180일을 남기고 안정된 직업에 재취업하여 조기 재취업 수당 요건을 충족한다."
+            },
+            {
+              "quote": "구직급여 150일분을 받은 뒤 그 도시의 □□기업에 기간의 정함이 없는 근로자로 재취업",
+              "why": "B 씨는 소정급여일수 180일 중 30일만 남아 절반 이상을 남기지 못하였다."
+            },
+            {
+              "quote": "본인이 고른 학원의 회계 강좌를 수강하였고",
+              "why": "직업안정기관의 장이 지시하지 않은 훈련이므로 직업 능력 개발 수당의 대상이 아니다."
+            },
+            {
+              "quote": "고용센터가 지시한 3개월 용접 훈련 과정을 받기 위해 다른 도시로 이사하여 과정을 마침",
+              "why": "지시받은 훈련을 위한 주거 이전은 이주비의 대상이며, 소정급여일수 안에 훈련을 마쳐 훈련 연장 급여는 해당하지 않는다."
+            }
+          ],
+          "optionAnalysis": [
+            {
+              "optionNum": 1,
+              "verdict": "X",
+              "reasoning": "직업 능력 개발 수당은 직업안정기관의 장이 지시한 훈련을 받는 기간에 지급되는데, A 씨의 회계 강좌는 본인이 고른 학원 강좌이므로 대상이 아니다."
+            },
+            {
+              "optionNum": 2,
+              "verdict": "O",
+              "reasoning": "A 씨는 270일 중 90일분만 받아 180일이 남아 절반(135일) 이상을 남기고 안정된 직업에 재취업하였으나, B 씨는 180일 중 150일분을 받아 30일만 남아 절반(90일)에 미치지 못한다."
+            },
+            {
+              "optionNum": 3,
+              "verdict": "X",
+              "reasoning": "B 씨는 구직급여 150일분을 받는 동안 훈련을 마치고 재취업하였으므로, 소정급여일수 180일이 끝난 뒤 훈련을 받는 경우에 주는 훈련 연장 급여의 대상이 아니다."
+            },
+            {
+              "optionNum": 4,
+              "verdict": "X",
+              "reasoning": "A 씨의 먼 지역 면접은 고용센터 소개에 따른 구직 활동이므로 광역 구직 활동비 대상이지만, B 씨가 지시받은 훈련을 받으려 주거를 옮긴 경비는 이주비이므로 광역 구직 활동비가 아니다."
+            },
+            {
+              "optionNum": 5,
+              "verdict": "X",
+              "reasoning": "A 씨는 조기 재취업 수당과 광역 구직 활동비, B 씨는 지시받은 훈련에 따른 직업 능력 개발 수당과 이주비를 받을 수 있어 두 사람 모두 두 종류로 같다."
+            }
+          ],
+          "solvingFlow": [
+            {
+              "step": 1,
+              "action": "본문에서 두 사람이 인원 감축에 따른 권고사직으로 이직하여 수급 자격이 인정된 것을 확인한다."
+            },
+            {
+              "step": 2,
+              "action": "표에서 A 씨의 남은 일수(270일 − 90일 = 180일)를 절반(135일)과 비교하여 조기 재취업 수당 요건 충족을 판정한다."
+            },
+            {
+              "step": 3,
+              "action": "B 씨의 남은 일수(180일 − 150일 = 30일)를 절반(90일)과 비교하여 요건 불충족을 판정한다."
+            },
+            {
+              "step": 4,
+              "action": "수급 중 활동을 지시·소개 여부와 목적(구직 활동, 훈련, 주거 이전)에 따라 직업 능력 개발 수당, 광역 구직 활동비, 이주비로 구분하고, 두 사람이 받을 수 있는 수당의 종류를 각각 센다(A 씨 2종, B 씨 2종)."
+            },
+            {
+              "step": 5,
+              "action": "훈련 시점을 소정급여일수와 비교하여 B 씨가 훈련 연장 급여 대상이 아님을 확인한다."
+            }
+          ],
+          "takeaway": "조기 재취업 수당은 받은 일수가 아니라 소정급여일수 대비 남은 일수가 절반 이상인지로 판정하며, 취업촉진 수당은 지시·소개 여부와 경비의 목적으로 종류가 갈린다."
+        }
+      },
+      "fingerprint": "8041fb44",
+      "generation": {
+        "engine": "exam-skill-engine-v6",
+        "specId": "gen_a69a66d0",
+        "profileVersion": "exam-style-profile-v2"
+      }
+    },
+    {
+      "orderIndex": 11,
+      "subject": "success",
+      "unitNumber": 17,
+      "unitTitle": "고용 서비스와 사회 제도",
+      "targetConcept": "출산전후휴가 급여와 육아휴직 급여",
+      "itemType": "ai_generative_truth_combination",
+      "difficulty": "HIGH",
+      "points": 3,
+      "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+      "questionStem": "다음은 고용보험 상담 게시판에 올라온 질의 내용이다. A 씨와 B 씨에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "stimulusData": {
+        "blocks": [
+          {
+            "type": "table",
+            "title": "고용보험 상담 게시판 질의 내용(등록일: 2025년 9월 15일)",
+            "headers": [
+              [
+                "구분",
+                "A 씨",
+                "B 씨"
+              ]
+            ],
+            "rows": [
+              [
+                "직장·직무",
+                "○○ 요양원에서 요양보호사로 근무함",
+                "△△ 재가 노인 복지 센터에서 방문 돌봄 업무를 하였음"
+              ],
+              [
+                "고용 기간",
+                "2021년 3월 2일 입사, 주 40시간 근무, 고용보험 가입",
+                "2023년 9월 1일 입사, 주 40시간 근무, 고용보험 가입"
+              ],
+              [
+                "경과",
+                "2025년 4월 10일 첫 자녀를 출산하였고, 출산 전후 90일 휴가를 5월 29일에 마침",
+                "돌봄 업무가 적성에 맞지 않아 2025년 8월 31일에 스스로 사직하였으며, 다른 사정은 없음"
+              ],
+              [
+                "계획",
+                "휴가 다음 날부터 6개월 육아휴직을 허락받았고, 복직 후 6개월은 주 25시간으로 줄여 근무하기로 회사와 합의함",
+                "구직 등록 후 수급 자격 인정을 신청하였고, 사무직으로 재취업하려 함"
+              ],
+              [
+                "질문",
+                "휴직 기간과 근무 시간을 줄인 기간에 받을 수 있는 지원이 있는지 궁금함",
+                "직장을 구하는 동안 받을 수 있는 지원이 있는지 궁금함"
+              ]
+            ],
+            "caption": null
+          }
+        ],
+        "figures": {},
+        "choice_table": null
+      },
+      "optionsList": [
+        "① ㄴ, ㄷ",
+        "② ㄴ, ㄹ",
+        "③ ㄷ, ㄹ",
+        "④ ㄴ, ㄷ, ㄹ",
+        "⑤ ㄱ, ㄴ, ㄷ, ㄹ"
+      ],
+      "comboBlock": {
+        "title": "<보기>",
+        "items": [
+          {
+            "key": "ㄱ",
+            "text": "A 씨가 2025년 5월 30일부터 6개월간 받는 고용보험 급여는 근로복지공단이 지급한다."
+          },
+          {
+            "key": "ㄴ",
+            "text": "A 씨는 출산전후휴가에 바로 이어 육아휴직을 하여도 육아휴직 급여를 받을 수 있다."
+          },
+          {
+            "key": "ㄷ",
+            "text": "B 씨는 피보험 단위기간 요건을 갖추었지만 구직급여 수급 자격이 제한된다."
+          },
+          {
+            "key": "ㄹ",
+            "text": "A 씨는 복직 후 근무 시간을 줄여 일하는 6개월 동안에도 고용보험 급여를 받을 수 있다."
+          }
+        ]
+      },
+      "correctAnswer": 4,
+      "explanation": {
+        "judgment": "[출제 의도] 출산·육아 관련 고용보험 급여와 구직급여 수급 자격 제한의 요건을 사례에 적용할 수 있는가?\n[해설] A 씨는 2021년 3월 2일에 입사하여 고용보험에 가입하였으므로 육아휴직 시작일 이전 피보험 단위기간이 180일을 크게 넘는다. 또 첫 자녀를 위해 6개월(30일 이상) 육아휴직을 허락받았으므로 육아휴직 급여 요건을 충족한다. ㄱ. 2025년 5월 30일은 출산전후휴가를 마친 다음 날로 육아휴직이 시작되는 날이므로 이 기간에 받는 급여는 육아휴직 급여이다. 육아휴직 급여는 근로자 본인이 고용센터에 신청하여 받으므로 근로복지공단이 지급한다는 진술은 적절하지 않다. ㄴ. 출산전후휴가가 끝난 뒤 바로 이어 육아휴직을 사용할 수 있으므로 A 씨는 육아휴직 급여를 받을 수 있다. ㄷ. B 씨는 이직일 이전 18개월 동안 피보험 단위기간 180일 이상 요건을 충족하지만, 적성 불일치라는 자기 사정으로 사직하였고 다른 사정이 없으므로 수급 자격이 제한된다. ㄹ. A 씨가 복직 후 근무 시간을 주 25시간으로 줄여 6개월 일하는 것은 30일 이상 실시하는 육아기 근로시간 단축이며, 피보험 단위기간 요건도 충족하므로 육아기 근로시간 단축 급여를 받을 수 있다. 따라서 적절한 것은 ㄴ, ㄷ, ㄹ이다.\n[오답 피하기] ㄱ: 5월 30일부터 6개월간 받는 급여는 육아휴직 급여이며, 이는 근로자 본인이 고용센터에 신청하여 받는다. 근로복지공단은 산업 재해 보상 보험 급여를 지급하는 기관이므로 지급 기관을 바꾸어 틀린 진술이다.",
+        "conceptHighlightV2": {
+          "stimulusClues": [
+            {
+              "quote": "2021년 3월 2일 입사, 주 40시간 근무, 고용보험 가입",
+              "why": "육아휴직 시작일 이전 피보험 단위기간 180일 이상 요건을 넉넉히 충족함을 보여 준다."
+            },
+            {
+              "quote": "휴가 다음 날부터 6개월 육아휴직을 허락받았고",
+              "why": "출산전후휴가에 바로 이어 30일 이상 육아휴직을 부여받았음을 나타낸다."
+            },
+            {
+              "quote": "복직 후 6개월은 주 25시간으로 줄여 근무하기로 회사와 합의함",
+              "why": "30일 이상 실시하는 육아기 근로시간 단축에 해당하여 단축 급여 대상임을 가리킨다."
+            },
+            {
+              "quote": "돌봄 업무가 적성에 맞지 않아 2025년 8월 31일에 스스로 사직하였으며, 다른 사정은 없음",
+              "why": "정당한 이직 사유 없는 자기 사정 이직으로 구직급여 수급 자격이 제한됨을 나타낸다."
+            }
+          ],
+          "optionAnalysis": [
+            {
+              "optionKey": "ㄱ",
+              "verdict": "X",
+              "reasoning": "5월 30일은 출산전후휴가를 마친 다음 날로 6개월 육아휴직이 시작되는 날이며, A 씨는 피보험 단위기간 180일 이상 요건을 갖추어 육아휴직 급여 대상이다. 육아휴직 급여는 근로자 본인이 고용센터에 신청하여 받는 고용보험 급여이므로 근로복지공단이 지급한다는 진술은 적절하지 않다."
+            },
+            {
+              "optionKey": "ㄴ",
+              "verdict": "O",
+              "reasoning": "A 씨는 2021년 3월에 입사하여 육아휴직 시작 전 피보험 단위기간이 180일을 크게 넘고, 갓 태어난 자녀를 위해 6개월 육아휴직을 허락받았다. 출산전후휴가 종료 후 바로 이어 육아휴직을 사용할 수 있으므로 육아휴직 급여를 받을 수 있다."
+            },
+            {
+              "optionKey": "ㄷ",
+              "verdict": "O",
+              "reasoning": "B 씨는 약 2년간 고용보험에 가입하여 이직일 이전 18개월 동안 피보험 단위기간 180일 이상 요건을 충족하지만, 적성 불일치라는 자기 사정으로 스스로 사직하였고 다른 사정이 없으므로 수급 자격이 제한된다."
+            },
+            {
+              "optionKey": "ㄹ",
+              "verdict": "O",
+              "reasoning": "A 씨가 복직 후 주 25시간으로 줄여 6개월 근무하는 것은 30일 이상 실시하는 육아기 근로시간 단축에 해당하고, 피보험 단위기간 180일 이상 요건도 충족하므로 육아기 근로시간 단축 급여를 받을 수 있다."
+            }
+          ],
+          "solvingFlow": [
+            {
+              "step": 1,
+              "action": "표의 고용 기간 행에서 A 씨와 B 씨의 입사일과 고용보험 가입 여부를 확인하여 두 사람 모두 피보험 단위기간 180일 이상임을 판단한다."
+            },
+            {
+              "step": 2,
+              "action": "A 씨의 경과·계획 행에서 출산전후휴가 종료 후 바로 6개월 육아휴직을 하는 점을 확인하고, 육아휴직 급여 요건(180일 이상, 30일 이상 휴직)에 대입한다."
+            },
+            {
+              "step": 3,
+              "action": "5월 29일에 휴가를 마친 다음 날(5월 30일)부터의 급여가 육아휴직 급여임을 판별하고, 신청 기관이 고용센터임을 적용하여 ㄱ을 판정한다."
+            },
+            {
+              "step": 4,
+              "action": "A 씨의 복직 후 6개월 주 25시간 근무를 육아기 근로시간 단축(30일 이상)에 대입하여 ㄹ을 판정한다."
+            },
+            {
+              "step": 5,
+              "action": "B 씨의 이직 사유가 적성 불일치에 따른 자발적 사직이고 다른 사정이 없음을 확인하여 수급 자격 제한 여부(ㄷ)를 판정한다."
+            }
+          ],
+          "takeaway": "피보험 단위기간 요건을 충족해도 자기 사정으로 이직하면 구직급여가 제한되며, 육아휴직 급여는 출산전후휴가에 이어 사용해도 근로자 본인이 고용센터에 신청하여 받는다."
+        }
+      },
+      "fingerprint": "20e4c7cc",
+      "generation": {
+        "engine": "exam-skill-engine-v6",
+        "specId": "gen_bea8dd3c",
+        "profileVersion": "exam-style-profile-v2"
+      }
+    },
+    {
+      "orderIndex": 12,
+      "subject": "success",
+      "unitNumber": 18,
+      "unitTitle": "산업 안전과 재해 예방",
+      "targetConcept": "상병보상연금",
+      "itemType": "ai_generative_truth_combination",
+      "difficulty": "HIGH",
+      "points": 3,
+      "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+      "questionStem": "다음은 수행 평가 보고서의 일부이다. A 씨와 B 씨가 받을 수 있는 산재 보험 급여에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "stimulusData": {
+        "blocks": [
+          {
+            "type": "text",
+            "text": "사회 보험 사례 탐구 보고서\n■ 탐구 대상: 경력 단절 후 재취업한 근로자 A 씨, B 씨\n■ A 씨 사례\n• 8년간 육아로 경력이 단절되었다가 고용센터에서 직업 훈련을 수료함\n• 2025년 3월 ○○기업(상시 근로자 40명)에 생산직 근로자로 고용됨\n• 2026년 4월 작업 중 넘어져 손목이 골절되었고, 8주간 통원 치료 후 완치되어 복귀함\n• 치료 기간에는 주치의 소견에 따라 일할 수 없어 결근하였고, 그동안 임금을 받지 못함(1일 통상임금 12만 원, 1일 평균임금 15만 원)"
+          },
+          {
+            "type": "text",
+            "text": "■ B 씨 사례\n• 자녀 양육으로 경력이 단절되었다가 2023년 3월 △△사(상시 근로자 25명)에 물류 관리직 근로자로 고용됨\n• 2023년 9월 창고 선반에서 떨어져 척추를 다쳐 입원함\n• 2026년 10월 현재까지 입원 치료 중이며, 주치의 소견은 아직 치유되지 않았고 장해 등급 1급 수준의 중증 상태로 일할 수 없음\n• 혼자 움직일 수 없어 주치의 소견에 따라 입원 중 전문 간병인의 간병을 받음\n■ 탐구 계획\n• 두 사례의 급여 종류와 청구 절차를 비교하여 발표함"
+          }
+        ],
+        "figures": {},
+        "choice_table": null
+      },
+      "optionsList": [
+        "① ㄱ, ㄷ",
+        "② ㄱ, ㄹ",
+        "③ ㄷ, ㄹ",
+        "④ ㄱ, ㄷ, ㄹ",
+        "⑤ ㄱ, ㄴ, ㄷ, ㄹ"
+      ],
+      "comboBlock": {
+        "title": "<보기>",
+        "items": [
+          {
+            "key": "ㄱ",
+            "text": "A 씨는 결근 기간에 1일당 105,000원의 휴업급여를 받을 수 있다."
+          },
+          {
+            "key": "ㄴ",
+            "text": "A 씨의 결근 기간 소득은 ○○기업이 휴업수당으로 보전하여야 한다."
+          },
+          {
+            "key": "ㄷ",
+            "text": "B 씨는 현재 휴업급여 대신 상병보상연금을 받을 수 있다."
+          },
+          {
+            "key": "ㄹ",
+            "text": "B 씨가 현재 받는 간병의 비용은 간병급여가 아닌 요양급여의 범위에 해당한다."
+          }
+        ]
+      },
+      "correctAnswer": 4,
+      "explanation": {
+        "judgment": "[출제 의도] 업무상 재해 사례의 요양 기간과 치유 여부, 임금 수령 여부를 바탕으로 요양급여·휴업급여·상병보상연금을 구분하여 적용할 수 있는가?\n[해설] ㄱ. A 씨는 3일을 넘는 8주간 요양하며 주치의 소견에 따라 일할 수 없어 임금을 받지 못하였으므로 휴업급여를 받으며, 1일 평균임금 15만 원 × 0.7 = 105,000원이므로 옳다. ㄴ. A 씨의 결근은 업무상 재해로 요양한 것이므로 소득 보전은 근로복지공단이 지급하는 산재보험 휴업급여로 이루어지며, ○○기업이 근로기준법의 휴업수당으로 지급하는 것이 아니므로 옳지 않다. ㄷ. B 씨는 요양을 시작한 2023년 9월부터 3년 넘게 지났고 치유되지 않은 중증 상태로 취업하지 못하므로 휴업급여 대신 상병보상연금을 받을 수 있어 옳다. ㄹ. B 씨는 아직 치유되지 않은 요양 중이므로 입원 중 받는 간병은 요양급여의 범위에 해당하고, 간병급여는 치유 후의 간병에 지급하므로 옳다. 따라서 적절한 것은 ㄱ, ㄷ, ㄹ이다.\n[오답 피하기] ㄴ: ○○기업이 상시 근로자 5명 이상 사업장이어서 휴업수당을 떠올리기 쉽지만, 휴업수당은 사용자의 귀책 사유로 휴업할 때 사용자가 지급하는 것이다. 업무상 재해로 요양하여 결근한 기간에는 근로복지공단이 산재보험 휴업급여를 지급한다.",
+        "conceptHighlightV2": {
+          "stimulusClues": [
+            {
+              "quote": "작업 중 넘어져 손목이 골절되었고, 8주간 통원 치료 후 완치되어 복귀함",
+              "why": "업무상 재해로 3일을 넘게 요양하였으므로 산재보험 요양급여·휴업급여 대상이며, 2년 안에 완치되어 상병보상연금 대상은 아니다."
+            },
+            {
+              "quote": "주치의 소견에 따라 일할 수 없어 결근하였고, 그동안 임금을 받지 못함",
+              "why": "요양으로 취업하지 못한 기간이므로 근로복지공단이 지급하는 휴업급여 대상이며, 금액은 1일 평균임금 15만 원의 70%로 계산한다."
+            },
+            {
+              "quote": "아직 치유되지 않았고 장해 등급 1급 수준의 중증 상태로 일할 수 없음",
+              "why": "2023년 9월부터 2년 넘게 요양한 B 씨가 미치유·중증·취업 불가 요건을 갖추어 휴업급여 대신 상병보상연금을 받는다."
+            },
+            {
+              "quote": "주치의 소견에 따라 입원 중 전문 간병인의 간병을 받음",
+              "why": "치유 전 요양 중의 간병이므로 간병급여가 아니라 요양급여의 범위에 해당한다."
+            }
+          ],
+          "optionAnalysis": [
+            {
+              "optionKey": "ㄱ",
+              "verdict": "O",
+              "reasoning": "A 씨는 8주간 요양하면서 주치의 소견에 따라 일할 수 없어 결근하였고 임금을 받지 못하였으므로 휴업급여 대상이며, 금액은 1일 평균임금 15만 원의 100분의 70인 105,000원이다. 통상임금 12만 원이나 60%를 적용하면 다른 값이 나온다."
+            },
+            {
+              "optionKey": "ㄴ",
+              "verdict": "X",
+              "reasoning": "A 씨는 작업 중 다쳐 요양하느라 결근하였으므로 업무상 재해에 따른 산재보험 휴업급여 대상이고, 이는 근로복지공단이 지급한다. 상시 근로자가 5명 이상이더라도 사용자 귀책 휴업에 주는 근로기준법 휴업수당과는 다르다."
+            },
+            {
+              "optionKey": "ㄷ",
+              "verdict": "O",
+              "reasoning": "B 씨는 2023년 9월 요양을 시작하여 2026년 10월 현재 2년이 넘게 지났고, 치유되지 않았으며 1급 수준의 중증 상태로 일할 수 없으므로 휴업급여 대신 상병보상연금을 받을 수 있다."
+            },
+            {
+              "optionKey": "ㄹ",
+              "verdict": "O",
+              "reasoning": "B 씨는 아직 치유되지 않아 입원 요양 중이고, 요양 중 받는 간병은 요양급여의 범위에 포함된다. 간병급여는 치유 후에도 간병이 필요한 경우에 지급한다."
+            }
+          ],
+          "solvingFlow": [
+            {
+              "step": 1,
+              "action": "A 씨가 작업 중 다쳐 8주간 요양하고 임금을 받지 못한 사실에서 산재보험 휴업급여 대상임을 판단한다."
+            },
+            {
+              "step": 2,
+              "action": "휴업급여 일액을 1일 평균임금으로 계산한다: 150,000원 × 0.7 = 105,000원"
+            },
+            {
+              "step": 3,
+              "action": "업무상 재해에 따른 결근의 소득 보전은 근로복지공단의 휴업급여이며 사용자의 휴업수당이 아님을 확인한다."
+            },
+            {
+              "step": 4,
+              "action": "B 씨의 요양 개시(2023년 9월)부터 현재(2026년 10월)까지 2년이 넘었고 미치유·중증·취업 불가임을 확인하여 상병보상연금을 판정한다."
+            },
+            {
+              "step": 5,
+              "action": "B 씨가 아직 치유되지 않은 요양 중이므로 입원 중 간병은 요양급여의 범위임을 판단한다."
+            }
+          ],
+          "takeaway": "업무상 재해로 결근하면 근로복지공단이 평균임금 70%의 휴업급여를 지급하고, 요양 2년 후 미치유 중증이면 상병보상연금으로 바뀌며, 치유 전 입원 중 간병은 요양급여에 속한다."
+        }
+      },
+      "fingerprint": "b0355b5f",
+      "generation": {
+        "engine": "exam-skill-engine-v6",
+        "specId": "gen_6bcee756",
+        "profileVersion": "exam-style-profile-v2"
+      }
+    },
+    {
+      "orderIndex": 13,
+      "subject": "success",
+      "unitNumber": 18,
+      "unitTitle": "산업 안전과 재해 예방",
+      "targetConcept": "요양급여",
+      "itemType": "ai_generative_truth_combination",
+      "difficulty": "HIGH",
+      "points": 3,
+      "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+      "questionStem": "다음 재해 사례 보고서에 나타난 A 씨와 B 씨의 산업 재해 보상에 대한 설명으로 적절한 것만을 <보기>에서 고른 것은?",
+      "stimulusData": {
+        "blocks": [
+          {
+            "type": "text",
+            "text": "■ 재해 개요\n- ○○화학은 상시 근로자 120명을 고용한 화학 제품 제조 업체이다.\n- A 씨는 ○○화학과 1년 기간제 근로 계약을 맺고 일하였다.\n- 2025년 3월 4일 A 씨는 정규직 동료 B 씨와 배관 점검 작업을 하였다.\n- 노후한 밸브가 갑자기 열리면서 유해 물질이 새어 나왔다.\n- 두 사람은 유해 물질을 들이마시고 피부에 화상을 입었다.\n■ 원인 및 대책\n- 밸브 정기 점검이 누락되었고, A 씨는 방독 마스크를 쓰지 않았다.\n- 회사는 점검 일지를 도입하고 보호구 착용 교육을 실시하였다."
+          },
+          {
+            "type": "table",
+            "title": "■ 재해자 상황",
+            "headers": [
+              [
+                "구분",
+                "A 씨",
+                "B 씨"
+              ]
+            ],
+            "rows": [
+              [
+                "치료",
+                "산재보험 의료기관에서 4주간 입원 후 2주간 통원 치료",
+                "산재보험 의료기관에서 2일간 통원 치료"
+              ],
+              [
+                "간병",
+                "입원 중 의사 소견에 따라 전문 간병인이 간병",
+                "없음"
+              ],
+              [
+                "치료 결과",
+                "6주 후 완치되어 업무에 복귀",
+                "2일 후 완치되어 업무에 복귀"
+              ],
+              [
+                "임금",
+                "치료 기간 내내 출근하지 못해 임금을 받지 못함(1일 평균임금 150,000원)",
+                "치료 기간에 출근하지 못함"
+              ],
+              [
+                "기타",
+                "복귀 후 고용 센터 직업 상담사에게 자격 취득 과정을 안내받음",
+                "없음"
+              ]
+            ],
+            "caption": null
+          }
+        ],
+        "figures": {},
+        "choice_table": null
+      },
+      "optionsList": [
+        "① ㄱ, ㄴ, ㄷ",
+        "② ㄱ, ㄴ, ㄹ",
+        "③ ㄱ, ㄷ, ㄹ",
+        "④ ㄴ, ㄷ, ㄹ",
+        "⑤ ㄱ, ㄴ, ㄷ, ㄹ"
+      ],
+      "comboBlock": {
+        "title": "<보기>",
+        "items": [
+          {
+            "key": "ㄱ",
+            "text": "A 씨의 입원 중 간병 비용은 간병급여가 아닌 요양급여로 지급된다."
+          },
+          {
+            "key": "ㄴ",
+            "text": "A 씨는 요양으로 일하지 못한 기간에 1일 105,000원을 받을 수 있다."
+          },
+          {
+            "key": "ㄷ",
+            "text": "B 씨는 A 씨와 같은 사고로 다쳤지만 치료비를 요양급여로 받지 못한다."
+          },
+          {
+            "key": "ㄹ",
+            "text": "A 씨는 상병보상연금이 아닌 휴업급여를 근로복지공단에 청구할 수 있다."
+          }
+        ]
+      },
+      "correctAnswer": 5,
+      "explanation": {
+        "judgment": "[출제 의도] 재해자의 요양 기간, 간병 시기, 치유 여부, 임금 미수령 단서를 바탕으로 산재보험 급여의 지급 여부를 판단할 수 있는가?\n[해설] ㄱ. A 씨는 6주간 요양하여 3일을 넘겼고, 간병은 치유 전 입원 중에 의사 소견에 따라 이루어졌으므로 간병 비용은 요양급여에 포함된다. 간병급여는 치유 후에도 간병이 필요한 경우이므로 옳다. ㄴ. A 씨는 요양으로 출근하지 못해 임금을 받지 못하였으므로 휴업급여를 받으며, 1일 평균임금 150,000원 × 0.7 = 105,000원이므로 옳다. ㄷ. B 씨는 2일간 치료 후 완치되어 3일 이내의 요양으로 치유되었으므로 요양급여를 받지 못하여 옳다. ㄹ. A 씨는 요양 2년이 지나기 전인 6주 만에 완치되었으므로 상병보상연금이 아닌 휴업급여 대상이며, 기간제 근로자도 산재보험이 적용되어 근로복지공단에 청구하므로 옳다. 따라서 ㄱ, ㄴ, ㄷ, ㄹ 모두 적절하다.\n[오답 피하기] 입원 중 간병을 간병급여로 보면 ㄱ을 틀린 진술로 판단하게 되지만, 요양 중 간병은 요양급여에 포함된다. 휴업급여를 평균임금의 60%나 임금 전액으로 계산하면 ㄴ의 105,000원과 다른 값이 나오지만, 휴업급여는 1일당 평균임금의 100분의 70이다. 업무상 재해이면 요양 기간과 관계없이 요양급여를 받는다고 보면 ㄷ을 틀린 진술로 판단하게 되지만, 3일 이내의 요양으로 치유되면 요양급여를 지급하지 않는다. 기간제 근로자는 산재보험 대상이 아니라고 보거나 요양 중 급여를 상병보상연금으로 보면 ㄹ을 틀린 진술로 판단하게 되지만, 상병보상연금은 요양 2년이 지나도 치유되지 않은 중증일 때 지급한다.",
+        "conceptHighlightV2": {
+          "stimulusClues": [
+            {
+              "quote": "산재보험 의료기관에서 4주간 입원 후 2주간 통원 치료",
+              "why": "A 씨의 요양 기간이 3일을 넘으므로 요양급여 대상이다."
+            },
+            {
+              "quote": "입원 중 의사 소견에 따라 전문 간병인이 간병",
+              "why": "치유 전 입원 중의 간병이므로 간병급여가 아니라 요양급여의 범위이다."
+            },
+            {
+              "quote": "산재보험 의료기관에서 2일간 통원 치료",
+              "why": "B 씨는 3일 이내의 요양으로 치유되어 요양급여 지급 대상이 아니다."
+            },
+            {
+              "quote": "치료 기간 내내 출근하지 못해 임금을 받지 못함(1일 평균임금 150,000원)",
+              "why": "요양으로 취업하지 못한 기간의 휴업급여를 평균임금의 70%로 계산하는 근거이다."
+            }
+          ],
+          "optionAnalysis": [
+            {
+              "optionKey": "ㄱ",
+              "verdict": "O",
+              "reasoning": "A 씨는 3일을 넘겨 6주간 요양하였고, 간병은 치유 전 입원 중에 의사 소견에 따라 이루어졌으므로 요양급여에 포함된다. 간병급여는 치유 후에도 간병이 필요한 경우에 지급한다."
+            },
+            {
+              "optionKey": "ㄴ",
+              "verdict": "O",
+              "reasoning": "A 씨는 요양 기간 내내 출근하지 못해 임금을 받지 못하였으므로 휴업급여 대상이며, 1일당 평균임금 150,000원의 100분의 70인 105,000원이 지급된다."
+            },
+            {
+              "optionKey": "ㄷ",
+              "verdict": "O",
+              "reasoning": "B 씨는 2일간 통원 치료 후 완치되어 3일 이내의 요양으로 치유되었으므로 요양급여가 지급되지 않는다."
+            },
+            {
+              "optionKey": "ㄹ",
+              "verdict": "O",
+              "reasoning": "A 씨는 요양 시작 후 2년이 지나기 전인 6주 만에 완치되었으므로 상병보상연금이 아닌 휴업급여 대상이고, 기간제 근로자도 산재보험이 적용되어 근로복지공단에 청구한다."
+            }
+          ],
+          "solvingFlow": [
+            {
+              "step": 1,
+              "action": "표에서 A 씨와 B 씨의 치료 기간을 확인하고 3일 초과 여부를 판단한다."
+            },
+            {
+              "step": 2,
+              "action": "A 씨의 간병이 치유 전 입원 중에 이루어졌는지 확인하여 요양급여와 간병급여를 구별한다."
+            },
+            {
+              "step": 3,
+              "action": "A 씨의 임금 미수령을 확인하고 휴업급여 일액을 150,000원 × 0.7 = 105,000원으로 계산한다."
+            },
+            {
+              "step": 4,
+              "action": "A 씨가 2년이 지나기 전에 완치되었으므로 상병보상연금이 아닌 휴업급여 대상이며, 근로복지공단에 청구함을 확인한다."
+            }
+          ],
+          "takeaway": "요양급여와 휴업급여는 3일 이내 요양으로 치유되면 지급하지 않고, 입원 중 간병은 요양급여에 포함되며, 상병보상연금은 요양 2년 후에도 중증으로 치유되지 않을 때 지급한다."
+        }
+      },
+      "fingerprint": "4c637a4f",
+      "generation": {
+        "engine": "exam-skill-engine-v6",
+        "specId": "gen_607d8468",
+        "profileVersion": "exam-style-profile-v2"
+      }
+    },
+    {
+      "orderIndex": 14,
+      "subject": "success",
+      "unitNumber": 19,
+      "unitTitle": "협력적인 노사 관계",
+      "targetConcept": "노동쟁의 조정 제도(조정·중재·긴급 조정)",
+      "itemType": "ai_generative_truth_combination",
+      "difficulty": "HIGH",
+      "points": 3,
+      "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+      "questionStem": "다음 A 주식회사의 인사 담당자가 정리한 노사 분규 일지를 분석한 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은? (단, ｢노동조합 및 노동관계조정법｣에 따른다.)",
+      "stimulusData": {
+        "blocks": [
+          {
+            "type": "text",
+            "text": "A 주식회사는 상시 근로자 300명의 자동차 부품 제조 기업이며, 노동조합 조합원은 200명이다. 2025년 5월 2일 임금 교섭이 결렬되자 인사 담당자 B 씨는 이후 경과를 일지로 정리하였다."
+          },
+          {
+            "type": "table",
+            "title": "A 주식회사 노사 분규 일지(2025년)",
+            "headers": [
+              [
+                "날짜",
+                "주요 내용"
+              ]
+            ],
+            "rows": [
+              [
+                "5월 7일",
+                "회사가 지방 노동위원회에 분쟁 해결을 신청하였다. 같은 날 노동조합 간부들만의 결정으로 작업이 중단되었다."
+              ],
+              [
+                "5월 14일",
+                "노동위원회의 해결안을 노동조합이 거부하여 절차가 종료되었다."
+              ],
+              [
+                "6월 2일",
+                "조합원 170명이 무기명 투표에 참여하여 124명이 파업에 찬성하였다."
+              ],
+              [
+                "6월 3일",
+                "노동조합이 전면 파업에 들어갔다."
+              ],
+              [
+                "6월 5일",
+                "회사가 신고 후 조합원의 사업장 출입을 막았다."
+              ],
+              [
+                "6월 20일",
+                "노사가 함께 노동위원회에 구속력 있는 판정을 신청하였다."
+              ],
+              [
+                "7월 10일",
+                "노동위원회가 임금 인상률을 정한 판정서를 보냈으나 노동조합은 수락을 거부하였다."
+              ],
+              [
+                "8월 4일",
+                "어느 쪽도 불복하지 않아 판정이 확정되었다."
+              ]
+            ],
+            "caption": null
+          }
+        ],
+        "figures": {},
+        "choice_table": null
+      },
+      "optionsList": [
+        "① ㄱ, ㄴ, ㄷ",
+        "② ㄱ, ㄴ, ㄹ",
+        "③ ㄱ, ㄷ, ㄹ",
+        "④ ㄴ, ㄷ, ㄹ",
+        "⑤ ㄱ, ㄴ, ㄷ, ㄹ"
+      ],
+      "comboBlock": {
+        "title": "<보기>",
+        "items": [
+          {
+            "key": "ㄱ",
+            "text": "5월 7일의 작업 중단은 회사가 신청한 조정 절차를 거치기 전이어서 위법하다."
+          },
+          {
+            "key": "ㄴ",
+            "text": "6월 3일의 파업은 조합원 과반수가 찬성하였고 조정 절차도 거쳐 적법하다."
+          },
+          {
+            "key": "ㄷ",
+            "text": "6월 25일에 노동조합이 파업을 다시 시작하는 것은 적법하지 않다."
+          },
+          {
+            "key": "ㄹ",
+            "text": "8월 4일 확정된 판정은 노동조합의 수락이 없어도 단체 협약과 같은 효력이 있다."
+          }
+        ]
+      },
+      "correctAnswer": 5,
+      "explanation": {
+        "judgment": "[출제 의도] 노사 분규 일지에서 조정과 중재의 절차와 효력을 판별하고, 쟁의 행위를 할 수 있는 시기와 요건을 사례에 적용할 수 있는가?\n[해설] ㄱ. 5월 7일 회사가 노동위원회에 신청한 것은 조정이며, 조정은 당사자 일방의 신청으로도 개시된다. 쟁의 행위는 조정 절차를 거치지 않으면 할 수 없으므로 같은 날 지도부의 결정으로 작업을 멈춘 것은 위법하다(옳음). ㄴ. 5월 14일 노동조합이 조정안을 거부하여 조정이 종료되었으므로 조정 절차를 거쳤고, 찬성 124명은 조합원 200명의 62%로 과반수이다. 따라서 6월 3일 파업은 적법하다(옳음). ㄷ. 6월 20일 노사 쌍방이 함께 구속력 있는 판정을 신청한 것은 중재 신청이다. 중재에 회부되면 그날부터 15일간 쟁의 행위를 할 수 없으므로 6월 25일 파업 재개는 적법하지 않다(옳음). ㄹ. 8월 4일 확정된 판정은 중재재정으로, 수락해야 효력이 생기는 조정안과 달리 당사자의 수락 여부와 관계없이 단체 협약과 동일한 효력을 가진다(옳음).\n[오답 피하기] ㄱ을 거짓으로 보는 것은 노동조합이 직접 조정을 신청하지 않았으므로 조정 전치가 적용되지 않는다고 오해한 것이다. 조정은 일방의 신청으로 개시되며, 조정 절차를 거치지 않은 쟁의 행위는 위법하다. ㄴ을 거짓으로 보는 것은 조정안이 거부되어 조정이 성립하지 않으면 쟁의 행위를 할 수 없다고 혼동한 것이다. 조정이 성립하지 않아도 조정 절차를 거친 뒤에는 조합원 과반수 찬성으로 쟁의 행위를 할 수 있다. ㄹ을 거짓으로 보는 것은 중재재정을 조정안처럼 당사자가 수락해야 효력이 생긴다고 혼동한 것이다.",
+        "conceptHighlightV2": {
+          "stimulusClues": [
+            {
+              "quote": "같은 날 노동조합 간부들만의 결정으로 작업이 중단되었다",
+              "why": "조정 신청 당일, 조정 절차를 거치지 않고 조합원 투표도 없이 한 쟁의 행위임을 보여 준다."
+            },
+            {
+              "quote": "해결안을 노동조합이 거부하여 절차가 종료되었다",
+              "why": "조정안이 수락되지 않아 조정이 종료되었으므로 조정 절차는 거친 것이 된다."
+            },
+            {
+              "quote": "노사가 함께 노동위원회에 구속력 있는 판정을 신청하였다",
+              "why": "쌍방이 함께 신청한 구속력 있는 판정은 중재이며, 회부 후 15일간 쟁의 행위가 금지된다."
+            },
+            {
+              "quote": "판정서를 보냈으나 노동조합은 수락을 거부하였다",
+              "why": "중재재정은 수락 여부와 관계없이 확정되면 단체 협약과 같은 효력을 가진다."
+            }
+          ],
+          "optionAnalysis": [
+            {
+              "optionKey": "ㄱ",
+              "verdict": "O",
+              "reasoning": "5월 7일 회사의 노동위원회 신청은 조정 신청이며, 조정은 일방 신청으로도 개시된다. 쟁의 행위는 조정 절차를 거치지 않으면 할 수 없으므로 같은 날의 작업 중단은 위법하다."
+            },
+            {
+              "optionKey": "ㄴ",
+              "verdict": "O",
+              "reasoning": "조정은 5월 14일 조정안 거부로 종료되어 조정 절차를 거쳤고, 찬성 124명은 조합원 200명의 62%로 과반수이므로 6월 3일 파업은 적법하다."
+            },
+            {
+              "optionKey": "ㄷ",
+              "verdict": "O",
+              "reasoning": "6월 20일 노사 쌍방이 함께 구속력 있는 판정을 신청한 것은 중재 신청이며, 중재에 회부되면 그날부터 15일간 쟁의 행위를 할 수 없으므로 6월 25일 파업 재개는 적법하지 않다."
+            },
+            {
+              "optionKey": "ㄹ",
+              "verdict": "O",
+              "reasoning": "확정된 판정은 중재재정으로, 조정안과 달리 당사자의 수락 여부와 관계없이 단체 협약과 동일한 효력을 가진다."
+            }
+          ],
+          "solvingFlow": [
+            {
+              "step": 1,
+              "action": "5월 7일 회사의 신청을 조정 신청으로, 6월 20일 쌍방 신청을 중재 신청으로 판별한다."
+            },
+            {
+              "step": 2,
+              "action": "5월 7일 작업 중단이 조정 절차를 거치기 전인지 확인하여 조정 전치 위반을 판단한다."
+            },
+            {
+              "step": 3,
+              "action": "5월 14일 조정 종료 이후인지, 찬성 124명 ÷ 조합원 200명 = 62%로 과반수인지 확인하여 6월 3일 파업의 적법성을 판단한다."
+            },
+            {
+              "step": 4,
+              "action": "6월 20일 중재 회부 후 15일 이내인 6월 25일의 파업 재개 가능 여부를 판단한다."
+            },
+            {
+              "step": 5,
+              "action": "확정된 판정이 중재재정이므로 수락 여부와 관계없이 단체 협약과 같은 효력을 가짐을 확인한다."
+            }
+          ],
+          "takeaway": "쟁의 행위는 조정 절차를 거친 뒤에만 할 수 있고(조정이 성립하지 않아도 가능), 중재에 회부되면 15일간 금지되며, 조정안은 수락해야 효력이 있지만 중재재정은 수락과 관계없이 구속력이 있다."
+        }
+      },
+      "fingerprint": "01f0a7b0",
+      "generation": {
+        "engine": "exam-skill-engine-v6",
+        "specId": "gen_2be15583",
+        "profileVersion": "exam-style-profile-v2"
+      }
+    },
+    {
+      "orderIndex": 15,
+      "subject": "success",
+      "unitNumber": 19,
+      "unitTitle": "협력적인 노사 관계",
+      "targetConcept": "쟁의 행위와 직장 폐쇄",
+      "itemType": "ai_generative_truth_combination",
+      "difficulty": "HIGH",
+      "points": 3,
+      "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+      "questionStem": "다음 ○○기업의 노사 분규 일지를 분석한 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은? (단, ｢노동조합 및 노동관계조정법｣에 따른다.)",
+      "stimulusData": {
+        "blocks": [
+          {
+            "type": "text",
+            "text": "○○기업은 상시 근로자 500명을 고용한 자동차 부품 제조 회사이다. 이 회사 노동조합의 재적 조합원은 300명이며, 모두 생산직 근로자이다. 2024년 3월 프레스 공정에서 조합원 1명이 손을 다치는 사고가 발생하였다."
+          },
+          {
+            "type": "text",
+            "text": "■ 3월 20일: 노동조합은 안전 설비 확충과 교대 인원 증원을 요구하며 사측과 교섭을 시작하였다.\n■ 4월 10일: 교섭이 결렬되자 노동조합은 지방 노동위원회에 조정을 신청하였다.\n■ 4월 14일: 조합원 직접·비밀·무기명 투표에서 280명이 투표하여 210명이 파업에 찬성하였다.\n■ 4월 20일: 노동위원회가 제시한 조정안을 노동조합이 받아들이지 않아 조정이 종료되었다.\n■ 5월 2일: 노동조합은 생산 라인의 작업을 중단하는 파업에 돌입하였다.\n■ 5월 16일: 납품 차질이 이어지자 사측은 행정 관청과 노동위원회에 신고한 후 조합원의 공장 출입을 차단하였다.\n■ 6월 5일: 노사는 안전 설비 확충에 합의하고 단체 협약을 체결하였다.\n■ 6월 10일: 사측은 파업에 참가한 조합원에게 파업 기간의 임금을 지급하지 않았다. 또한 파업에 참가하였다는 이유로 조합원 A 씨를 감봉하였다."
+          }
+        ],
+        "figures": {},
+        "choice_table": null
+      },
+      "optionsList": [
+        "① ㄴ",
+        "② ㄷ",
+        "③ ㄴ, ㄷ",
+        "④ ㄱ, ㄴ, ㄷ",
+        "⑤ ㄴ, ㄷ, ㄹ"
+      ],
+      "comboBlock": {
+        "title": "<보기>",
+        "items": [
+          {
+            "key": "ㄱ",
+            "text": "4월 14일 투표 안건은 상시 근로자 과반수의 찬성을 얻지 못하여 부결되었다."
+          },
+          {
+            "key": "ㄴ",
+            "text": "5월 16일 사측의 조치는 사용자의 쟁의 행위로서 적법한 직장 폐쇄에 해당한다."
+          },
+          {
+            "key": "ㄷ",
+            "text": "6월 10일 사측의 조치 중 A 씨에 대한 감봉만 부당 노동 행위에 해당한다."
+          },
+          {
+            "key": "ㄹ",
+            "text": "4월 14일 투표가 가결되었으므로 노동조합은 4월 15일부터 파업할 수 있었다."
+          }
+        ]
+      },
+      "correctAnswer": 3,
+      "explanation": {
+        "judgment": "[출제 의도] 노사 분규 일지에서 쟁의 행위의 결정 요건과 조정 전치, 직장 폐쇄의 적법성, 무노동 무임금과 부당 노동 행위의 관계를 이해하고 적용할 수 있는가?\n[해설] ㄱ. 쟁의 행위는 재적 조합원 과반수 찬성으로 결정한다. 찬성 210명은 재적 조합원 300명의 70%이므로 안건은 가결되었다. 상시 근로자 500명을 기준으로 삼은 판단은 옳지 않다. ㄴ. 조합원의 공장 출입 차단은 사용자의 쟁의 행위인 직장 폐쇄이다. 5월 2일 파업 개시 이후 방어적으로, 행정 관청과 노동위원회에 신고하고 실시하였으므로 적법하다. ㄷ. 5월 2일 파업은 재적 조합원 과반수 찬성을 얻고 조정 종료 후 개시한 정당한 쟁의 행위이다. 정당한 파업 참가를 이유로 A 씨를 감봉한 것은 부당 노동 행위이다. 반면 사용자는 근로를 제공하지 않은 파업 기간의 임금을 지급할 의무가 없으므로 임금을 지급하지 않은 것은 부당 노동 행위가 아니다. ㄹ. 쟁의 행위는 조정 절차를 거친 후에 할 수 있다. 4월 15일은 조정이 진행 중이었으므로 투표가 가결되었더라도 파업할 수 없었다. 따라서 적절한 것은 ㄴ, ㄷ이다.\n[오답 피하기] ㄱ: 쟁의 행위 결정의 기준을 재적 조합원이 아닌 상시 근로자 전체로 넓혀 적용하였다. 재적 조합원 기준 찬성률은 70%로 과반수를 넘는다. ㄹ: 조합원 과반수 찬성 요건만 갖추면 쟁의 행위를 할 수 있다고 보아 조정 절차를 거쳐야 한다는 요건을 빠뜨렸다.",
+        "conceptHighlightV2": {
+          "stimulusClues": [
+            {
+              "quote": "280명이 투표하여 210명이 파업에 찬성하였다",
+              "why": "쟁의 행위 결정은 상시 근로자 500명이 아니라 재적 조합원 300명 기준으로, 210÷300=70%이므로 과반수 찬성 요건을 충족한다."
+            },
+            {
+              "quote": "조정안을 노동조합이 받아들이지 않아 조정이 종료되었다",
+              "why": "조정 종료(4월 20일) 전에는 쟁의 행위를 할 수 없으므로 4월 15일 파업은 조정 전치에 어긋난다."
+            },
+            {
+              "quote": "신고한 후 조합원의 공장 출입을 차단하였다",
+              "why": "조합원 출입 차단은 사용자의 직장 폐쇄로, 5월 2일 파업 개시 이후이고 신고를 거쳤으므로 적법하다."
+            },
+            {
+              "quote": "파업에 참가하였다는 이유로 조합원 A 씨를 감봉하였다",
+              "why": "정당한 단체 행동 참가를 이유로 한 징계는 부당 노동 행위이지만, 파업 기간의 임금 미지급은 무노동 무임금에 따른 것으로 부당 노동 행위가 아니다."
+            }
+          ],
+          "optionAnalysis": [
+            {
+              "optionKey": "ㄱ",
+              "verdict": "X",
+              "reasoning": "쟁의 행위 결정은 상시 근로자 전체가 아니라 재적 조합원 과반수 찬성을 기준으로 한다. 찬성 210명은 상시 근로자 500명의 42%이지만 재적 조합원 300명의 70%이므로 안건은 가결되었다."
+            },
+            {
+              "optionKey": "ㄴ",
+              "verdict": "O",
+              "reasoning": "조합원의 공장 출입 차단은 사용자의 쟁의 행위인 직장 폐쇄이다. 노동조합의 파업 개시(5월 2일) 이후 납품 차질에 대응하여 행정 관청과 노동위원회에 신고하고 실시하였으므로 적법하다."
+            },
+            {
+              "optionKey": "ㄷ",
+              "verdict": "O",
+              "reasoning": "5월 2일 파업은 재적 조합원 과반수 찬성과 조정 종료 후 개시라는 요건을 갖춘 정당한 쟁의 행위이다. 이를 이유로 A 씨를 감봉한 것은 불이익 취급으로 부당 노동 행위이지만, 근로를 제공하지 않은 파업 기간의 임금을 지급하지 않은 것은 사용자의 의무가 아니므로 부당 노동 행위가 아니다."
+            },
+            {
+              "optionKey": "ㄹ",
+              "verdict": "X",
+              "reasoning": "쟁의 행위는 조합원 과반수 찬성과 함께 조정 절차를 거쳐야 할 수 있다. 4월 15일은 4월 10일에 신청한 조정이 4월 20일 종료되기 전이므로 투표가 가결되었더라도 파업할 수 없었다."
+            }
+          ],
+          "solvingFlow": [
+            {
+              "step": 1,
+              "action": "상시 근로자 500명과 재적 조합원 300명을 구별하고, 찬성률을 재적 조합원 기준으로 계산(210÷300=70%)하여 가결 여부를 판단한다."
+            },
+            {
+              "step": 2,
+              "action": "조정 신청일(4월 10일)과 조정 종료일(4월 20일)을 확인하여 조정 절차를 거치기 전 파업이 가능한지 판단한다."
+            },
+            {
+              "step": 3,
+              "action": "5월 16일 공장 출입 차단을 직장 폐쇄로 판별하고, 파업 개시일(5월 2일) 이후인지와 신고 여부를 확인한다."
+            },
+            {
+              "step": 4,
+              "action": "파업이 과반수 찬성·조정 종료 후 개시로 정당한지 확인한 뒤, 6월 10일 두 조치를 무노동 무임금(부당 노동 행위 아님)과 파업 참가 이유 감봉(부당 노동 행위)으로 구별한다."
+            }
+          ],
+          "takeaway": "쟁의 행위는 재적 조합원 과반수 찬성과 조정 절차를 모두 거쳐야 하고, 직장 폐쇄는 노동조합의 쟁의 행위 개시 이후에만 사용자가 신고하고 할 수 있다."
+        }
+      },
+      "fingerprint": "440ec3c3",
+      "generation": {
+        "engine": "exam-skill-engine-v6",
+        "specId": "gen_6bd500ac",
+        "profileVersion": "exam-style-profile-v2"
+      }
+    }
+  ],
+  "answerKey": [
+    {
+      "orderIndex": 1,
+      "correctAnswer": 1
+    },
+    {
+      "orderIndex": 2,
+      "correctAnswer": 1
+    },
+    {
+      "orderIndex": 3,
+      "correctAnswer": 4
+    },
+    {
+      "orderIndex": 4,
+      "correctAnswer": 2
+    },
+    {
+      "orderIndex": 5,
+      "correctAnswer": 3
+    },
+    {
+      "orderIndex": 6,
+      "correctAnswer": 2
+    },
+    {
+      "orderIndex": 7,
+      "correctAnswer": 3
+    },
+    {
+      "orderIndex": 8,
+      "correctAnswer": 5
+    },
+    {
+      "orderIndex": 9,
+      "correctAnswer": 1
+    },
+    {
+      "orderIndex": 10,
+      "correctAnswer": 2
+    },
+    {
+      "orderIndex": 11,
+      "correctAnswer": 4
+    },
+    {
+      "orderIndex": 12,
+      "correctAnswer": 4
+    },
+    {
+      "orderIndex": 13,
+      "correctAnswer": 5
+    },
+    {
+      "orderIndex": 14,
+      "correctAnswer": 5
+    },
+    {
+      "orderIndex": 15,
+      "correctAnswer": 3
+    }
+  ]
+}

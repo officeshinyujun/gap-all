@@ -1,0 +1,158 @@
+{
+  "targetConcept": "주식회사",
+  "itemType": "ai_generative_truth_combination",
+  "difficulty": "HIGH",
+  "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+  "questionStem": "다음 창업 상담에 나타난 기업에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+  "stimulusData": {
+    "blocks": [
+      {
+        "type": "figure",
+        "figure_id": "F1"
+      },
+      {
+        "type": "dialogue",
+        "lines": [
+          {
+            "speaker": "A 씨",
+            "text": "중소기업 인사팀에서 12년간 일하다가 창업을 준비하고 있어요. 처음에는 저와 동생이 경영을 맡고 회사 빚도 끝까지 함께 갚기로 했어요. 친구 두 명은 출자만 하고 경영에는 참여하지 않으며, 출자한 금액까지만 책임지기로 했고요."
+          },
+          {
+            "speaker": "컨설턴트",
+            "text": "자금 사정을 보면 법인을 세우지 말고 혼자 출자해 직접 운영하는 가맹점이 낫겠어요. 어느 본사를 생각하세요?"
+          },
+          {
+            "speaker": "A 씨",
+            "text": "◇◇사요. 농산물 유통을 돕기 위해 국가와 민간 기업인 △△사가 함께 세웠어요. 국가가 800만 주, △△사가 700만 주를 갖고 나머지는 증권 시장에서 거래돼요. 이사회에도 양쪽이 추천한 이사가 함께 참여하고요."
+          },
+          {
+            "speaker": "컨설턴트",
+            "text": "제가 확인해 보니 ◇◇사는 자산 총액이 5,200억 원, 평균 매출액이 1,300억 원이에요. 어느 기업 집단에도 속해 있지 않고요."
+          }
+        ]
+      }
+    ],
+    "figures": {
+      "F1": {
+        "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0ODAgMjI0IiBmb250LWZhbWlseT0iJiMzOTtOb3RvIFNhbnMgS1ImIzM5OywmIzM5O0FwcGxlIFNEIEdvdGhpYyBOZW8mIzM5OywmIzM5O01hbGd1biBHb3RoaWMmIzM5OywmIzM5O05hbnVtR290aGljJiMzOTssc2Fucy1zZXJpZiI+PGRlZnM+PGNsaXBQYXRoIGlkPSJGMS1iY2FlOTYtY2xpcCI+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjQ4MCIgaGVpZ2h0PSIyMjQiLz48L2NsaXBQYXRoPjwvZGVmcz48ZyBjbGlwLXBhdGg9InVybCgjRjEtYmNhZTk2LWNsaXApIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNDAgOCkiPjxyZWN0IHg9Ii05LjUiIHk9Ijk2IiB3aWR0aD0iMTkiIGhlaWdodD0iMjYiIGZpbGw9IiNmYmZiZmIiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciLz48cGF0aCBkPSJNLTEzIDExM0MtMjggMTE2IC01NiAxMTggLTYxIDE0MEMtNjQgMTcwIC02NCAxOTQgLTYyIDIzNEw0OSAyMzRDNDcgMTk0IDQ2IDE3MCA0NSAxNDBDNTYgMTE4IDI4IDExNiAxMyAxMTNaIiBmaWxsPSIjZmZmZmZmIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTS0xMyAxMTNMLTIgMTMwTC0xNSAxMjZMLTE3IDExNVoiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNMTMgMTEzTDIgMTMwTDE1IDEyNkwxNyAxMTVaIiBmaWxsPSIjZmZmIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS40IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTS0zLjUgMTIyTDMuNSAxMjJMNS41IDE2NUwwIDE3M0wtNS41IDE2NVoiIGZpbGw9IiM0YTRhNGEiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjMiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48bGluZSB4MT0iMCIgeTE9IjE3MyIgeDI9IjAiIHkyPSIyMjgiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjMiLz48cGF0aCBkPSJNLTE1IDExNkwtOSAxNzFNMTUgMTE2TDkgMTcxIiBmaWxsPSJub25lIiBzdHJva2U9IiM1NTUiIHN0cm9rZS13aWR0aD0iMS42Ii8+PHJlY3QgeD0iLTEyIiB5PSIxNjkiIHdpZHRoPSIyNCIgaGVpZ2h0PSIzMCIgcng9IjIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjMiLz48cmVjdCB4PSItNyIgeT0iMTc0IiB3aWR0aD0iMTQiIGhlaWdodD0iMTEiIGZpbGw9IiNiZGJkYmQiLz48ZWxsaXBzZSBjeD0iMCIgY3k9IjcwIiByeD0iMjgiIHJ5PSIzNCIgZmlsbD0iI2ZiZmJmYiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIvPjxwYXRoIGQ9Ik0tMjcgNjhDLTM2IDY1IC0zNiA4MiAtMjcgODAiIGZpbGw9IiNmYmZiZmIiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciLz48ZWxsaXBzZSBjeD0iLTQiIGN5PSI3MiIgcng9IjIuMyIgcnk9IjIuOSIgZmlsbD0iIzI2MjYyNiIvPjxlbGxpcHNlIGN4PSIxMyIgY3k9IjcyIiByeD0iMi4zIiByeT0iMi45IiBmaWxsPSIjMjYyNjI2Ii8+PHBhdGggZD0iTS05IDY0US00IDYxIDEgNjMuNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTggNjMuNVExMyA2MSAxOCA2NCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTYgNzdROS41IDg0IDUgODUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik0tMiA5MVE0LjUgOTYuNSAxMSA5MSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTS0yOSA3NEMtMzMgNDggLTI2IDMyIC0yIDMxQzI0IDMwIDMyIDUyIDI5IDY4QzI0IDU3IDE0IDUyIDIgNDlDLTggNTQgLTIyIDU2IC0yMyA2OFoiIGZpbGw9IiMzYTNhM2EiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNLTQxIDE1OEMtNDMgMTgwIC00MyAyMDQgLTQyIDIzNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTQ5IDEzNEw1OSAxODRMNzggMTY2IiBmaWxsPSJub25lIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMjIuNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTQ5IDEzNEw1OSAxODRMNzggMTY2IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMTkiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik03MiAxNzJDNzAgMTYzIDc3IDE1NyA4NiAxNTdDOTIgMTU3IDkzIDE2MSA4OSAxNjJMODMgMTYzQzg4IDE2NiA4NyAxNzIgODAgMTc0WiIgZmlsbD0iI2ZiZmJmYiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvZz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzNDAgOCkgc2NhbGUoLTEgMSkiPjxwYXRoIGQ9Ik0tMzIgNjRDLTM2IDEwMCAtMzggMTIwIC0yNiAxMzBMMjYgMTMwQzM4IDEyMCAzNiAxMDAgMzIgNjRaIiBmaWxsPSIjM2EzYTNhIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHJlY3QgeD0iLTkuNSIgeT0iOTYiIHdpZHRoPSIxOSIgaGVpZ2h0PSIyNiIgZmlsbD0iI2ZiZmJmYiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIvPjxwYXRoIGQ9Ik0tMTMgMTEzQy0yOCAxMTYgLTQ5IDExOCAtNTQgMTQwQy01NyAxNzAgLTU3IDE5NCAtNTUgMjM0TDQyIDIzNEM0MCAxOTQgMzkgMTcwIDM4IDE0MEM0OSAxMTggMjggMTE2IDEzIDExM1oiIGZpbGw9IiNiOGI4YjgiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNLTE3IDExMkwwIDE0OUwxNyAxMTJaIiBmaWxsPSIjZmZmIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS40IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTS0xNyAxMTRMLTMgMTUxTC0zIDIyOCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuMyIvPjxwYXRoIGQ9Ik0xNyAxMTRMMyAxNTEiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjMiLz48Y2lyY2xlIGN4PSIwIiBjeT0iMTY1IiByPSIyIiBmaWxsPSIjNTU1Ii8+PGNpcmNsZSBjeD0iMCIgY3k9IjE4NSIgcj0iMiIgZmlsbD0iIzU1NSIvPjxjaXJjbGUgY3g9IjAiIGN5PSIyMDUiIHI9IjIiIGZpbGw9IiM1NTUiLz48ZWxsaXBzZSBjeD0iMCIgY3k9IjcwIiByeD0iMjgiIHJ5PSIzNCIgZmlsbD0iI2ZiZmJmYiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIvPjxwYXRoIGQ9Ik0tMjcgNjhDLTM2IDY1IC0zNiA4MiAtMjcgODAiIGZpbGw9IiNmYmZiZmIiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciLz48ZWxsaXBzZSBjeD0iLTQiIGN5PSI3MiIgcng9IjIuMyIgcnk9IjIuOSIgZmlsbD0iIzI2MjYyNiIvPjxlbGxpcHNlIGN4PSIxMyIgY3k9IjcyIiByeD0iMi4zIiByeT0iMi45IiBmaWxsPSIjMjYyNjI2Ii8+PHBhdGggZD0iTS05IDY0US00IDYxIDEgNjMuNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTggNjMuNVExMyA2MSAxOCA2NCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTE1LjIgNjkuNmwyLjYgLTEuNiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTYgNzdROS41IDg0IDUgODUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik0tMiA5MVE0LjUgOTYuNSAxMSA5MSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTS0zMiA4OEMtMzYgNTIgLTI2IDMwIDIgMzBDMjYgMzAgMzYgNTIgMzIgODhMMjYgODZDMjggNjggMjYgNTggMjAgNTRDMTAgNjAgLTYgNTYgLTEyIDQ4Qy0xNiA1NiAtMjQgNjIgLTI2IDg2WiIgZmlsbD0iIzNhM2EzYSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0tMzQgMTU4Qy0zNiAxODAgLTM2IDIwNCAtMzUgMjM0IiBmaWxsPSJub25lIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS40IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cmVjdCB4PSItNCIgeT0iMTQ4IiB3aWR0aD0iNDQiIGhlaWdodD0iNTQiIHJ4PSIyIiBmaWxsPSIjZjJmMmYyIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS41IiB0cmFuc2Zvcm09InJvdGF0ZSgtOCAxOCAxNzUpIi8+PHJlY3QgeD0iMTAiIHk9IjE0NSIgd2lkdGg9IjE2IiBoZWlnaHQ9IjciIHJ4PSIxLjUiIGZpbGw9IiM4ODgiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjEiIHRyYW5zZm9ybT0icm90YXRlKC04IDE4IDE3NSkiLz48cGF0aCBkPSJNNCAxNjRoMjhNNCAxNzRoMjhNNCAxODRoMTgiIHN0cm9rZT0iIzlhOWE5YSIgc3Ryb2tlLXdpZHRoPSIxLjMiIHRyYW5zZm9ybT0icm90YXRlKC04IDE4IDE3NSkiLz48cGF0aCBkPSJNNDIgMTM0TDUyIDE4NkwyNiAxOTgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIyMi40IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNNDIgMTM0TDUyIDE4NkwyNiAxOTgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2I4YjhiOCIgc3Ryb2tlLXdpZHRoPSIxOSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PGVsbGlwc2UgY3g9IjI2IiBjeT0iMTk4IiByeD0iNy41IiByeT0iNi45IiBmaWxsPSIjZmJmYmZiIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43Ii8+PC9nPjwvZz48L3N2Zz4=",
+        "alt": "장식용. A 씨(회사원)과 컨설턴트(상담사)가 마주 보고 이야기하는 인물 그림. 대화 내용은 이어지는 대화 블록에 있음.",
+        "kind": "illustration",
+        "spec": {
+          "id": "F1",
+          "kind": "scene",
+          "layout": "pair",
+          "people": [
+            {
+              "speaker": "A 씨",
+              "role": "office",
+              "gender": "male",
+              "age": "adult"
+            },
+            {
+              "speaker": "컨설턴트",
+              "role": "counselor",
+              "gender": "female",
+              "age": "adult"
+            }
+          ]
+        }
+      }
+    },
+    "choice_table": null
+  },
+  "optionsList": [
+    "① ㄴ",
+    "② ㄷ",
+    "③ ㄴ, ㄷ",
+    "④ ㄱ, ㄴ, ㄷ",
+    "⑤ ㄴ, ㄷ, ㄹ"
+  ],
+  "comboBlock": {
+    "title": "<보기>",
+    "items": [
+      {
+        "key": "ㄱ",
+        "text": "◇◇사는 평균 매출액이 1,800억 원 이하이므로 중소기업에 해당한다."
+      },
+      {
+        "key": "ㄴ",
+        "text": "공사 합동 기업인 ◇◇사의 주주총회에서 국가는 △△사보다 많은 의결권을 가진다."
+      },
+      {
+        "key": "ㄷ",
+        "text": "A 씨는 처음 계획과 수정한 계획 모두에서 ◇◇사 주주와 달리 기업 채무에 무한 책임을 진다."
+      },
+      {
+        "key": "ㄹ",
+        "text": "처음 계획한 회사는 유한 책임 사원이 있으므로 ◇◇사처럼 자본을 증권화하여 조달할 수 있다."
+      }
+    ]
+  },
+  "explanation": {
+    "judgment": "[출제 의도] 사원 책임 구조와 주식 발행 여부로 회사 형태를 특정하고, 출자 형태와 규모 기준에 따른 기업 분류를 함께 적용할 수 있는가?\n[해설] 처음 계획한 회사는 경영을 맡고 회사 빚을 끝까지 함께 갚는 A 씨와 동생(무한 책임 사원), 출자액까지만 책임지는 친구 두 명(유한 책임 사원)으로 구성되므로 합자회사이다. 수정한 계획은 법인 없이 A 씨가 혼자 출자해 운영하는 개인 기업이다. ◇◇사는 주식이 증권 시장에서 거래되므로 주식회사이며, 국가와 민간 기업이 공동 출자·공동 경영하므로 공사 합동 기업이다. ㄱ. 평균 매출액은 1,800억 원 이하이지만 자산 총액 5,200억 원이 중소기업 상한(5,000억 원 미만)을 넘으므로 중소기업이 아니다(거짓). ㄴ. 주식회사는 1주 1의결권이므로 800만 주의 국가가 700만 주의 △△사보다 의결권이 많다(참). ㄷ. A 씨는 합자회사의 무한 책임 사원이자 개인 기업의 출자자로서 두 계획 모두 무한 책임을 지고, ◇◇사 주주는 유한 책임을 진다(참). ㄹ. 자본의 증권화는 주식회사의 특징이므로 합자회사인 처음 계획한 회사는 할 수 없다(거짓). 따라서 옳은 것은 ㄴ, ㄷ이다.\n[오답 피하기] ㄱ: 중소기업은 업종별 평균 매출액 기준과 함께 상한 자산 총액 5,000억 원 미만을 충족해야 한다. 자산 총액이 5,200억 원인 ◇◇사는 매출액 기준을 충족해도 중소기업이 아니다. ㄹ: 유한 책임 사원이 있는 합자회사도 주식을 발행하지 않으므로 자본을 증권화하여 조달할 수 없다. 자본의 증권화는 주식회사만의 특징이다.",
+    "conceptHighlightV2": {
+      "stimulusClues": [
+        {
+          "quote": "회사 빚도 끝까지 함께 갚기로 했어요",
+          "why": "A 씨와 동생이 회사 채무에 연대하여 무한 책임을 지는 무한 책임 사원임을 보여 준다."
+        },
+        {
+          "quote": "출자한 금액까지만 책임지기로 했고요",
+          "why": "친구 두 명이 유한 책임 사원이므로 처음 계획한 회사는 무한·유한 책임 사원으로 구성된 합자회사이다."
+        },
+        {
+          "quote": "나머지는 증권 시장에서 거래돼요",
+          "why": "주식을 발행해 증권 시장에서 거래하므로 ◇◇사는 1주 1의결권의 주식회사이다."
+        },
+        {
+          "quote": "자산 총액이 5,200억 원, 평균 매출액이 1,300억 원이에요",
+          "why": "자산 총액이 중소기업 상한(5,000억 원 미만)을 넘으므로 매출액과 관계없이 중소기업이 아니다."
+        }
+      ],
+      "optionAnalysis": [
+        {
+          "optionKey": "ㄱ",
+          "verdict": "X",
+          "reasoning": "◇◇사의 평균 매출액 1,300억 원은 1,800억 원 이하이지만, 자산 총액 5,200억 원이 중소기업의 상한 자산 총액(5,000억 원 미만)을 넘으므로 중소기업에 해당하지 않는다. 매출액 기준만으로 중소기업이라고 단정한 근거 없는 추론이다."
+        },
+        {
+          "optionKey": "ㄴ",
+          "verdict": "O",
+          "reasoning": "◇◇사는 국가와 민간 기업인 △△사가 함께 세우고 양쪽 추천 이사가 이사회에 참여하므로 공동 출자·공동 경영의 공사 합동 기업이다. 주식이 증권 시장에서 거래되는 주식회사이므로 1주마다 1개의 의결권을 가져, 800만 주의 국가가 700만 주의 △△사보다 의결권이 많다."
+        },
+        {
+          "optionKey": "ㄷ",
+          "verdict": "O",
+          "reasoning": "처음 계획에서 A 씨는 회사 빚을 끝까지 함께 갚는 무한 책임 사원이고, 수정한 계획은 법인 없이 혼자 출자해 운영하는 개인 기업이므로 출자자인 A 씨가 무한 책임을 진다. 반면 ◇◇사의 주주는 출자액 한도에서 유한 책임을 진다."
+        },
+        {
+          "optionKey": "ㄹ",
+          "verdict": "X",
+          "reasoning": "처음 계획한 회사는 무한 책임 사원(A 씨와 동생)과 유한 책임 사원(친구 두 명)으로 구성된 합자회사이다. 유한 책임 사원이 있더라도 자본을 증권화하여 증권 시장에서 조달할 수 있는 것은 주식회사인 ◇◇사뿐이다."
+        }
+      ],
+      "solvingFlow": [
+        {
+          "step": 1,
+          "action": "사원 책임 구조로 처음 계획한 회사(무한 책임 사원 2명 + 유한 책임 사원 2명 → 합자회사)와 수정한 계획(혼자 출자·운영 → 개인 기업)을 특정한다."
+        },
+        {
+          "step": 2,
+          "action": "주식 보유와 증권 시장 거래로 ◇◇사를 주식회사로, 국가와 민간 기업의 공동 출자·공동 경영으로 공사 합동 기업으로 판별한다."
+        },
+        {
+          "step": 3,
+          "action": "규모 기준 적용: 평균 매출액 1,300억 원은 1,800억 원 이하이나 자산 총액 5,200억 원 ≥ 5,000억 원이므로 중소기업이 아님을 확인한다."
+        },
+        {
+          "step": 4,
+          "action": "1주 1의결권으로 국가(800만 주) > △△사(700만 주)를 비교하고, 무한·유한 책임과 자본 증권화 가능 여부를 형태별로 판정한다."
+        }
+      ],
+      "takeaway": "중소기업은 매출액 기준과 자산 총액 상한(5,000억 원 미만)을 함께 충족해야 하며, 유한 책임 사원이 있어도 자본의 증권화는 주식회사만 가능하다."
+    }
+  },
+  "correctAnswer": 3,
+  "points": 3,
+  "fingerprint": "0fde0738"
+}

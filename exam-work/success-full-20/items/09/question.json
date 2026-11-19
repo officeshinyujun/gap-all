@@ -1,0 +1,162 @@
+{
+  "targetConcept": "능력단위",
+  "itemType": "ai_generative_truth_combination",
+  "difficulty": "MIDDLE",
+  "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+  "questionStem": "다음은 카페 아르바이트생 A 씨가 채용 공고에서 확인한 NCS 분류 체계도이다. 이에 대한 설명으로 적절한 것만을 <보기>에서 고른 것은?",
+  "stimulusData": {
+    "blocks": [
+      {
+        "type": "figure",
+        "figure_id": "F1"
+      }
+    ],
+    "figures": {
+      "F1": {
+        "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0ODAgMjkwIiBmb250LWZhbWlseT0iJiMzOTtOb3RvIFNhbnMgS1ImIzM5OywmIzM5O0FwcGxlIFNEIEdvdGhpYyBOZW8mIzM5OywmIzM5O01hbGd1biBHb3RoaWMmIzM5OywmIzM5O05hbnVtR290aGljJiMzOTssc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNSI+PHRleHQgeD0iMjQwIiB5PSIyMiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjcwMCI+MTMuIOydjOyLneyEnOu5hOyKpCAmZ3Q7IDAxLiDsi53snYzro4zsobDrpqzCt+yEnOu5hOyKpDwvdGV4dD48bGluZSB4MT0iMjQwIiB5MT0iNzQiIHgyPSIyNDAiIHkyPSI5MiIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEuMSIvPjxsaW5lIHgxPSIyNDAiIHkxPSI5MiIgeDI9IjI0MCIgeTI9IjkyIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4xIi8+PGxpbmUgeDE9IjI0MCIgeTE9IjkyIiB4Mj0iMjQwIiB5Mj0iMTEwIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4xIi8+PGxpbmUgeDE9IjI0MCIgeTE9IjE0MCIgeDI9IjI0MCIgeTI9IjE1OCIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEuMSIvPjxsaW5lIHgxPSIxMjQiIHkxPSIxNTgiIHgyPSIzNTYiIHkyPSIxNTgiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjEiLz48bGluZSB4MT0iMTI0IiB5MT0iMTU4IiB4Mj0iMTI0IiB5Mj0iMTc2IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4xIi8+PGxpbmUgeDE9IjM1NiIgeTE9IjE1OCIgeDI9IjM1NiIgeTI9IjE3NiIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEuMSIvPjxsaW5lIHgxPSIxMjQiIHkxPSIyMDYiIHgyPSIxMjQiIHkyPSIyMjQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjEiLz48bGluZSB4MT0iNjYiIHkxPSIyMjQiIHgyPSIxODIiIHkyPSIyMjQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjEiLz48bGluZSB4MT0iNjYiIHkxPSIyMjQiIHgyPSI2NiIgeTI9IjI0MiIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEuMSIvPjxsaW5lIHgxPSIxODIiIHkxPSIyMjQiIHgyPSIxODIiIHkyPSIyNDIiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjEiLz48bGluZSB4MT0iMzU2IiB5MT0iMjA2IiB4Mj0iMzU2IiB5Mj0iMjI0IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4xIi8+PGxpbmUgeDE9IjI5OCIgeTE9IjIyNCIgeDI9IjQxNCIgeTI9IjIyNCIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEuMSIvPjxsaW5lIHgxPSIyOTgiIHkxPSIyMjQiIHgyPSIyOTgiIHkyPSIyNDIiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjEiLz48bGluZSB4MT0iNDE0IiB5MT0iMjI0IiB4Mj0iNDE0IiB5Mj0iMjQyIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4xIi8+PHJlY3QgeD0iMTc3LjMzIiB5PSI0NCIgd2lkdGg9IjEyNS4zNCIgaGVpZ2h0PSIzMCIgcng9IjIiIGZpbGw9IiNkNmQ2ZDYiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjEiLz48dGV4dCB4PSIyNDAiIHk9IjY0LjA0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjE0Ij4wMi4g7Iud7J2M66OM7ISc67mE7IqkPC90ZXh0PjxyZWN0IHg9IjIxNCIgeT0iMTEwIiB3aWR0aD0iNTIiIGhlaWdodD0iMzAiIHJ4PSIyIiBmaWxsPSIjZTllOWU5IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4xIi8+PHRleHQgeD0iMjQwIiB5PSIxMzAuMDQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTQiPijqsIApPC90ZXh0PjxyZWN0IHg9IjU1LjEiIHk9IjE3NiIgd2lkdGg9IjEzNy44IiBoZWlnaHQ9IjMwIiByeD0iMiIgZmlsbD0iI2U5ZTllOSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEuMSIvPjx0ZXh0IHg9IjEyNCIgeT0iMTk2LjA0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjE0Ij4xMzAxMDIwMjA0XzIzdjI8L3RleHQ+PHJlY3QgeD0iMjg3LjEiIHk9IjE3NiIgd2lkdGg9IjEzNy44IiBoZWlnaHQ9IjMwIiByeD0iMiIgZmlsbD0iI2U5ZTllOSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEuMSIvPjx0ZXh0IHg9IjM1NiIgeT0iMTk2LjA0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjE0Ij4xMzAxMDIwMjA3XzIzdjI8L3RleHQ+PHJlY3QgeD0iMTIiIHk9IjI0MiIgd2lkdGg9IjEwOCIgaGVpZ2h0PSI0MCIgcng9IjIiIGZpbGw9IiNlOWU5ZTkiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjEiLz48dGV4dCB4PSI2NiIgeT0iMjU5LjA0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjE0Ij48dHNwYW4geD0iNjYiIGR5PSIwIj7snYzro4wg7J6s66OMPC90c3Bhbj48dHNwYW4geD0iNjYiIGR5PSIxNiI+7KSA67mE7ZWY6riwPC90c3Bhbj48L3RleHQ+PHJlY3QgeD0iMTI4IiB5PSIyNDIiIHdpZHRoPSIxMDgiIGhlaWdodD0iNDAiIHJ4PSIyIiBmaWxsPSIjZTllOWU5IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4xIi8+PHRleHQgeD0iMTgyIiB5PSIyNTkuMDQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTQiPjx0c3BhbiB4PSIxODIiIGR5PSIwIj7sl5DsiqTtlITroIjshow8L3RzcGFuPjx0c3BhbiB4PSIxODIiIGR5PSIxNiI+7LaU7Lac7ZWY6riwPC90c3Bhbj48L3RleHQ+PHJlY3QgeD0iMjQ0IiB5PSIyNDIiIHdpZHRoPSIxMDgiIGhlaWdodD0iNDAiIHJ4PSIyIiBmaWxsPSIjZTllOWU5IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4xIi8+PHRleHQgeD0iMjk4IiB5PSIyNTkuMDQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTQiPjx0c3BhbiB4PSIyOTgiIGR5PSIwIj7rp6TsnqUg7JyE7IOdPC90c3Bhbj48dHNwYW4geD0iMjk4IiBkeT0iMTYiPuygkOqygO2VmOq4sDwvdHNwYW4+PC90ZXh0PjxyZWN0IHg9IjM2MCIgeT0iMjQyIiB3aWR0aD0iMTA4IiBoZWlnaHQ9IjQwIiByeD0iMiIgZmlsbD0iI2U5ZTllOSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEuMSIvPjx0ZXh0IHg9IjQxNCIgeT0iMjU5LjA0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjE0Ij48dHNwYW4geD0iNDE0IiBkeT0iMCI+7J2M66OMIOuplOuJtDwvdHNwYW4+PHRzcGFuIHg9IjQxNCIgZHk9IjE2Ij7qtIDrpqztlZjquLA8L3RzcGFuPjwvdGV4dD48L3N2Zz4=",
+        "alt": "위에서 아래로 갈라지는 계층도(조직도·분류 트리). 제목 ‘13. 음식서비스 > 01. 식음료조리·서비스’. ‘02. 식음료서비스’ 아래 [‘(가)’ 아래 [‘1301020204_23v2’ 아래 [‘음료 재료 준비하기’, ‘에스프레소 추출하기’], ‘1301020207_23v2’ 아래 [‘매장 위생 점검하기’, ‘음료 메뉴 관리하기’]]].",
+        "kind": "diagram",
+        "spec": {
+          "id": "F1",
+          "kind": "diagram",
+          "title": "13. 음식서비스 > 01. 식음료조리·서비스",
+          "diagramType": "tree",
+          "direction": "down",
+          "nodes": [
+            {
+              "id": "n1",
+              "label": "02. 식음료서비스"
+            },
+            {
+              "id": "n2",
+              "label": "(가)",
+              "parent": "n1"
+            },
+            {
+              "id": "n3",
+              "label": "1301020204_23v2",
+              "parent": "n2"
+            },
+            {
+              "id": "n4",
+              "label": "1301020207_23v2",
+              "parent": "n2"
+            },
+            {
+              "id": "n5",
+              "label": "음료 재료 준비하기",
+              "parent": "n3"
+            },
+            {
+              "id": "n6",
+              "label": "에스프레소 추출하기",
+              "parent": "n3"
+            },
+            {
+              "id": "n7",
+              "label": "매장 위생 점검하기",
+              "parent": "n4"
+            },
+            {
+              "id": "n8",
+              "label": "음료 메뉴 관리하기",
+              "parent": "n4"
+            }
+          ]
+        }
+      }
+    },
+    "choice_table": null
+  },
+  "optionsList": [
+    "① ㄱ, ㄴ",
+    "② ㄱ, ㄷ",
+    "③ ㄴ, ㄷ",
+    "④ ㄴ, ㄹ",
+    "⑤ ㄷ, ㄹ"
+  ],
+  "comboBlock": {
+    "title": "<보기>",
+    "items": [
+      {
+        "key": "ㄱ",
+        "text": "(가)에는 세분류인 ‘01. 식음료접객’이 들어간다."
+      },
+      {
+        "key": "ㄴ",
+        "text": "(가)는 NCS 분류 체계에서 직무에 해당하는 단계이다."
+      },
+      {
+        "key": "ㄷ",
+        "text": "‘1301020204_23v2’는 (가)를 구성하는 기본 단위에 해당한다."
+      },
+      {
+        "key": "ㄹ",
+        "text": "‘에스프레소 추출하기’는 직무를 구성하는 기본 단위에 해당한다."
+      }
+    ]
+  },
+  "explanation": {
+    "judgment": "[출제 의도] NCS 분류 체계도에서 분류번호의 자리값과 계층 위치로 세분류(직무), 능력단위, 능력단위요소를 구별할 수 있는가?\n[해설] 제목의 ‘13. 음식서비스 > 01. 식음료조리·서비스’는 대분류와 중분류이고, 뿌리 ‘02. 식음료서비스’는 소분류이므로 그 아래 (가)는 세분류이다. (가) 아래 ‘1301020204_23v2’는 13·01·02·02·04로 나뉘어 넷째 두 자리 02가 세분류 번호이다. ㄱ. (가)의 세분류 번호는 02이므로 ‘01. 식음료접객’은 들어갈 수 없어 옳지 않다. ㄴ. (가)는 넷째 단계인 세분류이고 세분류는 직무이므로 옳다. ㄷ. ‘.숫자’ 없이 ‘_23v2’로 끝나는 분류번호는 능력단위이며, 능력단위는 직무를 구성하는 기본 단위이므로 옳다. ㄹ. ‘에스프레소 추출하기’는 능력단위 아래의 ‘~하기’ 항목인 능력단위요소이므로 옳지 않다.\n[오답 피하기] ㄱ: 분류번호는 대·중·소·세분류·능력단위 순으로 두 자리씩 이어지므로 넷째 두 자리 02가 (가)의 번호이다. 번호 01인 세분류를 넣은 것은 자리값을 잘못 읽은 것이다. ㄹ: 능력단위요소는 능력단위를 구성하는 핵심 하위 능력이다. 직무를 구성하는 기본 단위는 그 위 단계인 능력단위이므로 계층을 한 칸 내려 잡은 오류이다.",
+    "conceptHighlightV2": {
+      "stimulusClues": [
+        {
+          "quote": "13. 음식서비스 > 01. 식음료조리·서비스",
+          "why": "도식 제목은 대분류와 중분류 경로이므로 뿌리는 소분류, (가)는 세분류 단계임을 알려 준다."
+        },
+        {
+          "quote": "1301020204_23v2",
+          "why": "두 자리씩 끊으면 넷째 자리값 02가 세분류 번호이고, ‘.숫자’가 없으므로 능력단위의 분류번호이다."
+        },
+        {
+          "quote": "에스프레소 추출하기",
+          "why": "능력단위 분류번호 아래에 놓인 ‘~하기’ 형태 항목이므로 능력단위요소이다."
+        }
+      ],
+      "optionAnalysis": [
+        {
+          "optionKey": "ㄱ",
+          "verdict": "X",
+          "reasoning": "(가) 아래 분류번호 ‘1301020204_23v2’의 넷째 두 자리가 02이므로 (가)는 세분류 번호 02이며, 번호 01인 세분류는 들어갈 수 없다."
+        },
+        {
+          "optionKey": "ㄴ",
+          "verdict": "O",
+          "reasoning": "제목의 대분류·중분류와 뿌리의 소분류 아래에 놓인 (가)는 넷째 단계인 세분류이고, 세분류는 직무에 해당한다."
+        },
+        {
+          "optionKey": "ㄷ",
+          "verdict": "O",
+          "reasoning": "열 자리 번호에 ‘_연도v버전’만 붙고 ‘.숫자’가 없는 분류번호는 능력단위이며, 능력단위는 직무(세분류)를 구성하는 기본 단위이다."
+        },
+        {
+          "optionKey": "ㄹ",
+          "verdict": "X",
+          "reasoning": "‘에스프레소 추출하기’는 능력단위 분류번호 아래에 놓인 ‘~하기’ 형태 항목으로 능력단위요소이다. 직무를 구성하는 기본 단위는 능력단위이다."
+        }
+      ],
+      "solvingFlow": [
+        {
+          "step": 1,
+          "action": "도식 제목과 뿌리에서 대분류·중분류·소분류를 확인하고 (가)가 넷째 단계인 세분류(직무)임을 찾는다."
+        },
+        {
+          "step": 2,
+          "action": "(가) 아래 분류번호를 두 자리씩 끊어 넷째 두 자리 02가 (가)의 세분류 번호임을 확인한다."
+        },
+        {
+          "step": 3,
+          "action": "‘.숫자’ 없이 ‘_연도v버전’으로 끝나는 번호는 능력단위, 그 아래 ‘~하기’ 항목은 능력단위요소로 구별한다."
+        },
+        {
+          "step": 4,
+          "action": "직무는 세분류, 직무를 구성하는 기본 단위는 능력단위라는 기준으로 각 보기를 판정한다."
+        }
+      ],
+      "takeaway": "직무는 세분류, 직무를 구성하는 기본 단위는 능력단위이며, 분류번호의 넷째 두 자리는 세분류 번호이고 ‘~하기’ 항목은 능력단위요소이다."
+    }
+  },
+  "correctAnswer": 3,
+  "points": 3,
+  "fingerprint": "8253592e"
+}

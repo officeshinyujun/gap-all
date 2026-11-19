@@ -84,3 +84,6 @@ credentials.*
 # exam skill build scratch (atomic swap)
 .claude/skills/exam-question-generator/scripts/engine.next/
 .claude/skills/exam-question-generator/scripts/engine.old/
+
+__pycache__/
+*.pyc

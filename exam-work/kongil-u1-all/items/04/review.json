@@ -1,0 +1,9 @@
+{
+  "reasoning": "(가) 공장 터 가격은 경제적, (나) 습도·먼지·고원 지대는 자연적, (다) 완성차 공장 근접·당일 납품은 경제적 입지 조건이다. ㄱ 사회적 입지 조건(주민 성향·전통 등)을 고려한 기업이 없으므로 거짓. ㄴ (가), (다) 모두 경제적이므로 참. ㄷ (나)는 자연적, (가)는 경제적이므로 참. ㄹ 금속 주물 부품, 정밀 렌즈, 전선 묶음 모두 제조업 C이므로 참. 정답 ⑤(ㄴ, ㄷ, ㄹ). ㄴ의 '같은 종류'는 입지 조건의 범주(자연적·경제적·사회적)로 읽힌다.",
+  "answerIndex": 5,
+  "ambiguity": "none",
+  "curriculumIssues": [],
+  "answerGivenAway": false,
+  "perceivedDifficulty": "moderate",
+  "trivialStatements": []
+}

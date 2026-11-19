@@ -1,0 +1,9 @@
+{
+  "reasoning": "ㄱ: 한국 산업 표준 적합 인증 = KS 인증은 임의(자율) 인증 → 거짓. ㄴ: 유통업체가 정한 조리법·도안대로 생산하고 유통업체 상표로 납품 → OEM → 참. ㄷ: 자체 연구소가 개발·설계해 제안하고 채택 제품을 상대 상표로 납품 → ODM → 참. 정답 ④.",
+  "answerIndex": 4,
+  "ambiguity": "none",
+  "curriculumIssues": [],
+  "answerGivenAway": false,
+  "perceivedDifficulty": "moderate",
+  "trivialStatements": []
+}

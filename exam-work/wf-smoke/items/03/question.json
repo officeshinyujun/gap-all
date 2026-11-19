@@ -1,0 +1,149 @@
+{
+  "targetConcept": "근로자 차별 금지와 차별 시정 제도",
+  "itemType": "ai_generative_truth_combination",
+  "difficulty": "MIDDLE",
+  "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+  "questionStem": "다음은 근로관계법 전문가와 A 씨의 상담 장면이다. 이에 대한 분석으로 적절한 것만을 <보기>에서 고른 것은?",
+  "stimulusData": {
+    "blocks": [
+      {
+        "type": "figure",
+        "figure_id": "F1"
+      },
+      {
+        "type": "dialogue",
+        "lines": [
+          {
+            "speaker": "근로관계법 전문가",
+            "text": "어떤 일로 상담을 신청하셨나요?"
+          },
+          {
+            "speaker": "A 씨",
+            "text": "저는 2024년 3월에 상시 근로자 120명인 ○○기업에 1년 계약으로 직접 고용되어 자동차 부품 조립 라인에서 일하고 있어요. 그런데 2024년 12월 10일에 같은 라인에서 같은 업무를 하는 정규직 동료들만 상여금 100만 원을 받았어요."
+          },
+          {
+            "speaker": "근로관계법 전문가",
+            "text": "회사에서는 어떤 이유를 들었나요?"
+          },
+          {
+            "speaker": "A 씨",
+            "text": "근무 시간과 업무량, 책임이 모두 같은데도 계약직이라서 줄 수 없다고 했어요. 또 재계약을 하려면 노동조합에 가입하지 않겠다는 서약서를 내라고 해요."
+          }
+        ]
+      }
+    ],
+    "figures": {
+      "F1": {
+        "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0ODAgMjI0IiBmb250LWZhbWlseT0iJiMzOTtOb3RvIFNhbnMgS1ImIzM5OywmIzM5O0FwcGxlIFNEIEdvdGhpYyBOZW8mIzM5OywmIzM5O01hbGd1biBHb3RoaWMmIzM5OywmIzM5O05hbnVtR290aGljJiMzOTssc2Fucy1zZXJpZiI+PGRlZnM+PGNsaXBQYXRoIGlkPSJGMS1jNTkzN2EtY2xpcCI+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjQ4MCIgaGVpZ2h0PSIyMjQiLz48L2NsaXBQYXRoPjwvZGVmcz48ZyBjbGlwLXBhdGg9InVybCgjRjEtYzU5MzdhLWNsaXApIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNDAgOCkiPjxwYXRoIGQ9Ik0tMzIgNjRDLTM2IDEwMCAtMzggMTIwIC0yNiAxMzBMMjYgMTMwQzM4IDEyMCAzNiAxMDAgMzIgNjRaIiBmaWxsPSIjM2EzYTNhIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHJlY3QgeD0iLTkuNSIgeT0iOTYiIHdpZHRoPSIxOSIgaGVpZ2h0PSIyNiIgZmlsbD0iI2ZiZmJmYiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIvPjxwYXRoIGQ9Ik0tMTMgMTEzQy0yOCAxMTYgLTQ5IDExOCAtNTQgMTQwQy01NyAxNzAgLTU3IDE5NCAtNTUgMjM0TDQyIDIzNEM0MCAxOTQgMzkgMTcwIDM4IDE0MEM0OSAxMTggMjggMTE2IDEzIDExM1oiIGZpbGw9IiNiOGI4YjgiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNLTE3IDExMkwwIDE0OUwxNyAxMTJaIiBmaWxsPSIjZmZmIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS40IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTS0xNyAxMTRMLTMgMTUxTC0zIDIyOCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuMyIvPjxwYXRoIGQ9Ik0xNyAxMTRMMyAxNTEiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjMiLz48Y2lyY2xlIGN4PSIwIiBjeT0iMTY1IiByPSIyIiBmaWxsPSIjNTU1Ii8+PGNpcmNsZSBjeD0iMCIgY3k9IjE4NSIgcj0iMiIgZmlsbD0iIzU1NSIvPjxjaXJjbGUgY3g9IjAiIGN5PSIyMDUiIHI9IjIiIGZpbGw9IiM1NTUiLz48ZWxsaXBzZSBjeD0iMCIgY3k9IjcwIiByeD0iMjgiIHJ5PSIzNCIgZmlsbD0iI2ZiZmJmYiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIvPjxwYXRoIGQ9Ik0tMjcgNjhDLTM2IDY1IC0zNiA4MiAtMjcgODAiIGZpbGw9IiNmYmZiZmIiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciLz48ZWxsaXBzZSBjeD0iLTQiIGN5PSI3MiIgcng9IjIuMyIgcnk9IjIuOSIgZmlsbD0iIzI2MjYyNiIvPjxlbGxpcHNlIGN4PSIxMyIgY3k9IjcyIiByeD0iMi4zIiByeT0iMi45IiBmaWxsPSIjMjYyNjI2Ii8+PHBhdGggZD0iTS05IDY0US00IDYxIDEgNjMuNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTggNjMuNVExMyA2MSAxOCA2NCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTE1LjIgNjkuNmwyLjYgLTEuNiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTYgNzdROS41IDg0IDUgODUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik0tMiA5MVE0LjUgOTYuNSAxMSA5MSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTS0zMiA4OEMtMzYgNTIgLTI2IDMwIDIgMzBDMjYgMzAgMzYgNTIgMzIgODhMMjYgODZDMjggNjggMjYgNTggMjAgNTRDMTAgNjAgLTYgNTYgLTEyIDQ4Qy0xNiA1NiAtMjQgNjIgLTI2IDg2WiIgZmlsbD0iIzNhM2EzYSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0tMzQgMTU4Qy0zNiAxODAgLTM2IDIwNCAtMzUgMjM0IiBmaWxsPSJub25lIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS40IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cmVjdCB4PSItNCIgeT0iMTQ4IiB3aWR0aD0iNDQiIGhlaWdodD0iNTQiIHJ4PSIyIiBmaWxsPSIjZjJmMmYyIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS41IiB0cmFuc2Zvcm09InJvdGF0ZSgtOCAxOCAxNzUpIi8+PHJlY3QgeD0iMTAiIHk9IjE0NSIgd2lkdGg9IjE2IiBoZWlnaHQ9IjciIHJ4PSIxLjUiIGZpbGw9IiM4ODgiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjEiIHRyYW5zZm9ybT0icm90YXRlKC04IDE4IDE3NSkiLz48cGF0aCBkPSJNNCAxNjRoMjhNNCAxNzRoMjhNNCAxODRoMTgiIHN0cm9rZT0iIzlhOWE5YSIgc3Ryb2tlLXdpZHRoPSIxLjMiIHRyYW5zZm9ybT0icm90YXRlKC04IDE4IDE3NSkiLz48cGF0aCBkPSJNNDIgMTM0TDUyIDE4NkwyNiAxOTgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIyMi40IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNNDIgMTM0TDUyIDE4NkwyNiAxOTgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2I4YjhiOCIgc3Ryb2tlLXdpZHRoPSIxOSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PGVsbGlwc2UgY3g9IjI2IiBjeT0iMTk4IiByeD0iNy41IiByeT0iNi45IiBmaWxsPSIjZmJmYmZiIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43Ii8+PC9nPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDM0MCA4KSBzY2FsZSgtMSAxKSI+PHJlY3QgeD0iLTkuNSIgeT0iOTYiIHdpZHRoPSIxOSIgaGVpZ2h0PSIyNiIgZmlsbD0iI2ZiZmJmYiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIvPjxwYXRoIGQ9Ik0tMTMgMTEzQy0yOCAxMTYgLTU2IDExOCAtNjEgMTQwQy02NCAxNzAgLTY0IDE5NCAtNjIgMjM0TDQ5IDIzNEM0NyAxOTQgNDYgMTcwIDQ1IDE0MEM1NiAxMTggMjggMTE2IDEzIDExM1oiIGZpbGw9IiM3ZDdkN2QiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNLTEzIDExM0wtMiAxMzBMLTE1IDEyNkwtMTcgMTE1WiIgZmlsbD0iIzlhOWE5YSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0xMyAxMTNMMiAxMzBMMTUgMTI2TDE3IDExNVoiIGZpbGw9IiM5YTlhOWEiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNLTEzIDExNEMtMjYgMTE3IC00OCAxMjQgLTUyIDE0MEwtNTQgMjMwTC0zIDIzMEwtMyAxNDNaIiBmaWxsPSIjZDlkOWQ5IiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS40IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTEzIDExNEMyNiAxMTcgNDggMTI0IDUyIDE0MEw1NCAyMzBMMyAyMzBMMyAxNDNaIiBmaWxsPSIjZDlkOWQ5IiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS40IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHJlY3QgeD0iLTUyIiB5PSIxNzUiIHdpZHRoPSI0OSIgaGVpZ2h0PSI4IiBmaWxsPSIjZmZmIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS4xIi8+PHJlY3QgeD0iMyIgeT0iMTc1IiB3aWR0aD0iNDkiIGhlaWdodD0iOCIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuMSIvPjxyZWN0IHg9Ii01MiIgeT0iMTk3IiB3aWR0aD0iNDkiIGhlaWdodD0iOCIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuMSIvPjxyZWN0IHg9IjMiIHk9IjE5NyIgd2lkdGg9IjQ5IiBoZWlnaHQ9IjgiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjEiLz48ZWxsaXBzZSBjeD0iMCIgY3k9IjcwIiByeD0iMjgiIHJ5PSIzNCIgZmlsbD0iI2ZiZmJmYiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIvPjxwYXRoIGQ9Ik0tMjcgNjhDLTM2IDY1IC0zNiA4MiAtMjcgODAiIGZpbGw9IiNmYmZiZmIiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciLz48ZWxsaXBzZSBjeD0iLTQiIGN5PSI3MiIgcng9IjIuMyIgcnk9IjIuOSIgZmlsbD0iIzI2MjYyNiIvPjxlbGxpcHNlIGN4PSIxMyIgY3k9IjcyIiByeD0iMi4zIiByeT0iMi45IiBmaWxsPSIjMjYyNjI2Ii8+PHBhdGggZD0iTS05IDY0US00IDYxIDEgNjMuNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTggNjMuNVExMyA2MSAxOCA2NCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTYgNzdROS41IDg0IDUgODUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik0tMiA5MVE0LjUgOTYuNSAxMSA5MSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTS0yOSA3NEMtMzAgNjAgLTI2IDUyIC0yMCA1MEwtMjIgNjhaIiBmaWxsPSIjM2EzYTNhIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTS0zMiA1OEMtMzIgMjAgMzIgMjAgMzIgNThaIiBmaWxsPSIjZjNmM2YzIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTS00IDI3TC0zIDU3TTQgMjdMMyA1NyIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuMiIvPjxwYXRoIGQ9Ik0tMzYgNThMNDIgNThRNDQgNjMgMzYgNjNMLTM0IDYzUS0zOCA2MSAtMzYgNThaIiBmaWxsPSIjZjNmM2YzIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTS00MSAxNThDLTQzIDE4MCAtNDMgMjA0IC00MiAyMzQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik00OSAxMzRMNTkgMTg0TDc4IDE2NiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjIyLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik00OSAxMzRMNTkgMTg0TDc4IDE2NiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjN2Q3ZDdkIiBzdHJva2Utd2lkdGg9IjE5IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNNzIgMTcyQzcwIDE2MyA3NyAxNTcgODYgMTU3QzkyIDE1NyA5MyAxNjEgODkgMTYyTDgzIDE2M0M4OCAxNjYgODcgMTcyIDgwIDE3NFoiIGZpbGw9IiNmYmZiZmIiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L2c+PC9nPjwvc3ZnPg==",
+        "alt": "장식용. 근로관계법 전문가(상담사)와 A 씨(현장 근로자)가 마주 보고 이야기하는 인물 그림. 대화 내용은 이어지는 대화 블록에 있음.",
+        "kind": "illustration",
+        "spec": {
+          "id": "F1",
+          "kind": "scene",
+          "layout": "pair",
+          "people": [
+            {
+              "speaker": "근로관계법 전문가",
+              "role": "counselor",
+              "gender": "female",
+              "age": "adult"
+            },
+            {
+              "speaker": "A 씨",
+              "role": "worker",
+              "gender": "male",
+              "age": "adult"
+            }
+          ]
+        }
+      }
+    },
+    "choice_table": null
+  },
+  "optionsList": [
+    "① ㄱ",
+    "② ㄴ",
+    "③ ㄱ, ㄷ",
+    "④ ㄴ, ㄷ",
+    "⑤ ㄱ, ㄴ, ㄷ"
+  ],
+  "comboBlock": {
+    "title": "<보기>",
+    "items": [
+      {
+        "key": "ㄱ",
+        "text": "A 씨가 받지 못한 상여금은 근로자 권익 침해 중 차별에 해당한다."
+      },
+      {
+        "key": "ㄴ",
+        "text": "A 씨는 상여금 문제의 시정을 2025년 5월에 지방노동위원회에 신청할 수 있다."
+      },
+      {
+        "key": "ㄷ",
+        "text": "○○기업이 재계약 조건으로 요구한 서약서는 부당 노동 행위에 해당한다."
+      }
+    ]
+  },
+  "explanation": {
+    "judgment": "[출제 의도] 기간제 근로자의 상여금 미지급 사례에서 차별 시정 제도의 요건·기관·기한을 적용하고, 부당 노동 행위와 구별할 수 있는가?\n[해설] A 씨는 상시 근로자 120명인 ○○기업에 1년 계약으로 직접 고용된 기간제 근로자이다. ㄱ. 같은 라인에서 같은 업무를 하는 정규직 동료와 근무 시간·업무량·책임이 같은데도 계약직이라는 이유로 상여금을 받지 못하였으므로 합리적 이유 없는 차별에 해당한다. ㄴ. 차별적 처우가 있은 날인 2024년 12월 10일부터 6개월 이내에 지방노동위원회에 차별 시정을 신청할 수 있으므로 2025년 5월 신청은 가능하다. ㄷ. 노동조합에 가입하지 않겠다는 서약을 재계약 조건으로 요구한 것은 노동 3권을 침해하는 부당 노동 행위에 해당한다. 따라서 ㄱ, ㄴ, ㄷ 모두 적절하다.\n[오답 피하기] 차별 시정은 고용노동부 진정이 아니라 지방노동위원회에 신청하며, 기한은 부당 해고 구제 신청의 3개월이 아니라 차별적 처우가 있은 날부터 6개월이다. 또한 노동조합 미가입을 고용 조건으로 삼는 것은 차별이 아니라 부당 노동 행위로 구별해야 한다.",
+    "conceptHighlightV2": {
+      "stimulusClues": [
+        {
+          "quote": "1년 계약으로 직접 고용되어 자동차 부품 조립 라인에서 일하고 있어요",
+          "why": "A 씨가 ○○기업에 직접 고용된 기간제 근로자임을 보여 준다."
+        },
+        {
+          "quote": "같은 라인에서 같은 업무를 하는 정규직 동료들만 상여금 100만 원을 받았어요",
+          "why": "동종·유사 업무를 하는 비교 대상 근로자와 비교해 상여금에서 불리한 처우를 받았음을 보여 준다."
+        },
+        {
+          "quote": "근무 시간과 업무량, 책임이 모두 같은데도 계약직이라서 줄 수 없다고 했어요",
+          "why": "차등을 정당화할 합리적 이유가 없음을 보여 준다."
+        },
+        {
+          "quote": "노동조합에 가입하지 않겠다는 서약서를 내라고 해요",
+          "why": "노동조합 미가입을 고용 조건으로 삼는 부당 노동 행위를 가리킨다."
+        }
+      ],
+      "optionAnalysis": [
+        {
+          "optionKey": "ㄱ",
+          "verdict": "O",
+          "reasoning": "A 씨는 기간제 근로자로, 같은 업무를 하는 정규직 동료와 근무 시간·업무량·책임이 같은데도 계약직이라는 이유만으로 상여금을 받지 못하였으므로 합리적 이유 없는 차별에 해당한다."
+        },
+        {
+          "optionKey": "ㄴ",
+          "verdict": "O",
+          "reasoning": "상시 5명 이상 사업장의 기간제 근로자는 차별적 처우가 있은 날(2024년 12월 10일)부터 6개월 이내에 지방노동위원회에 차별 시정을 신청할 수 있으므로 2025년 5월 신청은 기한 안이다."
+        },
+        {
+          "optionKey": "ㄷ",
+          "verdict": "O",
+          "reasoning": "노동조합에 가입하지 않을 것을 고용 조건으로 삼는 것은 ｢노동조합 및 노동관계조정법｣ 제81조에서 금지하는 부당 노동 행위에 해당한다."
+        }
+      ],
+      "solvingFlow": [
+        {
+          "step": 1,
+          "action": "발화에서 A 씨의 고용 형태(1년 계약, 직접 고용)와 사업장 규모(상시 120명)를 확인한다."
+        },
+        {
+          "step": 2,
+          "action": "같은 업무를 하는 정규직 동료와 비교해 합리적 이유 없이 상여금을 받지 못한 점을 차별 요건에 대응시킨다."
+        },
+        {
+          "step": 3,
+          "action": "차별적 처우일 2024년 12월 10일 + 6개월 → 2025년 6월 10일까지이므로 2025년 5월 지방노동위원회 신청은 기한 안임을 확인한다."
+        },
+        {
+          "step": 4,
+          "action": "노동조합 미가입 서약 요구를 고용 조건으로 삼는 부당 노동 행위로 분류한다."
+        }
+      ],
+      "takeaway": "기간제 근로자의 차별 시정은 차별적 처우가 있은 날부터 6개월 이내 지방노동위원회에 신청하며, 노동조합 미가입을 고용 조건으로 삼는 것은 부당 노동 행위이다."
+    }
+  },
+  "correctAnswer": 5,
+  "points": 2,
+  "fingerprint": "a729ab70"
+}

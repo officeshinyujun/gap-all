@@ -1,0 +1,9 @@
+{
+  "reasoning": "미생물로 기름 성분을 분해하는 폐수 정화 → 수질 분야 환경 기술(ET). 찌꺼기를 건조해 시멘트 원료로 재활용 → 폐기물 처리(자원화) 분야 환경 기술. 센서 측정값을 무선으로 서버에 전송하고 기준 초과 시 스마트폰 알림 → 사물 인터넷(IoT). ㄱ 거짓: 폐수 정화는 환경 기술이며 화석 연료 대체 에너지를 개발하는 에너지 기술의 분야가 아님. ㄴ 참. ㄷ 참. ㄹ 참. 정답 ㄴ, ㄷ, ㄹ → ⑤. ㄱ은 ET 약어가 같은 두 기술을 혼동시키는 장치로 한글명이 병기되어 판정이 확정됨.",
+  "answerIndex": 5,
+  "ambiguity": "none",
+  "curriculumIssues": [],
+  "answerGivenAway": false,
+  "perceivedDifficulty": "moderate",
+  "trivialStatements": []
+}

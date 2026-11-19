@@ -1,0 +1,179 @@
+{
+  "targetConcept": "평생 학습 계좌제",
+  "itemType": "ai_generative_truth_combination",
+  "difficulty": "HIGH",
+  "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+  "questionStem": "다음 경력 개발 계획서에 나타난 A 씨와 평생 학습 제도 (가)~(다)에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+  "stimulusData": {
+    "blocks": [
+      {
+        "type": "text",
+        "text": "■ 작성자: ○○호텔 객실팀 A 씨\n• 고등학교를 졸업하고 입사하여 5년째 근무하고 있다.\n• 근무 중에 국가기술자격인 호텔서비스사를 취득하였고, 사내 직무 교육도 여러 차례 이수하였다.\n• 야간 교대 근무가 잦아 학습 시간을 꾸준히 확보하기 어려운 점을 걸림돌로 꼽았다.\n■ 인사팀이 안내한 평생 학습 제도\n• (가): ｢평생교육법｣ 제23조에 근거하며, 누리집에서 개인별로 신청한다.\n• (나): ｢산업교육진흥 및 산학연협력촉진에 관한 법률｣에 근거한다. 우리 호텔은 내년에 △△대학과 협약을 맺고 직원 대상 학과를 개설할 예정이다.\n• (다): ｢학점인정 등에 관한 법률｣에 근거하며, 온라인 강좌로도 수강할 수 있다.\n■ 계획 흐름"
+      },
+      {
+        "type": "figure",
+        "figure_id": "F1"
+      }
+    ],
+    "figures": {
+      "F1": {
+        "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0ODAgNjU0IiBmb250LWZhbWlseT0iJiMzOTtOb3RvIFNhbnMgS1ImIzM5OywmIzM5O0FwcGxlIFNEIEdvdGhpYyBOZW8mIzM5OywmIzM5O01hbGd1biBHb3RoaWMmIzM5OywmIzM5O05hbnVtR290aGljJiMzOTssc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNSI+PHRleHQgeD0iMjQwIiB5PSIyMiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjcwMCI+QSDslKjsnZgg6rK966ClIOqwnOuwnCDqs4Ttmo0g7Z2Q66aEPC90ZXh0PjxyZWN0IHg9IjExNSIgeT0iNDIiIHdpZHRoPSIyMTAiIGhlaWdodD0iNTAiIHJ4PSIyIiBmaWxsPSIjZmZmIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4zIi8+PHRleHQgeD0iMjIwIiB5PSI2My4wNCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxNCI+PHRzcGFuIHg9IjIyMCIgZHk9IjAiPuqwneyLpCDsp4DrsLDsnbgg7KeB66y07J2YIOyekOqyqTwvdHNwYW4+PHRzcGFuIHg9IjIyMCIgZHk9IjE4Ij7smpTqsbTqs7wg7Iq57KeEIOyghOunnSDsobDsgqw8L3RzcGFuPjwvdGV4dD48bGluZSB4MT0iMjIwIiB5MT0iOTMiIHgyPSIyMjAiIHkyPSIxMTEuNiIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEuMyIvPjxwb2x5Z29uIHBvaW50cz0iMjIwLDExOCAyMjMuMzYsMTEwIDIxNi42NCwxMTAiIGZpbGw9IiMwMDAiLz48cmVjdCB4PSIxMTUiIHk9IjEyMCIgd2lkdGg9IjIxMCIgaGVpZ2h0PSI1MCIgcng9IjIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjMiLz48dGV4dCB4PSIyMjAiIHk9IjE0MS4wNCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxNCI+PHRzcGFuIHg9IjIyMCIgZHk9IjAiPuyekOyLoOydmCDsmbjqta3slrQg64ql66Cl6rO8IOqzoOqwnTwvdHNwYW4+PHRzcGFuIHg9IjIyMCIgZHk9IjE4Ij7snZHrjIAg7KCB7ISxIOygkOqygDwvdHNwYW4+PC90ZXh0PjxsaW5lIHgxPSIyMjAiIHkxPSIxNzEiIHgyPSIyMjAiIHkyPSIxODkuNiIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEuMyIvPjxwb2x5Z29uIHBvaW50cz0iMjIwLDE5NiAyMjMuMzYsMTg4IDIxNi42NCwxODgiIGZpbGw9IiMwMDAiLz48cmVjdCB4PSIxMTUiIHk9IjE5OCIgd2lkdGg9IjIxMCIgaGVpZ2h0PSI1MCIgcng9IjIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjMiLz48dGV4dCB4PSIyMjAiIHk9IjIxOS4wNCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxNCI+PHRzcGFuIHg9IjIyMCIgZHk9IjAiPjfrhYQg7JWI7JeQIOqwneyLpCDsp4DrsLDsnbjsnLzroZw8L3RzcGFuPjx0c3BhbiB4PSIyMjAiIGR5PSIxOCI+7Iq57KeE7ZWY64qUIOuqqe2RnCDshKTsoJU8L3RzcGFuPjwvdGV4dD48bGluZSB4MT0iMjIwIiB5MT0iMjQ5IiB4Mj0iMjIwIiB5Mj0iMjY3LjYiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjMiLz48cG9seWdvbiBwb2ludHM9IjIyMCwyNzQgMjIzLjM2LDI2NiAyMTYuNjQsMjY2IiBmaWxsPSIjMDAwIi8+PHJlY3QgeD0iMTE1IiB5PSIyNzYiIHdpZHRoPSIyMTAiIGhlaWdodD0iNTAiIHJ4PSIyIiBmaWxsPSIjZmZmIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4zIi8+PHRleHQgeD0iMjIwIiB5PSIyOTcuMDQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTQiPjx0c3BhbiB4PSIyMjAiIGR5PSIwIj4o6rCAKeyXkOyEnCDtlZnsirUg7J2066ClIOymneuqheyEnOulvDwvdHNwYW4+PHRzcGFuIHg9IjIyMCIgZHk9IjE4Ij7rsJzquInrsJvslYQg7Iq57KeEIOyLrOyCrOyXkCDsoJzstpw8L3RzcGFuPjwvdGV4dD48bGluZSB4MT0iMjIwIiB5MT0iMzI3IiB4Mj0iMjIwIiB5Mj0iMzQ1LjYiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjMiLz48cG9seWdvbiBwb2ludHM9IjIyMCwzNTIgMjIzLjM2LDM0NCAyMTYuNjQsMzQ0IiBmaWxsPSIjMDAwIi8+PHJlY3QgeD0iMTE1IiB5PSIzNTQiIHdpZHRoPSIyMTAiIGhlaWdodD0iNTAiIHJ4PSIyIiBmaWxsPSIjZmZmIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4zIi8+PHRleHQgeD0iMjIwIiB5PSIzNzUuMDQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTQiPjx0c3BhbiB4PSIyMjAiIGR5PSIwIj4o64KYKSwgKOuLpCkg7KSRIO2VmeychCDst6jrk50g67Cp67KV7J2EPC90c3Bhbj48dHNwYW4geD0iMjIwIiBkeT0iMTgiPuqzqOudvCDsi6Ttlok8L3RzcGFuPjwvdGV4dD48bGluZSB4MT0iMjIwIiB5MT0iNDA1IiB4Mj0iMjIwIiB5Mj0iNDIzLjYiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjMiLz48cG9seWdvbiBwb2ludHM9IjIyMCw0MzAgMjIzLjM2LDQyMiAyMTYuNjQsNDIyIiBmaWxsPSIjMDAwIi8+PHBvbHlnb24gcG9pbnRzPSIyMjAsNDMyIDMxNC41LDQ3NiAyMjAsNTIwIDEyNS41LDQ3NiIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEuMyIvPjx0ZXh0IHg9IjIyMCIgeT0iNDYzLjA0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjE0Ij48dHNwYW4geD0iMjIwIiBkeT0iMCI+NuqwnOyblOuniOuLpCDsoJDqsoDtlZw8L3RzcGFuPjx0c3BhbiB4PSIyMjAiIGR5PSIxOCI+6rKw6rO8IOqzhO2ajeuztOuLpDwvdHNwYW4+PHRzcGFuIHg9IjIyMCIgZHk9IjE4Ij7riqbslrTsoYzripTqsIA/PC90c3Bhbj48L3RleHQ+PGxpbmUgeDE9IjIyMCIgeTE9IjUyMSIgeDI9IjIyMCIgeTI9IjUzOS42IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4zIi8+PHBvbHlnb24gcG9pbnRzPSIyMjAsNTQ2IDIyMy4zNiw1MzggMjE2LjY0LDUzOCIgZmlsbD0iIzAwMCIvPjx0ZXh0IHg9IjIyOCIgeT0iNTM3IiBmb250LXNpemU9IjEyIj7smIg8L3RleHQ+PHJlY3QgeD0iMTE1IiB5PSI1NDgiIHdpZHRoPSIyMTAiIGhlaWdodD0iMzIiIHJ4PSIyIiBmaWxsPSIjZmZmIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4zIi8+PHRleHQgeD0iMjIwIiB5PSI1NjkuMDQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTQiPu2VmeyKtSDsi5zqsITqs7wg67Cp67KV7J2EIOyhsOyglTwvdGV4dD48bGluZSB4MT0iMjIwIiB5MT0iNTgxIiB4Mj0iMjIwIiB5Mj0iNTk5LjYiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjMiLz48cG9seWdvbiBwb2ludHM9IjIyMCw2MDYgMjIzLjM2LDU5OCAyMTYuNjQsNTk4IiBmaWxsPSIjMDAwIi8+PHJlY3QgeD0iMTE1IiB5PSI2MDgiIHdpZHRoPSIyMTAiIGhlaWdodD0iMzIiIHJ4PSIxNiIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEuMyIvPjx0ZXh0IHg9IjIyMCIgeT0iNjI5LjA0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjE0Ij7ri6TsnYwg7KCQ6rKA6rmM7KeAIOqzhO2ajSDsi6Ttlok8L3RleHQ+PHBvbHlsaW5lIHBvaW50cz0iMTI1LjUsNDc2IDkzLDQ3NiA5Myw2MjQgMTA2LjYsNjI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4zIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBvbHlnb24gcG9pbnRzPSIxMTMsNjI0IDEwNSw2MjAuNjQgMTA1LDYyNy4zNiIgZmlsbD0iIzAwMCIvPjx0ZXh0IHg9IjEwOS4yNSIgeT0iNDcwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjEyIj7slYTri4jsmpQ8L3RleHQ+PC9zdmc+",
+        "alt": "순서도(위에서 아래). 제목 ‘A 씨의 경력 개발 계획 흐름’. [객실 지배인 직무의 자격 요건과 승진 전망 조사] → [자신의 외국어 능력과 고객 응대 적성 점검] → [7년 안에 객실 지배인으로 승진하는 목표 설정] → [(가)에서 학습 이력 증명서를 발급받아 승진 심사에 제출] → [(나), (다) 중 학위 취득 방법을 골라 실행] → ◇‘6개월마다 점검한 결과 계획보다 늦어졌는가?’ →(예) [학습 시간과 방법을 조정] → [다음 점검까지 계획 실행]. ◇‘6개월마다 점검한 결과 계획보다 늦어졌는가?’에서 ‘아니요’이면 [다음 점검까지 계획 실행](으)로 가는 화살표.",
+        "kind": "diagram",
+        "spec": {
+          "id": "F1",
+          "kind": "diagram",
+          "title": "A 씨의 경력 개발 계획 흐름",
+          "diagramType": "flow",
+          "direction": "vertical",
+          "steps": [
+            {
+              "id": "s1",
+              "label": "객실 지배인 직무의 자격 요건과 승진 전망 조사",
+              "shape": "box"
+            },
+            {
+              "id": "s2",
+              "label": "자신의 외국어 능력과 고객 응대 적성 점검",
+              "shape": "box"
+            },
+            {
+              "id": "s3",
+              "label": "7년 안에 객실 지배인으로 승진하는 목표 설정",
+              "shape": "box"
+            },
+            {
+              "id": "s4",
+              "label": "(가)에서 학습 이력 증명서를 발급받아 승진 심사에 제출",
+              "shape": "box"
+            },
+            {
+              "id": "s5",
+              "label": "(나), (다) 중 학위 취득 방법을 골라 실행",
+              "shape": "box"
+            },
+            {
+              "id": "s6",
+              "label": "6개월마다 점검한 결과 계획보다 늦어졌는가?",
+              "shape": "decision",
+              "yesLabel": "예"
+            },
+            {
+              "id": "s7",
+              "label": "학습 시간과 방법을 조정",
+              "shape": "box"
+            },
+            {
+              "id": "s8",
+              "label": "다음 점검까지 계획 실행",
+              "shape": "terminal"
+            }
+          ],
+          "loops": [
+            {
+              "from": "s6",
+              "to": "s8",
+              "label": "아니요"
+            }
+          ]
+        }
+      }
+    },
+    "choice_table": null
+  },
+  "optionsList": [
+    "① ㄱ, ㄷ",
+    "② ㄱ, ㄹ",
+    "③ ㄷ, ㄹ",
+    "④ ㄱ, ㄷ, ㄹ",
+    "⑤ ㄱ, ㄴ, ㄷ, ㄹ"
+  ],
+  "comboBlock": {
+    "title": "<보기>",
+    "items": [
+      {
+        "key": "ㄱ",
+        "text": "A 씨는 고졸 학력뿐 아니라 호텔서비스사 취득 이력도 (가)에 누적하여 관리할 수 있다."
+      },
+      {
+        "key": "ㄴ",
+        "text": "(나)는 ○○호텔이 경비를 부담하지 않아도 재교육형으로 운영될 수 있다."
+      },
+      {
+        "key": "ㄷ",
+        "text": "(나)와 (다)는 모두 고졸 재직자인 A 씨가 학위를 취득하는 데 활용할 수 있다."
+      },
+      {
+        "key": "ㄹ",
+        "text": "A 씨가 학습 시간 확보를 걸림돌로 꼽은 것은 적성 점검과 같은 계획 단계에 해당한다."
+      }
+    ]
+  },
+  "explanation": {
+    "judgment": "[출제 의도] 근거 법률과 운영 단서로 평생 학습 제도를 식별하고, 경력 개발 계획 단계에 구체 활동을 바르게 배치할 수 있는가?\n[해설] (가)는 ｢평생교육법｣ 제23조에 근거하고 학습 이력 증명서를 발급하므로 평생 학습 계좌제, (나)는 ｢산업교육진흥 및 산학연협력촉진에 관한 법률｣에 따라 호텔이 대학과 협약을 맺어 직원 대상 학과를 개설하므로 재교육형 계약학과, (다)는 ｢학점인정 등에 관한 법률｣에 근거하므로 학점은행제이다. ㄱ. 평생 학습 계좌제는 학력·경력·자격·평생 학습 이수 경험을 누적·관리하므로 자격 취득 이력도 등록할 수 있다. ㄴ. 재교육형 계약학과는 산업체가 경비를 부담하여 소속 직원의 교육을 대학에 의뢰하는 방식이므로 틀린 진술이다. ㄷ. 계약학과와 학점은행제는 모두 학위를 취득할 수 있고 일과 학업을 병행할 수 있다. ㄹ. 장애 요소 파악과 자신의 능력·적성 파악은 모두 자신과 환경 이해 단계에 해당한다.\n[오답 피하기] ㄴ: 계약학과의 재교육형은 산업체 등이 소속 직원의 재교육이나 직무 능력 향상을 위해 대학에 교육을 의뢰하고 경비를 부담하는 방식이므로, 호텔이 경비를 부담하지 않는 재교육형 운영은 성립하지 않는다.",
+    "conceptHighlightV2": {
+      "stimulusClues": [
+        {
+          "quote": "｢평생교육법｣ 제23조에 근거하며, 누리집에서 개인별로 신청한다.",
+          "why": "순서도의 학습 이력 증명서 발급과 함께 (가)가 평생 학습 계좌제임을 가리킨다."
+        },
+        {
+          "quote": "우리 호텔은 내년에 △△대학과 협약을 맺고 직원 대상 학과를 개설할 예정이다.",
+          "why": "산업체가 소속 직원 교육을 위해 대학과 협약하여 설치하는 재교육형 계약학과를 가리킨다."
+        },
+        {
+          "quote": "｢학점인정 등에 관한 법률｣에 근거하며",
+          "why": "학교 안팎의 학습을 학점으로 인정해 학위를 주는 학점은행제의 근거 법률이다."
+        },
+        {
+          "quote": "학습 시간을 꾸준히 확보하기 어려운 점을 걸림돌로 꼽았다",
+          "why": "환경 속 장애 요소 파악으로, 경력 개발 계획의 자신과 환경 이해 단계에 해당한다."
+        }
+      ],
+      "optionAnalysis": [
+        {
+          "optionKey": "ㄱ",
+          "verdict": "O",
+          "reasoning": "｢평생교육법｣ 제23조와 학습 이력 증명서 발급으로 (가)는 평생 학습 계좌제이다. 평생 학습 계좌제는 학력뿐 아니라 경력·자격·평생 학습 이수 경험을 학습 이력으로 누적·관리하므로 옳다."
+        },
+        {
+          "optionKey": "ㄴ",
+          "verdict": "X",
+          "reasoning": "근거 법률과 호텔·대학의 협약으로 (나)는 계약학과이고, 직원 대상 학과이므로 재교육형이다. 재교육형 계약학과는 산업체가 소속 직원의 재교육을 대학에 의뢰하고 경비를 부담하므로 옳지 않다."
+        },
+        {
+          "optionKey": "ㄷ",
+          "verdict": "O",
+          "reasoning": "(나)는 계약학과, (다)는 ｢학점인정 등에 관한 법률｣에 근거한 학점은행제이다. 계약학과는 대학의 학위 과정이고 학점은행제는 학점이 기준을 충족하면 학위를 받으므로, 둘 다 근무하는 A 씨가 학위 취득에 활용할 수 있다."
+        },
+        {
+          "optionKey": "ㄹ",
+          "verdict": "O",
+          "reasoning": "학습 시간 확보의 어려움을 걸림돌로 꼽은 것은 환경 속 장애 요소 파악이고, 외국어 능력과 적성 점검은 자신에 대한 이해이다. 둘 다 경력 개발 계획의 자신과 환경 이해 단계에 해당하므로 옳다."
+        }
+      ],
+      "solvingFlow": [
+        {
+          "step": 1,
+          "action": "본문의 근거 법률과 순서도의 단서로 (가) 평생 학습 계좌제, (나) 계약학과, (다) 학점은행제를 식별한다."
+        },
+        {
+          "step": 2,
+          "action": "(가)가 학력·경력·자격·학습 경험을 누적·관리한다는 점을 A 씨의 호텔서비스사 취득에 적용한다."
+        },
+        {
+          "step": 3,
+          "action": "(나)가 직원 대상 재교육형이므로 산업체의 경비 부담이 필요한지 판단하고, (나)·(다)의 학위 취득 가능 여부를 확인한다."
+        },
+        {
+          "step": 4,
+          "action": "걸림돌 파악과 적성 점검을 경력 개발 계획 5단계에 배치하여 같은 단계인지 판단한다."
+        }
+      ],
+      "takeaway": "재교육형 계약학과는 산업체가 경비를 부담해 소속 직원 교육을 대학에 의뢰하며, 장애 요소 파악은 자신과 환경 이해 단계에 속한다."
+    }
+  },
+  "correctAnswer": 4,
+  "points": 3,
+  "fingerprint": "11d8d9ff"
+}

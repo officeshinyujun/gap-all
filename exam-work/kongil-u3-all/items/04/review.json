@@ -1,0 +1,9 @@
+{
+  "reasoning": "A: 선주 사양대로 블록을 이어 붙여 한 척씩 건조 → 조선. B: 한 라인에서 연간 수십만 대, 2만여 부품 결합 → 자동차. C: 나프타 분해로·대형 반응기, 연속 공정 → 석유 화학. ㄱ 건물은 고정 자본 → 거짓. ㄴ 조선·자동차는 조립 공업 → 참. ㄷ 석유 화학은 자본 집약적 장치 공업 → 참. ㄹ 조선은 주문 생산이며 다품종 대량 생산·규모의 경제는 자동차의 특징 → 거짓. 정답 ㄴ, ㄷ(③). ㄹ은 제시문의 '한 척씩'과 '연간 수십만 대' 대비로 쉽게 배제된다. AR 안경·위성 신호는 판정과 무관한 맥락.",
+  "answerIndex": 3,
+  "ambiguity": "none",
+  "curriculumIssues": [],
+  "answerGivenAway": false,
+  "perceivedDifficulty": "moderate",
+  "trivialStatements": []
+}

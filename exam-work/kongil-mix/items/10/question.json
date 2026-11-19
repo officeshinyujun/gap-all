@@ -1,0 +1,153 @@
+{
+  "targetConcept": "산업용 로봇의 좌표 형태별 분류",
+  "itemType": "ai_generative_truth_combination",
+  "difficulty": "HIGH",
+  "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+  "questionStem": "다음 3D 프린터 연수 일정표에 나타난 ○○제약의 설비에 대한 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+  "stimulusData": {
+    "blocks": [
+      {
+        "type": "text",
+        "text": "〈○○제약 3D 프린터 실무 연수 일정표〉\n■ 1일차: 출력 원리\n• 필라멘트가 노즐에서 녹아 나와 바닥판부터 층층이 굳으며 시약병 거치대 형태가 됨\n■ 2일차: 3D 모델링\n• 도면 파일을 수정하여 출력 장치에 입력함\n■ 3일차: 출력물 후처리 공정 견학\n• 운전자 없이 바닥의 자기 테이프를 따라 다니는 운반 차량이 출력물을 실어 로봇 (가) 앞에 내려놓음\n• (가)가 출력물을 집어 세척대에 올림\n• 세척을 마친 출력물은 포장대까지 고정 설치된 벨트 위로 줄지어 흘러가 로봇 (나)에 닿음\n• 작업자가 (나)의 팔을 손으로 잡고 포장 동작을 시연하자, (나)는 그 동작을 기억해 두었다가 같은 궤적으로 반복함\n※ (가), (나)의 축 구성은 그래프와 같음"
+      },
+      {
+        "type": "figure",
+        "figure_id": "F1"
+      }
+    ],
+    "figures": {
+      "F1": {
+        "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0ODAgMzM0IiBmb250LWZhbWlseT0iJiMzOTtOb3RvIFNhbnMgS1ImIzM5OywmIzM5O0FwcGxlIFNEIEdvdGhpYyBOZW8mIzM5OywmIzM5O01hbGd1biBHb3RoaWMmIzM5OywmIzM5O05hbnVtR290aGljJiMzOTssc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNSI+PGRlZnM+PHBhdHRlcm4gaWQ9IkYxLWE5OGJiYy1oYXRjaCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgd2lkdGg9IjUiIGhlaWdodD0iNSIgcGF0dGVyblRyYW5zZm9ybT0icm90YXRlKDQ1KSI+PHJlY3Qgd2lkdGg9IjUiIGhlaWdodD0iNSIgZmlsbD0iI2ZmZiIvPjxsaW5lIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSI1IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4xIi8+PC9wYXR0ZXJuPjxwYXR0ZXJuIGlkPSJGMS1hOThiYmMtZG90cyIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgd2lkdGg9IjQuNSIgaGVpZ2h0PSI0LjUiPjxyZWN0IHdpZHRoPSI0LjUiIGhlaWdodD0iNC41IiBmaWxsPSIjZmZmIi8+PGNpcmNsZSBjeD0iMi4yNSIgY3k9IjIuMjUiIHI9IjAuOTUiIGZpbGw9IiMwMDAiLz48L3BhdHRlcm4+PHBhdHRlcm4gaWQ9IkYxLWE5OGJiYy1jcm9zcyIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgd2lkdGg9IjYiIGhlaWdodD0iNiI+PHJlY3Qgd2lkdGg9IjYiIGhlaWdodD0iNiIgZmlsbD0iI2ZmZiIvPjxwYXRoIGQ9Ik0wIDBMNiA2TTYgMEwwIDYiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIwLjgiLz48L3BhdHRlcm4+PC9kZWZzPjx0ZXh0IHg9IjI0MCIgeT0iMjEiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTYiIGZvbnQtd2VpZ2h0PSI3MDAiPuOAiOuhnOu0h+uzhCDstpUg6rWs7ISx44CJPC90ZXh0PjxyZWN0IHg9IjMwNCIgeT0iMzQiIHdpZHRoPSIxNjAiIGhlaWdodD0iMjQiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIwLjgiLz48cmVjdCB4PSIzMTMiIHk9IjQwLjUiIHdpZHRoPSIxNiIgaGVpZ2h0PSIxMSIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjAuOSIvPjx0ZXh0IHg9IjMzNSIgeT0iNTAiIGZvbnQtc2l6ZT0iMTMiPuyngeyEoOy2lTwvdGV4dD48cmVjdCB4PSIzOTAiIHk9IjQwLjUiIHdpZHRoPSIxNiIgaGVpZ2h0PSIxMSIgZmlsbD0iI2I0YjRiNCIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjAuOSIvPjx0ZXh0IHg9IjQxMiIgeT0iNTAiIGZvbnQtc2l6ZT0iMTMiPu2ajOyghOy2lTwvdGV4dD48dGV4dCB4PSI0MCIgeT0iNzciIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTUiPuy2lSDsiJgo6rCcKTwvdGV4dD48bGluZSB4MT0iMzYiIHkxPSIyODUiIHgyPSI0MCIgeTI9IjI4NSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEiLz48dGV4dCB4PSIzMyIgeT0iMjg5LjUiIHRleHQtYW5jaG9yPSJlbmQiIGZvbnQtc2l6ZT0iMTUiPjA8L3RleHQ+PGxpbmUgeDE9IjQwIiB5MT0iMjUzLjMzIiB4Mj0iNDY0IiB5Mj0iMjUzLjMzIiBzdHJva2U9IiM4YzhjOGMiIHN0cm9rZS13aWR0aD0iMC44IiBzdHJva2UtZGFzaGFycmF5PSIzIDMiLz48bGluZSB4MT0iMzYiIHkxPSIyNTMuMzMiIHgyPSI0MCIgeTI9IjI1My4zMyIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEiLz48dGV4dCB4PSIzMyIgeT0iMjU3LjgzIiB0ZXh0LWFuY2hvcj0iZW5kIiBmb250LXNpemU9IjE1Ij4xPC90ZXh0PjxsaW5lIHgxPSI0MCIgeTE9IjIyMS42NyIgeDI9IjQ2NCIgeTI9IjIyMS42NyIgc3Ryb2tlPSIjOGM4YzhjIiBzdHJva2Utd2lkdGg9IjAuOCIgc3Ryb2tlLWRhc2hhcnJheT0iMyAzIi8+PGxpbmUgeDE9IjM2IiB5MT0iMjIxLjY3IiB4Mj0iNDAiIHkyPSIyMjEuNjciIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxIi8+PHRleHQgeD0iMzMiIHk9IjIyNi4xNyIgdGV4dC1hbmNob3I9ImVuZCIgZm9udC1zaXplPSIxNSI+MjwvdGV4dD48bGluZSB4MT0iNDAiIHkxPSIxOTAiIHgyPSI0NjQiIHkyPSIxOTAiIHN0cm9rZT0iIzhjOGM4YyIgc3Ryb2tlLXdpZHRoPSIwLjgiIHN0cm9rZS1kYXNoYXJyYXk9IjMgMyIvPjxsaW5lIHgxPSIzNiIgeTE9IjE5MCIgeDI9IjQwIiB5Mj0iMTkwIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMSIvPjx0ZXh0IHg9IjMzIiB5PSIxOTQuNSIgdGV4dC1hbmNob3I9ImVuZCIgZm9udC1zaXplPSIxNSI+MzwvdGV4dD48bGluZSB4MT0iNDAiIHkxPSIxNTguMzMiIHgyPSI0NjQiIHkyPSIxNTguMzMiIHN0cm9rZT0iIzhjOGM4YyIgc3Ryb2tlLXdpZHRoPSIwLjgiIHN0cm9rZS1kYXNoYXJyYXk9IjMgMyIvPjxsaW5lIHgxPSIzNiIgeTE9IjE1OC4zMyIgeDI9IjQwIiB5Mj0iMTU4LjMzIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMSIvPjx0ZXh0IHg9IjMzIiB5PSIxNjIuODMiIHRleHQtYW5jaG9yPSJlbmQiIGZvbnQtc2l6ZT0iMTUiPjQ8L3RleHQ+PGxpbmUgeDE9IjQwIiB5MT0iMTI2LjY3IiB4Mj0iNDY0IiB5Mj0iMTI2LjY3IiBzdHJva2U9IiM4YzhjOGMiIHN0cm9rZS13aWR0aD0iMC44IiBzdHJva2UtZGFzaGFycmF5PSIzIDMiLz48bGluZSB4MT0iMzYiIHkxPSIxMjYuNjciIHgyPSI0MCIgeTI9IjEyNi42NyIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEiLz48dGV4dCB4PSIzMyIgeT0iMTMxLjE3IiB0ZXh0LWFuY2hvcj0iZW5kIiBmb250LXNpemU9IjE1Ij41PC90ZXh0PjxsaW5lIHgxPSI0MCIgeTE9Ijk1IiB4Mj0iNDY0IiB5Mj0iOTUiIHN0cm9rZT0iIzhjOGM4YyIgc3Ryb2tlLXdpZHRoPSIwLjgiIHN0cm9rZS1kYXNoYXJyYXk9IjMgMyIvPjxsaW5lIHgxPSIzNiIgeTE9Ijk1IiB4Mj0iNDAiIHkyPSI5NSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEiLz48dGV4dCB4PSIzMyIgeT0iOTkuNSIgdGV4dC1hbmNob3I9ImVuZCIgZm9udC1zaXplPSIxNSI+NjwvdGV4dD48cmVjdCB4PSI4MC4yOCIgeT0iMjUzLjMzIiB3aWR0aD0iNjUuNzIiIGhlaWdodD0iMzEuNjciIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxIi8+PHJlY3QgeD0iMTQ2IiB5PSIyMjEuNjciIHdpZHRoPSI2NS43MiIgaGVpZ2h0PSI2My4zMyIgZmlsbD0iI2I0YjRiNCIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEiLz48cmVjdCB4PSIyOTIuMjgiIHk9IjI4NSIgd2lkdGg9IjY1LjcyIiBoZWlnaHQ9IjAiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxIi8+PHJlY3QgeD0iMzU4IiB5PSI5NSIgd2lkdGg9IjY1LjcyIiBoZWlnaHQ9IjE5MCIgZmlsbD0iI2I0YjRiNCIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEiLz48dGV4dCB4PSIxMTMuMTQiIHk9IjI0OS4zMyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMyI+MTwvdGV4dD48dGV4dCB4PSIxNzguODYiIHk9IjIxNy42NyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMyI+MjwvdGV4dD48dGV4dCB4PSIzMjUuMTQiIHk9IjI4MSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMyI+MDwvdGV4dD48dGV4dCB4PSIzOTAuODYiIHk9IjkxIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjEzIj42PC90ZXh0PjxsaW5lIHgxPSI0MCIgeTE9Ijg5IiB4Mj0iNDAiIHkyPSIyODUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjEiLz48bGluZSB4MT0iNDAiIHkxPSIyODUiIHgyPSI0NjQiIHkyPSIyODUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjEiLz48bGluZSB4MT0iMTQ2IiB5MT0iMjg1IiB4Mj0iMTQ2IiB5Mj0iMjg5IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMSIvPjx0ZXh0IHg9IjE0NiIgeT0iMzA0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjE1Ij4o6rCAKTwvdGV4dD48bGluZSB4MT0iMzU4IiB5MT0iMjg1IiB4Mj0iMzU4IiB5Mj0iMjg5IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMSIvPjx0ZXh0IHg9IjM1OCIgeT0iMzA0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjE1Ij4o64KYKTwvdGV4dD48dGV4dCB4PSIyNTIiIHk9IjMyNSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxNSI+66Gc67SHPC90ZXh0Pjwvc3ZnPg==",
+        "alt": "세로 막대그래프. 제목 ‘〈로봇별 축 구성〉’. 가로축(범주) 로봇: (가), (나). 세로축: 축 수(개) 0～6(1 간격). 계열 ‘직선축’: (가) 1, (나) 0. 계열 ‘회전축’: (가) 2, (나) 6.",
+        "kind": "chart",
+        "spec": {
+          "id": "F1",
+          "kind": "chart",
+          "chartType": "bar",
+          "title": "〈로봇별 축 구성〉",
+          "categoryLabel": "로봇",
+          "categories": [
+            "(가)",
+            "(나)"
+          ],
+          "series": [
+            {
+              "name": "직선축",
+              "values": [
+                1,
+                0
+              ]
+            },
+            {
+              "name": "회전축",
+              "values": [
+                2,
+                6
+              ]
+            }
+          ],
+          "valueAxis": {
+            "label": "축 수",
+            "unit": "개",
+            "min": 0,
+            "max": 6,
+            "step": 1
+          },
+          "showValues": true
+        }
+      }
+    },
+    "choice_table": null
+  },
+  "optionsList": [
+    "① ㄱ, ㄴ, ㄷ",
+    "② ㄱ, ㄴ, ㄹ",
+    "③ ㄱ, ㄷ, ㄹ",
+    "④ ㄴ, ㄷ, ㄹ",
+    "⑤ ㄱ, ㄴ, ㄷ, ㄹ"
+  ],
+  "comboBlock": {
+    "title": "<보기>",
+    "items": [
+      {
+        "key": "ㄱ",
+        "text": "(가)와 같은 축 구성의 로봇은 작업 영역이 넓고 경사 작업이 가능하다."
+      },
+      {
+        "key": "ㄴ",
+        "text": "(나)는 플레이백 로봇이면서 수직 관절형 로봇에 해당한다."
+      },
+      {
+        "key": "ㄷ",
+        "text": "1일차 실습의 출력 방식은 절삭형 방식에 비해 재료 낭비가 적다."
+      },
+      {
+        "key": "ㄹ",
+        "text": "수직 관절형 로봇에 출력물을 공급하는 설비는 컨베이어 시스템에 해당한다."
+      }
+    ]
+  },
+  "explanation": {
+    "judgment": "[출제 의도] 공장 자동화 사례에서 산업용 로봇의 좌표 형태별·기능별 분류와 3D 프린팅 방식, 운반 설비를 구분하여 적용할 수 있는가?\n[해설] ㄱ. 그래프에서 (가)는 직선축 1개와 회전축 2개로 이루어진 극 좌표형 로봇이다. 극 좌표형은 작업 영역이 넓고 경사 작업이 가능하므로 옳다. ㄴ. (나)는 작업자가 팔을 잡고 시연한 포장 동작을 기억해 두었다가 같은 궤적으로 반복하므로 사용자가 가르친 정보를 저장하였다가 재생하는 플레이백 로봇이고, 그래프에서 회전축 6개로 이루어져 수직 관절형 로봇이므로 옳다. ㄷ. 1일차의 출력 방식은 필라멘트가 바닥판부터 층층이 굳는 적층형으로, 큰 덩어리를 깎아 내는 절삭형보다 재료 낭비가 적으므로 옳다. ㄹ. 수직 관절형 로봇은 회전축 6개인 (나)이다. (나)에는 고정 설치된 벨트 위로 출력물이 줄지어 흘러가 닿으므로 정지하지 않고 일정한 속도로 움직이는 컨베이어 시스템이 공급하며, 자기 테이프를 따라 다니는 무인 반송차(AGV)는 (가)에 공급하므로 옳다. 따라서 ㄱ, ㄴ, ㄷ, ㄹ 모두 옳다.\n[오답 피하기] (가)를 직선축이 있다는 이유로 직각 좌표형으로 보거나, (나)를 미리 설정된 순서대로 움직이는 시퀀스 로봇으로 보면 ㄱ·ㄴ을 틀리게 판단하게 된다. 직각 좌표형은 세 선형 축, 극 좌표형은 직선축 1개와 회전축 2개이며, 가르친 정보를 저장하였다가 재생하는 로봇은 플레이백 로봇이다. 수직 관절형 로봇을 (가)로 잘못 판별하면 ㄹ의 공급 설비를 무인 반송차(AGV)로 보아 틀리게 판단하게 된다. 주어진 경로를 스스로 운행하는 차량은 AGV, 정지하지 않고 일정한 속도로 움직이는 운반 장치는 컨베이어 시스템이다.",
+    "conceptHighlightV2": {
+      "stimulusClues": [
+        {
+          "quote": "바닥판부터 층층이 굳으며 시약병 거치대 형태가 됨",
+          "why": "재료를 겹겹이 쌓아 형상을 만드는 적층형 3D 프린팅임을 가리킨다."
+        },
+        {
+          "quote": "고정 설치된 벨트 위로 줄지어 흘러가 로봇 (나)에 닿음",
+          "why": "(나)에 출력물을 공급하는 설비가 일정한 속도로 연속 운반하는 컨베이어 시스템임을 가리킨다."
+        },
+        {
+          "quote": "그 동작을 기억해 두었다가 같은 궤적으로 반복함",
+          "why": "가르친 정보를 저장하였다가 재생하는 플레이백 로봇을 가리킨다."
+        }
+      ],
+      "optionAnalysis": [
+        {
+          "optionKey": "ㄱ",
+          "verdict": "O",
+          "reasoning": "그래프에서 (가)는 직선축 1개와 회전축 2개로 이루어져 극 좌표형에 해당하며, 극 좌표형은 작업 영역이 넓고 경사 작업이 가능하므로 옳다."
+        },
+        {
+          "optionKey": "ㄴ",
+          "verdict": "O",
+          "reasoning": "본문에서 (나)는 작업자가 팔을 잡고 시연한 동작을 기억해 두었다가 반복하므로 플레이백 로봇이고, 그래프에서 회전축 6개로 이루어져 수직 관절형이므로 옳다."
+        },
+        {
+          "optionKey": "ㄷ",
+          "verdict": "O",
+          "reasoning": "필라멘트가 녹아 나와 바닥판부터 층층이 굳으며 형태가 되는 방식은 재료를 겹겹이 쌓아 형상을 만드는 적층형이며, 적층형은 절삭형보다 재료 낭비가 적으므로 옳다."
+        },
+        {
+          "optionKey": "ㄹ",
+          "verdict": "O",
+          "reasoning": "그래프에서 회전축 6개인 (나)가 수직 관절형이고, (나)에는 고정 설치된 벨트 위로 출력물이 줄지어 흘러가 닿으므로 그 설비는 컨베이어 시스템이다. (가)에 공급하는 차량은 AGV이다."
+        }
+      ],
+      "solvingFlow": [
+        {
+          "step": 1,
+          "action": "그래프에서 (가)·(나)의 직선축·회전축 수를 확인하여 좌표 형태(극 좌표형, 수직 관절형)를 판별한다."
+        },
+        {
+          "step": 2,
+          "action": "본문에서 (나)의 동작 방식을 찾아 기능별 분류(플레이백 로봇)를 판별하고 그래프 결과와 함께 ㄴ을 판정한다."
+        },
+        {
+          "step": 3,
+          "action": "1일차 출력 원리를 적층형/절삭형 기준에 적용해 재료 낭비를 비교한다."
+        },
+        {
+          "step": 4,
+          "action": "수직 관절형인 (나)에 출력물을 공급하는 설비를 찾아, (가)에 공급하는 차량(AGV)과 구분하여 컨베이어 시스템으로 판별한다."
+        }
+      ],
+      "takeaway": "직선축 1개·회전축 2개는 극 좌표형, 6축 회전은 수직 관절형이며, 로봇의 좌표 형태와 기능별 분류는 서로 다른 기준이다."
+    }
+  },
+  "correctAnswer": 5,
+  "points": 3,
+  "fingerprint": "4daa03f6"
+}

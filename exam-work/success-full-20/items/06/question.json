@@ -1,0 +1,143 @@
+{
+  "targetConcept": "사회적 기업",
+  "itemType": "ai_generative_statement",
+  "difficulty": "MIDDLE",
+  "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+  "questionStem": "다음은 학생 A와 직업 상담사의 대화이다. 대화에 나타난 기업 (가), (나)에 대한 설명으로 가장 적절한 것은?",
+  "stimulusData": {
+    "blocks": [
+      {
+        "type": "figure",
+        "figure_id": "F1"
+      },
+      {
+        "type": "dialogue",
+        "lines": [
+          {
+            "speaker": "학생 A",
+            "text": "요양 보호사 자격증을 취득하고 일할 곳을 찾다가 두 기업을 알게 되었어요. 두 곳은 어떻게 다른가요?"
+          },
+          {
+            "speaker": "직업 상담사",
+            "text": "(가) ‘(주)○○케어’는 퇴직 간호사인 대표가 자기 돈으로 세운 회사예요. 경력이 끊긴 중장년 여성과 장애인을 요양 보호사로 고용하고, 이윤의 3분의 2 이상을 저소득 어르신 방문 돌봄에 다시 쓰고 있어요."
+          },
+          {
+            "speaker": "학생 A",
+            "text": "그런 활동을 인정받아 정부 인증을 받았고, 세금 감면과 경영 지원도 받는다고 들었어요. (나)는요?"
+          },
+          {
+            "speaker": "직업 상담사",
+            "text": "(나) ‘△△돌봄 조합’은 현직 요양 보호사 30명이 함께 출자해 세웠어요. 조합원이 일감을 함께 나누고, 남은 수익은 각자 일한 시간에 비례해 배당해요. 올해부터는 치매 어르신 주간 보호 서비스도 시작했어요."
+          }
+        ]
+      }
+    ],
+    "figures": {
+      "F1": {
+        "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0ODAgMjI0IiBmb250LWZhbWlseT0iJiMzOTtOb3RvIFNhbnMgS1ImIzM5OywmIzM5O0FwcGxlIFNEIEdvdGhpYyBOZW8mIzM5OywmIzM5O01hbGd1biBHb3RoaWMmIzM5OywmIzM5O05hbnVtR290aGljJiMzOTssc2Fucy1zZXJpZiI+PGRlZnM+PGNsaXBQYXRoIGlkPSJGMS1iMDM1ZTEtY2xpcCI+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjQ4MCIgaGVpZ2h0PSIyMjQiLz48L2NsaXBQYXRoPjwvZGVmcz48ZyBjbGlwLXBhdGg9InVybCgjRjEtYjAzNWUxLWNsaXApIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNDAgOCkiPjxwYXRoIGQ9Ik0tMzIgNzBDLTM2IDEwNiAtMzggMTI2IC0yNiAxMzZMMjYgMTM2QzM4IDEyNiAzNiAxMDYgMzIgNzBaIiBmaWxsPSIjMmYyZjJmIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHJlY3QgeD0iLTkuNSIgeT0iMTAyIiB3aWR0aD0iMTkiIGhlaWdodD0iMjYiIGZpbGw9IiNmYmZiZmIiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciLz48cGF0aCBkPSJNLTEzIDExOUMtMjggMTIyIC00NSAxMjQgLTUwIDE0NkMtNTMgMTc2IC01MyAxOTQgLTUxIDIzNEwzOCAyMzRDMzYgMTk0IDM1IDE3NiAzNCAxNDZDNDUgMTI0IDI4IDEyMiAxMyAxMTlaIiBmaWxsPSIjNmY2ZjZmIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTS0xNiAxMThMMCAxNjVMMTYgMTE4WiIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0tMTMgMTE5TC0yIDEzNkwtMTUgMTMyTC0xNyAxMjFaIiBmaWxsPSIjZmZmIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS40IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTEzIDExOUwyIDEzNkwxNSAxMzJMMTcgMTIxWiIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0tMTEgMTM3TDAgMTQzTDExIDEzN0w5IDE1MUwwIDE0NkwtOSAxNTFaIiBmaWxsPSIjM2EzYTNhIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS4yIi8+PHBhdGggZD0iTS0xNSAxMTlMLTIgMTY5TC0xMiAxNjFMLTI0IDEzN0wtMjAgMTI1WiIgZmlsbD0iIzVkNWQ1ZCIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0xNSAxMTlMMiAxNjlMMTIgMTYxTDI0IDEzN0wyMCAxMjVaIiBmaWxsPSIjNWQ1ZDVkIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS40IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PGxpbmUgeDE9IjAiIHkxPSIxNjkiIHgyPSIwIiB5Mj0iMjI4IiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS4zIi8+PHJlY3QgeD0iLTI5LjE0IiB5PSIxNjUiIHdpZHRoPSIxOCIgaGVpZ2h0PSI2IiBmaWxsPSIjZmZmIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMSIvPjxlbGxpcHNlIGN4PSIwIiBjeT0iNzYiIHJ4PSIyOCIgcnk9IjM0IiBmaWxsPSIjZmJmYmZiIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43Ii8+PHBhdGggZD0iTS0yNyA3NEMtMzYgNzEgLTM2IDg4IC0yNyA4NiIgZmlsbD0iI2ZiZmJmYiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIvPjxlbGxpcHNlIGN4PSItNCIgY3k9Ijc4IiByeD0iMi4zIiByeT0iMi45IiBmaWxsPSIjMjYyNjI2Ii8+PGVsbGlwc2UgY3g9IjEzIiBjeT0iNzgiIHJ4PSIyLjMiIHJ5PSIyLjkiIGZpbGw9IiMyNjI2MjYiLz48cGF0aCBkPSJNLTkgNzBRLTQgNjcgMSA2OS41IiBmaWxsPSJub25lIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS44IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cGF0aCBkPSJNOCA2OS41UTEzIDY3IDE4IDcwIiBmaWxsPSJub25lIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS44IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cGF0aCBkPSJNMTUuMiA3NS42bDIuNiAtMS42IiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS4yIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cGF0aCBkPSJNNiA4M1E5LjUgOTAgNSA5MSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTS0yIDk3UTQuNSAxMDIuNSAxMSA5NyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTS0yNiA1OEMtNDQgNjQgLTQ2IDk0IC0zNiAxMTBDLTMyIDk0IC0zMiA3NiAtMjQgNjhaIiBmaWxsPSIjMmYyZjJmIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTS0zMiA5NEMtMzYgNTggLTI2IDM2IDIgMzZDMjYgMzYgMzYgNTggMzIgOTRMMjYgOTJDMjggNzQgMjYgNjQgMjAgNjBDMTAgNjYgLTYgNjIgLTEyIDU0Qy0xNiA2MiAtMjQgNjggLTI2IDkyWiIgZmlsbD0iIzJmMmYyZiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0tMzAgMTY0Qy0zMiAxODYgLTMyIDIwNCAtMzEgMjM0IiBmaWxsPSJub25lIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS40IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cGF0aCBkPSJNMzggMTQwTDQ4IDE5MEw2NyAxNzIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIyMi40IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNMzggMTQwTDQ4IDE5MEw2NyAxNzIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzZmNmY2ZiIgc3Ryb2tlLXdpZHRoPSIxOSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTYxIDE3OEM1OSAxNjkgNjYgMTYzIDc1IDE2M0M4MSAxNjMgODIgMTY3IDc4IDE2OEw3MiAxNjlDNzcgMTcyIDc2IDE3OCA2OSAxODBaIiBmaWxsPSIjZmJmYmZiIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9nPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDM0MCA4KSBzY2FsZSgtMSAxKSI+PHBhdGggZD0iTS0zMiA2NEMtMzYgMTAwIC0zOCAxMjAgLTI2IDEzMEwyNiAxMzBDMzggMTIwIDM2IDEwMCAzMiA2NFoiIGZpbGw9IiMzYTNhM2EiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cmVjdCB4PSItOS41IiB5PSI5NiIgd2lkdGg9IjE5IiBoZWlnaHQ9IjI2IiBmaWxsPSIjZmJmYmZiIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43Ii8+PHBhdGggZD0iTS0xMyAxMTNDLTI4IDExNiAtNDkgMTE4IC01NCAxNDBDLTU3IDE3MCAtNTcgMTk0IC01NSAyMzRMNDIgMjM0QzQwIDE5NCAzOSAxNzAgMzggMTQwQzQ5IDExOCAyOCAxMTYgMTMgMTEzWiIgZmlsbD0iI2I4YjhiOCIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0tMTcgMTEyTDAgMTQ5TDE3IDExMloiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNLTE3IDExNEwtMyAxNTFMLTMgMjI4IiBmaWxsPSJub25lIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS4zIi8+PHBhdGggZD0iTTE3IDExNEwzIDE1MSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuMyIvPjxjaXJjbGUgY3g9IjAiIGN5PSIxNjUiIHI9IjIiIGZpbGw9IiM1NTUiLz48Y2lyY2xlIGN4PSIwIiBjeT0iMTg1IiByPSIyIiBmaWxsPSIjNTU1Ii8+PGNpcmNsZSBjeD0iMCIgY3k9IjIwNSIgcj0iMiIgZmlsbD0iIzU1NSIvPjxlbGxpcHNlIGN4PSIwIiBjeT0iNzAiIHJ4PSIyOCIgcnk9IjM0IiBmaWxsPSIjZmJmYmZiIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43Ii8+PHBhdGggZD0iTS0yNyA2OEMtMzYgNjUgLTM2IDgyIC0yNyA4MCIgZmlsbD0iI2ZiZmJmYiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIvPjxlbGxpcHNlIGN4PSItNCIgY3k9IjcyIiByeD0iMi4zIiByeT0iMi45IiBmaWxsPSIjMjYyNjI2Ii8+PGVsbGlwc2UgY3g9IjEzIiBjeT0iNzIiIHJ4PSIyLjMiIHJ5PSIyLjkiIGZpbGw9IiMyNjI2MjYiLz48cGF0aCBkPSJNLTkgNjRRLTQgNjEgMSA2My41IiBmaWxsPSJub25lIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS44IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cGF0aCBkPSJNOCA2My41UTEzIDYxIDE4IDY0IiBmaWxsPSJub25lIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS44IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cGF0aCBkPSJNMTUuMiA2OS42bDIuNiAtMS42IiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS4yIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cGF0aCBkPSJNNiA3N1E5LjUgODQgNSA4NSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTS0yIDkxUTQuNSA5Ni41IDExIDkxIiBmaWxsPSJub25lIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cGF0aCBkPSJNLTMyIDg4Qy0zNiA1MiAtMjYgMzAgMiAzMEMyNiAzMCAzNiA1MiAzMiA4OEwyNiA4NkMyOCA2OCAyNiA1OCAyMCA1NEMxMCA2MCAtNiA1NiAtMTIgNDhDLTE2IDU2IC0yNCA2MiAtMjYgODZaIiBmaWxsPSIjM2EzYTNhIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTS0zNCAxNThDLTM2IDE4MCAtMzYgMjA0IC0zNSAyMzQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxyZWN0IHg9Ii00IiB5PSIxNDgiIHdpZHRoPSI0NCIgaGVpZ2h0PSI1NCIgcng9IjIiIGZpbGw9IiNmMmYyZjIiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjUiIHRyYW5zZm9ybT0icm90YXRlKC04IDE4IDE3NSkiLz48cmVjdCB4PSIxMCIgeT0iMTQ1IiB3aWR0aD0iMTYiIGhlaWdodD0iNyIgcng9IjEuNSIgZmlsbD0iIzg4OCIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuMSIgdHJhbnNmb3JtPSJyb3RhdGUoLTggMTggMTc1KSIvPjxwYXRoIGQ9Ik00IDE2NGgyOE00IDE3NGgyOE00IDE4NGgxOCIgc3Ryb2tlPSIjOWE5YTlhIiBzdHJva2Utd2lkdGg9IjEuMyIgdHJhbnNmb3JtPSJyb3RhdGUoLTggMTggMTc1KSIvPjxwYXRoIGQ9Ik00MiAxMzRMNTIgMTg2TDI2IDE5OCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjIyLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik00MiAxMzRMNTIgMTg2TDI2IDE5OCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYjhiOGI4IiBzdHJva2Utd2lkdGg9IjE5IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48ZWxsaXBzZSBjeD0iMjYiIGN5PSIxOTgiIHJ4PSI3LjUiIHJ5PSI2LjkiIGZpbGw9IiNmYmZiZmIiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciLz48L2c+PC9nPjwvc3ZnPg==",
+        "alt": "장식용. 학생 A(학생)과 직업 상담사(상담사)가 마주 보고 이야기하는 인물 그림. 대화 내용은 이어지는 대화 블록에 있음.",
+        "kind": "illustration",
+        "spec": {
+          "id": "F1",
+          "kind": "scene",
+          "layout": "pair",
+          "people": [
+            {
+              "speaker": "학생 A",
+              "role": "student",
+              "gender": "female",
+              "age": "teen"
+            },
+            {
+              "speaker": "직업 상담사",
+              "role": "counselor",
+              "gender": "female",
+              "age": "adult"
+            }
+          ]
+        }
+      }
+    },
+    "choice_table": null
+  },
+  "optionsList": [
+    "① (가)는 영업 활동 수입이 노무비의 50% 이상이어야 인증을 받을 수 있다.",
+    "② (가)의 주주는 회사 채무에 대하여 연대하여 변제할 책임을 진다.",
+    "③ (나)의 조합원은 출자 1좌마다 1개의 의결권을 가진다.",
+    "④ (가)는 정부로부터 인증과 지원을 받으므로 공기업으로 분류된다.",
+    "⑤ (나)의 조합원은 다른 조합원 전원의 동의를 얻어야 탈퇴할 수 있다."
+  ],
+  "comboBlock": null,
+  "explanation": {
+    "judgment": "[출제 의도] 대화 속 기업의 고용 대상, 이윤 사용, 출자 방식, 배당 방식 단서로 사회적 기업과 협동조합을 구별하고 각각의 특징을 적용할 수 있는가?\n[해설] (가)는 경력이 끊긴 중장년 여성과 장애인을 고용하고, 이윤의 3분의 2 이상을 저소득 어르신 돌봄에 다시 쓰며, 그 활동을 인정받아 정부 인증과 세금 감면·경영 지원을 받으므로 사회적 기업이다. 회사 형태는 ‘(주)’로 표기된 주식회사이고 대표가 자기 돈으로 세운 민간 회사이다. (나)는 요양 보호사인 조합원들이 함께 출자해 세우고 남은 수익을 일한 시간에 비례해 배당하므로 협동조합이다. 사회적 기업의 인증 요건에는 영업 활동 수입이 노무비의 50% 이상일 것이 포함되므로 (가)에 대한 이 진술이 옳다.\n[오답 피하기] 주식회사인 (가)의 주주는 출자액 한도의 유한 책임을 지므로, 회사 채무를 연대하여 변제할 책임을 진다는 진술은 무한 책임 사원의 특징과 혼동한 것이다. 협동조합인 (나)는 출자액과 관계없이 조합원 1인 1표로 의결하므로, 출자 1좌마다 1개의 의결권을 가진다는 진술은 유한회사의 의결 방식과 혼동한 것이다. 기업은 출자·경영 주체에 따라 공기업과 사기업으로 나뉜다. (가)는 민간 대표가 출자하여 세웠고 정부 인증과 지원은 출자가 아니므로, 공기업으로 분류된다는 진술은 틀리다. 협동조합은 조합원의 가입과 탈퇴가 자유로우므로, 다른 조합원 전원의 동의가 있어야 탈퇴할 수 있다는 진술은 틀리다.",
+    "conceptHighlightV2": {
+      "stimulusClues": [
+        {
+          "quote": "경력이 끊긴 중장년 여성과 장애인을 요양 보호사로 고용하고",
+          "why": "취약 계층에게 일자리를 제공하는 사회적 목적을 추구함을 보여 준다."
+        },
+        {
+          "quote": "이윤의 3분의 2 이상을 저소득 어르신 방문 돌봄에 다시 쓰고",
+          "why": "배분 가능한 이윤의 3분의 2 이상을 사회적 목적에 사용하는 사회적 기업의 특징이다."
+        },
+        {
+          "quote": "그런 활동을 인정받아 정부 인증을 받았고",
+          "why": "사회적 기업은 고용노동부 장관의 인증을 받고 세제·경영 지원을 받는다."
+        },
+        {
+          "quote": "남은 수익은 각자 일한 시간에 비례해 배당해요",
+          "why": "조합원의 공동 출자와 이용 실적에 따른 배당은 협동조합의 특징이다."
+        }
+      ],
+      "optionAnalysis": [
+        {
+          "optionNum": 1,
+          "verdict": "O",
+          "reasoning": "취약 계층 고용, 이윤의 3분의 2 이상 재투자, 정부 인증과 지원으로 보아 (가)는 사회적 기업이며, 사회적 기업 인증 요건에는 영업 활동 수입이 노무비의 50% 이상일 것이 포함되므로 옳다."
+        },
+        {
+          "optionNum": 2,
+          "verdict": "X",
+          "reasoning": "(가)는 ‘(주)’로 표기된 주식회사 형태이므로 주주는 출자액을 한도로 유한 책임을 진다. 연대 변제 책임은 합명회사 사원 등 무한 책임 사원의 특징이다."
+        },
+        {
+          "optionNum": 3,
+          "verdict": "X",
+          "reasoning": "(나)는 조합원의 공동 출자와 일한 만큼의 배당으로 보아 협동조합이며, 협동조합은 출자액과 관계없이 1인 1표로 운영한다. 출자 1좌 1의결권은 유한회사의 특징이다."
+        },
+        {
+          "optionNum": 4,
+          "verdict": "X",
+          "reasoning": "공기업은 국가나 지방 자치 단체가 출자하여 경영하는 기업이다. (가)는 대표가 자기 돈으로 세운 민간 회사이며, 정부의 인증과 세금 감면·경영 지원은 출자나 경영 참여가 아니므로 공기업이 아니다."
+        },
+        {
+          "optionNum": 5,
+          "verdict": "X",
+          "reasoning": "협동조합인 (나)는 조합원의 가입과 탈퇴가 자유롭다. 다른 사원의 동의를 요건으로 하는 것은 인적 결합을 중시하는 회사의 지분 양도 제한과 혼동한 것이다."
+        }
+      ],
+      "solvingFlow": [
+        {
+          "step": 1,
+          "action": "(가)의 고용 대상, 이윤 사용, 정부 인증 단서를 모아 사회적 기업임을 특정한다."
+        },
+        {
+          "step": 2,
+          "action": "(가)의 ‘(주)’ 표기와 대표의 단독 출자로 주식회사 형태의 민간 기업이며 공기업이 아님을 확인한다."
+        },
+        {
+          "step": 3,
+          "action": "(나)의 조합원 공동 출자와 일한 시간에 따른 배당으로 협동조합임을 특정한다."
+        },
+        {
+          "step": 4,
+          "action": "사회적 기업의 인증 요건, 주주의 책임, 출자 주체에 따른 기업 분류, 협동조합의 의결·탈퇴 방식에 비추어 각 선지를 판정한다."
+        }
+      ],
+      "takeaway": "정부의 인증과 지원은 출자가 아니며, 사회적 기업 인증 요건(이윤 3분의 2 이상 사회적 목적 사용, 영업 수입 노무비 50% 이상)과 협동조합의 1인 1표·가입 탈퇴 자유를 구별해야 한다."
+    }
+  },
+  "correctAnswer": 1,
+  "points": 3,
+  "fingerprint": "f2f6f489"
+}

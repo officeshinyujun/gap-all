@@ -1,0 +1,1516 @@
+{
+  "title": "공업 일반 5~9단원 (AI 출제 초고난도)",
+  "subject": "kongil",
+  "difficulty": "ULTRA",
+  "unitRange": [
+    5,
+    9
+  ],
+  "requestedCount": 10,
+  "engine": "exam-skill-engine-v6",
+  "exportedAt": "2026-11-08T13:19:13.308Z",
+  "questions": [
+    {
+      "orderIndex": 1,
+      "subject": "kongil",
+      "unitNumber": 5,
+      "unitTitle": "제품과 제조 과정",
+      "targetConcept": "소비자가 보는 제품의 3가지 관점",
+      "itemType": "ai_generative_truth_combination",
+      "difficulty": "HIGH",
+      "points": 3,
+      "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+      "questionStem": "다음은 ○○기업의 가구 생산 현황 보고서이다. 이를 분석한 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "stimulusData": {
+        "blocks": [
+          {
+            "type": "text",
+            "text": "○○기업 가구 생산 현황 보고서\n■ 인증 현황\n• 원목 침대: 국내에서 처음 개발한 무접착 결합 기술이 신기술로 국가 인증을 받음\n• 사무용 의자: 폐플라스틱 재활용 소재로 만든 등받이가 품질이 우수한 재활용 제품으로 국가 인증을 받음\n■ 향후 계획\n• 침대는 유럽 연합, 의자는 미국으로 수출하기 위해 현지 인증 취득을 준비함"
+          },
+          {
+            "type": "table",
+            "title": "제품별 현황",
+            "headers": [
+              [
+                "구분",
+                "원목 침대",
+                "사무용 의자"
+              ]
+            ],
+            "rows": [
+              [
+                "생산 방식",
+                "고객이 고른 치수·색상대로 주문을 받은 뒤 제작함",
+                "분기별 판매량을 예측하여 미리 만들어 둠"
+              ],
+              [
+                "주당 생산 수량",
+                "15개",
+                "400개"
+              ],
+              [
+                "품질 검사",
+                "출하 전 생산 제품 전체를 검사함",
+                "일부를 임의 추출하여 검사함(검사 비율 15%)"
+              ],
+              [
+                "홍보 방향",
+                "한정판 상표의 프리미엄 이미지로 남다른 가구를 가졌다는 자부심을 강조함",
+                "구매만으로 폐플라스틱 재활용에 동참한다는 점을 강조함"
+              ]
+            ],
+            "caption": null
+          }
+        ],
+        "figures": {},
+        "choice_table": null
+      },
+      "optionsList": [
+        "① ㄱ, ㄴ",
+        "② ㄱ, ㄷ",
+        "③ ㄴ, ㄷ",
+        "④ ㄱ, ㄴ, ㄷ",
+        "⑤ ㄱ, ㄴ, ㄷ, ㄹ"
+      ],
+      "comboBlock": {
+        "title": "<보기>",
+        "items": [
+          {
+            "key": "ㄱ",
+            "text": "주문 생산 방식으로 만든 제품은 심리적 관점을 활용하여 홍보하고 있다."
+          },
+          {
+            "key": "ㄴ",
+            "text": "표본 검사 제품의 주당 검사 수량은 전수 검사 제품의 4배이다."
+          },
+          {
+            "key": "ㄷ",
+            "text": "GR 인증을 받은 부품을 사용한 제품은 사회적 관점을 활용하여 홍보하고 있다."
+          },
+          {
+            "key": "ㄹ",
+            "text": "전수 검사를 적용한 제품은 수출을 위해 UL 인증 취득을 준비하고 있다."
+          }
+        ]
+      },
+      "correctAnswer": 4,
+      "explanation": {
+        "judgment": "[출제 의도] 제품 현황 보고서에서 생산 방식·검사 방식·인증·홍보 방향 단서를 찾아 소비자가 보는 제품의 3가지 관점과 인증 제도를 제품별로 정확히 대응시킬 수 있는가?\n[해설] 먼저 표의 생산 방식과 품질 검사 행으로 제품을 특정한다. 원목 침대는 주문을 받은 뒤 제작하므로 주문 생산, 생산 제품 전체를 검사하므로 전수 검사이고, 사무용 의자는 판매량을 예측하여 미리 만들어 두므로 계획 생산, 일부를 임의 추출하므로 표본 검사이다. ㄱ. 주문 생산 제품인 원목 침대는 한정판 상표의 프리미엄 이미지와 자부심을 강조하므로 심리적 관점을 활용하였다(옳음). ㄴ. 표본 검사 제품인 사무용 의자는 400개 × 15% = 60개, 전수 검사 제품인 원목 침대는 15개를 검사하므로 4배이다(옳음). ㄷ. 재활용 소재 등받이가 받은 인증은 GR이고, 이 부품을 쓴 사무용 의자는 재활용 동참이라는 환경 보호 가치를 홍보하므로 사회적 관점을 활용하였다(옳음). ㄹ. 전수 검사 제품인 원목 침대는 유럽 연합으로 수출하므로 CE 인증을 준비해야 한다. UL은 미국 수출 제품인 사무용 의자에 해당한다(옳지 않음). 따라서 옳은 것은 ㄱ, ㄴ, ㄷ이다.\n[오답 피하기] ㄹ: 전수 검사 제품인 원목 침대의 수출 지역은 유럽 연합이므로 해당 해외 인증은 CE이다. 미국 인증인 UL은 표본 검사 제품인 사무용 의자의 수출에 해당하므로, 검사 방식으로 제품을 바꾸어 읽으면 옳다고 잘못 판단하게 된다.",
+        "conceptHighlightV2": {
+          "stimulusClues": [
+            {
+              "quote": "주문을 받은 뒤 제작함",
+              "why": "고객의 주문을 받은 뒤 생산하므로 원목 침대가 주문 생산 제품임을 가리킨다."
+            },
+            {
+              "quote": "일부를 임의 추출하여 검사함(검사 비율 15%)",
+              "why": "사무용 의자가 표본 검사 제품이며 주당 400개의 15%인 60개를 검사함을 가리킨다."
+            },
+            {
+              "quote": "프리미엄 이미지로 남다른 가구를 가졌다는 자부심을 강조함",
+              "why": "고급 상표 제품 사용 시의 우월감 같은 심리적 가치를 내세우는 심리적 관점이다."
+            },
+            {
+              "quote": "침대는 유럽 연합, 의자는 미국으로 수출하기 위해",
+              "why": "유럽 연합 수출은 CE, 미국 수출은 UL 인증에 해당한다."
+            }
+          ],
+          "optionAnalysis": [
+            {
+              "optionKey": "ㄱ",
+              "verdict": "O",
+              "reasoning": "고객이 고른 치수·색상대로 주문을 받은 뒤 제작하는 원목 침대가 주문 생산 제품이고, 그 홍보는 한정판 상표의 프리미엄 이미지와 남다른 가구를 가졌다는 자부심을 강조하므로 심리적 관점을 활용한 것이다."
+            },
+            {
+              "optionKey": "ㄴ",
+              "verdict": "O",
+              "reasoning": "일부를 임의 추출하는 사무용 의자가 표본 검사 제품으로 주당 400개 × 15% = 60개를 검사하고, 생산 제품 전체를 검사하는 원목 침대가 전수 검사 제품으로 주당 15개를 검사하므로 60 ÷ 15 = 4배이다."
+            },
+            {
+              "optionKey": "ㄷ",
+              "verdict": "O",
+              "reasoning": "폐플라스틱 재활용 소재로 만든 사무용 의자의 등받이가 우수 재활용 제품 품질 인증(GR)을 받았고, 사무용 의자는 구매만으로 재활용에 동참한다는 환경 보호 가치를 홍보하므로 사회적 관점을 활용한 것이다."
+            },
+            {
+              "optionKey": "ㄹ",
+              "verdict": "X",
+              "reasoning": "생산 제품 전체를 검사하는 전수 검사 제품은 원목 침대이고, 원목 침대는 유럽 연합으로 수출할 계획이므로 준비하는 인증은 UL이 아니라 CE이다. UL은 미국으로 수출하는 사무용 의자에 해당한다."
+            }
+          ],
+          "solvingFlow": [
+            {
+              "step": 1,
+              "action": "표의 생산 방식·품질 검사 행으로 원목 침대(주문 생산·전수 검사)와 사무용 의자(계획 생산·표본 검사)를 구분한다."
+            },
+            {
+              "step": 2,
+              "action": "홍보 방향 행에서 원목 침대는 심리적 관점, 사무용 의자는 사회적 관점을 활용함을 판별한다."
+            },
+            {
+              "step": 3,
+              "action": "주당 검사 수량을 계산한다: 의자 400 × 0.15 = 60개, 침대 15개 → 60 ÷ 15 = 4배."
+            },
+            {
+              "step": 4,
+              "action": "본문의 인증 서술에서 재활용 등받이는 GR, 결합 기술은 NeT임을 확인하고, 수출 지역으로 침대는 CE, 의자는 UL을 대응시킨다."
+            },
+            {
+              "step": 5,
+              "action": "ㄹ은 전수 검사 제품(침대)의 인증을 CE가 아닌 UL로 바꾸었으므로 옳지 않다."
+            }
+          ],
+          "takeaway": "제품을 생산·검사 방식으로 먼저 특정한 뒤 홍보는 심리적·사회적 관점으로, 인증은 GR·NeT·CE·UL로 정확히 대응시켜야 하며, 두 제품의 단서를 바꾸어 읽는 실수가 함정이다."
+        }
+      },
+      "fingerprint": "39990b23",
+      "generation": {
+        "engine": "exam-skill-engine-v6",
+        "specId": "gen_9504f6f3",
+        "profileVersion": "exam-style-profile-v2"
+      }
+    },
+    {
+      "orderIndex": 2,
+      "subject": "kongil",
+      "unitNumber": 5,
+      "unitTitle": "제품과 제조 과정",
+      "targetConcept": "코틀러의 제품 정의(핵심 제품·유형 제품·확장 제품)",
+      "itemType": "ai_generative_statement",
+      "difficulty": "HIGH",
+      "points": 3,
+      "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+      "questionStem": "다음은 ○○기업의 경영 진단 보고서 일부이다. 이를 분석한 내용으로 옳지 않은 것은?",
+      "stimulusData": {
+        "blocks": [
+          {
+            "type": "text",
+            "text": "■ 진단 대상: ○○기업 만두 공장(주 5일 가동)\n• 고기만두는 분기마다 판매량을 예측하여 미리 생산한 뒤 창고에 보관함.\n• 새우만두는 2024년에 출시하였으며, 마트의 주문을 받은 뒤 마트가 정한 용량으로 범용 설비에서 생산함.\n• 진단 의견: 새우만두 수요 증가에 맞추어 전용 설비 전환을 제안함."
+          },
+          {
+            "type": "table",
+            "title": "제품별 진단 자료(수치는 2024년 → 2025년)",
+            "headers": [
+              [
+                "구분",
+                "고기만두",
+                "새우만두"
+              ]
+            ],
+            "rows": [
+              [
+                "판매량(만 봉)",
+                "52 → 47",
+                "6 → 21"
+              ],
+              [
+                "영업 이익(억 원)",
+                "3.1 → 2.4",
+                "-0.4 → 2.6"
+              ],
+              [
+                "경쟁 제품 수(개)",
+                "9 → 9",
+                "2 → 7"
+              ],
+              [
+                "품질 검사",
+                "금속 검출기로 전량 확인",
+                "하루 800봉 생산, 매주 80봉을 개봉하여 미생물 검사"
+              ],
+              [
+                "2026년 개선 과제",
+                "재활용 종이 포장 도입, 구매가 플라스틱 감축에 보탬이 됨을 홍보",
+                "구매 후 30일 이내 품질 이상 시 무상 교환, 보냉 가방 증정"
+              ]
+            ],
+            "caption": null
+          }
+        ],
+        "figures": {},
+        "choice_table": null
+      },
+      "optionsList": [
+        "① 판매량이 줄어든 제품은 시장 수요의 형태상 계획 생산 방식에 해당한다.",
+        "② 이익이 늘어난 제품은 2025년에 제품 수명 주기의 도입기에 있다.",
+        "③ 새우만두의 검사 비율은 주간 생산량의 2%로, 표본 검사에 해당한다.",
+        "④ 경쟁 제품이 늘어난 제품은 확장 제품을 고객에게 제공할 계획이다.",
+        "⑤ 경쟁 제품 수가 그대로인 제품의 개선 과제는 사회적 관점을 활용한다."
+      ],
+      "comboBlock": null,
+      "correctAnswer": 2,
+      "explanation": {
+        "judgment": "[출제 의도] 경영 진단 자료에서 수치 조건으로 제품을 특정한 뒤 생산 방식, 품질 검사 방식, 제품 수명 주기, 코틀러의 제품 정의, 소비자가 보는 제품의 관점을 적용할 수 있는가?\n[해설] 표에서 판매량·영업 이익이 줄고 경쟁 제품 수가 그대로인 제품은 고기만두, 판매량·영업 이익·경쟁 제품 수가 모두 늘어난 제품은 새우만두이다. 고기만두는 분기마다 판매량을 예측하여 미리 생산하므로 계획 생산 방식이고, 2026년 개선 과제는 구매가 플라스틱 감축에 보탬이 됨을 알리므로 사회적 관점을 활용한다. 새우만두는 주 5일 가동으로 주간 4,000봉을 생산하고 매주 80봉을 개봉하여 검사하므로 검사 비율 2%의 표본 검사이다. 새우만두의 2026년 개선 과제인 무상 교환과 보냉 가방 증정은 확장 제품에 해당한다. 새우만두는 2024년에 출시되었지만 2025년에 판매량이 3배 넘게 늘고 흑자로 바뀌었으며 경쟁 제품이 대거 늘었으므로 성장기에 있다. 따라서 2025년에 도입기에 있다는 진술이 옳지 않다.\n[오답 피하기] 새우만두는 2024년에 출시되어 도입기로 보기 쉽지만, 2025년에 판매량과 이익이 급증하고 경쟁 업체가 대거 진입하였으므로 성장기에 해당한다. 도입기라고 한 진술은 옳지 않다.",
+        "conceptHighlightV2": {
+          "stimulusClues": [
+            {
+              "quote": "분기마다 판매량을 예측하여 미리 생산한 뒤 창고에 보관함",
+              "why": "수요를 예측해 미리 생산하는 것은 계획 생산 방식이다."
+            },
+            {
+              "quote": "하루 800봉 생산, 매주 80봉을 개봉하여 미생물 검사",
+              "why": "주 5일 가동과 결합하면 주간 4,000봉 중 80봉(2%)을 뽑는 표본 검사이다."
+            },
+            {
+              "quote": "새우만두는 2024년에 출시하였으며",
+              "why": "출시 직후라도 판매량·이익 급증과 경쟁 제품 증가가 나타나면 성장기이다."
+            },
+            {
+              "quote": "구매 후 30일 이내 품질 이상 시 무상 교환, 보냉 가방 증정",
+              "why": "보증과 사은품 같은 추가 서비스는 확장 제품이다."
+            }
+          ],
+          "optionAnalysis": [
+            {
+              "optionNum": 1,
+              "verdict": "O",
+              "reasoning": "판매량이 52만 봉에서 47만 봉으로 줄어든 제품은 고기만두이며, 분기마다 판매량을 예측하여 미리 생산하므로 계획 생산 방식이다."
+            },
+            {
+              "optionNum": 2,
+              "verdict": "X",
+              "reasoning": "영업 이익이 늘어난 제품은 새우만두이다. 2025년에 판매량이 6만 봉에서 21만 봉으로 급증하고 흑자로 바뀌었으며 경쟁 제품이 2개에서 7개로 늘었으므로 도입기가 아니라 성장기이다."
+            },
+            {
+              "optionNum": 3,
+              "verdict": "O",
+              "reasoning": "주 5일 가동이므로 새우만두의 주간 생산량은 800×5=4,000봉이고 매주 80봉을 개봉하여 검사하므로 검사 비율은 2%이다. 일부를 뽑아 파괴하며 검사하므로 표본 검사이다."
+            },
+            {
+              "optionNum": 4,
+              "verdict": "O",
+              "reasoning": "경쟁 제품 수가 2개에서 7개로 늘어난 제품은 새우만두이며, 2026년 개선 과제인 무상 교환과 보냉 가방 증정은 추가 서비스와 혜택이므로 확장 제품에 해당한다."
+            },
+            {
+              "optionNum": 5,
+              "verdict": "O",
+              "reasoning": "경쟁 제품 수가 9개로 그대로인 제품은 고기만두이며, 재활용 종이 포장으로 구매가 플라스틱 감축에 보탬이 됨을 홍보하는 것은 소비자가 보는 제품의 사회적 관점을 활용한 것이다."
+            }
+          ],
+          "solvingFlow": [
+            {
+              "step": 1,
+              "action": "표에서 판매량·영업 이익·경쟁 제품 수의 변화를 비교하여 각 진술이 가리키는 제품을 특정한다."
+            },
+            {
+              "step": 2,
+              "action": "본문의 생산 서술로 고기만두의 생산 방식을 판별하고, 개선 과제로 소비자가 보는 제품의 관점을 판별한다."
+            },
+            {
+              "step": 3,
+              "action": "새우만두의 주간 생산량(800×5=4,000봉)과 검사 수량(80봉)으로 검사 비율 2%를 구하고 검사 방식을 판별한다."
+            },
+            {
+              "step": 4,
+              "action": "새우만두의 개선 과제가 확장 제품과 유형 제품 중 어디에 속하는지 판별한다."
+            },
+            {
+              "step": 5,
+              "action": "새우만두의 출시 연도와 2025년 판매량·이익·경쟁 추이로 제품 수명 주기 단계를 판별한다."
+            }
+          ],
+          "takeaway": "출시 직후라도 판매량과 이익이 급증하고 경쟁 업체가 대거 진입하면 도입기가 아니라 성장기이다."
+        }
+      },
+      "fingerprint": "7f337c57",
+      "generation": {
+        "engine": "exam-skill-engine-v6",
+        "specId": "gen_e8db82ff",
+        "profileVersion": "exam-style-profile-v2"
+      }
+    },
+    {
+      "orderIndex": 3,
+      "subject": "kongil",
+      "unitNumber": 5,
+      "unitTitle": "제품과 제조 과정",
+      "targetConcept": "제품의 분류(내구재·비내구재, 소비재·산업재)",
+      "itemType": "ai_generative_truth_combination",
+      "difficulty": "HIGH",
+      "points": 3,
+      "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+      "questionStem": "다음은 ○○제약의 수출 제품 설명 자료이다. 이에 대한 분석으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "stimulusData": {
+        "blocks": [
+          {
+            "type": "table",
+            "title": "○○제약 수출 제품 설명 자료",
+            "headers": [
+              [
+                "제품",
+                "사용 방식",
+                "생산 방식",
+                "주당 품질 검사",
+                "고객 지원"
+              ]
+            ],
+            "rows": [
+              [
+                "주사 펜",
+                "환자가 가정에서 약물 카트리지만 갈아 끼우며 3년 이상 반복 사용함",
+                "분기별 수요를 예측하여 생산 계획을 세운 뒤 미리 대량 생산함",
+                "생산한 200대 중 200대의 작동 상태를 확인함",
+                "구매일부터 2년간 무상 수리를 보증함"
+              ],
+              [
+                "세포 배양액",
+                "백신 제조사가 자사 백신 생산 공정에 한 번 투입한 뒤 폐기함",
+                "제조사별로 요청한 성분 비율을 접수한 뒤 그 규격대로 제작함",
+                "생산한 1,000병 중 무작위로 20병을 뽑아 개봉 시험함",
+                "-"
+              ],
+              [
+                "유산균 분말",
+                "소비자가 하루 한 포씩 물에 타서 먹음(30포 1통)",
+                "월별 판매량으로 수요를 예측하여 미리 생산해 둠",
+                "생산한 5,000통 중 500통을 골라 성분을 분석함",
+                "정기 구독 고객에게 매달 무료로 배송함"
+              ]
+            ],
+            "caption": null
+          }
+        ],
+        "figures": {},
+        "choice_table": null
+      },
+      "optionsList": [
+        "① ㄴ",
+        "② ㄷ",
+        "③ ㄴ, ㄷ",
+        "④ ㄱ, ㄴ, ㄷ",
+        "⑤ ㄴ, ㄷ, ㄹ"
+      ],
+      "comboBlock": {
+        "title": "<보기>",
+        "items": [
+          {
+            "key": "ㄱ",
+            "text": "검사 비율이 가장 높은 제품은 내구성에 따라 분류하면 비내구재에 해당한다."
+          },
+          {
+            "key": "ㄴ",
+            "text": "주문 생산 방식을 적용한 제품은 사용 목적에 따라 분류하면 산업재에 해당한다."
+          },
+          {
+            "key": "ㄷ",
+            "text": "확장 제품에 해당하는 혜택을 제공하는 비내구재는 사용 목적에 따라 분류하면 소비재이다."
+          },
+          {
+            "key": "ㄹ",
+            "text": "내구재에 해당하는 제품은 시장 수요의 형태에 따라 분류하면 주문 생산 방식에 해당한다."
+          }
+        ]
+      },
+      "correctAnswer": 3,
+      "explanation": {
+        "judgment": "[출제 의도] 제품의 사용 방식·생산 방식·검사·고객 지원 단서를 연결하여 제품을 내구성과 사용 목적에 따라 분류하고 생산 방식·확장 제품과 함께 판단할 수 있는가?\n[해설] 검사 비율은 주사 펜 100%, 세포 배양액 2%, 유산균 분말 10%이다. 주사 펜은 3년 이상 반복 사용하는 내구재이고 환자가 직접 쓰는 소비재이며, 수요를 예측하여 미리 대량 생산하는 계획 생산 방식이다. 세포 배양액은 한 번 투입 후 폐기하는 비내구재이며 백신 제조사가 생산 공정에 쓰는 산업재이고, 요청 규격을 접수한 뒤 제작하는 주문 생산 방식이다. 유산균 분말은 소비자가 먹어 없애는 비내구재이자 소비재이며, 계획 생산 방식이다. 확장 제품에 해당하는 혜택은 주사 펜의 무상 수리 보증과 유산균 분말의 무료 배송이다. ㄱ. 검사 비율이 가장 높은 주사 펜은 내구재이므로 옳지 않다. ㄴ. 주문 생산 방식인 세포 배양액은 산업재이므로 옳다. ㄷ. 확장 제품 혜택을 제공하는 주사 펜·유산균 분말 중 비내구재인 유산균 분말은 소비재이므로 옳다. ㄹ. 내구재인 주사 펜은 계획 생산 방식이므로 옳지 않다. 따라서 옳은 것은 ㄴ, ㄷ이다.\n[오답 피하기] ㄱ: 검사 비율이 가장 높은 제품은 검사 수량이 가장 많은 유산균 분말이 아니라 비율이 100%인 주사 펜이며, 주사 펜은 3년 이상 반복 사용하는 내구재이다. ㄹ: 내구재인 주사 펜은 수요를 예측하여 생산 계획을 세운 뒤 미리 대량 생산하므로 계획 생산 방식이며, 주문 생산 방식은 세포 배양액이다.",
+        "conceptHighlightV2": {
+          "stimulusClues": [
+            {
+              "quote": "생산한 200대 중 200대의 작동 상태를 확인함",
+              "why": "검사 비율이 100%로 세 제품 중 가장 높음을 계산으로 확인하게 하는 단서이다."
+            },
+            {
+              "quote": "약물 카트리지만 갈아 끼우며 3년 이상 반복 사용함",
+              "why": "장기간 사용을 견디는 내구재임을 가리킨다."
+            },
+            {
+              "quote": "자사 백신 생산 공정에 한 번 투입한 뒤 폐기함",
+              "why": "다른 제품을 만들기 위한 중간재이므로 산업재이며, 짧은 기간에 소모되는 비내구재임을 가리킨다."
+            },
+            {
+              "quote": "제조사별로 요청한 성분 비율을 접수한 뒤 그 규격대로 제작함",
+              "why": "고객의 주문을 받은 뒤 고객이 정한 규격으로 생산하는 주문 생산 방식을 가리킨다."
+            }
+          ],
+          "optionAnalysis": [
+            {
+              "optionKey": "ㄱ",
+              "verdict": "X",
+              "reasoning": "검사 비율은 주사 펜 100%(200/200), 세포 배양액 2%(20/1,000), 유산균 분말 10%(500/5,000)로 주사 펜이 가장 높다. 주사 펜은 3년 이상 반복 사용하는 주사 펜이므로 장기간 사용을 견디는 내구재이다. 검사 수량이 가장 많은 유산균 분말로 착각하면 비내구재로 잘못 판정한다."
+            },
+            {
+              "optionKey": "ㄴ",
+              "verdict": "O",
+              "reasoning": "요청한 성분 비율을 접수한 뒤 그 규격대로 제작하는 세포 배양액이 주문 생산 방식이다. 세포 배양액은 백신 제조사가 백신 생산 공정에 투입하는 재료이므로 소비재를 만들기 위한 중간재인 산업재에 해당한다."
+            },
+            {
+              "optionKey": "ㄷ",
+              "verdict": "O",
+              "reasoning": "무상 수리 보증을 제공하는 주사 펜과 정기 구독 무료 배송을 제공하는 유산균 분말이 확장 제품에 해당하는 혜택을 제공한다. 이 중 짧은 기간에 소모되는 비내구재는 유산균 분말이고, 유산균 분말은 소비자가 직접 먹는 제품이므로 소비재이다."
+            },
+            {
+              "optionKey": "ㄹ",
+              "verdict": "X",
+              "reasoning": "장기간 반복 사용하는 내구재는 주사 펜이다. 주사 펜은 분기별 수요를 예측하여 생산 계획을 세운 뒤 미리 대량 생산하므로 주문 생산이 아니라 계획 생산 방식에 해당한다."
+            }
+          ],
+          "solvingFlow": [
+            {
+              "step": 1,
+              "action": "주당 품질 검사 열에서 검사 비율 계산: 주사 펜 200÷200=100%, 세포 배양액 20÷1,000=2%, 유산균 분말 500÷5,000=10%"
+            },
+            {
+              "step": 2,
+              "action": "사용 방식 열로 내구성(장기간 반복 사용/한 번 또는 짧은 기간 소모)과 사용 목적(최종 소비자 사용/생산 공정 투입)을 제품마다 판별"
+            },
+            {
+              "step": 3,
+              "action": "생산 방식 열에서 수요 예측 후 미리 생산(계획 생산)과 요청 규격 접수 후 제작(주문 생산)을 구분"
+            },
+            {
+              "step": 4,
+              "action": "고객 지원 열에서 무상 수리 보증·무료 배송처럼 추가 서비스를 제공하는 제품(확장 제품)을 확인"
+            },
+            {
+              "step": 5,
+              "action": "각 진술의 조건으로 제품을 먼저 특정한 뒤 다른 열의 분류로 참·거짓 판정"
+            }
+          ],
+          "takeaway": "검사 수량이 아니라 검사 비율로 비교해야 하며, 내구재·비내구재는 사용 기간으로, 소비재·산업재는 최종 소비자가 직접 쓰는지 다른 제품을 만드는 데 쓰는지로 판별한다."
+        }
+      },
+      "fingerprint": "687f9f4c",
+      "generation": {
+        "engine": "exam-skill-engine-v6",
+        "specId": "gen_f0ca4818",
+        "profileVersion": "exam-style-profile-v2"
+      }
+    },
+    {
+      "orderIndex": 4,
+      "subject": "kongil",
+      "unitNumber": 5,
+      "unitTitle": "제품과 제조 과정",
+      "targetConcept": "가공 기술(주조·소성·절삭·분말 야금)",
+      "itemType": "ai_generative_truth_combination",
+      "difficulty": "HIGH",
+      "points": 3,
+      "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+      "questionStem": "다음 ○○기업의 감속기 제조 과정을 분석한 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "stimulusData": {
+        "blocks": [
+          {
+            "type": "figure",
+            "figure_id": "F1"
+          }
+        ],
+        "figures": {
+          "F1": {
+            "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0ODAgNjg4IiBmb250LWZhbWlseT0iJiMzOTtOb3RvIFNhbnMgS1ImIzM5OywmIzM5O0FwcGxlIFNEIEdvdGhpYyBOZW8mIzM5OywmIzM5O01hbGd1biBHb3RoaWMmIzM5OywmIzM5O05hbnVtR290aGljJiMzOTssc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNSI+PHRleHQgeD0iMjQwIiB5PSIyMiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjcwMCI+4peL4peL6riw7JeFIOyImOy2nOyaqSDqsJDsho3quLAg7KCc7KGwIOqzvOyglTwvdGV4dD48cmVjdCB4PSIxMTUiIHk9IjQyIiB3aWR0aD0iMjEwIiBoZWlnaHQ9IjUwIiByeD0iMjUiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjMiLz48dGV4dCB4PSIyMjAiIHk9IjYzLjA0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjE0Ij48dHNwYW4geD0iMjIwIiBkeT0iMCI+7ISk6rOEOiDsp4DrgpwgM+uFhCDtjJDrp6Qg7Iuk7KCB7Jy866GcPC90c3Bhbj48dHNwYW4geD0iMjIwIiBkeT0iMTgiPuu2hOq4sOuzhCDtjJDrp6Trn4nsnYQg7LaU7KCV7ZWY7JesIO2ZleyglTwvdHNwYW4+PC90ZXh0PjxsaW5lIHgxPSIyMjAiIHkxPSI5MyIgeDI9IjIyMCIgeTI9IjExMS42IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4zIi8+PHBvbHlnb24gcG9pbnRzPSIyMjAsMTE4IDIyMy4zNiwxMTAgMjE2LjY0LDExMCIgZmlsbD0iIzAwMCIvPjxyZWN0IHg9IjExNSIgeT0iMTIwIiB3aWR0aD0iMjEwIiBoZWlnaHQ9IjUwIiByeD0iMiIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEuMyIvPjx0ZXh0IHg9IjIyMCIgeT0iMTQxLjA0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjE0Ij48dHNwYW4geD0iMjIwIiBkeT0iMCI+7JuQ7J6Q7J6sIO2ZleuztDog7LKgIOu2hOunkCwg6rCV7LKgIOu0iSw8L3RzcGFuPjx0c3BhbiB4PSIyMjAiIGR5PSIxOCI+7ISg7LKgKOyjvOuLuSA0MDDshLjtirgg67aE65+JKTwvdHNwYW4+PC90ZXh0PjxsaW5lIHgxPSIyMjAiIHkxPSIxNzEiIHgyPSIyMjAiIHkyPSIxODkuNiIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEuMyIvPjxwb2x5Z29uIHBvaW50cz0iMjIwLDE5NiAyMjMuMzYsMTg4IDIxNi42NCwxODgiIGZpbGw9IiMwMDAiLz48cmVjdCB4PSIxMTUiIHk9IjE5OCIgd2lkdGg9IjIxMCIgaGVpZ2h0PSI1MCIgcng9IjIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjMiLz48dGV4dCB4PSIyMjAiIHk9IjIxOS4wNCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxNCI+PHRzcGFuIHg9IjIyMCIgZHk9IjAiPu2VmOyasOynlTog64W57J24IOyEoOyyoOydhCDrqqjrnpgg7YuA7JeQPC90c3Bhbj48dHNwYW4geD0iMjIwIiBkeT0iMTgiPuu2gOyWtCDqtbPtnowg65KkIOyghOufiSBY7ISgIOy0rOyYgTwvdHNwYW4+PC90ZXh0PjxsaW5lIHgxPSIyMjAiIHkxPSIyNDkiIHgyPSIyMjAiIHkyPSIyNjcuNiIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEuMyIvPjxwb2x5Z29uIHBvaW50cz0iMjIwLDI3NCAyMjMuMzYsMjY2IDIxNi42NCwyNjYiIGZpbGw9IiMwMDAiLz48cmVjdCB4PSIxMTUiIHk9IjI3NiIgd2lkdGg9IjIxMCIgaGVpZ2h0PSI2OCIgcng9IjIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjMiLz48dGV4dCB4PSIyMjAiIHk9IjI5Ny4wNCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxNCI+PHRzcGFuIHg9IjIyMCIgZHk9IjAiPuq4sOyWtDog7ZqM7KCEIOy7pO2EsOuhnCDsm5DtjJDsnYQg6rmO642YPC90c3Bhbj48dHNwYW4geD0iMjIwIiBkeT0iMTgiPuuwqeyLneydhCDssqAg67aE66eQIOyVley2lTwvdHNwYW4+PHRzcGFuIHg9IjIyMCIgZHk9IjE4Ij7shLHtmJXCt+qwgOyXtOuhnCDrsJTqv4g8L3RzcGFuPjwvdGV4dD48bGluZSB4MT0iMjIwIiB5MT0iMzQ1IiB4Mj0iMjIwIiB5Mj0iMzYzLjYiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjMiLz48cG9seWdvbiBwb2ludHM9IjIyMCwzNzAgMjIzLjM2LDM2MiAyMTYuNjQsMzYyIiBmaWxsPSIjMDAwIi8+PHJlY3QgeD0iMTE1IiB5PSIzNzIiIHdpZHRoPSIyMTAiIGhlaWdodD0iNTAiIHJ4PSIyIiBmaWxsPSIjZmZmIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4zIi8+PHRleHQgeD0iMjIwIiB5PSIzOTMuMDQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTQiPjx0c3BhbiB4PSIyMjAiIGR5PSIwIj7stpU6IOqwleyyoCDrtInsnYQg64uk7J20IOq1rOupjeyXkCDrhKPqs6A8L3RzcGFuPjx0c3BhbiB4PSIyMjAiIGR5PSIxOCI+7J6h7JWE64u56rKoIOyngOumhOydhCDspITsnoQ8L3RzcGFuPjwvdGV4dD48bGluZSB4MT0iMjIwIiB5MT0iNDIzIiB4Mj0iMjIwIiB5Mj0iNDQxLjYiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjMiLz48cG9seWdvbiBwb2ludHM9IjIyMCw0NDggMjIzLjM2LDQ0MCAyMTYuNjQsNDQwIiBmaWxsPSIjMDAwIi8+PHJlY3QgeD0iMTE1IiB5PSI0NTAiIHdpZHRoPSIyMTAiIGhlaWdodD0iNjgiIHJ4PSIyIiBmaWxsPSIjZmZmIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4zIi8+PHRleHQgeD0iMjIwIiB5PSI0NzEuMDQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTQiPjx0c3BhbiB4PSIyMjAiIGR5PSIwIj7roZztirgg7Iuc7ZeYOiDquLDslrTripQgMjAw6rCc64u5PC90c3Bhbj48dHNwYW4geD0iMjIwIiBkeT0iMTgiPjTqsJwsIOy2leydgCAxMDDqsJzri7kgM+qwnOulvCDtjIzqtLQ8L3RzcGFuPjx0c3BhbiB4PSIyMjAiIGR5PSIxOCI+7Iuc7ZeYPC90c3Bhbj48L3RleHQ+PGxpbmUgeDE9IjIyMCIgeTE9IjUxOSIgeDI9IjIyMCIgeTI9IjUzNy42IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4zIi8+PHBvbHlnb24gcG9pbnRzPSIyMjAsNTQ0IDIyMy4zNiw1MzYgMjE2LjY0LDUzNiIgZmlsbD0iIzAwMCIvPjxyZWN0IHg9IjExNSIgeT0iNTQ2IiB3aWR0aD0iMjEwIiBoZWlnaHQ9IjUwIiByeD0iMiIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEuMyIvPjx0ZXh0IHg9IjIyMCIgeT0iNTY3LjA0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjE0Ij48dHNwYW4geD0iMjIwIiBkeT0iMCI+7KGw66a9OiDshLjtirjri7kg6riw7Ja0IDLqsJwsIOy2lSAx6rCcLDwvdHNwYW4+PHRzcGFuIHg9IjIyMCIgZHk9IjE4Ij7tlZjsmrDsp5UgMeqwnOulvCDqsrDtlantlZjsl6wg7JmE7ISxPC90c3Bhbj48L3RleHQ+PGxpbmUgeDE9IjIyMCIgeTE9IjU5NyIgeDI9IjIyMCIgeTI9IjYxNS42IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4zIi8+PHBvbHlnb24gcG9pbnRzPSIyMjAsNjIyIDIyMy4zNiw2MTQgMjE2LjY0LDYxNCIgZmlsbD0iIzAwMCIvPjxyZWN0IHg9IjExNSIgeT0iNjI0IiB3aWR0aD0iMjEwIiBoZWlnaHQ9IjUwIiByeD0iMjUiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjMiLz48dGV4dCB4PSIyMjAiIHk9IjY0NS4wNCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxNCI+PHRzcGFuIHg9IjIyMCIgZHk9IjAiPuy2nO2VmDog7LC96rOg7JeQIOuztOq0gO2VmOuLpOqwgCDsnKDrn708L3RzcGFuPjx0c3BhbiB4PSIyMjAiIGR5PSIxOCI+67Cc7KO86rCAIOyYpOuptCDsnbjspp0g7ZGc7IucIO2bhCDstpztlZg8L3RzcGFuPjwvdGV4dD48L3N2Zz4=",
+            "alt": "흐름도(위에서 아래). 제목 ‘○○기업 수출용 감속기 제조 과정’. [설계: 지난 3년 판매 실적으로 분기별 판매량을 추정하여 확정] → [원자재 확보: 철 분말, 강철 봉, 선철(주당 400세트 분량)] → [하우징: 녹인 선철을 모래 틀에 부어 굳힌 뒤 전량 X선 촬영] → [기어: 회전 커터로 원판을 깎던 방식을 철 분말 압축 성형·가열로 바꿈] → [축: 강철 봉을 다이 구멍에 넣고 잡아당겨 지름을 줄임] → [로트 시험: 기어는 200개당 4개, 축은 100개당 3개를 파괴 시험] → [조립: 세트당 기어 2개, 축 1개, 하우징 1개를 결합하여 완성] → [출하: 창고에 보관하다가 유럽 발주가 오면 인증 표시 후 출하].",
+            "kind": "diagram",
+            "spec": {
+              "id": "F1",
+              "kind": "diagram",
+              "title": "○○기업 수출용 감속기 제조 과정",
+              "diagramType": "flow",
+              "direction": "vertical",
+              "steps": [
+                {
+                  "id": "s1",
+                  "label": "설계: 지난 3년 판매 실적으로 분기별 판매량을 추정하여 확정",
+                  "shape": "terminal"
+                },
+                {
+                  "id": "s2",
+                  "label": "원자재 확보: 철 분말, 강철 봉, 선철(주당 400세트 분량)",
+                  "shape": "box"
+                },
+                {
+                  "id": "s3",
+                  "label": "하우징: 녹인 선철을 모래 틀에 부어 굳힌 뒤 전량 X선 촬영",
+                  "shape": "box"
+                },
+                {
+                  "id": "s4",
+                  "label": "기어: 회전 커터로 원판을 깎던 방식을 철 분말 압축 성형·가열로 바꿈",
+                  "shape": "box"
+                },
+                {
+                  "id": "s5",
+                  "label": "축: 강철 봉을 다이 구멍에 넣고 잡아당겨 지름을 줄임",
+                  "shape": "box"
+                },
+                {
+                  "id": "s6",
+                  "label": "로트 시험: 기어는 200개당 4개, 축은 100개당 3개를 파괴 시험",
+                  "shape": "box"
+                },
+                {
+                  "id": "s7",
+                  "label": "조립: 세트당 기어 2개, 축 1개, 하우징 1개를 결합하여 완성",
+                  "shape": "box"
+                },
+                {
+                  "id": "s8",
+                  "label": "출하: 창고에 보관하다가 유럽 발주가 오면 인증 표시 후 출하",
+                  "shape": "terminal"
+                }
+              ],
+              "loops": []
+            }
+          }
+        },
+        "choice_table": null
+      },
+      "optionsList": [
+        "① ㄴ",
+        "② ㄹ",
+        "③ ㄴ, ㄹ",
+        "④ ㄱ, ㄴ, ㄹ",
+        "⑤ ㄴ, ㄷ, ㄹ"
+      ],
+      "comboBlock": {
+        "title": "<보기>",
+        "items": [
+          {
+            "key": "ㄱ",
+            "text": "분말 야금으로 만든 부품은 전수 검사 방식으로 주당 800개를 검사한다."
+          },
+          {
+            "key": "ㄴ",
+            "text": "주당 검사 수량이 가장 적은 부품의 가공에는 소성 가공 기술이 활용된다."
+          },
+          {
+            "key": "ㄷ",
+            "text": "가공 방식이 바뀐 부품의 이전 기계는 전조기와 같은 가공 기술에 속한다."
+          },
+          {
+            "key": "ㄹ",
+            "text": "○○기업의 생산 방식은 전용 설비로 표준화된 제품을 대량 생산하는 데 적합하다."
+          }
+        ]
+      },
+      "correctAnswer": 3,
+      "explanation": {
+        "judgment": "[출제 의도] 제조 과정의 공정 서술과 검사 조건을 분석하여 가공 기술, 품질 검사 방식, 수요 형태에 따른 생산 방식을 판별하고 적용할 수 있는가?\n[해설] ㄱ. 철 분말을 압축 성형한 뒤 가열하는 기어가 분말 야금 부품이다. 기어는 주당 800개 생산되지만 200개당 4개를 뽑아 파괴 시험하므로 표본 검사이고 검사 수량은 16개이므로 옳지 않다. ㄴ. 주당 검사 수량은 하우징 400개, 기어 16개, 축 12개로 축이 가장 적다. 축은 강철 봉을 다이 구멍에 넣고 잡아당기는 인발로 만들므로 소성 가공 기술이 활용되어 옳다. ㄷ. 가공 방식이 바뀐 기어는 이전에 회전 커터로 원판을 깎는 절삭 가공 기계를 썼고, 전조기는 소성 가공 기계이므로 옳지 않다. ㄹ. 판매량을 추정해 미리 생산하고 창고에 보관하다가 출하하는 계획 생산이므로 전용 설비로 표준화된 제품을 대량 생산하는 데 적합하여 옳다. 따라서 옳은 것은 ㄴ, ㄹ이다.\n[오답 피하기] ㄱ: 기어는 200개당 4개만 뽑아 파괴 시험하는 표본 검사 대상이며, 주당 검사 수량은 800개가 아니라 16개이다. 생산량 전체를 검사하는 부품은 전량 X선 촬영을 하는 하우징이다. ㄷ: 기어의 이전 가공은 회전 커터로 원판을 깎는 절삭이고, 전조기는 소성 가공 기계이므로 두 기계는 서로 다른 가공 기술에 속한다.",
+        "conceptHighlightV2": {
+          "stimulusClues": [
+            {
+              "quote": "회전 커터로 원판을 깎던 방식을 철 분말 압축 성형·가열로 바꿈",
+              "why": "기어의 가공이 공구로 깎아 내는 절삭에서 금속 분말을 가압·성형한 뒤 소결하는 분말 야금으로 바뀌었음을 가리킨다."
+            },
+            {
+              "quote": "강철 봉을 다이 구멍에 넣고 잡아당겨 지름을 줄임",
+              "why": "외력을 가해 영구 변형시키는 인발로, 소성 가공에 해당한다."
+            },
+            {
+              "quote": "기어는 200개당 4개, 축은 100개당 3개를 파괴 시험",
+              "why": "일부만 뽑아 파괴하여 판정하는 표본 검사이며, 생산량과 결합해 검사 수량을 계산해야 한다."
+            },
+            {
+              "quote": "창고에 보관하다가 유럽 발주가 오면 인증 표시 후 출하",
+              "why": "판매량 추정 후 미리 생산해 두는 계획 생산의 단서이다."
+            }
+          ],
+          "optionAnalysis": [
+            {
+              "optionKey": "ㄱ",
+              "verdict": "X",
+              "reasoning": "철 분말을 압축 성형한 뒤 가열하는 기어가 분말 야금 부품이다. 기어는 주당 800개(400세트×2개)가 생산되지만 200개당 4개만 뽑아 파괴 시험하므로 표본 검사이며, 검사 수량은 800÷200×4=16개이다."
+            },
+            {
+              "optionKey": "ㄴ",
+              "verdict": "O",
+              "reasoning": "주당 검사 수량은 하우징 400개(전량), 기어 800÷200×4=16개, 축 400÷100×3=12개로 축이 가장 적다. 축은 강철 봉을 다이 구멍에 넣고 잡아당겨 지름을 줄이는 인발로 만들므로 소성 가공 기술이 활용된다."
+            },
+            {
+              "optionKey": "ㄷ",
+              "verdict": "X",
+              "reasoning": "가공 방식이 바뀐 부품은 기어이며, 이전에는 회전 커터로 원판을 깎았으므로 절삭 가공 기계를 썼다. 전조기는 압연기·압출기·인발기와 함께 소성 가공 기계이므로 같은 가공 기술에 속하지 않는다."
+            },
+            {
+              "optionKey": "ㄹ",
+              "verdict": "O",
+              "reasoning": "판매 실적으로 분기별 판매량을 추정해 생산하고, 완성품을 창고에 보관하다가 발주가 오면 출하하므로 계획 생산이다. 계획 생산은 표준화된 제품을 전용 설비로 미리 대량 생산하는 방식이다."
+            }
+          ],
+          "solvingFlow": [
+            {
+              "step": 1,
+              "action": "공정 서술로 부품별 가공 기술을 판별한다(하우징 주조, 기어 절삭→분말 야금, 축 인발=소성 가공)."
+            },
+            {
+              "step": 2,
+              "action": "주당 400세트, 세트당 기어 2개로 부품별 생산량을 구한다(하우징 400개, 기어 800개, 축 400개)."
+            },
+            {
+              "step": 3,
+              "action": "검사 방식과 수량을 계산한다(하우징 전수 400개, 기어 800÷200×4=16개, 축 400÷100×3=12개)."
+            },
+            {
+              "step": 4,
+              "action": "판매량 추정·창고 보관 단서로 계획 생산을 판별하고 그 특징을 적용한다."
+            },
+            {
+              "step": 5,
+              "action": "ㄱ 거짓, ㄴ 참, ㄷ 거짓, ㄹ 참이므로 ㄴ, ㄹ을 고른다."
+            }
+          ],
+          "takeaway": "인발·전조는 압연·압출과 함께 소성 가공 기계이고, 파괴 시험처럼 일부만 뽑아 판정하는 검사는 표본 검사이다."
+        }
+      },
+      "fingerprint": "9d3667d3",
+      "generation": {
+        "engine": "exam-skill-engine-v6",
+        "specId": "gen_0a24f0fc",
+        "profileVersion": "exam-style-profile-v2"
+      }
+    },
+    {
+      "orderIndex": 5,
+      "subject": "kongil",
+      "unitNumber": 6,
+      "unitTitle": "제품의 표준화",
+      "targetConcept": "표준화의 의미·효과·특성·원리",
+      "itemType": "ai_generative_statement",
+      "difficulty": "HIGH",
+      "points": 3,
+      "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+      "questionStem": "다음 ○○기업의 현황 보고서에 나타난 표준 및 인증의 활용에 대해 분석한 내용으로 가장 적절한 것은?",
+      "stimulusData": {
+        "blocks": [
+          {
+            "type": "text",
+            "text": "○○기업 현황 보고서\n■ 기업 개요\n• 친환경 에너지 기업으로, 태양광 발전 장치(A 제품)와 에너지 저장 장치(B 제품)를 생산함\n■ 주요 연혁\n• 2021년 ISO 14001 인증을 획득함\n• 2022년 A 제품의 출력 단자 규격을 IEC 62852로 통일하여 이미 판매한 B 제품과 연동되게 함\n• 2023년 B 제품의 외함에 KS D ××××, 충전 제어부에 KS C ××××를 적용함\n• 2024년 금속 재질 부품의 시험에 ASTM 규격을 준용함\n• 2025년 충전 제어부를 A 제품과 같은 부품으로 바꾸어 원가를 줄임\n• 2026년 설치 안내서의 용어를 KS A ××××에 맞춘 뒤 고객의 서비스 만족도가 높아짐\n■ 향후 계획\n• 해외 거래처가 품질 경영 시스템 국제 인증을 납품 조건으로 요구함"
+          }
+        ],
+        "figures": {},
+        "choice_table": null
+      },
+      "optionsList": [
+        "① B 제품과 연동되도록 맞춘 규격은 국제 표준이며, 표준화의 호환성을 보여 준다.",
+        "② B 제품 외함 재질의 시험 규격은 특정 지역 표준화 단체가 정한 규격이다.",
+        "③ 해외 거래처가 요구한 납품 조건은 2021년에 획득한 인증으로 충족된다.",
+        "④ 생산적 측면 효과를 낸 부품 교체는 금속 부문 KS 부품에 대한 것이다.",
+        "⑤ 기본 부문 KS를 적용한 뒤 나타난 효과는 생산적 측면 효과에 해당한다."
+      ],
+      "comboBlock": null,
+      "correctAnswer": 1,
+      "explanation": {
+        "judgment": "[출제 의도] 표준화의 특성·효과를 표준의 적용 범위에 따른 분류, KS 분류·부문 기호, 국제 인증과 결합하여 사례에 적용할 수 있는가?\n[해설] 이미 판매한 B 제품과 연동되게 한 것은 A 제품의 출력 단자 규격을 IEC 62852로 통일한 조치이다. IEC는 국제 표준이고, 규격 통일로 기존 제품과 연동되게 한 것은 호환성에 해당하므로 옳다. 외함(KS D, 금속)의 시험에 준용한 ASTM은 단체 표준이고, 2021년에 획득한 ISO 14001은 환경 경영 시스템 인증이며, 원가를 줄인 충전 제어부 교체는 KS C(전기전자) 부품에 대한 것이고, KS A(기본)를 적용한 뒤 높아진 서비스 만족도는 소비적 측면 효과이므로 나머지 진술은 옳지 않다.\n[오답 피하기] 외함은 KS D(금속)를 적용한 금속 재질 부품이고, 그 시험에 준용한 ASTM(미국 재료 시험 협회) 규격은 단체 표준이므로 특정 지역 표준화 단체의 규격(지역 표준)이 아니다. ISO 14001은 환경 경영 시스템 인증이고 품질 경영 시스템 인증은 ISO 9001이므로, 2021년 인증으로 거래처 요구를 충족하지 못한다. 원가 절감(생산적 측면 효과)을 낸 교체 부품은 충전 제어부이고, 충전 제어부에 적용한 KS C는 전기전자 부문이다. 기본 부문 KS A는 설치 안내서 개정에 적용되었고, 그 뒤 높아진 서비스 만족도는 소비적 측면 효과이다.",
+        "conceptHighlightV2": {
+          "stimulusClues": [
+            {
+              "quote": "출력 단자 규격을 IEC 62852로 통일하여",
+              "why": "IEC는 국제 표준이며, 규격 통일은 표준화의 특성을 판단하는 단서이다."
+            },
+            {
+              "quote": "이미 판매한 B 제품과 연동되게 함",
+              "why": "규격 통일로 기존 제품과 연동되는 것은 호환성에 해당한다."
+            },
+            {
+              "quote": "금속 재질 부품의 시험에 ASTM 규격을 준용함",
+              "why": "KS D를 적용한 외함이 금속 재질 부품이며, ASTM은 협회 규격이므로 단체 표준이다."
+            },
+            {
+              "quote": "고객의 서비스 만족도가 높아짐",
+              "why": "서비스 만족도 향상은 표준화의 소비적 측면 효과이다."
+            }
+          ],
+          "optionAnalysis": [
+            {
+              "optionNum": 1,
+              "verdict": "O",
+              "reasoning": "B 제품과 연동되게 한 것은 A 제품 출력 단자를 IEC 62852로 통일한 조치이다. IEC는 국제 표준이고, 규격 통일로 기존 제품과 연동되게 한 것은 호환성에 해당한다."
+            },
+            {
+              "optionNum": 2,
+              "verdict": "X",
+              "reasoning": "외함에 적용한 KS D는 금속 부문이므로 외함은 금속 재질 부품이고, 그 시험에 준용한 ASTM은 미국 재료 시험 협회의 단체 표준이지 지역 표준이 아니다."
+            },
+            {
+              "optionNum": 3,
+              "verdict": "X",
+              "reasoning": "2021년에 획득한 ISO 14001은 환경 경영 시스템에 관한 국제 인증이고, 거래처가 요구한 품질 경영 시스템 인증은 ISO 9001이므로 충족되지 않는다."
+            },
+            {
+              "optionNum": 4,
+              "verdict": "X",
+              "reasoning": "원가를 줄인 것은 생산적 측면 효과이며, 그때 바꾼 충전 제어부는 KS C를 적용한 전기전자 부문 부품이므로 금속 부문이 아니다."
+            },
+            {
+              "optionNum": 5,
+              "verdict": "X",
+              "reasoning": "기본 부문은 KS A로 설치 안내서의 용어를 맞추는 데 적용되었고, 그 뒤 높아진 서비스 만족도는 생산적 측면이 아니라 소비적 측면 효과이다."
+            }
+          ],
+          "solvingFlow": [
+            {
+              "step": 1,
+              "action": "선지가 부문·효과·연동 대상으로 가리키는 표준을 연혁의 여러 줄을 연결해 찾는다."
+            },
+            {
+              "step": 2,
+              "action": "찾은 기호(IEC, ASTM, KS A·C·D, ISO 14001)를 적용 범위·부문 분류와 인증 종류로 바꾼다."
+            },
+            {
+              "step": 3,
+              "action": "원가를 줄인 것·서비스 만족도 향상·기존 제품 연동이 표준화의 어떤 효과·특성인지 판단한다."
+            },
+            {
+              "step": 4,
+              "action": "두 판단을 결합하여 결론까지 맞는 선지를 고른다."
+            }
+          ],
+          "takeaway": "IEC는 국제 표준, ASTM은 단체 표준이며, 규격 통일로 기존 제품과 연동되면 호환성, 원가 절감은 생산적 측면, 서비스 만족도 향상은 소비적 측면 효과이다."
+        }
+      },
+      "fingerprint": "7e407d1d",
+      "generation": {
+        "engine": "exam-skill-engine-v6",
+        "specId": "gen_2ab61679",
+        "profileVersion": "exam-style-profile-v2"
+      }
+    },
+    {
+      "orderIndex": 6,
+      "subject": "kongil",
+      "unitNumber": 6,
+      "unitTitle": "제품의 표준화",
+      "targetConcept": "표준의 포괄적 분류(측정 표준·참조 표준·성문 표준)",
+      "itemType": "ai_generative_truth_combination",
+      "difficulty": "HIGH",
+      "points": 3,
+      "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+      "questionStem": "다음은 ○○ 석유 화학 공장의 품질 관리 자료이다. 이에 대한 분석으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "stimulusData": {
+        "blocks": [
+          {
+            "type": "text",
+            "text": "○○ 석유 화학 공장은 수도관 생산 라인을 증설하며 품질 관리 체계를 정비하였다. 설비팀과 분석팀은 KS B ××××와 KS A ××××를 각각 새로 적용하였다. 앞의 것은 압력계 시험 방법을, 뒤의 것은 분석 보고서의 용어와 단위 기호를 규정한다. (라)의 수도관은 독일과 프랑스에 납품하며, 그 전에 해당 지역의 인증 마크를 획득할 계획이다."
+          },
+          {
+            "type": "table",
+            "title": "부서별 품질 관리 정비 내용",
+            "headers": [
+              [
+                "구분",
+                "담당",
+                "정비 내용"
+              ]
+            ],
+            "rows": [
+              [
+                "(가)",
+                "설비팀",
+                "반응기 압력계를 국가 기준기와 비교하여 MPa 단위로 보정함"
+              ],
+              [
+                "(나)",
+                "분석팀",
+                "원료 분석값을 국가 공인 물성 데이터와 비교하여 검증함"
+              ],
+              [
+                "(다)",
+                "생산팀",
+                "융착 작업을 생산팀이 직접 작성한 작업 지침서 제3판대로 수행함"
+              ],
+              [
+                "(라)",
+                "수출팀",
+                "수출용 수도관의 내압 성능을 EN 12201에 따라 시험함"
+              ]
+            ],
+            "caption": null
+          }
+        ],
+        "figures": {},
+        "choice_table": null
+      },
+      "optionsList": [
+        "① ㄴ, ㄷ",
+        "② ㄴ, ㄹ",
+        "③ ㄷ, ㄹ",
+        "④ ㄴ, ㄷ, ㄹ",
+        "⑤ ㄱ, ㄴ, ㄷ, ㄹ"
+      ],
+      "comboBlock": {
+        "title": "<보기>",
+        "items": [
+          {
+            "key": "ㄱ",
+            "text": "설비팀과 분석팀이 새로 적용한 KS는 모두 방법 표준에 해당한다."
+          },
+          {
+            "key": "ㄴ",
+            "text": "(가)의 보정과 (나)의 검증에 활용된 표준은 포괄적 분류상 서로 다르다."
+          },
+          {
+            "key": "ㄷ",
+            "text": "(다)에서 따른 지침서는 성문 표준이며 적용 범위로는 사내 표준이다."
+          },
+          {
+            "key": "ㄹ",
+            "text": "(라)의 시험 기준은 지역 표준이고, 납품 전 획득할 인증은 CE이다."
+          }
+        ]
+      },
+      "correctAnswer": 4,
+      "explanation": {
+        "judgment": "[출제 의도] 제품 생산·수출 자료에 나타난 표준을 포괄적 분류, 한국산업표준의 기능별 분류, 적용 범위별 분류로 구분하고 수출 지역에 맞는 해외 인증을 판단할 수 있는가?\n[해설] ㄱ. 본문에서 설비팀이 적용한 KS B ××××는 압력계의 시험 방법을 규정하므로 방법 표준이지만, 분석팀이 적용한 KS A ××××는 용어와 단위 기호를 규정하므로 전달 표준(기본 표준)이다. 따라서 옳지 않다. ㄴ. (가)의 압력계를 국가 기준기와 비교하여 MPa 단위로 보정한 것은 측정 표준, (나)의 국가 공인 물성 데이터와 비교한 검증은 참조 표준을 활용한 것이므로 서로 다른 유형이다. ㄷ. (다)의 작업 지침서는 문서로 정한 기준이므로 성문 표준이고, 생산팀이 직접 작성한 회사 내부의 기준이므로 사내 표준이다. ㄹ. (라)의 EN 12201은 지역 표준이고, 수도관을 독일과 프랑스에 납품하므로 유럽 연합의 CE 인증을 획득해야 한다. 따라서 옳은 것은 ㄴ, ㄷ, ㄹ이다.\n[오답 피하기] ㄱ: 분석팀이 분석 업무를 맡았다고 해서 그 KS가 방법 표준인 것은 아니다. 분석팀의 KS A ××××는 용어와 단위 기호를 규정하므로 전달 표준(기본 표준)이며, 시험·분석·검사 및 측정 방법을 규정한 방법 표준은 설비팀의 KS B ××××뿐이다.",
+        "conceptHighlightV2": {
+          "stimulusClues": [
+            {
+              "quote": "국가 기준기와 비교하여 MPa 단위로 보정함",
+              "why": "측정기를 국제단위계(SI) 단위로 보정하였으므로 측정 표준을 활용한 사례이다."
+            },
+            {
+              "quote": "원료 분석값을 국가 공인 물성 데이터와 비교하여 검증함",
+              "why": "공인 데이터를 비교·검증 기준으로 사용하였으므로 참조 표준을 활용한 사례이다."
+            },
+            {
+              "quote": "뒤의 것은 분석 보고서의 용어와 단위 기호를 규정한다",
+              "why": "분석팀의 KS A ××××는 용어·단위를 규정하므로 방법 표준이 아니라 전달 표준이다."
+            },
+            {
+              "quote": "독일과 프랑스에 납품하며",
+              "why": "수출 지역이 유럽 연합이므로 획득할 해외 인증은 CE이다."
+            }
+          ],
+          "optionAnalysis": [
+            {
+              "optionKey": "ㄱ",
+              "verdict": "X",
+              "reasoning": "본문에서 설비팀의 KS B ××××는 압력계의 시험 방법을 규정하므로 방법 표준이지만, 분석팀의 KS A ××××는 분석 보고서의 용어와 단위 기호를 규정하므로 전달 표준(기본 표준)이다. 따라서 모두 방법 표준이라고 할 수 없다."
+            },
+            {
+              "optionKey": "ㄴ",
+              "verdict": "O",
+              "reasoning": "(가)는 압력계를 국가 기준기와 비교하여 MPa 단위로 보정하였으므로 측정 표준을, (나)는 분석값을 국가 공인 물성 데이터와 비교하여 검증하였으므로 참조 표준을 활용하였다. 두 표준은 서로 다른 유형이다."
+            },
+            {
+              "optionKey": "ㄷ",
+              "verdict": "O",
+              "reasoning": "(다)의 작업 지침서는 작업 기준을 문서로 정한 것이므로 성문 표준이고, 생산팀이 직접 작성한 회사 내부의 기준이므로 적용 범위로는 사내 표준이다."
+            },
+            {
+              "optionKey": "ㄹ",
+              "verdict": "O",
+              "reasoning": "(라)의 EN 12201은 유럽의 규격이므로 지역 표준이고, 본문에서 (라)의 수도관은 독일과 프랑스에 납품하므로 유럽 연합 진출에 필요한 CE 인증을 획득해야 한다."
+            }
+          ],
+          "solvingFlow": [
+            {
+              "step": 1,
+              "action": "본문의 ‘앞의 것/뒤의 것’으로 설비팀은 KS B(시험 방법), 분석팀은 KS A(용어·단위 기호)를 적용하였음을 확인 → 방법 표준과 전달 표준으로 구분"
+            },
+            {
+              "step": 2,
+              "action": "표 (가)의 MPa 단위 보정은 측정 표준, (나)의 공인 물성 데이터 비교는 참조 표준으로 판별 → 두 유형 비교"
+            },
+            {
+              "step": 3,
+              "action": "표 (다)의 작업 지침서는 문서 기준(성문 표준)이면서 생산팀이 작성한 내부 기준(사내 표준)임을 판별"
+            },
+            {
+              "step": 4,
+              "action": "표 (라)의 EN(지역 표준)과 본문의 납품 국가(독일·프랑스 → 유럽 연합 → CE)를 연결하여 판정"
+            }
+          ],
+          "takeaway": "분석 업무에 쓰인 KS라도 용어·단위를 규정하면 전달 표준이고, 공인 데이터와의 비교는 측정 표준이 아니라 참조 표준이다."
+        }
+      },
+      "fingerprint": "c02eaec3",
+      "generation": {
+        "engine": "exam-skill-engine-v6",
+        "specId": "gen_a5b55b08",
+        "profileVersion": "exam-style-profile-v2"
+      }
+    },
+    {
+      "orderIndex": 7,
+      "subject": "kongil",
+      "unitNumber": 6,
+      "unitTitle": "제품의 표준화",
+      "targetConcept": "한국산업표준(KS)의 분류(제품 표준·방법 표준·전달 표준)",
+      "itemType": "ai_generative_statement",
+      "difficulty": "HIGH",
+      "points": 3,
+      "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+      "questionStem": "다음 ○○ 기업의 신제품 개발 회의 내용을 통해 알 수 있는 것으로 가장 적절한 것은?",
+      "stimulusData": {
+        "blocks": [
+          {
+            "type": "dialogue",
+            "lines": [
+              {
+                "speaker": "대표 이사",
+                "text": "스마트 공장 가동 후 처음 내놓을 무선 전동 드릴의 준비 상황을 말씀해 주세요."
+              },
+              {
+                "speaker": "개발팀장",
+                "text": "시제품은 지난달 고객 시연을 두 차례 마쳤습니다. 설계 도면과 사용 설명서의 용어·기술·단위는 한국산업표준에 맞추어 적용하였습니다."
+              },
+              {
+                "speaker": "생산팀장",
+                "text": "공정 센서로 모은 자료를 분석하여 불량 원인을 찾고 있습니다. 출하 전에는 한국산업표준에 정해진 시험·검사 방법에 따라 드릴의 회전 성능을 확인합니다."
+              },
+              {
+                "speaker": "수출팀장",
+                "text": "EN 62841 시험 성적서를 확보하였고, 이 규격을 쓰는 지역에 팔기 위한 인증 마크도 준비 중입니다. 국내 판매용 충전기는 안전 인증 없이는 팔 수 없어 인증을 먼저 받았습니다."
+              }
+            ]
+          }
+        ],
+        "figures": {},
+        "choice_table": null
+      },
+      "optionsList": [
+        "① 공정 센서를 활용하는 팀이 따른 한국산업표준은 방법 표준에 해당한다.",
+        "② 설계 도면을 맡은 팀이 적용한 한국산업표준은 제품 표준에 해당한다.",
+        "③ 수출팀이 성적서를 확보한 시험 규격은 국제 표준에 해당한다.",
+        "④ 수출팀이 획득을 준비 중인 인증 마크는 UL 인증에 해당한다.",
+        "⑤ 국내 판매용 충전기가 받은 인증은 KS 인증에 해당한다."
+      ],
+      "comboBlock": null,
+      "correctAnswer": 1,
+      "explanation": {
+        "judgment": "[출제 의도] 회의 발언에 흩어진 표준·인증 단서를 한국산업표준의 기능별 분류, 표준의 적용 범위, 국내·해외 인증과 연결하여 판단할 수 있는가?\n[해설] 공정 센서 자료를 분석하여 불량 원인을 찾는 팀은 생산팀이다. 생산팀은 출하 전 한국산업표준에 정해진 시험·검사 방법에 따라 드릴의 회전 성능을 확인하므로, 생산팀이 따른 한국산업표준은 ‘시험, 분석, 검사 및 측정 방법’을 규정한 방법 표준에 해당한다. 개발팀이 적용한 한국산업표준은 용어·기술·단위에 관한 것이므로 전달 표준이고, 수출팀의 EN 62841은 지역 표준이며, 수출팀이 준비하는 마크는 유럽의 CE 인증, 판매에 반드시 필요한 충전기 인증은 법정 강제 인증인 KC 인증이다.\n[오답 피하기] 설계 도면을 맡은 개발팀은 한국산업표준의 용어·기술·단위를 적용하였으므로 제품 표준이 아니라 전달 표준(기본 표준)에 해당한다. EN은 유럽 지역 표준화 단체의 규격이므로 EN 62841은 국제 표준이 아니라 지역 표준이다. 번호가 IEC 규격과 비슷해도 접두 기호로 판단한다. EN 규격을 쓰는 지역은 유럽이므로 수출팀이 준비하는 인증은 CE 인증이다. UL은 미국 진출에 필요한 인증이다. 판매에 반드시 받아야 하는 안전 인증은 법정 강제 인증인 KC 인증이다. KS 인증은 임의 인증이므로 해당하지 않는다.",
+        "conceptHighlightV2": {
+          "stimulusClues": [
+            {
+              "quote": "용어·기술·단위는 한국산업표준에 맞추어 적용하였습니다",
+              "why": "용어·기술·단위를 규정한 한국산업표준은 전달 표준(기본 표준)이다."
+            },
+            {
+              "quote": "한국산업표준에 정해진 시험·검사 방법에 따라",
+              "why": "시험·분석·검사 및 측정 방법을 규정한 한국산업표준은 방법 표준이다."
+            },
+            {
+              "quote": "EN 62841 시험 성적서를 확보하였고",
+              "why": "EN은 유럽의 지역 표준이며, 이 규격을 쓰는 지역은 유럽이므로 필요한 인증은 CE이다."
+            },
+            {
+              "quote": "안전 인증 없이는 팔 수 없어 인증을 먼저 받았습니다",
+              "why": "판매에 반드시 필요한 인증은 법정 강제 인증인 KC 인증이다."
+            }
+          ],
+          "optionAnalysis": [
+            {
+              "optionNum": 1,
+              "verdict": "O",
+              "reasoning": "공정 센서 자료를 분석하는 팀은 생산팀이고, 생산팀은 한국산업표준에 정해진 시험·검사 방법에 따라 회전 성능을 확인하므로 ‘시험, 분석, 검사 및 측정 방법’을 규정한 방법 표준에 해당한다. 성능·품질 확인이라는 말만 보고 제품 표준으로 판단하면 틀린다."
+            },
+            {
+              "optionNum": 2,
+              "verdict": "X",
+              "reasoning": "설계 도면을 맡은 팀은 개발팀이고, 개발팀이 적용한 것은 한국산업표준의 용어·기술·단위이므로 제품 표준이 아니라 전달 표준(기본 표준)에 해당한다."
+            },
+            {
+              "optionNum": 3,
+              "verdict": "X",
+              "reasoning": "수출팀이 성적서를 확보한 규격은 EN 62841이고, EN은 유럽의 지역 표준이므로 국제 표준이 아니라 지역 표준에 해당한다."
+            },
+            {
+              "optionNum": 4,
+              "verdict": "X",
+              "reasoning": "수출팀은 EN 규격을 쓰는 지역, 즉 유럽에 팔기 위한 인증 마크를 준비하므로 유럽 연합의 CE 인증에 해당한다. UL은 미국 진출에 필요한 인증이다."
+            },
+            {
+              "optionNum": 5,
+              "verdict": "X",
+              "reasoning": "충전기는 안전 인증 없이는 국내에서 팔 수 없으므로 이 인증은 법정 강제 인증인 KC 인증(국가 통합 인증)이다. KS 인증은 임의 인증이므로 해당하지 않는다."
+            }
+          ],
+          "solvingFlow": [
+            {
+              "step": 1,
+              "action": "진술이 가리키는 팀(설계 도면 담당, 공정 센서 활용, 수출)을 발언에서 찾는다."
+            },
+            {
+              "step": 2,
+              "action": "개발팀의 한국산업표준은 용어·기술·단위 → 전달 표준, 생산팀의 한국산업표준은 시험·검사 방법 → 방법 표준으로 판별한다."
+            },
+            {
+              "step": 3,
+              "action": "수출팀의 EN 규격 기호 → 유럽 지역 표준 → 유럽 수출용 CE 인증으로 이어 판단한다."
+            },
+            {
+              "step": 4,
+              "action": "판매에 반드시 필요한 충전기 인증 → 법정 강제 인증 → KC 인증(KS 인증은 임의 인증)으로 판정한다."
+            }
+          ],
+          "takeaway": "같은 한국산업표준이라도 용어·기술·단위를 정하면 전달 표준, 시험·검사 방법을 정하면 방법 표준이며, EN은 지역 표준이고 판매에 필수인 국내 인증은 KC이다."
+        }
+      },
+      "fingerprint": "134f18f1",
+      "generation": {
+        "engine": "exam-skill-engine-v6",
+        "specId": "gen_8c8ef13e",
+        "profileVersion": "exam-style-profile-v2"
+      }
+    },
+    {
+      "orderIndex": 8,
+      "subject": "kongil",
+      "unitNumber": 7,
+      "unitTitle": "제품 개발 및 생산 관리",
+      "targetConcept": "제품 개발 절차(6단계)",
+      "itemType": "ai_generative_statement",
+      "difficulty": "HIGH",
+      "points": 3,
+      "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+      "questionStem": "다음 신제품 전략 회의록을 통해 알 수 있는 ○○ 식품 가공 공장에 대한 내용으로 가장 적절한 것은?",
+      "stimulusData": {
+        "blocks": [
+          {
+            "type": "text",
+            "text": "■ ○○ 식품 가공 공장 신제품 전략 회의록\n• 기존 두유 음료는 판매가 급증하고 단위당 원가가 낮아져 이익이 크게 늘었음\n• 다만 비슷한 제품을 내놓는 업체가 잇따라 늘고 있음\n• 저당 두유 푸딩 개발을 위해 출시 때까지 운영할 전담팀을 신설함\n• 전담팀 담당 업무(진행 순서와 관계없이 적음)\n- ㉠ 3D 프린터로 만든 용기 시제품에 푸딩을 담아 시범 판매하고 구매 반응을 조사함\n- ㉡ 구상한 푸딩의 콘셉트 설명서를 소비자 패널에게 보여 주고 반응을 조사하여 적합성을 확인함\n- ㉢ 용기 색채를 정하고, 충전 설비를 기존 라인과 함께 쓰는 모듈로 정해 설계 명세서를 확정함\n- ㉣ 원가와 예상 판매량으로 사업성을 검토한 뒤 용기를 CAD로 모델링함"
+          }
+        ],
+        "figures": {},
+        "choice_table": null
+      },
+      "optionsList": [
+        "① ㉢은 ㉠이 속한 단계보다 두 단계 뒤에서 하는 활동이다.",
+        "② ㉣은 ㉡이 속한 단계의 바로 다음 단계에서 하는 활동이다.",
+        "③ 6단계 제품 개발 절차 전체에서 ㉣이 속한 단계 뒤에 오는 단계는 두 개이다.",
+        "④ 기존 두유 음료는 시장 규모·인지도 확대를 마케팅 목표로 하는 단계에 있다.",
+        "⑤ ㉢이 속한 단계의 설계 요소 중 ㉢에 나타나지 않은 것은 생산 설계이다."
+      ],
+      "comboBlock": null,
+      "correctAnswer": 2,
+      "explanation": {
+        "judgment": "[출제 의도] 제품 개발 절차의 각 단계 활동을 사례에서 판별하고 단계의 순서와 최종 설계 요소, 제품 수명 주기 단계에 적용할 수 있는가?\n[해설] ㉡은 구상한 콘셉트 설명서로 소비자 반응을 조사해 적합성을 확인하므로 제품 선정, ㉣은 사업성을 검토한 뒤 CAD로 모델링하므로 예비 설계, ㉠은 3D 프린터 시제품으로 시범 판매하고 구매 반응을 조사하므로 시험 마케팅, ㉢은 용기 색채와 충전 설비를 정해 설계 명세서를 확정하므로 최종 설계이다. 제품 개발 절차는 아이디어 창출 → 제품 선정 → 예비 설계 → 시험 마케팅 → 최종 설계 → 공정 계획의 순서이므로 ㉣은 ㉡이 속한 제품 선정의 바로 다음 단계인 예비 설계의 활동이다.\n[오답 피하기] ㉢의 최종 설계는 ㉠의 시험 마케팅 바로 다음 단계로 한 단계 뒤이다. ㉠을 예비 설계로 잘못 보면 두 단계 뒤로 판단하게 된다. 6단계 제품 개발 절차 전체에서 예비 설계(㉣) 뒤에는 시험 마케팅, 최종 설계, 공정 계획의 세 단계가 있다. 공정 계획은 회의록 업무에 없지만 제품 개발 절차의 마지막 단계이므로 함께 센다. 기존 두유 음료는 판매 급증과 원가 하락으로 이익이 크게 늘고 경쟁 업체가 늘어나는 성장기로, 마케팅 목표는 시장 점유율 확대이다. ㉢은 최종 설계로, 기능 설계·형태 설계·생산 설계를 확정하는 단계이다. 용기 색채는 형태 설계, 충전 설비 모듈 결정은 효율적 생산을 위한 생산 설계이므로 ㉢에 나타나지 않은 요소는 기능 설계이다. 충전 설비 결정을 설계 요소가 아닌 공정 계획으로 잘못 보면 생산 설계가 빠진 것으로 오판한다.",
+        "conceptHighlightV2": {
+          "stimulusClues": [
+            {
+              "quote": "소비자 패널에게 보여 주고 반응을 조사하여 적합성을 확인함",
+              "why": "개념화한 제품에 대한 소비자 반응으로 적합성을 검증하는 제품 선정 단계를 가리킨다."
+            },
+            {
+              "quote": "사업성을 검토한 뒤 용기를 CAD로 모델링함",
+              "why": "사업성 검토 후 실제 형태로 구체화하는 예비 설계 단계를 가리킨다."
+            },
+            {
+              "quote": "3D 프린터로 만든 용기 시제품에 푸딩을 담아",
+              "why": "시제품을 제작해 구매 반응을 조사하는 시험 마케팅 단계를 가리킨다."
+            },
+            {
+              "quote": "충전 설비를 기존 라인과 함께 쓰는 모듈로 정해",
+              "why": "효율적 생산을 위해 공정 설비를 정하는 생산 설계로, 최종 설계의 요소이다."
+            }
+          ],
+          "optionAnalysis": [
+            {
+              "optionNum": 1,
+              "verdict": "X",
+              "reasoning": "㉠은 시제품으로 구매 반응을 조사하는 시험 마케팅, ㉢은 형태·생산 설계와 설계 명세서를 확정하는 최종 설계이다. 최종 설계는 시험 마케팅 바로 다음 단계이므로 한 단계 뒤이다."
+            },
+            {
+              "optionNum": 2,
+              "verdict": "O",
+              "reasoning": "㉡은 개념화한 제품에 대한 소비자 반응을 조사해 적합성을 확인하는 제품 선정, ㉣은 사업성 검토 후 CAD로 구체화하는 예비 설계이다. 제품 선정 바로 다음이 예비 설계이므로 옳다."
+            },
+            {
+              "optionNum": 3,
+              "verdict": "X",
+              "reasoning": "㉣은 예비 설계이며, 6단계 제품 개발 절차 전체에서 그 뒤에는 시험 마케팅, 최종 설계, 공정 계획의 세 단계가 이어진다. 회의록에 나열된 업무(㉠, ㉢)만 세거나 공정 계획을 빠뜨리면 두 개로 잘못 센다."
+            },
+            {
+              "optionNum": 4,
+              "verdict": "X",
+              "reasoning": "판매 급증, 단위당 원가 하락에 따른 이익 급증, 경쟁 업체 증가는 성장기의 특징이다. 성장기의 마케팅 목표는 시장 점유율 확대이며, 시장 규모와 인지도 확대는 도입기의 목표이다."
+            },
+            {
+              "optionNum": 5,
+              "verdict": "X",
+              "reasoning": "㉢은 설계 명세서를 확정하는 최종 설계이며, 최종 설계에서는 기능 설계·형태 설계·생산 설계를 확정한다. ㉢의 용기 색채는 형태 설계, 충전 설비를 기존 라인과 함께 쓰는 모듈로 정한 것은 생산 설계이므로 ㉢에 나타나지 않은 것은 기능 설계이다."
+            }
+          ],
+          "solvingFlow": [
+            {
+              "step": 1,
+              "action": "㉠~㉣의 활동 단서로 각 업무가 속한 제품 개발 단계를 판별한다(㉡ 제품 선정, ㉣ 예비 설계, ㉠ 시험 마케팅, ㉢ 최종 설계)."
+            },
+            {
+              "step": 2,
+              "action": "아이디어 창출 → 제품 선정 → 예비 설계 → 시험 마케팅 → 최종 설계 → 공정 계획의 6단계 전체에 대입해 단계 간 간격과 남은 단계 수를 센다(회의록에 없는 단계도 포함)."
+            },
+            {
+              "step": 3,
+              "action": "㉢이 속한 최종 설계의 3요소(기능 설계·형태 설계·생산 설계)에 ㉢의 활동을 대입하여 용기 색채는 형태 설계, 충전 설비 모듈은 생산 설계로 구분하고, 나타나지 않은 요소(기능 설계)를 찾는다."
+            },
+            {
+              "step": 4,
+              "action": "기존 두유 음료의 매출·이익·경쟁 서술로 성장기를 판별하고 마케팅 목표(시장 점유율 확대)를 확인한다."
+            }
+          ],
+          "takeaway": "업무가 순서 없이 나열되어도 활동 단서로 단계를 먼저 판별해야 하며, CAD 모델링은 예비 설계, 시제품 검증은 시험 마케팅, 설비 결정은 최종 설계의 생산 설계이고 마지막에 공정 계획이 남는다."
+        }
+      },
+      "fingerprint": "15d8f97e",
+      "generation": {
+        "engine": "exam-skill-engine-v6",
+        "specId": "gen_adff88cc",
+        "profileVersion": "exam-style-profile-v2"
+      }
+    },
+    {
+      "orderIndex": 9,
+      "subject": "kongil",
+      "unitNumber": 9,
+      "unitTitle": "공장 자동화와 로봇의 활용",
+      "targetConcept": "산업용 로봇의 기능별 분류",
+      "itemType": "ai_generative_truth_combination",
+      "difficulty": "HIGH",
+      "points": 3,
+      "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+      "questionStem": "다음 설비 운영 현황에 나타난 ○○기업의 설비에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+      "stimulusData": {
+        "blocks": [
+          {
+            "type": "table",
+            "title": "○○기업 플랜트 모듈 제작장 설비 운영 현황",
+            "headers": [
+              [
+                "공정",
+                "사용 설비",
+                "운영 내용"
+              ]
+            ],
+            "rows": [
+              [
+                "배관 절단",
+                "세 직선축으로 움직이는 로봇",
+                "미리 설정한 순서와 위치에 따라 절단 동작을 차례로 진행함"
+              ],
+              [
+                "관 이송",
+                "멈추지 않고 일정한 속도로 움직이는 벨트",
+                "절단된 관을 배관 용접 공정으로 옮김"
+              ],
+              [
+                "배관 용접",
+                "직선축 1개와 회전축 2개를 갖춘 로봇",
+                "숙련공이 팔을 직접 움직여 가르친 경로를 저장해 두었다가 같은 규격의 관마다 다시 실행함"
+              ],
+              [
+                "지지대 제작",
+                "도면 정보를 입력받아 입체물을 만드는 장치",
+                "실 형태로 가공한 수지를 녹여 한 층씩 쌓아 지지대를 만듦"
+              ],
+              [
+                "지지대 운반",
+                "주어진 경로를 스스로 운행하는 차량",
+                "완성된 지지대를 지지대 체결 공정에 내려놓음"
+              ],
+              [
+                "지지대 체결",
+                "6개 회전축으로 모든 방향을 움직이는 로봇",
+                "지지대를 철골에 고정하며, 앞선 작업 경험을 학습해 볼트 구멍까지의 최적 경로를 계획함"
+              ]
+            ],
+            "caption": null
+          }
+        ],
+        "figures": {},
+        "choice_table": null
+      },
+      "optionsList": [
+        "① ㄱ, ㄴ, ㄷ",
+        "② ㄱ, ㄴ, ㄹ",
+        "③ ㄱ, ㄷ, ㄹ",
+        "④ ㄴ, ㄷ, ㄹ",
+        "⑤ ㄱ, ㄴ, ㄷ, ㄹ"
+      ],
+      "comboBlock": {
+        "title": "<보기>",
+        "items": [
+          {
+            "key": "ㄱ",
+            "text": "극 좌표형 로봇은 앞 공정의 작업물을 컨베이어로 공급받는다."
+          },
+          {
+            "key": "ㄴ",
+            "text": "무인 반송차(AGV)가 옮긴 부품을 고정하는 로봇은 학습 제어 로봇에 해당한다."
+          },
+          {
+            "key": "ㄷ",
+            "text": "수직 관절형 로봇이 다루는 부품은 적층형 3D 프린팅 방식으로 만들어졌다."
+          },
+          {
+            "key": "ㄹ",
+            "text": "플레이백 로봇은 시퀀스 로봇이 작업한 관을 이어서 가공한다."
+          }
+        ]
+      },
+      "correctAnswer": 5,
+      "explanation": {
+        "judgment": "[출제 의도] 공정 흐름 속 설비의 구조와 운영 방식을 읽고 산업용 로봇의 기능별·좌표 형태별 분류, 무인 반송차(AGV)와 컨베이어, 적층형 3D 프린팅을 함께 판별할 수 있는가?\n[해설] 먼저 각 설비를 분류한다. 배관 절단 로봇은 미리 설정한 순서와 위치에 따라 동작을 차례로 진행하므로 시퀀스 로봇, 배관 용접 로봇은 직선축 1개와 회전축 2개이므로 극 좌표형이고 가르친 경로를 저장하였다가 다시 실행하므로 플레이백 로봇, 지지대 체결 로봇은 6개 회전축이므로 수직 관절형이고 작업 경험을 학습해 최적 경로를 계획하므로 학습 제어 로봇이다. 관 이송 벨트는 컨베이어, 지지대 운반 차량은 무인 반송차(AGV), 지지대 제작 장치는 재료를 한 층씩 쌓는 적층형 3D 프린터이다. ㄱ. 극 좌표형 로봇(용접)은 절단된 관을 컨베이어로 공급받으므로 옳다. ㄴ. AGV가 옮긴 지지대를 고정하는 로봇은 학습 제어 로봇이므로 옳다. ㄷ. 수직 관절형 로봇이 다루는 지지대는 적층형 3D 프린팅으로 만들어졌으므로 옳다. ㄹ. 플레이백 로봇(용접)은 시퀀스 로봇(절단)이 작업한 관을 이어서 가공하므로 옳다. 따라서 ㄱ, ㄴ, ㄷ, ㄹ 모두 옳다.\n[오답 피하기] ㄱ을 빼는 경우: 관을 옮기는 설비를 운반 차량으로 착각한 것이다. 멈추지 않고 일정한 속도로 움직이는 벨트는 무인 반송차(AGV)가 아니라 컨베이어이다. ㄴ을 빼는 경우: 체결 로봇을 적응 제어 로봇으로 오인한 것이다. 환경 변화에 적응하는 것이 아니라 앞선 작업 경험을 학습해 최적 경로를 계획하므로 학습 제어 로봇이다. ㄷ을 빼는 경우: 지지대 제작 장치를 깎아 내는 절삭형으로 오인한 것이다. 수지를 녹여 한 층씩 쌓는 방식은 적층형이다. ㄹ을 빼는 경우: 절단 로봇과 용접 로봇의 기능별 분류를 뒤바꾼 것이다. 미리 설정한 순서에 따라 차례로 동작하면 시퀀스 로봇, 직접 가르친 경로를 저장 후 다시 실행하면 플레이백 로봇이다.",
+        "conceptHighlightV2": {
+          "stimulusClues": [
+            {
+              "quote": "미리 설정한 순서와 위치에 따라 절단 동작을 차례로 진행함",
+              "why": "미리 설정된 순서·위치에 따라 동작을 순차적으로 진행하므로 시퀀스 로봇이다."
+            },
+            {
+              "quote": "멈추지 않고 일정한 속도로 움직이는 벨트",
+              "why": "정지하지 않고 일정한 속도로 움직이는 운반 장치이므로 AGV가 아니라 컨베이어이다."
+            },
+            {
+              "quote": "숙련공이 팔을 직접 움직여 가르친 경로를 저장해 두었다가",
+              "why": "사용자가 가르친 정보를 저장하였다가 재생하므로 플레이백 로봇이다."
+            },
+            {
+              "quote": "앞선 작업 경험을 학습해 볼트 구멍까지의 최적 경로를 계획함",
+              "why": "작업 경험을 학습해 최적 경로를 계획하므로 적응 제어가 아닌 학습 제어 로봇이다."
+            }
+          ],
+          "optionAnalysis": [
+            {
+              "optionKey": "ㄱ",
+              "verdict": "O",
+              "reasoning": "직선축 1개와 회전축 2개를 갖춘 로봇은 극 좌표형으로 배관 용접 공정에 있으며, 이 공정에 절단된 관을 옮기는 설비는 멈추지 않고 일정한 속도로 움직이는 벨트이므로 컨베이어이다. 따라서 옳다."
+            },
+            {
+              "optionKey": "ㄴ",
+              "verdict": "O",
+              "reasoning": "주어진 경로를 스스로 운행하는 차량(AGV)은 지지대를 지지대 체결 공정에 내려놓고, 이 공정의 로봇은 앞선 작업 경험을 학습해 최적 경로를 계획하므로 학습 제어 로봇이다. 따라서 옳다."
+            },
+            {
+              "optionKey": "ㄷ",
+              "verdict": "O",
+              "reasoning": "6개 회전축으로 모든 방향을 움직이는 수직 관절형 로봇은 지지대를 고정하며, 지지대는 실 형태로 가공한 수지를 녹여 한 층씩 쌓아 만들었으므로 적층형 3D 프린팅으로 제작되었다. 따라서 옳다."
+            },
+            {
+              "optionKey": "ㄹ",
+              "verdict": "O",
+              "reasoning": "가르친 경로를 저장해 두었다가 다시 실행하는 용접 로봇은 플레이백 로봇이고, 미리 설정한 순서와 위치에 따라 동작을 차례로 진행하는 절단 로봇은 시퀀스 로봇이다. 용접 로봇은 절단된 관을 받아 용접하므로 옳다."
+            }
+          ],
+          "solvingFlow": [
+            {
+              "step": 1,
+              "action": "사용 설비 칸의 축 구성으로 좌표 형태를 판별: 직선축 1개+회전축 2개 → 극 좌표형(용접), 6개 회전축 → 수직 관절형(체결)"
+            },
+            {
+              "step": 2,
+              "action": "운영 내용 칸으로 기능별 분류를 판별: 설정 순서 → 시퀀스(절단), 교시 저장 후 실행 → 플레이백(용접), 경험 학습 → 학습 제어(체결)"
+            },
+            {
+              "step": 3,
+              "action": "운반 설비와 제작 장치를 판별: 일정 속도로 움직이는 벨트 → 컨베이어, 주어진 경로를 스스로 운행하는 차량 → AGV, 한 층씩 쌓음 → 적층형 3D 프린팅"
+            },
+            {
+              "step": 4,
+              "action": "공정 흐름(절단 → 이송 → 용접, 제작 → 운반 → 체결)을 따라 각 <보기>가 연결한 두 설비가 맞는지 확인"
+            }
+          ],
+          "takeaway": "로봇의 축 구성(좌표 형태)과 동작 방식(기능별 분류)은 서로 다른 기준이며, 설정 순서·교시 재생·환경 적응·경험 학습의 차이와 AGV·컨베이어의 경계를 공정 흐름 속에서 함께 판별해야 한다."
+        }
+      },
+      "fingerprint": "9347e15a",
+      "generation": {
+        "engine": "exam-skill-engine-v6",
+        "specId": "gen_ed4402b4",
+        "profileVersion": "exam-style-profile-v2"
+      }
+    },
+    {
+      "orderIndex": 10,
+      "subject": "kongil",
+      "unitNumber": 9,
+      "unitTitle": "공장 자동화와 로봇의 활용",
+      "targetConcept": "산업용 로봇의 좌표 형태별 분류",
+      "itemType": "ai_generative_truth_combination",
+      "difficulty": "HIGH",
+      "points": 3,
+      "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+      "questionStem": "다음 3D 프린터 연수 일정표에 나타난 ○○제약의 설비에 대한 내용으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+      "stimulusData": {
+        "blocks": [
+          {
+            "type": "text",
+            "text": "〈○○제약 3D 프린터 실무 연수 일정표〉\n■ 1일차: 출력 원리\n• 필라멘트가 노즐에서 녹아 나와 바닥판부터 층층이 굳으며 시약병 거치대 형태가 됨\n■ 2일차: 3D 모델링\n• 도면 파일을 수정하여 출력 장치에 입력함\n■ 3일차: 출력물 후처리 공정 견학\n• 운전자 없이 바닥의 자기 테이프를 따라 다니는 운반 차량이 출력물을 실어 로봇 (가) 앞에 내려놓음\n• (가)가 출력물을 집어 세척대에 올림\n• 세척을 마친 출력물은 포장대까지 고정 설치된 벨트 위로 줄지어 흘러가 로봇 (나)에 닿음\n• 작업자가 (나)의 팔을 손으로 잡고 포장 동작을 시연하자, (나)는 그 동작을 기억해 두었다가 같은 궤적으로 반복함\n※ (가), (나)의 축 구성은 그래프와 같음"
+          },
+          {
+            "type": "figure",
+            "figure_id": "F1"
+          }
+        ],
+        "figures": {
+          "F1": {
+            "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0ODAgMzM0IiBmb250LWZhbWlseT0iJiMzOTtOb3RvIFNhbnMgS1ImIzM5OywmIzM5O0FwcGxlIFNEIEdvdGhpYyBOZW8mIzM5OywmIzM5O01hbGd1biBHb3RoaWMmIzM5OywmIzM5O05hbnVtR290aGljJiMzOTssc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNSI+PGRlZnM+PHBhdHRlcm4gaWQ9IkYxLWE5OGJiYy1oYXRjaCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgd2lkdGg9IjUiIGhlaWdodD0iNSIgcGF0dGVyblRyYW5zZm9ybT0icm90YXRlKDQ1KSI+PHJlY3Qgd2lkdGg9IjUiIGhlaWdodD0iNSIgZmlsbD0iI2ZmZiIvPjxsaW5lIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSI1IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4xIi8+PC9wYXR0ZXJuPjxwYXR0ZXJuIGlkPSJGMS1hOThiYmMtZG90cyIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgd2lkdGg9IjQuNSIgaGVpZ2h0PSI0LjUiPjxyZWN0IHdpZHRoPSI0LjUiIGhlaWdodD0iNC41IiBmaWxsPSIjZmZmIi8+PGNpcmNsZSBjeD0iMi4yNSIgY3k9IjIuMjUiIHI9IjAuOTUiIGZpbGw9IiMwMDAiLz48L3BhdHRlcm4+PHBhdHRlcm4gaWQ9IkYxLWE5OGJiYy1jcm9zcyIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgd2lkdGg9IjYiIGhlaWdodD0iNiI+PHJlY3Qgd2lkdGg9IjYiIGhlaWdodD0iNiIgZmlsbD0iI2ZmZiIvPjxwYXRoIGQ9Ik0wIDBMNiA2TTYgMEwwIDYiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIwLjgiLz48L3BhdHRlcm4+PC9kZWZzPjx0ZXh0IHg9IjI0MCIgeT0iMjEiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTYiIGZvbnQtd2VpZ2h0PSI3MDAiPuOAiOuhnOu0h+uzhCDstpUg6rWs7ISx44CJPC90ZXh0PjxyZWN0IHg9IjMwNCIgeT0iMzQiIHdpZHRoPSIxNjAiIGhlaWdodD0iMjQiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIwLjgiLz48cmVjdCB4PSIzMTMiIHk9IjQwLjUiIHdpZHRoPSIxNiIgaGVpZ2h0PSIxMSIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjAuOSIvPjx0ZXh0IHg9IjMzNSIgeT0iNTAiIGZvbnQtc2l6ZT0iMTMiPuyngeyEoOy2lTwvdGV4dD48cmVjdCB4PSIzOTAiIHk9IjQwLjUiIHdpZHRoPSIxNiIgaGVpZ2h0PSIxMSIgZmlsbD0iI2I0YjRiNCIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjAuOSIvPjx0ZXh0IHg9IjQxMiIgeT0iNTAiIGZvbnQtc2l6ZT0iMTMiPu2ajOyghOy2lTwvdGV4dD48dGV4dCB4PSI0MCIgeT0iNzciIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTUiPuy2lSDsiJgo6rCcKTwvdGV4dD48bGluZSB4MT0iMzYiIHkxPSIyODUiIHgyPSI0MCIgeTI9IjI4NSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEiLz48dGV4dCB4PSIzMyIgeT0iMjg5LjUiIHRleHQtYW5jaG9yPSJlbmQiIGZvbnQtc2l6ZT0iMTUiPjA8L3RleHQ+PGxpbmUgeDE9IjQwIiB5MT0iMjUzLjMzIiB4Mj0iNDY0IiB5Mj0iMjUzLjMzIiBzdHJva2U9IiM4YzhjOGMiIHN0cm9rZS13aWR0aD0iMC44IiBzdHJva2UtZGFzaGFycmF5PSIzIDMiLz48bGluZSB4MT0iMzYiIHkxPSIyNTMuMzMiIHgyPSI0MCIgeTI9IjI1My4zMyIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEiLz48dGV4dCB4PSIzMyIgeT0iMjU3LjgzIiB0ZXh0LWFuY2hvcj0iZW5kIiBmb250LXNpemU9IjE1Ij4xPC90ZXh0PjxsaW5lIHgxPSI0MCIgeTE9IjIyMS42NyIgeDI9IjQ2NCIgeTI9IjIyMS42NyIgc3Ryb2tlPSIjOGM4YzhjIiBzdHJva2Utd2lkdGg9IjAuOCIgc3Ryb2tlLWRhc2hhcnJheT0iMyAzIi8+PGxpbmUgeDE9IjM2IiB5MT0iMjIxLjY3IiB4Mj0iNDAiIHkyPSIyMjEuNjciIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxIi8+PHRleHQgeD0iMzMiIHk9IjIyNi4xNyIgdGV4dC1hbmNob3I9ImVuZCIgZm9udC1zaXplPSIxNSI+MjwvdGV4dD48bGluZSB4MT0iNDAiIHkxPSIxOTAiIHgyPSI0NjQiIHkyPSIxOTAiIHN0cm9rZT0iIzhjOGM4YyIgc3Ryb2tlLXdpZHRoPSIwLjgiIHN0cm9rZS1kYXNoYXJyYXk9IjMgMyIvPjxsaW5lIHgxPSIzNiIgeTE9IjE5MCIgeDI9IjQwIiB5Mj0iMTkwIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMSIvPjx0ZXh0IHg9IjMzIiB5PSIxOTQuNSIgdGV4dC1hbmNob3I9ImVuZCIgZm9udC1zaXplPSIxNSI+MzwvdGV4dD48bGluZSB4MT0iNDAiIHkxPSIxNTguMzMiIHgyPSI0NjQiIHkyPSIxNTguMzMiIHN0cm9rZT0iIzhjOGM4YyIgc3Ryb2tlLXdpZHRoPSIwLjgiIHN0cm9rZS1kYXNoYXJyYXk9IjMgMyIvPjxsaW5lIHgxPSIzNiIgeTE9IjE1OC4zMyIgeDI9IjQwIiB5Mj0iMTU4LjMzIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMSIvPjx0ZXh0IHg9IjMzIiB5PSIxNjIuODMiIHRleHQtYW5jaG9yPSJlbmQiIGZvbnQtc2l6ZT0iMTUiPjQ8L3RleHQ+PGxpbmUgeDE9IjQwIiB5MT0iMTI2LjY3IiB4Mj0iNDY0IiB5Mj0iMTI2LjY3IiBzdHJva2U9IiM4YzhjOGMiIHN0cm9rZS13aWR0aD0iMC44IiBzdHJva2UtZGFzaGFycmF5PSIzIDMiLz48bGluZSB4MT0iMzYiIHkxPSIxMjYuNjciIHgyPSI0MCIgeTI9IjEyNi42NyIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEiLz48dGV4dCB4PSIzMyIgeT0iMTMxLjE3IiB0ZXh0LWFuY2hvcj0iZW5kIiBmb250LXNpemU9IjE1Ij41PC90ZXh0PjxsaW5lIHgxPSI0MCIgeTE9Ijk1IiB4Mj0iNDY0IiB5Mj0iOTUiIHN0cm9rZT0iIzhjOGM4YyIgc3Ryb2tlLXdpZHRoPSIwLjgiIHN0cm9rZS1kYXNoYXJyYXk9IjMgMyIvPjxsaW5lIHgxPSIzNiIgeTE9Ijk1IiB4Mj0iNDAiIHkyPSI5NSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEiLz48dGV4dCB4PSIzMyIgeT0iOTkuNSIgdGV4dC1hbmNob3I9ImVuZCIgZm9udC1zaXplPSIxNSI+NjwvdGV4dD48cmVjdCB4PSI4MC4yOCIgeT0iMjUzLjMzIiB3aWR0aD0iNjUuNzIiIGhlaWdodD0iMzEuNjciIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxIi8+PHJlY3QgeD0iMTQ2IiB5PSIyMjEuNjciIHdpZHRoPSI2NS43MiIgaGVpZ2h0PSI2My4zMyIgZmlsbD0iI2I0YjRiNCIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEiLz48cmVjdCB4PSIyOTIuMjgiIHk9IjI4NSIgd2lkdGg9IjY1LjcyIiBoZWlnaHQ9IjAiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxIi8+PHJlY3QgeD0iMzU4IiB5PSI5NSIgd2lkdGg9IjY1LjcyIiBoZWlnaHQ9IjE5MCIgZmlsbD0iI2I0YjRiNCIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEiLz48dGV4dCB4PSIxMTMuMTQiIHk9IjI0OS4zMyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMyI+MTwvdGV4dD48dGV4dCB4PSIxNzguODYiIHk9IjIxNy42NyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMyI+MjwvdGV4dD48dGV4dCB4PSIzMjUuMTQiIHk9IjI4MSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMyI+MDwvdGV4dD48dGV4dCB4PSIzOTAuODYiIHk9IjkxIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjEzIj42PC90ZXh0PjxsaW5lIHgxPSI0MCIgeTE9Ijg5IiB4Mj0iNDAiIHkyPSIyODUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjEiLz48bGluZSB4MT0iNDAiIHkxPSIyODUiIHgyPSI0NjQiIHkyPSIyODUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjEiLz48bGluZSB4MT0iMTQ2IiB5MT0iMjg1IiB4Mj0iMTQ2IiB5Mj0iMjg5IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMSIvPjx0ZXh0IHg9IjE0NiIgeT0iMzA0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjE1Ij4o6rCAKTwvdGV4dD48bGluZSB4MT0iMzU4IiB5MT0iMjg1IiB4Mj0iMzU4IiB5Mj0iMjg5IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMSIvPjx0ZXh0IHg9IjM1OCIgeT0iMzA0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjE1Ij4o64KYKTwvdGV4dD48dGV4dCB4PSIyNTIiIHk9IjMyNSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxNSI+66Gc67SHPC90ZXh0Pjwvc3ZnPg==",
+            "alt": "세로 막대그래프. 제목 ‘〈로봇별 축 구성〉’. 가로축(범주) 로봇: (가), (나). 세로축: 축 수(개) 0～6(1 간격). 계열 ‘직선축’: (가) 1, (나) 0. 계열 ‘회전축’: (가) 2, (나) 6.",
+            "kind": "chart",
+            "spec": {
+              "id": "F1",
+              "kind": "chart",
+              "chartType": "bar",
+              "title": "〈로봇별 축 구성〉",
+              "categoryLabel": "로봇",
+              "categories": [
+                "(가)",
+                "(나)"
+              ],
+              "series": [
+                {
+                  "name": "직선축",
+                  "values": [
+                    1,
+                    0
+                  ]
+                },
+                {
+                  "name": "회전축",
+                  "values": [
+                    2,
+                    6
+                  ]
+                }
+              ],
+              "valueAxis": {
+                "label": "축 수",
+                "unit": "개",
+                "min": 0,
+                "max": 6,
+                "step": 1
+              },
+              "showValues": true
+            }
+          }
+        },
+        "choice_table": null
+      },
+      "optionsList": [
+        "① ㄱ, ㄴ, ㄷ",
+        "② ㄱ, ㄴ, ㄹ",
+        "③ ㄱ, ㄷ, ㄹ",
+        "④ ㄴ, ㄷ, ㄹ",
+        "⑤ ㄱ, ㄴ, ㄷ, ㄹ"
+      ],
+      "comboBlock": {
+        "title": "<보기>",
+        "items": [
+          {
+            "key": "ㄱ",
+            "text": "(가)와 같은 축 구성의 로봇은 작업 영역이 넓고 경사 작업이 가능하다."
+          },
+          {
+            "key": "ㄴ",
+            "text": "(나)는 플레이백 로봇이면서 수직 관절형 로봇에 해당한다."
+          },
+          {
+            "key": "ㄷ",
+            "text": "1일차 실습의 출력 방식은 절삭형 방식에 비해 재료 낭비가 적다."
+          },
+          {
+            "key": "ㄹ",
+            "text": "수직 관절형 로봇에 출력물을 공급하는 설비는 컨베이어 시스템에 해당한다."
+          }
+        ]
+      },
+      "correctAnswer": 5,
+      "explanation": {
+        "judgment": "[출제 의도] 공장 자동화 사례에서 산업용 로봇의 좌표 형태별·기능별 분류와 3D 프린팅 방식, 운반 설비를 구분하여 적용할 수 있는가?\n[해설] ㄱ. 그래프에서 (가)는 직선축 1개와 회전축 2개로 이루어진 극 좌표형 로봇이다. 극 좌표형은 작업 영역이 넓고 경사 작업이 가능하므로 옳다. ㄴ. (나)는 작업자가 팔을 잡고 시연한 포장 동작을 기억해 두었다가 같은 궤적으로 반복하므로 사용자가 가르친 정보를 저장하였다가 재생하는 플레이백 로봇이고, 그래프에서 회전축 6개로 이루어져 수직 관절형 로봇이므로 옳다. ㄷ. 1일차의 출력 방식은 필라멘트가 바닥판부터 층층이 굳는 적층형으로, 큰 덩어리를 깎아 내는 절삭형보다 재료 낭비가 적으므로 옳다. ㄹ. 수직 관절형 로봇은 회전축 6개인 (나)이다. (나)에는 고정 설치된 벨트 위로 출력물이 줄지어 흘러가 닿으므로 정지하지 않고 일정한 속도로 움직이는 컨베이어 시스템이 공급하며, 자기 테이프를 따라 다니는 무인 반송차(AGV)는 (가)에 공급하므로 옳다. 따라서 ㄱ, ㄴ, ㄷ, ㄹ 모두 옳다.\n[오답 피하기] (가)를 직선축이 있다는 이유로 직각 좌표형으로 보거나, (나)를 미리 설정된 순서대로 움직이는 시퀀스 로봇으로 보면 ㄱ·ㄴ을 틀리게 판단하게 된다. 직각 좌표형은 세 선형 축, 극 좌표형은 직선축 1개와 회전축 2개이며, 가르친 정보를 저장하였다가 재생하는 로봇은 플레이백 로봇이다. 수직 관절형 로봇을 (가)로 잘못 판별하면 ㄹ의 공급 설비를 무인 반송차(AGV)로 보아 틀리게 판단하게 된다. 주어진 경로를 스스로 운행하는 차량은 AGV, 정지하지 않고 일정한 속도로 움직이는 운반 장치는 컨베이어 시스템이다.",
+        "conceptHighlightV2": {
+          "stimulusClues": [
+            {
+              "quote": "바닥판부터 층층이 굳으며 시약병 거치대 형태가 됨",
+              "why": "재료를 겹겹이 쌓아 형상을 만드는 적층형 3D 프린팅임을 가리킨다."
+            },
+            {
+              "quote": "고정 설치된 벨트 위로 줄지어 흘러가 로봇 (나)에 닿음",
+              "why": "(나)에 출력물을 공급하는 설비가 일정한 속도로 연속 운반하는 컨베이어 시스템임을 가리킨다."
+            },
+            {
+              "quote": "그 동작을 기억해 두었다가 같은 궤적으로 반복함",
+              "why": "가르친 정보를 저장하였다가 재생하는 플레이백 로봇을 가리킨다."
+            }
+          ],
+          "optionAnalysis": [
+            {
+              "optionKey": "ㄱ",
+              "verdict": "O",
+              "reasoning": "그래프에서 (가)는 직선축 1개와 회전축 2개로 이루어져 극 좌표형에 해당하며, 극 좌표형은 작업 영역이 넓고 경사 작업이 가능하므로 옳다."
+            },
+            {
+              "optionKey": "ㄴ",
+              "verdict": "O",
+              "reasoning": "본문에서 (나)는 작업자가 팔을 잡고 시연한 동작을 기억해 두었다가 반복하므로 플레이백 로봇이고, 그래프에서 회전축 6개로 이루어져 수직 관절형이므로 옳다."
+            },
+            {
+              "optionKey": "ㄷ",
+              "verdict": "O",
+              "reasoning": "필라멘트가 녹아 나와 바닥판부터 층층이 굳으며 형태가 되는 방식은 재료를 겹겹이 쌓아 형상을 만드는 적층형이며, 적층형은 절삭형보다 재료 낭비가 적으므로 옳다."
+            },
+            {
+              "optionKey": "ㄹ",
+              "verdict": "O",
+              "reasoning": "그래프에서 회전축 6개인 (나)가 수직 관절형이고, (나)에는 고정 설치된 벨트 위로 출력물이 줄지어 흘러가 닿으므로 그 설비는 컨베이어 시스템이다. (가)에 공급하는 차량은 AGV이다."
+            }
+          ],
+          "solvingFlow": [
+            {
+              "step": 1,
+              "action": "그래프에서 (가)·(나)의 직선축·회전축 수를 확인하여 좌표 형태(극 좌표형, 수직 관절형)를 판별한다."
+            },
+            {
+              "step": 2,
+              "action": "본문에서 (나)의 동작 방식을 찾아 기능별 분류(플레이백 로봇)를 판별하고 그래프 결과와 함께 ㄴ을 판정한다."
+            },
+            {
+              "step": 3,
+              "action": "1일차 출력 원리를 적층형/절삭형 기준에 적용해 재료 낭비를 비교한다."
+            },
+            {
+              "step": 4,
+              "action": "수직 관절형인 (나)에 출력물을 공급하는 설비를 찾아, (가)에 공급하는 차량(AGV)과 구분하여 컨베이어 시스템으로 판별한다."
+            }
+          ],
+          "takeaway": "직선축 1개·회전축 2개는 극 좌표형, 6축 회전은 수직 관절형이며, 로봇의 좌표 형태와 기능별 분류는 서로 다른 기준이다."
+        }
+      },
+      "fingerprint": "4daa03f6",
+      "generation": {
+        "engine": "exam-skill-engine-v6",
+        "specId": "gen_d4242784",
+        "profileVersion": "exam-style-profile-v2"
+      }
+    }
+  ],
+  "answerKey": [
+    {
+      "orderIndex": 1,
+      "correctAnswer": 4
+    },
+    {
+      "orderIndex": 2,
+      "correctAnswer": 2
+    },
+    {
+      "orderIndex": 3,
+      "correctAnswer": 3
+    },
+    {
+      "orderIndex": 4,
+      "correctAnswer": 3
+    },
+    {
+      "orderIndex": 5,
+      "correctAnswer": 1
+    },
+    {
+      "orderIndex": 6,
+      "correctAnswer": 4
+    },
+    {
+      "orderIndex": 7,
+      "correctAnswer": 1
+    },
+    {
+      "orderIndex": 8,
+      "correctAnswer": 2
+    },
+    {
+      "orderIndex": 9,
+      "correctAnswer": 5
+    },
+    {
+      "orderIndex": 10,
+      "correctAnswer": 5
+    }
+  ]
+}

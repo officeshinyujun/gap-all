@@ -1,0 +1,9 @@
+{
+  "reasoning": "식도 삽입 기구: 체온에 의해 원래 관 모양 복원 -> 형상 기억 합금. ① 센서로 설비 상태 실시간 전송 = IoT(옳음). ② 360도 영상·3D 그래픽 가상 견학 콘텐츠 제작 = CT(옳음). ③ CT는 게임·공연 콘텐츠 제작에도 쓰임(옳음). ④ 특정 온도 이하 전기 저항 0은 초전도체 성질이므로 형상 기억 합금 설명으로 옳지 않음. ⑤ 누리집 실시간 접속 = ICT(옳음). 옳지 않은 것은 ④. 형상 기억 합금-초전도체 기본 혼동쌍 하나만 알면 바로 풀려 쉬움.",
+  "answerIndex": 4,
+  "ambiguity": "none",
+  "curriculumIssues": [],
+  "answerGivenAway": false,
+  "perceivedDifficulty": "easy",
+  "trivialStatements": []
+}

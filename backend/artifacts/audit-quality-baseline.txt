@@ -1,0 +1,79 @@
+═══════════════════════════════════════════
+     QUESTION QUALITY AUDIT REPORT
+═══════════════════════════════════════════
+Total rows: 935
+
+[CRITICAL]
+  Parse failures:       5
+  TPL failures:         0
+  Missing answers:      0
+  Answer leakage:       0
+  Empty stimulus:       0
+
+[WARNINGS]
+  TPL→ARTICLE fallback: 730 (content preserved but loses formatting)
+  Garbled content:      0
+  Question in stimulus: 85
+  Short stimulus:       32
+
+Total issues: 122
+
+--- ERRORS (5) ---
+  [PARSE_FAIL] success:10:성직_10단원_문제.pdf:10
+    Cannot be parsed — missing required fields or invalid format
+  [PARSE_FAIL] success:19:성직_19단원_문제.pdf:9
+    Cannot be parsed — missing required fields or invalid format
+  [PARSE_FAIL] success:18:성직_18단원_문제.pdf:9
+    Cannot be parsed — missing required fields or invalid format
+  [PARSE_FAIL] success:19:성직_19단원_문제.pdf:10
+    Cannot be parsed — missing required fields or invalid format
+  [PARSE_FAIL] success:15:성직_15단원_문제.pdf:2
+    Cannot be parsed — missing required fields or invalid format
+
+--- WARNINGS (117) ---
+  [QUESTION_IN_STIMULUS] kongil:20:kongil_2021_9월_모의평가_03 직업탐구영역_공업 일반_문제.pdf:1
+    Stimulus contains 1 question marker(s). First 100: "다음 SNS 인터뷰에 나타난 A 씨의 직업관과 직업의식으로 가장 적절한 것은?"
+  [QUESTION_IN_STIMULUS] kongil:1:kongil_2021_9월_모의평가_03 직업탐구영역_공업 일반_문제.pdf:15
+    Stimulus contains 1 question marker(s). First 100: "다음은 (가)～(다) 시기 공업의 생산품 및 생산 방식을 나타낸 것이다. 이를 통해 알 수 있는 내용으로 가장 적절한 것은?"
+  [QUESTION_IN_STIMULUS] kongil:7:kongil_2022_수능_03 직탐(공업 일반)_문제.pdf:2
+    Stimulus contains 1 question marker(s). First 100: "다음 보고서를 통해 분석할 수 있는 ○○기업에 대한 내용으로 옳은 것만을 <보기>에서 고른 것은? [3점]"
+  [QUESTION_IN_STIMULUS] kongil:7:kongil_2023_6월_모의평가_03 직탐(공업 일반)_문제.pdf:7
+    Stimulus contains 1 question marker(s). First 100: "다음 의류 관리기에 대한 자료를 통해 파악할 수 있는 내용으로 옳은 것은? [3점]"
+  [QUESTION_IN_STIMULUS] success:10:sungjik_2023_수능_06 성공적인 직업생활_문제.pdf:12
+    Stimulus contains 1 question marker(s). First 100: "○○공사가 사원 채용을 위해 작성한 직무 기술서의 일부이다. 물음에 답하시오.
+
+채용 분야
+NCS 분류체계
+02. 경영·회계·사무 01. 기획사무 02. 홍보·광고
+
+직무수행내용 "
+  [QUESTION_IN_STIMULUS] success:10:sungjik_2022_9월_모의평가_01 직탐(성공적인 직업생활)_문제.pdf:14
+    Stimulus contains 1 question marker(s). First 100: "[채용 계획서]의 일부이다. 채용될 직원의 담당 경영 활동으로 가장 적절한 것은?"
+  [STIM_TOO_SHORT] success:7:sungjik_2024_9월_모의평가_01 성공적인 직업생활_문제지.pdf:11
+    Stimulus too short (5 chars): "<보 기>"
+  [QUESTION_IN_STIMULUS] success:11:sungjik_2025_6월_모의평가_01 성공적인 직업생활_문제.pdf:2
+    Stimulus contains 1 question marker(s). First 100: "다음은 국가직무능력표준(NCS) 경력 개발 로드맵의 일부이다. 이를 통해 알 수 있는 내용으로 옳은 것은?"
+  [QUESTION_IN_STIMULUS] success:9:sungjik_2025_6월_모의평가_01 성공적인 직업생활_문제.pdf:12
+    Stimulus contains 1 question marker(s). First 100: "다음 A, B 기업에 대한 분석 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?
+
+기업명          A 기업                 B 기업
+생산품      "
+  [QUESTION_IN_STIMULUS] success:11:sungjik_2025_9월_모의평가_01 성공적인 직업생활_문제.pdf:9
+    Stimulus contains 1 question marker(s). First 100: "경력 개발 계획 단계 중 ㉮, ㉯에 해당하는 활동 사례로 가장 적절한 것을 <보기>에서 고른 것은?"
+  [QUESTION_IN_STIMULUS] kongil:18:공일_18단원_문제.pdf:9
+    Stimulus contains 1 question marker(s). First 100: "위 사례에 나타난 ◯◯기업이 취득한 인증에 대한 설명으로 적절한 것을 <보기>에서 고른 것은?"
+  [STIM_TOO_SHORT] success:4:sungjik_2022_수능_01 직탐(성공적인 직업생활)_문제.pdf:12
+    Stimulus too short (5 chars): "<보 기>"
+  [STIM_TOO_SHORT] kongil:3:kongil_2023_6월_모의평가_03 직탐(공업 일반)_문제.pdf:3
+    Stimulus too short (5 chars): "<보 기>"
+  [STIM_TOO_SHORT] success:6:sungjik_2022_9월_모의평가_01 직탐(성공적인 직업생활)_문제.pdf:20
+    Stimulus too short (4 chars): "<보기>"
+  [QUESTION_IN_STIMULUS] kongil:6:공일_6단원_문제.pdf:5
+    Stimulus contains 1 question marker(s). First 100: "다음은 형상 기억 합금을 이용한 액추에이터 제품 설명 자료의 일부이다. 물음에 답하시오.
+
+형상 기억 합금을 이용한 액추에이터
+
+▣ 제품 설명
+
+•형상 기억 합금 스프링을 사용하여"
+  ... and 102 more warnings

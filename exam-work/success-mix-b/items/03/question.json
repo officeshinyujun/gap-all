@@ -1,0 +1,143 @@
+{
+  "targetConcept": "서비스업의 분류(공급 주체·수요 주체)",
+  "itemType": "ai_generative_statement",
+  "difficulty": "HIGH",
+  "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+  "questionStem": "다음 IT 스타트업 신입 사원 A 씨와의 대화에 나타난 고객사와 업무에 대한 설명으로 가장 적절한 것은? (단, 공급 주체에 따른 분류는 출자자가 국가·지방 자치 단체인지 민간인지로 판단한다.)",
+  "stimulusData": {
+    "blocks": [
+      {
+        "type": "figure",
+        "figure_id": "F1"
+      },
+      {
+        "type": "dialogue",
+        "lines": [
+          {
+            "speaker": "기자",
+            "text": "입사 석 달 차인 신입 사원이시죠. 요즘 어떤 고객사의 일을 맡고 계신가요?"
+          },
+          {
+            "speaker": "A 씨",
+            "text": "갑 기업은 민간인들이 출자한 법인으로, 취약 계층을 고용하여 고용노동부 장관의 인증을 받았어요. 쇼핑몰과 TV 제조 기업인 병 기업의 상품 운송을 위탁받지요. 저는 지점마다 다르던 내부 차량 배정 방식을 하나로 통일하는 체계를 만들어요."
+          },
+          {
+            "speaker": "기자",
+            "text": "나머지 두 곳은 어떤 곳인가요?"
+          },
+          {
+            "speaker": "A 씨",
+            "text": "을 기업은 ○○시가, 정 기업은 △△도가 전액 출자하였어요. 을 기업과는 운임을 내고 도시 철도를 타는 시민이 내리기까지 느끼는 불편과 감정을 단계별 그림으로 그려요. 정 기업은 도내 중소기업의 수출 판로를 상담하는데, 그 상담 센터의 실내 배치와 동선을 새로 꾸며요."
+          }
+        ]
+      }
+    ],
+    "figures": {
+      "F1": {
+        "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0ODAgMjI0IiBmb250LWZhbWlseT0iJiMzOTtOb3RvIFNhbnMgS1ImIzM5OywmIzM5O0FwcGxlIFNEIEdvdGhpYyBOZW8mIzM5OywmIzM5O01hbGd1biBHb3RoaWMmIzM5OywmIzM5O05hbnVtR290aGljJiMzOTssc2Fucy1zZXJpZiI+PGRlZnM+PGNsaXBQYXRoIGlkPSJGMS1hZTgwMjYtY2xpcCI+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjQ4MCIgaGVpZ2h0PSIyMjQiLz48L2NsaXBQYXRoPjwvZGVmcz48ZyBjbGlwLXBhdGg9InVybCgjRjEtYWU4MDI2LWNsaXApIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNDAgOCkiPjxwYXRoIGQ9Ik0tMzIgNjRDLTM2IDEwMCAtMzggMTIwIC0yNiAxMzBMMjYgMTMwQzM4IDEyMCAzNiAxMDAgMzIgNjRaIiBmaWxsPSIjM2EzYTNhIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHJlY3QgeD0iLTkuNSIgeT0iOTYiIHdpZHRoPSIxOSIgaGVpZ2h0PSIyNiIgZmlsbD0iI2ZiZmJmYiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIvPjxwYXRoIGQ9Ik0tMTMgMTEzQy0yOCAxMTYgLTQ5IDExOCAtNTQgMTQwQy01NyAxNzAgLTU3IDE5NCAtNTUgMjM0TDQyIDIzNEM0MCAxOTQgMzkgMTcwIDM4IDE0MEM0OSAxMTggMjggMTE2IDEzIDExM1oiIGZpbGw9IiNjNGM0YzQiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNLTE3IDExMkwwIDE0N0wxNyAxMTJaIiBmaWxsPSIjZWNlY2VjIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS40IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTS0xNSAxMTNMLTIgMTU3TC0xMiAxNDlMLTI0IDEzMUwtMjAgMTE5WiIgZmlsbD0iI2FkYWRhZCIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0xNSAxMTNMMiAxNTdMMTIgMTQ5TDI0IDEzMUwyMCAxMTlaIiBmaWxsPSIjYWRhZGFkIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS40IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PGVsbGlwc2UgY3g9IjAiIGN5PSI3MCIgcng9IjI4IiByeT0iMzQiIGZpbGw9IiNmYmZiZmIiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciLz48cGF0aCBkPSJNLTI3IDY4Qy0zNiA2NSAtMzYgODIgLTI3IDgwIiBmaWxsPSIjZmJmYmZiIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43Ii8+PGVsbGlwc2UgY3g9Ii00IiBjeT0iNzIiIHJ4PSIyLjMiIHJ5PSIyLjkiIGZpbGw9IiMyNjI2MjYiLz48ZWxsaXBzZSBjeD0iMTMiIGN5PSI3MiIgcng9IjIuMyIgcnk9IjIuOSIgZmlsbD0iIzI2MjYyNiIvPjxwYXRoIGQ9Ik0tOSA2NFEtNCA2MSAxIDYzLjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik04IDYzLjVRMTMgNjEgMTggNjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik0xNS4yIDY5LjZsMi42IC0xLjYiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik02IDc3UTkuNSA4NCA1IDg1IiBmaWxsPSJub25lIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS40IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cGF0aCBkPSJNLTIgOTFRNC41IDk2LjUgMTEgOTEiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik0tMzIgODhDLTM2IDUyIC0yNiAzMCAyIDMwQzI2IDMwIDM2IDUyIDMyIDg4TDI2IDg2QzI4IDY4IDI2IDU4IDIwIDU0QzEwIDYwIC02IDU2IC0xMiA0OEMtMTYgNTYgLTI0IDYyIC0yNiA4NloiIGZpbGw9IiMzYTNhM2EiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNLTM0IDE1OEMtMzYgMTgwIC0zNiAyMDQgLTM1IDIzNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTQyIDEzNEw1MiAxODJMNzEgMTQ0IiBmaWxsPSJub25lIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMjIuNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTQyIDEzNEw1MiAxODJMNzEgMTQ0IiBmaWxsPSJub25lIiBzdHJva2U9IiNjNGM0YzQiIHN0cm9rZS13aWR0aD0iMTkiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik03MiAxNDZMODQgMTI3IiBzdHJva2U9IiMzYTNhM2EiIHN0cm9rZS13aWR0aD0iNS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48Y2lyY2xlIGN4PSI4Ny41IiBjeT0iMTIxIiByPSI3LjUiIGZpbGw9IiM1YTVhNWEiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjQiLz48cGF0aCBkPSJNODEgMTE5aDEzTTgxLjUgMTIzLjVoMTIiIHN0cm9rZT0iIzlhOWE5YSIgc3Ryb2tlLXdpZHRoPSIxIi8+PGVsbGlwc2UgY3g9IjcxIiBjeT0iMTQ0IiByeD0iNy41IiByeT0iNi45IiBmaWxsPSIjZmJmYmZiIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43Ii8+PC9nPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDM0MCA4KSBzY2FsZSgtMSAxKSI+PHJlY3QgeD0iLTkuNSIgeT0iOTYiIHdpZHRoPSIxOSIgaGVpZ2h0PSIyNiIgZmlsbD0iI2ZiZmJmYiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIvPjxwYXRoIGQ9Ik0tMTMgMTEzQy0yOCAxMTYgLTU2IDExOCAtNjEgMTQwQy02NCAxNzAgLTY0IDE5NCAtNjIgMjM0TDQ5IDIzNEM0NyAxOTQgNDYgMTcwIDQ1IDE0MEM1NiAxMTggMjggMTE2IDEzIDExM1oiIGZpbGw9IiNmZmZmZmYiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNLTEzIDExM0wtMiAxMzBMLTE1IDEyNkwtMTcgMTE1WiIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0xMyAxMTNMMiAxMzBMMTUgMTI2TDE3IDExNVoiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNLTMuNSAxMjJMMy41IDEyMkw1LjUgMTY1TDAgMTczTC01LjUgMTY1WiIgZmlsbD0iIzRhNGE0YSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuMyIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxsaW5lIHgxPSIwIiB5MT0iMTczIiB4Mj0iMCIgeTI9IjIyOCIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuMyIvPjxwYXRoIGQ9Ik0tMTUgMTE2TC05IDE3MU0xNSAxMTZMOSAxNzEiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzU1NSIgc3Ryb2tlLXdpZHRoPSIxLjYiLz48cmVjdCB4PSItMTIiIHk9IjE2OSIgd2lkdGg9IjI0IiBoZWlnaHQ9IjMwIiByeD0iMiIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuMyIvPjxyZWN0IHg9Ii03IiB5PSIxNzQiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxMSIgZmlsbD0iI2JkYmRiZCIvPjxlbGxpcHNlIGN4PSIwIiBjeT0iNzAiIHJ4PSIyOCIgcnk9IjM0IiBmaWxsPSIjZmJmYmZiIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43Ii8+PHBhdGggZD0iTS0yNyA2OEMtMzYgNjUgLTM2IDgyIC0yNyA4MCIgZmlsbD0iI2ZiZmJmYiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIvPjxlbGxpcHNlIGN4PSItNCIgY3k9IjcyIiByeD0iMi4zIiByeT0iMi45IiBmaWxsPSIjMjYyNjI2Ii8+PGVsbGlwc2UgY3g9IjEzIiBjeT0iNzIiIHJ4PSIyLjMiIHJ5PSIyLjkiIGZpbGw9IiMyNjI2MjYiLz48cGF0aCBkPSJNLTkgNjRRLTQgNjEgMSA2My41IiBmaWxsPSJub25lIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS44IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cGF0aCBkPSJNOCA2My41UTEzIDYxIDE4IDY0IiBmaWxsPSJub25lIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS44IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cGF0aCBkPSJNNiA3N1E5LjUgODQgNSA4NSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTS0yIDkxUTQuNSA5Ni41IDExIDkxIiBmaWxsPSJub25lIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cGF0aCBkPSJNLTI5IDc0Qy0zMyA0OCAtMjYgMzIgLTIgMzFDMjQgMzAgMzIgNTIgMjkgNjhDMjQgNTcgMTQgNTIgMiA0OUMtOCA1NCAtMjIgNTYgLTIzIDY4WiIgZmlsbD0iIzNhM2EzYSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0tNDEgMTU4Qy00MyAxODAgLTQzIDIwNCAtNDIgMjM0IiBmaWxsPSJub25lIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS40IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cGF0aCBkPSJNNDkgMTM0TDU5IDE4NEw3OCAxNjYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIyMi40IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNNDkgMTM0TDU5IDE4NEw3OCAxNjYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIxOSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTcyIDE3MkM3MCAxNjMgNzcgMTU3IDg2IDE1N0M5MiAxNTcgOTMgMTYxIDg5IDE2Mkw4MyAxNjNDODggMTY2IDg3IDE3MiA4MCAxNzRaIiBmaWxsPSIjZmJmYmZiIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9nPjwvZz48L3N2Zz4=",
+        "alt": "장식용. 기자(기자)와 A 씨(회사원)이 마주 보고 이야기하는 인물 그림. 대화 내용은 이어지는 대화 블록에 있음.",
+        "kind": "illustration",
+        "spec": {
+          "id": "F1",
+          "kind": "scene",
+          "layout": "pair",
+          "people": [
+            {
+              "speaker": "기자",
+              "role": "reporter",
+              "gender": "female",
+              "age": "adult"
+            },
+            {
+              "speaker": "A 씨",
+              "role": "office",
+              "gender": "male",
+              "age": "adult"
+            }
+          ]
+        }
+      }
+    },
+    "choice_table": null
+  },
+  "optionsList": [
+    "① A 씨가 고객 서비스 설계를 돕는 고객사와 공급 주체 분류가 같은 다른 고객사는 소비자 서비스업에 속한다.",
+    "② A 씨가 정 기업과 수요 주체 분류는 같고 공급 주체 분류는 다른 고객사에 만들어 주는 체계는 서비스 운영 설계에 해당한다.",
+    "③ A 씨가 서비스 시설 설계를 돕는 고객사는 수요 주체에 따라 갑 기업이 아닌 을 기업과 같은 분류에 속한다.",
+    "④ 공급 주체 분류는 을 기업과, 수요 주체 분류는 갑 기업과 같은 고객사는 배분 가능한 이윤의 3분의 2 이상을 사회적 목적에 써야 한다.",
+    "⑤ A 씨가 공급 주체와 수요 주체 분류가 모두 갑 기업과 다른 고객사와 하는 작업은 서비스 시설 설계에 해당한다."
+  ],
+  "comboBlock": null,
+  "explanation": {
+    "judgment": "[출제 의도] 출자 형태와 고객의 성격을 근거로 서비스업을 공급 주체·수요 주체에 따라 분류하고, 이를 서비스 설계 요소와 결합하여 판단할 수 있는가?\n[해설] 갑 기업은 민간인들이 출자하였으므로 취약 계층을 고용하여 인증을 받은 사회적 기업이라도 민간 서비스업이고, 쇼핑몰과 병 기업의 상품 운송을 위탁받으므로 생산자 서비스업이다. 을 기업은 ○○시가 전액 출자한 공기업이므로 운임 수입을 얻더라도 공공 서비스업이고, 시민 승객을 상대하므로 소비자 서비스업이다. 정 기업은 △△도가 전액 출자한 공기업이므로 공공 서비스업이고, 중소기업의 수출을 상담하므로 생산자 서비스업이다. A 씨의 작업은 갑 기업에는 서비스 운영 설계, 을 기업에는 고객 서비스 설계, 정 기업에는 서비스 시설 설계이다. 정 기업과 수요 주체 분류는 같고(생산자) 공급 주체 분류는 다른(민간) 고객사는 갑 기업이므로, 그 체계가 서비스 운영 설계라는 진술이 옳다.\n[오답 피하기] 승객의 불편과 감정을 단계별 그림으로 나타내는 고객 서비스 설계의 고객사는 을 기업(○○시 출자, 공공)이다. 공급 주체 분류가 같은 다른 고객사는 △△도가 출자한 정 기업이고, 정 기업은 중소기업을 상대하므로 생산자 서비스업이다. 상담 센터의 실내 배치와 동선을 꾸미는 서비스 시설 설계의 고객사는 정 기업이다. 정 기업은 중소기업을 상대하는 생산자 서비스업이므로 수요 주체에 따라 을 기업(소비자)이 아닌 갑 기업(생산자)과 같은 분류이다. 공공 서비스업이면서 생산자 서비스업인 고객사는 △△도가 출자한 공기업인 정 기업이다. 배분 가능한 이윤의 3분의 2 이상을 사회적 목적에 쓰는 것은 인증을 받은 사회적 기업의 요건이므로 공기업인 정 기업에는 해당하지 않는다. 민간·생산자 서비스업인 갑 기업과 두 분류가 모두 다른 고객사는 공공·소비자 서비스업인 을 기업이다. 을 기업과 하는 작업은 승객이 느끼는 경험을 시각화하는 고객 서비스 설계이며, 실내 배치·동선을 꾸미는 시설 설계는 정 기업의 작업이다.",
+    "conceptHighlightV2": {
+      "stimulusClues": [
+        {
+          "quote": "갑 기업은 민간인들이 출자한 법인으로",
+          "why": "사회적 목적을 추구하는 인증 기업이라도 민간이 출자하였으므로 공급 주체에 따라 민간 서비스업이다."
+        },
+        {
+          "quote": "정 기업은 △△도가 전액 출자하였어요",
+          "why": "지방 자치 단체가 출자한 공기업이므로 공공 서비스업이며, 중소기업 상담은 생산자 서비스업이다."
+        },
+        {
+          "quote": "내부 차량 배정 방식을 하나로 통일하는 체계",
+          "why": "내부 운영의 효율성과 일관성을 위한 체계이므로 서비스 운영 설계에 해당한다."
+        },
+        {
+          "quote": "느끼는 불편과 감정을 단계별 그림으로 그려요",
+          "why": "고객이 느끼는 경험을 시각화하는 것이므로 고객 서비스 설계이고, 실내 배치·동선을 꾸미는 시설 설계와 구별된다."
+        }
+      ],
+      "optionAnalysis": [
+        {
+          "optionNum": 1,
+          "verdict": "X",
+          "reasoning": "승객의 불편과 감정을 단계별 그림으로 나타내는 고객 서비스 설계의 고객사는 을 기업(○○시 출자, 공공)이다. 공급 주체 분류가 같은 다른 고객사는 △△도가 출자한 정 기업이고, 정 기업은 중소기업을 상대하므로 생산자 서비스업이다."
+        },
+        {
+          "optionNum": 2,
+          "verdict": "O",
+          "reasoning": "정 기업은 △△도가 출자한 공공 서비스업이자 중소기업을 상대하는 생산자 서비스업이다. 수요 주체 분류가 같고(생산자) 공급 주체 분류가 다른(민간) 고객사는 민간인이 출자하고 운송을 위탁받는 갑 기업이며, 갑 기업에 만들어 주는 내부 차량 배정 통일 체계는 서비스 운영 설계이다."
+        },
+        {
+          "optionNum": 3,
+          "verdict": "X",
+          "reasoning": "상담 센터의 실내 배치와 동선을 꾸미는 서비스 시설 설계의 고객사는 정 기업이다. 정 기업은 중소기업을 상대하는 생산자 서비스업이므로 수요 주체에 따라 을 기업(소비자)이 아닌 갑 기업(생산자)과 같은 분류이다."
+        },
+        {
+          "optionNum": 4,
+          "verdict": "X",
+          "reasoning": "공공 서비스업이면서 생산자 서비스업인 고객사는 △△도가 출자한 공기업인 정 기업이다. 배분 가능한 이윤의 3분의 2 이상을 사회적 목적에 쓰는 것은 인증을 받은 사회적 기업의 요건이므로 공기업인 정 기업에는 해당하지 않는다."
+        },
+        {
+          "optionNum": 5,
+          "verdict": "X",
+          "reasoning": "민간·생산자 서비스업인 갑 기업과 두 분류가 모두 다른 고객사는 공공·소비자 서비스업인 을 기업이다. 을 기업과 하는 작업은 승객이 느끼는 경험을 시각화하는 고객 서비스 설계이며, 실내 배치·동선을 꾸미는 시설 설계는 정 기업의 작업이다."
+        }
+      ],
+      "solvingFlow": [
+        {
+          "step": 1,
+          "action": "출자자를 확인하여 갑 기업(민간인 출자)은 민간, 을·정 기업(○○시·△△도 전액 출자)은 공공 서비스업으로 분류한다."
+        },
+        {
+          "step": 2,
+          "action": "고객을 확인하여 갑 기업(운송 위탁)·정 기업(중소기업 상담)은 생산자, 을 기업(시민 승객)은 소비자 서비스업으로 분류한다."
+        },
+        {
+          "step": 3,
+          "action": "A 씨의 작업을 설계 요소로 판정한다: 갑은 서비스 운영 설계, 을은 고객 서비스 설계, 정은 서비스 시설 설계이다."
+        },
+        {
+          "step": 4,
+          "action": "진술이 두 분류나 설계 요소로 가리키는 고객사를 먼저 특정한 뒤, 그 고객사의 다른 분류·설계 요소·기업 특성을 비교하여 판정한다."
+        }
+      ],
+      "takeaway": "공급 주체는 출자자로, 수요 주체는 고객으로 따로 판정하고, 공기업과 사회적 기업, 시설 설계와 고객 서비스 설계를 혼동하지 않는다."
+    }
+  },
+  "correctAnswer": 2,
+  "points": 3,
+  "fingerprint": "ff10d916"
+}

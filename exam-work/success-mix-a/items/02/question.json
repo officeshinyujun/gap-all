@@ -1,0 +1,147 @@
+{
+  "targetConcept": "마샤의 자아 정체감 유형",
+  "itemType": "ai_generative_statement",
+  "difficulty": "HIGH",
+  "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+  "questionStem": "다음은 ○○ 기업 인사 담당자와 현장 실습생인 학생 A의 대화이다. 이에 대한 분석으로 가장 적절한 것은? (단, 발달 과업은 해비거스트 이론에 근거한다.)",
+  "stimulusData": {
+    "blocks": [
+      {
+        "type": "figure",
+        "figure_id": "F1"
+      },
+      {
+        "type": "dialogue",
+        "lines": [
+          {
+            "speaker": "인사 담당자",
+            "text": "실습 마지막 날이네요. 넉 달 전 회계 자격증 두 개를 내밀며 부모님 권유로 택한 회계 일만 하겠다던 모습이 떠올라요. 저는 스물여섯 살이 될 때까지 진로에 관심이 없어 고민도 미루기만 했어요."
+          },
+          {
+            "speaker": "학생 A",
+            "text": "열다섯 살에 회계과에 들어온 뒤로 다른 길은 생각해 본 적이 없었어요. 그런데 실습 중 인사·총무 일도 맡고 선배들께 여러 직무를 여쭈면서 처음 고민이 생겼어요. 그때는 무엇을 할지 정하지 못한 채 고민만 깊어졌어요."
+          },
+          {
+            "speaker": "인사 담당자",
+            "text": "그 무렵 제가 신입 사원들의 고충을 차분히 들어 주는 모습이 인상 깊다고 말했지요. 저는 스물여섯 살에 부모님이 권하신 이 회사에 그대로 들어와 지금까지 일하고 있어요."
+          },
+          {
+            "speaker": "학생 A",
+            "text": "그 말씀을 듣기 전에는 제게 그런 면이 있는 줄 몰랐어요. 그 뒤 여러 직무를 견주어 인사 직무로 진로를 정하였고, 지난주 부모님께도 말씀드렸어요. 지금은 노무 관련 자격증을 준비해요."
+          }
+        ]
+      }
+    ],
+    "figures": {
+      "F1": {
+        "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0ODAgMjI0IiBmb250LWZhbWlseT0iJiMzOTtOb3RvIFNhbnMgS1ImIzM5OywmIzM5O0FwcGxlIFNEIEdvdGhpYyBOZW8mIzM5OywmIzM5O01hbGd1biBHb3RoaWMmIzM5OywmIzM5O05hbnVtR290aGljJiMzOTssc2Fucy1zZXJpZiI+PGRlZnM+PGNsaXBQYXRoIGlkPSJGMS0xNzE2MjMtY2xpcCI+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjQ4MCIgaGVpZ2h0PSIyMjQiLz48L2NsaXBQYXRoPjwvZGVmcz48ZyBjbGlwLXBhdGg9InVybCgjRjEtMTcxNjIzLWNsaXApIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNDAgOCkiPjxwYXRoIGQ9Ik0tMzIgNjRDLTM2IDEwMCAtMzggMTIwIC0yNiAxMzBMMjYgMTMwQzM4IDEyMCAzNiAxMDAgMzIgNjRaIiBmaWxsPSIjM2EzYTNhIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHJlY3QgeD0iLTkuNSIgeT0iOTYiIHdpZHRoPSIxOSIgaGVpZ2h0PSIyNiIgZmlsbD0iI2ZiZmJmYiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIvPjxwYXRoIGQ9Ik0tMTMgMTEzQy0yOCAxMTYgLTQ5IDExOCAtNTQgMTQwQy01NyAxNzAgLTU3IDE5NCAtNTUgMjM0TDQyIDIzNEM0MCAxOTQgMzkgMTcwIDM4IDE0MEM0OSAxMTggMjggMTE2IDEzIDExM1oiIGZpbGw9IiNmZmZmZmYiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNLTEzIDExM0wtMiAxMzBMLTE1IDEyNkwtMTcgMTE1WiIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0xMyAxMTNMMiAxMzBMMTUgMTI2TDE3IDExNVoiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNLTMuNSAxMjJMMy41IDEyMkw1LjUgMTY1TDAgMTczTC01LjUgMTY1WiIgZmlsbD0iIzRhNGE0YSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuMyIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxsaW5lIHgxPSIwIiB5MT0iMTczIiB4Mj0iMCIgeTI9IjIyOCIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuMyIvPjxwYXRoIGQ9Ik0tMTUgMTE2TC05IDE3MU0xNSAxMTZMOSAxNzEiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzU1NSIgc3Ryb2tlLXdpZHRoPSIxLjYiLz48cmVjdCB4PSItMTIiIHk9IjE2OSIgd2lkdGg9IjI0IiBoZWlnaHQ9IjMwIiByeD0iMiIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuMyIvPjxyZWN0IHg9Ii03IiB5PSIxNzQiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxMSIgZmlsbD0iI2JkYmRiZCIvPjxlbGxpcHNlIGN4PSIwIiBjeT0iNzAiIHJ4PSIyOCIgcnk9IjM0IiBmaWxsPSIjZmJmYmZiIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43Ii8+PHBhdGggZD0iTS0yNyA2OEMtMzYgNjUgLTM2IDgyIC0yNyA4MCIgZmlsbD0iI2ZiZmJmYiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIvPjxlbGxpcHNlIGN4PSItNCIgY3k9IjcyIiByeD0iMi4zIiByeT0iMi45IiBmaWxsPSIjMjYyNjI2Ii8+PGVsbGlwc2UgY3g9IjEzIiBjeT0iNzIiIHJ4PSIyLjMiIHJ5PSIyLjkiIGZpbGw9IiMyNjI2MjYiLz48cGF0aCBkPSJNLTkgNjRRLTQgNjEgMSA2My41IiBmaWxsPSJub25lIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS44IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cGF0aCBkPSJNOCA2My41UTEzIDYxIDE4IDY0IiBmaWxsPSJub25lIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS44IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cGF0aCBkPSJNMTUuMiA2OS42bDIuNiAtMS42IiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS4yIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cGF0aCBkPSJNNiA3N1E5LjUgODQgNSA4NSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTS0yIDkxUTQuNSA5Ni41IDExIDkxIiBmaWxsPSJub25lIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cGF0aCBkPSJNLTMyIDg4Qy0zNiA1MiAtMjYgMzAgMiAzMEMyNiAzMCAzNiA1MiAzMiA4OEwyNiA4NkMyOCA2OCAyNiA1OCAyMCA1NEMxMCA2MCAtNiA1NiAtMTIgNDhDLTE2IDU2IC0yNCA2MiAtMjYgODZaIiBmaWxsPSIjM2EzYTNhIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTS0zNCAxNThDLTM2IDE4MCAtMzYgMjA0IC0zNSAyMzQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik00MiAxMzRMNTIgMTg0TDcxIDE2NiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjIyLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik00MiAxMzRMNTIgMTg0TDcxIDE2NiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjE5IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNNjUgMTcyQzYzIDE2MyA3MCAxNTcgNzkgMTU3Qzg1IDE1NyA4NiAxNjEgODIgMTYyTDc2IDE2M0M4MSAxNjYgODAgMTcyIDczIDE3NFoiIGZpbGw9IiNmYmZiZmIiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L2c+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzQwIDgpIHNjYWxlKC0xIDEpIj48cGF0aCBkPSJNLTMyIDcwQy0zNiAxMDYgLTM4IDEyNiAtMjYgMTM2TDI2IDEzNkMzOCAxMjYgMzYgMTA2IDMyIDcwWiIgZmlsbD0iIzJmMmYyZiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxyZWN0IHg9Ii05LjUiIHk9IjEwMiIgd2lkdGg9IjE5IiBoZWlnaHQ9IjI2IiBmaWxsPSIjZmJmYmZiIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43Ii8+PHBhdGggZD0iTS0xMyAxMTlDLTI4IDEyMiAtNDUgMTI0IC01MCAxNDZDLTUzIDE3NiAtNTMgMTk0IC01MSAyMzRMMzggMjM0QzM2IDE5NCAzNSAxNzYgMzQgMTQ2QzQ1IDEyNCAyOCAxMjIgMTMgMTE5WiIgZmlsbD0iIzZmNmY2ZiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0tMTYgMTE4TDAgMTY1TDE2IDExOFoiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNLTEzIDExOUwtMiAxMzZMLTE1IDEzMkwtMTcgMTIxWiIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0xMyAxMTlMMiAxMzZMMTUgMTMyTDE3IDEyMVoiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNLTExIDEzN0wwIDE0M0wxMSAxMzdMOSAxNTFMMCAxNDZMLTkgMTUxWiIgZmlsbD0iIzNhM2EzYSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuMiIvPjxwYXRoIGQ9Ik0tMTUgMTE5TC0yIDE2OUwtMTIgMTYxTC0yNCAxMzdMLTIwIDEyNVoiIGZpbGw9IiM1ZDVkNWQiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNMTUgMTE5TDIgMTY5TDEyIDE2MUwyNCAxMzdMMjAgMTI1WiIgZmlsbD0iIzVkNWQ1ZCIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxsaW5lIHgxPSIwIiB5MT0iMTY5IiB4Mj0iMCIgeTI9IjIyOCIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuMyIvPjxyZWN0IHg9Ii0yOS4xNCIgeT0iMTY1IiB3aWR0aD0iMTgiIGhlaWdodD0iNiIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEiLz48ZWxsaXBzZSBjeD0iMCIgY3k9Ijc2IiByeD0iMjgiIHJ5PSIzNCIgZmlsbD0iI2ZiZmJmYiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIvPjxwYXRoIGQ9Ik0tMjcgNzRDLTM2IDcxIC0zNiA4OCAtMjcgODYiIGZpbGw9IiNmYmZiZmIiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciLz48ZWxsaXBzZSBjeD0iLTQiIGN5PSI3OCIgcng9IjIuMyIgcnk9IjIuOSIgZmlsbD0iIzI2MjYyNiIvPjxlbGxpcHNlIGN4PSIxMyIgY3k9Ijc4IiByeD0iMi4zIiByeT0iMi45IiBmaWxsPSIjMjYyNjI2Ii8+PHBhdGggZD0iTS05IDcwUS00IDY3IDEgNjkuNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTggNjkuNVExMyA2NyAxOCA3MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTE1LjIgNzUuNmwyLjYgLTEuNiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTYgODNROS41IDkwIDUgOTEiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik0tMiA5N1E0LjUgMTAyLjUgMTEgOTciIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik0tMjYgNThDLTQ0IDY0IC00NiA5NCAtMzYgMTEwQy0zMiA5NCAtMzIgNzYgLTI0IDY4WiIgZmlsbD0iIzJmMmYyZiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0tMzIgOTRDLTM2IDU4IC0yNiAzNiAyIDM2QzI2IDM2IDM2IDU4IDMyIDk0TDI2IDkyQzI4IDc0IDI2IDY0IDIwIDYwQzEwIDY2IC02IDYyIC0xMiA1NEMtMTYgNjIgLTI0IDY4IC0yNiA5MloiIGZpbGw9IiMyZjJmMmYiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNLTMwIDE2NEMtMzIgMTg2IC0zMiAyMDQgLTMxIDIzNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTM4IDE0MEw0OCAxOTBMNjcgMTcyIiBmaWxsPSJub25lIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMjIuNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTM4IDE0MEw0OCAxOTBMNjcgMTcyIiBmaWxsPSJub25lIiBzdHJva2U9IiM2ZjZmNmYiIHN0cm9rZS13aWR0aD0iMTkiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik02MSAxNzhDNTkgMTY5IDY2IDE2MyA3NSAxNjNDODEgMTYzIDgyIDE2NyA3OCAxNjhMNzIgMTY5Qzc3IDE3MiA3NiAxNzggNjkgMTgwWiIgZmlsbD0iI2ZiZmJmYiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvZz48L2c+PC9zdmc+",
+        "alt": "장식용. 인사 담당자(회사원)과 학생 A(학생)이 마주 보고 이야기하는 인물 그림. 대화 내용은 이어지는 대화 블록에 있음.",
+        "kind": "illustration",
+        "spec": {
+          "id": "F1",
+          "kind": "scene",
+          "layout": "pair",
+          "people": [
+            {
+              "speaker": "인사 담당자",
+              "role": "office",
+              "gender": "female",
+              "age": "adult"
+            },
+            {
+              "speaker": "학생 A",
+              "role": "student",
+              "gender": "female",
+              "age": "teen"
+            }
+          ]
+        }
+      }
+    },
+    "choice_table": null
+  },
+  "optionsList": [
+    "① A의 맹목 영역이 줄어든 시점에 A는 정체감 유예에 해당하였다.",
+    "② ‘부모와 다른 어른으로부터의 정서적 독립’이 과업인 시기에 인사 담당자는 정체감 유실이었다.",
+    "③ A의 숨겨진 영역이 줄어든 시점에 A는 정체감 혼미에 해당하였다.",
+    "④ A가 정체감 성취에 이른 뒤 A의 경청하는 면은 A의 맹목 영역에 속하였다.",
+    "⑤ 회사에 처음 들어올 때의 인사 담당자는 현재의 A와 같은 정체감 유형이었다."
+  ],
+  "comboBlock": null,
+  "explanation": {
+    "judgment": "[출제 의도] 사례 속 인물의 시점별 위기·전념 여부로 마샤의 자아 정체감 유형을 판별하고, 조하리의 창과 해비거스트의 청소년기 발달 과업을 결합하여 판정 시점을 특정할 수 있는가?\n[해설] 인사 담당자가 A의 경청하는 면을 말해 준 일은 A는 모르고 타인은 아는 정보를 알려 준 피드백이므로 A의 맹목 영역이 줄었다. 이 일은 A가 실습 중 여러 직무를 여쭈며 고민하였으나 무엇을 할지 정하지 못하던 무렵에 있었으므로, 그때 A는 위기 있음·전념 없음의 정체감 유예에 해당한다. 한편 실습 전 A는 위기 없이 부모님 권유로 택한 회계 일에 전념한 유실, 현재 A는 탐색 뒤 진로를 정한 성취이다. A가 스스로 뜻을 알려 숨겨진 영역을 줄인 때는 실습 첫날(유실)과 진로를 정한 뒤(성취)뿐이고, 피드백 뒤 경청하는 면은 공개 영역으로 옮겨 갔다. 인사 담당자는 부모와 다른 어른으로부터의 정서적 독립이 과업인 청소년기에 위기·전념이 모두 없는 혼미였고, 26세 입사 때는 위기 없이 부모님 권유를 따른 유실이다. 따라서 A의 맹목 영역이 줄어든 시점에 A가 정체감 유예였다는 분석이 가장 적절하다.\n[오답 피하기] 부모와 다른 어른으로부터의 정서적 독립은 해비거스트의 청소년기 과업이며, 인사 담당자는 그 시기에 진로에 관심이 없어 고민도 하지 않았으므로 유실이 아니라 혼미이다. 이 과업을 성년기로 보아 26세 입사 때의 유실을 끌어오면 틀린다. 숨겨진 영역은 자기 공개로 줄어들며, A가 자기 뜻을 알린 때는 실습 첫날(유실)과 진로를 정한 뒤(성취)이다. 실습 전 A를 탐색이 없다는 이유로 혼미로 보거나, 피드백을 받던 고민 시기와 혼동하면 틀린다. 경청하는 면은 피드백을 받기 전에는 맹목 영역이었으나, 피드백 뒤 A가 진로를 정하여 성취에 이르렀을 때는 이미 공개 영역이다. 영역이 시점에 따라 바뀐다는 점이나 피드백과 진로 결정의 선후를 놓치면 틀린다. 입사 때의 인사 담당자는 위기 없이 전념한 유실이고 현재의 A는 위기를 거쳐 전념한 성취이다. 전념 여부만 비교하거나 A가 인사 담당자의 말을 따랐다고 보면 틀린다.",
+    "conceptHighlightV2": {
+      "stimulusClues": [
+        {
+          "quote": "신입 사원들의 고충을 차분히 들어 주는 모습이 인상 깊다고",
+          "why": "타인이 알고 있던 A의 모습을 A에게 알려 준 피드백으로, A의 맹목 영역을 줄인다."
+        },
+        {
+          "quote": "그 말씀을 듣기 전에는 제게 그런 면이 있는 줄 몰랐어요.",
+          "why": "A 자신은 몰랐다는 단서로, 인사 담당자는 알았다는 단서와 결합하여 맹목 영역임을 확정한다."
+        },
+        {
+          "quote": "그때는 무엇을 할지 정하지 못한 채 고민만 깊어졌어요.",
+          "why": "여러 직무를 탐색하는 위기는 있으나 전념은 없는 상태로, 피드백 무렵의 A가 정체감 유예임을 보여 준다."
+        },
+        {
+          "quote": "진로에 관심이 없어 고민도 미루기만 했어요",
+          "why": "인사 담당자가 정서적 독립이 과업인 청소년기 전체에 걸쳐 위기·전념이 모두 없는 정체감 혼미였음을 보여 준다."
+        }
+      ],
+      "optionAnalysis": [
+        {
+          "optionNum": 1,
+          "verdict": "O",
+          "reasoning": "A의 경청하는 면은 인사 담당자는 알고 A는 몰랐던 맹목 영역이며, 이를 전해 들은 것은 A가 여러 직무를 탐색하면서도 진로를 정하지 못하던 때이므로 위기 있음·전념 없음의 정체감 유예에 해당한다."
+        },
+        {
+          "optionNum": 2,
+          "verdict": "X",
+          "reasoning": "해비거스트 이론에서 부모와 다른 어른으로부터의 정서적 독립은 청소년기(12~20세)의 과업이다. 인사 담당자는 26세가 될 때까지 진로에 관심이 없어 고민도 미루었으므로 그 시기에는 위기·전념이 모두 없는 정체감 혼미에 해당한다."
+        },
+        {
+          "optionNum": 3,
+          "verdict": "X",
+          "reasoning": "숨겨진 영역은 A가 스스로 알리는 자기 공개로 줄어든다. A가 자기 뜻을 알린 때는 회계 일만 하겠다고 밝힌 실습 첫날(위기 없음·전념 있음의 유실)과 진로를 정한 뒤 부모님께 말씀드린 때(성취)이므로 어느 시점도 혼미가 아니다."
+        },
+        {
+          "optionNum": 4,
+          "verdict": "X",
+          "reasoning": "A는 인사 담당자의 피드백으로 경청하는 면을 알게 된 뒤에 직무를 견주어 진로를 정하였다. 따라서 정체감 성취에 이른 뒤 그 면은 자신과 타인이 모두 아는 공개 영역에 속한다."
+        },
+        {
+          "optionNum": 5,
+          "verdict": "X",
+          "reasoning": "입사 때의 인사 담당자는 탐색 없이 부모님이 권한 회사에 들어와 전념한 정체감 유실이고, 현재의 A는 여러 직무를 탐색한 뒤 진로를 정한 정체감 성취이므로 두 사람의 유형은 다르다."
+        }
+      ],
+      "solvingFlow": [
+        {
+          "step": 1,
+          "action": "인사 담당자의 말과 A의 반응을 결합하여 경청하는 면이 피드백 전에는 맹목 영역, 피드백 뒤에는 공개 영역임을 확인한다."
+        },
+        {
+          "step": 2,
+          "action": "피드백 시점(실습 중 고민하며 정하지 못하던 무렵)은 위기 있음·전념 없음 → 정체감 유예로 판정한다."
+        },
+        {
+          "step": 3,
+          "action": "A의 실습 전(위기 없음·전념 있음 → 유실)과 진로를 정한 뒤(위기 있음·전념 있음 → 성취)를 판정하고, A가 스스로 뜻을 알린 시점이 이 두 시기임을 확인한다."
+        },
+        {
+          "step": 4,
+          "action": "정서적 독립이 해비거스트의 청소년기 과업임을 이용해 인사 담당자의 청소년기(혼미)와 26세 입사 때(유실)를 구분한다."
+        },
+        {
+          "step": 5,
+          "action": "각 분석을 판정 결과와 대조하여 맹목 영역이 줄어든 시점의 A를 유예로 본 분석을 고른다."
+        }
+      ],
+      "takeaway": "마샤 유형과 조하리의 창 영역은 모두 시점마다 따로 판정해야 하며, 피드백(맹목 영역 축소)과 자기 공개(숨겨진 영역 축소)가 일어난 시점을 구분하는 것이 핵심이다."
+    }
+  },
+  "correctAnswer": 1,
+  "points": 3,
+  "fingerprint": "c13ba7fe"
+}

@@ -1,0 +1,9 @@
+{
+  "reasoning": "ㄱ: 난연 섬유는 불이 붙어도 잘 타지 않는(타더라도 스스로 꺼지는) 섬유이며 '불꽃에 닿아도 타지 않는' 것은 불연의 성질 → 거짓. ㄴ: A 120→150만 m는 25%, B 40→60톤은 50% 증가 → A가 낮다 → 거짓. ㄷ: 국가 산업 표준 적합 판정 후 KS 표시를 붙이는 KS 인증은 임의(자율) 인증 → 참. ㄹ: 재활용 원료 제품의 품질을 국내 기관이 평가하는 인증 → GR 인증 → 참. 정답 ③. ㄱ의 참/거짓만으로 ③과 ⑤가 갈리므로 난연·불연 구분이 정답을 결정하는데, 교과의 난연/불연 경계를 따르면 거짓으로 확정된다.",
+  "answerIndex": 3,
+  "ambiguity": "minor",
+  "curriculumIssues": [],
+  "answerGivenAway": false,
+  "perceivedDifficulty": "moderate",
+  "trivialStatements": []
+}

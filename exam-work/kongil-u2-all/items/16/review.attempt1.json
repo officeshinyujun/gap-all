@@ -1,0 +1,9 @@
+{
+  "reasoning": "ㄱ: 전자 태그와 판독기로 상자를 열지 않고 자동 기록 → RFID, 입·출고 현황 파악 → 참. ㄴ: 출고 오류 25→5건은 80% 감소, 재고 조사 40→4시간은 90% 감소 → 출고 오류 감소율이 더 작다 → 거짓. ㄷ: 실로 천을 짜는 단계는 제직이며, 방적은 짧은 섬유를 꼬아 실을 만드는 단계 → 거짓. 정답 ①. ㄴ이 'RFID'라는 명칭을 그대로 써서 ㄱ의 앞부분을 사실상 확인해 주는 점은 아쉽지만 정답에는 영향이 없다.",
+  "answerIndex": 1,
+  "ambiguity": "none",
+  "curriculumIssues": [],
+  "answerGivenAway": false,
+  "perceivedDifficulty": "moderate",
+  "trivialStatements": []
+}

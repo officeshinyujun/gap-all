@@ -1,0 +1,9 @@
+{
+  "reasoning": "A 씨 회사는 출판사 주문으로 편집·제판·인쇄·제본 → 인쇄 공업. ㄱ: 톨루엔은 대표적 유기 용제 → 참. ㄴ: 인쇄물은 지식·정보를 신속하게 전달·보존 → 참. ㄷ: 인쇄업은 제조업으로 제2차 산업이며 원료가 농산물이라도 제1차가 아니다 → 거짓. 정답 ③. 금속 가공 경력은 오답 유도용 맥락이다.",
+  "answerIndex": 3,
+  "ambiguity": "none",
+  "curriculumIssues": [],
+  "answerGivenAway": false,
+  "perceivedDifficulty": "easy",
+  "trivialStatements": []
+}

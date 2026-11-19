@@ -1,0 +1,140 @@
+{
+  "targetConcept": "능력단위",
+  "itemType": "ai_generative_short_label",
+  "difficulty": "MIDDLE",
+  "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+  "questionStem": "다음은 현장 실습 중인 학생 A가 작성한 실습 일지의 일부이다. (가)에 해당하는 것으로 옳은 것은?",
+  "stimulusData": {
+    "blocks": [
+      {
+        "type": "text",
+        "text": "○○특성화고 3학년 A는 △△기업 총무팀에서 4주간 현장 실습을 하고 있다. A는 실습에서 맡은 일을 국가직무능력표준(NCS)에서 찾아 실습 일지에 아래와 같이 정리하였다. 검색한 직무 아래에는 여러 항목이 목록으로 나열되어 있었고, A는 맡은 일에 해당하는 항목을 (가)로 표시하였다. (가)에는 ‘0202010207_19v2’라는 고유한 분류번호와 수준 3이 붙어 있었다. 화면에는 (가)가 ‘사무실 운영에 필요한 물품을 구매하고 관리하는 능력이다.’라고 설명되어 있었다. (가) 아래 항목의 번호는 (가)의 분류번호 뒤에 ‘.1’, ‘.2’가 붙은 형태였다."
+      },
+      {
+        "type": "figure",
+        "figure_id": "F1"
+      }
+    ],
+    "figures": {
+      "F1": {
+        "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0ODAgMjI0IiBmb250LWZhbWlseT0iJiMzOTtOb3RvIFNhbnMgS1ImIzM5OywmIzM5O0FwcGxlIFNEIEdvdGhpYyBOZW8mIzM5OywmIzM5O01hbGd1biBHb3RoaWMmIzM5OywmIzM5O05hbnVtR290aGljJiMzOTssc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNSI+PHRleHQgeD0iMjQwIiB5PSIyMiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjcwMCI+7Iuk7Iq1IOydvOyngDog66eh7J2AIOydvOydmCBOQ1Mg7JyE7LmYPC90ZXh0PjxsaW5lIHgxPSIyNzguNjciIHkxPSI3NCIgeDI9IjI3OC42NyIgeTI9IjkyIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4xIi8+PGxpbmUgeDE9IjE2Mi42NyIgeTE9IjkyIiB4Mj0iMzk0LjY3IiB5Mj0iOTIiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjEiLz48bGluZSB4MT0iMTYyLjY3IiB5MT0iOTIiIHgyPSIxNjIuNjciIHkyPSIxMTAiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjEiLz48bGluZSB4MT0iMzk0LjY3IiB5MT0iOTIiIHgyPSIzOTQuNjciIHkyPSIxMTAiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjEiLz48bGluZSB4MT0iMTYyLjY3IiB5MT0iMTQwIiB4Mj0iMTYyLjY3IiB5Mj0iMTU4IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4xIi8+PGxpbmUgeDE9Ijg1LjMzIiB5MT0iMTU4IiB4Mj0iMjQwIiB5Mj0iMTU4IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4xIi8+PGxpbmUgeDE9Ijg1LjMzIiB5MT0iMTU4IiB4Mj0iODUuMzMiIHkyPSIxNzYiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjEiLz48bGluZSB4MT0iMjQwIiB5MT0iMTU4IiB4Mj0iMjQwIiB5Mj0iMTc2IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4xIi8+PHJlY3QgeD0iMjMwIiB5PSI0NCIgd2lkdGg9Ijk3LjM0IiBoZWlnaHQ9IjMwIiByeD0iMiIgZmlsbD0iI2Q2ZDZkNiIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEuMSIvPjx0ZXh0IHg9IjI3OC42NyIgeT0iNjQuMDQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTQiPjAyLiDsgqzrrLTtlonsoJU8L3RleHQ+PHJlY3QgeD0iMTEyLjY3IiB5PSIxMTAiIHdpZHRoPSIxMDAiIGhlaWdodD0iMzAiIHJ4PSIyIiBmaWxsPSIjZTllOWU5IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4xIi8+PHRleHQgeD0iMTYyLjY3IiB5PSIxMzAuMDQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTQiPijqsIApIOu5hO2SiOq0gOumrDwvdGV4dD48cmVjdCB4PSIzNTguNjciIHk9IjExMCIgd2lkdGg9IjcyIiBoZWlnaHQ9IjMwIiByeD0iMiIgZmlsbD0iI2U5ZTllOSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEuMSIvPjx0ZXh0IHg9IjM5NC42NyIgeT0iMTMwLjA0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjE0Ij7sl4XrrLTsp4Dsm5A8L3RleHQ+PHJlY3QgeD0iMzMuMjMiIHk9IjE3NiIgd2lkdGg9IjEwNC4yIiBoZWlnaHQ9IjMwIiByeD0iMiIgZmlsbD0iI2U5ZTllOSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEuMSIvPjx0ZXh0IHg9Ijg1LjMzIiB5PSIxOTYuMDQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTQiPuu5hO2SiCDqtazrp6TtlZjquLA8L3RleHQ+PHJlY3QgeD0iMTg3LjkiIHk9IjE3NiIgd2lkdGg9IjEwNC4yIiBoZWlnaHQ9IjMwIiByeD0iMiIgZmlsbD0iI2U5ZTllOSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEuMSIvPjx0ZXh0IHg9IjI0MCIgeT0iMTk2LjA0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjE0Ij7ruYTtkogg7KCQ6rKA7ZWY6riwPC90ZXh0Pjwvc3ZnPg==",
+        "alt": "위에서 아래로 갈라지는 계층도(조직도·분류 트리). 제목 ‘실습 일지: 맡은 일의 NCS 위치’. ‘02. 사무행정’ 아래 [‘(가) 비품관리’ 아래 [‘비품 구매하기’, ‘비품 점검하기’], ‘업무지원’].",
+        "kind": "diagram",
+        "spec": {
+          "id": "F1",
+          "kind": "diagram",
+          "title": "실습 일지: 맡은 일의 NCS 위치",
+          "diagramType": "tree",
+          "direction": "down",
+          "nodes": [
+            {
+              "id": "n1",
+              "label": "02. 사무행정"
+            },
+            {
+              "id": "n2",
+              "label": "(가) 비품관리",
+              "parent": "n1"
+            },
+            {
+              "id": "n3",
+              "label": "업무지원",
+              "parent": "n1"
+            },
+            {
+              "id": "n4",
+              "label": "비품 구매하기",
+              "parent": "n2"
+            },
+            {
+              "id": "n5",
+              "label": "비품 점검하기",
+              "parent": "n2"
+            }
+          ]
+        }
+      }
+    },
+    "choice_table": null
+  },
+  "optionsList": [
+    "① 능력단위",
+    "② 세분류",
+    "③ 소분류",
+    "④ 능력단위요소",
+    "⑤ 수행준거"
+  ],
+  "comboBlock": null,
+  "explanation": {
+    "judgment": "[출제 의도] NCS 검색 결과에서 직무(세분류)와 그 하위 구성 항목의 계층 관계를 이해하고, 주어진 항목의 위치를 판별할 수 있는가?\n[해설] A가 검색한 ‘02. 사무행정’은 직무, 즉 세분류이다. (가)는 이 직무 아래에 목록으로 나열된 항목 중 하나이고, 소수점 없이 끝나는 고유한 분류번호와 수준 3을 가진다. 또 ‘~하는 능력이다’ 형태의 정의를 가지며, 그 아래에는 분류번호 뒤에 ‘.1’, ‘.2’가 붙은 ‘~하기’ 항목이 있다. 직무를 구성하는 기본 단위로서 분류번호·정의·수준을 가지고 여러 능력단위요소로 구성되는 것은 능력단위이므로 (가)는 능력단위이다.\n[오답 피하기] 세분류는 직무 그 자체이며, 이 일지에서는 (가)의 위 단계인 ‘02. 사무행정’이 세분류이다. 소분류는 세분류보다 위 단계의 분류로 직무에 해당하지 않으며, 직무 아래에 있는 (가)와 위치가 다르다. 능력단위요소는 능력단위 분류번호 뒤에 ‘.1’, ‘.2’가 붙고 ‘~하기’로 끝나는 핵심 하위 능력으로, (가) 아래의 ‘비품 구매하기’, ‘비품 점검하기’가 이에 해당한다. 수행준거는 능력단위요소별 성취 여부를 판단하는 ‘~할 수 있다’ 형태의 기준으로, 하위 항목을 거느리는 (가)와 다르다.",
+    "conceptHighlightV2": {
+      "stimulusClues": [
+        {
+          "quote": "검색한 직무 아래에는 여러 항목이 목록으로 나열되어 있었고",
+          "why": "직무는 세분류이며, 세분류 아래에 나열되는 것은 직무를 구성하는 기본 단위인 능력단위이다."
+        },
+        {
+          "quote": "‘0202010207_19v2’라는 고유한 분류번호와 수준 3이 붙어 있었다",
+          "why": "소수점 없이 끝나는 고유한 분류번호와 수준을 가지는 것은 능력단위의 특징이다."
+        },
+        {
+          "quote": "물품을 구매하고 관리하는 능력이다.",
+          "why": "‘~하는 능력이다’로 무엇을 하는 단위인지 개략적으로 기술한 것은 능력단위 정의이다."
+        },
+        {
+          "quote": "(가)의 분류번호 뒤에 ‘.1’, ‘.2’가 붙은 형태였다",
+          "why": "분류번호 뒤에 ‘.1’, ‘.2’가 붙은 하위 항목은 능력단위요소이므로 (가)는 이를 거느린 능력단위이다."
+        }
+      ],
+      "optionAnalysis": [
+        {
+          "optionNum": 1,
+          "verdict": "O",
+          "reasoning": "(가)는 직무(세분류) 아래에 나열된 항목으로, 소수점 없는 고유한 분류번호와 수준, 정의를 가지고 ‘~하기’ 항목 여러 개로 구성되므로 능력단위이다."
+        },
+        {
+          "optionNum": 2,
+          "verdict": "X",
+          "reasoning": "세분류는 직무 그 자체로, 이 일지에서는 (가)의 위에 있는 ‘02. 사무행정’이 세분류에 해당한다."
+        },
+        {
+          "optionNum": 3,
+          "verdict": "X",
+          "reasoning": "소분류는 세분류보다 위 단계의 분류인데, (가)는 직무(세분류)보다 아래 단계에 있으므로 소분류가 아니다."
+        },
+        {
+          "optionNum": 4,
+          "verdict": "X",
+          "reasoning": "능력단위요소는 분류번호 뒤에 ‘.1’, ‘.2’가 붙고 ‘~하기’로 끝나는 항목으로, (가) 아래의 ‘비품 구매하기’ 등이 이에 해당한다."
+        },
+        {
+          "optionNum": 5,
+          "verdict": "X",
+          "reasoning": "수행준거는 능력단위요소의 성취 여부를 판단하는 ‘~할 수 있다’ 형태의 기준인데, (가)는 하위 항목을 거느린 단위이므로 수행준거가 아니다."
+        }
+      ],
+      "solvingFlow": [
+        {
+          "step": 1,
+          "action": "계층도의 맨 위 ‘02. 사무행정’이 A가 검색한 직무, 즉 세분류임을 확인한다."
+        },
+        {
+          "step": 2,
+          "action": "(가)가 직무 아래에 나열된 항목이며 소수점 없는 분류번호와 수준을 가진다는 점을 찾는다."
+        },
+        {
+          "step": 3,
+          "action": "(가) 아래 항목에 ‘.1’, ‘.2’가 붙고 ‘~하기’로 끝나므로 능력단위요소임을 판별한다."
+        },
+        {
+          "step": 4,
+          "action": "세분류와 능력단위요소 사이에 있는 (가)를 능력단위로 판정한다."
+        }
+      ],
+      "takeaway": "직무는 세분류이고, 그 직무를 구성하는 기본 단위는 고유한 분류번호·정의·수준을 가진 능력단위이며, 그 아래에 ‘.1’이 붙는 능력단위요소가 온다."
+    }
+  },
+  "correctAnswer": 1,
+  "points": 2,
+  "fingerprint": "9f1ae83a"
+}

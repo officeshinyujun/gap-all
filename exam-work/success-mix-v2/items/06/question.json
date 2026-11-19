@@ -1,0 +1,136 @@
+{
+  "targetConcept": "생산재 제조업과 소비재 제조업(호프만 비율)",
+  "itemType": "ai_generative_truth_combination",
+  "difficulty": "HIGH",
+  "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+  "questionStem": "다음은 학생 A의 현장 실습 일지 일부이다. A~D 기업에 대한 분석으로 옳은 것만을 <보기>에서 고른 것은? (단, 제조업은 제품의 용도에 따라 생산재 제조업과 소비재 제조업으로만 구분한다.)",
+  "stimulusData": {
+    "blocks": [
+      {
+        "type": "text",
+        "text": "현장 실습 일지(학생 A)\n■ 실습 개요\n• 2025년 9월부터 4주간 B 기업에서 실습하며 생산 관리 흐름을 아래 도식으로 정리함\n■ △△ 산업 단지의 제조 기업\n• A 기업: 해운사의 발주를 받아 LNG 운반선을 건조하며, 선박마다 설계가 달라 1척씩 따로 제작함\n• B 기업: 냉장고를 생산하여 온라인 몰에서 개인 소비자에게 판매함\n• C 기업: 노동 집약적인 봉제 라인에서 같은 디자인의 티셔츠를 대량으로 만들어 할인점에 공급함\n• D 기업: A 기업의 발주량에 맞추어 선박용 강판을 생산함\n■ 순생산액(부가가치) (단위: 억 원)\n• 2015년: A 기업 400, B 기업 300, C 기업 100, D 기업 200\n• 2025년: A 기업 470, B 기업 280, C 기업 160, D 기업 200\n※ 단지 안 제조 기업은 A~D 기업뿐이며, 각 기업은 위 제품 한 가지만 생산함"
+      },
+      {
+        "type": "figure",
+        "figure_id": "F1"
+      }
+    ],
+    "figures": {
+      "F1": {
+        "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0ODAgMjk2IiBmb250LWZhbWlseT0iJiMzOTtOb3RvIFNhbnMgS1ImIzM5OywmIzM5O0FwcGxlIFNEIEdvdGhpYyBOZW8mIzM5OywmIzM5O01hbGd1biBHb3RoaWMmIzM5OywmIzM5O05hbnVtR290aGljJiMzOTssc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNSI+PHRleHQgeD0iMjQwIiB5PSIyMiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjcwMCI+QiDquLDsl4XsnZgg7IOd7IKwIOq0gOumrCDtnZDrpoQ8L3RleHQ+PGNpcmNsZSBjeD0iMjQwIiBjeT0iMTY2IiByPSI0NCIgZmlsbD0iI2U5ZTllOSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEuMiIvPjx0ZXh0IHg9IjI0MCIgeT0iMTYyLjU0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjE0Ij48dHNwYW4geD0iMjQwIiBkeT0iMCI+QiDquLDsl4Ug7IOd7IKwPC90c3Bhbj48dHNwYW4geD0iMjQwIiBkeT0iMTciPuq0gOumrDwvdHNwYW4+PC90ZXh0PjxwYXRoIGQ9Ik0yNzkuMTUgNzguMzRBOTYgOTYgMCAwIDEgMzExLjI3IDEwMS42OCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEuNCIvPjxwb2x5Z29uIHBvaW50cz0iMzExLjI3LDEwMS42OCAzMDguMDUsOTIuNDcgMzAyLjQzLDk3LjUzIiBmaWxsPSIjMDAwIi8+PHBhdGggZD0iTTMzNS40NiAxNzYuMTRBOTYgOTYgMCAwIDEgMzIzLjE5IDIxMy45MSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEuNCIvPjxwb2x5Z29uIHBvaW50cz0iMzIzLjE5LDIxMy45MSAzMzAuOTYsMjA3Ljk5IDMyNC40MSwyMDQuMjIiIGZpbGw9IiMwMDAiLz48cGF0aCBkPSJNMjU5Ljg1IDI1OS45MkE5NiA5NiAwIDAgMSAyMjAuMTUgMjU5LjkyIiBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS40Ii8+PHBvbHlnb24gcG9pbnRzPSIyMjAuMTUsMjU5LjkyIDIyOC4xNywyNjUuNDggMjI5LjczLDI1OC4wOSIgZmlsbD0iIzAwMCIvPjxwYXRoIGQ9Ik0xNTYuODEgMjEzLjkxQTk2IDk2IDAgMCAxIDE0NC41NCAxNzYuMTQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjQiLz48cG9seWdvbiBwb2ludHM9IjE0NC41NCwxNzYuMTQgMTQxLjczLDE4NS40OSAxNDkuMjUsMTg0LjY5IiBmaWxsPSIjMDAwIi8+PHBhdGggZD0iTTE2OC43MyAxMDEuNjhBOTYgOTYgMCAwIDEgMjAwLjg1IDc4LjM0IiBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS40Ii8+PHBvbHlnb24gcG9pbnRzPSIyMDAuODUsNzguMzQgMTkxLjEsNzguNTYgMTk0LjE4LDg1LjQ2IiBmaWxsPSIjMDAwIi8+PHJlY3QgeD0iMTg2IiB5PSI0NyIgd2lkdGg9IjEwOCIgaGVpZ2h0PSI0NiIgcng9IjIzIiBmaWxsPSIjZmZmIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4zIi8+PHRleHQgeD0iMjQwIiB5PSI2Ni41NCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxNCI+PHRzcGFuIHg9IjI0MCIgZHk9IjAiPu2MkOunpCDsnpDro4zroZw8L3RzcGFuPjx0c3BhbiB4PSIyNDAiIGR5PSIxNyI+7IiY7JqUIOyYiOy4oTwvdHNwYW4+PC90ZXh0PjxyZWN0IHg9IjI3Ny4zIiB5PSIxMTMuMzMiIHdpZHRoPSIxMDgiIGhlaWdodD0iNDYiIHJ4PSIyMyIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEuMyIvPjx0ZXh0IHg9IjMzMS4zIiB5PSIxMzIuODciIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTQiPjx0c3BhbiB4PSIzMzEuMyIgZHk9IjAiPuyblOuzhCDsg53sgrDrn4k8L3RzcGFuPjx0c3BhbiB4PSIzMzEuMyIgZHk9IjE3Ij7qs4Ttmo0g7IiY66a9PC90c3Bhbj48L3RleHQ+PHJlY3QgeD0iMjQyLjQzIiB5PSIyMjAuNjciIHdpZHRoPSIxMDgiIGhlaWdodD0iNDYiIHJ4PSIyMyIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEuMyIvPjx0ZXh0IHg9IjI5Ni40MyIgeT0iMjQwLjIxIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjE0Ij48dHNwYW4geD0iMjk2LjQzIiBkeT0iMCI+7ZGc7KSAIOuqqOuNuCDsnpDrj5k8L3RzcGFuPjx0c3BhbiB4PSIyOTYuNDMiIGR5PSIxNyI+7Jew7IaNIOyDneyCsDwvdHNwYW4+PC90ZXh0PjxyZWN0IHg9IjEyOS41NyIgeT0iMjIwLjY3IiB3aWR0aD0iMTA4IiBoZWlnaHQ9IjQ2IiByeD0iMjMiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjMiLz48dGV4dCB4PSIxODMuNTciIHk9IjI0MC4yMSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxNCI+PHRzcGFuIHg9IjE4My41NyIgZHk9IjAiPuyZhOygnO2SiCDssL3qs6A8L3RzcGFuPjx0c3BhbiB4PSIxODMuNTciIGR5PSIxNyI+7J6F6rOgPC90c3Bhbj48L3RleHQ+PHJlY3QgeD0iOTQuNyIgeT0iMTEzLjMzIiB3aWR0aD0iMTA4IiBoZWlnaHQ9IjQ2IiByeD0iMjMiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjMiLz48dGV4dCB4PSIxNDguNyIgeT0iMTMyLjg3IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjE0Ij48dHNwYW4geD0iMTQ4LjciIGR5PSIwIj7tjJDrp6Trn4nCt+yerOqzoDwvdHNwYW4+PHRzcGFuIHg9IjE0OC43IiBkeT0iMTciPuygkOqygDwvdHNwYW4+PC90ZXh0Pjwvc3ZnPg==",
+        "alt": "순환 도식(시계 방향 화살표). 제목 ‘B 기업의 생산 관리 흐름’. 가운데: ‘B 기업 생산 관리’. ‘판매 자료로 수요 예측’ → ‘월별 생산량 계획 수립’ → ‘표준 모델 자동 연속 생산’ → ‘완제품 창고 입고’ → ‘판매량·재고 점검’ → 다시 ‘판매 자료로 수요 예측’.",
+        "kind": "diagram",
+        "spec": {
+          "id": "F1",
+          "kind": "diagram",
+          "title": "B 기업의 생산 관리 흐름",
+          "diagramType": "cycle",
+          "center": "B 기업 생산 관리",
+          "steps": [
+            "판매 자료로 수요 예측",
+            "월별 생산량 계획 수립",
+            "표준 모델 자동 연속 생산",
+            "완제품 창고 입고",
+            "판매량·재고 점검"
+          ]
+        }
+      }
+    },
+    "choice_table": null
+  },
+  "optionsList": [
+    "① ㄷ",
+    "② ㄹ",
+    "③ ㄷ, ㄹ",
+    "④ ㄱ, ㄷ, ㄹ",
+    "⑤ ㄴ, ㄷ, ㄹ"
+  ],
+  "comboBlock": {
+    "title": "<보기>",
+    "items": [
+      {
+        "key": "ㄱ",
+        "text": "다품종 소량 생산에 적합한 기업의 순생산액은 소비재 공업 순생산액에 포함된다."
+      },
+      {
+        "key": "ㄴ",
+        "text": "2015년 대비 순생산액 증가율이 가장 높은 기업은 중화학 공업에 해당한다."
+      },
+      {
+        "key": "ㄷ",
+        "text": "호프만 비율로 보면 △△ 산업 단지는 2015년보다 2025년에 공업화가 진전되었다."
+      },
+      {
+        "key": "ㄹ",
+        "text": "재고 발생 우려가 큰 생산 방식의 기업 순생산액은 호프만 비율의 분자에 합산된다."
+      }
+    ]
+  },
+  "explanation": {
+    "judgment": "[출제 의도] 기업의 제품 용도·생산 과정 단서로 생산재와 소비재 제조업을 구분하고, 순생산액 자료로 호프만 비율의 변화를 계산하여 공업화 정도를 판단할 수 있는가?\n[해설] 제품의 용도로 구분하면 해운사가 운송에 쓰는 LNG 운반선(A 기업)과 선박용 강판(D 기업)은 생산재, 개인 소비자가 쓰는 냉장고(B 기업)와 티셔츠(C 기업)는 소비재이다. ㄱ. 1척씩 설계를 달리하는 A 기업이 다품종 소량 생산에 적합하지만 생산재 기업이므로 소비재 공업 순생산액에 포함되지 않는다. ㄴ. 증가율은 C 기업이 60%로 가장 높고, C 기업은 노동 집약적 의류 생산이므로 경공업이다. ㄷ. 호프만 비율(소비재 공업 순생산액÷생산재 공업 순생산액)은 2015년 400÷600≒0.667에서 2025년 440÷670≒0.657로 낮아져 공업화가 진전되었다. ㄹ. 도식에서 수요를 예측하여 생산량을 계획하는 B 기업은 계획 생산이라 재고 발생 우려가 크며, 소비재 기업이므로 순생산액이 호프만 비율의 분자에 합산된다. 따라서 옳은 것은 ㄷ, ㄹ이다.\n[오답 피하기] ㄱ: 다품종 소량 생산에 적합한 A 기업의 LNG 운반선은 해운사가 쓰는 생산재이므로 생산재 공업 순생산액에 포함된다. ㄴ: 증가액(A 기업 70억 원)이 아니라 증가율로 보면 C 기업(60%)이 가장 높고, 의류를 만드는 C 기업은 경공업이다.",
+    "conceptHighlightV2": {
+      "stimulusClues": [
+        {
+          "quote": "해운사의 발주를 받아 LNG 운반선을 건조하며",
+          "why": "기업이 구매하는 선박을 주문받아 만드므로 A 기업은 생산재 제조업이다."
+        },
+        {
+          "quote": "온라인 몰에서 개인 소비자에게 판매함",
+          "why": "개인이 최종 소비하는 냉장고이므로 B 기업은 소비재 제조업이며 호프만 비율의 분자에 들어간다."
+        },
+        {
+          "quote": "노동 집약적인 봉제 라인에서 같은 디자인의 티셔츠",
+          "why": "노동 집약적인 의류 생산이므로 C 기업은 경공업이며 소비재 제조업이다."
+        },
+        {
+          "quote": "A 기업 470, B 기업 280, C 기업 160, D 기업 200",
+          "why": "2025년 값으로 소비재 440억 원, 생산재 670억 원을 구해 2025년 호프만 비율을 계산한다."
+        }
+      ],
+      "optionAnalysis": [
+        {
+          "optionKey": "ㄱ",
+          "verdict": "X",
+          "reasoning": "선박마다 설계가 달라 1척씩 따로 제작하는 A 기업이 다품종 소량 생산에 적합하다. A 기업의 LNG 운반선은 해운사가 운송에 쓰는 생산재이므로 생산재 공업 순생산액에 포함된다."
+        },
+        {
+          "optionKey": "ㄴ",
+          "verdict": "X",
+          "reasoning": "증가율은 A 기업 17.5%, B 기업 약 -6.7%, C 기업 60%, D 기업 0%로 C 기업이 가장 높다. C 기업은 노동 집약적 봉제 라인에서 의류를 만드는 경공업에 해당한다. 증가액이 가장 큰 A 기업(70억 원)으로 착각하면 안 된다."
+        },
+        {
+          "optionKey": "ㄷ",
+          "verdict": "O",
+          "reasoning": "소비재(B·C 기업)÷생산재(A·D 기업)는 2015년 400÷600≒0.667, 2025년 440÷670≒0.657로 낮아졌으므로 공업화가 진전되었다."
+        },
+        {
+          "optionKey": "ㄹ",
+          "verdict": "O",
+          "reasoning": "수요를 예측하여 생산량을 계획하는 B 기업은 계획 생산 방식이라 재고 발생 우려가 크다. B 기업의 냉장고는 개인 소비자가 최종 소비하는 소비재이므로 호프만 비율의 분자인 소비재 공업 순생산액에 합산된다."
+        }
+      ],
+      "solvingFlow": [
+        {
+          "step": 1,
+          "action": "제품의 용도로 A·D 기업은 생산재, B·C 기업은 소비재로 분류한다."
+        },
+        {
+          "step": 2,
+          "action": "호프만 비율을 계산한다: 2015년 400÷600≒0.667, 2025년 440÷670≒0.657 → 낮아졌으므로 공업화 진전"
+        },
+        {
+          "step": 3,
+          "action": "도식의 수요 예측·생산량 계획으로 B 기업이 계획 생산임을 확인하고 소비재 분자에 넣는다."
+        },
+        {
+          "step": 4,
+          "action": "1척씩 설계를 달리하는 A 기업(다품종 소량 적합)은 생산재, 증가율 최고인 C 기업(60%)은 경공업임을 확인한다."
+        }
+      ],
+      "takeaway": "호프만 비율은 소비재 공업 순생산액÷생산재 공업 순생산액이며 낮을수록 공업화가 진전된 것이고, 가전처럼 큰 설비로 만들어도 개인이 최종 소비하면 소비재이다."
+    }
+  },
+  "correctAnswer": 3,
+  "points": 3,
+  "fingerprint": "e1b192a3"
+}

@@ -1,0 +1,274 @@
+{
+  "mode": "apply",
+  "model": "gpt-4o-mini",
+  "target_count": 20,
+  "expected_target_count": 20,
+  "before": {
+    "definition": 20,
+    "key_points": 20,
+    "enriched_definition": 20,
+    "textbook_excerpt": 20
+  },
+  "after": {
+    "definition": 0,
+    "key_points": 0,
+    "enriched_definition": 0,
+    "textbook_excerpt": 0
+  },
+  "updated_cards": [
+    {
+      "id": "8bc48b35-3e3c-43f7-a08c-d7b8fcc47eaf",
+      "subject": "success",
+      "unit": 16,
+      "name": "현장실습생 보호(직업교육훈련촉진법)",
+      "written": [
+        "definition",
+        "key_points",
+        "enriched_definition",
+        "textbook_excerpt"
+      ]
+    },
+    {
+      "id": "3b809985-2cd9-46a1-9c65-d7016dd57b72",
+      "subject": "success",
+      "unit": 15,
+      "name": "연소 근로자(미성년자) 근로 보호",
+      "written": [
+        "definition",
+        "key_points",
+        "enriched_definition",
+        "textbook_excerpt"
+      ]
+    },
+    {
+      "id": "86c093f7-d9d0-49f2-8fd0-3c9c41f9976b",
+      "subject": "success",
+      "unit": 9,
+      "name": "직업기초능력과 직무수행능력의 구분",
+      "written": [
+        "definition",
+        "key_points",
+        "enriched_definition",
+        "textbook_excerpt"
+      ]
+    },
+    {
+      "id": "b77a24ae-d4e2-4c37-a11b-b11e6d148839",
+      "subject": "success",
+      "unit": 12,
+      "name": "진로 의사 결정 과정(문제 인식~실행)",
+      "written": [
+        "definition",
+        "key_points",
+        "enriched_definition",
+        "textbook_excerpt"
+      ]
+    },
+    {
+      "id": "901e1bc8-f7d7-4386-8704-1b363f848411",
+      "subject": "success",
+      "unit": 12,
+      "name": "취업 계획 수립 절차",
+      "written": [
+        "definition",
+        "key_points",
+        "enriched_definition",
+        "textbook_excerpt"
+      ]
+    },
+    {
+      "id": "4b29fcc3-c668-4efc-852f-093ceb930613",
+      "subject": "success",
+      "unit": 19,
+      "name": "노사협의회",
+      "written": [
+        "definition",
+        "key_points",
+        "enriched_definition",
+        "textbook_excerpt"
+      ]
+    },
+    {
+      "id": "fb180148-40ed-4ea9-9161-348e9b727c5b",
+      "subject": "success",
+      "unit": 14,
+      "name": "창업 자금(시설 자금/운전 자금, 자기",
+      "written": [
+        "definition",
+        "key_points",
+        "enriched_definition",
+        "textbook_excerpt"
+      ]
+    },
+    {
+      "id": "ba6f7718-b0c7-4499-9350-9a52fb7d465b",
+      "subject": "success",
+      "unit": 9,
+      "name": "공정 채용과 NCS 기반 능력 중심 채용",
+      "written": [
+        "definition",
+        "key_points",
+        "enriched_definition",
+        "textbook_excerpt"
+      ]
+    },
+    {
+      "id": "fba5583f-2ad6-488f-b254-89db0070a56c",
+      "subject": "success",
+      "unit": 12,
+      "name": "하렌(Harren)의 진로 의사 결정 유형",
+      "written": [
+        "definition",
+        "key_points",
+        "enriched_definition",
+        "textbook_excerpt"
+      ]
+    },
+    {
+      "id": "b1fbf502-ee22-456f-b569-74dca0007d1a",
+      "subject": "success",
+      "unit": 12,
+      "name": "취업의 의미(개인·기업·정부 측면)",
+      "written": [
+        "definition",
+        "key_points",
+        "enriched_definition",
+        "textbook_excerpt"
+      ]
+    },
+    {
+      "id": "57be88fd-de3b-47dc-98f0-c328844a0209",
+      "subject": "success",
+      "unit": 16,
+      "name": "모성 보호와 일·가정 양립(출산휴가,",
+      "written": [
+        "definition",
+        "key_points",
+        "enriched_definition",
+        "textbook_excerpt"
+      ]
+    },
+    {
+      "id": "12d65dcb-dde4-42dd-a356-81c6a117f2b5",
+      "subject": "success",
+      "unit": 9,
+      "name": "국가직무능력표준(NCS) 분류 체계",
+      "written": [
+        "definition",
+        "key_points",
+        "enriched_definition",
+        "textbook_excerpt"
+      ]
+    },
+    {
+      "id": "be3dd190-def2-45b6-9d54-154754b67858",
+      "subject": "success",
+      "unit": 9,
+      "name": "능력단위와 능력단위요소",
+      "written": [
+        "definition",
+        "key_points",
+        "enriched_definition",
+        "textbook_excerpt"
+      ]
+    },
+    {
+      "id": "f3950a54-395f-4767-812e-e2fc125eee1b",
+      "subject": "success",
+      "unit": 9,
+      "name": "NCS 학습모듈",
+      "written": [
+        "definition",
+        "key_points",
+        "enriched_definition",
+        "textbook_excerpt"
+      ]
+    },
+    {
+      "id": "2905f6fb-2472-4592-b0ae-64d300058bb8",
+      "subject": "success",
+      "unit": 9,
+      "name": "NCS 능력단위 분류번호 체계 해석",
+      "written": [
+        "definition",
+        "key_points",
+        "enriched_definition",
+        "textbook_excerpt"
+      ]
+    },
+    {
+      "id": "0ae76318-7c25-485f-9e1f-f7f443e8b549",
+      "subject": "success",
+      "unit": 13,
+      "name": "산업 분류(클라크, 호프만)",
+      "written": [
+        "definition",
+        "key_points",
+        "enriched_definition",
+        "textbook_excerpt"
+      ]
+    },
+    {
+      "id": "17c5e07b-5cf0-4929-9c1f-ce4b380942b2",
+      "subject": "success",
+      "unit": 12,
+      "name": "기업의 인재상과 채용 환경 변화",
+      "written": [
+        "definition",
+        "key_points",
+        "enriched_definition",
+        "textbook_excerpt"
+      ]
+    },
+    {
+      "id": "fd8c7141-f779-4f75-9c47-34cc5d931780",
+      "subject": "success",
+      "unit": 12,
+      "name": "해비거스트(Havighurst) 생애 발달",
+      "written": [
+        "definition",
+        "key_points",
+        "enriched_definition",
+        "textbook_excerpt"
+      ]
+    },
+    {
+      "id": "bd128b49-2cfd-4ffc-8400-a150fa034a83",
+      "subject": "success",
+      "unit": 11,
+      "name": "평생학습계좌제",
+      "written": [
+        "definition",
+        "key_points",
+        "enriched_definition",
+        "textbook_excerpt"
+      ]
+    },
+    {
+      "id": "0b6ddaa3-2e52-41ce-b634-3ad22dbb58c6",
+      "subject": "success",
+      "unit": 17,
+      "name": "소정급여일수 계산",
+      "written": [
+        "definition",
+        "key_points",
+        "enriched_definition",
+        "textbook_excerpt"
+      ]
+    }
+  ],
+  "skipped": [],
+  "errors": [],
+  "protected_question_unchanged": true,
+  "usage": {
+    "prompt_tokens": 225051,
+    "completion_tokens": 6573,
+    "total_tokens": 231624
+  },
+  "verification": {
+    "target_rows_read": 20,
+    "all_target_fields_present": true,
+    "protected_columns_touched": false
+  },
+  "cost_estimate_usd": 0.037701
+}

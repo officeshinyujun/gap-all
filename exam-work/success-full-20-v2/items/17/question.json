@@ -1,0 +1,162 @@
+{
+  "targetConcept": "휴업급여",
+  "itemType": "ai_generative_truth_combination",
+  "difficulty": "MIDDLE",
+  "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+  "questionStem": "다음 상담 장면에 나타난 A 씨의 산업 재해 보상에 대한 설명으로 적절한 것만을 <보기>에서 고른 것은?",
+  "stimulusData": {
+    "blocks": [
+      {
+        "type": "figure",
+        "figure_id": "F1"
+      },
+      {
+        "type": "dialogue",
+        "lines": [
+          {
+            "speaker": "직업 상담사",
+            "text": "어서 오세요. 오늘은 어떤 일로 고용센터를 찾아오셨나요?"
+          },
+          {
+            "speaker": "A 씨",
+            "text": "다친 다리가 다 나아서 다시 일자리를 구하려고 왔어요. 지난 9월에 △△건설과 일용직 근로 계약을 맺고 현장에서 자재를 옮기던 중 사다리에서 떨어져 다리뼈가 부러졌어요. 회사는 산재보험에 가입하지 않은 상태였다고 해요."
+          },
+          {
+            "speaker": "직업 상담사",
+            "text": "많이 힘드셨겠어요. 치료는 얼마나 받으셨고, 그동안 소득은 있으셨나요?"
+          },
+          {
+            "speaker": "A 씨",
+            "text": "2주 동안 입원한 뒤, 의사 소견에 따라 일을 쉬며 4주를 더 통원 치료받았어요. 그동안 임금은 받지 못하였고, 회사에서 제 1일 평균임금은 160,000원이라고 들었어요. 고용보험에서 아플 때 주는 급여를 받을 수 있나요?"
+          }
+        ]
+      }
+    ],
+    "figures": {
+      "F1": {
+        "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0ODAgMjI0IiBmb250LWZhbWlseT0iJiMzOTtOb3RvIFNhbnMgS1ImIzM5OywmIzM5O0FwcGxlIFNEIEdvdGhpYyBOZW8mIzM5OywmIzM5O01hbGd1biBHb3RoaWMmIzM5OywmIzM5O05hbnVtR290aGljJiMzOTssc2Fucy1zZXJpZiI+PGRlZnM+PGNsaXBQYXRoIGlkPSJGMS05Y2Y1YzItY2xpcCI+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjQ4MCIgaGVpZ2h0PSIyMjQiLz48L2NsaXBQYXRoPjwvZGVmcz48ZyBjbGlwLXBhdGg9InVybCgjRjEtOWNmNWMyLWNsaXApIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNDAgOCkiPjxwYXRoIGQ9Ik0tMzIgNjRDLTM2IDEwMCAtMzggMTIwIC0yNiAxMzBMMjYgMTMwQzM4IDEyMCAzNiAxMDAgMzIgNjRaIiBmaWxsPSIjM2EzYTNhIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHJlY3QgeD0iLTkuNSIgeT0iOTYiIHdpZHRoPSIxOSIgaGVpZ2h0PSIyNiIgZmlsbD0iI2ZiZmJmYiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIvPjxwYXRoIGQ9Ik0tMTMgMTEzQy0yOCAxMTYgLTQ5IDExOCAtNTQgMTQwQy01NyAxNzAgLTU3IDE5NCAtNTUgMjM0TDQyIDIzNEM0MCAxOTQgMzkgMTcwIDM4IDE0MEM0OSAxMTggMjggMTE2IDEzIDExM1oiIGZpbGw9IiNiOGI4YjgiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNLTE3IDExMkwwIDE0OUwxNyAxMTJaIiBmaWxsPSIjZmZmIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS40IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTS0xNyAxMTRMLTMgMTUxTC0zIDIyOCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuMyIvPjxwYXRoIGQ9Ik0xNyAxMTRMMyAxNTEiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjMiLz48Y2lyY2xlIGN4PSIwIiBjeT0iMTY1IiByPSIyIiBmaWxsPSIjNTU1Ii8+PGNpcmNsZSBjeD0iMCIgY3k9IjE4NSIgcj0iMiIgZmlsbD0iIzU1NSIvPjxjaXJjbGUgY3g9IjAiIGN5PSIyMDUiIHI9IjIiIGZpbGw9IiM1NTUiLz48ZWxsaXBzZSBjeD0iMCIgY3k9IjcwIiByeD0iMjgiIHJ5PSIzNCIgZmlsbD0iI2ZiZmJmYiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIvPjxwYXRoIGQ9Ik0tMjcgNjhDLTM2IDY1IC0zNiA4MiAtMjcgODAiIGZpbGw9IiNmYmZiZmIiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciLz48ZWxsaXBzZSBjeD0iLTQiIGN5PSI3MiIgcng9IjIuMyIgcnk9IjIuOSIgZmlsbD0iIzI2MjYyNiIvPjxlbGxpcHNlIGN4PSIxMyIgY3k9IjcyIiByeD0iMi4zIiByeT0iMi45IiBmaWxsPSIjMjYyNjI2Ii8+PHBhdGggZD0iTS05IDY0US00IDYxIDEgNjMuNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTggNjMuNVExMyA2MSAxOCA2NCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTE1LjIgNjkuNmwyLjYgLTEuNiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTYgNzdROS41IDg0IDUgODUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik0tMiA5MVE0LjUgOTYuNSAxMSA5MSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTS0zMiA4OEMtMzYgNTIgLTI2IDMwIDIgMzBDMjYgMzAgMzYgNTIgMzIgODhMMjYgODZDMjggNjggMjYgNTggMjAgNTRDMTAgNjAgLTYgNTYgLTEyIDQ4Qy0xNiA1NiAtMjQgNjIgLTI2IDg2WiIgZmlsbD0iIzNhM2EzYSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0tMzQgMTU4Qy0zNiAxODAgLTM2IDIwNCAtMzUgMjM0IiBmaWxsPSJub25lIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS40IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cmVjdCB4PSItNCIgeT0iMTQ4IiB3aWR0aD0iNDQiIGhlaWdodD0iNTQiIHJ4PSIyIiBmaWxsPSIjZjJmMmYyIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS41IiB0cmFuc2Zvcm09InJvdGF0ZSgtOCAxOCAxNzUpIi8+PHJlY3QgeD0iMTAiIHk9IjE0NSIgd2lkdGg9IjE2IiBoZWlnaHQ9IjciIHJ4PSIxLjUiIGZpbGw9IiM4ODgiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjEiIHRyYW5zZm9ybT0icm90YXRlKC04IDE4IDE3NSkiLz48cGF0aCBkPSJNNCAxNjRoMjhNNCAxNzRoMjhNNCAxODRoMTgiIHN0cm9rZT0iIzlhOWE5YSIgc3Ryb2tlLXdpZHRoPSIxLjMiIHRyYW5zZm9ybT0icm90YXRlKC04IDE4IDE3NSkiLz48cGF0aCBkPSJNNDIgMTM0TDUyIDE4NkwyNiAxOTgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIyMi40IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNNDIgMTM0TDUyIDE4NkwyNiAxOTgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2I4YjhiOCIgc3Ryb2tlLXdpZHRoPSIxOSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PGVsbGlwc2UgY3g9IjI2IiBjeT0iMTk4IiByeD0iNy41IiByeT0iNi45IiBmaWxsPSIjZmJmYmZiIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43Ii8+PC9nPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDM0MCA4KSBzY2FsZSgtMSAxKSI+PHJlY3QgeD0iLTkuNSIgeT0iOTYiIHdpZHRoPSIxOSIgaGVpZ2h0PSIyNiIgZmlsbD0iI2ZiZmJmYiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIvPjxwYXRoIGQ9Ik0tMTMgMTEzQy0yOCAxMTYgLTU2IDExOCAtNjEgMTQwQy02NCAxNzAgLTY0IDE5NCAtNjIgMjM0TDQ5IDIzNEM0NyAxOTQgNDYgMTcwIDQ1IDE0MEM1NiAxMTggMjggMTE2IDEzIDExM1oiIGZpbGw9IiNhZGFkYWQiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNLTE2IDExM0MtMTAgMTI3IDEwIDEyNyAxNiAxMTMiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjQiLz48cGF0aCBkPSJNLTEzIDExNEMtOCAxMjIgOCAxMjIgMTMgMTE0IiBmaWxsPSJub25lIiBzdHJva2U9IiM3NzciIHN0cm9rZS13aWR0aD0iMS4xIi8+PGVsbGlwc2UgY3g9IjAiIGN5PSI3MCIgcng9IjI4IiByeT0iMzQiIGZpbGw9IiNmYmZiZmIiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciLz48cGF0aCBkPSJNLTI3IDY4Qy0zNiA2NSAtMzYgODIgLTI3IDgwIiBmaWxsPSIjZmJmYmZiIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43Ii8+PGVsbGlwc2UgY3g9Ii00IiBjeT0iNzIiIHJ4PSIyLjMiIHJ5PSIyLjkiIGZpbGw9IiMyNjI2MjYiLz48ZWxsaXBzZSBjeD0iMTMiIGN5PSI3MiIgcng9IjIuMyIgcnk9IjIuOSIgZmlsbD0iIzI2MjYyNiIvPjxwYXRoIGQ9Ik0tOSA2NFEtNCA2MSAxIDYzLjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik04IDYzLjVRMTMgNjEgMTggNjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik02IDc3UTkuNSA4NCA1IDg1IiBmaWxsPSJub25lIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS40IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cGF0aCBkPSJNLTIgOTFRNC41IDk2LjUgMTEgOTEiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik0tMjkgNzRDLTMzIDQ4IC0yNiAzMiAtMiAzMUMyNCAzMCAzMiA1MiAyOSA2OEMyNCA1NyAxNCA1MiAyIDQ5Qy04IDU0IC0yMiA1NiAtMjMgNjhaIiBmaWxsPSIjM2EzYTNhIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTS00MSAxNThDLTQzIDE4MCAtNDMgMjA0IC00MiAyMzQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik00OSAxMzRMNTkgMTg0TDc4IDE2NiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjIyLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik00OSAxMzRMNTkgMTg0TDc4IDE2NiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYWRhZGFkIiBzdHJva2Utd2lkdGg9IjE5IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNNzIgMTcyQzcwIDE2MyA3NyAxNTcgODYgMTU3QzkyIDE1NyA5MyAxNjEgODkgMTYyTDgzIDE2M0M4OCAxNjYgODcgMTcyIDgwIDE3NFoiIGZpbGw9IiNmYmZiZmIiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L2c+PC9nPjwvc3ZnPg==",
+        "alt": "장식용. 직업 상담사(상담사)와 A 씨(시민)이 마주 보고 이야기하는 인물 그림. 대화 내용은 이어지는 대화 블록에 있음.",
+        "kind": "illustration",
+        "spec": {
+          "id": "F1",
+          "kind": "scene",
+          "layout": "pair",
+          "people": [
+            {
+              "speaker": "직업 상담사",
+              "role": "counselor",
+              "gender": "female",
+              "age": "adult"
+            },
+            {
+              "speaker": "A 씨",
+              "role": "citizen",
+              "gender": "male",
+              "age": "adult"
+            }
+          ]
+        }
+      }
+    },
+    "choice_table": null
+  },
+  "optionsList": [
+    "① ㄱ, ㄴ",
+    "② ㄱ, ㄷ",
+    "③ ㄴ, ㄷ",
+    "④ ㄴ, ㄹ",
+    "⑤ ㄷ, ㄹ"
+  ],
+  "comboBlock": {
+    "title": "<보기>",
+    "items": [
+      {
+        "key": "ㄱ",
+        "text": "A 씨는 고용보험 상병급여가 아닌 산재보험으로 소득을 보전받을 수 있다."
+      },
+      {
+        "key": "ㄴ",
+        "text": "A 씨가 받을 수 있는 휴업급여는 1일 128,000원이다."
+      },
+      {
+        "key": "ㄷ",
+        "text": "A 씨가 받을 수 있는 휴업급여의 총액은 4,704,000원이다."
+      },
+      {
+        "key": "ㄹ",
+        "text": "회사가 산재보험에 미가입하였으므로 A 씨는 사업주에게 휴업급여를 청구한다."
+      }
+    ]
+  },
+  "explanation": {
+    "judgment": "[출제 의도] 업무상 재해를 입은 근로자의 사례에서 휴업급여의 지급 대상 기간과 금액, 청구 기관을 이해하고 적용할 수 있는가?\n[해설] A 씨는 △△건설과 근로 계약을 맺고 현장에서 일하던 중 사다리에서 떨어져 다쳤으므로 업무상 재해를 입었다. 입원 2주와 의사 소견에 따른 통원 치료 4주 동안 일하지 못하여 임금을 받지 못하였으므로 휴업급여를 받을 수 있다. ㄱ. 고용보험 상병급여는 실업 상태의 구직자가 아플 때 받는 급여이므로, 재직 중 업무상 재해를 입은 A 씨는 산재보험 급여로 소득을 보전받으므로 옳다. ㄴ. 휴업급여는 1일 평균임금의 100분의 70이므로 A 씨의 일액은 160,000원 × 0.7 = 112,000원이다. 1일 128,000원이라는 설명은 옳지 않다. ㄷ. 취업하지 못한 기간은 입원 14일과 통원 치료 28일을 합한 42일이고, 요양 기간이 3일을 초과하므로 전체 기간이 대상이다. 112,000원 × 42일 = 4,704,000원이므로 옳다. ㄹ. 산재보험은 근로자를 1명 이상 사용하는 모든 사업장에 적용되므로 △△건설이 산재보험에 가입하지 않았더라도 A 씨는 보상을 받을 수 있으며, 휴업급여는 근로자가 근로복지공단에 청구한다. 사업주에게 청구한다는 설명은 옳지 않다. 따라서 적절한 것은 ㄱ, ㄷ이다.\n[오답 피하기] ㄴ: A 씨의 1일 평균임금 160,000원에 100분의 70이 아닌 100분의 80을 적용한 값이다. 휴업급여 일액은 112,000원이다. ㄹ: 사업주가 산재보험에 가입하지 않았더라도 근로자는 산재보험으로 보상받을 수 있으며, 휴업급여의 청구 기관은 사업주가 아니라 근로복지공단이다.",
+    "conceptHighlightV2": {
+      "stimulusClues": [
+        {
+          "quote": "현장에서 자재를 옮기던 중 사다리에서 떨어져 다리뼈가 부러졌어요",
+          "why": "근로 계약을 맺고 일하던 중 다친 것이므로 산재보험이 적용되는 업무상 재해이다."
+        },
+        {
+          "quote": "의사 소견에 따라 일을 쉬며 4주를 더 통원 치료받았어요",
+          "why": "의사 소견에 따라 취업하지 않고 통원 치료한 기간도 휴업급여 대상 기간에 포함된다."
+        },
+        {
+          "quote": "회사는 산재보험에 가입하지 않은 상태였다고 해요",
+          "why": "산재보험은 가입 여부와 관계없이 보상되며, 이때에도 근로자는 근로복지공단에 급여를 청구한다."
+        },
+        {
+          "quote": "회사에서 제 1일 평균임금은 160,000원이라고 들었어요",
+          "why": "휴업급여 일액은 1일 평균임금의 100분의 70이므로 112,000원을 계산하는 근거가 된다."
+        }
+      ],
+      "optionAnalysis": [
+        {
+          "optionKey": "ㄱ",
+          "verdict": "O",
+          "reasoning": "A 씨는 근로 계약을 맺고 일하던 중 사다리에서 떨어져 다쳤으므로 업무상 재해에 해당하여 산재보험 급여 대상이다. 고용보험 상병급여는 실업 상태에서 구직 활동 중인 사람이 질병·부상으로 구직 활동을 하지 못할 때 받는 급여이므로 A 씨에게 해당하지 않는다."
+        },
+        {
+          "optionKey": "ㄴ",
+          "verdict": "X",
+          "reasoning": "휴업급여는 1일당 평균임금의 100분의 70에 상당하는 금액이므로 A 씨의 1일 평균임금 160,000원을 적용하면 160,000원 × 0.7 = 112,000원이다. 128,000원은 100분의 80으로 잘못 계산한 값이다."
+        },
+        {
+          "optionKey": "ㄷ",
+          "verdict": "O",
+          "reasoning": "입원 2주와 의사 소견에 따라 일을 쉬며 통원 치료한 4주를 합한 42일이 취업하지 못한 기간이다. 요양 기간이 3일을 초과하므로 42일 전체가 대상이 되어 112,000원 × 42일 = 4,704,000원이다."
+        },
+        {
+          "optionKey": "ㄹ",
+          "verdict": "X",
+          "reasoning": "산재보험은 근로자를 1명 이상 사용하는 사업장에 적용되므로 △△건설이 가입하지 않았더라도 A 씨는 보상을 받을 수 있다. 이때에도 A 씨는 근로복지공단에 휴업급여를 청구하며, 사업주에게 청구하는 것이 아니다."
+        }
+      ],
+      "solvingFlow": [
+        {
+          "step": 1,
+          "action": "업무 중 사다리에서 떨어진 사고이므로 업무상 재해로 보고 산재보험 급여 대상임을 확인한다."
+        },
+        {
+          "step": 2,
+          "action": "입원 2주(14일)와 의사 소견에 따른 통원 치료 4주(28일)를 합해 취업하지 못한 기간 42일을 구하고, 3일을 초과함을 확인한다."
+        },
+        {
+          "step": 3,
+          "action": "휴업급여 일액을 계산한다: 160,000원 × 0.7 = 112,000원"
+        },
+        {
+          "step": 4,
+          "action": "휴업급여 총액을 계산한다: 112,000원 × 42일 = 4,704,000원"
+        },
+        {
+          "step": 5,
+          "action": "사업주가 산재보험에 가입하지 않았더라도 근로자가 근로복지공단에 청구한다는 점과 고용보험 상병급여와의 차이를 적용하여 ㄱ, ㄷ을 고른다."
+        }
+      ],
+      "takeaway": "휴업급여는 의사 소견에 따른 통원 치료 기간을 포함해 취업하지 못한 기간에 1일 평균임금의 100분의 70을 지급하며, 근로자가 근로복지공단에 청구한다."
+    }
+  },
+  "correctAnswer": 2,
+  "points": 3,
+  "fingerprint": "bb3a97a7"
+}

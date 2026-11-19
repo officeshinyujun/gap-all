@@ -1,0 +1,618 @@
+{
+  "title": "성공적인 직업생활 1~10단원 (AI 출제 초고난도)",
+  "subject": "success",
+  "difficulty": "ULTRA",
+  "unitRange": [
+    1,
+    10
+  ],
+  "requestedCount": 10,
+  "engine": "exam-skill-engine-v5",
+  "exportedAt": "2026-11-08T11:31:59.402Z",
+  "questions": [
+    {
+      "orderIndex": 1,
+      "subject": "success",
+      "unitNumber": 2,
+      "unitTitle": "생애 발달과 직업적 성공",
+      "targetConcept": "에릭슨의 심리사회적 발달 단계",
+      "itemType": "ai_generative_truth_combination",
+      "difficulty": "HIGH",
+      "points": 3,
+      "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+      "questionStem": "다음은 ○○기업 인사 담당자 A 씨가 작성한 교육 대상자 검토 자료이다. 이에 대한 분석으로 적절한 것만을 <보기>에서 고른 것은? (단, 심리사회적 위기는 에릭슨(Erikson, E. H.) 이론에 근거한다.)",
+      "stimulusData": {
+        "blocks": [
+          {
+            "type": "text",
+            "text": "○○기업 하반기 사내 교육 대상자 검토 메모\n■ 작성 개요\n• 인사 담당자 A 씨가 연령과 재직 기간을 기준으로 4개 교육 과정의 대상자를 배정함\n• 각 과정은 11월 중 2주간 본사 교육장에서 운영할 예정임\n■ 대상자 정보\n• B 씨: 14세에 전기 기능사 공부를 시작하여 3년 만인 올해 자격을 취득하고 현장 실습생으로 합류함\n• C 씨: 19세에 생산직으로 입사하여 9년이 지났음\n• D 씨: 2년 전 경력직으로 입사함\n• E 씨: 올해 근속 30년 표창 대상자로 선정됨\n• F 씨: △△사에서 퇴직한 뒤 68세에 기술 고문으로 입사하여 2년이 지났음\n■ 참고 사항\n• D 씨는 26세에 얻은 첫 자녀가 올해 20세가 되어 대학에 입학함\n• E 씨는 26세에 ○○기업에 입사한 이후 다른 회사로 옮긴 적이 없음"
+          },
+          {
+            "type": "figure",
+            "figure_id": "F1"
+          }
+        ],
+        "figures": {
+          "F1": {
+            "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0ODAgMzcyIiBmb250LWZhbWlseT0iJiMzOTtOb3RvIFNhbnMgS1ImIzM5OywmIzM5O0FwcGxlIFNEIEdvdGhpYyBOZW8mIzM5OywmIzM5O01hbGd1biBHb3RoaWMmIzM5OywmIzM5O05hbnVtR290aGljJiMzOTssc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNSI+PHRleHQgeD0iMjQwIiB5PSIyMiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjcwMCI+6rWQ7JyhIOqzvOyglSDrsLDsoJUg6rKw6rO8PC90ZXh0PjxyZWN0IHg9IjEzNSIgeT0iNjYiIHdpZHRoPSIyNTAiIGhlaWdodD0iMjUwIiBmaWxsPSIjZmZmIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4yIi8+PGxpbmUgeDE9IjI2MCIgeTE9IjY2IiB4Mj0iMjYwIiB5Mj0iMzE2IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMSIgc3Ryb2tlLWRhc2hhcnJheT0iNSA0Ii8+PGxpbmUgeDE9IjEzNSIgeTE9IjE5MSIgeDI9IjM4NSIgeTI9IjE5MSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1kYXNoYXJyYXk9IjUgNCIvPjx0ZXh0IHg9IjE5Ny41IiB5PSI5OS4xOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMyIgZmlsbD0iIzMzMyI+KOqwgCkg6rO87KCVPC90ZXh0Pjx0ZXh0IHg9IjMyMi41IiB5PSI5OS4xOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMyIgZmlsbD0iIzMzMyI+KOuCmCkg6rO87KCVPC90ZXh0Pjx0ZXh0IHg9IjE5Ny41IiB5PSIyMjQuMTgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9IiMzMzMiPijri6QpIOqzvOyglTwvdGV4dD48dGV4dCB4PSIzMjIuNSIgeT0iMjI0LjE4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjEzIiBmaWxsPSIjMzMzIj4o6528KSDqs7zsoJU8L3RleHQ+PGNpcmNsZSBjeD0iMTYwIiBjeT0iMjc4LjUiIHI9IjQuNSIgZmlsbD0iIzAwMCIvPjx0ZXh0IHg9IjE2OCIgeT0iMjcyLjUiIGZvbnQtc2l6ZT0iMTMiPkIg7JSoPC90ZXh0PjxjaXJjbGUgY3g9IjMxMCIgY3k9IjI1My41IiByPSI0LjUiIGZpbGw9IiMwMDAiLz48dGV4dCB4PSIzMTgiIHk9IjI0Ny41IiBmb250LXNpemU9IjEzIj5DIOyUqDwvdGV4dD48Y2lyY2xlIGN4PSIxOTcuNSIgY3k9IjIxNiIgcj0iNC41IiBmaWxsPSIjMDAwIi8+PHRleHQgeD0iMjA1LjUiIHk9IjIxMCIgZm9udC1zaXplPSIxMyI+RCDslKg8L3RleHQ+PGNpcmNsZSBjeD0iMzYwIiBjeT0iMTUzLjUiIHI9IjQuNSIgZmlsbD0iIzAwMCIvPjx0ZXh0IHg9IjM2OCIgeT0iMTQ3LjUiIGZvbnQtc2l6ZT0iMTMiPkUg7JSoPC90ZXh0PjxjaXJjbGUgY3g9IjE5Ny41IiBjeT0iMTAzLjUiIHI9IjQuNSIgZmlsbD0iIzAwMCIvPjx0ZXh0IHg9IjIwNS41IiB5PSI5Ny41IiBmb250LXNpemU9IjEzIj5GIOyUqDwvdGV4dD48bGluZSB4MT0iMTM1IiB5MT0iMzI4IiB4Mj0iMzc4LjYiIHkyPSIzMjgiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjMiLz48cG9seWdvbiBwb2ludHM9IjM4NSwzMjggMzc3LDMyNC42NCAzNzcsMzMxLjM2IiBmaWxsPSIjMDAwIi8+PHRleHQgeD0iMTM1IiB5PSIzNDYiIGZvbnQtc2l6ZT0iMTMiPjXrhYQg66+466eMPC90ZXh0Pjx0ZXh0IHg9IjM4NSIgeT0iMzQ2IiB0ZXh0LWFuY2hvcj0iZW5kIiBmb250LXNpemU9IjEzIj4164WEIOydtOyDgTwvdGV4dD48dGV4dCB4PSIyNjAiIHk9IjM2NCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxNSI+7J6s7KeBIOq4sOqwhDwvdGV4dD48bGluZSB4MT0iMTIzIiB5MT0iMzE2IiB4Mj0iMTIzIiB5Mj0iNzIuNCIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEuMyIvPjxwb2x5Z29uIHBvaW50cz0iMTIzLDY2IDExOS42NCw3NCAxMjYuMzYsNzQiIGZpbGw9IiMwMDAiLz48dGV4dCB4PSIxMTciIHk9IjMxNiIgdGV4dC1hbmNob3I9ImVuZCIgZm9udC1zaXplPSIxMyI+NTDshLgg66+466eMPC90ZXh0Pjx0ZXh0IHg9IjExNyIgeT0iNzgiIHRleHQtYW5jaG9yPSJlbmQiIGZvbnQtc2l6ZT0iMTMiPjUw7IS4IOydtOyDgTwvdGV4dD48dGV4dCB4PSI5OSIgeT0iMTkxIiB0ZXh0LWFuY2hvcj0iZW5kIiBmb250LXNpemU9IjE1Ij7sl7DroLk8L3RleHQ+PC9zdmc+",
+            "alt": "2×2 매트릭스(포지셔닝 맵). 제목 ‘교육 과정 배정 결과’. 가로축 ‘재직 기간’(왼쪽 5년 미만 → 오른쪽 5년 이상), 세로축 ‘연령’(아래 50세 미만 → 위 50세 이상). 사분면: 왼쪽 위 ‘(가) 과정’, 오른쪽 위 ‘(나) 과정’, 왼쪽 아래 ‘(다) 과정’, 오른쪽 아래 ‘(라) 과정’. 점(0～10 척도) [엔진 계산: 속한 사분면]: B 씨(1, 1.5) → 왼쪽 아래 ‘(다) 과정’, C 씨(7, 2.5) → 오른쪽 아래 ‘(라) 과정’, D 씨(2.5, 4) → 왼쪽 아래 ‘(다) 과정’, E 씨(9, 6.5) → 오른쪽 위 ‘(나) 과정’, F 씨(2.5, 8.5) → 왼쪽 위 ‘(가) 과정’.",
+            "kind": "diagram",
+            "spec": {
+              "id": "F1",
+              "kind": "diagram",
+              "title": "교육 과정 배정 결과",
+              "diagramType": "matrix",
+              "xAxis": {
+                "label": "재직 기간",
+                "low": "5년 미만",
+                "high": "5년 이상"
+              },
+              "yAxis": {
+                "label": "연령",
+                "low": "50세 미만",
+                "high": "50세 이상"
+              },
+              "quadrants": [
+                "(가) 과정",
+                "(나) 과정",
+                "(다) 과정",
+                "(라) 과정"
+              ],
+              "points": [
+                {
+                  "label": "B 씨",
+                  "x": 1,
+                  "y": 1.5
+                },
+                {
+                  "label": "C 씨",
+                  "x": 7,
+                  "y": 2.5
+                },
+                {
+                  "label": "D 씨",
+                  "x": 2.5,
+                  "y": 4
+                },
+                {
+                  "label": "E 씨",
+                  "x": 9,
+                  "y": 6.5
+                },
+                {
+                  "label": "F 씨",
+                  "x": 2.5,
+                  "y": 8.5
+                }
+              ]
+            }
+          }
+        },
+        "choice_table": null
+      },
+      "optionsList": [
+        "① ㄱ, ㄴ, ㄷ",
+        "② ㄱ, ㄴ, ㄹ",
+        "③ ㄱ, ㄷ, ㄹ",
+        "④ ㄴ, ㄷ, ㄹ",
+        "⑤ ㄱ, ㄴ, ㄷ, ㄹ"
+      ],
+      "comboBlock": {
+        "title": "<보기>",
+        "items": [
+          {
+            "key": "ㄱ",
+            "text": "(다) 과정 대상자 중에는 ‘생산성 대 침체감’의 위기를 겪는 사원이 있다."
+          },
+          {
+            "key": "ㄴ",
+            "text": "(가) 과정 대상자와 (나) 과정 대상자가 겪는 심리사회적 위기는 서로 다르다."
+          },
+          {
+            "key": "ㄷ",
+            "text": "(다) 과정 대상자 중 한 명이 다음 단계에서 겪을 위기를 (라) 과정 대상자가 겪고 있다."
+          },
+          {
+            "key": "ㄹ",
+            "text": "(나) 과정 대상자가 입사할 당시 겪던 위기는 ‘친밀감 대 고립감’이었다."
+          }
+        ]
+      },
+      "correctAnswer": 5,
+      "explanation": {
+        "judgment": "[출제 의도] 인물의 사건·기간 단서로 나이를 계산하여 에릭슨의 심리사회적 발달 단계별 위기를 판단하고, 인접 단계와 시점을 구별할 수 있는가?\n[해설] 매트릭스에서 (가) 과정은 F 씨, (나) 과정은 E 씨, (다) 과정은 B 씨와 D 씨, (라) 과정은 C 씨이다. 메모로 나이를 구하면 B 씨 17세, C 씨 28세, D 씨 46세, E 씨 56세(입사 당시 26세), F 씨 70세이다. ㄱ. D 씨는 46세이므로 ‘생산성 대 침체감’을 겪어 옳다. ㄴ. F 씨는 ‘자아 통합감 대 절망감’, E 씨는 ‘생산성 대 침체감’이므로 서로 달라 옳다. ㄷ. B 씨(17세)의 다음 단계 위기는 ‘친밀감 대 고립감’이고 C 씨(28세)가 그 위기를 겪고 있어 옳다. ㄹ. E 씨는 26세에 입사하였으므로 입사 당시 ‘친밀감 대 고립감’을 겪어 옳다. 따라서 ㄱ, ㄴ, ㄷ, ㄹ 모두 적절하다.\n[오답 피하기] ㄱ을 빼는 경우: D 씨를 재직 2년의 신규 사원으로 보고 성인 초기라고 판단한 실수이다. 나이는 26세에 얻은 자녀가 20세라는 단서로 46세가 된다. ㄴ을 빼는 경우: 50세 이상이면 같은 단계라고 본 실수이다. 70세는 ‘자아 통합감 대 절망감’, 56세는 ‘생산성 대 침체감’으로 인접한 다른 단계이다. ㄷ을 빼는 경우: C 씨의 입사 나이 19세만 보고 B 씨와 같은 단계로 본 실수이다. C 씨는 현재 28세로 B 씨의 다음 단계에 있다. ㄹ을 빼는 경우: E 씨의 현재 나이 56세를 기준으로 판단한 실수이다. 입사 당시 26세에는 ‘친밀감 대 고립감’을 겪었다.",
+        "conceptHighlightV2": {
+          "stimulusClues": [
+            {
+              "quote": "26세에 얻은 첫 자녀가 올해 20세가 되어 대학에 입학함",
+              "why": "D 씨는 46세로 40~65세의 ‘생산성 대 침체감’ 단계에 있다."
+            },
+            {
+              "quote": "3년 만인 올해 자격을 취득하고 현장 실습생으로 합류함",
+              "why": "14세에 시작하여 3년이 지났으므로 B 씨는 17세로 ‘자아 정체감 대 역할 혼미’ 단계이다."
+            },
+            {
+              "quote": "68세에 기술 고문으로 입사하여 2년이 지났음",
+              "why": "F 씨는 70세로 65세 이후의 ‘자아 통합감 대 절망감’ 단계이다."
+            },
+            {
+              "quote": "26세에 ○○기업에 입사한 이후 다른 회사로 옮긴 적이 없음",
+              "why": "근속 30년과 합치면 E 씨는 현재 56세, 입사 당시는 26세로 ‘친밀감 대 고립감’ 단계였다."
+            }
+          ],
+          "optionAnalysis": [
+            {
+              "optionKey": "ㄱ",
+              "verdict": "O",
+              "reasoning": "(다) 과정에는 B 씨와 D 씨가 있다. D 씨는 26세에 얻은 자녀가 20세이므로 46세이고, 40~65세의 위기인 ‘생산성 대 침체감’을 겪는다. 재직 2년만 보고 성인 초기로 판단하면 틀리게 된다."
+            },
+            {
+              "optionKey": "ㄴ",
+              "verdict": "O",
+              "reasoning": "(가) 과정의 F 씨는 68세+2년=70세로 ‘자아 통합감 대 절망감’, (나) 과정의 E 씨는 26세+30년=56세로 ‘생산성 대 침체감’을 겪으므로 둘 다 50세 이상이지만 위기가 다르다."
+            },
+            {
+              "optionKey": "ㄷ",
+              "verdict": "O",
+              "reasoning": "(다) 과정의 B 씨는 14세+3년=17세로 ‘자아 정체감 대 역할 혼미’ 단계이며 다음 단계의 위기는 ‘친밀감 대 고립감’이다. (라) 과정의 C 씨는 19세+9년=28세로 바로 그 위기를 겪고 있다."
+            },
+            {
+              "optionKey": "ㄹ",
+              "verdict": "O",
+              "reasoning": "(나) 과정의 E 씨는 26세에 입사하였으므로 입사 당시에는 20~40세의 위기인 ‘친밀감 대 고립감’을 겪었다. 현재 나이 56세로 판단하면 ‘생산성 대 침체감’으로 잘못 고르게 된다."
+            }
+          ],
+          "solvingFlow": [
+            {
+              "step": 1,
+              "action": "매트릭스에서 (가)~(라) 과정별 대상자를 확인한다: (가) F 씨, (나) E 씨, (다) B 씨·D 씨, (라) C 씨"
+            },
+            {
+              "step": 2,
+              "action": "메모의 단서로 나이를 계산한다: B 14+3=17, C 19+9=28, D 26+20=46, E 26+30=56, F 68+2=70"
+            },
+            {
+              "step": 3,
+              "action": "에릭슨 단계에 대응한다: 12~20세 정체감, 20~40세 친밀감, 40~65세 생산성, 65세 이후 자아 통합"
+            },
+            {
+              "step": 4,
+              "action": "각 <보기>가 묻는 시점(현재인지 입사 당시인지)과 단계 순서를 확인하여 판정한다"
+            }
+          ],
+          "takeaway": "과정 구분 기준(50세·5년)이 에릭슨 단계 경계와 다르므로, 소속이 아니라 계산한 나이와 묻는 시점으로 위기를 판단해야 한다."
+        }
+      },
+      "fingerprint": "69324ea6",
+      "generation": {
+        "engine": "exam-skill-engine-v5",
+        "specId": "gen_46f29a36",
+        "profileVersion": "exam-style-profile-v2"
+      }
+    },
+    {
+      "orderIndex": 2,
+      "subject": "success",
+      "unitNumber": 3,
+      "unitTitle": "생애 발달과 직업적 성공 (2) — 직업적 성공과 개인 특성",
+      "targetConcept": "진로 결정의 요인(개인적 요인·사회적 요인)",
+      "itemType": "ai_generative_truth_combination",
+      "difficulty": "HIGH",
+      "points": 3,
+      "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+      "questionStem": "다음 진로 탐색 활동 결과지에 나타난 검사자 A의 진로 결정 과정에 대한 설명으로 적절한 것만을 <보기>에서 고른 것은? (단, 진로 결정의 요인은 개인적 요인과 사회적 요인으로만 구분한다.)",
+      "stimulusData": {
+        "blocks": [
+          {
+            "type": "text",
+            "text": "진로 탐색 활동 결과지\n■ 검사자 정보\n• 검사자 A, 17세, △△고등학교 2학년 재학 중임\n• 조하리의 창 검사에서 나도 알고 남도 아는 영역이 가장 넓게 그려짐\n■ 진로 고민 기록\n• 7월: 손목 통증이 잦아 병원에서 장시간 반복 작업을 줄이라는 소견을 받음\n• 9월: 세 학기 연속 상위 10%인 제과 실습 실력을 살리되 반복 작업이 적은 일로, 희망을 생산직에서 디저트 창업으로 바꿈\n• 10월: 부모님의 분식점이 문을 닫아 형편이 어려워졌으나, 부모님께 알리지 않고 창업 자금 마련을 혼자 걱정함\n• 11월: 선배 2명이 창업 지원 과정을 거쳐 가게를 연 이야기를 담임 교사에게 들었고, 1인 가구 증가로 소포장 디저트 수요가 는다는 보도를 모음"
+          },
+          {
+            "type": "text",
+            "text": "■ 12월 진로 상담 메모\n• 40여 년간 국산 팥만 써 지역 대표 기업이 된 ○○떡집 기사를 함께 읽음\n• 10월부터 이어진 고민과, 11월에 들은 선배들처럼 교육 과정을 먼저 거치겠다는 생각으로 창업 시기를 졸업 3년 뒤로 미룸\n• 주력 제품은 11월에 모은 자료의 수요 흐름에 맞추되, 많이 파는 것보다 동네 손님이 오래 찾는 가게를 더 중요하게 여겨 한정 수량만 만들기로 함"
+          }
+        ],
+        "figures": {},
+        "choice_table": null
+      },
+      "optionsList": [
+        "① ㄷ",
+        "② ㄹ",
+        "③ ㄷ, ㄹ",
+        "④ ㄱ, ㄷ, ㄹ",
+        "⑤ ㄴ, ㄷ, ㄹ"
+      ],
+      "comboBlock": {
+        "title": "<보기>",
+        "items": [
+          {
+            "key": "ㄱ",
+            "text": "A가 12월에 주력 제품과 생산량을 정할 때 고려한 요인은 모두 사회적 요인에 해당한다."
+          },
+          {
+            "key": "ㄴ",
+            "text": "A가 창업 시기를 미룬 이유에는 가정 환경 가운데 부모의 기대가 작용한 것이 포함된다."
+          },
+          {
+            "key": "ㄷ",
+            "text": "A가 9월에 진로 희망을 바꾸면서 고려한 요인은 모두 개인적 요인에 해당한다."
+          },
+          {
+            "key": "ㄹ",
+            "text": "A가 창업 시기를 졸업 3년 뒤로 미룬 이유는 모두 사회적 요인에 해당한다."
+          }
+        ]
+      },
+      "correctAnswer": 3,
+      "explanation": {
+        "judgment": "[출제 의도] 상담 메모에 제시된 결정의 이유를 결과지의 기록과 이어 세부 요인을 찾고, 결정마다 작용한 요인을 진로 결정의 개인적 요인과 사회적 요인으로 구분할 수 있는가?\n[해설] ㄱ. 12월 주력 제품은 11월에 모은 1인 가구 증가에 따른 수요 보도(직업 세계의 변화, 사회적 요인)에 맞추었으나, 한정 수량 생산은 동네 손님이 오래 찾는 가게를 더 중요하게 여기는 A의 가치관(개인적 요인)에 따른 것이므로 옳지 않다. ㄴ. 창업 시기를 미룬 이유인 ‘10월부터 이어진 고민’은 집안 형편에 따른 자금 걱정으로 가정 환경 중 경제적 수준에 해당하며, A는 부모님께 알리지 않고 혼자 걱정하였으므로 부모의 기대가 작용하였다는 근거가 없어 옳지 않다. ㄷ. 9월의 희망 변경은 제과 실습 실력(적성)과 7월 병원 소견에 따른 반복 작업 제한(신체적 조건)을 근거로 하였으며 둘 다 개인적 요인이므로 옳다. ㄹ. 창업 시기를 미룬 이유는 집안 형편에 따른 자금 걱정(가정 환경)과 선배들의 진로(학교 환경)로 모두 사회적 요인이므로 옳다. 따라서 정답은 ㄷ, ㄹ이다.\n[오답 피하기] ㄱ: 수요 증가 보도는 직업 세계의 변화로 사회적 요인이지만, 동네 손님이 오래 찾는 가게를 더 중요하게 여기는 것은 A의 가치관으로 개인적 요인이다. 손님을 향한 가치라도 A 자신이 중시하는 것이므로 사회적 요인이 아니다. ㄴ: 집안 형편에 따른 자금 걱정은 가정 환경 중 경제적 수준에 해당한다. 부모의 기대도 가정 환경에 속하지만, A는 부모님께 알리지 않고 혼자 걱정하였으므로 부모의 기대가 작용하였다는 것은 근거 없는 추론이다.",
+        "conceptHighlightV2": {
+          "stimulusClues": [
+            {
+              "quote": "병원에서 장시간 반복 작업을 줄이라는 소견을 받음",
+              "why": "의사가 알려 준 내용이지만 A 자신의 신체적 조건이므로 개인적 요인이다."
+            },
+            {
+              "quote": "부모님께 알리지 않고 창업 자금 마련을 혼자 걱정함",
+              "why": "원천은 가정의 경제적 수준(사회적 요인)이며, 부모의 기대가 작용하였다는 근거는 없다."
+            },
+            {
+              "quote": "10월부터 이어진 고민과, 11월에 들은 선배들처럼",
+              "why": "창업 시기 연기의 이유가 결과지의 집안 형편(가정 환경)과 졸업생의 진로(학교 환경)를 가리킨다."
+            },
+            {
+              "quote": "동네 손님이 오래 찾는 가게를 더 중요하게 여겨",
+              "why": "A가 무엇을 중시하는지 드러내는 가치관으로 개인적 요인이다."
+            }
+          ],
+          "optionAnalysis": [
+            {
+              "optionKey": "ㄱ",
+              "verdict": "X",
+              "reasoning": "주력 제품은 11월에 모은 수요 증가 보도(직업 세계의 변화 중 미래 사회 전망, 사회적 요인)에 맞추었지만, 한정 수량은 동네 손님이 오래 찾는 가게를 더 중요하게 여기는 A의 가치관(개인적 요인)에 따른 것이므로 옳지 않다."
+            },
+            {
+              "optionKey": "ㄴ",
+              "verdict": "X",
+              "reasoning": "창업 시기를 미룬 이유인 ‘10월부터 이어진 고민’은 집안 형편에 따른 자금 걱정으로 가정 환경 중 경제적 수준에 해당한다. A는 부모님께 알리지 않고 혼자 걱정하였으므로 부모의 기대가 작용하였다고 볼 근거가 없다."
+            },
+            {
+              "optionKey": "ㄷ",
+              "verdict": "O",
+              "reasoning": "9월의 희망 변경은 세 학기 연속 상위권인 제과 실습 실력(적성)과 7월 병원 소견에 따른 반복 작업 제한(신체적 조건)을 근거로 하였으며 둘 다 개인적 요인이다. 의사가 알려 준 내용이라도 A 자신의 신체 조건이고, 집안 형편·선배 사례·수요 보도는 9월 뒤에 기록되었다."
+            },
+            {
+              "optionKey": "ㄹ",
+              "verdict": "O",
+              "reasoning": "상담 메모의 ‘10월부터 이어진 고민’은 결과지 10월 기록의 집안 형편에 따른 자금 걱정(가정 환경 중 경제적 수준)이고, ‘11월에 들은 선배들’은 담임 교사에게 들은 졸업생의 진로(학교 환경)이므로 모두 사회적 요인이다. A 혼자의 걱정으로 드러났어도 그 원천은 가정의 경제적 수준이다."
+            }
+          ],
+          "solvingFlow": [
+            {
+              "step": 1,
+              "action": "상담 메모에서 결정(창업 시기 연기, 주력 제품·생산량 결정)마다 제시된 이유를 찾는다."
+            },
+            {
+              "step": 2,
+              "action": "‘10월부터 이어진 고민’, ‘11월에 들은 선배들’, ‘11월에 모은 자료’를 결과지의 해당 월 기록과 이어 실제 단서를 확인한다."
+            },
+            {
+              "step": 3,
+              "action": "9월 희망 변경 줄에서 변경의 근거(실습 실력, 반복 작업이 적은 일)를 찾아 7월 병원 소견과 연결한다."
+            },
+            {
+              "step": 4,
+              "action": "각 단서를 세부 요인(적성, 신체적 조건, 가치관, 가정 환경의 경제적 수준, 학교 환경, 직업 세계의 변화)으로 바꾼 뒤 개인적·사회적 요인으로 분류하고, 가정 환경 안에서도 경제적 수준과 부모의 기대를 구별한다."
+            }
+          ],
+          "takeaway": "진로 결정 요인은 누가 알려 주었는지, 누구의 마음에 드러났는지, 누구를 향한 것인지가 아니라 요인의 원천으로 분류한다. 신체적 조건은 의사가 알려 주어도, 손님을 위한 가치관도 개인적 요인이고, 가정 형편은 본인이 걱정해도 사회적 요인이다."
+        }
+      },
+      "fingerprint": "0a13ff5b",
+      "generation": {
+        "engine": "exam-skill-engine-v5",
+        "specId": "gen_b37c6e22",
+        "profileVersion": "exam-style-profile-v2"
+      }
+    },
+    {
+      "orderIndex": 3,
+      "subject": "success",
+      "unitNumber": 8,
+      "unitTitle": "직업 기초 능력의 종류와 향상",
+      "targetConcept": "대인 관계 능력(팀워크·리더십·갈등 관리·협상·고객 서비스 능력)",
+      "itemType": "ai_generative_statement",
+      "difficulty": "HIGH",
+      "points": 3,
+      "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+      "questionStem": "다음은 취업 준비생 A 씨가 작성한 SWOT 자기 분석표이다. (가)～(라)와 관련된 직업기초능력에 대한 설명으로 가장 적절한 것은?",
+      "stimulusData": {
+        "blocks": [
+          {
+            "type": "table",
+            "title": "SWOT 자기 분석표(3년간 가죽 공방을 운영한 A 씨)",
+            "headers": [
+              [
+                "구분",
+                "내용"
+              ]
+            ],
+            "rows": [
+              [
+                "강점(S)",
+                "(가) 공방 수강생이 작품 구상을 설명할 때 말을 끊지 않고 끝까지 들은 뒤, 들은 내용을 요약하여 되물어 확인함"
+              ],
+              [
+                "강점(S)",
+                "(나) 배송 중 흠집이 난 가방을 받은 고객의 불만 전화에 사과하고, 고객이 원하는 색상으로 다시 만들어 보내 재주문을 받음"
+              ],
+              [
+                "약점(W)",
+                "(다) 바느질에 능숙한 직원에게 재단을, 재단에 능숙한 직원에게 바느질을 맡겨 두 직원 모두 성실히 일하였으나 주문 납기가 자주 늦어짐"
+              ],
+              [
+                "약점(W)",
+                "(라) 작업대 사용 순서를 두고 두 직원이 자주 다투었으나 그때마다 모른 척하고 넘겨 결국 한 직원이 그만둠"
+              ],
+              [
+                "기회(O)",
+                "○○기업 생활용품 제조 부문 신입 채용 공고에서 현장 운영 경험자를 우대함"
+              ],
+              [
+                "위협(T)",
+                "같은 직무 지원자 다수가 관련 자격증을 보유함"
+              ]
+            ],
+            "caption": null
+          }
+        ],
+        "figures": {},
+        "choice_table": null
+      },
+      "optionsList": [
+        "① (가)～(라)가 속한 직업기초능력 영역 중 직장 적응 능력군인 영역은 두 가지이다.",
+        "② 도표 분석 능력을 하위로 둔 영역은 (가)와 같은 능력군이고, (나)와는 다른 능력군이다.",
+        "③ (라)에서 부족한 능력은 (가)～(다) 중 (다)와만 같은 영역에 속하는 하위 능력이다.",
+        "④ (가)～(라) 중 (나)와 같은 능력군의 영역에 속하는 능력이 관련된 항목은 (가)와 (라)이다.",
+        "⑤ (다)에서 부족한 능력은 (라)에서 부족한 능력과 같은 능력군에 속하는 영역의 하위 능력이다."
+      ],
+      "comboBlock": null,
+      "correctAnswer": 2,
+      "explanation": {
+        "judgment": "[출제 의도] 업무 장면에 묘사된 행동을 직업기초능력의 하위 영역으로 매칭하고, 그 영역의 상위 영역과 능력군 소속을 구별할 수 있는가?\n[해설] (가)는 상대의 말을 끊지 않고 끝까지 들은 뒤 요약하여 되묻는 행동으로, 듣는 행위 자체이므로 의사소통 능력의 하위 영역인 경청에 해당하며 기초 능력군에 속한다. (나)는 불만을 가진 고객에게 사과하고 고객이 원하는 대로 다시 만들어 보내 요구를 충족시켰으므로 대인 관계 능력의 고객 서비스 능력에 해당하며 직장 적응 능력군에 속한다. (다)는 두 직원이 성실히 일하였는데도 각자 능숙한 작업과 맡긴 작업이 어긋나 납기가 늦어졌으므로 자원 관리 능력의 인적 자원 관리 능력이 부족하며 업무 처리 능력군에 속한다. (라)는 직원 간 다툼을 조절하지 못한 것이므로 대인 관계 능력의 갈등 관리 능력이 부족하며 직장 적응 능력군에 속한다. 도표 분석 능력은 수리 능력의 하위 영역이고 수리 능력은 의사소통 능력과 함께 기초 능력군에 속하므로, (가)와는 같은 능력군이고 (나)와는 다른 능력군이라는 설명이 적절하다.\n[오답 피하기] (나)와 (라)는 고객 서비스 능력과 갈등 관리 능력으로 하위 능력이 다르지만 모두 대인 관계 능력이라는 한 영역에 속한다. 관련 영역은 의사소통·대인 관계·자원 관리 능력이고, 이 중 직장 적응 능력군인 영역은 대인 관계 능력 한 가지이다. (라)는 직원이 등장하지만 업무 배치가 아니라 다툼을 조절하지 못한 것이므로 갈등 관리 능력 부족(대인 관계 능력)이다. 따라서 (라)와 같은 영역은 (다)가 아니라 고객 서비스 능력이 드러난 (나)이다. (가)는 고객 요구를 충족시킨 것이 아니라 말을 주의 깊게 들은 경청이므로 의사소통 능력(기초 능력군)이다. (나)와 같은 직장 적응 능력군의 영역에 속하는 항목은 (라)뿐이다. (다)는 직원들이 성실히 일하였으므로 협력·동기 유발의 문제가 아니라 숙련도와 작업을 맞추지 못한 인적 자원 관리 능력 부족(자원 관리 능력)이고, (라)는 대인 관계 능력(직장 적응 능력군)이므로 능력군이 다르다.",
+        "conceptHighlightV2": {
+          "stimulusClues": [
+            {
+              "quote": "말을 끊지 않고 끝까지 들은 뒤, 들은 내용을 요약하여 되물어 확인함",
+              "why": "상대의 말을 주의 깊게 듣고 확인하는 행동 자체이므로 의사소통 능력의 경청을 가리킨다."
+            },
+            {
+              "quote": "고객이 원하는 색상으로 다시 만들어 보내 재주문을 받음",
+              "why": "불만 고객의 요구를 충족시킨 응대이므로 대인 관계 능력의 고객 서비스 능력을 가리킨다."
+            },
+            {
+              "quote": "바느질에 능숙한 직원에게 재단을, 재단에 능숙한 직원에게 바느질을 맡겨",
+              "why": "직원의 능력과 맡긴 작업이 어긋난 배치이므로 자원 관리 능력의 인적 자원 관리 능력 부족을 가리킨다."
+            },
+            {
+              "quote": "두 직원이 자주 다투었으나 그때마다 모른 척하고 넘겨",
+              "why": "구성원 간 갈등을 조절하지 못한 것이므로 대인 관계 능력의 갈등 관리 능력 부족을 가리킨다."
+            }
+          ],
+          "optionAnalysis": [
+            {
+              "optionNum": 1,
+              "verdict": "X",
+              "reasoning": "(가)～(라)가 속한 영역은 의사소통 능력, 대인 관계 능력, 자원 관리 능력의 세 가지이며, (나)와 (라)는 하위 능력은 다르지만 같은 대인 관계 능력에 속하므로 직장 적응 능력군인 영역은 한 가지이다."
+            },
+            {
+              "optionNum": 2,
+              "verdict": "O",
+              "reasoning": "도표 분석 능력은 수리 능력의 하위 영역으로 기초 능력군에 속한다. (가)의 경청은 의사소통 능력으로 기초 능력군, (나)의 고객 서비스는 대인 관계 능력으로 직장 적응 능력군이므로 옳다."
+            },
+            {
+              "optionNum": 3,
+              "verdict": "X",
+              "reasoning": "(라)의 갈등 관리 능력은 대인 관계 능력에 속하므로 (나)의 고객 서비스 능력과 같은 영역이고, (다)의 인적 자원 관리 능력이 속한 자원 관리 능력과는 다른 영역이므로 틀리다."
+            },
+            {
+              "optionNum": 4,
+              "verdict": "X",
+              "reasoning": "(나)의 고객 서비스 능력은 대인 관계 능력으로 직장 적응 능력군이다. (라)의 갈등 관리 능력은 같은 능력군이지만, (가)의 경청은 의사소통 능력으로 기초 능력군이므로 틀리다."
+            },
+            {
+              "optionNum": 5,
+              "verdict": "X",
+              "reasoning": "(다)는 숙련도에 맞게 작업을 배치하지 못한 인적 자원 관리 능력 부족으로 자원 관리 능력(업무 처리 능력군), (라)는 갈등 관리 능력 부족으로 대인 관계 능력(직장 적응 능력군)이므로 틀리다."
+            }
+          ],
+          "solvingFlow": [
+            {
+              "step": 1,
+              "action": "(가)～(라)의 행동이 듣기 자체인지, 고객 요구 충족인지, 직원과 작업의 배치인지, 다툼 조절인지 구분한다."
+            },
+            {
+              "step": 2,
+              "action": "(가) 경청 → 의사소통 능력, (나) 고객 서비스 → 대인 관계 능력, (다) 인적 자원 관리 → 자원 관리 능력, (라) 갈등 관리 → 대인 관계 능력으로 영역을 정하고, (나)와 (라)는 같은 영역 하나로 묶는다."
+            },
+            {
+              "step": 3,
+              "action": "능력군을 확인한다: 의사소통·수리는 기초, 자원 관리는 업무 처리, 대인 관계는 직장 적응 능력군이다."
+            },
+            {
+              "step": 4,
+              "action": "도표 분석 능력 → 수리 능력 → 기초 능력군임을 이용해 (가)와는 같고 (나)와는 다른 능력군임을 확인하고, 나머지 선지를 항목 간 영역·능력군 비교로 지운다."
+            }
+          ],
+          "takeaway": "말을 듣는 것 자체는 경청(의사소통, 기초), 고객 요구 충족은 고객 서비스(대인 관계, 직장 적응)이며, 직원과 작업을 맞추는 것은 인적 자원 관리(자원 관리)이고, 하위 능력이 달라도 같은 영역이면 영역은 한 가지로 센다."
+        }
+      },
+      "fingerprint": "49f205bf",
+      "generation": {
+        "engine": "exam-skill-engine-v5",
+        "specId": "gen_77c64ab8",
+        "profileVersion": "exam-style-profile-v2"
+      }
+    },
+    {
+      "orderIndex": 4,
+      "subject": "success",
+      "unitNumber": 10,
+      "unitTitle": "전공별 직무 수행 능력 탐색 (2)",
+      "targetConcept": "국민내일배움카드",
+      "itemType": "ai_generative_truth_combination",
+      "difficulty": "HIGH",
+      "points": 3,
+      "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+      "questionStem": "다음은 학생 A가 교사와 나눈 SNS 대화와 첨부 문서의 일부이다. 이에 대한 설명으로 적절한 것만을 <보기>에서 고른 것은?",
+      "stimulusData": {
+        "blocks": [
+          {
+            "type": "text",
+            "text": "○○고등학교 3학년 학생 A는 △△공단 신규 직원 채용에 지원하려고 공고에 첨부된 문서를 SNS로 교사에게 보냈다.\n[첨부 문서 일부]\n■ 채용 분야: 일반 행정\n■ 분류 체계: 대분류 ‘02. 경영·회계·사무’, 중분류 이하 ×××\n■ 능력단위: ×××(0202010101_16v2), ×××(0202010203_19v1)\n■ 필요 기술: 문서 작성 프로그램 활용 능력"
+          },
+          {
+            "type": "dialogue",
+            "lines": [
+              {
+                "speaker": "학생 A",
+                "text": "선생님, 자기소개서와 면접에서 무엇을 내세워야 할지 막막해요."
+              },
+              {
+                "speaker": "교사",
+                "text": "첨부 문서의 능력단위와 필요 기술을 자신의 경험과 하나씩 비교해 보세요. 부족한 프로그램 활용 능력은 (가)를 발급받아 훈련 과정을 들으며 채우면 좋아요."
+              },
+              {
+                "speaker": "학생 A",
+                "text": "인력이 부족한 산업의 기능 인력을 기르려고 훈련비 전액을 대 주는 과정 말씀인가요? 만 29세로 대규모 기업에서 월 임금 320만 원을 받으며 함께 지원을 준비하는 B 선배에게도 알려 줄게요."
+              },
+              {
+                "speaker": "교사",
+                "text": "그 과정과는 달라요. (가)는 한 번 발급받으면 5년 동안 정해진 한도 안에서 스스로 고른 훈련의 비용을 지원받는 제도예요."
+              }
+            ]
+          }
+        ],
+        "figures": {},
+        "choice_table": null
+      },
+      "optionsList": [
+        "① ㄱ",
+        "② ㄴ",
+        "③ ㄱ, ㄴ",
+        "④ ㄱ, ㄴ, ㄷ",
+        "⑤ ㄱ, ㄴ, ㄹ"
+      ],
+      "comboBlock": {
+        "title": "<보기>",
+        "items": [
+          {
+            "key": "ㄱ",
+            "text": "학생 A는 현재 학년을 고려할 때 (가)를 발급받아 훈련비를 지원받을 수 있다."
+          },
+          {
+            "key": "ㄴ",
+            "text": "첨부 문서의 두 능력단위는 같은 소분류에 속하지만 세분류는 서로 다르다."
+          },
+          {
+            "key": "ㄷ",
+            "text": "두 능력단위 중 표시된 연도에 처음 개발된 것의 능력단위 번호는 ‘01’이다."
+          },
+          {
+            "key": "ㄹ",
+            "text": "B 선배는 현재 근무 조건과 연령을 고려할 때 (가)의 지원 대상에 해당한다."
+          }
+        ]
+      },
+      "correctAnswer": 3,
+      "explanation": {
+        "judgment": "[출제 의도] 공공 기관 채용 준비 상황에서 NCS 분류번호의 자리별 의미와 버전 표기, 국민내일배움카드의 지원 대상과 제외 기준을 구분하여 적용할 수 있는가?\n[해설] 교사는 (가)가 인력 부족 산업의 기능 인력 양성을 위해 훈련비 전액을 지원하는 과정(국가 기간·전략 산업 직종 훈련)과 다르며 5년 동안 정해진 한도 안에서 스스로 고른 훈련의 비용을 지원한다고 하였으므로 (가)는 국민내일배움카드이다. ㄱ. 고등학교 1~2학년은 제외되지만 3학년 재학생은 지원 대상이므로 3학년인 학생 A는 (가)를 발급받을 수 있어 옳다. ㄴ. 0202010101과 0202010203은 대분류·중분류·소분류를 나타내는 앞 여섯 자리 020201이 같고, 세분류를 나타내는 일곱·여덟째 자리가 01과 02로 다르므로 옳다. ㄷ. 버전 v1만 표시된 연도에 처음 개발된 것이므로 처음 개발된 능력단위는 0202010203_19v1이고, 그 능력단위 번호는 아홉·열째 자리인 03이므로 옳지 않다. ㄹ. B 선배는 대규모 기업에서 월 임금 320만 원을 받는 만 29세로, 월 임금 300만 원 이상이면서 만 45세 미만인 대규모 기업 근로자이므로 제외 대상이어서 옳지 않다. 따라서 적절한 것은 ㄱ, ㄴ이다.\n[오답 피하기] ㄷ: ‘_16v2’를 2016년에 처음 개발된 것으로 오독하면 ‘01’이 나오지만, v2는 개선된 판이고 처음 개발된 것은 ‘_19v1’로 능력단위 번호가 ‘03’이다. ㄹ: 특수 형태 근로 종사자의 월 소득 500만 원 기준을 적용하면 지원 대상으로 보이지만, 대규모 기업 근로자는 월 임금 300만 원 이상이면서 만 45세 미만이면 제외되므로 B 선배는 지원 대상이 아니다.",
+        "conceptHighlightV2": {
+          "stimulusClues": [
+            {
+              "quote": "○○고등학교 3학년 학생 A",
+              "why": "고등학교 3학년 재학생은 국민내일배움카드 지원 대상이고 1~2학년만 제외된다."
+            },
+            {
+              "quote": "×××(0202010101_16v2), ×××(0202010203_19v1)",
+              "why": "자리별로 대·중·소·세분류와 능력단위 번호를 읽고, v1만 표시된 연도에 처음 개발된 것으로 해석한다."
+            },
+            {
+              "quote": "5년 동안 정해진 한도 안에서 스스로 고른 훈련의 비용을 지원받는 제도",
+              "why": "전액 지원 과정과 달리 5년간 한도 내에서 훈련비를 지원하므로 (가)는 국민내일배움카드이다."
+            },
+            {
+              "quote": "만 29세로 대규모 기업에서 월 임금 320만 원을 받으며",
+              "why": "월 임금 300만 원 이상이면서 만 45세 미만인 대규모 기업 근로자는 국민내일배움카드 제외 대상이다."
+            }
+          ],
+          "optionAnalysis": [
+            {
+              "optionKey": "ㄱ",
+              "verdict": "O",
+              "reasoning": "(가)는 훈련비 전액 지원 과정과 달리 5년 동안 한도 안에서 훈련비를 지원하는 국민내일배움카드이며, 고등학교 3학년 재학생은 지원 대상(1~2학년만 제외)이므로 3학년인 학생 A는 지원받을 수 있다."
+            },
+            {
+              "optionKey": "ㄴ",
+              "verdict": "O",
+              "reasoning": "두 분류번호는 앞 여섯 자리(대분류 02, 중분류 02, 소분류 01)가 같고 일곱·여덟째 자리인 세분류가 01과 02로 다르므로 같은 소분류의 서로 다른 세분류에 속한다."
+            },
+            {
+              "optionKey": "ㄷ",
+              "verdict": "X",
+              "reasoning": "‘_16v2’는 2016년에 개선된 2판이고 ‘_19v1’이 2019년에 처음 개발된 1판이며, 그 능력단위 번호는 아홉·열째 자리인 ‘03’이다."
+            },
+            {
+              "optionKey": "ㄹ",
+              "verdict": "X",
+              "reasoning": "B 선배는 대규모 기업에서 월 임금 320만 원을 받는 만 29세로, 월 임금 300만 원 이상이면서 만 45세 미만인 대규모 기업 근로자에 해당해 국민내일배움카드 지원에서 제외된다."
+            }
+          ],
+          "solvingFlow": [
+            {
+              "step": 1,
+              "action": "대화에서 (가)가 전액 지원 과정과 다르고 5년간 한도 안에서 훈련비를 지원한다는 점을 확인해 국민내일배움카드로 판단한다."
+            },
+            {
+              "step": 2,
+              "action": "학생 A의 학년(3학년)과 B 선배의 조건(대규모 기업, 월 임금 320만 원, 만 29세)을 지원 대상·제외 기준(고1~2 제외, 300만 원 이상·만 45세 미만 제외)과 비교한다."
+            },
+            {
+              "step": 3,
+              "action": "두 분류번호를 두 자리씩 끊어 앞 여섯 자리(020201)는 같고 세분류 자리(01, 02)는 다름을 확인한다."
+            },
+            {
+              "step": 4,
+              "action": "버전 표기에서 v1인 0202010203_19v1이 처음 개발된 것임을 찾고, 그 능력단위 번호(03)를 읽는다."
+            }
+          ],
+          "takeaway": "분류번호의 v1만 최초 개발이고 능력단위 번호는 아홉·열째 자리이며, 대규모 기업 근로자는 월 임금 300만 원 이상·만 45세 미만이면 국민내일배움카드에서 제외된다."
+        }
+      },
+      "fingerprint": "9196cb88",
+      "generation": {
+        "engine": "exam-skill-engine-v5",
+        "specId": "gen_a66fd276",
+        "profileVersion": "exam-style-profile-v2"
+      }
+    }
+  ],
+  "answerKey": [
+    {
+      "orderIndex": 1,
+      "correctAnswer": 5
+    },
+    {
+      "orderIndex": 2,
+      "correctAnswer": 3
+    },
+    {
+      "orderIndex": 3,
+      "correctAnswer": 2
+    },
+    {
+      "orderIndex": 4,
+      "correctAnswer": 3
+    }
+  ]
+}

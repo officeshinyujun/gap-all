@@ -1,0 +1,9 @@
+{
+  "reasoning": "발열 필름 소재: 탄소 원자 6개 육각형 그물 판을 원통 모양으로 말아 놓은 구조, 전기·열 전도성 좋음 → 탄소 나노 튜브. 지붕 패널: 태양광 → 재생 에너지. 밤의 수소·산소 반응 장치 → 연료 전지(신에너지). ㄱ 거짓(태양광은 재생 에너지). ㄴ 참(탄소 나노 튜브 교과서 사용처: 평판 디스플레이, 태양 전지). ㄷ 거짓(말린 관 구조는 그래핀이 아니라 탄소 나노 튜브). ㄹ 참(연료 전지는 신에너지). 정답 ㄴ, ㄹ → ②.",
+  "answerIndex": 2,
+  "ambiguity": "none",
+  "curriculumIssues": [],
+  "answerGivenAway": false,
+  "perceivedDifficulty": "moderate",
+  "trivialStatements": []
+}

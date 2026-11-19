@@ -1,0 +1,9 @@
+{
+  "reasoning": "(가) 식품, (나) 인쇄, (다) 섬유. ㄱ: 섬유는 경공업으로 중공업인 자동차 부품 공업보다 시설 투자비가 적다 → 거짓. ㄴ: 전자레인지 1인분 덮밥은 HMR, 2조→5조 원은 2.5배 → 참. ㄷ: 블록체인 기반 식품 이력 추적은 푸드테크 사례 → 참. ㄹ: 제판은 인쇄 공정이며 제지 공업의 공정이 아니다 → 거짓. 정답 ③. 인쇄 공정 순서(기획→조판→제판→인쇄→제본)도 교과 기준과 맞다.",
+  "answerIndex": 3,
+  "ambiguity": "none",
+  "curriculumIssues": [],
+  "answerGivenAway": false,
+  "perceivedDifficulty": "moderate",
+  "trivialStatements": []
+}

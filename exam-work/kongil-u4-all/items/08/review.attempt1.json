@@ -1,0 +1,9 @@
+{
+  "reasoning": "(가) 플라스틱 수지+탄소 섬유 -> 탄소 섬유 강화 플라스틱(복합 재료). (나) 알루미늄 속 세라믹 섬유 -> 섬유 강화 금속(복합 재료). (다) 10억분의 1m 입자 -> 나노 공학 기술(NT). ㄱ CFRP는 복합 재료이지 단일 원소 탄소 나노 소재가 아님(거짓). ㄴ CFRP는 비행기 날개 경량화에 활용(참). ㄷ 나노 입자 활용은 NT이지 에너지 기술 아님(거짓). ㄹ 섬유 강화 금속은 우주 항공 분야에 쓰임(참). 정답 ㄴ,ㄹ = ③.",
+  "answerIndex": 3,
+  "ambiguity": "none",
+  "curriculumIssues": [],
+  "answerGivenAway": false,
+  "perceivedDifficulty": "moderate",
+  "trivialStatements": []
+}

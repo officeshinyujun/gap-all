@@ -1,0 +1,9 @@
+{
+  "reasoning": "롤러: 고순도 비금속 무기질 원료를 정밀하게 구움, 내마모·내열 -> 파인 세라믹스. 바닥 판: 눌리는 힘으로 전기 발생 -> 압전 세라믹스. ㄱ 파인 세라믹스는 절삭 공구에 쓰임(참). ㄴ 압전 성질은 초음파 가습기 진동자에 이용(참). ㄷ 압전 세라믹스는 비금속 무기 재료이지 금속 재료가 아님(거짓). ㄹ 가열 시 원래 모양 복원은 형상 기억 합금(거짓). 정답 ㄱ,ㄴ = ①. 위성 경로 안내 단말기 문장은 판정과 무관한 맥락.",
+  "answerIndex": 1,
+  "ambiguity": "none",
+  "curriculumIssues": [],
+  "answerGivenAway": false,
+  "perceivedDifficulty": "moderate",
+  "trivialStatements": []
+}

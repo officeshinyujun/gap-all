@@ -1,0 +1,141 @@
+{
+  "targetConcept": "하인리히 재해 예방 이론",
+  "itemType": "ai_generative_statement",
+  "difficulty": "MIDDLE",
+  "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+  "questionStem": "다음은 고용 센터 직업 상담사가 살펴본 A 씨의 재해 처리 과정이다. 이에 대한 설명으로 옳은 것은? (단, 사고 예방 대책의 단계는 하인리히의 이론에 따른다.)",
+  "stimulusData": {
+    "blocks": [
+      {
+        "type": "text",
+        "text": "고용 센터 직업 상담사 B 씨는 재취업 상담을 신청한 A 씨의 재해 처리 기록을 살펴보았다. A 씨는 △△화학(상시 근로자 80명)과 1년 기간제 근로 계약을 맺고 배합 공정에서 일하였다. A 씨의 재해는 업무상 재해로 인정되었다. A 씨의 1일 평균임금은 150,000원이며, 요양 기간에는 출근하지 못하여 임금을 받지 못하였다. A 씨는 상담에서 호흡기 부담이 적은 품질 검사 직무를 희망하였다."
+      },
+      {
+        "type": "figure",
+        "figure_id": "F1"
+      }
+    ],
+    "figures": {
+      "F1": {
+        "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0ODAgMTE0IiBmb250LWZhbWlseT0iJiMzOTtOb3RvIFNhbnMgS1ImIzM5OywmIzM5O0FwcGxlIFNEIEdvdGhpYyBOZW8mIzM5OywmIzM5O01hbGd1biBHb3RoaWMmIzM5OywmIzM5O05hbnVtR290aGljJiMzOTssc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNSI+PHJlY3QgeD0iMTAiIHk9IjE0IiB3aWR0aD0iNjgiIGhlaWdodD0iOTAiIHJ4PSIyIiBmaWxsPSIjZmZmIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4zIi8+PHRleHQgeD0iNDQiIHk9IjM3LjA0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjE0Ij48dHNwYW4geD0iNDQiIGR5PSIwIj7rsLDtlak8L3RzcGFuPjx0c3BhbiB4PSI0NCIgZHk9IjE4Ij7tg7Htgaw8L3RzcGFuPjx0c3BhbiB4PSI0NCIgZHk9IjE4Ij7rsLjruIw8L3RzcGFuPjx0c3BhbiB4PSI0NCIgZHk9IjE4Ij7qs6DsnqXsnLzroZwg7Jyg7ZW0IOqwgOyKpCDriITstpwsIEEg7JSoIO2doeyehTwvdHNwYW4+PC90ZXh0PjxsaW5lIHgxPSI4MSIgeTE9IjU5IiB4Mj0iOTguNiIgeTI9IjU5IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4zIi8+PHBvbHlnb24gcG9pbnRzPSIxMDUsNTkgOTcsNTUuNjQgOTcsNjIuMzYiIGZpbGw9IiMwMDAiLz48cmVjdCB4PSIxMDgiIHk9IjE0IiB3aWR0aD0iNjgiIGhlaWdodD0iOTAiIHJ4PSIyIiBmaWxsPSIjZmZmIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4zIi8+PHRleHQgeD0iMTQyIiB5PSIzNy4wNCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxNCI+PHRzcGFuIHg9IjE0MiIgZHk9IjAiPuuzkeybkDwvdHNwYW4+PHRzcGFuIHg9IjE0MiIgZHk9IjE4Ij7tm4TshqEsPC90c3Bhbj48dHNwYW4geD0iMTQyIiBkeT0iMTgiPjjqsJzsm5Q8L3RzcGFuPjx0c3BhbiB4PSIxNDIiIGR5PSIxOCI+7J6F7JuQIOy5mOujjCDspJEg6rCE67OR7J24IOuPhOybgCDrsJvsnYw8L3RzcGFuPjwvdGV4dD48bGluZSB4MT0iMTc5IiB5MT0iNTkiIHgyPSIxOTYuNiIgeTI9IjU5IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4zIi8+PHBvbHlnb24gcG9pbnRzPSIyMDMsNTkgMTk1LDU1LjY0IDE5NSw2Mi4zNiIgZmlsbD0iIzAwMCIvPjxyZWN0IHg9IjIwNiIgeT0iMTQiIHdpZHRoPSI2OCIgaGVpZ2h0PSI5MCIgcng9IjIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjMiLz48dGV4dCB4PSIyNDAiIHk9IjM3LjA0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjE0Ij48dHNwYW4geD0iMjQwIiBkeT0iMCI+7LmY7JygIO2bhDwvdHNwYW4+PHRzcGFuIHg9IjI0MCIgZHk9IjE4Ij7tmLjtnaE8L3RzcGFuPjx0c3BhbiB4PSIyNDAiIGR5PSIxOCI+6riw64qlPC90c3Bhbj48dHNwYW4geD0iMjQwIiBkeT0iMTgiPuyepe2VtCAxMuq4iSDtjJDsoJU8L3RzcGFuPjwvdGV4dD48bGluZSB4MT0iMjc3IiB5MT0iNTkiIHgyPSIyOTQuNiIgeTI9IjU5IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4zIi8+PHBvbHlnb24gcG9pbnRzPSIzMDEsNTkgMjkzLDU1LjY0IDI5Myw2Mi4zNiIgZmlsbD0iIzAwMCIvPjxyZWN0IHg9IjMwNCIgeT0iMTQiIHdpZHRoPSI2OCIgaGVpZ2h0PSI5MCIgcng9IjIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjMiLz48dGV4dCB4PSIzMzgiIHk9IjM3LjA0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjE0Ij48dHNwYW4geD0iMzM4IiBkeT0iMCI+KOqwgCk8L3RzcGFuPjx0c3BhbiB4PSIzMzgiIGR5PSIxOCI+7ZqM7IKs6rCAPC90c3Bhbj48dHNwYW4geD0iMzM4IiBkeT0iMTgiPuyCrOqzoCDtm4Q8L3RzcGFuPjx0c3BhbiB4PSIzMzgiIGR5PSIxOCI+7KCQ6rKAIOydvOyngOyZgCDshKTruYQg7KCQ6rKAIOqysOqzvOulvCDsiJjsp5E8L3RzcGFuPjwvdGV4dD48bGluZSB4MT0iMzc1IiB5MT0iNTkiIHgyPSIzOTIuNiIgeTI9IjU5IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4zIi8+PHBvbHlnb24gcG9pbnRzPSIzOTksNTkgMzkxLDU1LjY0IDM5MSw2Mi4zNiIgZmlsbD0iIzAwMCIvPjxyZWN0IHg9IjQwMiIgeT0iMTQiIHdpZHRoPSI2OCIgaGVpZ2h0PSI5MCIgcng9IjIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjMiLz48dGV4dCB4PSI0MzYiIHk9IjM3LjA0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjE0Ij48dHNwYW4geD0iNDM2IiBkeT0iMCI+KOuCmCk8L3RzcGFuPjx0c3BhbiB4PSI0MzYiIGR5PSIxOCI+7ZqM7IKs6rCAPC90c3Bhbj48dHNwYW4geD0iNDM2IiBkeT0iMTgiPuuFuO2bhDwvdHNwYW4+PHRzcGFuIHg9IjQzNiIgZHk9IjE4Ij7rsLjruIwg6rWQ7LK0IOqzhO2ajeqzvCDsnpHsl4XsnpAg6rWQ7JyhIOuwqeyViCDqsrDsoJU8L3RzcGFuPjwvdGV4dD48L3N2Zz4=",
+        "alt": "흐름도(왼쪽에서 오른쪽). [배합 탱크 밸브 고장으로 유해 가스 누출, A 씨 흡입] → [병원 후송, 8개월 입원 치료 중 간병인 도움 받음] → [치유 후 호흡 기능 장해 12급 판정] → [(가) 회사가 사고 후 점검 일지와 설비 점검 결과를 수집] → [(나) 회사가 노후 밸브 교체 계획과 작업자 교육 방안 결정].",
+        "kind": "diagram",
+        "spec": {
+          "id": "F1",
+          "kind": "diagram",
+          "diagramType": "flow",
+          "direction": "horizontal",
+          "steps": [
+            {
+              "id": "s1",
+              "label": "배합 탱크 밸브 고장으로 유해 가스 누출, A 씨 흡입",
+              "shape": "box"
+            },
+            {
+              "id": "s2",
+              "label": "병원 후송, 8개월 입원 치료 중 간병인 도움 받음",
+              "shape": "box"
+            },
+            {
+              "id": "s3",
+              "label": "치유 후 호흡 기능 장해 12급 판정",
+              "shape": "box"
+            },
+            {
+              "id": "s4",
+              "label": "(가) 회사가 사고 후 점검 일지와 설비 점검 결과를 수집",
+              "shape": "box"
+            },
+            {
+              "id": "s5",
+              "label": "(나) 회사가 노후 밸브 교체 계획과 작업자 교육 방안 결정",
+              "shape": "box"
+            }
+          ],
+          "loops": []
+        }
+      }
+    },
+    "choice_table": null
+  },
+  "optionsList": [
+    "① (가)는 사실의 발견, (나)는 시정책의 선정 단계에 해당한다.",
+    "② A 씨가 입원 중 받은 간병인 도움의 비용은 간병급여로 지급된다.",
+    "③ A 씨는 요양으로 일하지 못한 기간에 1일 90,000원의 휴업급여를 받는다.",
+    "④ A 씨는 장해 판정에 따른 장해급여를 고용 센터에 청구하여야 한다.",
+    "⑤ (가)와 (나) 사이에는 안전 관리 조직을 구성하는 단계가 놓인다."
+  ],
+  "comboBlock": null,
+  "explanation": {
+    "judgment": "[출제 의도] 재해 처리 과정에서 회사의 조치를 하인리히의 사고 예방 대책 5단계에 대응시키고, 재해자의 산재보험 급여를 판단할 수 있는가?\n[해설] 도식의 (가)는 점검 일지와 설비 점검 결과라는 사실 자료를 수집한 조치이므로 하인리히의 사고 예방 대책 5단계 중 2단계 사실의 발견에 해당한다. (나)는 밸브 교체 계획과 교육 방안이라는 대책을 정한 조치이므로 4단계 시정책의 선정에 해당한다. 따라서 (가)는 사실의 발견, (나)는 시정책의 선정 단계라는 설명이 옳다. A 씨는 8개월 입원 치료 중 간병인의 도움을 받았는데, 입원 중 간병은 요양급여에 포함되므로 간병급여로 지급된다는 설명은 옳지 않다. 휴업급여는 1일 평균임금 150,000원의 70%인 105,000원이므로 90,000원은 옳지 않다. 장해 12급 판정에 따른 장해급여는 근로복지공단에 청구하므로 고용 센터라는 설명도 옳지 않다. (가)와 (나) 사이에는 3단계 평가·분석이 놓이므로 안전 관리 조직 구성 단계라는 설명은 옳지 않다.\n[오답 피하기] 입원 중 간병 비용은 요양급여에 포함된다. 간병급여는 치유 후에도 상시·수시 간병이 필요한 사람에게 지급하므로 간병급여로 보는 것은 틀렸다. 휴업급여는 1일 평균임금의 100분의 70이므로 1일 105,000원이다. 90,000원은 60%로 잘못 계산한 값이다. 장해급여 등 산재보험 급여의 청구 기관은 근로복지공단이다. 고용 센터는 재취업 상담 등 고용 서비스를 맡는 기관이다. (가)는 2단계 사실의 발견, (나)는 4단계 시정책의 선정이므로 그 사이에는 3단계 평가·분석이 놓인다. 안전 관리 조직 구성은 1단계이다.",
+    "conceptHighlightV2": {
+      "stimulusClues": [
+        {
+          "quote": "점검 일지와 설비 점검 결과를 수집",
+          "why": "기록과 안전 점검 결과를 모으는 것은 사고 예방 대책 2단계 사실의 발견이다."
+        },
+        {
+          "quote": "노후 밸브 교체 계획과 작업자 교육 방안 결정",
+          "why": "원인에 맞는 대책을 정하는 것은 4단계 시정책의 선정이다."
+        },
+        {
+          "quote": "8개월 입원 치료 중 간병인 도움 받음",
+          "why": "입원 중 간병은 간병급여가 아니라 요양급여의 범위이다."
+        },
+        {
+          "quote": "A 씨의 1일 평균임금은 150,000원이며",
+          "why": "휴업급여는 1일 평균임금의 70%이므로 105,000원이다."
+        }
+      ],
+      "optionAnalysis": [
+        {
+          "optionNum": 1,
+          "verdict": "O",
+          "reasoning": "점검 일지와 설비 점검 결과를 수집한 (가)는 2단계 사실의 발견이고, 교체 계획과 교육 방안을 결정한 (나)는 4단계 시정책의 선정이다."
+        },
+        {
+          "optionNum": 2,
+          "verdict": "X",
+          "reasoning": "입원 중 간병은 요양급여의 범위에 포함된다. 간병급여는 치유 후에도 간병이 필요한 경우에 지급한다."
+        },
+        {
+          "optionNum": 3,
+          "verdict": "X",
+          "reasoning": "휴업급여는 1일 평균임금의 100분의 70이므로 150,000원 × 0.7 = 105,000원이다. 90,000원은 60%로 계산한 값이다."
+        },
+        {
+          "optionNum": 4,
+          "verdict": "X",
+          "reasoning": "치유 후 장해가 남아 장해급여 대상이지만, 산재보험 급여는 근로복지공단에 청구한다."
+        },
+        {
+          "optionNum": 5,
+          "verdict": "X",
+          "reasoning": "(가)는 2단계, (나)는 4단계이므로 그 사이에는 직접·간접 원인을 파악하는 평가·분석 단계가 놓인다. 안전 관리 조직 구성은 1단계이다."
+        }
+      ],
+      "solvingFlow": [
+        {
+          "step": 1,
+          "action": "도식의 (가)에서 점검 일지와 설비 점검 결과를 수집한 점을 보고 5단계 중 2단계 사실의 발견으로 판단한다."
+        },
+        {
+          "step": 2,
+          "action": "(나)에서 교체 계획과 교육 방안을 결정한 점을 보고 4단계 시정책의 선정으로 판단하고, 그 사이는 3단계 평가·분석임을 확인한다."
+        },
+        {
+          "step": 3,
+          "action": "입원 중 간병은 요양급여에 포함되므로 간병급여가 아님을 판단한다."
+        },
+        {
+          "step": 4,
+          "action": "휴업급여를 150,000원 × 0.7 = 105,000원으로 계산하고, 산재보험 급여의 청구 기관이 근로복지공단임을 확인한다."
+        }
+      ],
+      "takeaway": "하인리히 5단계는 조직 구성 → 사실의 발견 → 평가·분석 → 시정책 선정 → 시정책 적용 순이며, 입원 중 간병은 요양급여에 포함된다."
+    }
+  },
+  "correctAnswer": 1,
+  "points": 3,
+  "fingerprint": "09089929"
+}

@@ -1,0 +1,168 @@
+# 성공적인 직업생활 15~16단원 (AI 출제 MIDDLE)
+
+3/3문항 · 엔진 exam-skill-engine-v6
+
+### 1. 다음은 근로 계약 사례 조사 보고서의 일부이다. 이에 나타난 A 씨의 근로 조건에 대한 분석으로 옳은 것만을 <보기>에서 있는 대로 고른 것은? (단, ｢근로기준법｣에 근거한다.) [3점]
+
+> ■ 근로 계약 사례 조사 보고서
+> 대학생 A 씨(22세)는 휴학 기간 동안 △△음식점에서 주방 보조로 일하기로 하였다. A 씨는 △△음식점 사업주와 직접 근로 계약을 체결하였다. A 씨는 이 일을 통해 조리 분야의 경험을 쌓을 계획이다. 근로 계약의 주요 내용은 아래와 같다.
+> ※ A 씨는 소정 근로 시간 외의 추가 근로를 하지 않는다.
+>
+> **근로 계약 내용**
+> | 구분 | 내용 |
+> | --- | --- |
+> | 사업장(상시 근로자 수) | △△음식점(8명) |
+> | 근로 계약 기간 | 2026년 4월 5일부터 2028년 4월 4일까지 |
+> | 소정 근로 시간 | 10:00~16:30 (휴게 시간 13:00~13:30) |
+> | 근무일 / 주휴일 | 매주 월~금요일 / 매주 일요일 |
+> | 임금 | 시간당 20,000원 |
+>
+
+**<보 기>**
+
+- ㄱ. A 씨가 계약 후 첫 1개월을 개근하면 1일의 연차 유급휴가가 생긴다.
+- ㄴ. A 씨가 1주를 개근하면 주휴 수당을 포함하여 600,000원을 받는다.
+- ㄷ. A 씨가 1주를 개근하면 받는 주휴 수당은 120,000원이다.
+
+① ㄱ   ② ㄴ   ③ ㄱ, ㄷ   ④ ㄴ, ㄷ   ⑤ ㄱ, ㄴ, ㄷ
+
+### 2. 다음 조사 보고서에 나타난 A 씨의 근로 관계에 대한 분석으로 가장 적절한 것은? (단, ｢근로기준법｣에 근거하여 판단한다.) [3점]
+
+> ■ 조사 주제: 소규모 사업장의 근로 조건
+> A 씨는 대학 휴학 중에 카페에서 아르바이트를 하였다. 이후 부품 포장 업무를 맡게 되어 ○○정밀(주)와 직접 근로 계약을 체결하였다. 근로 계약서는 계약 당일 두 부를 작성하여 한 부씩 나누어 가졌다. A 씨는 복학 전까지 받은 임금으로 등록금 일부를 마련할 계획이다.
+> ※ A 씨는 소정 근로 시간 외에 추가로 근로하지 않았다.
+> ※ 단체협약은 고려하지 않는다.
+>
+> **근로 계약 내용**
+> | 구분 | 내용 |
+> | --- | --- |
+> | 사업장(상시 근로자 수) | ○○정밀(주)(3명) |
+> | 근로 계약 기간 | 2026년 2월 1일부터 2026년 4월 30일까지 |
+> | 소정 근로 시간 | 10:00~17:30 (휴게 시간 13:00~13:30) |
+> | 근무일 / 주휴일 | 매주 월~금요일 / 매주 일요일 |
+> | 임금 | 시간당 12,500원 |
+>
+
+① A 씨가 1주를 개근하면 주휴 수당을 포함하여 437,500원을 받는다.   ② ○○정밀(주)는 A 씨가 1개월 개근하면 1일의 연차 유급휴가를 주어야 한다.   ③ A 씨의 1일 근로시간이 7시간이므로 휴게 시간 30분은 법정 기준에 미달한다.   ④ 상시 근로자 수가 5명 미만이어도 A 씨는 1주를 개근하면 87,500원의 주휴 수당을 받을 수 있다.   ⑤ A 씨가 연장 근로를 하면 ○○정밀(주)는 가산 수당을 반드시 지급해야 한다.
+
+### 3. 다음은 근로관계법 전문가와 A 씨의 상담 장면이다. 이에 대한 분석으로 적절한 것만을 <보기>에서 고른 것은?
+
+> ![장식용.](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0ODAgMjI0IiBmb250LWZhbWlseT0iJiMzOTtOb3RvIFNhbnMgS1ImIzM5OywmIzM5O0FwcGxlIFNEIEdvdGhpYyBOZW8mIzM5OywmIzM5O01hbGd1biBHb3RoaWMmIzM5OywmIzM5O05hbnVtR290aGljJiMzOTssc2Fucy1zZXJpZiI+PGRlZnM+PGNsaXBQYXRoIGlkPSJGMS1jNTkzN2EtY2xpcCI+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjQ4MCIgaGVpZ2h0PSIyMjQiLz48L2NsaXBQYXRoPjwvZGVmcz48ZyBjbGlwLXBhdGg9InVybCgjRjEtYzU5MzdhLWNsaXApIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNDAgOCkiPjxwYXRoIGQ9Ik0tMzIgNjRDLTM2IDEwMCAtMzggMTIwIC0yNiAxMzBMMjYgMTMwQzM4IDEyMCAzNiAxMDAgMzIgNjRaIiBmaWxsPSIjM2EzYTNhIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHJlY3QgeD0iLTkuNSIgeT0iOTYiIHdpZHRoPSIxOSIgaGVpZ2h0PSIyNiIgZmlsbD0iI2ZiZmJmYiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIvPjxwYXRoIGQ9Ik0tMTMgMTEzQy0yOCAxMTYgLTQ5IDExOCAtNTQgMTQwQy01NyAxNzAgLTU3IDE5NCAtNTUgMjM0TDQyIDIzNEM0MCAxOTQgMzkgMTcwIDM4IDE0MEM0OSAxMTggMjggMTE2IDEzIDExM1oiIGZpbGw9IiNiOGI4YjgiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNLTE3IDExMkwwIDE0OUwxNyAxMTJaIiBmaWxsPSIjZmZmIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS40IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTS0xNyAxMTRMLTMgMTUxTC0zIDIyOCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuMyIvPjxwYXRoIGQ9Ik0xNyAxMTRMMyAxNTEiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjMiLz48Y2lyY2xlIGN4PSIwIiBjeT0iMTY1IiByPSIyIiBmaWxsPSIjNTU1Ii8+PGNpcmNsZSBjeD0iMCIgY3k9IjE4NSIgcj0iMiIgZmlsbD0iIzU1NSIvPjxjaXJjbGUgY3g9IjAiIGN5PSIyMDUiIHI9IjIiIGZpbGw9IiM1NTUiLz48ZWxsaXBzZSBjeD0iMCIgY3k9IjcwIiByeD0iMjgiIHJ5PSIzNCIgZmlsbD0iI2ZiZmJmYiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIvPjxwYXRoIGQ9Ik0tMjcgNjhDLTM2IDY1IC0zNiA4MiAtMjcgODAiIGZpbGw9IiNmYmZiZmIiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciLz48ZWxsaXBzZSBjeD0iLTQiIGN5PSI3MiIgcng9IjIuMyIgcnk9IjIuOSIgZmlsbD0iIzI2MjYyNiIvPjxlbGxpcHNlIGN4PSIxMyIgY3k9IjcyIiByeD0iMi4zIiByeT0iMi45IiBmaWxsPSIjMjYyNjI2Ii8+PHBhdGggZD0iTS05IDY0US00IDYxIDEgNjMuNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTggNjMuNVExMyA2MSAxOCA2NCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTE1LjIgNjkuNmwyLjYgLTEuNiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTYgNzdROS41IDg0IDUgODUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik0tMiA5MVE0LjUgOTYuNSAxMSA5MSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTS0zMiA4OEMtMzYgNTIgLTI2IDMwIDIgMzBDMjYgMzAgMzYgNTIgMzIgODhMMjYgODZDMjggNjggMjYgNTggMjAgNTRDMTAgNjAgLTYgNTYgLTEyIDQ4Qy0xNiA1NiAtMjQgNjIgLTI2IDg2WiIgZmlsbD0iIzNhM2EzYSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0tMzQgMTU4Qy0zNiAxODAgLTM2IDIwNCAtMzUgMjM0IiBmaWxsPSJub25lIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS40IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cmVjdCB4PSItNCIgeT0iMTQ4IiB3aWR0aD0iNDQiIGhlaWdodD0iNTQiIHJ4PSIyIiBmaWxsPSIjZjJmMmYyIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS41IiB0cmFuc2Zvcm09InJvdGF0ZSgtOCAxOCAxNzUpIi8+PHJlY3QgeD0iMTAiIHk9IjE0NSIgd2lkdGg9IjE2IiBoZWlnaHQ9IjciIHJ4PSIxLjUiIGZpbGw9IiM4ODgiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjEiIHRyYW5zZm9ybT0icm90YXRlKC04IDE4IDE3NSkiLz48cGF0aCBkPSJNNCAxNjRoMjhNNCAxNzRoMjhNNCAxODRoMTgiIHN0cm9rZT0iIzlhOWE5YSIgc3Ryb2tlLXdpZHRoPSIxLjMiIHRyYW5zZm9ybT0icm90YXRlKC04IDE4IDE3NSkiLz48cGF0aCBkPSJNNDIgMTM0TDUyIDE4NkwyNiAxOTgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIyMi40IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNNDIgMTM0TDUyIDE4NkwyNiAxOTgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2I4YjhiOCIgc3Ryb2tlLXdpZHRoPSIxOSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PGVsbGlwc2UgY3g9IjI2IiBjeT0iMTk4IiByeD0iNy41IiByeT0iNi45IiBmaWxsPSIjZmJmYmZiIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43Ii8+PC9nPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDM0MCA4KSBzY2FsZSgtMSAxKSI+PHJlY3QgeD0iLTkuNSIgeT0iOTYiIHdpZHRoPSIxOSIgaGVpZ2h0PSIyNiIgZmlsbD0iI2ZiZmJmYiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIvPjxwYXRoIGQ9Ik0tMTMgMTEzQy0yOCAxMTYgLTU2IDExOCAtNjEgMTQwQy02NCAxNzAgLTY0IDE5NCAtNjIgMjM0TDQ5IDIzNEM0NyAxOTQgNDYgMTcwIDQ1IDE0MEM1NiAxMTggMjggMTE2IDEzIDExM1oiIGZpbGw9IiM3ZDdkN2QiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNLTEzIDExM0wtMiAxMzBMLTE1IDEyNkwtMTcgMTE1WiIgZmlsbD0iIzlhOWE5YSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0xMyAxMTNMMiAxMzBMMTUgMTI2TDE3IDExNVoiIGZpbGw9IiM5YTlhOWEiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNLTEzIDExNEMtMjYgMTE3IC00OCAxMjQgLTUyIDE0MEwtNTQgMjMwTC0zIDIzMEwtMyAxNDNaIiBmaWxsPSIjZDlkOWQ5IiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS40IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTEzIDExNEMyNiAxMTcgNDggMTI0IDUyIDE0MEw1NCAyMzBMMyAyMzBMMyAxNDNaIiBmaWxsPSIjZDlkOWQ5IiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS40IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHJlY3QgeD0iLTUyIiB5PSIxNzUiIHdpZHRoPSI0OSIgaGVpZ2h0PSI4IiBmaWxsPSIjZmZmIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS4xIi8+PHJlY3QgeD0iMyIgeT0iMTc1IiB3aWR0aD0iNDkiIGhlaWdodD0iOCIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuMSIvPjxyZWN0IHg9Ii01MiIgeT0iMTk3IiB3aWR0aD0iNDkiIGhlaWdodD0iOCIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuMSIvPjxyZWN0IHg9IjMiIHk9IjE5NyIgd2lkdGg9IjQ5IiBoZWlnaHQ9IjgiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjEiLz48ZWxsaXBzZSBjeD0iMCIgY3k9IjcwIiByeD0iMjgiIHJ5PSIzNCIgZmlsbD0iI2ZiZmJmYiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIvPjxwYXRoIGQ9Ik0tMjcgNjhDLTM2IDY1IC0zNiA4MiAtMjcgODAiIGZpbGw9IiNmYmZiZmIiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciLz48ZWxsaXBzZSBjeD0iLTQiIGN5PSI3MiIgcng9IjIuMyIgcnk9IjIuOSIgZmlsbD0iIzI2MjYyNiIvPjxlbGxpcHNlIGN4PSIxMyIgY3k9IjcyIiByeD0iMi4zIiByeT0iMi45IiBmaWxsPSIjMjYyNjI2Ii8+PHBhdGggZD0iTS05IDY0US00IDYxIDEgNjMuNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTggNjMuNVExMyA2MSAxOCA2NCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTYgNzdROS41IDg0IDUgODUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik0tMiA5MVE0LjUgOTYuNSAxMSA5MSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTS0yOSA3NEMtMzAgNjAgLTI2IDUyIC0yMCA1MEwtMjIgNjhaIiBmaWxsPSIjM2EzYTNhIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTS0zMiA1OEMtMzIgMjAgMzIgMjAgMzIgNThaIiBmaWxsPSIjZjNmM2YzIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTS00IDI3TC0zIDU3TTQgMjdMMyA1NyIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuMiIvPjxwYXRoIGQ9Ik0tMzYgNThMNDIgNThRNDQgNjMgMzYgNjNMLTM0IDYzUS0zOCA2MSAtMzYgNThaIiBmaWxsPSIjZjNmM2YzIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTS00MSAxNThDLTQzIDE4MCAtNDMgMjA0IC00MiAyMzQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik00OSAxMzRMNTkgMTg0TDc4IDE2NiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjIyLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik00OSAxMzRMNTkgMTg0TDc4IDE2NiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjN2Q3ZDdkIiBzdHJva2Utd2lkdGg9IjE5IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNNzIgMTcyQzcwIDE2MyA3NyAxNTcgODYgMTU3QzkyIDE1NyA5MyAxNjEgODkgMTYyTDgzIDE2M0M4OCAxNjYgODcgMTcyIDgwIDE3NFoiIGZpbGw9IiNmYmZiZmIiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L2c+PC9nPjwvc3ZnPg==)
+> 
+> *[그림 F1] 장식용. 근로관계법 전문가(상담사)와 A 씨(현장 근로자)가 마주 보고 이야기하는 인물 그림. 대화 내용은 이어지는 대화 블록에 있음.*
+>
+> **근로관계법 전문가** : 어떤 일로 상담을 신청하셨나요?  
+> **A 씨** : 저는 2024년 3월에 상시 근로자 120명인 ○○기업에 1년 계약으로 직접 고용되어 자동차 부품 조립 라인에서 일하고 있어요. 그런데 2024년 12월 10일에 같은 라인에서 같은 업무를 하는 정규직 동료들만 상여금 100만 원을 받았어요.  
+> **근로관계법 전문가** : 회사에서는 어떤 이유를 들었나요?  
+> **A 씨** : 근무 시간과 업무량, 책임이 모두 같은데도 계약직이라서 줄 수 없다고 했어요. 또 재계약을 하려면 노동조합에 가입하지 않겠다는 서약서를 내라고 해요.
+>
+
+**<보 기>**
+
+- ㄱ. A 씨가 받지 못한 상여금은 근로자 권익 침해 중 차별에 해당한다.
+- ㄴ. A 씨는 상여금 문제의 시정을 2025년 5월에 지방노동위원회에 신청할 수 있다.
+- ㄷ. ○○기업이 재계약 조건으로 요구한 서약서는 부당 노동 행위에 해당한다.
+
+① ㄱ   ② ㄴ   ③ ㄱ, ㄷ   ④ ㄴ, ㄷ   ⑤ ㄱ, ㄴ, ㄷ
+
+---
+
+## 정답과 해설
+
+### 1번 정답 ③
+
+**이 개념이 문제에서 어떻게 나왔나** — 주휴일과 주휴수당
+
+풀이 흐름
+1. 표에서 상시 근로자 수 8명을 확인하여 5명 이상 사업장으로 판단한다.
+2. 10:00~16:30에서 휴게 30분을 빼 1일 소정 근로 시간 6시간, 1주 6시간 × 5일 = 30시간을 구한다.
+3. 주휴 수당 6시간 × 20,000원 = 120,000원, 1주 기본 임금 30시간 × 20,000원 = 600,000원을 구한다.
+4. 1주 개근 시 받는 임금은 600,000원 + 120,000원 = 720,000원임을 확인한다.
+5. 5명 이상 사업장의 계속 근로 1년 미만 근로자는 1개월 개근 시 1일의 연차 유급휴가가 생김을 적용한다.
+
+지문 단서
+- **“10:00~16:30 (휴게 시간 13:00~13:30)”** — 휴게 시간은 근로 시간에서 제외되므로 1일 소정 근로 시간은 6시간이다.
+- **“매주 월~금요일 / 매주 일요일”** — 주 5일 개근 시 일요일이 유급 휴일이 되며, 1주 소정 근로 시간은 30시간이다.
+- **“시간당 20,000원”** — 기본 임금과 주휴 수당 모두 시간급에 근로 시간을 곱해 계산한다.
+- **“2026년 4월 5일부터 2028년 4월 4일까지”** — 근로를 시작한 첫해는 계속 근로 1년 미만이므로 1개월 개근 시 1일의 연차 유급휴가가 생긴다.
+
+선택지 분석
+- ㄱ **O** △△음식점은 상시 근로자가 8명인 5명 이상 사업장이므로 연차 유급휴가 규정이 적용된다. 계속 근로 1년 미만인 A 씨는 1개월 개근 시 1일의 연차 유급휴가를 받는다.
+- ㄴ **X** 옳지 않다. 30시간 × 20,000원 = 600,000원, 주휴 수당 6시간 × 20,000원 = 120,000원 → 합계 720,000원
+- ㄷ **O** 주휴 수당 = 1일 소정 근로 시간(6시간) × 시급(20,000원) = 120,000원
+
+핵심 교훈: 주휴 수당은 1일 소정 근로 시간 × 시급으로 계산하며, 1주 임금은 기본 임금에 주휴 수당을 더해야 한다.
+
+<details><summary>전체 해설 문장</summary>
+
+[출제 의도] 근로 계약 내용에서 소정 근로 시간을 산정하고, 사업장 규모에 따른 연차 유급휴가 적용 여부와 주휴 수당을 계산할 수 있는가?
+[해설] 소정 근로 시간 10:00~16:30에서 휴게 시간 30분을 빼면 1일 소정 근로 시간은 6시간이고, 월~금요일 근무이므로 1주 소정 근로 시간은 30시간이다. ㄱ. △△음식점은 상시 근로자 8명으로 5명 이상 사업장이므로 연차 유급휴가 규정이 적용되며, 계속 근로 1년 미만인 A 씨는 1개월 개근 시 1일의 연차 유급휴가가 생긴다. 옳다. ㄴ. 1주 기본 임금은 30시간 × 20,000원 = 600,000원, 주휴 수당은 6시간 × 20,000원 = 120,000원이므로 합계는 720,000원이다. 옳지 않다. ㄷ. 주휴 수당 = 1일 소정 근로 시간(6시간) × 시급(20,000원) = 120,000원이다. 옳다.
+[오답 피하기] ㄴ. 600,000원은 1주 소정 근로 시간 30시간에 대한 기본 임금만 계산한 값이다. 1주 소정 근로일을 개근하면 유급 휴일에 대한 임금 120,000원이 더해져 720,000원을 받는다.
+[계산 근거] ㄴ. 옳지 않다. 30시간 × 20,000원 = 600,000원, 주휴 수당 6시간 × 20,000원 = 120,000원 → 합계 720,000원 / ㄷ. 주휴 수당 = 1일 소정 근로 시간(6시간) × 시급(20,000원) = 120,000원
+
+</details>
+
+### 2번 정답 ④
+
+**이 개념이 문제에서 어떻게 나왔나** — 최저임금
+
+풀이 흐름
+1. 표에서 상시 근로자 수 3명을 확인하여 5명 미만 사업장임을 판단한다.
+2. 10:00~17:30에서 휴게 30분을 빼 1일 소정 근로 7시간, 1주 7시간 × 5일 = 35시간을 구한다.
+3. 주휴 수당을 계산한다: 1일 소정 근로 7시간 × 12,500원 = 87,500원, 1주 개근 시 합계 437,500원 + 87,500원 = 525,000원
+4. 5명 미만 사업장에 적용되지 않는 연차 유급휴가·가산 수당과 적용되는 주휴일·휴게 시간을 구분하여 각 진술을 판정한다.
+
+지문 단서
+- **“○○정밀(주)(3명)”** — 상시 근로자 수가 5명 미만이므로 연차 유급휴가와 가산 수당 규정은 적용되지 않고 주휴일·휴게 규정은 적용된다.
+- **“10:00~17:30 (휴게 시간 13:00~13:30)”** — 휴게 시간 30분을 빼면 1일 소정 근로시간이 7시간이며, 7시간 근로에 30분 휴게는 적법하다.
+- **“매주 월~금요일 / 매주 일요일”** — 주 5일 근무로 1주 소정 근로시간이 35시간이고, 매주 일요일이 유급 주휴일이다.
+- **“시간당 12,500원”** — 주휴 수당(1일 소정 근로시간 × 시급)과 주급 계산의 기준이 된다.
+
+선택지 분석
+- ① **X** 옳지 않다. 35시간 × 12,500원 = 437,500원, 주휴 수당 7시간 × 12,500원 = 87,500원 → 합계 525,000원
+- ② **X** 옳지 않다. 연차 유급휴가는 상시 5명 이상 사업장에 적용되므로 상시 근로자 3명인 ○○정밀(주)는 부여할 의무가 없다.
+- ③ **X** 옳지 않다. 근로시간이 4시간이면 30분 이상, 8시간이면 1시간 이상을 주어야 하므로 7시간 근로에 근로시간 도중 30분을 준 것은 적법하다.
+- ④ **O** 주휴일(유급 휴일)은 5명 미만 사업장에도 적용되며, 1주 소정 근로 35시간(15시간 이상)이므로 1일 소정 근로 7시간 × 12,500원 = 87,500원
+- ⑤ **X** 옳지 않다. 연장·야간·휴일 가산 수당 규정은 상시 5명 미만 사업장에는 적용되지 않으므로 ○○정밀(주)에 지급 의무가 없다.
+
+핵심 교훈: 상시 5명 미만 사업장에도 주휴일(유급 휴일)과 휴게 시간은 적용되지만 연차 유급휴가와 연장·야간·휴일 가산 수당은 적용되지 않는다.
+
+<details><summary>전체 해설 문장</summary>
+
+[출제 의도] 상시 5명 미만 사업장에 적용되는 근로기준법 규정을 구별하고, 근로 계약 내용으로 근로시간과 주휴 수당을 계산할 수 있는가?
+[해설] 표에서 사업장의 상시 근로자 수가 3명이므로 5명 미만 사업장이다. 소정 근로 시간 10:00~17:30에서 휴게 시간 30분을 빼면 1일 소정 근로시간은 7시간이고, 월~금요일 근무이므로 1주 소정 근로시간은 35시간이다. 주휴일(유급 휴일)은 5명 미만 사업장에도 적용되며 1주 소정 근로시간이 15시간 이상이므로, A 씨는 1주를 개근하면 1일 소정 근로 7시간 × 12,500원 = 87,500원의 주휴 수당을 받을 수 있다. 따라서 이 진술이 가장 적절하다.
+[오답 피하기] 1주 개근 시 기본급은 35시간 × 12,500원 = 437,500원이고, 주휴 수당 7시간 × 12,500원 = 87,500원을 더하면 합계 525,000원이므로 437,500원은 주휴 수당을 빠뜨린 금액이다. 연차 유급휴가는 상시 5명 이상 사업장에만 적용되므로 상시 근로자 3명인 ○○정밀(주)는 1개월 개근 시 1일의 연차를 부여할 의무가 없다. 5명 미만 사업장에도 적용되는 것은 주휴일이다. 휴게 시간은 근로시간 4시간에 30분 이상, 8시간에 1시간 이상을 근로시간 도중에 주어야 하므로, 1일 7시간 근로에 13:00~13:30의 30분을 준 것은 기준에 맞는다. 연장·야간·휴일 가산 수당은 상시 5명 미만 사업장에는 적용되지 않으므로 ○○정밀(주)가 가산 수당을 반드시 지급해야 하는 것은 아니다.
+[계산 근거] ④ 주휴일(유급 휴일)은 5명 미만 사업장에도 적용되며, 1주 소정 근로 35시간(15시간 이상)이므로 1일 소정 근로 7시간 × 12,500원 = 87,500원 / ① 옳지 않다. 35시간 × 12,500원 = 437,500원, 주휴 수당 7시간 × 12,500원 = 87,500원 → 합계 525,000원
+
+</details>
+
+### 3번 정답 ⑤
+
+**이 개념이 문제에서 어떻게 나왔나** — 근로자 차별 금지와 차별 시정 제도
+
+풀이 흐름
+1. 발화에서 A 씨의 고용 형태(1년 계약, 직접 고용)와 사업장 규모(상시 120명)를 확인한다.
+2. 같은 업무를 하는 정규직 동료와 비교해 합리적 이유 없이 상여금을 받지 못한 점을 차별 요건에 대응시킨다.
+3. 차별적 처우일 2024년 12월 10일 + 6개월 → 2025년 6월 10일까지이므로 2025년 5월 지방노동위원회 신청은 기한 안임을 확인한다.
+4. 노동조합 미가입 서약 요구를 고용 조건으로 삼는 부당 노동 행위로 분류한다.
+
+지문 단서
+- **“1년 계약으로 직접 고용되어 자동차 부품 조립 라인에서 일하고 있어요”** — A 씨가 ○○기업에 직접 고용된 기간제 근로자임을 보여 준다.
+- **“같은 라인에서 같은 업무를 하는 정규직 동료들만 상여금 100만 원을 받았어요”** — 동종·유사 업무를 하는 비교 대상 근로자와 비교해 상여금에서 불리한 처우를 받았음을 보여 준다.
+- **“근무 시간과 업무량, 책임이 모두 같은데도 계약직이라서 줄 수 없다고 했어요”** — 차등을 정당화할 합리적 이유가 없음을 보여 준다.
+- **“노동조합에 가입하지 않겠다는 서약서를 내라고 해요”** — 노동조합 미가입을 고용 조건으로 삼는 부당 노동 행위를 가리킨다.
+
+선택지 분석
+- ㄱ **O** A 씨는 기간제 근로자로, 같은 업무를 하는 정규직 동료와 근무 시간·업무량·책임이 같은데도 계약직이라는 이유만으로 상여금을 받지 못하였으므로 합리적 이유 없는 차별에 해당한다.
+- ㄴ **O** 상시 5명 이상 사업장의 기간제 근로자는 차별적 처우가 있은 날(2024년 12월 10일)부터 6개월 이내에 지방노동위원회에 차별 시정을 신청할 수 있으므로 2025년 5월 신청은 기한 안이다.
+- ㄷ **O** 노동조합에 가입하지 않을 것을 고용 조건으로 삼는 것은 ｢노동조합 및 노동관계조정법｣ 제81조에서 금지하는 부당 노동 행위에 해당한다.
+
+핵심 교훈: 기간제 근로자의 차별 시정은 차별적 처우가 있은 날부터 6개월 이내 지방노동위원회에 신청하며, 노동조합 미가입을 고용 조건으로 삼는 것은 부당 노동 행위이다.
+
+<details><summary>전체 해설 문장</summary>
+
+[출제 의도] 기간제 근로자의 상여금 미지급 사례에서 차별 시정 제도의 요건·기관·기한을 적용하고, 부당 노동 행위와 구별할 수 있는가?
+[해설] A 씨는 상시 근로자 120명인 ○○기업에 1년 계약으로 직접 고용된 기간제 근로자이다. ㄱ. 같은 라인에서 같은 업무를 하는 정규직 동료와 근무 시간·업무량·책임이 같은데도 계약직이라는 이유로 상여금을 받지 못하였으므로 합리적 이유 없는 차별에 해당한다. ㄴ. 차별적 처우가 있은 날인 2024년 12월 10일부터 6개월 이내에 지방노동위원회에 차별 시정을 신청할 수 있으므로 2025년 5월 신청은 가능하다. ㄷ. 노동조합에 가입하지 않겠다는 서약을 재계약 조건으로 요구한 것은 노동 3권을 침해하는 부당 노동 행위에 해당한다. 따라서 ㄱ, ㄴ, ㄷ 모두 적절하다.
+[오답 피하기] 차별 시정은 고용노동부 진정이 아니라 지방노동위원회에 신청하며, 기한은 부당 해고 구제 신청의 3개월이 아니라 차별적 처우가 있은 날부터 6개월이다. 또한 노동조합 미가입을 고용 조건으로 삼는 것은 차별이 아니라 부당 노동 행위로 구별해야 한다.
+
+</details>

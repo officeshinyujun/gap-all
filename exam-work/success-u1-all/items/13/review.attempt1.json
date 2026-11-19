@@ -1,0 +1,9 @@
+{
+  "reasoning": "A 씨: 손님의 어려움을 해결해 도울 때 보람 → 사회형(S), 3조 8시간 교대 근무. B 씨: 설득·계약·목표 설정·직원 통솔 → 진취형(E), 1개월 단위 평균 주 40시간·출퇴근 자율 → 선택적 근로시간제. ㄱ 참. ㄴ RIASEC 육각형에서 S와 E는 인접(참). ㄷ 교대 근무자는 A 씨이며 사회형(거짓). ㄹ 24시간 공백 없는 배치는 교대 근무(A 씨 방식)가 적합, 선택적 근로시간제는 부적합(거짓). 정답 ①. ㄷ·ㄹ이 근무 방식→인물 치환을 요구해 적절히 꼬였음.",
+  "answerIndex": 1,
+  "ambiguity": "none",
+  "curriculumIssues": [],
+  "answerGivenAway": false,
+  "perceivedDifficulty": "moderate",
+  "trivialStatements": []
+}

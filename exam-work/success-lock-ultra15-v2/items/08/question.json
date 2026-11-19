@@ -1,0 +1,158 @@
+{
+  "targetConcept": "모성 보호와 일·가정 양립 제도",
+  "itemType": "ai_generative_truth_combination",
+  "difficulty": "HIGH",
+  "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+  "questionStem": "다음 상담에서 가죽 공방 운영자 A 씨가 밝힌 직원 사례를 분석한 내용으로 적절한 것만을 <보기>에서 있는 대로 고른 것은?",
+  "stimulusData": {
+    "blocks": [
+      {
+        "type": "figure",
+        "figure_id": "F1"
+      },
+      {
+        "type": "dialogue",
+        "lines": [
+          {
+            "speaker": "근로관계법 전문가",
+            "text": "전시회 준비로 바쁘신데 직원들의 근로 조건 때문에 고민이 많으시다고요?"
+          },
+          {
+            "speaker": "A 씨",
+            "text": "네, 저희 가죽 공방은 저를 빼고 상시 근로자가 6명이에요. 3년째 근무하는 B 씨는 자녀 1명을 임신하였는데, 출산 예정일 60일 전부터 90일 동안 휴가를 쓰겠다고 하였어요."
+          },
+          {
+            "speaker": "근로관계법 전문가",
+            "text": "남성 직원 C 씨도 휴직을 신청하였다고 들었는데요?"
+          },
+          {
+            "speaker": "A 씨",
+            "text": "네, 2년째 근무하는 C 씨가 만 5세 자녀를 돌보겠다고 하였지만, 남성의 휴직은 받아들이기 어려워 30일 전에 예고하고 해고하려고 해요. D 씨는 출퇴근 시각을 스스로 정하여 4주 동안 주 44시간씩 2주, 주 32시간씩 2주를 일하겠다고 하였어요."
+          }
+        ]
+      }
+    ],
+    "figures": {
+      "F1": {
+        "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0ODAgMjI0IiBmb250LWZhbWlseT0iJiMzOTtOb3RvIFNhbnMgS1ImIzM5OywmIzM5O0FwcGxlIFNEIEdvdGhpYyBOZW8mIzM5OywmIzM5O01hbGd1biBHb3RoaWMmIzM5OywmIzM5O05hbnVtR290aGljJiMzOTssc2Fucy1zZXJpZiI+PGRlZnM+PGNsaXBQYXRoIGlkPSJGMS1lOTdhZmYtY2xpcCI+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjQ4MCIgaGVpZ2h0PSIyMjQiLz48L2NsaXBQYXRoPjwvZGVmcz48ZyBjbGlwLXBhdGg9InVybCgjRjEtZTk3YWZmLWNsaXApIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNDAgOCkiPjxyZWN0IHg9Ii05LjUiIHk9Ijk2IiB3aWR0aD0iMTkiIGhlaWdodD0iMjYiIGZpbGw9IiNmYmZiZmIiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciLz48cGF0aCBkPSJNLTEzIDExM0MtMjggMTE2IC01NiAxMTggLTYxIDE0MEMtNjQgMTcwIC02NCAxOTQgLTYyIDIzNEw0OSAyMzRDNDcgMTk0IDQ2IDE3MCA0NSAxNDBDNTYgMTE4IDI4IDExNiAxMyAxMTNaIiBmaWxsPSIjYjhiOGI4IiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTS0xNyAxMTJMMCAxNDlMMTcgMTEyWiIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0tMTcgMTE0TC0zIDE1MUwtMyAyMjgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjMiLz48cGF0aCBkPSJNMTcgMTE0TDMgMTUxIiBmaWxsPSJub25lIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS4zIi8+PGNpcmNsZSBjeD0iMCIgY3k9IjE2NSIgcj0iMiIgZmlsbD0iIzU1NSIvPjxjaXJjbGUgY3g9IjAiIGN5PSIxODUiIHI9IjIiIGZpbGw9IiM1NTUiLz48Y2lyY2xlIGN4PSIwIiBjeT0iMjA1IiByPSIyIiBmaWxsPSIjNTU1Ii8+PGVsbGlwc2UgY3g9IjAiIGN5PSI3MCIgcng9IjI4IiByeT0iMzQiIGZpbGw9IiNmYmZiZmIiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciLz48cGF0aCBkPSJNLTI3IDY4Qy0zNiA2NSAtMzYgODIgLTI3IDgwIiBmaWxsPSIjZmJmYmZiIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43Ii8+PGVsbGlwc2UgY3g9Ii00IiBjeT0iNzIiIHJ4PSIyLjMiIHJ5PSIyLjkiIGZpbGw9IiMyNjI2MjYiLz48ZWxsaXBzZSBjeD0iMTMiIGN5PSI3MiIgcng9IjIuMyIgcnk9IjIuOSIgZmlsbD0iIzI2MjYyNiIvPjxwYXRoIGQ9Ik0tOSA2NFEtNCA2MSAxIDYzLjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik04IDYzLjVRMTMgNjEgMTggNjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik02IDc3UTkuNSA4NCA1IDg1IiBmaWxsPSJub25lIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS40IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cGF0aCBkPSJNLTIgOTFRNC41IDk2LjUgMTEgOTEiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik0tMjkgNzRDLTMzIDQ4IC0yNiAzMiAtMiAzMUMyNCAzMCAzMiA1MiAyOSA2OEMyNCA1NyAxNCA1MiAyIDQ5Qy04IDU0IC0yMiA1NiAtMjMgNjhaIiBmaWxsPSIjM2EzYTNhIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTS00MSAxNThDLTQzIDE4MCAtNDMgMjA0IC00MiAyMzQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxyZWN0IHg9Ii00IiB5PSIxNDgiIHdpZHRoPSI0NCIgaGVpZ2h0PSI1NCIgcng9IjIiIGZpbGw9IiNmMmYyZjIiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjUiIHRyYW5zZm9ybT0icm90YXRlKC04IDE4IDE3NSkiLz48cmVjdCB4PSIxMCIgeT0iMTQ1IiB3aWR0aD0iMTYiIGhlaWdodD0iNyIgcng9IjEuNSIgZmlsbD0iIzg4OCIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuMSIgdHJhbnNmb3JtPSJyb3RhdGUoLTggMTggMTc1KSIvPjxwYXRoIGQ9Ik00IDE2NGgyOE00IDE3NGgyOE00IDE4NGgxOCIgc3Ryb2tlPSIjOWE5YTlhIiBzdHJva2Utd2lkdGg9IjEuMyIgdHJhbnNmb3JtPSJyb3RhdGUoLTggMTggMTc1KSIvPjxwYXRoIGQ9Ik00OSAxMzRMNTkgMTg2TDI2IDE5OCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjIyLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik00OSAxMzRMNTkgMTg2TDI2IDE5OCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYjhiOGI4IiBzdHJva2Utd2lkdGg9IjE5IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48ZWxsaXBzZSBjeD0iMjYiIGN5PSIxOTgiIHJ4PSI3LjUiIHJ5PSI2LjkiIGZpbGw9IiNmYmZiZmIiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciLz48L2c+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzQwIDgpIHNjYWxlKC0xIDEpIj48cGF0aCBkPSJNLTMyIDY0Qy0zNiAxMDAgLTM4IDEyMCAtMjYgMTMwTDI2IDEzMEMzOCAxMjAgMzYgMTAwIDMyIDY0WiIgZmlsbD0iIzNhM2EzYSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxyZWN0IHg9Ii05LjUiIHk9Ijk2IiB3aWR0aD0iMTkiIGhlaWdodD0iMjYiIGZpbGw9IiNmYmZiZmIiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciLz48cGF0aCBkPSJNLTEzIDExM0MtMjggMTE2IC00OSAxMTggLTU0IDE0MEMtNTcgMTcwIC01NyAxOTQgLTU1IDIzNEw0MiAyMzRDNDAgMTk0IDM5IDE3MCAzOCAxNDBDNDkgMTE4IDI4IDExNiAxMyAxMTNaIiBmaWxsPSIjYWRhZGFkIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTS0xNiAxMTNDLTEwIDEyNyAxMCAxMjcgMTYgMTEzIiBmaWxsPSJub25lIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS40Ii8+PHBhdGggZD0iTS0xMyAxMTRDLTggMTIyIDggMTIyIDEzIDExNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNzc3IiBzdHJva2Utd2lkdGg9IjEuMSIvPjxlbGxpcHNlIGN4PSIwIiBjeT0iNzAiIHJ4PSIyOCIgcnk9IjM0IiBmaWxsPSIjZmJmYmZiIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43Ii8+PHBhdGggZD0iTS0yNyA2OEMtMzYgNjUgLTM2IDgyIC0yNyA4MCIgZmlsbD0iI2ZiZmJmYiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIvPjxlbGxpcHNlIGN4PSItNCIgY3k9IjcyIiByeD0iMi4zIiByeT0iMi45IiBmaWxsPSIjMjYyNjI2Ii8+PGVsbGlwc2UgY3g9IjEzIiBjeT0iNzIiIHJ4PSIyLjMiIHJ5PSIyLjkiIGZpbGw9IiMyNjI2MjYiLz48cGF0aCBkPSJNLTkgNjRRLTQgNjEgMSA2My41IiBmaWxsPSJub25lIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS44IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cGF0aCBkPSJNOCA2My41UTEzIDYxIDE4IDY0IiBmaWxsPSJub25lIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS44IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cGF0aCBkPSJNMTUuMiA2OS42bDIuNiAtMS42IiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS4yIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cGF0aCBkPSJNNiA3N1E5LjUgODQgNSA4NSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTS0yIDkxUTQuNSA5Ni41IDExIDkxIiBmaWxsPSJub25lIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cGF0aCBkPSJNLTMyIDg4Qy0zNiA1MiAtMjYgMzAgMiAzMEMyNiAzMCAzNiA1MiAzMiA4OEwyNiA4NkMyOCA2OCAyNiA1OCAyMCA1NEMxMCA2MCAtNiA1NiAtMTIgNDhDLTE2IDU2IC0yNCA2MiAtMjYgODZaIiBmaWxsPSIjM2EzYTNhIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTS0zNCAxNThDLTM2IDE4MCAtMzYgMjA0IC0zNSAyMzQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik00MiAxMzRMNTIgMTg0TDcxIDE2NiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjIyLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik00MiAxMzRMNTIgMTg0TDcxIDE2NiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYWRhZGFkIiBzdHJva2Utd2lkdGg9IjE5IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNNjUgMTcyQzYzIDE2MyA3MCAxNTcgNzkgMTU3Qzg1IDE1NyA4NiAxNjEgODIgMTYyTDc2IDE2M0M4MSAxNjYgODAgMTcyIDczIDE3NFoiIGZpbGw9IiNmYmZiZmIiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L2c+PC9nPjwvc3ZnPg==",
+        "alt": "장식용. 근로관계법 전문가(상담사)와 A 씨(시민)가 마주 보고 이야기하는 인물 그림. 대화 내용은 이어지는 대화 블록에 있음.",
+        "kind": "illustration",
+        "spec": {
+          "id": "F1",
+          "kind": "scene",
+          "layout": "pair",
+          "people": [
+            {
+              "speaker": "근로관계법 전문가",
+              "role": "counselor",
+              "gender": "male",
+              "age": "adult"
+            },
+            {
+              "speaker": "A 씨",
+              "role": "citizen",
+              "gender": "female",
+              "age": "adult"
+            }
+          ]
+        }
+      }
+    },
+    "choice_table": null
+  },
+  "optionsList": [
+    "① ㄱ, ㄴ, ㄷ",
+    "② ㄱ, ㄴ, ㄹ",
+    "③ ㄱ, ㄷ, ㄹ",
+    "④ ㄴ, ㄷ, ㄹ",
+    "⑤ ㄱ, ㄴ, ㄷ, ㄹ"
+  ],
+  "comboBlock": {
+    "title": "<보기>",
+    "items": [
+      {
+        "key": "ㄱ",
+        "text": "B 씨가 계획대로 휴가를 쓰면 출산 후 휴가 기간이 법정 기준에 못 미친다."
+      },
+      {
+        "key": "ㄴ",
+        "text": "C 씨는 남성이지만 자녀 연령과 근속 기간에 비추어 육아휴직 대상에 해당한다."
+      },
+      {
+        "key": "ㄷ",
+        "text": "30일 전에 예고하여도 C 씨 해고는 부당 노동 행위가 아닌 ｢남녀고용평등법｣ 위반이다."
+      },
+      {
+        "key": "ㄹ",
+        "text": "D 씨의 4주 근무 계획은 선택적 근로시간제의 근로 시간 기준을 충족한다."
+      }
+    ]
+  },
+  "explanation": {
+    "judgment": "[출제 의도] 출산전후휴가, 육아휴직, 선택적 근로시간제의 요건을 사례에 적용하고, 육아휴직 신청을 이유로 한 해고를 부당 노동 행위와 구별할 수 있는가?\n[해설] ㄱ. 자녀 1명을 임신한 B 씨의 출산전후휴가는 90일이며 출산 후 45일 이상이 되어야 한다. 출산 예정일 60일 전부터 시작하면 출산 후는 30일이므로 기준에 못 미친다. ㄴ. 육아휴직은 성별과 관계없이 만 8세 이하 자녀를 양육하는 근로자가 신청할 수 있으며, C 씨는 만 5세 자녀를 두고 2년째 근무하고 있어 대상에 해당한다. ㄷ. 30일 전 해고 예고는 절차일 뿐이며, 남성의 육아휴직 신청을 이유로 한 해고는 노동조합 활동과 관계가 없으므로 부당 노동 행위가 아니라 ｢남녀고용평등법｣ 위반이다. ㄹ. 근로자가 출퇴근 시각을 스스로 정하는 방식은 선택적 근로시간제이며, 4주 평균 주 38시간으로 1주 40시간 이내이므로 기준을 충족한다. 따라서 ㄱ, ㄴ, ㄷ, ㄹ 모두 적절하다.\n[오답 피하기] ㄱ을 거짓으로 보는 경우: 휴가 총일수 90일만 확인하고 출산 후 45일 이상 배정 기준을 적용하지 않은 실수이다. ㄴ을 거짓으로 보는 경우: 육아휴직을 여성 근로자만 쓸 수 있는 제도로 오해한 것이다. ㄷ을 거짓으로 보는 경우: 해고 예고 절차를 지키면 해고가 적법하다고 보거나, 근로자 권익 침해를 모두 부당 노동 행위로 본 혼동이다. ㄹ을 거짓으로 보는 경우: 주 44시간인 주만 보고 1주 40시간을 넘었다고 판단하여 정산 기간 평균을 계산하지 않은 실수이다.",
+    "conceptHighlightV2": {
+      "stimulusClues": [
+        {
+          "quote": "출산 예정일 60일 전부터 90일 동안 휴가를 쓰겠다고 하였어요",
+          "why": "90일 중 출산 후 휴가가 30일만 남아 출산 후 45일 이상 배정 기준을 판단하게 한다."
+        },
+        {
+          "quote": "2년째 근무하는 C 씨가 만 5세 자녀를 돌보겠다고 하였지만",
+          "why": "남성 직원 C 씨의 휴직은 성별과 관계없이 만 8세 이하 자녀를 양육하는 근로자가 쓰는 육아휴직을 가리킨다."
+        },
+        {
+          "quote": "남성의 휴직은 받아들이기 어려워 30일 전에 예고하고 해고하려고 해요",
+          "why": "해고 이유가 노동조합 활동이 아닌 육아휴직 신청이므로 남녀고용평등법 위반을 판단하게 한다."
+        },
+        {
+          "quote": "4주 동안 주 44시간씩 2주, 주 32시간씩 2주를 일하겠다고 하였어요",
+          "why": "선택적 근로시간제의 정산 기간 평균 1주 40시간 기준을 계산하게 한다."
+        }
+      ],
+      "optionAnalysis": [
+        {
+          "optionKey": "ㄱ",
+          "verdict": "O",
+          "reasoning": "자녀 1명 임신 시 출산전후휴가 90일 중 출산 후 45일 이상이 되어야 하는데, 출산 예정일 60일 전부터 90일을 쓰면 출산 후 휴가는 30일에 그치므로 기준에 못 미친다."
+        },
+        {
+          "optionKey": "ㄴ",
+          "verdict": "O",
+          "reasoning": "육아휴직은 성별과 관계없이 만 8세 이하 자녀를 양육하는 근로자가 대상이며, C 씨는 만 5세 자녀를 두고 6개월 이상인 2년째 근무하고 있으므로 대상에 해당한다."
+        },
+        {
+          "optionKey": "ㄷ",
+          "verdict": "O",
+          "reasoning": "해고 예고 절차를 지켜도 육아휴직 신청을 이유로 한 해고는 정당하지 않으며, 해고 이유가 노동조합 활동이 아니므로 부당 노동 행위가 아니라 ｢남녀고용평등법｣ 위반에 해당한다."
+        },
+        {
+          "optionKey": "ㄹ",
+          "verdict": "O",
+          "reasoning": "출퇴근 시각을 근로자가 정하는 방식은 선택적 근로시간제이며, 4주 평균 근로 시간이 (44×2+32×2)÷4=38시간으로 1주 40시간을 넘지 않으므로 기준을 충족한다."
+        }
+      ],
+      "solvingFlow": [
+        {
+          "step": 1,
+          "action": "B 씨의 휴가를 출산전후휴가로 판별하고 90-60=30일로 출산 후 휴가를 구해 45일 기준과 비교한다."
+        },
+        {
+          "step": 2,
+          "action": "C 씨의 휴직을 육아휴직으로 판별하고 자녀 연령(만 5세), 근속 기간(2년), 성별 무관 원칙을 적용한다."
+        },
+        {
+          "step": 3,
+          "action": "C 씨 해고의 이유가 노동조합 활동인지 육아휴직 신청인지 확인하고, 해고 예고 절차와 해고의 정당성을 구별한다."
+        },
+        {
+          "step": 4,
+          "action": "D 씨의 요청을 선택적 근로시간제로 판별하고 (44×2+32×2)÷4=38시간을 1주 40시간과 비교한다."
+        }
+      ],
+      "takeaway": "출산전후휴가는 총 90일과 함께 출산 후 45일 이상 배정을 확인하고, 선택적 근로시간제는 특정 주가 아니라 정산 기간 평균으로 1주 40시간을 판단한다."
+    }
+  },
+  "correctAnswer": 5,
+  "points": 3,
+  "fingerprint": "3227e422"
+}

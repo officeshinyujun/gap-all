@@ -1,0 +1,9 @@
+{
+  "reasoning": "(가) 30nm 캡슐로 표적 약물 전달 -> 나노 공학 기술(NT). (나) 체온에 의해 원래 지름으로 펴지는 그물망 관 -> 형상 기억 합금. (다) 유정란에서 바이러스 배양해 백신 원료 생산 -> 생명 공학 기술(BT). ㄱ NT로 의료용 초미세 로봇 제작 가능(옳음). ㄴ 자기 부상 열차 소재는 초전도체로 형상 기억 합금과 다름(옳지 않음). ㄷ 생물 특성을 이용한 유용 제품 제조 = BT(옳음). 정답 ㄱ,ㄷ = ③. ㄷ은 BT 정의를 그대로 서술해 대조가 쉬움.",
+  "answerIndex": 3,
+  "ambiguity": "none",
+  "curriculumIssues": [],
+  "answerGivenAway": false,
+  "perceivedDifficulty": "easy",
+  "trivialStatements": []
+}

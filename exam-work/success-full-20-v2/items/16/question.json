@@ -1,0 +1,145 @@
+{
+  "targetConcept": "구직급여 수급 요건",
+  "itemType": "ai_generative_truth_combination",
+  "difficulty": "MIDDLE",
+  "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+  "questionStem": "다음은 ○○ 공방에서 이직한 A 씨와 B 씨의 상황을 나타낸 도식이다. 이에 대한 설명으로 옳은 것만을 <보기>에서 고른 것은?",
+  "stimulusData": {
+    "blocks": [
+      {
+        "type": "figure",
+        "figure_id": "F1"
+      }
+    ],
+    "figures": {
+      "F1": {
+        "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0ODAgMjkyIiBmb250LWZhbWlseT0iJiMzOTtOb3RvIFNhbnMgS1ImIzM5OywmIzM5O0FwcGxlIFNEIEdvdGhpYyBOZW8mIzM5OywmIzM5O01hbGd1biBHb3RoaWMmIzM5OywmIzM5O05hbnVtR290aGljJiMzOTssc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNSI+PHRleHQgeD0iMjQwIiB5PSIyMiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjcwMCI+4peL4peLIOqzteuwqSDsnbTsp4HsnpAgQSDslKjsmYAgQiDslKjsnZgg7IOB7ZmpPC90ZXh0PjxlbGxpcHNlIGN4PSIxNTYiIGN5PSIxNzIiIHJ4PSIxNTAiIHJ5PSIxMTIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjMiLz48ZWxsaXBzZSBjeD0iMzI0IiBjeT0iMTcyIiByeD0iMTUwIiByeT0iMTEyIiBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4zIi8+PHJlY3QgeD0iOTkiIHk9IjQ3IiB3aWR0aD0iNTQiIGhlaWdodD0iMjYiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjEiLz48dGV4dCB4PSIxMjYiIHk9IjY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjE1Ij5BIOyUqDwvdGV4dD48cmVjdCB4PSIzMjciIHk9IjQ3IiB3aWR0aD0iNTQiIGhlaWdodD0iMjYiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxLjEiLz48dGV4dCB4PSIzNTQiIHk9IjY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjE1Ij5CIOyUqDwvdGV4dD48dGV4dCB4PSIyOCIgeT0iMTE3LjUiIGZvbnQtc2l6ZT0iMTMiIHRleHQtYW5jaG9yPSJzdGFydCI+PHRzcGFuIHg9IjI4IiBkeT0iMCI+4oCiIDIwMjDrhYQgM+yblCAy7J28PC90c3Bhbj48dHNwYW4geD0iMjgiIGR5PSIxNyI+ICDsnoXsgqwsIOydtOyngSDri7nsi5wg66eMPC90c3Bhbj48dHNwYW4geD0iMjgiIGR5PSIxNyI+ICAzNOyEuDwvdHNwYW4+PHRzcGFuIHg9IjI4IiBkeT0iMTciPuKAoiDsoJzsnpEg7JeF66y06rCAIOyggeyEseyXkDwvdHNwYW4+PHRzcGFuIHg9IjI4IiBkeT0iMTciPiAg66ee7KeAIOyViuyVhCDqs6Drr7ztlag8L3RzcGFuPjx0c3BhbiB4PSIyOCIgZHk9IjE3Ij7igKIg7J6Q7Iug7J2YIOqzteuwqeydhDwvdHNwYW4+PHRzcGFuIHg9IjI4IiBkeT0iMTciPiAg7Je066Ck6rOgIOyKpOyKpOuhnDwvdHNwYW4+PHRzcGFuIHg9IjI4IiBkeT0iMTciPiAg7IKs7KeB7ZWoPC90c3Bhbj48L3RleHQ+PHRleHQgeD0iMzE4IiB5PSIxMTcuNSIgZm9udC1zaXplPSIxMyIgdGV4dC1hbmNob3I9InN0YXJ0Ij48dHNwYW4geD0iMzE4IiBkeT0iMCI+4oCiIDIwMjLrhYQgM+yblCAy7J28PC90c3Bhbj48dHNwYW4geD0iMzE4IiBkeT0iMTciPiAg7J6F7IKsLCDsnbTsp4Eg64u57IucIOunjDwvdHNwYW4+PHRzcGFuIHg9IjMxOCIgZHk9IjE3Ij4gIDUx7IS4PC90c3Bhbj48dHNwYW4geD0iMzE4IiBkeT0iMTciPuKAoiDqs7XrsKkg6rK97JiB64Kc7Jy866GcPC90c3Bhbj48dHNwYW4geD0iMzE4IiBkeT0iMTciPiAg7J247JuQIOqwkOy2lSDrjIDsg4HsnbQ8L3RzcGFuPjx0c3BhbiB4PSIzMTgiIGR5PSIxNyI+ICDrkKg8L3RzcGFuPjx0c3BhbiB4PSIzMTgiIGR5PSIxNyI+4oCiIDIwMjTrhYQgOOyblCAzMOydvDwvdHNwYW4+PHRzcGFuIHg9IjMxOCIgZHk9IjE3Ij4gIOq2jOqzoOyXkCDrlLDrnbwg7IKs7KeB7ZWoPC90c3Bhbj48L3RleHQ+PHRleHQgeD0iMjQwIiB5PSI4My41IiBmb250LXNpemU9IjEzIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj48dHNwYW4geD0iMjQwIiBkeT0iMCI+6rCR7J2YIOKXi+KXizwvdHNwYW4+PHRzcGFuIHg9IjI0MCIgZHk9IjE3Ij7qs7XrsKko7IOB7IucPC90c3Bhbj48dHNwYW4geD0iMjQwIiBkeT0iMTciPuq3vOuhnOyekCA066qFKeyXkCDqs6Dsmqk8L3RzcGFuPjx0c3BhbiB4PSIyNDAiIGR5PSIxNyI+7J6s7KeBIOq4sOqwhDwvdHNwYW4+PHRzcGFuIHg9IjI0MCIgZHk9IjE3Ij7rgrTrgrQg7KO8PC90c3Bhbj48dHNwYW4geD0iMjQwIiBkeT0iMTciPjQw7Iuc6rCEIOq3vOustDwvdHNwYW4+PHRzcGFuIHg9IjI0MCIgZHk9IjE3Ij7qtazsp4Eg65Ox66GdPC90c3Bhbj48dHNwYW4geD0iMjQwIiBkeT0iMTciPu2bhCDsiJjquIk8L3RzcGFuPjx0c3BhbiB4PSIyNDAiIGR5PSIxNyI+7J6Q6rKpIOyduOyglSDsi6Dssq08L3RzcGFuPjx0c3BhbiB4PSIyNDAiIGR5PSIxNyI+7J20IOyZuOydmDwvdHNwYW4+PHRzcGFuIHg9IjI0MCIgZHk9IjE3Ij7snbTsp4Eg7IKs7KCV7J2APC90c3Bhbj48dHNwYW4geD0iMjQwIiBkeT0iMTciPuyXhuydjDwvdHNwYW4+PC90ZXh0Pjwvc3ZnPg==",
+        "alt": "벤 다이어그램(두 원이 겹침). 제목 ‘○○ 공방 이직자 A 씨와 B 씨의 상황’. 왼쪽 원 ‘A 씨’에만: ‘2020년 3월 2일 입사, 이직 당시 만 34세’, ‘제작 업무가 적성에 맞지 않아 고민함’, ‘자신의 공방을 열려고 스스로 사직함’. 오른쪽 원 ‘B 씨’에만: ‘2022년 3월 2일 입사, 이직 당시 만 51세’, ‘공방 경영난으로 인원 감축 대상이 됨’, ‘2024년 8월 30일 권고에 따라 사직함’. 두 원의 겹친 부분(공통): ‘갑의 ○○ 공방(상시 근로자 4명)에 고용’, ‘재직 기간 내내 주 40시간 근무’, ‘구직 등록 후 수급 자격 인정 신청’, ‘이 외의 이직 사정은 없음’.",
+        "kind": "diagram",
+        "spec": {
+          "id": "F1",
+          "kind": "diagram",
+          "title": "○○ 공방 이직자 A 씨와 B 씨의 상황",
+          "diagramType": "venn",
+          "mode": "overlap",
+          "labels": [
+            "A 씨",
+            "B 씨"
+          ],
+          "onlyFirst": [
+            "2020년 3월 2일 입사, 이직 당시 만 34세",
+            "제작 업무가 적성에 맞지 않아 고민함",
+            "자신의 공방을 열려고 스스로 사직함"
+          ],
+          "onlySecond": [
+            "2022년 3월 2일 입사, 이직 당시 만 51세",
+            "공방 경영난으로 인원 감축 대상이 됨",
+            "2024년 8월 30일 권고에 따라 사직함"
+          ],
+          "both": [
+            "갑의 ○○ 공방(상시 근로자 4명)에 고용",
+            "재직 기간 내내 주 40시간 근무",
+            "구직 등록 후 수급 자격 인정 신청",
+            "이 외의 이직 사정은 없음"
+          ]
+        }
+      }
+    },
+    "choice_table": null
+  },
+  "optionsList": [
+    "① ㄱ, ㄴ",
+    "② ㄱ, ㄷ",
+    "③ ㄴ, ㄷ",
+    "④ ㄴ, ㄹ",
+    "⑤ ㄷ, ㄹ"
+  ],
+  "comboBlock": {
+    "title": "<보기>",
+    "items": [
+      {
+        "key": "ㄱ",
+        "text": "A 씨는 이직 사유 때문에 구직급여 수급 자격이 제한된다."
+      },
+      {
+        "key": "ㄴ",
+        "text": "○○ 공방은 상시 근로자가 5명 미만이어서 고용 보험이 적용되지 않는다."
+      },
+      {
+        "key": "ㄷ",
+        "text": "B 씨가 받을 수 있는 구직급여의 소정급여일수는 180일이다."
+      },
+      {
+        "key": "ㄹ",
+        "text": "B 씨는 재취업 활동을 하지 않아도 구직급여를 지급받을 수 있다."
+      }
+    ]
+  },
+  "explanation": {
+    "judgment": "[출제 의도] 실직 사례의 이직 사유, 사업장 규모, 연령, 피보험 기간을 구직급여 수급 요건과 소정급여일수 기준에 적용할 수 있는가?\n[해설] ㄱ. A 씨는 자신의 공방을 열려고 스스로 사직하였고 다른 이직 사정이 없으므로 창업을 위한 이직에 해당하여 수급 자격이 제한된다(참). ㄴ. 고용 보험은 근로자를 1명 이상 사용하는 사업장에 적용되므로 상시 근로자 4명인 ○○ 공방도 적용 대상이다(거짓). ㄷ. B 씨는 경영난에 따른 인원 감축으로 권고사직하여 수급 자격이 제한되지 않는다. 2022년 3월 2일부터 2024년 8월 30일까지 근무하여 피보험 기간이 1년 이상 3년 미만이고 이직 당시 만 51세이므로 소정급여일수는 180일이다(참). ㄹ. 구직급여는 재취업을 위한 노력을 적극적으로 하여 실업의 인정을 받은 날에 대해 지급되므로 재취업 활동을 하지 않으면 받을 수 없다(거짓). 따라서 옳은 것은 ㄱ, ㄷ이다.\n[오답 피하기] ㄴ: 고용 보험은 상시 근로자 수가 5명 미만이라도 근로자를 1명 이상 사용하는 사업장에 적용된다. 5명 기준은 고용 보험의 적용 범위가 아니다. ㄹ: 재취업을 위한 적극적 노력은 구직급여 수급 요건이므로 반드시 해야 하는 활동이며, 하지 않아도 되는 선택 사항이 아니다.",
+    "conceptHighlightV2": {
+      "stimulusClues": [
+        {
+          "quote": "자신의 공방을 열려고 스스로 사직함",
+          "why": "창업을 위한 자발적 이직이므로 구직급여 수급 자격 제한 사유에 해당한다."
+        },
+        {
+          "quote": "공방 경영난으로 인원 감축 대상이 됨",
+          "why": "경영상 인원 감축에 따른 권고사직은 비자발적 이직으로 수급 자격이 제한되지 않는다."
+        },
+        {
+          "quote": "2022년 3월 2일 입사, 이직 당시 만 51세",
+          "why": "50세 이상이고 피보험 기간이 1년 이상 3년 미만이므로 소정급여일수 180일 구간에 해당한다."
+        },
+        {
+          "quote": "갑의 ○○ 공방(상시 근로자 4명)에 고용",
+          "why": "고용 보험은 근로자 1명 이상 사업장에 적용되므로 상시 근로자 4명인 공방도 적용 대상이다."
+        }
+      ],
+      "optionAnalysis": [
+        {
+          "optionKey": "ㄱ",
+          "verdict": "O",
+          "reasoning": "A 씨는 자신의 공방을 열려고 스스로 사직하였으므로 창업을 위한 자발적 이직에 해당하여 구직급여 수급 자격이 제한된다."
+        },
+        {
+          "optionKey": "ㄴ",
+          "verdict": "X",
+          "reasoning": "고용 보험은 근로자를 1명 이상 사용하는 사업장에 적용되며, 상시 근로자 4명인 공방도 적용 대상이다."
+        },
+        {
+          "optionKey": "ㄷ",
+          "verdict": "O",
+          "reasoning": "B 씨는 경영상 인원 감축에 따른 권고사직으로 비자발적 이직이며, 이직 당시 만 51세이고 피보험 기간이 1년 이상 3년 미만이므로 소정급여일수는 180일이다."
+        },
+        {
+          "optionKey": "ㄹ",
+          "verdict": "X",
+          "reasoning": "구직급여는 수급자격자가 재취업을 위한 노력을 적극적으로 하여 실업의 인정을 받은 날에 대해 지급되므로 재취업 활동을 해야 한다."
+        }
+      ],
+      "solvingFlow": [
+        {
+          "step": 1,
+          "action": "도식에서 A 씨와 B 씨의 이직 사유를 확인하여 자발적 이직(창업)과 비자발적 이직(권고사직)을 구분한다."
+        },
+        {
+          "step": 2,
+          "action": "공방의 상시 근로자 수 4명을 고용 보험 적용 기준(근로자 1명 이상)과 비교한다."
+        },
+        {
+          "step": 3,
+          "action": "B 씨의 피보험 기간(2022년 3월 2일~2024년 8월 30일, 1년 이상 3년 미만)과 이직 당시 연령(만 51세)을 소정급여일수 표에 대입하여 180일을 구한다."
+        },
+        {
+          "step": 4,
+          "action": "구직급여는 재취업 노력을 하여 실업의 인정을 받은 날에 대해 지급된다는 요건으로 ㄹ을 판정한다."
+        }
+      ],
+      "takeaway": "창업·개인 사정에 의한 자진 퇴사는 수급 자격이 제한되고, 고용 보험은 5명 미만 사업장에도 적용되며, 소정급여일수는 50세 경계와 피보험 기간 구간으로 정해진다."
+    }
+  },
+  "correctAnswer": 2,
+  "points": 2,
+  "fingerprint": "be5bf7db"
+}

@@ -1,0 +1,9 @@
+{
+  "reasoning": "(가) 미세 조류 유전자 개량으로 기름 증산 -> 생명 공학 기술(BT). (나) 탄소 60개 축구공 분자(풀러렌)에 5nm 백금 입자 -> 나노 공학 기술, 수소-산소 반응 발전 장치 -> 연료 전지. ① BT로 농작물 품종 개량 가능(적절). ② 나노 단위 입자 조작이 핵심이므로 NT(부적절). ③ 풀러렌이지 그래핀 아님(부적절). ④ 연료 전지는 수소의 화학 에너지를 전기 에너지로 바꿈, 방향이 반대(부적절). ⑤ 수소 버스는 화석 연료를 쓰는 하이브리드가 아님(부적절). 정답 ①.",
+  "answerIndex": 1,
+  "ambiguity": "none",
+  "curriculumIssues": [],
+  "answerGivenAway": false,
+  "perceivedDifficulty": "moderate",
+  "trivialStatements": []
+}

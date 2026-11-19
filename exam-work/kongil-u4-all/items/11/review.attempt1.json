@@ -1,0 +1,9 @@
+{
+  "reasoning": "(가) 10억분의 1m 단위 은 입자 코팅은 나노 공학 기술(NT). (나) 센서 값을 서버로 실시간 전송하고 스마트폰 앱으로 원격 조정하는 것은 ICT·사물 인터넷(IoT) 활용, 견학 코스를 VR 콘텐츠로 제작한 것은 문화 콘텐츠 기술(CT), 이를 온라인으로 전 세계에 제공하는 것은 ICT. ㄱ 참(데이터 수집·전송은 ICT). ㄴ 거짓(제작은 CT, 제공은 ICT로 순서가 뒤바뀜). ㄷ 참(NT는 BT·ICT 등의 기반 기술). ㄹ 참(스마트폰으로 살균기를 원격 조정하는 것은 IoT). 정답 ㄱ, ㄷ, ㄹ → ④. 정답이 하나로 확정되며 교과 사실 오류는 없음.",
+  "answerIndex": 4,
+  "ambiguity": "none",
+  "curriculumIssues": [],
+  "answerGivenAway": false,
+  "perceivedDifficulty": "moderate",
+  "trivialStatements": []
+}

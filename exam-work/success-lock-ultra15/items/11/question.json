@@ -1,0 +1,160 @@
+{
+  "targetConcept": "출산전후휴가 급여와 육아휴직 급여",
+  "itemType": "ai_generative_statement",
+  "difficulty": "HIGH",
+  "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+  "questionStem": "다음 사례에서 ○○기업 직원 B~D 씨에게 적용될 고용보험 급여에 대해 분석한 내용으로 옳은 것은?",
+  "stimulusData": {
+    "blocks": [
+      {
+        "type": "text",
+        "text": "사회적 기업인 ○○기업(상시 근로자 18명)의 대표 A 씨는 직원의 출산과 육아를 돕는 제도를 안내하려고 한다. 그래서 구직부터 재직 중 지원까지 한곳에서 안내하는 ‘고용24(구 워크넷)’에서 관련 내용을 찾아보았다. 직원 B~D 씨는 모두 ○○기업과 근로 계약을 맺고 주 40시간 근무하는 고용보험 피보험자이다. B 씨는 2025년 12월 1일에 입사하였다. B 씨는 2026년 5월 1일부터 7월 29일까지 출산전후휴가를 사용하였고, 7월 30일부터 6개월간 육아휴직을 하고 있다. C 씨는 2026년 2월 2일에 입사하였고, 8월 3일부터 3개월간 육아기 근로시간 단축을 하였다. 2022년 3월에 입사한 D 씨는 9월 7일부터 3주간 육아휴직을 사용하였다. 세 사람의 자녀는 모두 초등학교 입학 전이다.\n※ 그래프의 일수는 해당 월에 보수 지급의 기초가 된 날을 센 것이며, 그 밖의 다른 사정은 없다."
+      },
+      {
+        "type": "figure",
+        "figure_id": "F1"
+      }
+    ],
+    "figures": {
+      "F1": {
+        "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0ODAgMzUwIiBmb250LWZhbWlseT0iJiMzOTtOb3RvIFNhbnMgS1ImIzM5OywmIzM5O0FwcGxlIFNEIEdvdGhpYyBOZW8mIzM5OywmIzM5O01hbGd1biBHb3RoaWMmIzM5OywmIzM5O05hbnVtR290aGljJiMzOTssc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNSI+PGRlZnM+PHBhdHRlcm4gaWQ9IkYxLTIxMWE1Mi1oYXRjaCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgd2lkdGg9IjUiIGhlaWdodD0iNSIgcGF0dGVyblRyYW5zZm9ybT0icm90YXRlKDQ1KSI+PHJlY3Qgd2lkdGg9IjUiIGhlaWdodD0iNSIgZmlsbD0iI2ZmZiIvPjxsaW5lIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSI1IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4xIi8+PC9wYXR0ZXJuPjxwYXR0ZXJuIGlkPSJGMS0yMTFhNTItZG90cyIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgd2lkdGg9IjQuNSIgaGVpZ2h0PSI0LjUiPjxyZWN0IHdpZHRoPSI0LjUiIGhlaWdodD0iNC41IiBmaWxsPSIjZmZmIi8+PGNpcmNsZSBjeD0iMi4yNSIgY3k9IjIuMjUiIHI9IjAuOTUiIGZpbGw9IiMwMDAiLz48L3BhdHRlcm4+PHBhdHRlcm4gaWQ9IkYxLTIxMWE1Mi1jcm9zcyIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgd2lkdGg9IjYiIGhlaWdodD0iNiI+PHJlY3Qgd2lkdGg9IjYiIGhlaWdodD0iNiIgZmlsbD0iI2ZmZiIvPjxwYXRoIGQ9Ik0wIDBMNiA2TTYgMEwwIDYiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIwLjgiLz48L3BhdHRlcm4+PC9kZWZzPjx0ZXh0IHg9IjI0MCIgeT0iMjEiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTYiIGZvbnQtd2VpZ2h0PSI3MDAiPuOAiEIg7JSo7JmAIEMg7JSo7J2YIOyblOuzhCDtlLzrs7Ttl5gg64uo7JyE6riw6rCE44CJPC90ZXh0PjxyZWN0IHg9IjMzMy4xMiIgeT0iMzQiIHdpZHRoPSIxMzAuODgiIGhlaWdodD0iMjQiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIwLjgiLz48cmVjdCB4PSIzNDIuMTIiIHk9IjQwLjUiIHdpZHRoPSIxNiIgaGVpZ2h0PSIxMSIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjAuOSIvPjx0ZXh0IHg9IjM2NC4xMiIgeT0iNTAiIGZvbnQtc2l6ZT0iMTMiPkIg7JSoPC90ZXh0PjxyZWN0IHg9IjQwNC41NiIgeT0iNDAuNSIgd2lkdGg9IjE2IiBoZWlnaHQ9IjExIiBmaWxsPSIjYjRiNGI0IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMC45Ii8+PHRleHQgeD0iNDI2LjU2IiB5PSI1MCIgZm9udC1zaXplPSIxMyI+QyDslKg8L3RleHQ+PHRleHQgeD0iNzcuNSIgeT0iNzciIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTUiPu2UvOuztO2XmCDri6jsnITquLDqsIQo7J28KTwvdGV4dD48bGluZSB4MT0iNzMuNSIgeTE9IjI4NSIgeDI9Ijc3LjUiIHkyPSIyODUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxIi8+PHRleHQgeD0iNzAuNSIgeT0iMjg5LjUiIHRleHQtYW5jaG9yPSJlbmQiIGZvbnQtc2l6ZT0iMTUiPjA8L3RleHQ+PGxpbmUgeDE9Ijc3LjUiIHkxPSIyNTMuMzMiIHgyPSI0NjQiIHkyPSIyNTMuMzMiIHN0cm9rZT0iIzhjOGM4YyIgc3Ryb2tlLXdpZHRoPSIwLjgiIHN0cm9rZS1kYXNoYXJyYXk9IjMgMyIvPjxsaW5lIHgxPSI3My41IiB5MT0iMjUzLjMzIiB4Mj0iNzcuNSIgeTI9IjI1My4zMyIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEiLz48dGV4dCB4PSI3MC41IiB5PSIyNTcuODMiIHRleHQtYW5jaG9yPSJlbmQiIGZvbnQtc2l6ZT0iMTUiPjU8L3RleHQ+PGxpbmUgeDE9Ijc3LjUiIHkxPSIyMjEuNjciIHgyPSI0NjQiIHkyPSIyMjEuNjciIHN0cm9rZT0iIzhjOGM4YyIgc3Ryb2tlLXdpZHRoPSIwLjgiIHN0cm9rZS1kYXNoYXJyYXk9IjMgMyIvPjxsaW5lIHgxPSI3My41IiB5MT0iMjIxLjY3IiB4Mj0iNzcuNSIgeTI9IjIyMS42NyIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEiLz48dGV4dCB4PSI3MC41IiB5PSIyMjYuMTciIHRleHQtYW5jaG9yPSJlbmQiIGZvbnQtc2l6ZT0iMTUiPjEwPC90ZXh0PjxsaW5lIHgxPSI3Ny41IiB5MT0iMTkwIiB4Mj0iNDY0IiB5Mj0iMTkwIiBzdHJva2U9IiM4YzhjOGMiIHN0cm9rZS13aWR0aD0iMC44IiBzdHJva2UtZGFzaGFycmF5PSIzIDMiLz48bGluZSB4MT0iNzMuNSIgeTE9IjE5MCIgeDI9Ijc3LjUiIHkyPSIxOTAiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxIi8+PHRleHQgeD0iNzAuNSIgeT0iMTk0LjUiIHRleHQtYW5jaG9yPSJlbmQiIGZvbnQtc2l6ZT0iMTUiPjE1PC90ZXh0PjxsaW5lIHgxPSI3Ny41IiB5MT0iMTU4LjMzIiB4Mj0iNDY0IiB5Mj0iMTU4LjMzIiBzdHJva2U9IiM4YzhjOGMiIHN0cm9rZS13aWR0aD0iMC44IiBzdHJva2UtZGFzaGFycmF5PSIzIDMiLz48bGluZSB4MT0iNzMuNSIgeTE9IjE1OC4zMyIgeDI9Ijc3LjUiIHkyPSIxNTguMzMiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxIi8+PHRleHQgeD0iNzAuNSIgeT0iMTYyLjgzIiB0ZXh0LWFuY2hvcj0iZW5kIiBmb250LXNpemU9IjE1Ij4yMDwvdGV4dD48bGluZSB4MT0iNzcuNSIgeTE9IjEyNi42NyIgeDI9IjQ2NCIgeTI9IjEyNi42NyIgc3Ryb2tlPSIjOGM4YzhjIiBzdHJva2Utd2lkdGg9IjAuOCIgc3Ryb2tlLWRhc2hhcnJheT0iMyAzIi8+PGxpbmUgeDE9IjczLjUiIHkxPSIxMjYuNjciIHgyPSI3Ny41IiB5Mj0iMTI2LjY3IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMSIvPjx0ZXh0IHg9IjcwLjUiIHk9IjEzMS4xNyIgdGV4dC1hbmNob3I9ImVuZCIgZm9udC1zaXplPSIxNSI+MjU8L3RleHQ+PGxpbmUgeDE9Ijc3LjUiIHkxPSI5NSIgeDI9IjQ2NCIgeTI9Ijk1IiBzdHJva2U9IiM4YzhjOGMiIHN0cm9rZS13aWR0aD0iMC44IiBzdHJva2UtZGFzaGFycmF5PSIzIDMiLz48bGluZSB4MT0iNzMuNSIgeTE9Ijk1IiB4Mj0iNzcuNSIgeTI9Ijk1IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMSIvPjx0ZXh0IHg9IjcwLjUiIHk9Ijk5LjUiIHRleHQtYW5jaG9yPSJlbmQiIGZvbnQtc2l6ZT0iMTUiPjMwPC90ZXh0PjxyZWN0IHg9Ijg2LjY4IiB5PSIxMTQiIHdpZHRoPSIxNC45OCIgaGVpZ2h0PSIxNzEiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxIi8+PHJlY3QgeD0iMTAxLjY2IiB5PSIyODUiIHdpZHRoPSIxNC45OCIgaGVpZ2h0PSIwIiBmaWxsPSIjYjRiNGI0IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMSIvPjxyZWN0IHg9IjEzNC45OSIgeT0iMTIwLjMzIiB3aWR0aD0iMTQuOTgiIGhlaWdodD0iMTY0LjY3IiBmaWxsPSIjZmZmIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMSIvPjxyZWN0IHg9IjE0OS45NyIgeT0iMjg1IiB3aWR0aD0iMTQuOTgiIGhlaWdodD0iMCIgZmlsbD0iI2I0YjRiNCIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEiLz48cmVjdCB4PSIxODMuMyIgeT0iMTMzIiB3aWR0aD0iMTQuOTgiIGhlaWdodD0iMTUyIiBmaWxsPSIjZmZmIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMSIvPjxyZWN0IHg9IjE5OC4yOCIgeT0iMTM5LjMzIiB3aWR0aD0iMTQuOTgiIGhlaWdodD0iMTQ1LjY3IiBmaWxsPSIjYjRiNGI0IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMSIvPjxyZWN0IHg9IjIzMS42MiIgeT0iMTE0IiB3aWR0aD0iMTQuOTgiIGhlaWdodD0iMTcxIiBmaWxsPSIjZmZmIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMSIvPjxyZWN0IHg9IjI0Ni41OSIgeT0iMTE0IiB3aWR0aD0iMTQuOTgiIGhlaWdodD0iMTcxIiBmaWxsPSIjYjRiNGI0IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMSIvPjxyZWN0IHg9IjI3OS45MyIgeT0iMTIwLjMzIiB3aWR0aD0iMTQuOTgiIGhlaWdodD0iMTY0LjY3IiBmaWxsPSIjZmZmIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMSIvPjxyZWN0IHg9IjI5NC45MSIgeT0iMTIwLjMzIiB3aWR0aD0iMTQuOTgiIGhlaWdodD0iMTY0LjY3IiBmaWxsPSIjYjRiNGI0IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMSIvPjxyZWN0IHg9IjMyOC4yNCIgeT0iMTIwLjMzIiB3aWR0aD0iMTQuOTgiIGhlaWdodD0iMTY0LjY3IiBmaWxsPSIjZmZmIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMSIvPjxyZWN0IHg9IjM0My4yMiIgeT0iMTIwLjMzIiB3aWR0aD0iMTQuOTgiIGhlaWdodD0iMTY0LjY3IiBmaWxsPSIjYjRiNGI0IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMSIvPjxyZWN0IHg9IjM3Ni41NSIgeT0iMTIwLjMzIiB3aWR0aD0iMTQuOTgiIGhlaWdodD0iMTY0LjY3IiBmaWxsPSIjZmZmIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMSIvPjxyZWN0IHg9IjM5MS41MyIgeT0iMTIwLjMzIiB3aWR0aD0iMTQuOTgiIGhlaWdodD0iMTY0LjY3IiBmaWxsPSIjYjRiNGI0IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMSIvPjxyZWN0IHg9IjQyNC44NyIgeT0iMTI2LjY3IiB3aWR0aD0iMTQuOTgiIGhlaWdodD0iMTU4LjMzIiBmaWxsPSIjZmZmIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMSIvPjxyZWN0IHg9IjQzOS44NCIgeT0iMTE0IiB3aWR0aD0iMTQuOTgiIGhlaWdodD0iMTcxIiBmaWxsPSIjYjRiNGI0IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMSIvPjx0ZXh0IHg9Ijk0LjE3IiB5PSIxMTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTMiPjI3PC90ZXh0Pjx0ZXh0IHg9IjEwOS4xNCIgeT0iMjgxIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjEzIj4wPC90ZXh0Pjx0ZXh0IHg9IjE0Mi40OCIgeT0iMTE2LjMzIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjEzIj4yNjwvdGV4dD48dGV4dCB4PSIxNTcuNDYiIHk9IjI4MSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMyI+MDwvdGV4dD48dGV4dCB4PSIxOTAuNzkiIHk9IjEyOSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMyI+MjQ8L3RleHQ+PHRleHQgeD0iMjA1Ljc3IiB5PSIxMzUuMzMiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTMiPjIzPC90ZXh0Pjx0ZXh0IHg9IjIzOS4xMSIgeT0iMTEwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjEzIj4yNzwvdGV4dD48dGV4dCB4PSIyNTQuMDgiIHk9IjExMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMyI+Mjc8L3RleHQ+PHRleHQgeD0iMjg3LjQyIiB5PSIxMTYuMzMiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTMiPjI2PC90ZXh0Pjx0ZXh0IHg9IjMwMi4zOSIgeT0iMTE2LjMzIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjEzIj4yNjwvdGV4dD48dGV4dCB4PSIzMzUuNzMiIHk9IjExNi4zMyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMyI+MjY8L3RleHQ+PHRleHQgeD0iMzUwLjcxIiB5PSIxMTYuMzMiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTMiPjI2PC90ZXh0Pjx0ZXh0IHg9IjM4NC4wNCIgeT0iMTE2LjMzIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjEzIj4yNjwvdGV4dD48dGV4dCB4PSIzOTkuMDIiIHk9IjExNi4zMyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMyI+MjY8L3RleHQ+PHRleHQgeD0iNDMyLjM2IiB5PSIxMjIuNjciIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTMiPjI1PC90ZXh0Pjx0ZXh0IHg9IjQ0Ny4zMyIgeT0iMTEwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjEzIj4yNzwvdGV4dD48bGluZSB4MT0iNzcuNSIgeTE9Ijg5IiB4Mj0iNzcuNSIgeTI9IjI4NSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEuMSIvPjxsaW5lIHgxPSI3Ny41IiB5MT0iMjg1IiB4Mj0iNDY0IiB5Mj0iMjg1IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4xIi8+PGxpbmUgeDE9IjEwMS42NiIgeTE9IjI4NSIgeDI9IjEwMS42NiIgeTI9IjI4OSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEiLz48dGV4dCB4PSIxMDEuNjYiIHk9IjMwNCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMyI+PHRzcGFuIHg9IjEwMS42NiIgZHk9IjAiPjIwMjU8L3RzcGFuPjx0c3BhbiB4PSIxMDEuNjYiIGR5PSIxNiI+64WEIDEy7JuUPC90c3Bhbj48L3RleHQ+PGxpbmUgeDE9IjE0OS45NyIgeTE9IjI4NSIgeDI9IjE0OS45NyIgeTI9IjI4OSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEiLz48dGV4dCB4PSIxNDkuOTciIHk9IjMwNCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMyI+PHRzcGFuIHg9IjE0OS45NyIgZHk9IjAiPjIwMjY8L3RzcGFuPjx0c3BhbiB4PSIxNDkuOTciIGR5PSIxNiI+64WEIDHsm5Q8L3RzcGFuPjwvdGV4dD48bGluZSB4MT0iMTk4LjI4IiB5MT0iMjg1IiB4Mj0iMTk4LjI4IiB5Mj0iMjg5IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMSIvPjx0ZXh0IHg9IjE5OC4yOCIgeT0iMzA0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjEzIj48dHNwYW4geD0iMTk4LjI4IiBkeT0iMCI+MjAyNjwvdHNwYW4+PHRzcGFuIHg9IjE5OC4yOCIgZHk9IjE2Ij7rhYQgMuyblDwvdHNwYW4+PC90ZXh0PjxsaW5lIHgxPSIyNDYuNTkiIHkxPSIyODUiIHgyPSIyNDYuNTkiIHkyPSIyODkiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxIi8+PHRleHQgeD0iMjQ2LjU5IiB5PSIzMDQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTMiPjx0c3BhbiB4PSIyNDYuNTkiIGR5PSIwIj4yMDI2PC90c3Bhbj48dHNwYW4geD0iMjQ2LjU5IiBkeT0iMTYiPuuFhCAz7JuUPC90c3Bhbj48L3RleHQ+PGxpbmUgeDE9IjI5NC45MSIgeTE9IjI4NSIgeDI9IjI5NC45MSIgeTI9IjI4OSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEiLz48dGV4dCB4PSIyOTQuOTEiIHk9IjMwNCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMyI+PHRzcGFuIHg9IjI5NC45MSIgZHk9IjAiPjIwMjY8L3RzcGFuPjx0c3BhbiB4PSIyOTQuOTEiIGR5PSIxNiI+64WEIDTsm5Q8L3RzcGFuPjwvdGV4dD48bGluZSB4MT0iMzQzLjIyIiB5MT0iMjg1IiB4Mj0iMzQzLjIyIiB5Mj0iMjg5IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMSIvPjx0ZXh0IHg9IjM0My4yMiIgeT0iMzA0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjEzIj48dHNwYW4geD0iMzQzLjIyIiBkeT0iMCI+MjAyNjwvdHNwYW4+PHRzcGFuIHg9IjM0My4yMiIgZHk9IjE2Ij7rhYQgNeyblDwvdHNwYW4+PC90ZXh0PjxsaW5lIHgxPSIzOTEuNTMiIHkxPSIyODUiIHgyPSIzOTEuNTMiIHkyPSIyODkiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxIi8+PHRleHQgeD0iMzkxLjUzIiB5PSIzMDQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTMiPjx0c3BhbiB4PSIzOTEuNTMiIGR5PSIwIj4yMDI2PC90c3Bhbj48dHNwYW4geD0iMzkxLjUzIiBkeT0iMTYiPuuFhCA27JuUPC90c3Bhbj48L3RleHQ+PGxpbmUgeDE9IjQzOS44NCIgeTE9IjI4NSIgeDI9IjQzOS44NCIgeTI9IjI4OSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEiLz48dGV4dCB4PSI0MzkuODQiIHk9IjMwNCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMyI+PHRzcGFuIHg9IjQzOS44NCIgZHk9IjAiPjIwMjY8L3RzcGFuPjx0c3BhbiB4PSI0MzkuODQiIGR5PSIxNiI+64WEIDfsm5Q8L3RzcGFuPjwvdGV4dD48dGV4dCB4PSIyNzAuNzUiIHk9IjM0MSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxNSI+7JuUPC90ZXh0Pjwvc3ZnPg==",
+        "alt": "세로 막대그래프. 제목 ‘〈B 씨와 C 씨의 월별 피보험 단위기간〉’. 가로축(범주) 월: 2025년 12월, 2026년 1월, 2026년 2월, 2026년 3월, 2026년 4월, 2026년 5월, 2026년 6월, 2026년 7월. 세로축: 피보험 단위기간(일) 0～30(5 간격). 계열 ‘B 씨’: 2025년 12월 27, 2026년 1월 26, 2026년 2월 24, 2026년 3월 27, 2026년 4월 26, 2026년 5월 26, 2026년 6월 26, 2026년 7월 25. 계열 ‘C 씨’: 2025년 12월 0, 2026년 1월 0, 2026년 2월 23, 2026년 3월 27, 2026년 4월 26, 2026년 5월 26, 2026년 6월 26, 2026년 7월 27.",
+        "kind": "chart",
+        "spec": {
+          "id": "F1",
+          "kind": "chart",
+          "chartType": "bar",
+          "title": "〈B 씨와 C 씨의 월별 피보험 단위기간〉",
+          "categoryLabel": "월",
+          "categories": [
+            "2025년 12월",
+            "2026년 1월",
+            "2026년 2월",
+            "2026년 3월",
+            "2026년 4월",
+            "2026년 5월",
+            "2026년 6월",
+            "2026년 7월"
+          ],
+          "series": [
+            {
+              "name": "B 씨",
+              "values": [
+                27,
+                26,
+                24,
+                27,
+                26,
+                26,
+                26,
+                25
+              ]
+            },
+            {
+              "name": "C 씨",
+              "values": [
+                0,
+                0,
+                23,
+                27,
+                26,
+                26,
+                26,
+                27
+              ]
+            }
+          ],
+          "valueAxis": {
+            "label": "피보험 단위기간",
+            "unit": "일",
+            "min": 0,
+            "max": 30,
+            "step": 5
+          },
+          "showValues": true
+        }
+      }
+    },
+    "choice_table": null
+  },
+  "optionsList": [
+    "① B 씨는 휴가 시작일 전날까지 피보험 단위기간이 180일 미만이어서 출산전후휴가 급여를 받을 수 없다.",
+    "② B 씨는 출산전후휴가에 이어 시작한 육아휴직에 대해 육아휴직 급여를 받을 수 있다.",
+    "③ C 씨는 입사 후 180일이 지나 단축을 시작하였으므로 육아기 근로시간 단축 급여를 받을 수 있다.",
+    "④ B 씨는 휴가 종료일까지 피보험 단위기간이 180일 이상이므로 A 씨가 출산전후휴가 급여를 받는다.",
+    "⑤ D 씨는 피보험 단위기간 요건을 충족하므로 육아휴직 기간에 대해 육아휴직 급여를 받을 수 있다."
+  ],
+  "comboBlock": null,
+  "explanation": {
+    "judgment": "[출제 의도] 출산전후휴가 급여, 육아휴직 급여, 육아기 근로시간 단축 급여의 피보험 단위기간 기준일과 기간 요건을 사례에 적용할 수 있는가?\n[해설] 그래프에서 B 씨의 피보험 단위기간은 출산전후휴가 시작 전(2025년 12월~2026년 4월)까지 27+26+24+27+26=130일이고, 휴가 종료일(7월 29일)까지 130+26+26+25=207일이다. 출산전후휴가 급여는 휴가가 끝난 날 이전 180일 이상이면 받으므로 B 씨는 요건을 충족한다. 육아휴직 급여는 육아휴직 시작일 이전 180일 이상과 30일 이상 육아휴직 요건을 갖추어야 하는데, B 씨는 7월 30일 시작일 이전 207일이고 6개월간 휴직하므로 육아휴직 급여를 받을 수 있다. C 씨는 2월~7월 합계가 23+27+26+26+26+27=155일로 180일에 못 미쳐 단축 급여를 받을 수 없다. D 씨는 피보험 단위기간은 충족하지만 육아휴직이 21일로 30일 미만이어서 육아휴직 급여를 받을 수 없다.\n[오답 피하기] 출산전후휴가 급여의 피보험 단위기간은 휴가 개시일이 아니라 휴가가 끝난 날 이전으로 판단하므로, 휴가 종료일까지 207일인 B 씨는 급여를 받을 수 있다. 피보험 단위기간은 보수 지급의 기초가 된 날을 합산한 것이므로 입사 후 달력 일수(182일)가 아니라 그래프 합계(155일)로 판단해야 하며, C 씨는 180일에 못 미친다. 출산전후휴가 급여는 사업주가 아니라 요건을 충족한 피보험자 본인이 받는 급여이므로 A 씨가 받는다는 서술은 옳지 않다. 육아휴직 급여는 피보험 단위기간 180일 이상과 함께 30일 이상 육아휴직을 부여받아야 하므로, 3주간 휴직한 D 씨는 급여를 받을 수 없다.",
+    "conceptHighlightV2": {
+      "stimulusClues": [
+        {
+          "quote": "2026년 5월 1일부터 7월 29일까지 출산전후휴가를 사용하였고",
+          "why": "출산전후휴가 급여의 피보험 단위기간은 휴가 종료일인 7월 29일 이전까지 합산하여 판단한다."
+        },
+        {
+          "quote": "7월 30일부터 6개월간 육아휴직을 하고 있다",
+          "why": "육아휴직 급여는 시작일 이전 피보험 단위기간 180일 이상과 30일 이상 휴직 요건으로 판단한다."
+        },
+        {
+          "quote": "8월 3일부터 3개월간 육아기 근로시간 단축을 하였다",
+          "why": "단축 시작일 이전 피보험 단위기간을 그래프의 월별 일수로 합산해 180일과 비교해야 한다."
+        },
+        {
+          "quote": "9월 7일부터 3주간 육아휴직을 사용하였다",
+          "why": "육아휴직 기간이 21일로 육아휴직 급여의 30일 이상 요건에 미치지 못한다."
+        }
+      ],
+      "optionAnalysis": [
+        {
+          "optionNum": 1,
+          "verdict": "X",
+          "reasoning": "휴가 시작 전까지의 합계는 130일이지만, 출산전후휴가 급여는 휴가가 끝난 날 이전 피보험 단위기간 180일 이상으로 판단하며 7월까지 합계가 207일이므로 받을 수 있다."
+        },
+        {
+          "optionNum": 2,
+          "verdict": "O",
+          "reasoning": "그래프에서 B 씨의 2025년 12월~2026년 7월 피보험 단위기간을 더하면 207일로 육아휴직 시작일 이전 180일 이상이고, 6개월간 육아휴직을 하므로 30일 이상 요건도 충족한다. 출산전후휴가가 끝난 뒤 바로 이어서 육아휴직을 사용할 수 있다."
+        },
+        {
+          "optionNum": 3,
+          "verdict": "X",
+          "reasoning": "입사일부터 단축 시작 전날까지 달력 일수는 182일이지만, 그래프의 피보험 단위기간 합계는 155일로 180일에 못 미쳐 단축 급여를 받을 수 없다."
+        },
+        {
+          "optionNum": 4,
+          "verdict": "X",
+          "reasoning": "B 씨는 휴가 종료일까지 207일로 요건을 충족하지만, 출산전후휴가 급여를 받는 주체는 사업주인 A 씨가 아니라 피보험자인 B 씨 본인이다."
+        },
+        {
+          "optionNum": 5,
+          "verdict": "X",
+          "reasoning": "D 씨는 2022년 3월부터 근무하여 피보험 단위기간 180일 이상 요건은 충족하지만, 육아휴직이 3주(21일)로 30일 이상 요건을 충족하지 못해 육아휴직 급여를 받을 수 없다."
+        }
+      ],
+      "solvingFlow": [
+        {
+          "step": 1,
+          "action": "그래프에서 B 씨의 월별 일수를 휴가 시작 전(130일)과 휴가 종료일까지(207일)로 나누어 합산한다."
+        },
+        {
+          "step": 2,
+          "action": "출산전후휴가 급여는 휴가 종료일 이전, 육아휴직 급여는 휴직 시작일 이전 180일 이상인지 확인한다."
+        },
+        {
+          "step": 3,
+          "action": "C 씨의 2월~7월 일수를 합산(155일)하여 달력 일수(182일)가 아닌 피보험 단위기간으로 180일과 비교한다."
+        },
+        {
+          "step": 4,
+          "action": "D 씨의 육아휴직 기간(21일)을 30일 이상 요건과 비교하고, 급여를 받는 주체가 근로자 본인인지 확인한다."
+        }
+      ],
+      "takeaway": "출산전후휴가 급여는 휴가가 끝난 날 이전, 육아휴직 급여는 시작일 이전 피보험 단위기간 180일 이상으로 판단하며, 피보험 단위기간은 달력 일수가 아니라 보수 지급의 기초가 된 날의 합계이다."
+    }
+  },
+  "correctAnswer": 2,
+  "points": 3,
+  "fingerprint": "ba2acb11"
+}

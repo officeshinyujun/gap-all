@@ -1,0 +1,158 @@
+{
+  "targetConcept": "모성 보호와 일·가정 양립 제도",
+  "itemType": "ai_generative_truth_combination",
+  "difficulty": "HIGH",
+  "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+  "questionStem": "다음 상담 장면에 나타난 A 씨 부부에 대한 분석으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?",
+  "stimulusData": {
+    "blocks": [
+      {
+        "type": "figure",
+        "figure_id": "F1"
+      },
+      {
+        "type": "dialogue",
+        "lines": [
+          {
+            "speaker": "근로관계법 전문가",
+            "text": "상담일인 2025년 4월 10일을 기준으로 살펴볼게요. 어떤 일을 겪고 계신가요?"
+          },
+          {
+            "speaker": "A 씨",
+            "text": "○○기업(상시 근로자 150명)에 2022년 입사하여 자동차 부품 조립 라인에서 일하고 있어요. 자녀 1명을 임신하여 출산 예정일이 올해 6월 20일이고, 출산 휴가는 5월 1일부터 90일간 쓰려고 해요. 그리고 1월에 노동조합에 가입하였다는 이유로 1월 24일 성과급 지급에서 저만 제외되었어요."
+          },
+          {
+            "speaker": "근로관계법 전문가",
+            "text": "배우자분의 근무 상황도 알려 주세요."
+          },
+          {
+            "speaker": "A 씨",
+            "text": "남편 B 씨는 △△사(상시 근로자 80명) 설계 부서에서 3년째 일해요. 근로자 대표와의 서면 합의에 따라 출퇴근 시각을 스스로 정하고 4주 단위로 근로 시간을 정산하는데, 지난 정산 기간에는 주별로 48, 36, 44, 32시간을 일하였어요. 아직 육아휴직을 쓴 적이 없어서 6월부터 휴직하고 2016년 11월에 태어난 초등학교 3학년 첫째를 돌보려고 해요."
+          }
+        ]
+      }
+    ],
+    "figures": {
+      "F1": {
+        "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0ODAgMjI0IiBmb250LWZhbWlseT0iJiMzOTtOb3RvIFNhbnMgS1ImIzM5OywmIzM5O0FwcGxlIFNEIEdvdGhpYyBOZW8mIzM5OywmIzM5O01hbGd1biBHb3RoaWMmIzM5OywmIzM5O05hbnVtR290aGljJiMzOTssc2Fucy1zZXJpZiI+PGRlZnM+PGNsaXBQYXRoIGlkPSJGMS05NGI1NzMtY2xpcCI+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjQ4MCIgaGVpZ2h0PSIyMjQiLz48L2NsaXBQYXRoPjwvZGVmcz48ZyBjbGlwLXBhdGg9InVybCgjRjEtOTRiNTczLWNsaXApIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNDAgOCkiPjxyZWN0IHg9Ii05LjUiIHk9Ijk2IiB3aWR0aD0iMTkiIGhlaWdodD0iMjYiIGZpbGw9IiNmYmZiZmIiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciLz48cGF0aCBkPSJNLTEzIDExM0MtMjggMTE2IC01NiAxMTggLTYxIDE0MEMtNjQgMTcwIC02NCAxOTQgLTYyIDIzNEw0OSAyMzRDNDcgMTk0IDQ2IDE3MCA0NSAxNDBDNTYgMTE4IDI4IDExNiAxMyAxMTNaIiBmaWxsPSIjYjhiOGI4IiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTS0xNyAxMTJMMCAxNDlMMTcgMTEyWiIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0tMTcgMTE0TC0zIDE1MUwtMyAyMjgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjMiLz48cGF0aCBkPSJNMTcgMTE0TDMgMTUxIiBmaWxsPSJub25lIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS4zIi8+PGNpcmNsZSBjeD0iMCIgY3k9IjE2NSIgcj0iMiIgZmlsbD0iIzU1NSIvPjxjaXJjbGUgY3g9IjAiIGN5PSIxODUiIHI9IjIiIGZpbGw9IiM1NTUiLz48Y2lyY2xlIGN4PSIwIiBjeT0iMjA1IiByPSIyIiBmaWxsPSIjNTU1Ii8+PGVsbGlwc2UgY3g9IjAiIGN5PSI3MCIgcng9IjI4IiByeT0iMzQiIGZpbGw9IiNmYmZiZmIiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciLz48cGF0aCBkPSJNLTI3IDY4Qy0zNiA2NSAtMzYgODIgLTI3IDgwIiBmaWxsPSIjZmJmYmZiIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43Ii8+PGVsbGlwc2UgY3g9Ii00IiBjeT0iNzIiIHJ4PSIyLjMiIHJ5PSIyLjkiIGZpbGw9IiMyNjI2MjYiLz48ZWxsaXBzZSBjeD0iMTMiIGN5PSI3MiIgcng9IjIuMyIgcnk9IjIuOSIgZmlsbD0iIzI2MjYyNiIvPjxwYXRoIGQ9Ik0tOSA2NFEtNCA2MSAxIDYzLjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik04IDYzLjVRMTMgNjEgMTggNjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik02IDc3UTkuNSA4NCA1IDg1IiBmaWxsPSJub25lIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS40IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cGF0aCBkPSJNLTIgOTFRNC41IDk2LjUgMTEgOTEiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik0tMjkgNzRDLTMzIDQ4IC0yNiAzMiAtMiAzMUMyNCAzMCAzMiA1MiAyOSA2OEMyNCA1NyAxNCA1MiAyIDQ5Qy04IDU0IC0yMiA1NiAtMjMgNjhaIiBmaWxsPSIjM2EzYTNhIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTS00MSAxNThDLTQzIDE4MCAtNDMgMjA0IC00MiAyMzQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxyZWN0IHg9Ii00IiB5PSIxNDgiIHdpZHRoPSI0NCIgaGVpZ2h0PSI1NCIgcng9IjIiIGZpbGw9IiNmMmYyZjIiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjUiIHRyYW5zZm9ybT0icm90YXRlKC04IDE4IDE3NSkiLz48cmVjdCB4PSIxMCIgeT0iMTQ1IiB3aWR0aD0iMTYiIGhlaWdodD0iNyIgcng9IjEuNSIgZmlsbD0iIzg4OCIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuMSIgdHJhbnNmb3JtPSJyb3RhdGUoLTggMTggMTc1KSIvPjxwYXRoIGQ9Ik00IDE2NGgyOE00IDE3NGgyOE00IDE4NGgxOCIgc3Ryb2tlPSIjOWE5YTlhIiBzdHJva2Utd2lkdGg9IjEuMyIgdHJhbnNmb3JtPSJyb3RhdGUoLTggMTggMTc1KSIvPjxwYXRoIGQ9Ik00OSAxMzRMNTkgMTg2TDI2IDE5OCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjIyLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik00OSAxMzRMNTkgMTg2TDI2IDE5OCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYjhiOGI4IiBzdHJva2Utd2lkdGg9IjE5IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48ZWxsaXBzZSBjeD0iMjYiIGN5PSIxOTgiIHJ4PSI3LjUiIHJ5PSI2LjkiIGZpbGw9IiNmYmZiZmIiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciLz48L2c+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzQwIDgpIHNjYWxlKC0xIDEpIj48cGF0aCBkPSJNLTMyIDY0Qy0zNiAxMDAgLTM4IDEyMCAtMjYgMTMwTDI2IDEzMEMzOCAxMjAgMzYgMTAwIDMyIDY0WiIgZmlsbD0iIzNhM2EzYSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxyZWN0IHg9Ii05LjUiIHk9Ijk2IiB3aWR0aD0iMTkiIGhlaWdodD0iMjYiIGZpbGw9IiNmYmZiZmIiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciLz48cGF0aCBkPSJNLTEzIDExM0MtMjggMTE2IC00OSAxMTggLTU0IDE0MEMtNTcgMTcwIC01NyAxOTQgLTU1IDIzNEw0MiAyMzRDNDAgMTk0IDM5IDE3MCAzOCAxNDBDNDkgMTE4IDI4IDExNiAxMyAxMTNaIiBmaWxsPSIjN2Q3ZDdkIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTS0xMyAxMTNMLTIgMTMwTC0xNSAxMjZMLTE3IDExNVoiIGZpbGw9IiM5YTlhOWEiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNMTMgMTEzTDIgMTMwTDE1IDEyNkwxNyAxMTVaIiBmaWxsPSIjOWE5YTlhIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS40IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTS0xMyAxMTRDLTI2IDExNyAtNDEgMTI0IC00NSAxNDBMLTQ3IDIzMEwtMyAyMzBMLTMgMTQzWiIgZmlsbD0iI2Q5ZDlkOSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0xMyAxMTRDMjYgMTE3IDQxIDEyNCA0NSAxNDBMNDcgMjMwTDMgMjMwTDMgMTQzWiIgZmlsbD0iI2Q5ZDlkOSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxyZWN0IHg9Ii00NSIgeT0iMTc1IiB3aWR0aD0iNDIiIGhlaWdodD0iOCIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuMSIvPjxyZWN0IHg9IjMiIHk9IjE3NSIgd2lkdGg9IjQyIiBoZWlnaHQ9IjgiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjEiLz48cmVjdCB4PSItNDUiIHk9IjE5NyIgd2lkdGg9IjQyIiBoZWlnaHQ9IjgiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjEiLz48cmVjdCB4PSIzIiB5PSIxOTciIHdpZHRoPSI0MiIgaGVpZ2h0PSI4IiBmaWxsPSIjZmZmIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS4xIi8+PGVsbGlwc2UgY3g9IjAiIGN5PSI3MCIgcng9IjI4IiByeT0iMzQiIGZpbGw9IiNmYmZiZmIiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciLz48cGF0aCBkPSJNLTI3IDY4Qy0zNiA2NSAtMzYgODIgLTI3IDgwIiBmaWxsPSIjZmJmYmZiIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43Ii8+PGVsbGlwc2UgY3g9Ii00IiBjeT0iNzIiIHJ4PSIyLjMiIHJ5PSIyLjkiIGZpbGw9IiMyNjI2MjYiLz48ZWxsaXBzZSBjeD0iMTMiIGN5PSI3MiIgcng9IjIuMyIgcnk9IjIuOSIgZmlsbD0iIzI2MjYyNiIvPjxwYXRoIGQ9Ik0tOSA2NFEtNCA2MSAxIDYzLjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik04IDYzLjVRMTMgNjEgMTggNjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik0xNS4yIDY5LjZsMi42IC0xLjYiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik02IDc3UTkuNSA4NCA1IDg1IiBmaWxsPSJub25lIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS40IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cGF0aCBkPSJNLTIgOTFRNC41IDk2LjUgMTEgOTEiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik0tMzAgODBDLTMxIDYyIC0yNiA1MiAtMTggNTBMLTIyIDcyWiIgZmlsbD0iIzNhM2EzYSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0zMCA4MEMzMSA2MiAyNiA1MiAxOCA1MEwyMiA3MloiIGZpbGw9IiMzYTNhM2EiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNLTMyIDU4Qy0zMiAyMCAzMiAyMCAzMiA1OFoiIGZpbGw9IiNmM2YzZjMiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNLTQgMjdMLTMgNTdNNCAyN0wzIDU3IiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS4yIi8+PHBhdGggZD0iTS0zNiA1OEw0MiA1OFE0NCA2MyAzNiA2M0wtMzQgNjNRLTM4IDYxIC0zNiA1OFoiIGZpbGw9IiNmM2YzZjMiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNLTM0IDE1OEMtMzYgMTgwIC0zNiAyMDQgLTM1IDIzNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTQyIDEzNEw1MiAxODRMNzEgMTY2IiBmaWxsPSJub25lIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMjIuNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTQyIDEzNEw1MiAxODRMNzEgMTY2IiBmaWxsPSJub25lIiBzdHJva2U9IiM3ZDdkN2QiIHN0cm9rZS13aWR0aD0iMTkiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik02NSAxNzJDNjMgMTYzIDcwIDE1NyA3OSAxNTdDODUgMTU3IDg2IDE2MSA4MiAxNjJMNzYgMTYzQzgxIDE2NiA4MCAxNzIgNzMgMTc0WiIgZmlsbD0iI2ZiZmJmYiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvZz48L2c+PC9zdmc+",
+        "alt": "장식용. 근로관계법 전문가(상담사)와 A 씨(현장 근로자)가 마주 보고 이야기하는 인물 그림. 대화 내용은 이어지는 대화 블록에 있음.",
+        "kind": "illustration",
+        "spec": {
+          "id": "F1",
+          "kind": "scene",
+          "layout": "pair",
+          "people": [
+            {
+              "speaker": "근로관계법 전문가",
+              "role": "counselor",
+              "gender": "male",
+              "age": "adult"
+            },
+            {
+              "speaker": "A 씨",
+              "role": "worker",
+              "gender": "female",
+              "age": "adult"
+            }
+          ]
+        }
+      }
+    },
+    "choice_table": null
+  },
+  "optionsList": [
+    "① ㄱ, ㄴ",
+    "② ㄱ, ㄹ",
+    "③ ㄴ, ㄹ",
+    "④ ㄱ, ㄴ, ㄹ",
+    "⑤ ㄱ, ㄴ, ㄷ, ㄹ"
+  ],
+  "comboBlock": {
+    "title": "<보기>",
+    "items": [
+      {
+        "key": "ㄱ",
+        "text": "B 씨는 초등학교 3학년인 첫째 자녀의 양육을 위해 6월부터 육아휴직을 신청할 수 있다."
+      },
+      {
+        "key": "ㄴ",
+        "text": "A 씨는 성과급 지급 제외에 대해 상담일 현재 지방노동위원회에 구제를 신청할 수 있다."
+      },
+      {
+        "key": "ㄷ",
+        "text": "A 씨의 휴가 계획은 총 90일이므로 출산 예정일 기준으로 출산전후휴가 배정 기준을 충족한다."
+      },
+      {
+        "key": "ㄹ",
+        "text": "B 씨가 지난 정산 기간에 한 근로에는 연장 근로 가산 수당이 발생하지 않는다."
+      }
+    ]
+  },
+  "explanation": {
+    "judgment": "[출제 의도] 출산전후휴가, 육아휴직, 선택적 근로시간제의 요건을 사례의 날짜·나이·근로 시간에 적용하고, 부당 노동 행위의 구제 기관과 기한을 판단할 수 있는가?\n[해설] ㄱ. 첫째는 2016년 11월생이므로 2025년 6월에는 만 8세이다. 육아휴직은 만 8세 이하 또는 초등학교 2학년 이하 자녀가 대상이므로 3학년이어도 신청할 수 있고, 남성인 B 씨도 쓸 수 있다. ㄴ. 노동조합 가입을 이유로 성과급에서 제외한 것은 부당 노동 행위이다. 1월 24일부터 3개월 이내인 4월 24일까지 지방노동위원회에 구제를 신청할 수 있으므로 4월 10일 현재 신청할 수 있다. ㄷ. 5월 1일부터 90일간 쓰면 출산 전 휴가가 50일, 출산 후 휴가가 40일이 되어 출산 후 45일 이상 요건을 충족하지 못한다. ㄹ. 출퇴근 시각을 근로자가 정하고 4주 단위로 정산하는 선택적 근로시간제에서 4주 합계 160시간은 1주 평균 40시간이므로 연장 근로가 아니다. 따라서 옳은 것은 ㄱ, ㄴ, ㄹ이다.\n[오답 피하기] ㄷ. 출산전후휴가는 총 90일이라는 요건뿐 아니라 출산 후 휴가가 45일 이상이 되도록 배정해야 한다는 요건도 충족해야 한다. A 씨의 계획은 출산 전 50일, 출산 후 40일이 되어 출산 후 기간 요건을 충족하지 못한다.",
+    "conceptHighlightV2": {
+      "stimulusClues": [
+        {
+          "quote": "출산 예정일이 올해 6월 20일이고, 출산 휴가는 5월 1일부터 90일간 쓰려고 해요",
+          "why": "출산 전 휴가 일수를 계산하면 출산 후 45일 이상 배정 요건 충족 여부를 판단할 수 있다."
+        },
+        {
+          "quote": "노동조합에 가입하였다는 이유로 1월 24일 성과급 지급에서 저만 제외되었어요",
+          "why": "노동조합 가입을 이유로 한 불이익은 부당 노동 행위이며, 이날부터 3개월이 구제 신청 기한이다."
+        },
+        {
+          "quote": "주별로 48, 36, 44, 32시간을 일하였어요",
+          "why": "선택적 근로시간제에서는 정산 기간 전체의 1주 평균 근로 시간으로 연장 근로 여부를 판단한다."
+        },
+        {
+          "quote": "2016년 11월에 태어난 초등학교 3학년 첫째",
+          "why": "만 나이로 계산하면 육아휴직 대상 자녀의 연령 요건을 충족한다."
+        }
+      ],
+      "optionAnalysis": [
+        {
+          "optionKey": "ㄱ",
+          "verdict": "O",
+          "reasoning": "2016년 11월에 태어난 첫째는 2025년 6월에 만 8세이므로 학년이 3학년이어도 ‘만 8세 이하 또는 초등학교 2학년 이하’ 요건을 충족하고, 육아휴직은 성별과 관계없이 쓸 수 있으며 B 씨는 3년째 근무 중이다."
+        },
+        {
+          "optionKey": "ㄴ",
+          "verdict": "O",
+          "reasoning": "노동조합 가입을 이유로 성과급에서 제외한 것은 부당 노동 행위이므로 노동위원회 구제 신청 대상이고, 그 행위가 있은 1월 24일부터 3개월인 4월 24일까지 신청할 수 있어 상담일인 4월 10일에는 기한이 남아 있다."
+        },
+        {
+          "optionKey": "ㄷ",
+          "verdict": "X",
+          "reasoning": "5월 1일부터 90일간 쓰면 출산 예정일 전 휴가가 50일(5월 1일~6월 19일)이 되어 출산 후 휴가는 40일에 그치므로, 출산 후 45일 이상이 되도록 배정해야 한다는 요건을 충족하지 못한다."
+        },
+        {
+          "optionKey": "ㄹ",
+          "verdict": "O",
+          "reasoning": "B 씨는 서면 합의에 따른 선택적 근로시간제로 일하며, 4주간 근로 시간 합계가 160시간으로 1주 평균 40시간을 넘지 않으므로 특정 주에 40시간을 넘겼어도 연장 근로에 해당하지 않는다."
+        }
+      ],
+      "solvingFlow": [
+        {
+          "step": 1,
+          "action": "5월 1일~6월 19일을 세어 출산 전 휴가 50일, 출산 후 휴가 90-50=40일을 구하고 45일 기준과 비교한다."
+        },
+        {
+          "step": 2,
+          "action": "성과급 제외 이유가 노동조합 가입이므로 부당 노동 행위로 분류하고, 1월 24일+3개월=4월 24일을 상담일 4월 10일과 비교한다."
+        },
+        {
+          "step": 3,
+          "action": "B 씨의 4주 근로 시간 48+36+44+32=160시간을 4로 나누어 1주 평균 40시간임을 확인한다."
+        },
+        {
+          "step": 4,
+          "action": "첫째의 2025년 6월 기준 만 나이(만 8세)를 구하여 ‘만 8세 이하 또는 초등학교 2학년 이하’ 요건에 적용한다."
+        }
+      ],
+      "takeaway": "출산전후휴가는 총 90일과 출산 후 45일 이상을 모두 충족해야 하며, 육아휴직 자녀 요건은 만 8세 이하 또는 초등학교 2학년 이하 중 하나만 충족하면 된다."
+    }
+  },
+  "correctAnswer": 4,
+  "points": 3,
+  "fingerprint": "3abb412c"
+}

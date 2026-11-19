@@ -1,0 +1,145 @@
+{
+  "targetConcept": "홀랜드(Holland)의 6가지 성격(흥미) 유형",
+  "itemType": "ai_generative_truth_combination",
+  "difficulty": "MIDDLE",
+  "recommendedTemplate": "TPL_SOURCE_BLOCKS",
+  "questionStem": "다음 상담 대화에 나타난 A 씨에 대한 설명으로 적절한 것만을 <보기>에서 있는 대로 고른 것은? (단, 성격 유형은 홀랜드의 이론에 근거한다.)",
+  "stimulusData": {
+    "blocks": [
+      {
+        "type": "figure",
+        "figure_id": "F1"
+      },
+      {
+        "type": "dialogue",
+        "lines": [
+          {
+            "speaker": "직업 상담사",
+            "text": "△△공사 신규 채용 기술직에 지원하셨네요. 이 직무를 택한 이유가 무엇인가요?"
+          },
+          {
+            "speaker": "A 씨",
+            "text": "공구로 설비를 직접 분해하고 다시 조립할 때 가장 즐겁습니다. 고장이 나면 측정 자료를 모아 원인을 추론하고 시험으로 확인하는 과정에도 몰두하게 됩니다."
+          },
+          {
+            "speaker": "직업 상담사",
+            "text": "여러 기관 가운데 공공 기관을 고른 까닭도 있나요?"
+          },
+          {
+            "speaker": "A 씨",
+            "text": "정년까지 고용이 보장되어 생계 걱정 없이 오래 일할 수 있다는 점이 컸습니다. 대학 시절 현장 실습도 이 기관에서 하였습니다."
+          }
+        ]
+      }
+    ],
+    "figures": {
+      "F1": {
+        "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0ODAgMjI0IiBmb250LWZhbWlseT0iJiMzOTtOb3RvIFNhbnMgS1ImIzM5OywmIzM5O0FwcGxlIFNEIEdvdGhpYyBOZW8mIzM5OywmIzM5O01hbGd1biBHb3RoaWMmIzM5OywmIzM5O05hbnVtR290aGljJiMzOTssc2Fucy1zZXJpZiI+PGRlZnM+PGNsaXBQYXRoIGlkPSJGMS05Y2Y1YzItY2xpcCI+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjQ4MCIgaGVpZ2h0PSIyMjQiLz48L2NsaXBQYXRoPjwvZGVmcz48ZyBjbGlwLXBhdGg9InVybCgjRjEtOWNmNWMyLWNsaXApIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNDAgOCkiPjxwYXRoIGQ9Ik0tMzIgNjRDLTM2IDEwMCAtMzggMTIwIC0yNiAxMzBMMjYgMTMwQzM4IDEyMCAzNiAxMDAgMzIgNjRaIiBmaWxsPSIjM2EzYTNhIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHJlY3QgeD0iLTkuNSIgeT0iOTYiIHdpZHRoPSIxOSIgaGVpZ2h0PSIyNiIgZmlsbD0iI2ZiZmJmYiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIvPjxwYXRoIGQ9Ik0tMTMgMTEzQy0yOCAxMTYgLTQ5IDExOCAtNTQgMTQwQy01NyAxNzAgLTU3IDE5NCAtNTUgMjM0TDQyIDIzNEM0MCAxOTQgMzkgMTcwIDM4IDE0MEM0OSAxMTggMjggMTE2IDEzIDExM1oiIGZpbGw9IiNiOGI4YjgiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNLTE3IDExMkwwIDE0OUwxNyAxMTJaIiBmaWxsPSIjZmZmIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS40IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTS0xNyAxMTRMLTMgMTUxTC0zIDIyOCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuMyIvPjxwYXRoIGQ9Ik0xNyAxMTRMMyAxNTEiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjMiLz48Y2lyY2xlIGN4PSIwIiBjeT0iMTY1IiByPSIyIiBmaWxsPSIjNTU1Ii8+PGNpcmNsZSBjeD0iMCIgY3k9IjE4NSIgcj0iMiIgZmlsbD0iIzU1NSIvPjxjaXJjbGUgY3g9IjAiIGN5PSIyMDUiIHI9IjIiIGZpbGw9IiM1NTUiLz48ZWxsaXBzZSBjeD0iMCIgY3k9IjcwIiByeD0iMjgiIHJ5PSIzNCIgZmlsbD0iI2ZiZmJmYiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIvPjxwYXRoIGQ9Ik0tMjcgNjhDLTM2IDY1IC0zNiA4MiAtMjcgODAiIGZpbGw9IiNmYmZiZmIiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciLz48ZWxsaXBzZSBjeD0iLTQiIGN5PSI3MiIgcng9IjIuMyIgcnk9IjIuOSIgZmlsbD0iIzI2MjYyNiIvPjxlbGxpcHNlIGN4PSIxMyIgY3k9IjcyIiByeD0iMi4zIiByeT0iMi45IiBmaWxsPSIjMjYyNjI2Ii8+PHBhdGggZD0iTS05IDY0US00IDYxIDEgNjMuNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTggNjMuNVExMyA2MSAxOCA2NCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTE1LjIgNjkuNmwyLjYgLTEuNiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTYgNzdROS41IDg0IDUgODUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik0tMiA5MVE0LjUgOTYuNSAxMSA5MSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTS0zMiA4OEMtMzYgNTIgLTI2IDMwIDIgMzBDMjYgMzAgMzYgNTIgMzIgODhMMjYgODZDMjggNjggMjYgNTggMjAgNTRDMTAgNjAgLTYgNTYgLTEyIDQ4Qy0xNiA1NiAtMjQgNjIgLTI2IDg2WiIgZmlsbD0iIzNhM2EzYSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0tMzQgMTU4Qy0zNiAxODAgLTM2IDIwNCAtMzUgMjM0IiBmaWxsPSJub25lIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS40IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cmVjdCB4PSItNCIgeT0iMTQ4IiB3aWR0aD0iNDQiIGhlaWdodD0iNTQiIHJ4PSIyIiBmaWxsPSIjZjJmMmYyIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS41IiB0cmFuc2Zvcm09InJvdGF0ZSgtOCAxOCAxNzUpIi8+PHJlY3QgeD0iMTAiIHk9IjE0NSIgd2lkdGg9IjE2IiBoZWlnaHQ9IjciIHJ4PSIxLjUiIGZpbGw9IiM4ODgiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjEiIHRyYW5zZm9ybT0icm90YXRlKC04IDE4IDE3NSkiLz48cGF0aCBkPSJNNCAxNjRoMjhNNCAxNzRoMjhNNCAxODRoMTgiIHN0cm9rZT0iIzlhOWE5YSIgc3Ryb2tlLXdpZHRoPSIxLjMiIHRyYW5zZm9ybT0icm90YXRlKC04IDE4IDE3NSkiLz48cGF0aCBkPSJNNDIgMTM0TDUyIDE4NkwyNiAxOTgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIyMi40IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNNDIgMTM0TDUyIDE4NkwyNiAxOTgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2I4YjhiOCIgc3Ryb2tlLXdpZHRoPSIxOSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PGVsbGlwc2UgY3g9IjI2IiBjeT0iMTk4IiByeD0iNy41IiByeT0iNi45IiBmaWxsPSIjZmJmYmZiIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43Ii8+PC9nPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDM0MCA4KSBzY2FsZSgtMSAxKSI+PHJlY3QgeD0iLTkuNSIgeT0iOTYiIHdpZHRoPSIxOSIgaGVpZ2h0PSIyNiIgZmlsbD0iI2ZiZmJmYiIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjEuNyIvPjxwYXRoIGQ9Ik0tMTMgMTEzQy0yOCAxMTYgLTU2IDExOCAtNjEgMTQwQy02NCAxNzAgLTY0IDE5NCAtNjIgMjM0TDQ5IDIzNEM0NyAxOTQgNDYgMTcwIDQ1IDE0MEM1NiAxMTggMjggMTE2IDEzIDExM1oiIGZpbGw9IiNhZGFkYWQiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNLTE2IDExM0MtMTAgMTI3IDEwIDEyNyAxNiAxMTMiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjQiLz48cGF0aCBkPSJNLTEzIDExNEMtOCAxMjIgOCAxMjIgMTMgMTE0IiBmaWxsPSJub25lIiBzdHJva2U9IiM3NzciIHN0cm9rZS13aWR0aD0iMS4xIi8+PGVsbGlwc2UgY3g9IjAiIGN5PSI3MCIgcng9IjI4IiByeT0iMzQiIGZpbGw9IiNmYmZiZmIiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciLz48cGF0aCBkPSJNLTI3IDY4Qy0zNiA2NSAtMzYgODIgLTI3IDgwIiBmaWxsPSIjZmJmYmZiIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43Ii8+PGVsbGlwc2UgY3g9Ii00IiBjeT0iNzIiIHJ4PSIyLjMiIHJ5PSIyLjkiIGZpbGw9IiMyNjI2MjYiLz48ZWxsaXBzZSBjeD0iMTMiIGN5PSI3MiIgcng9IjIuMyIgcnk9IjIuOSIgZmlsbD0iIzI2MjYyNiIvPjxwYXRoIGQ9Ik0tOSA2NFEtNCA2MSAxIDYzLjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik04IDYzLjVRMTMgNjEgMTggNjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik02IDc3UTkuNSA4NCA1IDg1IiBmaWxsPSJub25lIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS40IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cGF0aCBkPSJNLTIgOTFRNC41IDk2LjUgMTEgOTEiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik0tMjkgNzRDLTMzIDQ4IC0yNiAzMiAtMiAzMUMyNCAzMCAzMiA1MiAyOSA2OEMyNCA1NyAxNCA1MiAyIDQ5Qy04IDU0IC0yMiA1NiAtMjMgNjhaIiBmaWxsPSIjM2EzYTNhIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS13aWR0aD0iMS43IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTS00MSAxNThDLTQzIDE4MCAtNDMgMjA0IC00MiAyMzQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik00OSAxMzRMNTkgMTg0TDc4IDE2NiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjYyNjI2IiBzdHJva2Utd2lkdGg9IjIyLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik00OSAxMzRMNTkgMTg0TDc4IDE2NiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYWRhZGFkIiBzdHJva2Utd2lkdGg9IjE5IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNNzIgMTcyQzcwIDE2MyA3NyAxNTcgODYgMTU3QzkyIDE1NyA5MyAxNjEgODkgMTYyTDgzIDE2M0M4OCAxNjYgODcgMTcyIDgwIDE3NFoiIGZpbGw9IiNmYmZiZmIiIHN0cm9rZT0iIzI2MjYyNiIgc3Ryb2tlLXdpZHRoPSIxLjciIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L2c+PC9nPjwvc3ZnPg==",
+        "alt": "장식용. 직업 상담사(상담사)와 A 씨(시민)가 마주 보고 이야기하는 인물 그림. 대화 내용은 이어지는 대화 블록에 있음.",
+        "kind": "illustration",
+        "spec": {
+          "id": "F1",
+          "kind": "scene",
+          "layout": "pair",
+          "people": [
+            {
+              "speaker": "직업 상담사",
+              "role": "counselor",
+              "gender": "female",
+              "age": "adult"
+            },
+            {
+              "speaker": "A 씨",
+              "role": "citizen",
+              "gender": "male",
+              "age": "adult"
+            }
+          ]
+        }
+      }
+    },
+    "choice_table": null
+  },
+  "optionsList": [
+    "① ㄱ",
+    "② ㄷ",
+    "③ ㄱ, ㄴ",
+    "④ ㄴ, ㄷ",
+    "⑤ ㄱ, ㄴ, ㄷ"
+  ],
+  "comboBlock": {
+    "title": "<보기>",
+    "items": [
+      {
+        "key": "ㄱ",
+        "text": "A 씨에게는 성격 유형 중 탐구형의 특성이 나타난다."
+      },
+      {
+        "key": "ㄴ",
+        "text": "A 씨에게 나타난 두 성격 유형은 육각형 모형에서 서로 인접한다."
+      },
+      {
+        "key": "ㄷ",
+        "text": "A 씨가 공공 기관을 고른 까닭은 외재적 가치에 해당한다."
+      }
+    ]
+  },
+  "explanation": {
+    "judgment": "[출제 의도] 인물의 발화에 나타난 활동 단서로 홀랜드의 성격 유형과 육각형 모형의 관계를 판별하고, 직업 선택 동기를 내재적·외재적 가치로 구분할 수 있는가?\n[해설] A 씨는 공구로 설비를 직접 분해하고 조립할 때 가장 즐겁다고 하였으므로 기계·도구를 다루는 현실형의 특성이 있다. 또 측정 자료를 모아 원인을 추론하고 시험으로 확인하는 과정에 몰두하므로 탐구형의 특성도 있다. ㄱ. 원인을 추론하고 확인하는 활동은 탐구형에 해당하므로 옳다. ㄴ. 현실형과 탐구형은 육각형 모형에서 서로 이웃한 유형이므로 옳다. ㄷ. 정년까지 고용이 보장된다는 점은 직업 안정으로, 외부에서 얻는 외재적 가치에 해당하므로 옳다. 따라서 ㄱ, ㄴ, ㄷ 모두 적절하다.\n[오답 피하기] 측정 자료를 다룬다는 점만 보고 관습형으로 판단하기 쉽지만, 관습형은 정해진 규칙에 따라 자료를 정리·처리하는 활동이고 원인을 추론해 확인하는 활동은 탐구형이다. A 씨가 일을 즐긴다는 점 때문에 공공 기관을 고른 까닭까지 내재적 가치로 보기 쉽지만, 고용 보장은 직업의 조건에서 얻는 직업 안정이므로 외재적 가치이다.",
+    "conceptHighlightV2": {
+      "stimulusClues": [
+        {
+          "quote": "공구로 설비를 직접 분해하고 다시 조립할 때",
+          "why": "기계·도구를 직접 다루는 활동으로 현실형을 가리킨다."
+        },
+        {
+          "quote": "원인을 추론하고 시험으로 확인하는 과정",
+          "why": "정보를 분석하고 원인을 밝히는 과학적 활동으로 탐구형을 가리킨다."
+        },
+        {
+          "quote": "정년까지 고용이 보장되어 생계 걱정 없이 오래 일할 수 있다는 점",
+          "why": "직업 안정을 중시하는 외재적 가치를 가리킨다."
+        }
+      ],
+      "optionAnalysis": [
+        {
+          "optionKey": "ㄱ",
+          "verdict": "O",
+          "reasoning": "A 씨는 측정 자료를 모아 원인을 추론하고 시험으로 확인하는 과정에 몰두한다고 하였다. 정보를 분석하고 원인을 밝히는 학문적·과학적 활동을 즐기므로 탐구형의 특성이 나타난다."
+        },
+        {
+          "optionKey": "ㄴ",
+          "verdict": "O",
+          "reasoning": "공구로 설비를 분해·조립하는 활동은 현실형, 원인을 추론하고 확인하는 활동은 탐구형에 해당한다. 육각형 모형에서 현실형과 탐구형은 이웃하여 유사성이 높은 유형이다."
+        },
+        {
+          "optionKey": "ㄷ",
+          "verdict": "O",
+          "reasoning": "A 씨는 정년까지 고용이 보장되어 오래 일할 수 있다는 점 때문에 공공 기관을 골랐다. 이는 직업 안정으로, 직업의 조건과 관련된 외재적 가치에 해당한다."
+        }
+      ],
+      "solvingFlow": [
+        {
+          "step": 1,
+          "action": "A 씨의 첫 발화에서 설비를 분해·조립하는 활동을 찾아 현실형으로 분류한다."
+        },
+        {
+          "step": 2,
+          "action": "같은 발화에서 원인을 추론하고 시험으로 확인하는 활동을 찾아 탐구형으로 분류한다."
+        },
+        {
+          "step": 3,
+          "action": "육각형 모형의 배열(현실형-탐구형-예술형-사회형-진취형-관습형)에서 두 유형이 이웃하는지 확인한다."
+        },
+        {
+          "step": 4,
+          "action": "공공 기관을 고른 까닭인 고용 보장을 직업 안정으로 보고 외재적 가치로 판정한다."
+        }
+      ],
+      "takeaway": "원인을 추론하고 확인하는 활동은 탐구형, 도구를 다루는 활동은 현실형이며 두 유형은 육각형 모형에서 인접하고, 고용 보장(직업 안정)은 외재적 가치이다."
+    }
+  },
+  "correctAnswer": 5,
+  "points": 2,
+  "fingerprint": "89c2b462"
+}
