@@ -1,0 +1,45 @@
+{
+  "incidents": [
+    {
+      "id": "semantic-status-object-slot",
+      "stage": "frame",
+      "observedPath": "referenceFrame.semanticAtoms[0]",
+      "payload": {
+        "id": "atom_1",
+        "subjectSlot": "actor_a",
+        "predicateKind": "has_status",
+        "operator": "equals",
+        "objectSlot": "organization_a",
+        "quantityRole": null,
+        "polarity": true
+      },
+      "expected": { "kind": "accepted" }
+    },
+    {
+      "id": "semantic-outcome-quantity-role",
+      "stage": "frame",
+      "observedPath": "referenceFrame.semanticAtoms[2]",
+      "payload": {
+        "id": "atom_3",
+        "subjectSlot": "actor_a",
+        "predicateKind": "produces_outcome",
+        "operator": "equals",
+        "objectSlot": "artifact_a",
+        "quantityRole": "count",
+        "polarity": true
+      },
+      "expected": { "kind": "accepted" }
+    },
+    {
+      "id": "blueprint-condition-relation-context-source",
+      "stage": "frame",
+      "observedPath": "referenceFrame.structureBlueprint.relations[0]",
+      "payload": {
+        "kind": "condition_of",
+        "fromUnitId": "unit_1",
+        "toUnitId": "unit_3"
+      },
+      "expected": { "kind": "accepted" }
+    }
+  ]
+}

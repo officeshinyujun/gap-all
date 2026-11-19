@@ -1,4 +1,5 @@
 import {
+  HttpException,
   Injectable,
   NotFoundException,
   ForbiddenException,
@@ -6,7 +7,7 @@ import {
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { ExamRecord } from '../entities/exam-record.entity';
+import { ExamRecord, ExamSourceType } from '../entities/exam-record.entity';
 import { ExamItem } from '../entities/exam-item.entity';
 import { Subject } from '../entities/subject.entity';
 import {
@@ -15,6 +16,7 @@ import {
 } from '../entities/incorrect-record.entity';
 import { FlaggedQuestion } from '../entities/flagged-question.entity';
 import { ExamGeneratorService } from './exam-generator.service';
+import { ReferenceFrameGenerationService } from './reference-frame-generation.service';
 import { StimulusNormalizer } from './stimulus-normalizer';
 import { TextbookService } from '../textbook/textbook.service';
 import { CreateExamDto } from './dto/create-exam.dto';
@@ -22,6 +24,24 @@ import { ExamGenerationJobsService } from './exam-generation-jobs.service';
 import { NotificationsService } from '../notifications/notifications.service';
 import { NotificationType } from '../entities/notification.entity';
 import type { ExamGenerationProgressReporter } from './exam-generation.utils';
+import { Question } from '../entities/question.entity';
+import { Unit } from '../entities/unit.entity';
+
+function jobFailure(error: unknown) {
+  if (!(error instanceof HttpException)) {
+    return { code: 'EXAM_GENERATION_FAILED', message: '시험 생성에 실패했습니다.' };
+  }
+  const response = error.getResponse();
+  if (
+    typeof response === 'object' &&
+    response !== null &&
+    'code' in response &&
+    typeof response.code === 'string'
+  ) {
+    return { code: response.code, message: '참조 문항 생성에 실패했습니다.' };
+  }
+  return { code: 'EXAM_GENERATION_FAILED', message: '시험 생성에 실패했습니다.' };
+}
 
 @Injectable()
 export class ExamsService {
@@ -40,6 +60,7 @@ export class ExamsService {
     @InjectRepository(FlaggedQuestion)
     private readonly flaggedQuestionRepo: Repository<FlaggedQuestion>,
     private readonly examGeneratorService: ExamGeneratorService,
+    private readonly referenceFrameGenerationService: ReferenceFrameGenerationService,
     private readonly textbookService: TextbookService,
     private readonly examGenerationJobsService: ExamGenerationJobsService,
     private readonly notificationsService: NotificationsService,
@@ -65,7 +86,7 @@ export class ExamsService {
     );
   }
 
-  async getConceptsBySlug(
+  getConceptsBySlug(
     subjectSlug: string,
     startUnitNum: number,
     endUnitNum: number,
@@ -86,58 +107,54 @@ export class ExamsService {
     });
     if (!subject) throw new NotFoundException('과목을 찾을 수 없습니다.');
 
-    // AI 문항 생성
-    const questions = dto.sourceType === 'reference'
-      ? await this.examGeneratorService.regenerate(
-          dto.subjectId,
-          subject.slug,
-          dto.startUnitNum,
-          dto.endUnitNum,
-          dto.difficulty,
-          dto.questionCount,
-          dto.targetConcepts,
-          undefined,
-          dto.customPrompt,
-          userId,
-          dto.excludePrevious,
-        )
-      : await this.examGeneratorService.generate(
-          dto.subjectId,
-          subject.slug,
-          dto.startUnitNum,
-          dto.endUnitNum,
-          dto.difficulty,
-          dto.questionCount,
-          dto.customPrompt,
-          dto.targetConcepts,
-          undefined,
-          userId,
-          dto.excludePrevious,
-        );
+    if (dto.sourceType !== 'ai') {
+      return this.createReferenceFrameExam(
+        userId,
+        dto,
+        subject.title,
+        subject.slug,
+      );
+    }
 
-    // ExamRecord 생성
-    const title = `${subject.title} ${dto.startUnitNum}~${dto.endUnitNum}단원 (${dto.difficulty})`;
-    const exam = this.examRepo.create({
+    const questions = await this.examGeneratorService.generate(
+      dto.subjectId,
+      subject.slug,
+      dto.startUnitNum,
+      dto.endUnitNum,
+      dto.difficulty,
+      dto.questionCount,
+      dto.customPrompt,
+      dto.targetConcepts,
+      undefined,
       userId,
-      subjectId: dto.subjectId,
-      title,
-      startUnitNum: dto.startUnitNum,
-      endUnitNum: dto.endUnitNum,
-      difficulty: dto.difficulty,
-      questionCount: questions.length,
-      customPrompt: dto.customPrompt ?? null,
-    });
-    await this.examRepo.save(exam);
-
-    // ExamItem 생성
-    const items = questions.map((q, idx) =>
-      this.examItemRepo.create({
-        examId: exam.id,
-        questionId: q.id,
-        orderIndex: idx + 1,
-      }),
+      dto.excludePrevious,
     );
-    await this.examItemRepo.save(items);
+
+    const title = `${subject.title} ${dto.startUnitNum}~${dto.endUnitNum}단원 (${dto.difficulty})`;
+    const exam = await this.examRepo.manager.transaction(async (manager) => {
+      const savedExam = await manager.save(
+        this.examRepo.create({
+          userId,
+          subjectId: dto.subjectId,
+          title,
+          startUnitNum: dto.startUnitNum,
+          endUnitNum: dto.endUnitNum,
+          difficulty: dto.difficulty,
+          questionCount: questions.length,
+          customPrompt: dto.customPrompt ?? null,
+          sourceType: ExamSourceType.AI,
+        }),
+      );
+      const items = questions.map((q, idx) =>
+        this.examItemRepo.create({
+          examId: savedExam.id,
+          questionId: q.id,
+          orderIndex: idx + 1,
+        }),
+      );
+      await manager.save(items);
+      return savedExam;
+    });
 
     return this.findOne(userId, exam.id);
   }
@@ -151,8 +168,10 @@ export class ExamsService {
     const job = this.examGenerationJobsService.create(userId, dto);
 
     void this.runJob(job.id, userId, dto).catch((error: unknown) => {
-      const message = error instanceof Error ? error.message : String(error);
-      this.examGenerationJobsService.fail(job.id, userId, message);
+      const stack = error instanceof Error ? error.stack : undefined;
+      const failure = jobFailure(error);
+      this.logger.error(`[EXAM-JOB] ${job.id} failed: ${failure.code}`, stack);
+      this.examGenerationJobsService.fail(job.id, userId, failure);
     });
 
     return {
@@ -166,6 +185,11 @@ export class ExamsService {
 
   getJob(userId: string, jobId: string) {
     return this.examGenerationJobsService.getForUser(jobId, userId);
+  }
+
+  removeJob(userId: string, jobId: string) {
+    this.examGenerationJobsService.removeForUser(jobId, userId);
+    return { removed: true };
   }
 
   // ============================================================
@@ -195,7 +219,13 @@ export class ExamsService {
   async findOne(userId: string, examId: string, userRole?: string) {
     const exam = await this.examRepo.findOne({
       where: { id: examId },
-      relations: ['subject', 'tags', 'items', 'items.question', 'items.question.unit'],
+      relations: [
+        'subject',
+        'tags',
+        'items',
+        'items.question',
+        'items.question.unit',
+      ],
       order: { items: { orderIndex: 'ASC' } },
     });
 
@@ -218,11 +248,12 @@ export class ExamsService {
         difficulty: item.question.difficulty,
         questionStem: item.question.questionStem,
         ...(() => {
-          const { stimulusData, effectiveTemplate } = this.normalizer.normalizeStimulusWithTemplate(
-            item.question.stimulusData,
-            item.question.recommendedTemplate,
-            item.question.comboBlock,
-          );
+          const { stimulusData, effectiveTemplate } =
+            this.normalizer.normalizeStimulusWithTemplate(
+              item.question.stimulusData,
+              item.question.recommendedTemplate,
+              item.question.comboBlock,
+            );
           return { stimulusData, recommendedTemplate: effectiveTemplate };
         })(),
         optionsList: item.question.optionsList,
@@ -382,11 +413,12 @@ export class ExamsService {
         targetConcept: item.question.targetConcept,
         questionStem: item.question.questionStem,
         ...(() => {
-          const { stimulusData, effectiveTemplate } = this.normalizer.normalizeStimulusWithTemplate(
-            item.question.stimulusData,
-            item.question.recommendedTemplate,
-            item.question.comboBlock,
-          );
+          const { stimulusData, effectiveTemplate } =
+            this.normalizer.normalizeStimulusWithTemplate(
+              item.question.stimulusData,
+              item.question.recommendedTemplate,
+              item.question.comboBlock,
+            );
           return { stimulusData, recommendedTemplate: effectiveTemplate };
         })(),
         optionsList: item.question.optionsList,
@@ -439,6 +471,122 @@ export class ExamsService {
     );
   }
 
+  private async createReferenceFrameExam(
+    userId: string,
+    dto: CreateExamDto,
+    subjectTitle: string,
+    subjectSlug: string,
+    reportProgress?: ExamGenerationProgressReporter,
+  ) {
+    const drafts =
+      dto.referenceSourceIds === undefined
+        ? await this.referenceFrameGenerationService.generate(
+            subjectSlug,
+            dto.startUnitNum,
+            dto.endUnitNum,
+            dto.difficulty,
+            dto.questionCount,
+            dto.targetConcepts,
+          )
+        : await this.referenceFrameGenerationService.generate(
+            subjectSlug,
+            dto.startUnitNum,
+            dto.endUnitNum,
+            dto.difficulty,
+            dto.questionCount,
+            dto.targetConcepts,
+            dto.referenceSourceIds,
+          );
+    if (drafts.length !== dto.questionCount) {
+      throw new NotFoundException(
+        '참조 문항 생성 수량이 요청 수량과 일치하지 않습니다.',
+      );
+    }
+
+    const title = `${subjectTitle} ${dto.startUnitNum}~${dto.endUnitNum}단원 (${dto.difficulty})`;
+    const exam = await this.examRepo.manager.transaction(async (manager) => {
+      const questionRepo = manager.getRepository(Question);
+      const unitRepo = manager.getRepository(Unit);
+      const questions: Question[] = [];
+      for (const draft of drafts) {
+        const unitNumber =
+          Number.parseInt(
+            draft.result.metadata.unit_name.replace(/[^0-9]/g, ''),
+            10,
+          ) || dto.startUnitNum;
+        let unit = await unitRepo.findOne({
+          where: { subjectId: dto.subjectId, unitNumber },
+        });
+        if (unit === null) {
+          unit = await unitRepo.save(
+            unitRepo.create({
+              subjectId: dto.subjectId,
+              unitNumber,
+              title: draft.result.metadata.unit_name,
+            }),
+          );
+        }
+        questions.push(
+          await questionRepo.save(
+            questionRepo.create({
+              subjectId: dto.subjectId,
+              unitId: unit.id,
+              targetConcept: draft.result.metadata.target_concept,
+              itemType: draft.result.metadata.item_type,
+              difficulty: draft.result.metadata.difficulty,
+              recommendedTemplate: draft.result.metadata.recommended_template,
+              questionStem: draft.result.render_ready.question_stem,
+              stimulusData: draft.result.render_ready.stimulus_data,
+              optionsList: [...draft.result.render_ready.options_list],
+              comboBlock:
+                draft.result.render_ready.combo_block === null
+                  ? null
+                  : {
+                      title: draft.result.render_ready.combo_block.title,
+                      items: [...draft.result.render_ready.combo_block.items],
+                    },
+              explanation: draft.result.explanation,
+              correctAnswer: draft.result.correct_answer,
+              setGroupId: null,
+              setPosition: null,
+              generationLineage: draft.lineage,
+            }),
+          ),
+        );
+      }
+      const savedExam = await manager.save(
+        this.examRepo.create({
+          userId,
+          subjectId: dto.subjectId,
+          title,
+          startUnitNum: dto.startUnitNum,
+          endUnitNum: dto.endUnitNum,
+          difficulty: dto.difficulty,
+          questionCount: questions.length,
+          customPrompt: dto.customPrompt ?? null,
+          sourceType: ExamSourceType.REFERENCE,
+        }),
+      );
+      await manager.save(
+        questions.map((question, index) =>
+          this.examItemRepo.create({
+            examId: savedExam.id,
+            questionId: question.id,
+            orderIndex: index + 1,
+          }),
+        ),
+      );
+      return savedExam;
+    });
+    await reportProgress?.({
+      stage: 'saving',
+      progress: 100,
+      status: 'success',
+      message: '참조 프레임 문항 저장 완료',
+    });
+    return this.findOne(userId, exam.id);
+  }
+
   private async createWithProgress(
     userId: string,
     dto: CreateExamDto,
@@ -449,67 +597,73 @@ export class ExamsService {
     });
     if (!subject) throw new NotFoundException('과목을 찾을 수 없습니다.');
 
-    const questions = dto.sourceType === 'reference'
-      ? await this.examGeneratorService.regenerate(
-          dto.subjectId,
-          subject.slug,
-          dto.startUnitNum,
-          dto.endUnitNum,
-          dto.difficulty,
-          dto.questionCount,
-          dto.targetConcepts,
-          reportProgress,
-          dto.customPrompt,
-          userId,
-          dto.excludePrevious,
-        )
-      : await this.examGeneratorService.generate(
-          dto.subjectId,
-          subject.slug,
-          dto.startUnitNum,
-          dto.endUnitNum,
-          dto.difficulty,
-          dto.questionCount,
-          dto.customPrompt,
-          dto.targetConcepts,
-          reportProgress,
-          userId,
-          dto.excludePrevious,
-        );
+    if (dto.sourceType !== 'ai') {
+      return this.createReferenceFrameExam(
+        userId,
+        dto,
+        subject.title,
+        subject.slug,
+        reportProgress,
+      );
+    }
+
+    const questions = await this.examGeneratorService.generate(
+      dto.subjectId,
+      subject.slug,
+      dto.startUnitNum,
+      dto.endUnitNum,
+      dto.difficulty,
+      dto.questionCount,
+      dto.customPrompt,
+      dto.targetConcepts,
+      reportProgress,
+      userId,
+      dto.excludePrevious,
+    );
 
     const title = `${subject.title} ${dto.startUnitNum}~${dto.endUnitNum}단원 (${dto.difficulty})`;
-    const exam = this.examRepo.create({
-      userId,
-      subjectId: dto.subjectId,
-      title,
-      startUnitNum: dto.startUnitNum,
-      endUnitNum: dto.endUnitNum,
-      difficulty: dto.difficulty,
-      questionCount: questions.length,
-      customPrompt: dto.customPrompt ?? null,
+    const exam = await this.examRepo.manager.transaction(async (manager) => {
+      const savedExam = await manager.save(
+        this.examRepo.create({
+          userId,
+          subjectId: dto.subjectId,
+          title,
+          startUnitNum: dto.startUnitNum,
+          endUnitNum: dto.endUnitNum,
+          difficulty: dto.difficulty,
+          questionCount: questions.length,
+          customPrompt: dto.customPrompt ?? null,
+          sourceType: ExamSourceType.AI,
+        }),
+      );
+      const items = questions.map((q, idx) =>
+        this.examItemRepo.create({
+          examId: savedExam.id,
+          questionId: q.id,
+          orderIndex: idx + 1,
+        }),
+      );
+      await manager.save(items);
+      return savedExam;
     });
-    await this.examRepo.save(exam);
-
-    const items = questions.map((q, idx) =>
-      this.examItemRepo.create({
-        examId: exam.id,
-        questionId: q.id,
-        orderIndex: idx + 1,
-      }),
-    );
-    await this.examItemRepo.save(items);
 
     return this.findOne(userId, exam.id);
   }
 
-  async flagItem(userId: string, examId: string, itemId: string, reason?: string) {
+  async flagItem(
+    userId: string,
+    examId: string,
+    itemId: string,
+    reason?: string,
+  ) {
     try {
       const examItem = await this.examItemRepo.findOne({
         where: { id: itemId, examId },
         relations: ['exam', 'question'],
       });
       if (!examItem) throw new NotFoundException('문항을 찾을 수 없습니다.');
-      if (examItem.exam.userId !== userId) throw new ForbiddenException('권한이 없습니다.');
+      if (examItem.exam.userId !== userId)
+        throw new ForbiddenException('권한이 없습니다.');
 
       // 문항 스냅샷 저장 (차후 발전에 사용)
       await this.flaggedQuestionRepo.save(
@@ -534,7 +688,9 @@ export class ExamsService {
       // 시험에서 문항 제거
       await this.examItemRepo.delete({ id: itemId, examId });
 
-      this.logger.log(`문항 플래그: userId=${userId} examId=${examId} itemId=${itemId} reason=${reason}`);
+      this.logger.log(
+        `문항 플래그: userId=${userId} examId=${examId} itemId=${itemId} reason=${reason}`,
+      );
 
       return { message: '문항이 플래그되었습니다.' };
     } catch (error) {

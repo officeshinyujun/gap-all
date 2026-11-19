@@ -4,11 +4,22 @@ export interface TplSchema {
   schema: Record<string, unknown>;
 }
 
-const ALL_TPL_NAMES = [
+export const STRUCTURED_TPL_NAMES = [
   'TPL_COMPARATIVE_MATRIX', 'TPL_FORMAL_DOCUMENT', 'TPL_CONVERSATIONAL_FLOW',
   'TPL_CASE_DIAGNOSTIC_FRAME', 'TPL_SEQUENTIAL_WORKFLOW', 'TPL_INSTRUCTIONAL_SCENE',
   'TPL_DIGITAL_FORUM_INTERFACE', 'TPL_QUANTITATIVE_CHART', 'TPL_PROMOTIONAL_CANVAS',
-];
+] as const;
+
+export type StructuredTplName = (typeof STRUCTURED_TPL_NAMES)[number];
+
+export function isStructuredTplName(
+  template: unknown,
+): template is StructuredTplName {
+  return (
+    typeof template === 'string' &&
+    STRUCTURED_TPL_NAMES.some((name) => name === template)
+  );
+}
 
 function str(): Record<string, unknown> {
   return { type: 'string' };
@@ -48,7 +59,7 @@ const metadataSchema = obj({
   target_concept: str(),
   item_type: str(),
   difficulty: enumStr(['하', '중', '상', '극상', 'LOW', 'MIDDLE', 'HIGH', 'SUPER', 'INTERGRATE']),
-  recommended_template: enumStr(ALL_TPL_NAMES),
+  recommended_template: enumStr([...STRUCTURED_TPL_NAMES]),
   point_value: integer(1, 3),
 }, ['unit_name', 'target_concept', 'item_type', 'difficulty', 'recommended_template', 'point_value']);
 

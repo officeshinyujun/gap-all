@@ -266,6 +266,17 @@ export class StimulusNormalizer {
     return errors;
   }
 
+  public isRenderableTplData(data: any, template: string): boolean {
+    const tpl = ALL_TPLS.find((name) => name === template);
+    if (tpl === undefined) return false;
+    if (tpl === 'TPL_PLAIN_TEXT') {
+      return typeof data === 'string'
+        ? data.trim().length > 0
+        : typeof data?.data === 'string' && data.data.trim().length > 0;
+    }
+    return this.validateTplSchema(data, tpl).length === 0;
+  }
+
   private getNestedField(obj: any, path: string): any {
     return path.split('.').reduce((acc, key) => (acc ? acc[key] : undefined), obj);
   }

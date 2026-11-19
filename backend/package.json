@@ -11,16 +11,20 @@
     "summarize:textbook": "node -r ts-node/register src/textbook/generate-summations.ts",
     "summarize:textbook:structured-unit": "node -r ts-node/register src/textbook/generate-structured-unit.ts",
     "summarize:textbook:structured-unit:merged": "node -r ts-node/register src/textbook/generate-structured-unit-merged.ts",
+    "warm:reference-frames": "node -r ts-node/register src/exams/warm-reference-frames.ts",
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
-    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "typecheck": "tsc --noEmit --project tsconfig.eslint.json",
+    "lint": "npm run typecheck && eslint \"{src,test,scripts}/**/*.ts\"",
+    "lint:fix": "eslint \"{src,test,scripts}/**/*.ts\" --fix",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "test:reference-live": "node -r ts-node/register scripts/reference-live-qa.ts"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",
